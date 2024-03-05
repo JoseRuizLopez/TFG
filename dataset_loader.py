@@ -1,8 +1,13 @@
 import json
 import os
-import torchvision.transforms as transforms
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
+from torchvision import transforms, models
+
 
 def crear_json_imagenes():
     data_dir = "dataset/train"
@@ -28,6 +33,7 @@ def leer_json_imagenes():
         
     return lista_imagenes
 
+
 # Función para detectar las imagenes seleccionadas usando su path/nombre
 def is_valid_file_func(file_path):
     return lista_imagenes[file_path]
@@ -45,15 +51,49 @@ def leer_dataset(lista_imagenes):
 
     batch_size = 32
     data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    
+    return dataset, data_loader
 
-    # Iterar sobre el DataLoader para acceder a los lotes de datos
-    for batch_idx, (images, labels) in enumerate(data_loader):
-        print(f"Batch {batch_idx + 1}: Images shape {images.shape}, Labels shape {labels.shape}")
+
+def entrenar_modelo(dataset, data_loader):
+    # Definir el modelo ResNet-50 con pesos preentrenados
+    model = models.resnet50(pretrained=True)
+
+    # Modificar la última capa (clasificación)
+    num_classes = len(dataset.classes)
+    model.fc = nn.Linear(model.fc.in_features, num_classes)
+
+    # Definir la función de pérdida y el optimizador
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+    # Entrenar la red neuronal
+    num_epochs = 10
+
+    for epoch in range(num_epochs):
+        model.train()  # Establecer el modelo en modo de entrenamiento
+
+        for batch_idx, (images, labels) in enumerate(data_loader):
+            optimizer.zero_grad()  # Reiniciar los gradientes
+
+            outputs = model(images)  # Forward pass
+            loss = criterion(outputs, labels)  # Calcular la pérdida
+            loss.backward()  # Backward pass
+            optimizer.step()  # Actualizar los pesos
+
+            if (batch_idx + 1) % 10 == 0:
+                print(f"Epoch {epoch + 1}/{num_epochs}, Batch {batch_idx + 1}/{len(data_loader)}, Loss: {loss.item()}")
+
+    print("Entrenamiento completado.")
+    
+    # Guardar el modelo entrenado
+    torch.save(model.state_dict(), "modelo_entrenado.pth")
 
 
 
 # lista_dir = crear_json_imagenes()
 lista_imagenes = leer_json_imagenes()
 
+dataset, data_loader = leer_dataset(lista_imagenes=lista_imagenes)
 
-leer_dataset(lista_imagenes=lista_imagenes)
+entrenar_modelo(dataset, data_loader)
