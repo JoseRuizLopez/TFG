@@ -7,6 +7,7 @@ import torch.optim as optim
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
 from torchvision import transforms, models
+from torchvision.models import ResNet50_Weights
 
 
 def crear_json_imagenes():
@@ -55,11 +56,17 @@ def leer_dataset(lista_imagenes):
     return dataset, data_loader
 
 
-def entrenar_modelo(dataset, data_loader):
-    # Definir el modelo ResNet-50 con pesos preentrenados
-    model = models.resnet50(pretrained=True)
+def entrenar_modelo(dataset, data_loader, use_gpu=True):
+    # Verificar si hay una GPU disponible y configurar el dispositivo
+    device = torch.device("cuda:0" if torch.cuda.is_available() and use_gpu else "cpu")
 
-    # Modificar la última capa (clasificación)
+    # Definir el modelo ResNet-50 con pesos preentrenados
+    model = models.resnet50(weights=ResNet50_Weights.DEFAULT)
+
+    # Mover el modelo al dispositivo (CPU o GPU)
+    model = model.to(device)
+
+    # Modificar la última capa (clasificación) para adaptarse al conjunto de datos
     num_classes = len(dataset.classes)
     model.fc = nn.Linear(model.fc.in_features, num_classes)
 
@@ -67,13 +74,15 @@ def entrenar_modelo(dataset, data_loader):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    # Entrenar la red neuronal
     num_epochs = 10
 
     for epoch in range(num_epochs):
         model.train()  # Establecer el modelo en modo de entrenamiento
 
         for batch_idx, (images, labels) in enumerate(data_loader):
+            # Mover los datos al dispositivo
+            images, labels = images.to(device), labels.to(device)
+
             optimizer.zero_grad()  # Reiniciar los gradientes
 
             outputs = model(images)  # Forward pass
@@ -91,9 +100,9 @@ def entrenar_modelo(dataset, data_loader):
 
 
 
-# lista_dir = crear_json_imagenes()
+lista_dir = crear_json_imagenes()
 lista_imagenes = leer_json_imagenes()
 
 dataset, data_loader = leer_dataset(lista_imagenes=lista_imagenes)
 
-entrenar_modelo(dataset, data_loader)
+entrenar_modelo(dataset, data_loader, use_gpu=True)
