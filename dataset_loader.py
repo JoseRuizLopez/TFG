@@ -167,8 +167,8 @@ def main(porcentaje_uso=50):
 
 if __name__ == "__main__":
     resultados = {}
-    porcentajes = [50]
-    # porcentajes = [10, 25, 50, 75, 100]
+    # porcentajes = [50]
+    porcentajes = [10, 25, 50, 75, 100]
     for porcentaje in porcentajes:
         print(f"\nEntrenando con {porcentaje}% de las imágenes:")
         accuracy, precision, recall, f1 = main(porcentaje)

@@ -1,0 +1,298 @@
+/home/jose-ruiz/PycharmProjects/Otros/.venv/bin/python /home/jose-ruiz/PycharmProjects/Otros/TFG/dataset_loader.py
+
+Entrenando con 10% de las imágenes:
+Epoch 1/10, Train Loss: 0.5309, Valid Loss: 1.5452
+Model saved!
+Epoch 2/10, Train Loss: 0.2805, Valid Loss: 8.1217
+Epoch 3/10, Train Loss: 0.1402, Valid Loss: 0.1523
+Model saved!
+Epoch 4/10, Train Loss: 0.1087, Valid Loss: 0.0144
+Model saved!
+Epoch 5/10, Train Loss: 0.0983, Valid Loss: 6.0131
+Epoch 6/10, Train Loss: 0.0873, Valid Loss: 0.9845
+Epoch 7/10, Train Loss: 0.0277, Valid Loss: 0.1417
+Epoch 8/10, Train Loss: 0.0051, Valid Loss: 0.1052
+Epoch 9/10, Train Loss: 0.0112, Valid Loss: 0.0236
+Epoch 10/10, Train Loss: 0.0044, Valid Loss: 0.0458
+Accuracy: 0.8485
+Precision: 0.8741
+Recall: 0.8485
+F1-score: 0.8487
+
+Entrenando con 25% de las imágenes:
+Epoch 1/10, Batch 10/20, Loss: 0.2393
+Epoch 1/10, Batch 20/20, Loss: 0.0845
+Epoch 1/10, Train Loss: 0.3236, Valid Loss: 0.1490
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.0649
+Epoch 2/10, Batch 20/20, Loss: 0.0752
+Epoch 2/10, Train Loss: 0.1061, Valid Loss: 0.2428
+Epoch 3/10, Batch 10/20, Loss: 0.0019
+Epoch 3/10, Batch 20/20, Loss: 0.0026
+Epoch 3/10, Train Loss: 0.0065, Valid Loss: 0.0634
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.0014
+Epoch 4/10, Batch 20/20, Loss: 0.0001
+Epoch 4/10, Train Loss: 0.0530, Valid Loss: 16.0688
+Epoch 5/10, Batch 10/20, Loss: 0.0300
+Epoch 5/10, Batch 20/20, Loss: 0.0024
+Epoch 5/10, Train Loss: 0.1032, Valid Loss: 0.2377
+Epoch 6/10, Batch 10/20, Loss: 0.0264
+Epoch 6/10, Batch 20/20, Loss: 0.0000
+Epoch 6/10, Train Loss: 0.0139, Valid Loss: 0.1534
+Epoch 7/10, Batch 10/20, Loss: 0.0007
+Epoch 7/10, Batch 20/20, Loss: 0.0032
+Epoch 7/10, Train Loss: 0.0183, Valid Loss: 0.0442
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.0045
+Epoch 8/10, Batch 20/20, Loss: 0.0139
+Epoch 8/10, Train Loss: 0.0155, Valid Loss: 0.0464
+Epoch 9/10, Batch 10/20, Loss: 0.0043
+Epoch 9/10, Batch 20/20, Loss: 0.0004
+Epoch 9/10, Train Loss: 0.0176, Valid Loss: 0.5281
+Epoch 10/10, Batch 10/20, Loss: 0.0009
+Epoch 10/10, Batch 20/20, Loss: 0.0024
+Epoch 10/10, Train Loss: 0.0143, Valid Loss: 0.0338
+Model saved!
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1-score: 1.0000
+
+Entrenando con 50% de las imágenes:
+Epoch 1/10, Batch 10/40, Loss: 0.2277
+Epoch 1/10, Batch 20/40, Loss: 0.5871
+Epoch 1/10, Batch 30/40, Loss: 0.1015
+Epoch 1/10, Batch 40/40, Loss: 0.0043
+Epoch 1/10, Train Loss: 0.2261, Valid Loss: 0.2965
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.0009
+Epoch 2/10, Batch 20/40, Loss: 0.0746
+Epoch 2/10, Batch 30/40, Loss: 0.0009
+Epoch 2/10, Batch 40/40, Loss: 0.0089
+Epoch 2/10, Train Loss: 0.0290, Valid Loss: 0.0513
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.0055
+Epoch 3/10, Batch 20/40, Loss: 0.0092
+Epoch 3/10, Batch 30/40, Loss: 0.0011
+Epoch 3/10, Batch 40/40, Loss: 0.0008
+Epoch 3/10, Train Loss: 0.0148, Valid Loss: 0.0103
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.0007
+Epoch 4/10, Batch 20/40, Loss: 0.0002
+Epoch 4/10, Batch 30/40, Loss: 0.0001
+Epoch 4/10, Batch 40/40, Loss: 0.0001
+Epoch 4/10, Train Loss: 0.0052, Valid Loss: 0.0327
+Epoch 5/10, Batch 10/40, Loss: 0.0106
+Epoch 5/10, Batch 20/40, Loss: 0.0005
+Epoch 5/10, Batch 30/40, Loss: 0.0002
+Epoch 5/10, Batch 40/40, Loss: 0.0000
+Epoch 5/10, Train Loss: 0.0011, Valid Loss: 0.0805
+Epoch 6/10, Batch 10/40, Loss: 0.0035
+Epoch 6/10, Batch 20/40, Loss: 0.0000
+Epoch 6/10, Batch 30/40, Loss: 0.0000
+Epoch 6/10, Batch 40/40, Loss: 0.0000
+Epoch 6/10, Train Loss: 0.0003, Valid Loss: 0.0149
+Epoch 7/10, Batch 10/40, Loss: 0.0004
+Epoch 7/10, Batch 20/40, Loss: 0.0000
+Epoch 7/10, Batch 30/40, Loss: 0.0000
+Epoch 7/10, Batch 40/40, Loss: 0.0002
+Epoch 7/10, Train Loss: 0.0001, Valid Loss: 0.0175
+Epoch 8/10, Batch 10/40, Loss: 0.0000
+Epoch 8/10, Batch 20/40, Loss: 0.0003
+Epoch 8/10, Batch 30/40, Loss: 0.0000
+Epoch 8/10, Batch 40/40, Loss: 0.0038
+Epoch 8/10, Train Loss: 0.0001, Valid Loss: 0.0124
+Epoch 9/10, Batch 10/40, Loss: 0.0000
+Epoch 9/10, Batch 20/40, Loss: 0.0000
+Epoch 9/10, Batch 30/40, Loss: 0.0000
+Epoch 9/10, Batch 40/40, Loss: 0.0000
+Epoch 9/10, Train Loss: 0.0000, Valid Loss: 0.0240
+Epoch 10/10, Batch 10/40, Loss: 0.0000
+Epoch 10/10, Batch 20/40, Loss: 0.0000
+Epoch 10/10, Batch 30/40, Loss: 0.0000
+Epoch 10/10, Batch 40/40, Loss: 0.0000
+Epoch 10/10, Train Loss: 0.0000, Valid Loss: 0.0063
+Model saved!
+Accuracy: 0.9697
+Precision: 0.9722
+Recall: 0.9697
+F1-score: 0.9696
+
+Entrenando con 75% de las imágenes:
+Epoch 1/10, Batch 10/60, Loss: 0.0102
+Epoch 1/10, Batch 20/60, Loss: 0.1450
+Epoch 1/10, Batch 30/60, Loss: 0.0074
+Epoch 1/10, Batch 40/60, Loss: 0.0171
+Epoch 1/10, Batch 50/60, Loss: 0.0002
+Epoch 1/10, Batch 60/60, Loss: 0.0262
+Epoch 1/10, Train Loss: 0.1213, Valid Loss: 0.0421
+Model saved!
+Epoch 2/10, Batch 10/60, Loss: 0.0243
+Epoch 2/10, Batch 20/60, Loss: 0.0107
+Epoch 2/10, Batch 30/60, Loss: 0.0042
+Epoch 2/10, Batch 40/60, Loss: 0.0015
+Epoch 2/10, Batch 50/60, Loss: 0.0196
+Epoch 2/10, Batch 60/60, Loss: 1.3191
+Epoch 2/10, Train Loss: 0.0932, Valid Loss: 0.1064
+Epoch 3/10, Batch 10/60, Loss: 0.0684
+Epoch 3/10, Batch 20/60, Loss: 0.0195
+Epoch 3/10, Batch 30/60, Loss: 0.0385
+Epoch 3/10, Batch 40/60, Loss: 0.0090
+Epoch 3/10, Batch 50/60, Loss: 0.0082
+Epoch 3/10, Batch 60/60, Loss: 3.5450
+Epoch 3/10, Train Loss: 0.1211, Valid Loss: 0.2398
+Epoch 4/10, Batch 10/60, Loss: 0.0285
+Epoch 4/10, Batch 20/60, Loss: 0.0860
+Epoch 4/10, Batch 30/60, Loss: 0.0037
+Epoch 4/10, Batch 40/60, Loss: 0.0058
+Epoch 4/10, Batch 50/60, Loss: 0.1191
+Epoch 4/10, Batch 60/60, Loss: 0.0022
+Epoch 4/10, Train Loss: 0.0706, Valid Loss: 0.0402
+Model saved!
+Epoch 5/10, Batch 10/60, Loss: 0.0059
+Epoch 5/10, Batch 20/60, Loss: 0.0388
+Epoch 5/10, Batch 30/60, Loss: 0.0070
+Epoch 5/10, Batch 40/60, Loss: 0.0003
+Epoch 5/10, Batch 50/60, Loss: 0.0001
+Epoch 5/10, Batch 60/60, Loss: 0.0960
+Epoch 5/10, Train Loss: 0.0066, Valid Loss: 0.0083
+Model saved!
+Epoch 6/10, Batch 10/60, Loss: 0.0123
+Epoch 6/10, Batch 20/60, Loss: 0.0141
+Epoch 6/10, Batch 30/60, Loss: 0.0016
+Epoch 6/10, Batch 40/60, Loss: 0.0021
+Epoch 6/10, Batch 50/60, Loss: 0.0004
+Epoch 6/10, Batch 60/60, Loss: 1.3790
+Epoch 6/10, Train Loss: 0.0319, Valid Loss: 0.5225
+Epoch 7/10, Batch 10/60, Loss: 0.0331
+Epoch 7/10, Batch 20/60, Loss: 0.0099
+Epoch 7/10, Batch 30/60, Loss: 0.1662
+Epoch 7/10, Batch 40/60, Loss: 0.0054
+Epoch 7/10, Batch 50/60, Loss: 0.0340
+Epoch 7/10, Batch 60/60, Loss: 0.0006
+Epoch 7/10, Train Loss: 0.0784, Valid Loss: 0.0323
+Epoch 8/10, Batch 10/60, Loss: 0.0010
+Epoch 8/10, Batch 20/60, Loss: 0.0012
+Epoch 8/10, Batch 30/60, Loss: 0.0006
+Epoch 8/10, Batch 40/60, Loss: 0.0004
+Epoch 8/10, Batch 50/60, Loss: 0.0272
+Epoch 8/10, Batch 60/60, Loss: 0.0102
+Epoch 8/10, Train Loss: 0.0074, Valid Loss: 0.0224
+Epoch 9/10, Batch 10/60, Loss: 0.0006
+Epoch 9/10, Batch 20/60, Loss: 0.0002
+Epoch 9/10, Batch 30/60, Loss: 0.0003
+Epoch 9/10, Batch 40/60, Loss: 0.0002
+Epoch 9/10, Batch 50/60, Loss: 0.0001
+Epoch 9/10, Batch 60/60, Loss: 3.6388
+Epoch 9/10, Train Loss: 0.0620, Valid Loss: 0.1827
+Epoch 10/10, Batch 10/60, Loss: 0.1972
+Epoch 10/10, Batch 20/60, Loss: 0.0837
+Epoch 10/10, Batch 30/60, Loss: 0.0713
+Epoch 10/10, Batch 40/60, Loss: 0.0019
+Epoch 10/10, Batch 50/60, Loss: 0.0003
+Epoch 10/10, Batch 60/60, Loss: 0.0480
+Epoch 10/10, Train Loss: 0.0956, Valid Loss: 0.1633
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1-score: 1.0000
+
+Entrenando con 100% de las imágenes:
+Epoch 1/10, Batch 10/79, Loss: 0.1519
+Epoch 1/10, Batch 20/79, Loss: 0.1797
+Epoch 1/10, Batch 30/79, Loss: 0.1942
+Epoch 1/10, Batch 40/79, Loss: 0.1700
+Epoch 1/10, Batch 50/79, Loss: 0.0808
+Epoch 1/10, Batch 60/79, Loss: 0.0041
+Epoch 1/10, Batch 70/79, Loss: 0.0283
+Epoch 1/10, Train Loss: 0.1463, Valid Loss: 0.0611
+Model saved!
+Epoch 2/10, Batch 10/79, Loss: 0.0149
+Epoch 2/10, Batch 20/79, Loss: 0.0072
+Epoch 2/10, Batch 30/79, Loss: 0.0001
+Epoch 2/10, Batch 40/79, Loss: 0.0005
+Epoch 2/10, Batch 50/79, Loss: 0.0002
+Epoch 2/10, Batch 60/79, Loss: 0.0001
+Epoch 2/10, Batch 70/79, Loss: 0.0000
+Epoch 2/10, Train Loss: 0.0069, Valid Loss: 0.0067
+Model saved!
+Epoch 3/10, Batch 10/79, Loss: 0.0001
+Epoch 3/10, Batch 20/79, Loss: 0.0007
+Epoch 3/10, Batch 30/79, Loss: 0.0068
+Epoch 3/10, Batch 40/79, Loss: 0.0005
+Epoch 3/10, Batch 50/79, Loss: 0.0003
+Epoch 3/10, Batch 60/79, Loss: 0.0001
+Epoch 3/10, Batch 70/79, Loss: 0.0004
+Epoch 3/10, Train Loss: 0.0151, Valid Loss: 0.0457
+Epoch 4/10, Batch 10/79, Loss: 0.0004
+Epoch 4/10, Batch 20/79, Loss: 0.0111
+Epoch 4/10, Batch 30/79, Loss: 0.0006
+Epoch 4/10, Batch 40/79, Loss: 0.0212
+Epoch 4/10, Batch 50/79, Loss: 0.1365
+Epoch 4/10, Batch 60/79, Loss: 0.0004
+Epoch 4/10, Batch 70/79, Loss: 0.0563
+Epoch 4/10, Train Loss: 0.0237, Valid Loss: 0.0118
+Epoch 5/10, Batch 10/79, Loss: 0.0053
+Epoch 5/10, Batch 20/79, Loss: 0.1485
+Epoch 5/10, Batch 30/79, Loss: 0.0053
+Epoch 5/10, Batch 40/79, Loss: 0.0013
+Epoch 5/10, Batch 50/79, Loss: 0.0013
+Epoch 5/10, Batch 60/79, Loss: 0.0000
+Epoch 5/10, Batch 70/79, Loss: 0.0002
+Epoch 5/10, Train Loss: 0.0509, Valid Loss: 0.0034
+Model saved!
+Epoch 6/10, Batch 10/79, Loss: 0.0589
+Epoch 6/10, Batch 20/79, Loss: 0.0003
+Epoch 6/10, Batch 30/79, Loss: 0.0194
+Epoch 6/10, Batch 40/79, Loss: 0.0069
+Epoch 6/10, Batch 50/79, Loss: 0.0002
+Epoch 6/10, Batch 60/79, Loss: 0.0002
+Epoch 6/10, Batch 70/79, Loss: 0.0001
+Epoch 6/10, Train Loss: 0.0050, Valid Loss: 0.0043
+Epoch 7/10, Batch 10/79, Loss: 0.0004
+Epoch 7/10, Batch 20/79, Loss: 0.0002
+Epoch 7/10, Batch 30/79, Loss: 0.0009
+Epoch 7/10, Batch 40/79, Loss: 0.0004
+Epoch 7/10, Batch 50/79, Loss: 0.0002
+Epoch 7/10, Batch 60/79, Loss: 0.0002
+Epoch 7/10, Batch 70/79, Loss: 0.0001
+Epoch 7/10, Train Loss: 0.0004, Valid Loss: 0.0063
+Epoch 8/10, Batch 10/79, Loss: 0.0002
+Epoch 8/10, Batch 20/79, Loss: 0.0020
+Epoch 8/10, Batch 30/79, Loss: 0.0003
+Epoch 8/10, Batch 40/79, Loss: 0.0001
+Epoch 8/10, Batch 50/79, Loss: 0.0009
+Epoch 8/10, Batch 60/79, Loss: 0.0000
+Epoch 8/10, Batch 70/79, Loss: 0.0000
+Epoch 8/10, Train Loss: 0.0006, Valid Loss: 0.0019
+Model saved!
+Epoch 9/10, Batch 10/79, Loss: 0.0000
+Epoch 9/10, Batch 20/79, Loss: 0.0000
+Epoch 9/10, Batch 30/79, Loss: 0.0000
+Epoch 9/10, Batch 40/79, Loss: 0.0000
+Epoch 9/10, Batch 50/79, Loss: 0.0000
+Epoch 9/10, Batch 60/79, Loss: 0.0027
+Epoch 9/10, Batch 70/79, Loss: 0.0041
+Epoch 9/10, Train Loss: 0.0081, Valid Loss: 0.2275
+Epoch 10/10, Batch 10/79, Loss: 0.0653
+Epoch 10/10, Batch 20/79, Loss: 0.3095
+Epoch 10/10, Batch 30/79, Loss: 0.0046
+Epoch 10/10, Batch 40/79, Loss: 0.0074
+Epoch 10/10, Batch 50/79, Loss: 0.0001
+Epoch 10/10, Batch 60/79, Loss: 0.0015
+Epoch 10/10, Batch 70/79, Loss: 0.0035
+Epoch 10/10, Train Loss: 0.0393, Valid Loss: 0.0218
+Accuracy: 0.9697
+Precision: 0.9722
+Recall: 0.9697
+F1-score: 0.9696
+
+Resumen de resultados:
+10% de imágenes: Accuracy=0.8485, F1=0.8487
+25% de imágenes: Accuracy=1.0000, F1=1.0000
+50% de imágenes: Accuracy=0.9697, F1=0.9696
+75% de imágenes: Accuracy=1.0000, F1=1.0000
+100% de imágenes: Accuracy=0.9697, F1=0.9696
+
+Process finished with exit code 0
