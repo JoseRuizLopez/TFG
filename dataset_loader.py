@@ -665,20 +665,24 @@ def fitness(dict_selection: dict, metric: str):
         return f1
 
 
-def main():
+def main(
+    algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
+    metric: Literal["accuracy", "f1"] = "accuracy"
+):
     seed = 24012000
     torch.manual_seed(seed)
     random.seed(seed)
     np.random.seed(seed)
 
-    algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico"
-    metric: Literal["accuracy", "f1"] = "accuracy"
     dataset = "dataset/train"
     initial_percentage = 10
     max_iterations = 10
     max_iterations_without_improvement = 10
 
     start = datetime.datetime.now()
+    print(f"\n\n--------------------------------------"
+          f"----------------{algoritmo.upper()}-------"
+          f"------------------------------------------")
     print("Start time: " + str(start))
 
     if algoritmo == "aleatorio":
@@ -739,4 +743,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main("aleatorio", "accuracy")
+    main("busqueda local", "accuracy")
+    main("genetico", "accuracy")
+    main("memetico", "accuracy")
+
