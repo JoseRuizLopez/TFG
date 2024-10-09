@@ -2,17 +2,38 @@ import datetime
 import os
 import random
 import shutil
+from typing import List
 from typing import Literal
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
+import matplotlib.pyplot as plt
 from torchvision import transforms, models
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Subset
 from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+
+def plot_fitness_evolution(fitness_history: List[float], algorithm_name: str, metric: str):
+    """
+    Crea y guarda una gráfica que muestra la evolución del fitness.
+
+    Args:
+        fitness_history: Lista con los valores de fitness
+        algorithm_name: Nombre del algoritmo utilizado
+        metric: Métrica utilizada (accuracy o f1)
+    """
+    plt.figure(figsize=(10, 6))
+    plt.plot(fitness_history, marker='o')
+    plt.title(f'Evolución del {metric} - Algoritmo {algorithm_name}')
+    plt.xlabel('Iteración')
+    plt.ylabel(metric.capitalize())
+    plt.grid(True)
+    plt.savefig(f'images/fitness_evolution_{algorithm_name}_{metric}.png')
+    plt.close()
 
 
 def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):
@@ -130,7 +151,7 @@ def local_search(
     neighbor_size: int = 10,
     metric: str = "accuracy",
     vary_percentage: bool = False
-) -> tuple[dict, float]:
+) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo de búsqueda local para selección de imágenes.
 
@@ -153,6 +174,7 @@ def local_search(
     shutil.copy("best_checkpoint.pth", "best_model.pth")
     best_fitness = current_fitness
     best_solution = current_solution
+    fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
 
@@ -177,12 +199,13 @@ def local_search(
         else:
             iterations_without_improvement += 1
 
+        fitness_history.append(best_fitness)
         # Criterio de parada por estancamiento
         if iterations_without_improvement >= max_iterations_without_improvement:
             print(f"Búsqueda terminada por estancamiento en iteración {iteration}")
             break
 
-    return best_solution, best_fitness
+    return best_solution, best_fitness, fitness_history
 
 
 def random_search(
@@ -191,7 +214,7 @@ def random_search(
     max_iterations: int = 100,
     max_iterations_without_improvement: int = 20,
     metric: str = "accuracy"
-) -> tuple[dict, float]:
+) -> tuple[dict, float, list]:
     """
         Implementa un algoritmo de búsqueda local para selección de imágenes.
 
@@ -208,6 +231,7 @@ def random_search(
     iterations_without_improvement = 0
     best_fitness = 0.0
     best_solution = {}
+    fitness_history = []
 
     for iteration in range(max_iterations):
         # Generar y evaluar vecino
@@ -223,12 +247,13 @@ def random_search(
         else:
             iterations_without_improvement += 1
 
+        fitness_history.append(best_fitness)
         # Criterio de parada por estancamiento
         if iterations_without_improvement >= max_iterations_without_improvement:
             print(f"Búsqueda terminada por estancamiento en iteración {iteration}")
             break
 
-    return best_solution, best_fitness
+    return best_solution, best_fitness, fitness_history
 
 
 def crossover(parent1: dict, parent2: dict) -> tuple[dict, dict]:
@@ -317,7 +342,7 @@ def genetic_algorithm(
     tournament_size: int = 3,
     mutation_rate: float = 0.1,
     metric: str = "accuracy"
-) -> tuple[dict, float]:
+) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo genético para la selección de imágenes.
 
@@ -346,6 +371,7 @@ def genetic_algorithm(
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
     shutil.copy("best_checkpoint.pth", "best_model.pth")
+    fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
 
@@ -393,12 +419,13 @@ def genetic_algorithm(
         else:
             iterations_without_improvement += 1
 
+        fitness_history.append(best_fitness)
         # Criterio de parada
         if iterations_without_improvement >= max_iterations_without_improvement:
             print(f"Búsqueda terminada por estancamiento en generación {generation}")
             break
 
-    return best_individual, best_fitness
+    return best_individual, best_fitness, fitness_history
 
 
 def local_search_improvement(
@@ -445,7 +472,7 @@ def memetic_algorithm(
     local_search_iterations: int = 10,
     local_search_neighbor_size: int = 5,
     metric: str = "accuracy"
-) -> tuple[dict, float]:
+) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo memético para la selección de imágenes.
 
@@ -477,6 +504,7 @@ def memetic_algorithm(
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
     shutil.copy("best_checkpoint.pth", "best_model.pth")
+    fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
 
@@ -538,6 +566,8 @@ def memetic_algorithm(
         else:
             iterations_without_improvement += 1
 
+        fitness_history.append(best_fitness)
+
         print(f"Mejor fitness actual: {best_fitness:.4f}")
         print(f"Generaciones sin mejora: {iterations_without_improvement}")
 
@@ -546,7 +576,7 @@ def memetic_algorithm(
             print(f"Búsqueda terminada por estancamiento en generación {generation}")
             break
 
-    return best_fitness
+    return best_individual, best_fitness, fitness_history
 
 
 def train_model(model, train_loader, valid_loader, criterion, optimizer, device, num_epochs=10):
@@ -686,7 +716,7 @@ def main(
     print("Start time: " + str(start))
 
     if algoritmo == "aleatorio":
-        best_selection, best_fitness = random_search(
+        best_selection, best_fitness, fitness_history = random_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_iterations=max_iterations,
@@ -694,7 +724,7 @@ def main(
             metric=metric
         )
     elif algoritmo == "busqueda local":
-        best_selection, best_fitness = local_search(
+        best_selection, best_fitness, fitness_history = local_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_iterations=max_iterations,
@@ -703,7 +733,7 @@ def main(
             metric=metric
         )
     elif algoritmo == "genetico":
-        best_selection, best_fitness = genetic_algorithm(
+        best_selection, best_fitness, fitness_history = genetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,
@@ -714,7 +744,7 @@ def main(
             metric=metric
         )
     elif algoritmo == "memetico":
-        best_selection, best_fitness = memetic_algorithm(
+        best_selection, best_fitness, fitness_history = memetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,
@@ -730,12 +760,16 @@ def main(
     else:
         best_fitness = 0.0
         best_selection = {}
+        fitness_history = []
 
     end = datetime.datetime.now()
     print("End time: " + str(end))
     print("Duration: " + str(end - start))
 
     if best_fitness != 0.0:
+        # Crear y guardar la gráfica
+        plot_fitness_evolution(fitness_history, algoritmo, metric)
+
         final_fitness = fitness(best_selection, metric)
         print(f"\n\nMejor {metric} encontrado: {final_fitness:.4f}")
     else:
@@ -746,5 +780,5 @@ if __name__ == "__main__":
     main("aleatorio", "accuracy")
     main("busqueda local", "accuracy")
     main("genetico", "accuracy")
-    main("memetico", "accuracy")
+    # main("memetico", "accuracy")
 
