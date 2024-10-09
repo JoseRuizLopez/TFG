@@ -3,7 +3,6 @@ import os
 import random
 import shutil
 from typing import List
-from typing import Literal
 
 import torch
 import torch.nn as nn
@@ -696,9 +695,18 @@ def fitness(dict_selection: dict, metric: str):
 
 
 def main(
-    algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
-    metric: Literal["accuracy", "f1"] = "accuracy"
+    algoritmo: str = "memetico",
+    metric: str = "accuracy"
 ):
+    # Validar los argumentos manualmente
+    algoritmos_validos = ["aleatorio", "busqueda local", "genetico", "memetico"]
+    metrics_validas = ["accuracy", "f1"]
+
+    if algoritmo not in algoritmos_validos:
+        raise ValueError(f"Algoritmo debe ser uno de: {algoritmos_validos}")
+    if metric not in metrics_validas:
+        raise ValueError(f"Metric debe ser uno de: {metrics_validas}")
+
     seed = 24012000
     torch.manual_seed(seed)
     random.seed(seed)
