@@ -805,6 +805,12 @@ def main(
 
 
 if __name__ == "__main__":
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+    if torch.cuda.is_available():
+        print(f"GPU: {torch.cuda.get_device_name(0)}")
+        print(f"Memory Allocated: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
+
     main(10, 1, 1, "aleatorio", "accuracy")
     main(10, 1, 1, "busqueda local", "accuracy")
     main(10, 1, 1, "genetico", "accuracy")
