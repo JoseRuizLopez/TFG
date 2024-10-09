@@ -1,0 +1,154 @@
+\chapter*{}
+%\thispagestyle{empty}
+%\cleardoublepage
+
+%\thispagestyle{empty}
+
+
+\cleardoublepage
+\thispagestyle{empty}
+
+\begin{center}
+{\large\bfseries Algoritmos meméticos para reducir datos de entrenamiento en modelos de aprendizaje profundo
+convolucionales}\\
+\end{center}
+\begin{center}
+José Ruiz López (alumno)\\
+\end{center}
+
+%\vspace{0.7cm}
+\noindent{\textbf{Palabras clave}: Algoritmos meméticos, Imágenes, Modelos de Aprendizaje profundo convolucionales}\\
+
+\vspace{0.7cm}
+\noindent{\textbf{Resumen}}\\
+
+Los modelos de \textbf{Aprendizaje Profundo} (Deep Learning) han supuesto un hito en la Inteligencia Artificial al ser
+capaz de procesar y ser capaces de reconocer patrones complejos.
+Dentro de estos, los modelos convolucionales se han mostrado muy capaces de identificar todo tipo de objetos/
+características en imágenes.\\[6pt]
+
+Sin embargo, a diferencia de las personas, requieren un número muy alto de datos de entrenamiento para cada categoría
+que debe aprender.
+Eso implica, además de entrenamiento más largo, una recogida de datos de entrenamiento que, según lo que se desea que
+aprenda, puede ser problemático de obtener.
+Además de la obtención de los datos, la nueva ley europea sobre IA, \textbf{IA Act} requerirá sobre aplicaciones de IA
+con datos sensibles, una auditoría no solo del propio modelo, sino también de los datos utilizados para entrenarla.
+Auditoría que crecerá en complejidad confirme aumente en número el conjunto de entrenamiento.
+Por tanto, se hace conveniente poder reducir el conjunto de entrenamiento.\\[6pt]
+
+Ya se ha confirmado que incrementar el número de imágenes de entrenamiento puede mejorar el proceso o no, según si las
+imágenes realmente contribuyan al proceso de entrenamiento.
+Es más, gracias a las técnicas de aumento de datos (\textbf{Data Augmentation}) la posible necesidad de imágenes muy
+similares entre sí se reduce al ser capaz de construirse de forma automática más imágenes de entrenamiento (imágenes
+que no suponen un problema de cara a una autoría).\\[6pt]
+
+En este trabajo planteamos el uso de estrategias avanzadas, como \textbf{algoritmos metaheurísticos}, y métricas de
+similitud entre imágenes, para establecer un proceso de reducción de imágenes de entrenamiento (selección de
+instancias) para poder reducir el conjunto de entrenamiento.
+De esta manera, se seleccionarían solo un conjunto reducido de imágenes representativas que, gracias a las
+\textbf{técnicas de aumento de datos}, puedan entrenar modelos con una calidad suficiente.
+Por lo tanto, se podría reducir muy significativamente el conjunto de entrenamiento.\\[6pt]
+\cleardoublepage
+
+
+\thispagestyle{empty}
+
+
+\begin{center}
+{\large\bfseries Memetic Algorithms for Reducing Training Data in Convolutional Deep Learning Models}\\
+\end{center}
+\begin{center}
+José, Ruiz López (student)\\
+\end{center}
+
+%\vspace{0.7cm}
+\noindent{\textbf{Keywords}: Memetic Algorithms, Images, Convolutional Deep Learning Models}\\
+
+\vspace{0.7cm}
+\noindent{\textbf{Abstract}}\\
+
+\textbf{Deep Learning} models have marked a milestone in Artificial Intelligence by being able to process and recognize
+complex patterns.
+Among these, convolutional models have proven very capable of identifying all kinds of objects/features in images.\\
+[6pt]
+
+However, unlike humans, they require a very high number of training data for each category they need to learn.
+This implies not only longer training times but also a data collection process that can be problematic to obtain,
+depending on what is desired for the model to learn.
+In addition to data acquisition, the new European law on AI, the \textbf{AI Act}, will require an audit not only of the
+model itself but also of the data used to train it, especially when dealing with sensitive data.
+The complexity of this audit will grow as the size of the training dataset increases.
+Therefore, it becomes necessary to reduce the training dataset.\\[6pt]
+
+It has been confirmed that increasing the number of training images may or may not improve the process, depending on
+whether the images truly contribute to the training process.
+Moreover, thanks to \textbf{data augmentation techniques}, the potential need for very similar images is reduced, as it
+is possible to automatically generate more training images that do not pose authorship issues.\\[6pt]
+
+In this work, we propose the use of advanced strategies, such as \textbf{metaheuristic algorithms} and image similarity
+metrics, to establish a process for reducing training images (instance selection) in order to minimize the training
+dataset.
+This way, only a reduced set of representative images would be selected, which, thanks to \textbf{data augmentation
+techniques}, could sufficiently train models.
+Thus, the training dataset could be significantly reduced.\\[6pt]
+
+\chapter*{}
+\thispagestyle{empty}
+
+\noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
+
+Yo, \textbf{José Ruiz López}, alumno de la titulación TITULACIÓN de la \textbf{Escuela Técnica Superior
+de Ingenierías Informática y de Telecomunicación de la Universidad de Granada}, con DNI 77964364E, autorizo la
+ubicación de la siguiente copia de mi Trabajo Fin de Grado en la biblioteca del centro para que pueda ser
+consultada por las personas que lo deseen.
+
+\vspace{6cm}
+
+\noindent Fdo: José Ruiz López
+
+\vspace{2cm}
+
+\begin{flushright}
+Granada a X de mes de 201 .
+\end{flushright}
+
+
+\chapter*{}
+\thispagestyle{empty}
+
+\noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
+
+D. \textbf{Daniel Molina Cabrera (tutor}, Profesor del Departamento Ciencias de la Computación e Inteligencia
+Artificial de la Universidad de Granada.
+
+\vspace{0.5cm}
+
+\textbf{Informan:}
+
+\vspace{0.5cm}
+
+Que el presente trabajo, titulado \textit{\textbf{Algoritmos meméticos para reducir datos de entrenamiento en modelos
+de aprendizaje profundo convolucionales}},
+ha sido realizado bajo su supervisión por \textbf{José Ruiz López (alumno)}, y autorizamos la defensa de dicho trabajo
+ante el tribunal que corresponda.
+
+\vspace{0.5cm}
+
+Y para que conste, expiden y firman el presente informe en Granada a X de mes de 201 .
+
+\vspace{1cm}
+
+\textbf{Los directores:}
+
+\vspace{5cm}
+
+\noindent \textbf{Daniel Molina Cabrera (tutor)}
+
+\chapter*{Agradecimientos}
+\thispagestyle{empty}
+
+       \vspace{1cm}
+
+
+Poner aquí agradecimientos...
+
