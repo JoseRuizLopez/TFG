@@ -811,8 +811,8 @@ if __name__ == "__main__":
         print(f"GPU: {torch.cuda.get_device_name(0)}")
         print(f"Memory Allocated: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
-    main(10, 1, 1, "aleatorio", "accuracy")
-    main(10, 1, 1, "busqueda local", "accuracy")
-    main(10, 1, 1, "genetico", "accuracy")
+    # main(10, 1, 1, "aleatorio", "accuracy")
+    # main(10, 1, 1, "busqueda local", "accuracy")
+    # main(10, 1, 1, "genetico", "accuracy")
     # main("memetico", "accuracy")
 
