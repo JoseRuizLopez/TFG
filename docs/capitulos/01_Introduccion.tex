@@ -1,13 +1,14 @@
 \chapter{Introducción}\label{ch:introduccion}
 
-\section{Motivación}\label{sec:motivation}
+\section{Contexto}\label{sec:contexto}
+%Contexto: Breve introducción al tema y su relevancia.
 En la era actual, donde los datos se generan a un ritmo vertiginoso, la necesidad de procesar y analizar grandes
 volúmenes de información se ha vuelto crucial.
 Los \textbf{modelos de aprendizaje profundo}, y en particular las \textbf{redes neuronales convolucionales}, han
 demostrado su capacidad para alcanzar niveles sin precedentes de precisión en tareas como la clasificación de imágenes
 y el reconocimiento de patrones.
 Sin embargo, estos modelos a menudo requieren enormes cantidades de datos de entrenamiento, lo que plantea desafíos
-significativos en términos de tiempo, costo y recursos computacionales.\\[6pt]
+significativos en términos de tiempo, costo y recursos computacionales. \\[6pt]
 
 Es aquí donde entra en juego la importancia de los \textbf{algoritmos meméticos}.
 Combinando las fortalezas de las técnicas evolutivas con \textbf{métodos de búsqueda local}, estos algoritmos ofrecen
@@ -20,87 +21,9 @@ Realizar un TFG sobre este tema no solo representa una oportunidad para explorar
 inteligencia artificial.
 La investigación en algoritmos meméticos para la reducción de datos puede ser clave para hacer más accesible el
 \textbf{aprendizaje profundo} a aquellos que enfrentan limitaciones de datos, permitiendo asi un futuro donde la
-inteligencia artificial sea más inclusiva y eficiente.\\[6pt]
-
-
-%Además de la simplificación del modelo, que conduce a una reducción del ruido, la
-%selección de características es un preprocesamiento necesario por varias razones:
-%\begin{enumerate}
-%      \item Interpretabilidad: La presencia de características
-%            irrelevantes puede complicar innecesariamente la interpretación y el
-%            rendimiento de los modelos de aprendizaje automático. La selección de un
-%            subconjunto relevante de características puede simplificar el modelo
-%            resultante, haciéndolo más comprensible y fácilmente interpretable.
-%
-%      \item Mejora de la eficiencia computacional: La reducción de la
-%            dimensionalidad puede conducir a un ahorro significativo en términos de
-%            tiempo y recursos computacionales necesarios para el entrenamiento y la
-%            evaluación de modelos. Al eliminar características irrelevantes, se reduce
-%            la complejidad del problema y se acelera el proceso de aprendizaje. Cabe mencionar que el coste computacional de pre-procesamiento que constituye la selección de características es en sí extenso, pero merece la pena de cara a posteriores usos en la construcción de modelos. Se hace una vez y se usa siempre.
-%
-%      \item Reduce la maldición de la dimensionalidad: Cuando la dimensionalidad
-%            se incrementa en un problema, el volumen del espacio también lo hace, y esto ocurre de manera exponencial. De forma que para
-%            obtener un resultado seguro/fiable, la cantidad de datos necesitados debe verse incrementada de manera también exponencial~\cite{udacity2015curse}.
-%\end{enumerate}
-
-Este proyecto se centra en el uso de metaheurísticas para la resolución de este problema. Las metaheurísticas son algoritmos de optimización cuyo uso principal recae en tareas cuyo resultado es difícil de obtener por medios convencionales. Ciertos problemas pueden no tener una solución algorítmica obvia o simplemente ser demasiado complejos en cuanto al tiempo de resolución de los mismos. En ambos casos, las metaheurísticas son capaces de ofrecer soluciones muy buenas y en un tiempo admisible por medio de procesos de búsqueda inspirados en múltiples ámbitos (física, biología, comportamiento social, etc). \\[6pt]
-Para la selección de características existen multitud de métodos que tratan de aplacar este problema. Algunos de los más famosos son los método de filtrado, el análisis de componentes principales (\textit{PCA}) o incluso distintos tipos de regresiones como \textit{Lasso}. En este documento se estudian métodos de envoltura o \textit{Wrapper}, los cuáles hacen uso del entrenamiento y evaluación de modelos de \textit{Machine Learning} para evaluar distintos conjuntos de características. Este documento se centra en el uso de métodos \textit{Wrapper} o de envoltura debido a que el objetivo principal es comparar y analizar distintas alternativas metaheurísticas. \\[6pt]
-El reciente interés del problema de la selección de características en el ámbito de las
-metaheurísticas en los últimos años es más que evidente. Puede comprobarse como en los
-esta última época hay una tendencia en la publicación de artículos presentando nuevos métodos
-metaheurísticos, mejores con respecto a los clásicos, o incluso comparativas y análisis entre
-distintos algoritmos.\\[6pt]
-
-Esta crecimiento viene acompañado, sin embargo, de comparaciones que distan de ser objetivas
-por varios motivos~\cite{molina_comprehensive_2020}. Entre varios artículos se comparan algoritmos del mismo tipo con
-soluciones y resultados muy variables entre sí a pesar de mismas configuraciones a la hora
-de experimentar, artículos sin código referenciado, de forma que sea más fácil interpretar
-los resultados o duplicarlos, y algoritmos novedosos presentados por su autor o autores que
-superaban al resto en alguna métrica concreta sin llegar a la rigurosidad adecuada.\\[6pt]
-
-Por lo expuesto, la motivación principal de este trabajo es la de proveer información todo lo objetiva posible por medio de un análisis comparativo entre los
-algoritmos optimizatorios metaheurísticos más populares y más citados junto con los
-algoritmos más robustos y clásicos en el campo de la optimización pseudo estocástica. Se plantea una serie de estudios y comparaciones entre los algoritmos, haciendo uso de sus versiones en codificación binaria y su versiones en codificación continua o real. Se realizarán análisis sobre los resultados de forma que se obtengan respuestas a una serie de preguntas de investigación.
-
-\begin{itemize}
-      \item ¿Son buenos en \textit{Feature Selection} los algoritmos continuos que también lo son en binario?
-      \item ¿Qué algoritmos modernos son más prometedores?
-      \item ¿Los clásicos siguen siendo una opción viable frente a los modernos?
-\end{itemize}
-
-En este trabajo, se abordará exitosamente la respuesta a esta serie de preguntas.
+inteligencia artificial sea más inclusiva y eficiente. \\[6pt]
 
 \section{Objetivos}\label{sec:objetivos}
-\textbf{Objetivo General:}
-
-Realizar una comparación exhaustiva y objetiva de diversas metaheurísticas utilizadas en la
-selección de características, con el propósito de proporcionar una visión integral y
-evaluativa sobre su eficacia y aplicabilidad en diferentes contextos de análisis de
-datos.\\[6pt]
-\textbf{Objetivos Específicos:}
-
-\begin{enumerate}
-      \item Evaluar el desempeño de las metaheurísticas más relevantes en el ámbito de la
-            selección de características, analizando métricas clave como precisión, estabilidad de
-            las soluciones y eficiencia computacional. Se emplearán conjuntos de datos de referencia
-            y metodologías de validación cruzada para garantizar la robustez de los resultados.
-
-      \item Investigar la transferibilidad de las técnicas diseñadas para dominios continuos y
-            binarios en el contexto de la selección de características. Se analizará si las
-            metaheurísticas efectivas en un dominio son igualmente eficaces cuando se aplican a
-            otro, identificando posibles ventajas y limitaciones de cada enfoque.
-
-      \item Identificar las fortalezas y debilidades de cada metaheurística según el tipo de
-            representación de las características. Se realizará un análisis detallado del
-            comportamiento de las técnicas en problemas de selección de características con
-            diferentes tipos de datos, destacando su rendimiento relativo y sus áreas de aplicación
-            más adecuadas.
-
-      \item Proporcionar recomendaciones prácticas basadas en los resultados obtenidos, con el
-            objetivo de orientar a practicantes y académicos en la selección y aplicación de
-            metaheurísticas en problemas reales de selección de características.
-
-      \item Evaluar los resultados de las metaheurísticas en problemas de selección de característica
-            usando distintos como algoritmos de aprendizaje los métodos \textit{kNN} y \textit{SVM}. Se realizará
-            una comparativa a nivel de eficiencia en tiempo y calidad de los resultados.
-\end{enumerate}
+%Objetivos: Especifica qué pretendes lograr con tu TFG.
+\section{Metodología}\label{sec:metodologia}
+%Metodología: Describe brevemente el enfoque que seguirás.

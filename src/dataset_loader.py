@@ -144,7 +144,7 @@ def generate_neighbor(current_selection, neighbor_size, vary_percentage: bool = 
 
 
 def local_search(
-    data_dir: str = "dataset/train",
+    data_dir: str = "data/dataset/train",
     initial_percentage: int = 10,
     max_iterations: int = 100,
     max_iterations_without_improvement: int = 20,
@@ -171,7 +171,7 @@ def local_search(
     current_solution = crear_dict_imagenes(data_dir, initial_percentage)
     current_fitness = fitness(current_solution, metric)
 
-    shutil.copy("../out/best_checkpoint.pth", "best_model.pth")
+    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     best_fitness = current_fitness
     best_solution = current_solution
     fitness_history = [best_fitness]
@@ -209,7 +209,7 @@ def local_search(
 
 
 def random_search(
-    data_dir: str = "dataset/train",
+    data_dir: str = "data/dataset/train",
     initial_percentage: int = 10,
     max_iterations: int = 100,
     max_iterations_without_improvement: int = 20,
@@ -334,7 +334,7 @@ def tournament_selection(population: list[dict], fitness_values: list[float], to
 
 
 def genetic_algorithm(
-    data_dir: str = "dataset/train",
+    data_dir: str = "data/dataset/train",
     population_size: int = 10,
     initial_percentage: int = 10,
     max_iterations: int = 50,
@@ -370,7 +370,7 @@ def genetic_algorithm(
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    shutil.copy("../out/best_checkpoint.pth", "best_model.pth")
+    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
@@ -461,7 +461,7 @@ def local_search_improvement(
 
 
 def memetic_algorithm(
-    data_dir: str = "dataset/train",
+    data_dir: str = "data/dataset/train",
     population_size: int = 20,
     initial_percentage: int = 10,
     max_iterations: int = 50,
@@ -503,7 +503,7 @@ def memetic_algorithm(
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    shutil.copy("../out/best_checkpoint.pth", "best_model.pth")
+    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
@@ -562,7 +562,7 @@ def memetic_algorithm(
             best_fitness = fitness_values[current_best_idx]
             iterations_without_improvement = 0
             print(f"Nueva mejor solución encontrada en generación {generation}. Fitness: {best_fitness:.4f}")
-            shutil.copy("../out/best_checkpoint.pth", "best_model.pth")
+            shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
         else:
             iterations_without_improvement += 1
 
@@ -582,14 +582,19 @@ def memetic_algorithm(
 def train_model(model, train_loader, valid_loader, criterion, optimizer, device, num_epochs=10):
     best_valid_loss = float('inf')
 
+    print(f"Using device: {device}")  # Añadido para verificar el dispositivo
+    model = model.to(device)  # Asegurar que el modelo está en GPU
+
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0.0
 
         for batch_idx, (images, labels) in enumerate(train_loader):
-            images, labels = images.to(device), labels.to(device)
+            # Mover los datos a GPU
+            images = images.to(device)
+            labels = labels.to(device)
 
-            optimizer.zero_grad()   # Poner a cero los gradientes de los parametros gestionados por el optimizador.
+            optimizer.zero_grad()
             outputs = model(images)
             loss = criterion(outputs, labels)
             loss.backward()
@@ -599,14 +604,19 @@ def train_model(model, train_loader, valid_loader, criterion, optimizer, device,
 
             if (batch_idx + 1) % 10 == 0:
                 print(
-                    f"Epoch {epoch + 1}/{num_epochs}, Batch {batch_idx + 1}/{len(train_loader)}, Loss: {loss.item():.4f}"
+                    f"Epoch {epoch + 1}/{num_epochs}, "
+                    f"Batch {batch_idx + 1}/{len(train_loader)}, "
+                    f"Loss: {loss.item():.4f}"
                 )
 
         model.eval()
         valid_loss = 0.0
         with torch.no_grad():
             for images, labels in valid_loader:
-                images, labels = images.to(device), labels.to(device)
+                # Mover los datos a GPU
+                images = images.to(device)
+                labels = labels.to(device)
+
                 outputs = model(images)
                 loss = criterion(outputs, labels)
                 valid_loss += loss.item()
@@ -614,24 +624,34 @@ def train_model(model, train_loader, valid_loader, criterion, optimizer, device,
         avg_train_loss = train_loss / len(train_loader)
         avg_valid_loss = valid_loss / len(valid_loader)
 
-        print(f"Epoch {epoch + 1}/{num_epochs}, Train Loss: {avg_train_loss:.4f}, Valid Loss: {avg_valid_loss:.4f}")
+        print(f"Epoch {epoch + 1}/{num_epochs}, "
+              f"Train Loss: {avg_train_loss:.4f}, "
+              f"Valid Loss: {avg_valid_loss:.4f}")
 
         if avg_valid_loss < best_valid_loss:
             best_valid_loss = avg_valid_loss
-            torch.save(model.state_dict(), "../out/best_checkpoint.pth")
+            # Guardar el modelo en CPU para evitar problemas de compatibilidad
+            model_state = {k: v.cpu() for k, v in model.state_dict().items()}
+            torch.save(model_state, "best_checkpoint.pth")
             print("Model saved!")
 
 
 def evaluate_model(model, test_loader, device):
+    model = model.to(device)  # Asegurar que el modelo está en GPU
     model.eval()
     all_preds = []
     all_labels = []
 
     with torch.no_grad():
         for images, labels in test_loader:
-            images, labels = images.to(device), labels.to(device)
+            # Mover los datos a GPU
+            images = images.to(device)
+            labels = labels.to(device)
+
             outputs = model(images)
             _, predicted = torch.max(outputs, 1)
+
+            # Mover predicciones y labels a CPU para métricas
             all_preds.extend(predicted.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
 
@@ -649,14 +669,17 @@ def evaluate_model(model, test_loader, device):
 
 
 def fitness(dict_selection: dict, metric: str):
+    # Verificar y mostrar la disponibilidad de GPU
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+    if torch.cuda.is_available():
+        print(f"GPU: {torch.cuda.get_device_name(0)}")
+        print(f"Memory Allocated: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
     # Crear data loaders
-    train_dataset, train_loader, train_classes = create_data_loaders("../data/dataset/train", dict_selection)
-
-    # Los nombres de este dataset son erroneos. El test y el valid están intercambiados.
-    valid_dataset, valid_loader, _ = create_data_loaders("../data/dataset/test", None)  # No filtramos el conjunto de validación
-    test_dataset, test_loader, _ = create_data_loaders("../data/dataset/valid", None)  # No filtramos el conjunto de prueba
+    train_dataset, train_loader, train_classes = create_data_loaders("data/dataset/train", dict_selection)
+    valid_dataset, valid_loader, _ = create_data_loaders("data/dataset/test", None)
+    test_dataset, test_loader, _ = create_data_loaders("data/dataset/valid", None)
 
     # Definir el modelo
     model = models.resnet50(weights=ResNet50_Weights.DEFAULT)
@@ -676,18 +699,23 @@ def fitness(dict_selection: dict, metric: str):
     model = model.to(device)
 
     # Definir criterio y optimizador
-    criterion = nn.CrossEntropyLoss()
-    # Modificar el optimizador para que solo actualice los parámetros de la última capa
+    criterion = nn.CrossEntropyLoss().to(device)  # Mover criterion a GPU
     optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
 
     # Entrenar el modelo
-    train_model(model, train_loader, valid_loader, criterion, optimizer, num_epochs=10, device=device)
+    train_model(model, train_loader, valid_loader, criterion, optimizer, device=device, num_epochs=10)
 
     # Cargar el mejor modelo
-    model.load_state_dict(torch.load("../out/best_checkpoint.pth"))
+    checkpoint = torch.load("best_checkpoint.pth", map_location=device)
+    model.load_state_dict(checkpoint)
 
     # Evaluar el modelo
     accuracy, precision, recall, f1 = evaluate_model(model, test_loader, device=device)
+
+    # Liberar memoria GPU
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        print(f"Memory Allocated after cleanup: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
     if metric == "accuracy":
         return accuracy
@@ -696,6 +724,9 @@ def fitness(dict_selection: dict, metric: str):
 
 
 def main(
+    initial_percentage: int = 10,
+    max_iterations: int = 10,
+    max_iterations_without_improvement: int = 10,
     algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
     metric: Literal["accuracy", "f1"] = "accuracy"
 ):
@@ -704,10 +735,7 @@ def main(
     random.seed(seed)
     np.random.seed(seed)
 
-    dataset = "dataset/train"
-    initial_percentage = 10
-    max_iterations = 10
-    max_iterations_without_improvement = 10
+    dataset = "data/dataset/train"
 
     start = datetime.datetime.now()
     print(f"\n\n--------------------------------------"
@@ -777,8 +805,8 @@ def main(
 
 
 if __name__ == "__main__":
-    main("aleatorio", "accuracy")
-    main("busqueda local", "accuracy")
-    main("genetico", "accuracy")
+    main(10, 1, 1, "aleatorio", "accuracy")
+    main(10, 1, 1, "busqueda local", "accuracy")
+    main(10, 1, 1, "genetico", "accuracy")
     # main("memetico", "accuracy")
 
