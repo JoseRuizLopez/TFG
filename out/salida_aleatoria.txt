@@ -1,0 +1,250 @@
+/home/jose-ruiz/PycharmProjects/Otros/.venv/bin/python /home/jose-ruiz/PycharmProjects/Otros/TFG/dataset_loader.py
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:30:31.480143
+Epoch 1/10, Train Loss: 1.0852, Valid Loss: 0.9224
+Model saved!
+Epoch 2/10, Train Loss: 0.9787, Valid Loss: 0.9143
+Model saved!
+Epoch 3/10, Train Loss: 0.8944, Valid Loss: 0.7554
+Model saved!
+Epoch 4/10, Train Loss: 0.8063, Valid Loss: 0.8423
+Epoch 5/10, Train Loss: 0.7508, Valid Loss: 0.7485
+Model saved!
+Epoch 6/10, Train Loss: 0.6601, Valid Loss: 0.7621
+Epoch 7/10, Train Loss: 0.6366, Valid Loss: 0.7895
+Epoch 8/10, Train Loss: 0.5959, Valid Loss: 0.7287
+Model saved!
+Epoch 9/10, Train Loss: 0.5649, Valid Loss: 0.7124
+Model saved!
+Epoch 10/10, Train Loss: 0.5285, Valid Loss: 0.4721
+Model saved!
+Accuracy: 0.8387
+Precision: 0.8424
+Recall: 0.8387
+F1-score: 0.8384
+end time: 2024-10-04 18:33:25.534234
+duration: 0:02:54.054091
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:33:25.559211
+Epoch 1/10, Train Loss: 1.0664, Valid Loss: 0.9190
+Model saved!
+Epoch 2/10, Train Loss: 0.9547, Valid Loss: 1.0270
+Epoch 3/10, Train Loss: 0.8740, Valid Loss: 0.9895
+Epoch 4/10, Train Loss: 0.7945, Valid Loss: 0.6648
+Model saved!
+Epoch 5/10, Train Loss: 0.7391, Valid Loss: 1.0080
+Epoch 6/10, Train Loss: 0.7031, Valid Loss: 0.7318
+Epoch 7/10, Train Loss: 0.6513, Valid Loss: 0.7217
+Epoch 8/10, Train Loss: 0.5937, Valid Loss: 0.6884
+Epoch 9/10, Train Loss: 0.5765, Valid Loss: 0.5126
+Model saved!
+Epoch 10/10, Train Loss: 0.5467, Valid Loss: 0.6498
+Accuracy: 0.7554
+Precision: 0.7788
+Recall: 0.7554
+F1-score: 0.7461
+end time: 2024-10-04 18:36:25.491019
+duration: 0:02:59.931808
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:36:25.522911
+Epoch 1/10, Train Loss: 1.0934, Valid Loss: 1.0161
+Model saved!
+Epoch 2/10, Train Loss: 0.9799, Valid Loss: 0.9813
+Model saved!
+Epoch 3/10, Train Loss: 0.9062, Valid Loss: 0.6854
+Model saved!
+Epoch 4/10, Train Loss: 0.8388, Valid Loss: 1.0081
+Epoch 5/10, Train Loss: 0.7746, Valid Loss: 0.8290
+Epoch 6/10, Train Loss: 0.7208, Valid Loss: 0.7773
+Epoch 7/10, Train Loss: 0.6771, Valid Loss: 0.5721
+Model saved!
+Epoch 8/10, Train Loss: 0.6295, Valid Loss: 0.5463
+Model saved!
+Epoch 9/10, Train Loss: 0.5676, Valid Loss: 1.0856
+Epoch 10/10, Train Loss: 0.5341, Valid Loss: 0.5034
+Model saved!
+Accuracy: 0.8118
+Precision: 0.8267
+Recall: 0.8118
+F1-score: 0.8067
+end time: 2024-10-04 18:39:21.594757
+duration: 0:02:56.071846
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:39:21.625747
+Epoch 1/10, Train Loss: 1.0791, Valid Loss: 1.0267
+Model saved!
+Epoch 2/10, Train Loss: 0.9669, Valid Loss: 0.9319
+Model saved!
+Epoch 3/10, Train Loss: 0.8772, Valid Loss: 1.0918
+Epoch 4/10, Train Loss: 0.8149, Valid Loss: 0.9529
+Epoch 5/10, Train Loss: 0.7364, Valid Loss: 0.9705
+Epoch 6/10, Train Loss: 0.7089, Valid Loss: 0.9186
+Model saved!
+Epoch 7/10, Train Loss: 0.6697, Valid Loss: 0.7365
+Model saved!
+Epoch 8/10, Train Loss: 0.6476, Valid Loss: 0.6281
+Model saved!
+Epoch 9/10, Train Loss: 0.5556, Valid Loss: 0.8253
+Epoch 10/10, Train Loss: 0.5392, Valid Loss: 0.6898
+Accuracy: 0.7661
+Precision: 0.7874
+Recall: 0.7661
+F1-score: 0.7579
+end time: 2024-10-04 18:42:20.605821
+duration: 0:02:58.980074
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:42:20.638791
+Epoch 1/10, Train Loss: 1.0786, Valid Loss: 0.9013
+Model saved!
+Epoch 2/10, Train Loss: 0.9739, Valid Loss: 0.9553
+Epoch 3/10, Train Loss: 0.9198, Valid Loss: 0.8270
+Model saved!
+Epoch 4/10, Train Loss: 0.8356, Valid Loss: 0.9678
+Epoch 5/10, Train Loss: 0.7851, Valid Loss: 1.0681
+Epoch 6/10, Train Loss: 0.7061, Valid Loss: 0.8783
+Epoch 7/10, Train Loss: 0.6709, Valid Loss: 0.7382
+Model saved!
+Epoch 8/10, Train Loss: 0.6359, Valid Loss: 0.7576
+Epoch 9/10, Train Loss: 0.5776, Valid Loss: 0.5450
+Model saved!
+Epoch 10/10, Train Loss: 0.5513, Valid Loss: 0.8544
+Accuracy: 0.7500
+Precision: 0.7892
+Recall: 0.7500
+F1-score: 0.7274
+end time: 2024-10-04 18:45:17.995539
+duration: 0:02:57.356748
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:45:18.046715
+Epoch 1/10, Train Loss: 1.0620, Valid Loss: 0.9699
+Model saved!
+Epoch 2/10, Train Loss: 0.9593, Valid Loss: 1.0435
+Epoch 3/10, Train Loss: 0.8848, Valid Loss: 0.9848
+Epoch 4/10, Train Loss: 0.7914, Valid Loss: 0.6905
+Model saved!
+Epoch 5/10, Train Loss: 0.7367, Valid Loss: 1.0154
+Epoch 6/10, Train Loss: 0.7026, Valid Loss: 0.7456
+Epoch 7/10, Train Loss: 0.6474, Valid Loss: 0.8291
+Epoch 8/10, Train Loss: 0.6281, Valid Loss: 0.6626
+Model saved!
+Epoch 9/10, Train Loss: 0.5615, Valid Loss: 0.6629
+Epoch 10/10, Train Loss: 0.5282, Valid Loss: 0.4447
+Model saved!
+Accuracy: 0.7419
+Precision: 0.7691
+Recall: 0.7419
+F1-score: 0.7349
+end time: 2024-10-04 18:48:15.794498
+duration: 0:02:57.747783
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:48:15.825708
+Epoch 1/10, Train Loss: 1.0721, Valid Loss: 0.9696
+Model saved!
+Epoch 2/10, Train Loss: 0.9568, Valid Loss: 0.9058
+Model saved!
+Epoch 3/10, Train Loss: 0.8885, Valid Loss: 1.0965
+Epoch 4/10, Train Loss: 0.8109, Valid Loss: 0.8778
+Model saved!
+Epoch 5/10, Train Loss: 0.7605, Valid Loss: 0.8181
+Model saved!
+Epoch 6/10, Train Loss: 0.7082, Valid Loss: 0.6928
+Model saved!
+Epoch 7/10, Train Loss: 0.6938, Valid Loss: 0.6641
+Model saved!
+Epoch 8/10, Train Loss: 0.6344, Valid Loss: 1.0198
+Epoch 9/10, Train Loss: 0.6123, Valid Loss: 0.6336
+Model saved!
+Epoch 10/10, Train Loss: 0.5670, Valid Loss: 0.5037
+Model saved!
+Accuracy: 0.7742
+Precision: 0.7825
+Recall: 0.7742
+F1-score: 0.7670
+end time: 2024-10-04 18:51:13.376441
+duration: 0:02:57.550733
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:51:13.407281
+Epoch 1/10, Train Loss: 1.0577, Valid Loss: 0.9938
+Model saved!
+Epoch 2/10, Train Loss: 0.9426, Valid Loss: 1.0533
+Epoch 3/10, Train Loss: 0.8672, Valid Loss: 0.8088
+Model saved!
+Epoch 4/10, Train Loss: 0.7969, Valid Loss: 0.7763
+Model saved!
+Epoch 5/10, Train Loss: 0.7065, Valid Loss: 0.9156
+Epoch 6/10, Train Loss: 0.6942, Valid Loss: 0.6756
+Model saved!
+Epoch 7/10, Train Loss: 0.6429, Valid Loss: 0.5616
+Model saved!
+Epoch 8/10, Train Loss: 0.5744, Valid Loss: 0.4920
+Model saved!
+Epoch 9/10, Train Loss: 0.5770, Valid Loss: 0.6038
+Epoch 10/10, Train Loss: 0.5029, Valid Loss: 0.8880
+Accuracy: 0.7742
+Precision: 0.7988
+Recall: 0.7742
+F1-score: 0.7710
+end time: 2024-10-04 18:54:11.203907
+duration: 0:02:57.796626
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:54:11.238574
+Epoch 1/10, Train Loss: 1.0762, Valid Loss: 1.2231
+Model saved!
+Epoch 2/10, Train Loss: 0.9802, Valid Loss: 0.9970
+Model saved!
+Epoch 3/10, Train Loss: 0.9089, Valid Loss: 0.7564
+Model saved!
+Epoch 4/10, Train Loss: 0.8341, Valid Loss: 0.8683
+Epoch 5/10, Train Loss: 0.7879, Valid Loss: 0.9207
+Epoch 6/10, Train Loss: 0.7195, Valid Loss: 0.7175
+Model saved!
+Epoch 7/10, Train Loss: 0.6721, Valid Loss: 0.7068
+Model saved!
+Epoch 8/10, Train Loss: 0.6200, Valid Loss: 0.6276
+Model saved!
+Epoch 9/10, Train Loss: 0.5859, Valid Loss: 0.8490
+Epoch 10/10, Train Loss: 0.5686, Valid Loss: 0.8552
+Accuracy: 0.7392
+Precision: 0.7685
+Recall: 0.7392
+F1-score: 0.7263
+end time: 2024-10-04 18:57:09.257010
+duration: 0:02:58.018436
+
+Entrenando con 10% de las imágenes:
+start time: 2024-10-04 18:57:09.292926
+Epoch 1/10, Train Loss: 1.0431, Valid Loss: 0.9695
+Model saved!
+Epoch 2/10, Train Loss: 0.9594, Valid Loss: 0.9853
+Epoch 3/10, Train Loss: 0.8705, Valid Loss: 0.9299
+Model saved!
+Epoch 4/10, Train Loss: 0.8259, Valid Loss: 0.7919
+Model saved!
+Epoch 5/10, Train Loss: 0.7386, Valid Loss: 0.8713
+Epoch 6/10, Train Loss: 0.6941, Valid Loss: 0.8639
+Epoch 7/10, Train Loss: 0.6441, Valid Loss: 0.7644
+Model saved!
+Epoch 8/10, Train Loss: 0.6037, Valid Loss: 0.9100
+Epoch 9/10, Train Loss: 0.5737, Valid Loss: 0.7835
+Epoch 10/10, Train Loss: 0.5266, Valid Loss: 0.6289
+Model saved!
+Accuracy: 0.8280
+Precision: 0.8385
+Recall: 0.8280
+F1-score: 0.8237
+end time: 2024-10-04 19:00:05.511831
+duration: 0:02:56.218905
+
+Resumen de resultados:
+10% de imágenes: accuracy=0.8387
+
+Process finished with exit code 0

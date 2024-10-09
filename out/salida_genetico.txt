@@ -1,0 +1,536 @@
+/home/jose-ruiz/PycharmProjects/Otros/.venv/bin/python /home/jose-ruiz/PycharmProjects/Otros/TFG/dataset_loader.py
+
+
+------------------------------------------------------GENETICO-------------------------------------------------
+Start time: 2024-10-09 08:05:50.569784
+Epoch 1/10, Train Loss: 1.0697, Valid Loss: 0.9938
+Model saved!
+Epoch 2/10, Train Loss: 0.9601, Valid Loss: 1.0993
+Epoch 3/10, Train Loss: 0.8842, Valid Loss: 0.8298
+Model saved!
+Epoch 4/10, Train Loss: 0.8248, Valid Loss: 0.7241
+Model saved!
+Epoch 5/10, Train Loss: 0.7756, Valid Loss: 0.9959
+Epoch 6/10, Train Loss: 0.7232, Valid Loss: 0.9119
+Epoch 7/10, Train Loss: 0.6607, Valid Loss: 0.7483
+Epoch 8/10, Train Loss: 0.6373, Valid Loss: 0.6409
+Model saved!
+Epoch 9/10, Train Loss: 0.5938, Valid Loss: 0.6284
+Model saved!
+Epoch 10/10, Train Loss: 0.5536, Valid Loss: 0.7025
+Accuracy: 0.7446
+Precision: 0.7922
+Recall: 0.7446
+F1-score: 0.7312
+Epoch 1/10, Train Loss: 1.0640, Valid Loss: 0.9255
+Model saved!
+Epoch 2/10, Train Loss: 0.9613, Valid Loss: 0.8956
+Model saved!
+Epoch 3/10, Train Loss: 0.8680, Valid Loss: 0.9716
+Epoch 4/10, Train Loss: 0.8187, Valid Loss: 0.8841
+Model saved!
+Epoch 5/10, Train Loss: 0.7551, Valid Loss: 0.7510
+Model saved!
+Epoch 6/10, Train Loss: 0.6901, Valid Loss: 0.7977
+Epoch 7/10, Train Loss: 0.6465, Valid Loss: 0.8215
+Epoch 8/10, Train Loss: 0.6052, Valid Loss: 0.8033
+Epoch 9/10, Train Loss: 0.5957, Valid Loss: 0.4925
+Model saved!
+Epoch 10/10, Train Loss: 0.5553, Valid Loss: 0.5418
+Accuracy: 0.7419
+Precision: 0.7537
+Recall: 0.7419
+F1-score: 0.7336
+Epoch 1/10, Train Loss: 1.0722, Valid Loss: 1.0219
+Model saved!
+Epoch 2/10, Train Loss: 0.9815, Valid Loss: 0.9164
+Model saved!
+Epoch 3/10, Train Loss: 0.8914, Valid Loss: 1.0148
+Epoch 4/10, Train Loss: 0.8291, Valid Loss: 0.8900
+Model saved!
+Epoch 5/10, Train Loss: 0.7725, Valid Loss: 0.6671
+Model saved!
+Epoch 6/10, Train Loss: 0.7191, Valid Loss: 0.7432
+Epoch 7/10, Train Loss: 0.6770, Valid Loss: 0.6713
+Epoch 8/10, Train Loss: 0.6289, Valid Loss: 0.8095
+Epoch 9/10, Train Loss: 0.6176, Valid Loss: 0.7875
+Epoch 10/10, Train Loss: 0.5818, Valid Loss: 0.5054
+Model saved!
+Accuracy: 0.8333
+Precision: 0.8389
+Recall: 0.8333
+F1-score: 0.8312
+Epoch 1/10, Train Loss: 1.0845, Valid Loss: 0.9901
+Model saved!
+Epoch 2/10, Train Loss: 0.9848, Valid Loss: 1.0682
+Epoch 3/10, Train Loss: 0.9164, Valid Loss: 0.7684
+Model saved!
+Epoch 4/10, Train Loss: 0.8406, Valid Loss: 0.9545
+Epoch 5/10, Train Loss: 0.7679, Valid Loss: 0.8589
+Epoch 6/10, Train Loss: 0.7201, Valid Loss: 0.6061
+Model saved!
+Epoch 7/10, Train Loss: 0.6565, Valid Loss: 0.6122
+Epoch 8/10, Train Loss: 0.6324, Valid Loss: 0.8298
+Epoch 9/10, Train Loss: 0.6141, Valid Loss: 0.6336
+Epoch 10/10, Train Loss: 0.5801, Valid Loss: 0.7362
+Accuracy: 0.6156
+Precision: 0.7156
+Recall: 0.6156
+F1-score: 0.5679
+Epoch 1/10, Train Loss: 1.0701, Valid Loss: 1.0088
+Model saved!
+Epoch 2/10, Train Loss: 0.9917, Valid Loss: 1.1637
+Epoch 3/10, Train Loss: 0.9115, Valid Loss: 0.9804
+Model saved!
+Epoch 4/10, Train Loss: 0.8365, Valid Loss: 0.8745
+Model saved!
+Epoch 5/10, Train Loss: 0.7782, Valid Loss: 0.7725
+Model saved!
+Epoch 6/10, Train Loss: 0.7147, Valid Loss: 0.8309
+Epoch 7/10, Train Loss: 0.6852, Valid Loss: 0.8922
+Epoch 8/10, Train Loss: 0.6329, Valid Loss: 0.7044
+Model saved!
+Epoch 9/10, Train Loss: 0.6113, Valid Loss: 0.5711
+Model saved!
+Epoch 10/10, Train Loss: 0.5525, Valid Loss: 0.4935
+Model saved!
+Accuracy: 0.8011
+Precision: 0.8299
+Recall: 0.8011
+F1-score: 0.7994
+Epoch 1/10, Train Loss: 1.0592, Valid Loss: 1.0661
+Model saved!
+Epoch 2/10, Train Loss: 0.9725, Valid Loss: 1.0501
+Model saved!
+Epoch 3/10, Train Loss: 0.8856, Valid Loss: 0.9222
+Model saved!
+Epoch 4/10, Train Loss: 0.8152, Valid Loss: 0.7847
+Model saved!
+Epoch 5/10, Train Loss: 0.7444, Valid Loss: 0.8859
+Epoch 6/10, Train Loss: 0.7104, Valid Loss: 0.6943
+Model saved!
+Epoch 7/10, Train Loss: 0.6591, Valid Loss: 0.6539
+Model saved!
+Epoch 8/10, Train Loss: 0.5958, Valid Loss: 0.8405
+Epoch 9/10, Train Loss: 0.5904, Valid Loss: 0.5519
+Model saved!
+Epoch 10/10, Train Loss: 0.5650, Valid Loss: 0.5576
+Accuracy: 0.7043
+Precision: 0.7511
+Recall: 0.7043
+F1-score: 0.6896
+Epoch 1/10, Train Loss: 1.0669, Valid Loss: 1.0217
+Model saved!
+Epoch 2/10, Train Loss: 0.9803, Valid Loss: 1.0317
+Epoch 3/10, Train Loss: 0.8980, Valid Loss: 0.6729
+Model saved!
+Epoch 4/10, Train Loss: 0.8030, Valid Loss: 0.9671
+Epoch 5/10, Train Loss: 0.7573, Valid Loss: 0.8123
+Epoch 6/10, Train Loss: 0.7098, Valid Loss: 0.6516
+Model saved!
+Epoch 7/10, Train Loss: 0.6562, Valid Loss: 0.4590
+Model saved!
+Epoch 8/10, Train Loss: 0.6066, Valid Loss: 0.9331
+Epoch 9/10, Train Loss: 0.5898, Valid Loss: 0.6773
+Epoch 10/10, Train Loss: 0.5767, Valid Loss: 0.4425
+Model saved!
+Accuracy: 0.7876
+Precision: 0.8220
+Recall: 0.7876
+F1-score: 0.7831
+Epoch 1/10, Train Loss: 1.0783, Valid Loss: 1.0567
+Model saved!
+Epoch 2/10, Train Loss: 0.9674, Valid Loss: 1.0875
+Epoch 3/10, Train Loss: 0.8906, Valid Loss: 0.8011
+Model saved!
+Epoch 4/10, Train Loss: 0.8072, Valid Loss: 0.6885
+Model saved!
+Epoch 5/10, Train Loss: 0.7701, Valid Loss: 0.9270
+Epoch 6/10, Train Loss: 0.7197, Valid Loss: 0.7029
+Epoch 7/10, Train Loss: 0.6588, Valid Loss: 0.8558
+Epoch 8/10, Train Loss: 0.6334, Valid Loss: 0.9317
+Epoch 9/10, Train Loss: 0.5809, Valid Loss: 0.9405
+Epoch 10/10, Train Loss: 0.5703, Valid Loss: 0.8928
+Accuracy: 0.7097
+Precision: 0.7612
+Recall: 0.7097
+F1-score: 0.6917
+Epoch 1/10, Train Loss: 1.0935, Valid Loss: 0.9883
+Model saved!
+Epoch 2/10, Train Loss: 0.9960, Valid Loss: 0.8449
+Model saved!
+Epoch 3/10, Train Loss: 0.8909, Valid Loss: 0.9211
+Epoch 4/10, Train Loss: 0.8157, Valid Loss: 0.9139
+Epoch 5/10, Train Loss: 0.7570, Valid Loss: 0.7352
+Model saved!
+Epoch 6/10, Train Loss: 0.7087, Valid Loss: 1.2012
+Epoch 7/10, Train Loss: 0.6770, Valid Loss: 0.5607
+Model saved!
+Epoch 8/10, Train Loss: 0.6308, Valid Loss: 0.6461
+Epoch 9/10, Train Loss: 0.5844, Valid Loss: 0.8377
+Epoch 10/10, Train Loss: 0.5385, Valid Loss: 0.4134
+Model saved!
+Accuracy: 0.7392
+Precision: 0.7455
+Recall: 0.7392
+F1-score: 0.7295
+Epoch 1/10, Train Loss: 1.0450, Valid Loss: 1.2466
+Model saved!
+Epoch 2/10, Train Loss: 0.9515, Valid Loss: 0.9333
+Model saved!
+Epoch 3/10, Train Loss: 0.8801, Valid Loss: 1.1475
+Epoch 4/10, Train Loss: 0.7947, Valid Loss: 1.1060
+Epoch 5/10, Train Loss: 0.7404, Valid Loss: 0.9376
+Epoch 6/10, Train Loss: 0.6890, Valid Loss: 0.8624
+Model saved!
+Epoch 7/10, Train Loss: 0.6540, Valid Loss: 0.9693
+Epoch 8/10, Train Loss: 0.6047, Valid Loss: 1.0986
+Epoch 9/10, Train Loss: 0.5595, Valid Loss: 0.9285
+Epoch 10/10, Train Loss: 0.5559, Valid Loss: 0.9466
+Accuracy: 0.7715
+Precision: 0.7790
+Recall: 0.7715
+F1-score: 0.7627
+Epoch 1/10, Train Loss: 1.0600, Valid Loss: 0.9913
+Model saved!
+Epoch 2/10, Train Loss: 0.9512, Valid Loss: 0.9791
+Model saved!
+Epoch 3/10, Train Loss: 0.8752, Valid Loss: 0.8813
+Model saved!
+Epoch 4/10, Train Loss: 0.8059, Valid Loss: 0.7119
+Model saved!
+Epoch 5/10, Train Loss: 0.7615, Valid Loss: 0.9605
+Epoch 6/10, Train Loss: 0.6969, Valid Loss: 0.5878
+Model saved!
+Epoch 7/10, Train Loss: 0.6512, Valid Loss: 0.8404
+Epoch 8/10, Train Loss: 0.6283, Valid Loss: 0.7856
+Epoch 9/10, Train Loss: 0.5913, Valid Loss: 0.8640
+Epoch 10/10, Train Loss: 0.5777, Valid Loss: 0.7722
+Accuracy: 0.6909
+Precision: 0.7435
+Recall: 0.6909
+F1-score: 0.6765
+Epoch 1/10, Train Loss: 1.0735, Valid Loss: 0.8825
+Model saved!
+Epoch 2/10, Train Loss: 0.9602, Valid Loss: 1.0155
+Epoch 3/10, Train Loss: 0.8978, Valid Loss: 0.9730
+Epoch 4/10, Train Loss: 0.8246, Valid Loss: 0.8000
+Model saved!
+Epoch 5/10, Train Loss: 0.7599, Valid Loss: 0.7431
+Model saved!
+Epoch 6/10, Train Loss: 0.6921, Valid Loss: 0.8853
+Epoch 7/10, Train Loss: 0.6363, Valid Loss: 0.7139
+Model saved!
+Epoch 8/10, Train Loss: 0.6311, Valid Loss: 0.7885
+Epoch 9/10, Train Loss: 0.6130, Valid Loss: 1.1403
+Epoch 10/10, Train Loss: 0.5574, Valid Loss: 0.5768
+Model saved!
+Accuracy: 0.7608
+Precision: 0.7986
+Recall: 0.7608
+F1-score: 0.7568
+Epoch 1/10, Train Loss: 1.0804, Valid Loss: 0.9674
+Model saved!
+Epoch 2/10, Train Loss: 0.9893, Valid Loss: 0.9743
+Epoch 3/10, Train Loss: 0.9056, Valid Loss: 0.9241
+Model saved!
+Epoch 4/10, Train Loss: 0.8433, Valid Loss: 0.7047
+Model saved!
+Epoch 5/10, Train Loss: 0.7736, Valid Loss: 0.6329
+Model saved!
+Epoch 6/10, Train Loss: 0.7158, Valid Loss: 0.8976
+Epoch 7/10, Train Loss: 0.6829, Valid Loss: 0.5803
+Model saved!
+Epoch 8/10, Train Loss: 0.6211, Valid Loss: 0.6738
+Epoch 9/10, Train Loss: 0.6008, Valid Loss: 0.4764
+Model saved!
+Epoch 10/10, Train Loss: 0.5677, Valid Loss: 0.6344
+Accuracy: 0.7473
+Precision: 0.7625
+Recall: 0.7473
+F1-score: 0.7378
+Epoch 1/10, Train Loss: 1.0809, Valid Loss: 1.2066
+Model saved!
+Epoch 2/10, Train Loss: 0.9969, Valid Loss: 0.9444
+Model saved!
+Epoch 3/10, Train Loss: 0.9108, Valid Loss: 0.7963
+Model saved!
+Epoch 4/10, Train Loss: 0.8230, Valid Loss: 1.0095
+Epoch 5/10, Train Loss: 0.7801, Valid Loss: 0.7202
+Model saved!
+Epoch 6/10, Train Loss: 0.7187, Valid Loss: 0.6675
+Model saved!
+Epoch 7/10, Train Loss: 0.6585, Valid Loss: 0.8225
+Epoch 8/10, Train Loss: 0.6605, Valid Loss: 0.7944
+Epoch 9/10, Train Loss: 0.5965, Valid Loss: 0.7657
+Epoch 10/10, Train Loss: 0.5750, Valid Loss: 0.5095
+Model saved!
+Accuracy: 0.8038
+Precision: 0.8190
+Recall: 0.8038
+F1-score: 0.8013
+Epoch 1/10, Train Loss: 1.0626, Valid Loss: 1.1345
+Model saved!
+Epoch 2/10, Train Loss: 0.9818, Valid Loss: 1.0420
+Model saved!
+Epoch 3/10, Train Loss: 0.8902, Valid Loss: 0.8737
+Model saved!
+Epoch 4/10, Train Loss: 0.8251, Valid Loss: 0.8911
+Epoch 5/10, Train Loss: 0.7566, Valid Loss: 0.8981
+Epoch 6/10, Train Loss: 0.7191, Valid Loss: 0.6832
+Model saved!
+Epoch 7/10, Train Loss: 0.6732, Valid Loss: 0.5920
+Model saved!
+Epoch 8/10, Train Loss: 0.6473, Valid Loss: 0.6827
+Epoch 9/10, Train Loss: 0.5871, Valid Loss: 1.0720
+Epoch 10/10, Train Loss: 0.5379, Valid Loss: 0.8295
+Accuracy: 0.7876
+Precision: 0.8081
+Recall: 0.7876
+F1-score: 0.7825
+Epoch 1/10, Train Loss: 1.0883, Valid Loss: 1.0398
+Model saved!
+Epoch 2/10, Train Loss: 0.9917, Valid Loss: 1.1493
+Epoch 3/10, Train Loss: 0.9006, Valid Loss: 0.8935
+Model saved!
+Epoch 4/10, Train Loss: 0.8385, Valid Loss: 0.7945
+Model saved!
+Epoch 5/10, Train Loss: 0.7719, Valid Loss: 0.8646
+Epoch 6/10, Train Loss: 0.7154, Valid Loss: 0.6558
+Model saved!
+Epoch 7/10, Train Loss: 0.6539, Valid Loss: 0.5126
+Model saved!
+Epoch 8/10, Train Loss: 0.6448, Valid Loss: 0.5351
+Epoch 9/10, Train Loss: 0.6345, Valid Loss: 0.6223
+Epoch 10/10, Train Loss: 0.5666, Valid Loss: 0.7039
+Accuracy: 0.7392
+Precision: 0.7676
+Recall: 0.7392
+F1-score: 0.7257
+Epoch 1/10, Train Loss: 1.0893, Valid Loss: 0.9567
+Model saved!
+Epoch 2/10, Train Loss: 0.9764, Valid Loss: 1.0037
+Epoch 3/10, Train Loss: 0.8989, Valid Loss: 0.8187
+Model saved!
+Epoch 4/10, Train Loss: 0.8070, Valid Loss: 1.0925
+Epoch 5/10, Train Loss: 0.7573, Valid Loss: 0.8395
+Epoch 6/10, Train Loss: 0.6940, Valid Loss: 0.9932
+Epoch 7/10, Train Loss: 0.6416, Valid Loss: 0.7275
+Model saved!
+Epoch 8/10, Train Loss: 0.5965, Valid Loss: 1.1165
+Epoch 9/10, Train Loss: 0.5798, Valid Loss: 1.1119
+Epoch 10/10, Train Loss: 0.5339, Valid Loss: 0.5066
+Model saved!
+Accuracy: 0.8065
+Precision: 0.8239
+Recall: 0.8065
+F1-score: 0.7999
+Epoch 1/10, Train Loss: 1.0677, Valid Loss: 1.1135
+Model saved!
+Epoch 2/10, Train Loss: 0.9804, Valid Loss: 0.8607
+Model saved!
+Epoch 3/10, Train Loss: 0.8947, Valid Loss: 0.7081
+Model saved!
+Epoch 4/10, Train Loss: 0.8263, Valid Loss: 0.8942
+Epoch 5/10, Train Loss: 0.7710, Valid Loss: 0.9843
+Epoch 6/10, Train Loss: 0.7210, Valid Loss: 0.5157
+Model saved!
+Epoch 7/10, Train Loss: 0.6625, Valid Loss: 0.9039
+Epoch 8/10, Train Loss: 0.6320, Valid Loss: 0.7178
+Epoch 9/10, Train Loss: 0.5938, Valid Loss: 1.1244
+Epoch 10/10, Train Loss: 0.5375, Valid Loss: 0.5652
+Accuracy: 0.7715
+Precision: 0.7871
+Recall: 0.7715
+F1-score: 0.7654
+Epoch 1/10, Train Loss: 1.0704, Valid Loss: 1.0122
+Model saved!
+Epoch 2/10, Train Loss: 0.9649, Valid Loss: 0.9308
+Model saved!
+Epoch 3/10, Train Loss: 0.8837, Valid Loss: 0.7879
+Model saved!
+Epoch 4/10, Train Loss: 0.8159, Valid Loss: 0.9199
+Epoch 5/10, Train Loss: 0.7697, Valid Loss: 0.9211
+Epoch 6/10, Train Loss: 0.6992, Valid Loss: 0.8027
+Epoch 7/10, Train Loss: 0.6590, Valid Loss: 1.0235
+Epoch 8/10, Train Loss: 0.6139, Valid Loss: 0.7766
+Model saved!
+Epoch 9/10, Train Loss: 0.5783, Valid Loss: 0.5847
+Model saved!
+Epoch 10/10, Train Loss: 0.5507, Valid Loss: 0.4972
+Model saved!
+Accuracy: 0.7849
+Precision: 0.7882
+Recall: 0.7849
+F1-score: 0.7787
+Epoch 1/10, Train Loss: 1.0597, Valid Loss: 0.9838
+Model saved!
+Epoch 2/10, Train Loss: 0.9594, Valid Loss: 0.9325
+Model saved!
+Epoch 3/10, Train Loss: 0.8790, Valid Loss: 0.9506
+Epoch 4/10, Train Loss: 0.8014, Valid Loss: 0.7807
+Model saved!
+Epoch 5/10, Train Loss: 0.7315, Valid Loss: 0.8403
+Epoch 6/10, Train Loss: 0.6778, Valid Loss: 0.6252
+Model saved!
+Epoch 7/10, Train Loss: 0.6564, Valid Loss: 0.6695
+Epoch 8/10, Train Loss: 0.6239, Valid Loss: 0.6990
+Epoch 9/10, Train Loss: 0.5573, Valid Loss: 0.4886
+Model saved!
+Epoch 10/10, Train Loss: 0.5383, Valid Loss: 0.7008
+Accuracy: 0.8038
+Precision: 0.8083
+Recall: 0.8038
+F1-score: 0.8005
+Epoch 1/10, Train Loss: 1.0861, Valid Loss: 0.9222
+Model saved!
+Epoch 2/10, Train Loss: 0.9854, Valid Loss: 1.0857
+Epoch 3/10, Train Loss: 0.9124, Valid Loss: 0.9257
+Epoch 4/10, Train Loss: 0.8447, Valid Loss: 0.8013
+Model saved!
+Epoch 5/10, Train Loss: 0.7863, Valid Loss: 1.0358
+Epoch 6/10, Train Loss: 0.7340, Valid Loss: 0.7667
+Model saved!
+Epoch 7/10, Train Loss: 0.6847, Valid Loss: 1.0646
+Epoch 8/10, Train Loss: 0.6350, Valid Loss: 0.8848
+Epoch 9/10, Train Loss: 0.5854, Valid Loss: 0.8684
+Epoch 10/10, Train Loss: 0.5958, Valid Loss: 0.5067
+Model saved!
+Accuracy: 0.7823
+Precision: 0.7982
+Recall: 0.7823
+F1-score: 0.7764
+Epoch 1/10, Train Loss: 1.0669, Valid Loss: 1.0787
+Model saved!
+Epoch 2/10, Train Loss: 0.9664, Valid Loss: 1.0162
+Model saved!
+Epoch 3/10, Train Loss: 0.8975, Valid Loss: 0.8885
+Model saved!
+Epoch 4/10, Train Loss: 0.8164, Valid Loss: 0.9886
+Epoch 5/10, Train Loss: 0.7696, Valid Loss: 0.5790
+Model saved!
+Epoch 6/10, Train Loss: 0.7075, Valid Loss: 0.7236
+Epoch 7/10, Train Loss: 0.6656, Valid Loss: 0.7412
+Epoch 8/10, Train Loss: 0.6155, Valid Loss: 0.5233
+Model saved!
+Epoch 9/10, Train Loss: 0.5722, Valid Loss: 0.5190
+Model saved!
+Epoch 10/10, Train Loss: 0.5569, Valid Loss: 0.6847
+Accuracy: 0.7661
+Precision: 0.8108
+Recall: 0.7661
+F1-score: 0.7488
+Epoch 1/10, Train Loss: 1.0909, Valid Loss: 0.9947
+Model saved!
+Epoch 2/10, Train Loss: 1.0069, Valid Loss: 0.9767
+Model saved!
+Epoch 3/10, Train Loss: 0.9429, Valid Loss: 1.0859
+Epoch 4/10, Train Loss: 0.8609, Valid Loss: 1.0366
+Epoch 5/10, Train Loss: 0.7854, Valid Loss: 0.7978
+Model saved!
+Epoch 6/10, Train Loss: 0.7339, Valid Loss: 0.6950
+Model saved!
+Epoch 7/10, Train Loss: 0.6911, Valid Loss: 0.7451
+Epoch 8/10, Train Loss: 0.6250, Valid Loss: 1.1719
+Epoch 9/10, Train Loss: 0.5889, Valid Loss: 0.6222
+Model saved!
+Epoch 10/10, Train Loss: 0.5693, Valid Loss: 0.6813
+Accuracy: 0.8011
+Precision: 0.8056
+Recall: 0.8011
+F1-score: 0.7966
+Epoch 1/10, Train Loss: 1.0889, Valid Loss: 1.0295
+Model saved!
+Epoch 2/10, Train Loss: 0.9895, Valid Loss: 1.0024
+Model saved!
+Epoch 3/10, Train Loss: 0.9015, Valid Loss: 0.9064
+Model saved!
+Epoch 4/10, Train Loss: 0.8268, Valid Loss: 0.9181
+Epoch 5/10, Train Loss: 0.7654, Valid Loss: 0.6703
+Model saved!
+Epoch 6/10, Train Loss: 0.7040, Valid Loss: 0.5031
+Model saved!
+Epoch 7/10, Train Loss: 0.6681, Valid Loss: 0.7221
+Epoch 8/10, Train Loss: 0.6214, Valid Loss: 0.7252
+Epoch 9/10, Train Loss: 0.5759, Valid Loss: 0.5276
+Epoch 10/10, Train Loss: 0.5406, Valid Loss: 0.5007
+Model saved!
+Accuracy: 0.7366
+Precision: 0.7554
+Recall: 0.7366
+F1-score: 0.7244
+Epoch 1/10, Train Loss: 1.0689, Valid Loss: 1.1154
+Model saved!
+Epoch 2/10, Train Loss: 0.9669, Valid Loss: 1.0691
+Model saved!
+Epoch 3/10, Train Loss: 0.8861, Valid Loss: 0.8586
+Model saved!
+Epoch 4/10, Train Loss: 0.8087, Valid Loss: 0.8792
+Epoch 5/10, Train Loss: 0.7493, Valid Loss: 0.9486
+Epoch 6/10, Train Loss: 0.7081, Valid Loss: 0.7326
+Model saved!
+Epoch 7/10, Train Loss: 0.6472, Valid Loss: 0.7068
+Model saved!
+Epoch 8/10, Train Loss: 0.6108, Valid Loss: 0.6976
+Model saved!
+Epoch 9/10, Train Loss: 0.5659, Valid Loss: 0.8398
+Epoch 10/10, Train Loss: 0.5636, Valid Loss: 0.5610
+Model saved!
+Accuracy: 0.8038
+Precision: 0.8390
+Recall: 0.8038
+F1-score: 0.7975
+Epoch 1/10, Train Loss: 1.0725, Valid Loss: 1.0904
+Model saved!
+Epoch 2/10, Train Loss: 0.9764, Valid Loss: 0.8880
+Model saved!
+Epoch 3/10, Train Loss: 0.8820, Valid Loss: 0.8486
+Model saved!
+Epoch 4/10, Train Loss: 0.8104, Valid Loss: 0.8306
+Model saved!
+Epoch 5/10, Train Loss: 0.7501, Valid Loss: 0.8143
+Model saved!
+Epoch 6/10, Train Loss: 0.7038, Valid Loss: 0.7959
+Model saved!
+Epoch 7/10, Train Loss: 0.6581, Valid Loss: 0.8779
+Epoch 8/10, Train Loss: 0.6237, Valid Loss: 0.7201
+Model saved!
+Epoch 9/10, Train Loss: 0.5956, Valid Loss: 0.5242
+Model saved!
+Epoch 10/10, Train Loss: 0.5601, Valid Loss: 1.0997
+Accuracy: 0.8199
+Precision: 0.8291
+Recall: 0.8199
+F1-score: 0.8144
+Epoch 1/10, Train Loss: 1.0707, Valid Loss: 1.0315
+Model saved!
+Epoch 2/10, Train Loss: 0.9713, Valid Loss: 0.8701
+Model saved!
+Epoch 3/10, Train Loss: 0.8980, Valid Loss: 0.6952
+Model saved!
+Epoch 4/10, Train Loss: 0.8332, Valid Loss: 1.0167
+Epoch 5/10, Train Loss: 0.7410, Valid Loss: 0.6260
+Model saved!
+Epoch 6/10, Train Loss: 0.7005, Valid Loss: 0.9972
+Epoch 7/10, Train Loss: 0.6775, Valid Loss: 0.5931
+Model saved!
+Epoch 8/10, Train Loss: 0.6124, Valid Loss: 0.6578
+Epoch 9/10, Train Loss: 0.6127, Valid Loss: 0.7417
+Epoch 10/10, Train Loss: 0.5815, Valid Loss: 0.5637
+Model saved!
+Accuracy: 0.8038
+Precision: 0.8183
+Recall: 0.8038
+F1-score: 0.7982
+Epoch 1/10, Train Loss: 1.0678, Valid Loss: 0.9847
+Model saved!
+Epoch 2/10, Train Loss: 0.9700, Valid Loss: 0.9326
+Model saved!
+Epoch 3/10, Train Loss: 0.8895, Valid Loss: 0.8763
+Model saved!
+Epoch 4/10, Train Loss: 0.8181, Valid Loss: 0.9047
+Epoch 5/10, Train Loss: 0.7738, Valid Loss: 0.8516
+Model saved!
+Epoch 6/10, Train Loss: 0.7301, Valid Loss: 0.8056
+Model saved!
+Epoch 7/10, Train Loss: 0.6715, Valid Loss: 0.8724
