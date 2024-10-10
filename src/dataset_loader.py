@@ -1,7 +1,6 @@
 import datetime
 import os
 import random
-import shutil
 from typing import List
 from typing import Literal
 
@@ -32,7 +31,7 @@ def plot_fitness_evolution(fitness_history: List[float], algorithm_name: str, me
     plt.xlabel('Iteración')
     plt.ylabel(metric.capitalize())
     plt.grid(True)
-    plt.savefig(f'images/fitness_evolution_{algorithm_name}_{metric}.png')
+    plt.savefig(f'img/fitness_evolution_{algorithm_name}_{metric}.png')
     plt.close()
 
 
@@ -171,7 +170,6 @@ def local_search(
     current_solution = crear_dict_imagenes(data_dir, initial_percentage)
     current_fitness = fitness(current_solution, metric)
 
-    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     best_fitness = current_fitness
     best_solution = current_solution
     fitness_history = [best_fitness]
@@ -370,7 +368,6 @@ def genetic_algorithm(
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
@@ -503,7 +500,6 @@ def memetic_algorithm(
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
     fitness_history = [best_fitness]
 
     iterations_without_improvement = 0
@@ -562,7 +558,6 @@ def memetic_algorithm(
             best_fitness = fitness_values[current_best_idx]
             iterations_without_improvement = 0
             print(f"Nueva mejor solución encontrada en generación {generation}. Fitness: {best_fitness:.4f}")
-            shutil.copy("../results/best_checkpoint.pth", "best_model.pth")
         else:
             iterations_without_improvement += 1
 
@@ -632,7 +627,7 @@ def train_model(model, train_loader, valid_loader, criterion, optimizer, device,
             best_valid_loss = avg_valid_loss
             # Guardar el modelo en CPU para evitar problemas de compatibilidad
             model_state = {k: v.cpu() for k, v in model.state_dict().items()}
-            torch.save(model_state, "best_checkpoint.pth")
+            torch.save(model_state, "results/best_checkpoint.pth")
             print("Model saved!")
 
 
@@ -706,7 +701,7 @@ def fitness(dict_selection: dict, metric: str):
     train_model(model, train_loader, valid_loader, criterion, optimizer, device=device, num_epochs=10)
 
     # Cargar el mejor modelo
-    checkpoint = torch.load("best_checkpoint.pth", map_location=device)
+    checkpoint = torch.load("results/best_checkpoint.pth", map_location=device, weights_only=True)
     model.load_state_dict(checkpoint)
 
     # Evaluar el modelo
@@ -811,8 +806,8 @@ if __name__ == "__main__":
         print(f"GPU: {torch.cuda.get_device_name(0)}")
         print(f"Memory Allocated: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
-    # main(10, 1, 1, "aleatorio", "accuracy")
-    # main(10, 1, 1, "busqueda local", "accuracy")
+    main(10, 1, 1, "aleatorio", "accuracy")
+    main(10, 1, 1, "busqueda local", "accuracy")
     # main(10, 1, 1, "genetico", "accuracy")
     # main("memetico", "accuracy")
 
