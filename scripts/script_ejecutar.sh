@@ -16,6 +16,6 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
-python src/dataset_loader.py > salida.txt
+python src/main.py > salida.txt
 
 mail -s "Proceso finalizado" ruizlopezjose@correo.ugr.es <<< "El proceso ha finalizado"
