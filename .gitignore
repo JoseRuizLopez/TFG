@@ -159,3 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 # dataset/*
+/Notas 1-10-24
+/Notas 09-10-24
+/results/best_checkpoint.pth
+/docs/out/proyecto.toc
