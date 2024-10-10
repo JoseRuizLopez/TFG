@@ -1,6 +1,6 @@
 import random
 
-from TFG.utils.utils import crear_dict_imagenes
+from utils.utils import crear_dict_imagenes
 
 
 def crossover(parent1: dict, parent2: dict) -> tuple[dict, dict]:

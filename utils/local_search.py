@@ -1,7 +1,7 @@
 import random
 
-from TFG.utils.utils import crear_dict_imagenes
-from TFG.utils.utils import fitness
+from utils.utils import crear_dict_imagenes
+from utils.utils import fitness
 
 
 def generate_neighbor(current_selection, neighbor_size, vary_percentage: bool = False):

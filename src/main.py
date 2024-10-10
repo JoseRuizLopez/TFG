@@ -5,12 +5,12 @@ from typing import Literal
 import torch
 import numpy as np
 
-from TFG.utils.genetic_algorithm import genetic_algorithm
-from TFG.utils.local_search import local_search
-from TFG.utils.memetic_algorithm import memetic_algorithm
-from TFG.utils.random_search import random_search
-from TFG.utils.utils import fitness
-from TFG.utils.utils import plot_fitness_evolution
+from utils.genetic_algorithm import genetic_algorithm
+from utils.local_search import local_search
+from utils.memetic_algorithm import memetic_algorithm
+from utils.random_search import random_search
+from utils.utils import fitness
+from utils.utils import plot_fitness_evolution
 
 
 def main(

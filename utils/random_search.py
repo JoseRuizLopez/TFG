@@ -1,5 +1,5 @@
-from TFG.utils.utils import fitness
-from TFG.utils.utils import crear_dict_imagenes
+from utils.utils import fitness
+from utils.utils import crear_dict_imagenes
 
 
 def random_search(

@@ -1,11 +1,11 @@
 import random
 
-from TFG.utils.utils import fitness
-from TFG.utils.genetic_algorithm import crossover
-from TFG.utils.genetic_algorithm import mutation
-from TFG.utils.genetic_algorithm import tournament_selection
-from TFG.utils.local_search import generate_neighbor
-from TFG.utils.utils import crear_dict_imagenes
+from utils.utils import fitness
+from utils.genetic_algorithm import crossover
+from utils.genetic_algorithm import mutation
+from utils.genetic_algorithm import tournament_selection
+from utils.local_search import generate_neighbor
+from utils.utils import crear_dict_imagenes
 
 
 def memetic_algorithm(
