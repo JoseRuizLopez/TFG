@@ -19,7 +19,8 @@ def memetic_algorithm(
     local_search_probability: float = 0.2,
     local_search_evaluations: int = 10,
     local_search_neighbor_size: int = 5,
-    metric: str = "accuracy"
+    metric: str = "accuracy",
+    model_name: str = "resnet"
 ) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo memético para la selección de imágenes.
@@ -46,7 +47,7 @@ def memetic_algorithm(
     def local_search_improvement_with_limit(individual, remaining_evaluations):
         nonlocal evaluations_done
         current_solution = individual.copy()
-        current_fitness = fitness(current_solution, metric)
+        current_fitness = fitness(current_solution, metric, model_name)
         evaluations_done += 1
         local_evals = 1
 
@@ -58,7 +59,7 @@ def memetic_algorithm(
 
         while local_evals < max_local_evals and evaluations_done < max_evaluations:
             neighbor = generate_neighbor(current_solution, local_search_neighbor_size)
-            neighbor_fitness = fitness(neighbor, metric)
+            neighbor_fitness = fitness(neighbor, metric, model_name)
             evaluations_done += 1
             local_evals += 1
 
@@ -75,7 +76,7 @@ def memetic_algorithm(
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
-    fitness_values = [fitness(ind, metric) for ind in population]
+    fitness_values = [fitness(ind, metric, model_name) for ind in population]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
@@ -111,7 +112,7 @@ def memetic_algorithm(
                         )
                         new_population.append(improved_child)
                     else:
-                        child_fitness = fitness(child, metric)
+                        child_fitness = fitness(child, metric, model_name)
                         evaluations_done += 1
                         new_population.append(child)
                     new_fitness_values.append(child_fitness)

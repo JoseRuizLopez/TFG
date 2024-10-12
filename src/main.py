@@ -18,7 +18,8 @@ def main(
     max_evaluations: int = 10,
     max_evaluations_without_improvement: int = 10,
     algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
-    metric: Literal["accuracy", "f1"] = "accuracy"
+    metric: Literal["accuracy", "f1"] = "accuracy",
+    model_name: Literal["resnet", "mobilnet"] = "resnet"
 ):
     seed = 24012000
     torch.manual_seed(seed)
@@ -39,7 +40,8 @@ def main(
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
-            metric=metric
+            metric=metric,
+            model_name=model_name
         )
     elif algoritmo == "busqueda local":
         best_selection, best_fitness, fitness_history = local_search(
@@ -48,7 +50,8 @@ def main(
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
             neighbor_size=10,
-            metric=metric
+            metric=metric,
+            model_name=model_name
         )
     elif algoritmo == "genetico":
         best_selection, best_fitness, fitness_history = genetic_algorithm(
@@ -59,7 +62,8 @@ def main(
             max_evaluations_without_improvement=max_evaluations_without_improvement,
             tournament_size=3,
             mutation_rate=0.1,
-            metric=metric
+            metric=metric,
+            model_name=model_name
         )
     elif algoritmo == "memetico":
         best_selection, best_fitness, fitness_history = memetic_algorithm(
@@ -73,7 +77,8 @@ def main(
             local_search_probability=0.2,
             local_search_evaluations=10,
             local_search_neighbor_size=5,
-            metric=metric
+            metric=metric,
+            model_name=model_name
         )
     else:
         best_fitness = 0.0
@@ -88,7 +93,7 @@ def main(
         # Crear y guardar la gráfica
         plot_fitness_evolution(fitness_history, algoritmo, metric)
 
-        final_fitness = fitness(best_selection, metric)
+        final_fitness = fitness(best_selection, metric, model_name=model_name)
         print(f"\n\nMejor {metric} encontrado: {final_fitness:.4f}")
     else:
         print("No se ha seleccionado ningún algoritmo.")
@@ -97,7 +102,7 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
 
-    main(10, 100, 10, "aleatorio", "accuracy")
-    main(10, 100, 10, "busqueda local", "accuracy")
+    main(10, 100, 10, "aleatorio", "accuracy", "mobilnet")
+    main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
     # main(10, 100, 10, "genetico", "accuracy")
     # main("memetico", "accuracy")

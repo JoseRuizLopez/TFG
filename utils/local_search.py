@@ -74,7 +74,8 @@ def local_search(
     max_evaluations_without_improvement: int = 20,
     neighbor_size: int = 10,
     metric: str = "accuracy",
-    vary_percentage: bool = False
+    vary_percentage: bool = False,
+    model_name: str = "resnet"
 ) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo de búsqueda local para selección de imágenes.
@@ -94,7 +95,7 @@ def local_search(
 
     # Generar y evaluar solución inicial
     current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-    current_fitness = fitness(current_solution, metric)
+    current_fitness = fitness(current_solution, metric, model_name)
     evaluations_done = 1
 
     best_fitness = current_fitness
@@ -106,7 +107,7 @@ def local_search(
     while evaluations_done < max_evaluations:
         # Generar y evaluar vecino
         neighbor = generate_neighbor(current_solution, neighbor_size, vary_percentage)
-        neighbor_fitness = fitness(neighbor, metric)
+        neighbor_fitness = fitness(neighbor, metric, model_name)
         evaluations_done += 1
 
         # Criterio de aceptación

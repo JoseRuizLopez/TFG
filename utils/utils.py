@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from torchvision import transforms, models
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Subset
+from torchvision.models import MobileNet_V2_Weights
 from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
@@ -146,9 +147,9 @@ def evaluate_model(model, test_loader, device):
     return accuracy, precision, recall, f1
 
 
-def fitness(dict_selection: dict, metric: str):
+def fitness(dict_selection: dict, metric: str, model_name: str = "resnet"):
     # Verificar y mostrar la disponibilidad de GPU
-    device = torch.device("cuda")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
     if torch.cuda.is_available():
         print(f"GPU: {torch.cuda.get_device_name(0)}")
@@ -160,7 +161,10 @@ def fitness(dict_selection: dict, metric: str):
     test_dataset, test_loader, _ = create_data_loaders("data/dataset/valid", None)
 
     # Definir el modelo
-    model = models.resnet50(weights=ResNet50_Weights.DEFAULT)
+    if model_name == "resnet":
+        model = models.resnet50(weights=ResNet50_Weights.DEFAULT)
+    else:
+        model = models.mobilenet_v2(weights=MobileNet_V2_Weights.DEFAULT)
 
     # Congelar todas las capas
     for param in model.parameters():
@@ -168,17 +172,30 @@ def fitness(dict_selection: dict, metric: str):
 
     # Reemplazar la última capa fully connected
     num_classes = len(train_classes)
-    model.fc = nn.Linear(model.fc.in_features, num_classes)
+    if model_name == "resnet":
+        model.fc = nn.Linear(model.fc.in_features, num_classes)
+    else:
+        model.classifier = nn.Sequential(
+            nn.Dropout(p=0.2),
+            nn.Linear(model.last_channel, num_classes)
+        )
 
     # Descongelar la última capa
-    for param in model.fc.parameters():
-        param.requires_grad = True
+    if model_name == "resnet":
+        for param in model.fc.parameters():
+            param.requires_grad = True
+    else:
+        for param in model.classifier.parameters():
+            param.requires_grad = True
 
     model = model.to(device)
 
     # Definir criterio y optimizador
     criterion = nn.CrossEntropyLoss().to(device)  # Mover criterion a GPU
-    optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
+    if model_name == "renet":
+        optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
+    else:
+        optimizer = optim.Adam(model.classifier.parameters(), lr=0.001)
 
     # Entrenar el modelo
     train_model(model, train_loader, valid_loader, criterion, optimizer, device=device, num_epochs=10)

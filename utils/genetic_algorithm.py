@@ -1,6 +1,7 @@
 import random
 
 from utils.utils import crear_dict_imagenes
+from utils.utils import fitness
 
 
 def crossover(parent1: dict, parent2: dict) -> tuple[dict, dict]:
@@ -88,7 +89,8 @@ def genetic_algorithm(
     max_evaluations_without_improvement: int = 10,
     tournament_size: int = 3,
     mutation_rate: float = 0.1,
-    metric: str = "accuracy"
+    metric: str = "accuracy",
+    model_name: str = "resnet"
 ) -> tuple[dict, float, list]:
     """
     Implementa un algoritmo genético para la selección de imágenes.
@@ -109,7 +111,7 @@ def genetic_algorithm(
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
-    fitness_values = [fitness(ind, metric) for ind in population]
+    fitness_values = [fitness(ind, metric, model_name) for ind in population]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
@@ -139,7 +141,7 @@ def genetic_algorithm(
 
             for child in [child1, child2]:
                 if len(new_population) < population_size and evaluations_done < max_evaluations:
-                    child_fitness = fitness(child, metric)
+                    child_fitness = fitness(child, metric, model_name)
                     evaluations_done += 1
                     new_population.append(child)
                     new_fitness_values.append(child_fitness)

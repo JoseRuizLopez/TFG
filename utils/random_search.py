@@ -7,7 +7,8 @@ def random_search(
     initial_percentage: int = 10,
     max_evaluations: int = 100,
     max_evaluations_without_improvement: int = 20,
-    metric: str = "accuracy"
+    metric: str = "accuracy",
+    model_name: str = "resnet"
 ) -> tuple[dict, float, list]:
     """
         Implementa un algoritmo de búsqueda local para selección de imágenes.
@@ -31,7 +32,7 @@ def random_search(
     while evaluations_done < max_evaluations:
         # Generar y evaluar solución
         current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-        current_fitness = fitness(current_solution, metric)
+        current_fitness = fitness(current_solution, metric, model_name)
         evaluations_done += 1
 
         # Actualizar mejor solución global si corresponde
