@@ -13,6 +13,15 @@ from utils.utils import fitness
 from utils.utils import plot_fitness_evolution
 
 
+def set_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+
 def main(
     initial_percentage: int = 10,
     max_evaluations: int = 10,
@@ -21,12 +30,15 @@ def main(
     metric: Literal["accuracy", "f1"] = "accuracy",
     model_name: Literal["resnet", "mobilnet"] = "resnet"
 ):
-    seed = 24012000
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
+    set_seed(24012000)
 
     dataset = "data/dataset/train"
+
+    with open("results/evaluations_logs.txt", "a") as file:
+        file.write(f"\n\n---------------------------------------"
+                   f"-----------------{algoritmo.upper()}-------"
+                   f"---------------------------------------\n\n")
+        file.flush()  # Forzar la escritura inmediata al disco
 
     start = datetime.datetime.now()
     print(f"\n\n--------------------------------------"
@@ -90,6 +102,7 @@ def main(
     print("Duration: " + str(end - start))
 
     if best_fitness != 0.0:
+        print("\n\nFitness check:\n")
         # Crear y guardar la gráfica
         plot_fitness_evolution(fitness_history, algoritmo, metric)
 
@@ -103,6 +116,6 @@ if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
 
     # main(10, 100, 10, "aleatorio", "accuracy", "mobilnet")
-    # main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
-    main(10, 100, 10, "genetico", "accuracy", "mobilnet")
+    main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
+    # main(10, 100, 10, "genetico", "accuracy", "mobilnet")
     # main("memetico", "accuracy")

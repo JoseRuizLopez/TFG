@@ -166,4 +166,10 @@ def genetic_algorithm(
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
+    # Última comprobación para asegurar que se coge el mejor individuo
+    final_best_idx = fitness_values.index(max(fitness_values))
+    if fitness_values[final_best_idx] > best_fitness:
+        best_individual = population[final_best_idx].copy()
+        best_fitness = fitness_values[final_best_idx]
+
     return best_individual, best_fitness, fitness_history
