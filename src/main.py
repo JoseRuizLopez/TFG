@@ -103,6 +103,6 @@ if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
 
     main(10, 100, 10, "aleatorio", "accuracy", "mobilnet")
-    main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
+    # main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
     # main(10, 100, 10, "genetico", "accuracy")
     # main("memetico", "accuracy")
