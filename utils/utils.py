@@ -1,3 +1,4 @@
+import datetime
 import os
 import random
 from typing import List
@@ -147,7 +148,7 @@ def evaluate_model(model, test_loader, device):
     return accuracy, precision, recall, f1
 
 
-def fitness(dict_selection: dict, metric: str, model_name: str = "resnet"):
+def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evaluations: int | None = None):
     # Verificar y mostrar la disponibilidad de GPU
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
@@ -211,6 +212,10 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet"):
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
         print(f"Memory Allocated after cleanup: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
+
+    with open("results/evaluations_logs.txt", "a") as file:
+        file.write(f"Evaluación {evaluations+1} -> {str(datetime.datetime.now())}\n")
+        file.flush()  # Forzar la escritura inmediata al disco
 
     if metric == "accuracy":
         return accuracy

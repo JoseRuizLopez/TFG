@@ -34,13 +34,8 @@ def random_search(
     while evaluations_done < max_evaluations:
         # Generar y evaluar solución
         current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-        current_fitness = fitness(current_solution, metric, model_name)
+        current_fitness = fitness(current_solution, metric, model_name, evaluations_done)
         evaluations_done += 1
-
-        with open("results/random_search_log.txt", "a") as file:
-            # Writing data to a file
-            file.write(f"Evaluación {evaluations_done} -> {str(datetime.datetime.now())}\n")
-            file.flush()  # Forzar la escritura inmediata al disco
 
         # Actualizar mejor solución global si corresponde
         if current_fitness > best_fitness:

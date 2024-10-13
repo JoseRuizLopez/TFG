@@ -1,3 +1,4 @@
+import datetime
 import random
 
 from utils.utils import crear_dict_imagenes
@@ -95,7 +96,7 @@ def local_search(
 
     # Generar y evaluar solución inicial
     current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-    current_fitness = fitness(current_solution, metric, model_name)
+    current_fitness = fitness(current_solution, metric, model_name, 0)
     evaluations_done = 1
 
     best_fitness = current_fitness
@@ -107,7 +108,7 @@ def local_search(
     while evaluations_done < max_evaluations:
         # Generar y evaluar vecino
         neighbor = generate_neighbor(current_solution, neighbor_size, vary_percentage)
-        neighbor_fitness = fitness(neighbor, metric, model_name)
+        neighbor_fitness = fitness(neighbor, metric, model_name, evaluations_done)
         evaluations_done += 1
 
         # Criterio de aceptación

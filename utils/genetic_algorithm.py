@@ -111,7 +111,9 @@ def genetic_algorithm(
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
-    fitness_values = [fitness(ind, metric, model_name) for ind in population]
+    fitness_values = [
+        fitness(ind, metric, model_name, iteration) for ind, iteration in zip(population, range(population_size))
+    ]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
@@ -141,7 +143,7 @@ def genetic_algorithm(
 
             for child in [child1, child2]:
                 if len(new_population) < population_size and evaluations_done < max_evaluations:
-                    child_fitness = fitness(child, metric, model_name)
+                    child_fitness = fitness(child, metric, model_name, evaluations_done)
                     evaluations_done += 1
                     new_population.append(child)
                     new_fitness_values.append(child_fitness)
