@@ -150,7 +150,13 @@ def evaluate_model(model, test_loader, device):
 
 def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evaluations: int | None = None):
     # Verificar y mostrar la disponibilidad de GPU
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if os.getenv("SERVER") is not None:
+        while torch.cuda.device_count() < 1:
+            pass
+        device = torch.device("cuda")
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     print(f"Using device: {device}")
     if torch.cuda.is_available():
         print(f"GPU: {torch.cuda.get_device_name(0)}")

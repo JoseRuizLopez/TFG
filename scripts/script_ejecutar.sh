@@ -10,6 +10,8 @@ export PATH="/opt/anaconda/bin:$PATH"
 export TORCH_HOME="/mnt/homeGPU/joruiz/TFG/.cache/torch"
 export MPLCONFIGDIR="/mnt/homeGPU/joruiz/TFG/.cache/matplotlib"
 export PYTHONPATH="$PYTHONPATH:/mnt/homeGPU/joruiz/TFG"
+export SERVER="gpu"
+
 
 eval "$(conda shell.bash hook)"
 conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
