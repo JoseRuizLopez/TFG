@@ -11,7 +11,7 @@ def random_search(
     max_evaluations_without_improvement: int = 20,
     metric: str = "accuracy",
     model_name: str = "resnet"
-) -> tuple[dict, float, list]:
+) -> tuple[dict, float, list, int]:
     """
         Implementa un algoritmo de búsqueda local para selección de imágenes.
 
@@ -53,4 +53,4 @@ def random_search(
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
-    return best_solution, best_fitness, fitness_history
+    return best_solution, best_fitness, fitness_history, evaluations_done

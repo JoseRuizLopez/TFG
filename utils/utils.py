@@ -15,22 +15,31 @@ from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
-def plot_fitness_evolution(fitness_history: List[float], algorithm_name: str, metric: str):
+def plot_fitness_evolution(
+    fitness_history: List[float],
+    initial_percentage: int,
+    algorithm_name: str,
+    metric: str,
+    model: str
+):
     """
     Crea y guarda una gráfica que muestra la evolución del fitness.
 
     Args:
         fitness_history: Lista con los valores de fitness
+        initial_percentage: Entero con el porcentaje inicial de imagenes seleccionadas
         algorithm_name: Nombre del algoritmo utilizado
         metric: Métrica utilizada (accuracy o f1)
+        model: Nombre del modelo usado
     """
     plt.figure(figsize=(10, 6))
     plt.plot(fitness_history, marker='o')
-    plt.title(f'Evolución del {metric} - Algoritmo {algorithm_name}')
+    plt.title(f'Evolución del {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
+              f'Porcentaje Inicial {str(initial_percentage)}%')
     plt.xlabel('Iteración')
     plt.ylabel(metric.capitalize())
     plt.grid(True)
-    plt.savefig(f'img/fitness_evolution_{algorithm_name}_{metric}.png')
+    plt.savefig(f'img/{model}-{algorithm_name}-{str(initial_percentage)}-{metric}.png')
     plt.close()
 
 
@@ -223,6 +232,14 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evalu
         with open("results/evaluations_logs.txt", "a") as file:
             file.write(f"Evaluación {str(evaluations+1)} -> {str(datetime.datetime.now())}\n")
             file.flush()  # Forzar la escritura inmediata al disco
+
+    else:
+        return {
+            "Accuracy": accuracy,
+            "Precision": precision,
+            "Recall": recall,
+            "F1-score": f1
+        }
 
     if metric == "accuracy":
         return accuracy

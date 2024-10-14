@@ -91,7 +91,7 @@ def genetic_algorithm(
     mutation_rate: float = 0.1,
     metric: str = "accuracy",
     model_name: str = "resnet"
-) -> tuple[dict, float, list]:
+) -> tuple[dict, float, list, int]:
     """
     Implementa un algoritmo genético para la selección de imágenes.
 
@@ -172,4 +172,4 @@ def genetic_algorithm(
         best_individual = population[final_best_idx].copy()
         best_fitness = fitness_values[final_best_idx]
 
-    return best_individual, best_fitness, fitness_history
+    return best_individual, best_fitness, fitness_history, evaluations_done

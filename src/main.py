@@ -1,10 +1,13 @@
 import datetime
 import random
-from typing import Literal
+from pathlib import Path
 
 import torch
 import numpy as np
 
+from utils.classes import AlgorithmList
+from utils.classes import MetricList
+from utils.classes import ModelList
 from utils.genetic_algorithm import genetic_algorithm
 from utils.local_search import local_search
 from utils.memetic_algorithm import memetic_algorithm
@@ -27,9 +30,9 @@ def main(
     initial_percentage: int = 10,
     max_evaluations: int = 10,
     max_evaluations_without_improvement: int = 10,
-    algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
-    metric: Literal["accuracy", "f1"] = "accuracy",
-    model_name: Literal["resnet", "mobilenet"] = "resnet"
+    algoritmo: str = "memetico",
+    metric: str = "accuracy",
+    model_name: str = "resnet"
 ):
     set_seed(24012000)
 
@@ -48,7 +51,7 @@ def main(
     print("Start time: " + str(start))
 
     if algoritmo == "aleatorio":
-        best_selection, best_fitness, fitness_history = random_search(
+        best_selection, best_fitness, fitness_history, evaluations_done = random_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -57,7 +60,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "busqueda local":
-        best_selection, best_fitness, fitness_history = local_search(
+        best_selection, best_fitness, fitness_history, evaluations_done = local_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -67,7 +70,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "genetico":
-        best_selection, best_fitness, fitness_history = genetic_algorithm(
+        best_selection, best_fitness, fitness_history, evaluations_done = genetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,
@@ -79,7 +82,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "memetico":
-        best_selection, best_fitness, fitness_history = memetic_algorithm(
+        best_selection, best_fitness, fitness_history, evaluations_done = memetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,
@@ -97,27 +100,66 @@ def main(
         best_fitness = 0.0
         best_selection = {}
         fitness_history = []
+        evaluations_done = 0
 
     end = datetime.datetime.now()
+    duration = end - start
     print("End time: " + str(end))
-    print("Duration: " + str(end - start))
+    print("Duration: " + str(duration))
     print(f"\n\nMejor {metric} al acabar el algoritmo: {best_fitness:.4f}")
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
         # Crear y guardar la gráfica
-        plot_fitness_evolution(fitness_history, algoritmo, metric)
+        plot_fitness_evolution(
+            fitness_history=fitness_history,
+            initial_percentage=initial_percentage,
+            algorithm_name=algoritmo,
+            metric=metric,
+            model=model_name
+        )
 
         final_fitness = fitness(best_selection, metric, model_name=model_name)
-        print(f"\n\nMejor {metric} encontrado: {final_fitness:.4f}")
+        print(f"\n\nMejor {metric} encontrado: {final_fitness[metric.title()]:.4f}")
+
+        num_images = sum(1 for _ in Path(dataset).rglob('*') if _.is_file())
+        images_selected = {key: value for key, value in best_selection.items() if value == 1}
+        resultado = final_fitness | {
+            "Duracion": str(duration),
+            "Evaluaciones Realizadas": evaluations_done,
+            "Porcentaje Final":  len(images_selected) / num_images * 100,
+            "Porcentaje Paper": len(
+                [key for key, value in images_selected.items() if 'paper' in key]
+            ) / len(images_selected) * 100,
+            "Porcentaje Rock": len(
+                [key for key, value in images_selected.items() if 'rock' in key]
+            ) / len(images_selected) * 100,
+            "Porcentaje Scissors": len(
+                [key for key, value in images_selected.items() if 'scissors' in key]
+            ) / len(images_selected) * 100,
+        }
+
+        return resultado
+
     else:
-        print("No se ha seleccionado ningún algoritmo.")
+        raise ValueError("No se ha seleccionado ningún algoritmo.")
 
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
+    porcentaje_inicial = 10
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
 
-    # main(10, 100, 10, "aleatorio", "accuracy", "resnet")
-    main(10, 100, 100, "busqueda local", "accuracy", "resnet")
-    # main(10, 100, 10, "genetico", "accuracy", "mobilenet")
-    # main(10, 100, 10, "memetico", "accuracy", "mobilenet")
+    algoritmo: AlgorithmList = AlgorithmList.ALEATORIO
+    metric: MetricList = MetricList.ACCURACY
+    modelo: ModelList = ModelList.RESNET
+
+    main(
+        porcentaje_inicial,
+        evaluaciones_maximas,
+        evaluaciones_maximas_sin_mejora,
+        algoritmo.value,
+        metric.value,
+        modelo.value
+    )

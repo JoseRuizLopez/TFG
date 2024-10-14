@@ -21,7 +21,7 @@ def memetic_algorithm(
     local_search_neighbor_size: int = 5,
     metric: str = "accuracy",
     model_name: str = "resnet"
-) -> tuple[dict, float, list]:
+) -> tuple[dict, float, list, int]:
     """
     Implementa un algoritmo memético para la selección de imágenes.
 
@@ -76,7 +76,9 @@ def memetic_algorithm(
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
-    fitness_values = [fitness(ind, metric, model_name) for ind in population]
+    fitness_values = [
+        fitness(ind, metric, model_name, iteration) for ind, iteration in zip(population, range(population_size))
+    ]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
@@ -138,4 +140,4 @@ def memetic_algorithm(
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
-    return best_individual, best_fitness, fitness_history
+    return best_individual, best_fitness, fitness_history, evaluations_done
