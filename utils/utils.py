@@ -199,7 +199,7 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evalu
 
     # Definir criterio y optimizador
     criterion = nn.CrossEntropyLoss().to(device)  # Mover criterion a GPU
-    if model_name == "renet":
+    if model_name == "resnet":
         optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
     else:
         optimizer = optim.Adam(model.classifier.parameters(), lr=0.001)

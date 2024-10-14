@@ -29,7 +29,7 @@ def main(
     max_evaluations_without_improvement: int = 10,
     algoritmo: Literal["aleatorio", "busqueda local", "genetico", "memetico"] = "memetico",
     metric: Literal["accuracy", "f1"] = "accuracy",
-    model_name: Literal["resnet", "mobilnet"] = "resnet"
+    model_name: Literal["resnet", "mobilenet"] = "resnet"
 ):
     set_seed(24012000)
 
@@ -117,7 +117,7 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
 
-    main(10, 10, 10, "aleatorio", "accuracy", "mobilnet")
-    #  main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
-    # main(10, 100, 10, "genetico", "accuracy", "mobilnet")
-    # main(10, 100, 10, "memetico", "accuracy", "mobilnet")
+    main(10, 10, 10, "aleatorio", "accuracy", "mobilenet")
+    #  main(10, 100, 10, "busqueda local", "accuracy", "mobilenet")
+    # main(10, 100, 10, "genetico", "accuracy", "mobilenet")
+    # main(10, 100, 10, "memetico", "accuracy", "mobilenet")
