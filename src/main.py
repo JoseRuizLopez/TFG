@@ -18,6 +18,7 @@ def set_seed(seed):
     torch.cuda.manual_seed_all(seed)
     np.random.seed(seed)
     random.seed(seed)
+    torch.use_deterministic_algorithms(True)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
@@ -100,6 +101,7 @@ def main(
     end = datetime.datetime.now()
     print("End time: " + str(end))
     print("Duration: " + str(end - start))
+    print(f"\n\nMejor {metric} al acabar el algoritmo: {best_fitness:.4f}")
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
@@ -115,7 +117,7 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
 
-    # main(10, 100, 10, "aleatorio", "accuracy", "mobilnet")
+    main(10, 10, 10, "aleatorio", "accuracy", "mobilnet")
     #  main(10, 100, 10, "busqueda local", "accuracy", "mobilnet")
     # main(10, 100, 10, "genetico", "accuracy", "mobilnet")
-    main(10, 100, 10, "memetico", "accuracy", "mobilnet")
+    # main(10, 100, 10, "memetico", "accuracy", "mobilnet")

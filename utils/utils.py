@@ -219,9 +219,10 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evalu
         torch.cuda.empty_cache()
         print(f"Memory Allocated after cleanup: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
-    with open("results/evaluations_logs.txt", "a") as file:
-        file.write(f"Evaluación {evaluations+1} -> {str(datetime.datetime.now())}\n")
-        file.flush()  # Forzar la escritura inmediata al disco
+    if evaluations is not None:
+        with open("results/evaluations_logs.txt", "a") as file:
+            file.write(f"Evaluación {str(evaluations+1)} -> {str(datetime.datetime.now())}\n")
+            file.flush()  # Forzar la escritura inmediata al disco
 
     if metric == "accuracy":
         return accuracy

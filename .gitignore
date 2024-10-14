@@ -163,3 +163,4 @@ cython_debug/
 /Notas 09-10-24
 /results/best_checkpoint.pth
 /docs/out/proyecto.toc
+/results/evaluations_logs.txt
