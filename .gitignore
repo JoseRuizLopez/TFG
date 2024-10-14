@@ -164,3 +164,9 @@ cython_debug/
 /results/best_checkpoint.pth
 /docs/out/proyecto.toc
 /results/evaluations_logs.txt
+channeldata.json
+index.html
+noarch/
+pt2.2py310/
+pt2.3py3.10/
+slurm-*
