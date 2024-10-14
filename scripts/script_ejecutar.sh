@@ -10,6 +10,7 @@ export PATH="/opt/anaconda/bin:$PATH"
 export TORCH_HOME="/mnt/homeGPU/joruiz/TFG/.cache/torch"
 export MPLCONFIGDIR="/mnt/homeGPU/joruiz/TFG/.cache/matplotlib"
 export PYTHONPATH="$PYTHONPATH:/mnt/homeGPU/joruiz/TFG"
+export CUBLAS_WORKSPACE_CONFIG=:16:8
 export SERVER="gpu"
 
 
