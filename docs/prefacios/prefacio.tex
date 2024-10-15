@@ -22,32 +22,41 @@ José Ruiz López (alumno)\\
 \vspace{0.7cm}
 \noindent{\textbf{Resumen}}\\
 
-Los modelos de \textbf{Aprendizaje Profundo} (Deep Learning) han supuesto un hito en la Inteligencia Artificial al ser
-capaz de procesar y ser capaces de reconocer patrones complejos.
-Dentro de estos, los modelos convolucionales se han mostrado muy capaces de identificar todo tipo de objetos/
-características en imágenes.\\[6pt]
+Los \textbf{modelos de Aprendizaje Profundo} (Deep Learning) han supuesto un verdadero hito en la
+\textbf{Inteligencia Artificial}, ya que son capaces de procesar grandes volúmenes de datos\ldots y, además, reconocer
+patrones sumamente complejos.
+Dentro de estos, los \textbf{modelos convolucionales} se han destacado como particularmente efectivos a la hora de
+identificar objetos y características en imágenes —una capacidad esencial para muchas aplicaciones modernas—.
+Sin embargo, a diferencia de los seres humanos, estos modelos requieren un número extremadamente alto de datos de
+entrenamiento para cada categoría que deben aprender.
+Esto implica un proceso de entrenamiento más largo y, muchas veces, la recolección de los datos necesarios puede ser
+problemática\ldots según el tipo de información que se necesite. \\[6pt]
 
-Sin embargo, a diferencia de las personas, requieren un número muy alto de datos de entrenamiento para cada categoría
-que debe aprender.
-Eso implica, además de entrenamiento más largo, una recogida de datos de entrenamiento que, según lo que se desea que
-aprenda, puede ser problemático de obtener.
-Además de la obtención de los datos, la nueva ley europea sobre IA, \textbf{IA Act} requerirá sobre aplicaciones de IA
-con datos sensibles, una auditoría no solo del propio modelo, sino también de los datos utilizados para entrenarla.
-Auditoría que crecerá en complejidad confirme aumente en número el conjunto de entrenamiento.
-Por tanto, se hace conveniente poder reducir el conjunto de entrenamiento.\\[6pt]
+Además de la dificultad en la obtención de datos, la reciente \textbf{legislación europea sobre IA} (IA Act)~\cite{}
+establece la necesidad de auditar no solo los modelos, sino también los datos utilizados para entrenarlos,
+especialmente cuando se trata de aplicaciones de IA que manejan datos sensibles.
+Estas auditorías, por su propia naturaleza, se volverán más complejas conforme aumente el tamaño del conjunto de
+entrenamiento.
+Por lo tanto, se vuelve crucial desarrollar estrategias que permitan
+\textbf{reducir el tamaño de los conjuntos de datos de entrenamiento}\ldots sin comprometer la calidad del modelo.
+\\[6pt]
 
-Ya se ha confirmado que incrementar el número de imágenes de entrenamiento puede mejorar el proceso o no, según si las
-imágenes realmente contribuyan al proceso de entrenamiento.
-Es más, gracias a las técnicas de aumento de datos (\textbf{Data Augmentation}) la posible necesidad de imágenes muy
-similares entre sí se reduce al ser capaz de construirse de forma automática más imágenes de entrenamiento (imágenes
-que no suponen un problema de cara a una autoría).\\[6pt]
+Ya se ha demostrado que aumentar el número de imágenes de entrenamiento puede, en ciertos casos, mejorar el proceso;
+sin embargo, esto solo sucede cuando las imágenes adicionales realmente contribuyen al aprendizaje.
+De hecho, las \textbf{técnicas de aumento de datos} (Data Augmentation) permiten reducir la necesidad de muchas
+imágenes similares, ya que estas pueden generarse de manera automática a partir de las ya existentes\ldots lo que además
+evita problemas legales asociados a la autoría de los datos. \\[6pt]
 
-En este trabajo planteamos el uso de estrategias avanzadas, como \textbf{algoritmos metaheurísticos}, y métricas de
-similitud entre imágenes, para establecer un proceso de reducción de imágenes de entrenamiento (selección de
-instancias) para poder reducir el conjunto de entrenamiento.
-De esta manera, se seleccionarían solo un conjunto reducido de imágenes representativas que, gracias a las
-\textbf{técnicas de aumento de datos}, puedan entrenar modelos con una calidad suficiente.
-Por lo tanto, se podría reducir muy significativamente el conjunto de entrenamiento.\\[6pt]
+En este trabajo, proponemos el uso de \textbf{algoritmos meméticos} combinados con
+\textbf{métricas de similitud entre imágenes} para establecer un proceso de reducción del conjunto de
+\textbf{entrenamiento} —lo que se conoce como \textbf{selección de instancias}—.
+La idea es seleccionar un conjunto reducido de imágenes representativas que, junto con las técnicas de aumento de
+datos, sean suficientes para entrenar modelos convolucionales con una calidad óptima.
+De este modo, se podría reducir significativamente el tamaño del conjunto de entrenamiento\ldots manteniendo la calidad
+del aprendizaje y, a su vez, facilitando tanto el proceso de auditoría como la eficiencia computacional del sistema.
+\\[6pt]
+
+
 \cleardoublepage
 
 
@@ -67,38 +76,42 @@ José, Ruiz López (student)\\
 \vspace{0.7cm}
 \noindent{\textbf{Abstract}}\\
 
-\textbf{Deep Learning} models have marked a milestone in Artificial Intelligence by being able to process and recognize
-complex patterns.
-Among these, convolutional models have proven very capable of identifying all kinds of objects/features in images.\\
-[6pt]
+\textbf{Deep Learning models} have marked a true milestone in \textbf{Artificial Intelligence}, as they are capable of
+processing large volumes of data\ldots and, moreover, recognizing highly complex patterns.
+Among these, \textbf{convolutional models} have proven to be particularly effective in identifying objects and
+characteristics in images — an essential capability for many modern applications.
+However, unlike humans, these models require an extremely high number of training data for each category they need to
+learn.
+This implies a longer training process, and often, the collection of the necessary data can be problematic\ldots
+depending on the type of information required. \\[6pt]
 
-However, unlike humans, they require a very high number of training data for each category they need to learn.
-This implies not only longer training times but also a data collection process that can be problematic to obtain,
-depending on what is desired for the model to learn.
-In addition to data acquisition, the new European law on AI, the \textbf{AI Act}, will require an audit not only of the
-model itself but also of the data used to train it, especially when dealing with sensitive data.
-The complexity of this audit will grow as the size of the training dataset increases.
-Therefore, it becomes necessary to reduce the training dataset.\\[6pt]
+In addition to the difficulty of obtaining data, the recent \textbf{European AI legislation} (IA Act)~\cite{}
+establishes the need to audit not only the models but also the data used to train them, especially when dealing with AI
+applications that handle sensitive data.
+These audits, by their very nature, will become more complex as the size of the training set increases.
+Therefore, it becomes crucial to develop strategies that allow for
+\textbf{reducing the size of training datasets}\ldots without compromising the quality of the model. \\[6pt]
 
-It has been confirmed that increasing the number of training images may or may not improve the process, depending on
-whether the images truly contribute to the training process.
-Moreover, thanks to \textbf{data augmentation techniques}, the potential need for very similar images is reduced, as it
-is possible to automatically generate more training images that do not pose authorship issues.\\[6pt]
+It has already been demonstrated that increasing the number of training images can, in certain cases, improve the
+process; however, this only happens when the additional images actually contribute to learning.
+In fact, \textbf{Data Augmentation techniques} help reduce the need for many similar images, as these can be
+automatically generated from existing ones\ldots which also avoids legal issues related to data authorship. \\[6pt]
 
-In this work, we propose the use of advanced strategies, such as \textbf{metaheuristic algorithms} and image similarity
-metrics, to establish a process for reducing training images (instance selection) in order to minimize the training
-dataset.
-This way, only a reduced set of representative images would be selected, which, thanks to \textbf{data augmentation
-techniques}, could sufficiently train models.
-Thus, the training dataset could be significantly reduced.\\[6pt]
+In this work, we propose the use of \textbf{memetic algorithms}, combined with \textbf{image similarity metrics}, to
+establish a process of \textbf{training dataset reduction} — known as \textbf{instance selection}.
+The idea is to select a reduced set of representative images that, along with data augmentation techniques, are
+sufficient to train convolutional models with optimal quality.
+In this way, the size of the training dataset could be significantly reduced\ldots while maintaining the quality of
+learning and, at the same time, facilitating both the auditing process and the computational efficiency of the system.
+\\[6pt]
 
 \chapter*{}
 \thispagestyle{empty}
 
 \noindent\rule[-1ex]{\textwidth}{2pt}\\[4.5ex]
 
-Yo, \textbf{José Ruiz López}, alumno de la titulación TITULACIÓN de la \textbf{Escuela Técnica Superior
-de Ingenierías Informática y de Telecomunicación de la Universidad de Granada}, con DNI 77964364E, autorizo la
+Yo, \textbf{José Ruiz López}, alumno de la titulación INGENIERÍA INFORMÁTICA de la \textbf{Escuela Técnica Superior
+de Ingenierías Informática y de Telecomunicación de la Universidad de Granada}, con DNI \textbf{77964364E}, autorizo la
 ubicación de la siguiente copia de mi Trabajo Fin de Grado en la biblioteca del centro para que pueda ser
 consultada por las personas que lo deseen.
 

@@ -2,28 +2,72 @@
 
 \section{Contexto}\label{sec:contexto}
 %Contexto: Breve introducción al tema y su relevancia.
-En la era actual, donde los datos se generan a un ritmo vertiginoso, la necesidad de procesar y analizar grandes
-volúmenes de información se ha vuelto crucial.
-Los \textbf{modelos de aprendizaje profundo}, y en particular las \textbf{redes neuronales convolucionales}, han
-demostrado su capacidad para alcanzar niveles sin precedentes de precisión en tareas como la clasificación de imágenes
-y el reconocimiento de patrones.
-Sin embargo, estos modelos a menudo requieren enormes cantidades de datos de entrenamiento, lo que plantea desafíos
-significativos en términos de tiempo, costo y recursos computacionales. \\[6pt]
+En la actualidad, nos encontramos en una era caracterizada por una generación de datos que crece a un ritmo sin
+precedentes.
+Este fenómeno plantea la necesidad de desarrollar métodos capaces de procesar y analizar grandes volúmenes de
+información de manera eficiente.
+Los \textbf{modelos de aprendizaje profundo} —especialmente las \textbf{redes neuronales convolucionales} (CNNs)— han
+demostrado ser particularmente efectivos en tareas como la \textbf{clasificación de imágenes}, el
+\textbf{reconocimiento de patrones} y otras aplicaciones complejas.
+Sin embargo, el entrenamiento de estos modelos requiere vastas cantidades de datos, lo que trae consigo importantes
+desafíos relacionados con el \textbf{tiempo de procesamiento}, el \textbf{costo económico} y el
+\textbf{consumo de recursos computacionales}. \\[6pt]
 
-Es aquí donde entra en juego la importancia de los \textbf{algoritmos meméticos}.
-Combinando las fortalezas de las técnicas evolutivas con \textbf{métodos de búsqueda local}, estos algoritmos ofrecen
-un enfoque innovador y eficiente para la reducción de datos.
-La optimización de conjuntos de datos no solo puede mejorar el rendimiento de los modelos, sino que también permite una
-capacitación más rápida y menos costosa, facilitando así la investigación y el desarrollo en diversas aplicaciones.
-\\[6pt]
+A medida que los modelos de inteligencia artificial avanzan hacia configuraciones más complejas y precisas, la
+necesidad de disponer de datos de entrenamiento adecuados y en gran cantidad se hace cada vez más evidente.
+No obstante, la recolección, almacenamiento y procesamiento de estos datos representan barreras significativas para
+muchas organizaciones —especialmente aquellas con recursos limitados—, lo que subraya la importancia de explorar
+enfoques innovadores que permitan la \textbf{optimización y reducción} de los conjuntos de datos necesarios para
+entrenar estos modelos. \\[6pt]
 
-Realizar un TFG sobre este tema no solo representa una oportunidad para explorar una frontera apasionante de la
-inteligencia artificial.
-La investigación en algoritmos meméticos para la reducción de datos puede ser clave para hacer más accesible el
-\textbf{aprendizaje profundo} a aquellos que enfrentan limitaciones de datos, permitiendo asi un futuro donde la
-inteligencia artificial sea más inclusiva y eficiente. \\[6pt]
+\section{Motivación}\label{sec:motivacion}
+La necesidad de \textbf{reducir los conjuntos de datos de entrenamiento} surge de la búsqueda por optimizar la
+\textbf{eficiencia} en el desarrollo de modelos de aprendizaje profundo.
+Si bien las redes neuronales convolucionales han alcanzado resultados impresionantes, sus
+\textbf{altos costos computacionales} y la extensa cantidad de datos que requieren suponen limitaciones para muchos
+entornos.
+Entrenar estos modelos utilizando solo una parte de los datos —seleccionados de manera óptima— podría reducir
+considerablemente los recursos necesarios (sin comprometer la precisión de los resultados); ello marcaría un avance
+significativo para la \textbf{inteligencia artificial} y sus aplicaciones en entornos con
+\textbf{restricciones de recursos}. \\[6pt]
+
+Es aquí donde los \textbf{algoritmos meméticos} entran en juego: estos algoritmos combinan las fortalezas de las
+\textbf{técnicas evolutivas} y los \textbf{métodos de búsqueda local}, con el fin de optimizar de manera eficiente los
+conjuntos de datos.
+La selección de subconjuntos de datos más representativos permite reducir los tiempos de procesamiento y el consumo de
+recursos sin afectar el rendimiento de los modelos.
+Así, los algoritmos meméticos se posicionan como una solución prometedora para hacer que el aprendizaje profundo sea
+más \textbf{accesible y eficiente} —incluso en escenarios donde los recursos son limitados—, lo cual es crucial para
+democratizar el uso de la inteligencia artificial en una amplia gama de aplicaciones. \\[6pt]
+
+Este trabajo de fin de grado (TFG) busca contribuir a esta dirección, explorando la aplicación de algoritmos meméticos
+en la reducción de datos.
+La investigación pretende abrir nuevas vías para el desarrollo de modelos más \textbf{eficientes}, accesibles y
+económicamente viables, lo que favorecerá un futuro en el que la inteligencia artificial sea \textbf{inclusiva} y más
+\textbf{sostenible}. \\[6pt]
 
 \section{Objetivos}\label{sec:objetivos}
 %Objetivos: Especifica qué pretendes lograr con tu TFG.
-\section{Metodología}\label{sec:metodologia}
-%Metodología: Describe brevemente el enfoque que seguirás.
+El objetivo principal de este TFG es investigar la aplicación de \textbf{algoritmos meméticos} para la
+\textbf{reducción de conjuntos de datos de entrenamiento} en modelos de \textbf{aprendizaje profundo convolucionales}.
+Este estudio permitirá evaluar el impacto de dichos algoritmos en la \textbf{eficiencia computacional} y en el
+\textbf{rendimiento de los modelos}.
+Para cumplir con este objetivo general, se plantean los siguientes \textbf{objetivos específicos}:
+
+\begin{itemize}
+    \item \textbf{Desarrollar} e implementar algoritmos meméticos que seleccionen subconjuntos óptimos de datos de
+entrenamiento, con el fin de reducir el volumen de datos requerido para entrenar modelos convolucionales —sin
+comprometer la precisión de los resultados—.
+    \item \textbf{Evaluar} el impacto de la reducción de datos en el rendimiento de los modelos, comparando aspectos
+clave como la precisión, eficacia y el tiempo de entrenamiento —en modelos entrenados con conjuntos de datos completos
+frente a conjuntos reducidos—.
+    \item \textbf{Optimizar la eficiencia} del entrenamiento de redes neuronales convolucionales mediante el uso de
+algoritmos meméticos, analizando los beneficios en términos de reducción de tiempo y costo computacional.
+    \item \textbf{Contribuir al avance} de soluciones innovadoras en el campo del aprendizaje profundo, especialmente
+en escenarios con limitaciones de datos; facilitando así el acceso a esta tecnología a sectores que, de otro modo,
+tendrían dificultades para implementarla de manera efectiva.
+\end{itemize}
+
+A través de este estudio, se busca no solo mejorar el rendimiento y la eficiencia de los modelos convolucionales, sino
+también fomentar el desarrollo de soluciones más \textbf{sostenibles y accesibles} en el ámbito de la inteligencia
+artificial.
