@@ -8,12 +8,12 @@ from utils.classes import ModelList
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 20, 50, 100]
+    porcentajes = [10, 20, 50]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 10
 
     metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.RESNET
+    modelo: ModelList = ModelList.MOBILENET
     resultados = []
 
     for alg in AlgorithmList:
@@ -33,6 +33,22 @@ if __name__ == "__main__":
                     "Algoritmo": alg.value
                 }
             )
+
+    result = main(
+        initial_percentage=100,
+        max_evaluations=evaluaciones_maximas,
+        max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+        algoritmo="aleatorio",
+        metric=metric.value,
+        model_name=modelo.value
+    )
+
+    resultados.append(
+        result | {
+            "Porcentaje Inicial": 100,
+            "Algoritmo": "aleatorio"
+        }
+    )
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,

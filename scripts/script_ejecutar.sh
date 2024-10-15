@@ -19,6 +19,14 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
-python src/generator.py > results/salida.txt
+# Obtener la fecha y hora actual en formato YYYY-MM-DD_HH-MM-SS
+fecha_actual=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Definir el nombre del archivo de salida con la fecha y hora
+archivo_salida="results/salida_${fecha_actual}.txt"
+
+# Ejecutar el script de Python y redirigir la salida al archivo
+#python src/generator.py > "$archivo_salida"
+ls -la > "$archivo_salida"
 
 mail -s "Proceso finalizado" ruizlopezjose@correo.ugr.es <<< "El proceso ha finalizado"
