@@ -139,7 +139,7 @@ def main(
             ) / len(images_selected) * 100,
         }
 
-        return resultado
+        return resultado, fitness_history
 
     else:
         raise ValueError("No se ha seleccionado ningún algoritmo.")

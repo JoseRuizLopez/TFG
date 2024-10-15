@@ -43,6 +43,52 @@ def plot_fitness_evolution(
     plt.close()
 
 
+def plot_multiple_fitness_evolution(
+    data: List[List[float]],
+    labels: List[str],
+    algorithm_name: str,
+    metric: str,
+    model: str
+):
+    """
+    Crea y guarda una gráfica que muestra la evolución del fitness multiple.
+
+    Args:
+        data: Lista de listas, donde cada lista interna contiene los valores de una línea a lo largo de las iteraciones
+        labels: Lista de etiquetas para cada línea
+        algorithm_name: Nombre del algoritmo utilizado
+        metric: Métrica utilizada (accuracy o f1)
+        model: Nombre del modelo usado
+    """
+    # Encontrar la longitud máxima entre todas las listas
+    max_length = max(len(lst) for lst in data)
+
+    # Extender cada lista repitiendo el último valor hasta la longitud máxima
+    extended_data = []
+    for lst in data:
+        extended_lst = lst + [lst[-1]] * (max_length - len(lst))
+        extended_data.append(extended_lst)
+
+    plt.figure(figsize=(10, 6))
+
+    # Graficar cada lista interna de data
+    for i, line_data in enumerate(extended_data):
+        plt.plot(line_data, label=labels[i])
+
+    # Títulos y etiquetas
+    plt.title(f'Evolución del {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
+              f'Con cada porcentaje', fontsize=14)
+    plt.xlabel('Iteración', fontsize=12)
+    plt.ylabel(metric.capitalize(), fontsize=12)
+
+    # Mostrar la leyenda
+    plt.legend(loc='best', fontsize=10)
+
+    plt.grid(True)
+    plt.savefig(f'img/{model}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
+    plt.close()
+
+
 def create_data_loaders(data_dir, dict_selection, batch_size=32):
     transform = transforms.Compose([
         transforms.Resize((256, 256)),

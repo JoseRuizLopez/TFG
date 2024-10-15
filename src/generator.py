@@ -5,6 +5,7 @@ from src.main import main
 from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
+from utils.utils import plot_fitness_evolution_multiple
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
@@ -15,10 +16,12 @@ if __name__ == "__main__":
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
     resultados = []
+    labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
 
     for alg in AlgorithmList:
+        fitness_list = []
         for ptg in porcentajes:
-            result = main(
+            result, fitness_history = main(
                 initial_percentage=ptg,
                 max_evaluations=evaluaciones_maximas,
                 max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
@@ -33,8 +36,11 @@ if __name__ == "__main__":
                     "Algoritmo": alg.value
                 }
             )
+            fitness_list.append(fitness_history)
 
-    result = main(
+        plot_fitness_evolution_multiple(fitness_list, labels, alg.value, metric.value, modelo.value)
+
+    result, fitness_history = main(
         initial_percentage=100,
         max_evaluations=evaluaciones_maximas,
         max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
@@ -49,6 +55,7 @@ if __name__ == "__main__":
             "Algoritmo": "aleatorio"
         }
     )
+
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
