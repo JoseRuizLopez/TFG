@@ -1,0 +1,2201 @@
+GPU: True
+
+
+------------------------------------------------------ALEATORIO-------------------------------------------------
+Start time: 2024-10-15 18:46:43.357773
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.00 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0762, Valid Loss: 1.0870
+Model saved!
+Epoch 2/10, Train Loss: 0.9624, Valid Loss: 0.9925
+Model saved!
+Epoch 3/10, Train Loss: 0.8835, Valid Loss: 0.8727
+Model saved!
+Epoch 4/10, Train Loss: 0.8186, Valid Loss: 0.7481
+Model saved!
+Epoch 5/10, Train Loss: 0.7269, Valid Loss: 0.9280
+Epoch 6/10, Train Loss: 0.6990, Valid Loss: 0.9019
+Epoch 7/10, Train Loss: 0.6168, Valid Loss: 0.5509
+Model saved!
+Epoch 8/10, Train Loss: 0.6026, Valid Loss: 0.7215
+Epoch 9/10, Train Loss: 0.5585, Valid Loss: 0.8689
+Epoch 10/10, Train Loss: 0.5512, Valid Loss: 0.5665
+Accuracy: 0.6747
+Precision: 0.7449
+Recall: 0.6747
+F1-score: 0.6636
+Memory Allocated after cleanup: 17.71 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.6747
+End time: 2024-10-15 18:47:41.467491
+Duration: 0:00:58.109718
+
+
+Mejor accuracy al acabar el algoritmo: 0.6747
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0662, Valid Loss: 1.0582
+Model saved!
+Epoch 2/10, Train Loss: 0.9694, Valid Loss: 0.8133
+Model saved!
+Epoch 3/10, Train Loss: 0.8816, Valid Loss: 1.0210
+Epoch 4/10, Train Loss: 0.8023, Valid Loss: 0.9025
+Epoch 5/10, Train Loss: 0.7449, Valid Loss: 0.9998
+Epoch 6/10, Train Loss: 0.6753, Valid Loss: 0.7070
+Model saved!
+Epoch 7/10, Train Loss: 0.6086, Valid Loss: 0.5000
+Model saved!
+Epoch 8/10, Train Loss: 0.5851, Valid Loss: 0.6459
+Epoch 9/10, Train Loss: 0.5679, Valid Loss: 0.9303
+Epoch 10/10, Train Loss: 0.5042, Valid Loss: 0.6374
+Accuracy: 0.6586
+Precision: 0.7234
+Recall: 0.6586
+F1-score: 0.6358
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.6586
+
+
+------------------------------------------------------ALEATORIO-------------------------------------------------
+Start time: 2024-10-15 18:48:12.719130
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9809
+Epoch 1/10, Train Loss: 1.0059, Valid Loss: 0.7311
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.7966
+Epoch 2/10, Train Loss: 0.8344, Valid Loss: 0.7988
+Epoch 3/10, Batch 10/16, Loss: 0.6339
+Epoch 3/10, Train Loss: 0.7163, Valid Loss: 0.5415
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6314
+Epoch 4/10, Train Loss: 0.6229, Valid Loss: 0.5220
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5369
+Epoch 5/10, Train Loss: 0.5669, Valid Loss: 0.3970
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.5537
+Epoch 6/10, Train Loss: 0.5152, Valid Loss: 0.5798
+Epoch 7/10, Batch 10/16, Loss: 0.4463
+Epoch 7/10, Train Loss: 0.4580, Valid Loss: 0.4713
+Epoch 8/10, Batch 10/16, Loss: 0.3668
+Epoch 8/10, Train Loss: 0.4298, Valid Loss: 0.8314
+Epoch 9/10, Batch 10/16, Loss: 0.3889
+Epoch 9/10, Train Loss: 0.4184, Valid Loss: 0.3974
+Epoch 10/10, Batch 10/16, Loss: 0.3647
+Epoch 10/10, Train Loss: 0.3600, Valid Loss: 0.9736
+Accuracy: 0.7419
+Precision: 0.7810
+Recall: 0.7419
+F1-score: 0.7355
+Memory Allocated after cleanup: 17.71 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.7419
+End time: 2024-10-15 18:48:59.493202
+Duration: 0:00:46.774072
+
+
+Mejor accuracy al acabar el algoritmo: 0.7419
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0810
+Epoch 1/10, Train Loss: 1.0342, Valid Loss: 1.0152
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8828
+Epoch 2/10, Train Loss: 0.8695, Valid Loss: 0.6967
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7741
+Epoch 3/10, Train Loss: 0.7447, Valid Loss: 0.6358
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.7205
+Epoch 4/10, Train Loss: 0.6809, Valid Loss: 0.8740
+Epoch 5/10, Batch 10/16, Loss: 0.6472
+Epoch 5/10, Train Loss: 0.6109, Valid Loss: 0.6561
+Epoch 6/10, Batch 10/16, Loss: 0.5213
+Epoch 6/10, Train Loss: 0.5326, Valid Loss: 0.7191
+Epoch 7/10, Batch 10/16, Loss: 0.5276
+Epoch 7/10, Train Loss: 0.4803, Valid Loss: 0.7378
+Epoch 8/10, Batch 10/16, Loss: 0.4385
+Epoch 8/10, Train Loss: 0.4428, Valid Loss: 0.5939
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4921
+Epoch 9/10, Train Loss: 0.4287, Valid Loss: 0.9889
+Epoch 10/10, Batch 10/16, Loss: 0.3675
+Epoch 10/10, Train Loss: 0.3993, Valid Loss: 0.3495
+Model saved!
+Accuracy: 0.7715
+Precision: 0.8026
+Recall: 0.7715
+F1-score: 0.7654
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.7715
+
+
+------------------------------------------------------ALEATORIO-------------------------------------------------
+Start time: 2024-10-15 18:49:51.423493
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0005
+Epoch 1/10, Batch 20/40, Loss: 0.9186
+Epoch 1/10, Batch 30/40, Loss: 0.8899
+Epoch 1/10, Batch 40/40, Loss: 0.7732
+Epoch 1/10, Train Loss: 0.8807, Valid Loss: 0.8272
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6742
+Epoch 2/10, Batch 20/40, Loss: 0.6940
+Epoch 2/10, Batch 30/40, Loss: 0.5713
+Epoch 2/10, Batch 40/40, Loss: 0.5865
+Epoch 2/10, Train Loss: 0.6310, Valid Loss: 0.5813
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5227
+Epoch 3/10, Batch 20/40, Loss: 0.4468
+Epoch 3/10, Batch 30/40, Loss: 0.4614
+Epoch 3/10, Batch 40/40, Loss: 0.5405
+Epoch 3/10, Train Loss: 0.4933, Valid Loss: 0.8902
+Epoch 4/10, Batch 10/40, Loss: 0.3882
+Epoch 4/10, Batch 20/40, Loss: 0.3559
+Epoch 4/10, Batch 30/40, Loss: 0.3359
+Epoch 4/10, Batch 40/40, Loss: 0.4227
+Epoch 4/10, Train Loss: 0.4162, Valid Loss: 0.5054
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3607
+Epoch 5/10, Batch 20/40, Loss: 0.3506
+Epoch 5/10, Batch 30/40, Loss: 0.3788
+Epoch 5/10, Batch 40/40, Loss: 0.2921
+Epoch 5/10, Train Loss: 0.3655, Valid Loss: 0.2902
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.3566
+Epoch 6/10, Batch 20/40, Loss: 0.3413
+Epoch 6/10, Batch 30/40, Loss: 0.2352
+Epoch 6/10, Batch 40/40, Loss: 0.4043
+Epoch 6/10, Train Loss: 0.3161, Valid Loss: 1.1283
+Epoch 7/10, Batch 10/40, Loss: 0.1660
+Epoch 7/10, Batch 20/40, Loss: 0.3334
+Epoch 7/10, Batch 30/40, Loss: 0.3622
+Epoch 7/10, Batch 40/40, Loss: 0.3708
+Epoch 7/10, Train Loss: 0.2876, Valid Loss: 0.3730
+Epoch 8/10, Batch 10/40, Loss: 0.2386
+Epoch 8/10, Batch 20/40, Loss: 0.3092
+Epoch 8/10, Batch 30/40, Loss: 0.2142
+Epoch 8/10, Batch 40/40, Loss: 0.5017
+Epoch 8/10, Train Loss: 0.2580, Valid Loss: 0.2466
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2542
+Epoch 9/10, Batch 20/40, Loss: 0.2154
+Epoch 9/10, Batch 30/40, Loss: 0.2199
+Epoch 9/10, Batch 40/40, Loss: 0.3979
+Epoch 9/10, Train Loss: 0.2460, Valid Loss: 0.2457
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.1926
+Epoch 10/10, Batch 20/40, Loss: 0.1688
+Epoch 10/10, Batch 30/40, Loss: 0.1856
+Epoch 10/10, Batch 40/40, Loss: 0.3307
+Epoch 10/10, Train Loss: 0.2374, Valid Loss: 0.2865
+Accuracy: 0.8038
+Precision: 0.8248
+Recall: 0.8038
+F1-score: 0.7997
+Memory Allocated after cleanup: 17.71 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.8038
+End time: 2024-10-15 18:51:49.176576
+Duration: 0:01:57.753083
+
+
+Mejor accuracy al acabar el algoritmo: 0.8038
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 0.9996
+Epoch 1/10, Batch 20/40, Loss: 0.8287
+Epoch 1/10, Batch 30/40, Loss: 0.8352
+Epoch 1/10, Batch 40/40, Loss: 0.7685
+Epoch 1/10, Train Loss: 0.8973, Valid Loss: 0.7999
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6673
+Epoch 2/10, Batch 20/40, Loss: 0.6479
+Epoch 2/10, Batch 30/40, Loss: 0.6088
+Epoch 2/10, Batch 40/40, Loss: 0.6148
+Epoch 2/10, Train Loss: 0.6265, Valid Loss: 0.6085
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.4625
+Epoch 3/10, Batch 20/40, Loss: 0.4152
+Epoch 3/10, Batch 30/40, Loss: 0.4462
+Epoch 3/10, Batch 40/40, Loss: 0.3168
+Epoch 3/10, Train Loss: 0.4789, Valid Loss: 0.4348
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.2960
+Epoch 4/10, Batch 20/40, Loss: 0.3747
+Epoch 4/10, Batch 30/40, Loss: 0.4081
+Epoch 4/10, Batch 40/40, Loss: 0.4579
+Epoch 4/10, Train Loss: 0.4198, Valid Loss: 0.9387
+Epoch 5/10, Batch 10/40, Loss: 0.3290
+Epoch 5/10, Batch 20/40, Loss: 0.4308
+Epoch 5/10, Batch 30/40, Loss: 0.4621
+Epoch 5/10, Batch 40/40, Loss: 0.2656
+Epoch 5/10, Train Loss: 0.3451, Valid Loss: 0.3316
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.2637
+Epoch 6/10, Batch 20/40, Loss: 0.2164
+Epoch 6/10, Batch 30/40, Loss: 0.2675
+Epoch 6/10, Batch 40/40, Loss: 0.4043
+Epoch 6/10, Train Loss: 0.3206, Valid Loss: 0.2831
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.3126
+Epoch 7/10, Batch 20/40, Loss: 0.2580
+Epoch 7/10, Batch 30/40, Loss: 0.3656
+Epoch 7/10, Batch 40/40, Loss: 0.4321
+Epoch 7/10, Train Loss: 0.2970, Valid Loss: 0.3824
+Epoch 8/10, Batch 10/40, Loss: 0.2072
+Epoch 8/10, Batch 20/40, Loss: 0.3991
+Epoch 8/10, Batch 30/40, Loss: 0.3522
+Epoch 8/10, Batch 40/40, Loss: 0.1736
+Epoch 8/10, Train Loss: 0.2546, Valid Loss: 0.2552
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2638
+Epoch 9/10, Batch 20/40, Loss: 0.2858
+Epoch 9/10, Batch 30/40, Loss: 0.1561
+Epoch 9/10, Batch 40/40, Loss: 0.2780
+Epoch 9/10, Train Loss: 0.2542, Valid Loss: 1.1486
+Epoch 10/10, Batch 10/40, Loss: 0.2554
+Epoch 10/10, Batch 20/40, Loss: 0.2001
+Epoch 10/10, Batch 30/40, Loss: 0.2357
+Epoch 10/10, Batch 40/40, Loss: 0.2496
+Epoch 10/10, Train Loss: 0.2167, Valid Loss: 0.9564
+Accuracy: 0.8091
+Precision: 0.8260
+Recall: 0.8091
+F1-score: 0.8052
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.8091
+
+
+------------------------------------------------------BUSQUEDA LOCAL-------------------------------------------------
+Start time: 2024-10-15 18:53:40.702977
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0762, Valid Loss: 1.0870
+Model saved!
+Epoch 2/10, Train Loss: 0.9624, Valid Loss: 0.9925
+Model saved!
+Epoch 3/10, Train Loss: 0.8835, Valid Loss: 0.8727
+Model saved!
+Epoch 4/10, Train Loss: 0.8186, Valid Loss: 0.7481
+Model saved!
+Epoch 5/10, Train Loss: 0.7269, Valid Loss: 0.9280
+Epoch 6/10, Train Loss: 0.6990, Valid Loss: 0.9019
+Epoch 7/10, Train Loss: 0.6168, Valid Loss: 0.5509
+Model saved!
+Epoch 8/10, Train Loss: 0.6026, Valid Loss: 0.7215
+Epoch 9/10, Train Loss: 0.5585, Valid Loss: 0.8689
+Epoch 10/10, Train Loss: 0.5512, Valid Loss: 0.5665
+Accuracy: 0.6747
+Precision: 0.7449
+Recall: 0.6747
+F1-score: 0.6636
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 18:54:08.410077
+Duration: 0:00:27.707100
+
+
+Mejor accuracy al acabar el algoritmo: 0.6747
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0662, Valid Loss: 1.0582
+Model saved!
+Epoch 2/10, Train Loss: 0.9694, Valid Loss: 0.8133
+Model saved!
+Epoch 3/10, Train Loss: 0.8816, Valid Loss: 1.0210
+Epoch 4/10, Train Loss: 0.8023, Valid Loss: 0.9025
+Epoch 5/10, Train Loss: 0.7449, Valid Loss: 0.9998
+Epoch 6/10, Train Loss: 0.6753, Valid Loss: 0.7070
+Model saved!
+Epoch 7/10, Train Loss: 0.6086, Valid Loss: 0.5000
+Model saved!
+Epoch 8/10, Train Loss: 0.5851, Valid Loss: 0.6459
+Epoch 9/10, Train Loss: 0.5679, Valid Loss: 0.9303
+Epoch 10/10, Train Loss: 0.5042, Valid Loss: 0.6374
+Accuracy: 0.6586
+Precision: 0.7234
+Recall: 0.6586
+F1-score: 0.6358
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.6586
+
+
+------------------------------------------------------BUSQUEDA LOCAL-------------------------------------------------
+Start time: 2024-10-15 18:54:35.111926
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9809
+Epoch 1/10, Train Loss: 1.0059, Valid Loss: 0.7311
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.7966
+Epoch 2/10, Train Loss: 0.8344, Valid Loss: 0.7988
+Epoch 3/10, Batch 10/16, Loss: 0.6339
+Epoch 3/10, Train Loss: 0.7163, Valid Loss: 0.5415
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6314
+Epoch 4/10, Train Loss: 0.6229, Valid Loss: 0.5220
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5369
+Epoch 5/10, Train Loss: 0.5669, Valid Loss: 0.3970
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.5537
+Epoch 6/10, Train Loss: 0.5152, Valid Loss: 0.5798
+Epoch 7/10, Batch 10/16, Loss: 0.4463
+Epoch 7/10, Train Loss: 0.4580, Valid Loss: 0.4713
+Epoch 8/10, Batch 10/16, Loss: 0.3668
+Epoch 8/10, Train Loss: 0.4298, Valid Loss: 0.8314
+Epoch 9/10, Batch 10/16, Loss: 0.3889
+Epoch 9/10, Train Loss: 0.4184, Valid Loss: 0.3974
+Epoch 10/10, Batch 10/16, Loss: 0.3647
+Epoch 10/10, Train Loss: 0.3600, Valid Loss: 0.9736
+Accuracy: 0.7419
+Precision: 0.7810
+Recall: 0.7419
+F1-score: 0.7355
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 18:55:23.144856
+Duration: 0:00:48.032930
+
+
+Mejor accuracy al acabar el algoritmo: 0.7419
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0810
+Epoch 1/10, Train Loss: 1.0342, Valid Loss: 1.0152
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8828
+Epoch 2/10, Train Loss: 0.8695, Valid Loss: 0.6967
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7741
+Epoch 3/10, Train Loss: 0.7447, Valid Loss: 0.6358
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.7205
+Epoch 4/10, Train Loss: 0.6809, Valid Loss: 0.8740
+Epoch 5/10, Batch 10/16, Loss: 0.6472
+Epoch 5/10, Train Loss: 0.6109, Valid Loss: 0.6561
+Epoch 6/10, Batch 10/16, Loss: 0.5213
+Epoch 6/10, Train Loss: 0.5326, Valid Loss: 0.7191
+Epoch 7/10, Batch 10/16, Loss: 0.5276
+Epoch 7/10, Train Loss: 0.4803, Valid Loss: 0.7378
+Epoch 8/10, Batch 10/16, Loss: 0.4385
+Epoch 8/10, Train Loss: 0.4428, Valid Loss: 0.5939
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4921
+Epoch 9/10, Train Loss: 0.4287, Valid Loss: 0.9889
+Epoch 10/10, Batch 10/16, Loss: 0.3675
+Epoch 10/10, Train Loss: 0.3993, Valid Loss: 0.3495
+Model saved!
+Accuracy: 0.7715
+Precision: 0.8026
+Recall: 0.7715
+F1-score: 0.7654
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.7715
+
+
+------------------------------------------------------BUSQUEDA LOCAL-------------------------------------------------
+Start time: 2024-10-15 18:56:11.152694
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0005
+Epoch 1/10, Batch 20/40, Loss: 0.9186
+Epoch 1/10, Batch 30/40, Loss: 0.8899
+Epoch 1/10, Batch 40/40, Loss: 0.7732
+Epoch 1/10, Train Loss: 0.8807, Valid Loss: 0.8272
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6742
+Epoch 2/10, Batch 20/40, Loss: 0.6940
+Epoch 2/10, Batch 30/40, Loss: 0.5713
+Epoch 2/10, Batch 40/40, Loss: 0.5865
+Epoch 2/10, Train Loss: 0.6310, Valid Loss: 0.5813
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5227
+Epoch 3/10, Batch 20/40, Loss: 0.4468
+Epoch 3/10, Batch 30/40, Loss: 0.4614
+Epoch 3/10, Batch 40/40, Loss: 0.5405
+Epoch 3/10, Train Loss: 0.4933, Valid Loss: 0.8902
+Epoch 4/10, Batch 10/40, Loss: 0.3882
+Epoch 4/10, Batch 20/40, Loss: 0.3559
+Epoch 4/10, Batch 30/40, Loss: 0.3359
+Epoch 4/10, Batch 40/40, Loss: 0.4227
+Epoch 4/10, Train Loss: 0.4162, Valid Loss: 0.5054
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3607
+Epoch 5/10, Batch 20/40, Loss: 0.3506
+Epoch 5/10, Batch 30/40, Loss: 0.3788
+Epoch 5/10, Batch 40/40, Loss: 0.2921
+Epoch 5/10, Train Loss: 0.3655, Valid Loss: 0.2902
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.3566
+Epoch 6/10, Batch 20/40, Loss: 0.3413
+Epoch 6/10, Batch 30/40, Loss: 0.2352
+Epoch 6/10, Batch 40/40, Loss: 0.4043
+Epoch 6/10, Train Loss: 0.3161, Valid Loss: 1.1283
+Epoch 7/10, Batch 10/40, Loss: 0.1660
+Epoch 7/10, Batch 20/40, Loss: 0.3334
+Epoch 7/10, Batch 30/40, Loss: 0.3622
+Epoch 7/10, Batch 40/40, Loss: 0.3708
+Epoch 7/10, Train Loss: 0.2876, Valid Loss: 0.3730
+Epoch 8/10, Batch 10/40, Loss: 0.2386
+Epoch 8/10, Batch 20/40, Loss: 0.3092
+Epoch 8/10, Batch 30/40, Loss: 0.2142
+Epoch 8/10, Batch 40/40, Loss: 0.5017
+Epoch 8/10, Train Loss: 0.2580, Valid Loss: 0.2466
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2542
+Epoch 9/10, Batch 20/40, Loss: 0.2154
+Epoch 9/10, Batch 30/40, Loss: 0.2199
+Epoch 9/10, Batch 40/40, Loss: 0.3979
+Epoch 9/10, Train Loss: 0.2460, Valid Loss: 0.2457
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.1926
+Epoch 10/10, Batch 20/40, Loss: 0.1688
+Epoch 10/10, Batch 30/40, Loss: 0.1856
+Epoch 10/10, Batch 40/40, Loss: 0.3307
+Epoch 10/10, Train Loss: 0.2374, Valid Loss: 0.2865
+Accuracy: 0.8038
+Precision: 0.8248
+Recall: 0.8038
+F1-score: 0.7997
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 18:58:00.807406
+Duration: 0:01:49.654712
+
+
+Mejor accuracy al acabar el algoritmo: 0.8038
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 0.9996
+Epoch 1/10, Batch 20/40, Loss: 0.8287
+Epoch 1/10, Batch 30/40, Loss: 0.8352
+Epoch 1/10, Batch 40/40, Loss: 0.7685
+Epoch 1/10, Train Loss: 0.8973, Valid Loss: 0.7999
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6673
+Epoch 2/10, Batch 20/40, Loss: 0.6479
+Epoch 2/10, Batch 30/40, Loss: 0.6088
+Epoch 2/10, Batch 40/40, Loss: 0.6148
+Epoch 2/10, Train Loss: 0.6265, Valid Loss: 0.6085
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.4625
+Epoch 3/10, Batch 20/40, Loss: 0.4152
+Epoch 3/10, Batch 30/40, Loss: 0.4462
+Epoch 3/10, Batch 40/40, Loss: 0.3168
+Epoch 3/10, Train Loss: 0.4789, Valid Loss: 0.4348
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.2960
+Epoch 4/10, Batch 20/40, Loss: 0.3747
+Epoch 4/10, Batch 30/40, Loss: 0.4081
+Epoch 4/10, Batch 40/40, Loss: 0.4579
+Epoch 4/10, Train Loss: 0.4198, Valid Loss: 0.9387
+Epoch 5/10, Batch 10/40, Loss: 0.3290
+Epoch 5/10, Batch 20/40, Loss: 0.4308
+Epoch 5/10, Batch 30/40, Loss: 0.4621
+Epoch 5/10, Batch 40/40, Loss: 0.2656
+Epoch 5/10, Train Loss: 0.3451, Valid Loss: 0.3316
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.2637
+Epoch 6/10, Batch 20/40, Loss: 0.2164
+Epoch 6/10, Batch 30/40, Loss: 0.2675
+Epoch 6/10, Batch 40/40, Loss: 0.4043
+Epoch 6/10, Train Loss: 0.3206, Valid Loss: 0.2831
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.3126
+Epoch 7/10, Batch 20/40, Loss: 0.2580
+Epoch 7/10, Batch 30/40, Loss: 0.3656
+Epoch 7/10, Batch 40/40, Loss: 0.4321
+Epoch 7/10, Train Loss: 0.2970, Valid Loss: 0.3824
+Epoch 8/10, Batch 10/40, Loss: 0.2072
+Epoch 8/10, Batch 20/40, Loss: 0.3991
+Epoch 8/10, Batch 30/40, Loss: 0.3522
+Epoch 8/10, Batch 40/40, Loss: 0.1736
+Epoch 8/10, Train Loss: 0.2546, Valid Loss: 0.2552
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2638
+Epoch 9/10, Batch 20/40, Loss: 0.2858
+Epoch 9/10, Batch 30/40, Loss: 0.1561
+Epoch 9/10, Batch 40/40, Loss: 0.2780
+Epoch 9/10, Train Loss: 0.2542, Valid Loss: 1.1486
+Epoch 10/10, Batch 10/40, Loss: 0.2554
+Epoch 10/10, Batch 20/40, Loss: 0.2001
+Epoch 10/10, Batch 30/40, Loss: 0.2357
+Epoch 10/10, Batch 40/40, Loss: 0.2496
+Epoch 10/10, Train Loss: 0.2167, Valid Loss: 0.9564
+Accuracy: 0.8091
+Precision: 0.8260
+Recall: 0.8091
+F1-score: 0.8052
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.8091
+
+
+------------------------------------------------------GENETICO-------------------------------------------------
+Start time: 2024-10-15 18:59:50.622179
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0762, Valid Loss: 1.0870
+Model saved!
+Epoch 2/10, Train Loss: 0.9624, Valid Loss: 0.9925
+Model saved!
+Epoch 3/10, Train Loss: 0.8835, Valid Loss: 0.8727
+Model saved!
+Epoch 4/10, Train Loss: 0.8186, Valid Loss: 0.7481
+Model saved!
+Epoch 5/10, Train Loss: 0.7269, Valid Loss: 0.9280
+Epoch 6/10, Train Loss: 0.6990, Valid Loss: 0.9019
+Epoch 7/10, Train Loss: 0.6168, Valid Loss: 0.5509
+Model saved!
+Epoch 8/10, Train Loss: 0.6026, Valid Loss: 0.7215
+Epoch 9/10, Train Loss: 0.5585, Valid Loss: 0.8689
+Epoch 10/10, Train Loss: 0.5512, Valid Loss: 0.5665
+Accuracy: 0.6747
+Precision: 0.7449
+Recall: 0.6747
+F1-score: 0.6636
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0694, Valid Loss: 1.0315
+Model saved!
+Epoch 2/10, Train Loss: 0.9734, Valid Loss: 0.8682
+Model saved!
+Epoch 3/10, Train Loss: 0.8852, Valid Loss: 0.9603
+Epoch 4/10, Train Loss: 0.7986, Valid Loss: 0.9712
+Epoch 5/10, Train Loss: 0.7569, Valid Loss: 0.9243
+Epoch 6/10, Train Loss: 0.6860, Valid Loss: 0.7860
+Model saved!
+Epoch 7/10, Train Loss: 0.6368, Valid Loss: 0.5224
+Model saved!
+Epoch 8/10, Train Loss: 0.5921, Valid Loss: 0.5947
+Epoch 9/10, Train Loss: 0.5717, Valid Loss: 0.8200
+Epoch 10/10, Train Loss: 0.5437, Valid Loss: 0.6292
+Accuracy: 0.7016
+Precision: 0.7402
+Recall: 0.7016
+F1-score: 0.6902
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0559, Valid Loss: 0.9880
+Model saved!
+Epoch 2/10, Train Loss: 0.9498, Valid Loss: 0.9744
+Model saved!
+Epoch 3/10, Train Loss: 0.8724, Valid Loss: 0.7715
+Model saved!
+Epoch 4/10, Train Loss: 0.7983, Valid Loss: 1.0032
+Epoch 5/10, Train Loss: 0.7418, Valid Loss: 0.8770
+Epoch 6/10, Train Loss: 0.6829, Valid Loss: 0.7314
+Model saved!
+Epoch 7/10, Train Loss: 0.6266, Valid Loss: 0.7910
+Epoch 8/10, Train Loss: 0.5725, Valid Loss: 0.5890
+Model saved!
+Epoch 9/10, Train Loss: 0.5588, Valid Loss: 0.6242
+Epoch 10/10, Train Loss: 0.5171, Valid Loss: 0.6795
+Accuracy: 0.6720
+Precision: 0.7387
+Recall: 0.6720
+F1-score: 0.6576
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.1021, Valid Loss: 1.0585
+Model saved!
+Epoch 2/10, Train Loss: 0.9831, Valid Loss: 0.9365
+Model saved!
+Epoch 3/10, Train Loss: 0.8871, Valid Loss: 0.8647
+Model saved!
+Epoch 4/10, Train Loss: 0.8347, Valid Loss: 0.8460
+Model saved!
+Epoch 5/10, Train Loss: 0.7705, Valid Loss: 0.8251
+Model saved!
+Epoch 6/10, Train Loss: 0.7042, Valid Loss: 0.6513
+Model saved!
+Epoch 7/10, Train Loss: 0.6674, Valid Loss: 0.7534
+Epoch 8/10, Train Loss: 0.6509, Valid Loss: 0.4603
+Model saved!
+Epoch 9/10, Train Loss: 0.5847, Valid Loss: 0.5823
+Epoch 10/10, Train Loss: 0.5506, Valid Loss: 0.6574
+Accuracy: 0.7527
+Precision: 0.7854
+Recall: 0.7527
+F1-score: 0.7327
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0746, Valid Loss: 1.1507
+Model saved!
+Epoch 2/10, Train Loss: 0.9759, Valid Loss: 0.9273
+Model saved!
+Epoch 3/10, Train Loss: 0.8776, Valid Loss: 0.7804
+Model saved!
+Epoch 4/10, Train Loss: 0.8422, Valid Loss: 0.8864
+Epoch 5/10, Train Loss: 0.7477, Valid Loss: 0.6999
+Model saved!
+Epoch 6/10, Train Loss: 0.7013, Valid Loss: 0.5689
+Model saved!
+Epoch 7/10, Train Loss: 0.6544, Valid Loss: 0.7319
+Epoch 8/10, Train Loss: 0.6055, Valid Loss: 0.5324
+Model saved!
+Epoch 9/10, Train Loss: 0.5766, Valid Loss: 0.6562
+Epoch 10/10, Train Loss: 0.5395, Valid Loss: 0.5047
+Model saved!
+Accuracy: 0.7392
+Precision: 0.7709
+Recall: 0.7392
+F1-score: 0.7245
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0624, Valid Loss: 1.0060
+Model saved!
+Epoch 2/10, Train Loss: 0.9713, Valid Loss: 0.9609
+Model saved!
+Epoch 3/10, Train Loss: 0.8714, Valid Loss: 0.8712
+Model saved!
+Epoch 4/10, Train Loss: 0.7986, Valid Loss: 0.8690
+Model saved!
+Epoch 5/10, Train Loss: 0.7385, Valid Loss: 0.8532
+Model saved!
+Epoch 6/10, Train Loss: 0.6965, Valid Loss: 0.5415
+Model saved!
+Epoch 7/10, Train Loss: 0.6208, Valid Loss: 0.6606
+Epoch 8/10, Train Loss: 0.5976, Valid Loss: 0.5527
+Epoch 9/10, Train Loss: 0.5857, Valid Loss: 0.6334
+Epoch 10/10, Train Loss: 0.5415, Valid Loss: 0.5988
+Accuracy: 0.6774
+Precision: 0.7587
+Recall: 0.6774
+F1-score: 0.6446
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0839, Valid Loss: 1.0804
+Model saved!
+Epoch 2/10, Train Loss: 0.9861, Valid Loss: 0.8179
+Model saved!
+Epoch 3/10, Train Loss: 0.8969, Valid Loss: 0.8501
+Epoch 4/10, Train Loss: 0.8095, Valid Loss: 0.9960
+Epoch 5/10, Train Loss: 0.7777, Valid Loss: 0.6905
+Model saved!
+Epoch 6/10, Train Loss: 0.7100, Valid Loss: 0.7731
+Epoch 7/10, Train Loss: 0.6851, Valid Loss: 0.5011
+Model saved!
+Epoch 8/10, Train Loss: 0.6455, Valid Loss: 0.7461
+Epoch 9/10, Train Loss: 0.5659, Valid Loss: 0.5511
+Epoch 10/10, Train Loss: 0.5595, Valid Loss: 0.5593
+Accuracy: 0.7366
+Precision: 0.7553
+Recall: 0.7366
+F1-score: 0.7296
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0503, Valid Loss: 1.0763
+Model saved!
+Epoch 2/10, Train Loss: 0.9308, Valid Loss: 0.9649
+Model saved!
+Epoch 3/10, Train Loss: 0.8455, Valid Loss: 0.8986
+Model saved!
+Epoch 4/10, Train Loss: 0.7673, Valid Loss: 0.9120
+Epoch 5/10, Train Loss: 0.7217, Valid Loss: 0.6749
+Model saved!
+Epoch 6/10, Train Loss: 0.6739, Valid Loss: 0.7561
+Epoch 7/10, Train Loss: 0.6163, Valid Loss: 0.6864
+Epoch 8/10, Train Loss: 0.5681, Valid Loss: 0.4332
+Model saved!
+Epoch 9/10, Train Loss: 0.5288, Valid Loss: 0.9022
+Epoch 10/10, Train Loss: 0.5275, Valid Loss: 0.4713
+Accuracy: 0.7608
+Precision: 0.7831
+Recall: 0.7608
+F1-score: 0.7471
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0665, Valid Loss: 1.0543
+Model saved!
+Epoch 2/10, Train Loss: 0.9726, Valid Loss: 1.0255
+Model saved!
+Epoch 3/10, Train Loss: 0.8842, Valid Loss: 0.8913
+Model saved!
+Epoch 4/10, Train Loss: 0.8097, Valid Loss: 0.8152
+Model saved!
+Epoch 5/10, Train Loss: 0.7446, Valid Loss: 0.8507
+Epoch 6/10, Train Loss: 0.7150, Valid Loss: 0.6795
+Model saved!
+Epoch 7/10, Train Loss: 0.6418, Valid Loss: 0.6214
+Model saved!
+Epoch 8/10, Train Loss: 0.6029, Valid Loss: 0.9031
+Epoch 9/10, Train Loss: 0.5607, Valid Loss: 0.6367
+Epoch 10/10, Train Loss: 0.5690, Valid Loss: 0.7982
+Accuracy: 0.7608
+Precision: 0.7826
+Recall: 0.7608
+F1-score: 0.7468
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0398, Valid Loss: 1.1931
+Model saved!
+Epoch 2/10, Train Loss: 0.9390, Valid Loss: 1.0944
+Model saved!
+Epoch 3/10, Train Loss: 0.8482, Valid Loss: 0.8507
+Model saved!
+Epoch 4/10, Train Loss: 0.7778, Valid Loss: 0.8456
+Model saved!
+Epoch 5/10, Train Loss: 0.7016, Valid Loss: 0.8933
+Epoch 6/10, Train Loss: 0.6655, Valid Loss: 0.9853
+Epoch 7/10, Train Loss: 0.6555, Valid Loss: 0.6674
+Model saved!
+Epoch 8/10, Train Loss: 0.5877, Valid Loss: 0.9018
+Epoch 9/10, Train Loss: 0.5640, Valid Loss: 0.9573
+Epoch 10/10, Train Loss: 0.5175, Valid Loss: 0.6228
+Model saved!
+Accuracy: 0.7796
+Precision: 0.7779
+Recall: 0.7796
+F1-score: 0.7733
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 19:04:28.221243
+Duration: 0:04:37.599064
+
+
+Mejor accuracy al acabar el algoritmo: 0.7796
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0652, Valid Loss: 1.0952
+Model saved!
+Epoch 2/10, Train Loss: 0.9685, Valid Loss: 1.0802
+Model saved!
+Epoch 3/10, Train Loss: 0.8804, Valid Loss: 0.9503
+Model saved!
+Epoch 4/10, Train Loss: 0.7803, Valid Loss: 0.6824
+Model saved!
+Epoch 5/10, Train Loss: 0.7322, Valid Loss: 0.7865
+Epoch 6/10, Train Loss: 0.6757, Valid Loss: 0.8905
+Epoch 7/10, Train Loss: 0.6281, Valid Loss: 0.8646
+Epoch 8/10, Train Loss: 0.5932, Valid Loss: 0.4459
+Model saved!
+Epoch 9/10, Train Loss: 0.5485, Valid Loss: 0.8072
+Epoch 10/10, Train Loss: 0.5455, Valid Loss: 0.4355
+Model saved!
+Accuracy: 0.7876
+Precision: 0.7885
+Recall: 0.7876
+F1-score: 0.7815
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.7876
+
+
+------------------------------------------------------GENETICO-------------------------------------------------
+Start time: 2024-10-15 19:04:57.400069
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9809
+Epoch 1/10, Train Loss: 1.0059, Valid Loss: 0.7311
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.7966
+Epoch 2/10, Train Loss: 0.8344, Valid Loss: 0.7988
+Epoch 3/10, Batch 10/16, Loss: 0.6339
+Epoch 3/10, Train Loss: 0.7163, Valid Loss: 0.5415
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6314
+Epoch 4/10, Train Loss: 0.6229, Valid Loss: 0.5220
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5369
+Epoch 5/10, Train Loss: 0.5669, Valid Loss: 0.3970
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.5537
+Epoch 6/10, Train Loss: 0.5152, Valid Loss: 0.5798
+Epoch 7/10, Batch 10/16, Loss: 0.4463
+Epoch 7/10, Train Loss: 0.4580, Valid Loss: 0.4713
+Epoch 8/10, Batch 10/16, Loss: 0.3668
+Epoch 8/10, Train Loss: 0.4298, Valid Loss: 0.8314
+Epoch 9/10, Batch 10/16, Loss: 0.3889
+Epoch 9/10, Train Loss: 0.4184, Valid Loss: 0.3974
+Epoch 10/10, Batch 10/16, Loss: 0.3647
+Epoch 10/10, Train Loss: 0.3600, Valid Loss: 0.9736
+Accuracy: 0.7419
+Precision: 0.7810
+Recall: 0.7419
+F1-score: 0.7355
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0449
+Epoch 1/10, Train Loss: 1.0332, Valid Loss: 1.0578
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8867
+Epoch 2/10, Train Loss: 0.8832, Valid Loss: 0.8177
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7818
+Epoch 3/10, Train Loss: 0.7630, Valid Loss: 0.5991
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.7445
+Epoch 4/10, Train Loss: 0.6817, Valid Loss: 0.7992
+Epoch 5/10, Batch 10/16, Loss: 0.6905
+Epoch 5/10, Train Loss: 0.6209, Valid Loss: 0.6911
+Epoch 6/10, Batch 10/16, Loss: 0.5804
+Epoch 6/10, Train Loss: 0.5381, Valid Loss: 0.7141
+Epoch 7/10, Batch 10/16, Loss: 0.4993
+Epoch 7/10, Train Loss: 0.4907, Valid Loss: 0.7955
+Epoch 8/10, Batch 10/16, Loss: 0.4264
+Epoch 8/10, Train Loss: 0.4633, Valid Loss: 0.6623
+Epoch 9/10, Batch 10/16, Loss: 0.4345
+Epoch 9/10, Train Loss: 0.4454, Valid Loss: 1.0245
+Epoch 10/10, Batch 10/16, Loss: 0.4226
+Epoch 10/10, Train Loss: 0.4014, Valid Loss: 0.3410
+Model saved!
+Accuracy: 0.7930
+Precision: 0.8152
+Recall: 0.7930
+F1-score: 0.7869
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9793
+Epoch 1/10, Train Loss: 1.0085, Valid Loss: 1.2202
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8098
+Epoch 2/10, Train Loss: 0.8514, Valid Loss: 0.8493
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7273
+Epoch 3/10, Train Loss: 0.7367, Valid Loss: 0.7105
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6051
+Epoch 4/10, Train Loss: 0.6443, Valid Loss: 0.5791
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5302
+Epoch 5/10, Train Loss: 0.5655, Valid Loss: 0.7810
+Epoch 6/10, Batch 10/16, Loss: 0.5319
+Epoch 6/10, Train Loss: 0.5143, Valid Loss: 0.4959
+Model saved!
+Epoch 7/10, Batch 10/16, Loss: 0.3989
+Epoch 7/10, Train Loss: 0.4874, Valid Loss: 0.6760
+Epoch 8/10, Batch 10/16, Loss: 0.4820
+Epoch 8/10, Train Loss: 0.4407, Valid Loss: 0.4280
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4124
+Epoch 9/10, Train Loss: 0.4078, Valid Loss: 0.4359
+Epoch 10/10, Batch 10/16, Loss: 0.3693
+Epoch 10/10, Train Loss: 0.3757, Valid Loss: 0.5036
+Accuracy: 0.7312
+Precision: 0.7856
+Recall: 0.7312
+F1-score: 0.7190
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9751
+Epoch 1/10, Train Loss: 1.0167, Valid Loss: 0.9149
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8100
+Epoch 2/10, Train Loss: 0.8440, Valid Loss: 0.9671
+Epoch 3/10, Batch 10/16, Loss: 0.7074
+Epoch 3/10, Train Loss: 0.7194, Valid Loss: 0.6797
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6281
+Epoch 4/10, Train Loss: 0.6296, Valid Loss: 0.5532
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5479
+Epoch 5/10, Train Loss: 0.5800, Valid Loss: 0.6056
+Epoch 6/10, Batch 10/16, Loss: 0.5615
+Epoch 6/10, Train Loss: 0.5413, Valid Loss: 0.8141
+Epoch 7/10, Batch 10/16, Loss: 0.4814
+Epoch 7/10, Train Loss: 0.4738, Valid Loss: 0.8307
+Epoch 8/10, Batch 10/16, Loss: 0.5130
+Epoch 8/10, Train Loss: 0.4299, Valid Loss: 0.4981
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.3974
+Epoch 9/10, Train Loss: 0.4047, Valid Loss: 0.7897
+Epoch 10/10, Batch 10/16, Loss: 0.3122
+Epoch 10/10, Train Loss: 0.3901, Valid Loss: 0.4279
+Model saved!
+Accuracy: 0.7661
+Precision: 0.7923
+Recall: 0.7661
+F1-score: 0.7599
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9553
+Epoch 1/10, Train Loss: 1.0151, Valid Loss: 0.9030
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8494
+Epoch 2/10, Train Loss: 0.8303, Valid Loss: 0.9067
+Epoch 3/10, Batch 10/16, Loss: 0.6607
+Epoch 3/10, Train Loss: 0.7148, Valid Loss: 0.6145
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6341
+Epoch 4/10, Train Loss: 0.6182, Valid Loss: 0.6708
+Epoch 5/10, Batch 10/16, Loss: 0.5657
+Epoch 5/10, Train Loss: 0.5640, Valid Loss: 0.5800
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.4763
+Epoch 6/10, Train Loss: 0.5098, Valid Loss: 0.8824
+Epoch 7/10, Batch 10/16, Loss: 0.4379
+Epoch 7/10, Train Loss: 0.4670, Valid Loss: 0.6275
+Epoch 8/10, Batch 10/16, Loss: 0.4027
+Epoch 8/10, Train Loss: 0.4195, Valid Loss: 0.4273
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4349
+Epoch 9/10, Train Loss: 0.4120, Valid Loss: 0.5654
+Epoch 10/10, Batch 10/16, Loss: 0.3172
+Epoch 10/10, Train Loss: 0.3877, Valid Loss: 0.5554
+Accuracy: 0.7661
+Precision: 0.7979
+Recall: 0.7661
+F1-score: 0.7604
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9652
+Epoch 1/10, Train Loss: 1.0266, Valid Loss: 1.0182
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8289
+Epoch 2/10, Train Loss: 0.8717, Valid Loss: 0.7282
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7219
+Epoch 3/10, Train Loss: 0.7450, Valid Loss: 0.6665
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6736
+Epoch 4/10, Train Loss: 0.6533, Valid Loss: 0.6565
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.6090
+Epoch 5/10, Train Loss: 0.5792, Valid Loss: 0.4165
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.5540
+Epoch 6/10, Train Loss: 0.5322, Valid Loss: 0.5189
+Epoch 7/10, Batch 10/16, Loss: 0.4508
+Epoch 7/10, Train Loss: 0.4757, Valid Loss: 0.4943
+Epoch 8/10, Batch 10/16, Loss: 0.4072
+Epoch 8/10, Train Loss: 0.4382, Valid Loss: 0.4123
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.3078
+Epoch 9/10, Train Loss: 0.4177, Valid Loss: 0.3646
+Model saved!
+Epoch 10/10, Batch 10/16, Loss: 0.4714
+Epoch 10/10, Train Loss: 0.3936, Valid Loss: 0.3561
+Model saved!
+Accuracy: 0.8172
+Precision: 0.8358
+Recall: 0.8172
+F1-score: 0.8139
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0712
+Epoch 1/10, Train Loss: 1.0290, Valid Loss: 1.1054
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8895
+Epoch 2/10, Train Loss: 0.8792, Valid Loss: 0.8477
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7479
+Epoch 3/10, Train Loss: 0.7464, Valid Loss: 0.8424
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6595
+Epoch 4/10, Train Loss: 0.6508, Valid Loss: 1.0911
+Epoch 5/10, Batch 10/16, Loss: 0.6108
+Epoch 5/10, Train Loss: 0.5900, Valid Loss: 0.4564
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.5643
+Epoch 6/10, Train Loss: 0.5370, Valid Loss: 0.3610
+Model saved!
+Epoch 7/10, Batch 10/16, Loss: 0.4927
+Epoch 7/10, Train Loss: 0.4988, Valid Loss: 0.7831
+Epoch 8/10, Batch 10/16, Loss: 0.5145
+Epoch 8/10, Train Loss: 0.4705, Valid Loss: 0.5146
+Epoch 9/10, Batch 10/16, Loss: 0.4262
+Epoch 9/10, Train Loss: 0.4478, Valid Loss: 0.4422
+Epoch 10/10, Batch 10/16, Loss: 0.3568
+Epoch 10/10, Train Loss: 0.3899, Valid Loss: 0.4022
+Accuracy: 0.7984
+Precision: 0.8035
+Recall: 0.7984
+F1-score: 0.7930
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0346
+Epoch 1/10, Train Loss: 1.0356, Valid Loss: 1.0043
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8039
+Epoch 2/10, Train Loss: 0.8792, Valid Loss: 0.7698
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7808
+Epoch 3/10, Train Loss: 0.7493, Valid Loss: 1.1323
+Epoch 4/10, Batch 10/16, Loss: 0.7061
+Epoch 4/10, Train Loss: 0.6539, Valid Loss: 0.7531
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.6291
+Epoch 5/10, Train Loss: 0.5965, Valid Loss: 0.8722
+Epoch 6/10, Batch 10/16, Loss: 0.5949
+Epoch 6/10, Train Loss: 0.5237, Valid Loss: 0.8246
+Epoch 7/10, Batch 10/16, Loss: 0.4709
+Epoch 7/10, Train Loss: 0.4731, Valid Loss: 0.4527
+Model saved!
+Epoch 8/10, Batch 10/16, Loss: 0.4386
+Epoch 8/10, Train Loss: 0.4522, Valid Loss: 0.5853
+Epoch 9/10, Batch 10/16, Loss: 0.3938
+Epoch 9/10, Train Loss: 0.4363, Valid Loss: 0.5419
+Epoch 10/10, Batch 10/16, Loss: 0.3385
+Epoch 10/10, Train Loss: 0.4044, Valid Loss: 0.3980
+Model saved!
+Accuracy: 0.7527
+Precision: 0.7852
+Recall: 0.7527
+F1-score: 0.7422
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0097
+Epoch 1/10, Train Loss: 1.0310, Valid Loss: 1.1332
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8118
+Epoch 2/10, Train Loss: 0.8597, Valid Loss: 0.8642
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.6651
+Epoch 3/10, Train Loss: 0.7323, Valid Loss: 0.8560
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6402
+Epoch 4/10, Train Loss: 0.6577, Valid Loss: 0.7020
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.6166
+Epoch 5/10, Train Loss: 0.5875, Valid Loss: 0.5046
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.4965
+Epoch 6/10, Train Loss: 0.5362, Valid Loss: 0.4966
+Model saved!
+Epoch 7/10, Batch 10/16, Loss: 0.4139
+Epoch 7/10, Train Loss: 0.5073, Valid Loss: 0.5820
+Epoch 8/10, Batch 10/16, Loss: 0.4948
+Epoch 8/10, Train Loss: 0.4579, Valid Loss: 0.3568
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4028
+Epoch 9/10, Train Loss: 0.4031, Valid Loss: 0.6080
+Epoch 10/10, Batch 10/16, Loss: 0.3780
+Epoch 10/10, Train Loss: 0.3873, Valid Loss: 0.5563
+Accuracy: 0.7473
+Precision: 0.7797
+Recall: 0.7473
+F1-score: 0.7383
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 0.9783
+Epoch 1/10, Train Loss: 1.0133, Valid Loss: 0.9639
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8577
+Epoch 2/10, Train Loss: 0.8445, Valid Loss: 0.7885
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.7530
+Epoch 3/10, Train Loss: 0.7323, Valid Loss: 0.6397
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.6611
+Epoch 4/10, Train Loss: 0.6352, Valid Loss: 0.5798
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5603
+Epoch 5/10, Train Loss: 0.5654, Valid Loss: 0.5406
+Model saved!
+Epoch 6/10, Batch 10/16, Loss: 0.4511
+Epoch 6/10, Train Loss: 0.5008, Valid Loss: 0.5677
+Epoch 7/10, Batch 10/16, Loss: 0.4457
+Epoch 7/10, Train Loss: 0.4708, Valid Loss: 0.7406
+Epoch 8/10, Batch 10/16, Loss: 0.4288
+Epoch 8/10, Train Loss: 0.4240, Valid Loss: 0.4988
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.3886
+Epoch 9/10, Train Loss: 0.4030, Valid Loss: 0.5776
+Epoch 10/10, Batch 10/16, Loss: 0.3278
+Epoch 10/10, Train Loss: 0.3742, Valid Loss: 0.4463
+Model saved!
+Accuracy: 0.7903
+Precision: 0.8004
+Recall: 0.7903
+F1-score: 0.7839
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 19:12:56.772753
+Duration: 0:07:59.372684
+
+
+Mejor accuracy al acabar el algoritmo: 0.8172
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/16, Loss: 1.0023
+Epoch 1/10, Train Loss: 1.0213, Valid Loss: 0.8784
+Model saved!
+Epoch 2/10, Batch 10/16, Loss: 0.8018
+Epoch 2/10, Train Loss: 0.8422, Valid Loss: 0.7753
+Model saved!
+Epoch 3/10, Batch 10/16, Loss: 0.6924
+Epoch 3/10, Train Loss: 0.7226, Valid Loss: 0.7286
+Model saved!
+Epoch 4/10, Batch 10/16, Loss: 0.5418
+Epoch 4/10, Train Loss: 0.6360, Valid Loss: 0.6777
+Model saved!
+Epoch 5/10, Batch 10/16, Loss: 0.5616
+Epoch 5/10, Train Loss: 0.5893, Valid Loss: 0.8713
+Epoch 6/10, Batch 10/16, Loss: 0.4736
+Epoch 6/10, Train Loss: 0.5277, Valid Loss: 0.5910
+Model saved!
+Epoch 7/10, Batch 10/16, Loss: 0.4643
+Epoch 7/10, Train Loss: 0.4662, Valid Loss: 0.6028
+Epoch 8/10, Batch 10/16, Loss: 0.3761
+Epoch 8/10, Train Loss: 0.4257, Valid Loss: 0.3869
+Model saved!
+Epoch 9/10, Batch 10/16, Loss: 0.4585
+Epoch 9/10, Train Loss: 0.4188, Valid Loss: 0.4760
+Epoch 10/10, Batch 10/16, Loss: 0.3846
+Epoch 10/10, Train Loss: 0.3870, Valid Loss: 0.5249
+Accuracy: 0.7849
+Precision: 0.8175
+Recall: 0.7849
+F1-score: 0.7801
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.7849
+
+
+------------------------------------------------------GENETICO-------------------------------------------------
+Start time: 2024-10-15 19:13:48.661801
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0005
+Epoch 1/10, Batch 20/40, Loss: 0.9186
+Epoch 1/10, Batch 30/40, Loss: 0.8899
+Epoch 1/10, Batch 40/40, Loss: 0.7732
+Epoch 1/10, Train Loss: 0.8807, Valid Loss: 0.8272
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6742
+Epoch 2/10, Batch 20/40, Loss: 0.6940
+Epoch 2/10, Batch 30/40, Loss: 0.5713
+Epoch 2/10, Batch 40/40, Loss: 0.5865
+Epoch 2/10, Train Loss: 0.6310, Valid Loss: 0.5813
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5227
+Epoch 3/10, Batch 20/40, Loss: 0.4468
+Epoch 3/10, Batch 30/40, Loss: 0.4614
+Epoch 3/10, Batch 40/40, Loss: 0.5405
+Epoch 3/10, Train Loss: 0.4933, Valid Loss: 0.8902
+Epoch 4/10, Batch 10/40, Loss: 0.3882
+Epoch 4/10, Batch 20/40, Loss: 0.3559
+Epoch 4/10, Batch 30/40, Loss: 0.3359
+Epoch 4/10, Batch 40/40, Loss: 0.4227
+Epoch 4/10, Train Loss: 0.4162, Valid Loss: 0.5054
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3607
+Epoch 5/10, Batch 20/40, Loss: 0.3506
+Epoch 5/10, Batch 30/40, Loss: 0.3788
+Epoch 5/10, Batch 40/40, Loss: 0.2921
+Epoch 5/10, Train Loss: 0.3655, Valid Loss: 0.2902
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.3566
+Epoch 6/10, Batch 20/40, Loss: 0.3413
+Epoch 6/10, Batch 30/40, Loss: 0.2352
+Epoch 6/10, Batch 40/40, Loss: 0.4043
+Epoch 6/10, Train Loss: 0.3161, Valid Loss: 1.1283
+Epoch 7/10, Batch 10/40, Loss: 0.1660
+Epoch 7/10, Batch 20/40, Loss: 0.3334
+Epoch 7/10, Batch 30/40, Loss: 0.3622
+Epoch 7/10, Batch 40/40, Loss: 0.3708
+Epoch 7/10, Train Loss: 0.2876, Valid Loss: 0.3730
+Epoch 8/10, Batch 10/40, Loss: 0.2386
+Epoch 8/10, Batch 20/40, Loss: 0.3092
+Epoch 8/10, Batch 30/40, Loss: 0.2142
+Epoch 8/10, Batch 40/40, Loss: 0.5017
+Epoch 8/10, Train Loss: 0.2580, Valid Loss: 0.2466
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2542
+Epoch 9/10, Batch 20/40, Loss: 0.2154
+Epoch 9/10, Batch 30/40, Loss: 0.2199
+Epoch 9/10, Batch 40/40, Loss: 0.3979
+Epoch 9/10, Train Loss: 0.2460, Valid Loss: 0.2457
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.1926
+Epoch 10/10, Batch 20/40, Loss: 0.1688
+Epoch 10/10, Batch 30/40, Loss: 0.1856
+Epoch 10/10, Batch 40/40, Loss: 0.3307
+Epoch 10/10, Train Loss: 0.2374, Valid Loss: 0.2865
+Accuracy: 0.8038
+Precision: 0.8248
+Recall: 0.8038
+F1-score: 0.7997
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0087
+Epoch 1/10, Batch 20/40, Loss: 0.8669
+Epoch 1/10, Batch 30/40, Loss: 0.8346
+Epoch 1/10, Batch 40/40, Loss: 0.7423
+Epoch 1/10, Train Loss: 0.9000, Valid Loss: 0.7937
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6510
+Epoch 2/10, Batch 20/40, Loss: 0.7064
+Epoch 2/10, Batch 30/40, Loss: 0.6585
+Epoch 2/10, Batch 40/40, Loss: 0.5868
+Epoch 2/10, Train Loss: 0.6409, Valid Loss: 0.6496
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.4535
+Epoch 3/10, Batch 20/40, Loss: 0.4943
+Epoch 3/10, Batch 30/40, Loss: 0.4303
+Epoch 3/10, Batch 40/40, Loss: 0.3812
+Epoch 3/10, Train Loss: 0.4831, Valid Loss: 0.4236
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.3552
+Epoch 4/10, Batch 20/40, Loss: 0.3792
+Epoch 4/10, Batch 30/40, Loss: 0.3995
+Epoch 4/10, Batch 40/40, Loss: 0.4125
+Epoch 4/10, Train Loss: 0.4185, Valid Loss: 0.8392
+Epoch 5/10, Batch 10/40, Loss: 0.3610
+Epoch 5/10, Batch 20/40, Loss: 0.3948
+Epoch 5/10, Batch 30/40, Loss: 0.4960
+Epoch 5/10, Batch 40/40, Loss: 0.3086
+Epoch 5/10, Train Loss: 0.3393, Valid Loss: 0.3374
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.2421
+Epoch 6/10, Batch 20/40, Loss: 0.3024
+Epoch 6/10, Batch 30/40, Loss: 0.2581
+Epoch 6/10, Batch 40/40, Loss: 0.3136
+Epoch 6/10, Train Loss: 0.3172, Valid Loss: 0.2915
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.2142
+Epoch 7/10, Batch 20/40, Loss: 0.2493
+Epoch 7/10, Batch 30/40, Loss: 0.4242
+Epoch 7/10, Batch 40/40, Loss: 0.3239
+Epoch 7/10, Train Loss: 0.2897, Valid Loss: 0.4170
+Epoch 8/10, Batch 10/40, Loss: 0.1742
+Epoch 8/10, Batch 20/40, Loss: 0.3141
+Epoch 8/10, Batch 30/40, Loss: 0.4009
+Epoch 8/10, Batch 40/40, Loss: 0.2344
+Epoch 8/10, Train Loss: 0.2539, Valid Loss: 0.2555
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2293
+Epoch 9/10, Batch 20/40, Loss: 0.1619
+Epoch 9/10, Batch 30/40, Loss: 0.1590
+Epoch 9/10, Batch 40/40, Loss: 0.2641
+Epoch 9/10, Train Loss: 0.2361, Valid Loss: 1.1343
+Epoch 10/10, Batch 10/40, Loss: 0.2106
+Epoch 10/10, Batch 20/40, Loss: 0.2804
+Epoch 10/10, Batch 30/40, Loss: 0.2757
+Epoch 10/10, Batch 40/40, Loss: 0.5899
+Epoch 10/10, Train Loss: 0.2260, Valid Loss: 0.9087
+Accuracy: 0.8172
+Precision: 0.8296
+Recall: 0.8172
+F1-score: 0.8134
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0255
+Epoch 1/10, Batch 20/40, Loss: 0.8910
+Epoch 1/10, Batch 30/40, Loss: 0.8636
+Epoch 1/10, Batch 40/40, Loss: 0.8334
+Epoch 1/10, Train Loss: 0.9231, Valid Loss: 0.6797
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6461
+Epoch 2/10, Batch 20/40, Loss: 0.5774
+Epoch 2/10, Batch 30/40, Loss: 0.5130
+Epoch 2/10, Batch 40/40, Loss: 0.5708
+Epoch 2/10, Train Loss: 0.6327, Valid Loss: 0.8667
+Epoch 3/10, Batch 10/40, Loss: 0.5558
+Epoch 3/10, Batch 20/40, Loss: 0.5431
+Epoch 3/10, Batch 30/40, Loss: 0.4588
+Epoch 3/10, Batch 40/40, Loss: 0.6108
+Epoch 3/10, Train Loss: 0.5114, Valid Loss: 0.4761
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4225
+Epoch 4/10, Batch 20/40, Loss: 0.4335
+Epoch 4/10, Batch 30/40, Loss: 0.3984
+Epoch 4/10, Batch 40/40, Loss: 0.3580
+Epoch 4/10, Train Loss: 0.4184, Valid Loss: 0.6050
+Epoch 5/10, Batch 10/40, Loss: 0.3296
+Epoch 5/10, Batch 20/40, Loss: 0.2665
+Epoch 5/10, Batch 30/40, Loss: 0.2837
+Epoch 5/10, Batch 40/40, Loss: 0.3274
+Epoch 5/10, Train Loss: 0.3648, Valid Loss: 0.4688
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.3997
+Epoch 6/10, Batch 20/40, Loss: 0.2796
+Epoch 6/10, Batch 30/40, Loss: 0.2697
+Epoch 6/10, Batch 40/40, Loss: 0.3146
+Epoch 6/10, Train Loss: 0.3131, Valid Loss: 0.3835
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.2403
+Epoch 7/10, Batch 20/40, Loss: 0.2041
+Epoch 7/10, Batch 30/40, Loss: 0.2439
+Epoch 7/10, Batch 40/40, Loss: 0.3072
+Epoch 7/10, Train Loss: 0.2780, Valid Loss: 0.2640
+Model saved!
+Epoch 8/10, Batch 10/40, Loss: 0.2214
+Epoch 8/10, Batch 20/40, Loss: 0.3064
+Epoch 8/10, Batch 30/40, Loss: 0.2171
+Epoch 8/10, Batch 40/40, Loss: 0.2789
+Epoch 8/10, Train Loss: 0.2570, Valid Loss: 0.2920
+Epoch 9/10, Batch 10/40, Loss: 0.1831
+Epoch 9/10, Batch 20/40, Loss: 0.3125
+Epoch 9/10, Batch 30/40, Loss: 0.1678
+Epoch 9/10, Batch 40/40, Loss: 0.2126
+Epoch 9/10, Train Loss: 0.2578, Valid Loss: 0.5614
+Epoch 10/10, Batch 10/40, Loss: 0.2313
+Epoch 10/10, Batch 20/40, Loss: 0.2033
+Epoch 10/10, Batch 30/40, Loss: 0.2547
+Epoch 10/10, Batch 40/40, Loss: 0.5249
+Epoch 10/10, Train Loss: 0.2433, Valid Loss: 0.4598
+Accuracy: 0.8306
+Precision: 0.8462
+Recall: 0.8306
+F1-score: 0.8269
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0323
+Epoch 1/10, Batch 20/40, Loss: 0.9368
+Epoch 1/10, Batch 30/40, Loss: 0.8447
+Epoch 1/10, Batch 40/40, Loss: 0.7825
+Epoch 1/10, Train Loss: 0.9502, Valid Loss: 1.0150
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.7842
+Epoch 2/10, Batch 20/40, Loss: 0.6756
+Epoch 2/10, Batch 30/40, Loss: 0.6028
+Epoch 2/10, Batch 40/40, Loss: 0.6583
+Epoch 2/10, Train Loss: 0.6788, Valid Loss: 0.6876
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5256
+Epoch 3/10, Batch 20/40, Loss: 0.4775
+Epoch 3/10, Batch 30/40, Loss: 0.4737
+Epoch 3/10, Batch 40/40, Loss: 0.5331
+Epoch 3/10, Train Loss: 0.5263, Valid Loss: 0.7704
+Epoch 4/10, Batch 10/40, Loss: 0.4029
+Epoch 4/10, Batch 20/40, Loss: 0.4049
+Epoch 4/10, Batch 30/40, Loss: 0.4894
+Epoch 4/10, Batch 40/40, Loss: 0.4841
+Epoch 4/10, Train Loss: 0.4443, Valid Loss: 0.5364
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.2815
+Epoch 5/10, Batch 20/40, Loss: 0.2665
+Epoch 5/10, Batch 30/40, Loss: 0.4431
+Epoch 5/10, Batch 40/40, Loss: 0.4889
+Epoch 5/10, Train Loss: 0.3723, Valid Loss: 0.4038
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.4820
+Epoch 6/10, Batch 20/40, Loss: 0.4399
+Epoch 6/10, Batch 30/40, Loss: 0.2655
+Epoch 6/10, Batch 40/40, Loss: 0.3292
+Epoch 6/10, Train Loss: 0.3265, Valid Loss: 0.6360
+Epoch 7/10, Batch 10/40, Loss: 0.3643
+Epoch 7/10, Batch 20/40, Loss: 0.3361
+Epoch 7/10, Batch 30/40, Loss: 0.2578
+Epoch 7/10, Batch 40/40, Loss: 0.2856
+Epoch 7/10, Train Loss: 0.3133, Valid Loss: 0.3156
+Model saved!
+Epoch 8/10, Batch 10/40, Loss: 0.2638
+Epoch 8/10, Batch 20/40, Loss: 0.2275
+Epoch 8/10, Batch 30/40, Loss: 0.2979
+Epoch 8/10, Batch 40/40, Loss: 0.3722
+Epoch 8/10, Train Loss: 0.2683, Valid Loss: 0.6345
+Epoch 9/10, Batch 10/40, Loss: 0.2601
+Epoch 9/10, Batch 20/40, Loss: 0.3065
+Epoch 9/10, Batch 30/40, Loss: 0.2563
+Epoch 9/10, Batch 40/40, Loss: 0.3525
+Epoch 9/10, Train Loss: 0.2722, Valid Loss: 0.2658
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.3838
+Epoch 10/10, Batch 20/40, Loss: 0.2828
+Epoch 10/10, Batch 30/40, Loss: 0.2015
+Epoch 10/10, Batch 40/40, Loss: 0.7741
+Epoch 10/10, Train Loss: 0.2743, Valid Loss: 0.2882
+Accuracy: 0.8253
+Precision: 0.8343
+Recall: 0.8253
+F1-score: 0.8215
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 0.9774
+Epoch 1/10, Batch 20/40, Loss: 0.8018
+Epoch 1/10, Batch 30/40, Loss: 0.8102
+Epoch 1/10, Batch 40/40, Loss: 0.7753
+Epoch 1/10, Train Loss: 0.8925, Valid Loss: 0.8516
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6513
+Epoch 2/10, Batch 20/40, Loss: 0.6439
+Epoch 2/10, Batch 30/40, Loss: 0.5078
+Epoch 2/10, Batch 40/40, Loss: 0.6688
+Epoch 2/10, Train Loss: 0.6330, Valid Loss: 0.5363
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5032
+Epoch 3/10, Batch 20/40, Loss: 0.5168
+Epoch 3/10, Batch 30/40, Loss: 0.4153
+Epoch 3/10, Batch 40/40, Loss: 0.5205
+Epoch 3/10, Train Loss: 0.5011, Valid Loss: 0.6617
+Epoch 4/10, Batch 10/40, Loss: 0.3376
+Epoch 4/10, Batch 20/40, Loss: 0.5312
+Epoch 4/10, Batch 30/40, Loss: 0.3715
+Epoch 4/10, Batch 40/40, Loss: 0.3162
+Epoch 4/10, Train Loss: 0.4037, Valid Loss: 0.4419
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3051
+Epoch 5/10, Batch 20/40, Loss: 0.3330
+Epoch 5/10, Batch 30/40, Loss: 0.3197
+Epoch 5/10, Batch 40/40, Loss: 0.3968
+Epoch 5/10, Train Loss: 0.3538, Valid Loss: 1.1662
+Epoch 6/10, Batch 10/40, Loss: 0.2543
+Epoch 6/10, Batch 20/40, Loss: 0.3080
+Epoch 6/10, Batch 30/40, Loss: 0.3731
+Epoch 6/10, Batch 40/40, Loss: 0.3352
+Epoch 6/10, Train Loss: 0.3275, Valid Loss: 0.4281
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.2899
+Epoch 7/10, Batch 20/40, Loss: 0.2796
+Epoch 7/10, Batch 30/40, Loss: 0.2797
+Epoch 7/10, Batch 40/40, Loss: 0.2526
+Epoch 7/10, Train Loss: 0.2768, Valid Loss: 0.4492
+Epoch 8/10, Batch 10/40, Loss: 0.2974
+Epoch 8/10, Batch 20/40, Loss: 0.2426
+Epoch 8/10, Batch 30/40, Loss: 0.3240
+Epoch 8/10, Batch 40/40, Loss: 0.2090
+Epoch 8/10, Train Loss: 0.2689, Valid Loss: 0.3065
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.1893
+Epoch 9/10, Batch 20/40, Loss: 0.2310
+Epoch 9/10, Batch 30/40, Loss: 0.2301
+Epoch 9/10, Batch 40/40, Loss: 0.5483
+Epoch 9/10, Train Loss: 0.2512, Valid Loss: 0.2496
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.1954
+Epoch 10/10, Batch 20/40, Loss: 0.1688
+Epoch 10/10, Batch 30/40, Loss: 0.2601
+Epoch 10/10, Batch 40/40, Loss: 0.2410
+Epoch 10/10, Train Loss: 0.2325, Valid Loss: 0.3069
+Accuracy: 0.7500
+Precision: 0.7902
+Recall: 0.7500
+F1-score: 0.7427
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 0.9831
+Epoch 1/10, Batch 20/40, Loss: 0.8849
+Epoch 1/10, Batch 30/40, Loss: 0.8676
+Epoch 1/10, Batch 40/40, Loss: 0.6976
+Epoch 1/10, Train Loss: 0.9085, Valid Loss: 0.7342
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.7230
+Epoch 2/10, Batch 20/40, Loss: 0.6676
+Epoch 2/10, Batch 30/40, Loss: 0.6002
+Epoch 2/10, Batch 40/40, Loss: 0.6629
+Epoch 2/10, Train Loss: 0.6505, Valid Loss: 0.6254
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.6445
+Epoch 3/10, Batch 20/40, Loss: 0.5940
+Epoch 3/10, Batch 30/40, Loss: 0.4342
+Epoch 3/10, Batch 40/40, Loss: 0.4819
+Epoch 3/10, Train Loss: 0.5168, Valid Loss: 0.4945
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4353
+Epoch 4/10, Batch 20/40, Loss: 0.4768
+Epoch 4/10, Batch 30/40, Loss: 0.3491
+Epoch 4/10, Batch 40/40, Loss: 0.6974
+Epoch 4/10, Train Loss: 0.4309, Valid Loss: 0.4092
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3411
+Epoch 5/10, Batch 20/40, Loss: 0.4079
+Epoch 5/10, Batch 30/40, Loss: 0.4118
+Epoch 5/10, Batch 40/40, Loss: 0.3665
+Epoch 5/10, Train Loss: 0.3732, Valid Loss: 0.5020
+Epoch 6/10, Batch 10/40, Loss: 0.3401
+Epoch 6/10, Batch 20/40, Loss: 0.2886
+Epoch 6/10, Batch 30/40, Loss: 0.3255
+Epoch 6/10, Batch 40/40, Loss: 0.2953
+Epoch 6/10, Train Loss: 0.3380, Valid Loss: 0.4687
+Epoch 7/10, Batch 10/40, Loss: 0.2517
+Epoch 7/10, Batch 20/40, Loss: 0.2791
+Epoch 7/10, Batch 30/40, Loss: 0.2765
+Epoch 7/10, Batch 40/40, Loss: 0.3457
+Epoch 7/10, Train Loss: 0.2890, Valid Loss: 0.2399
+Model saved!
+Epoch 8/10, Batch 10/40, Loss: 0.3142
+Epoch 8/10, Batch 20/40, Loss: 0.3742
+Epoch 8/10, Batch 30/40, Loss: 0.3135
+Epoch 8/10, Batch 40/40, Loss: 0.4234
+Epoch 8/10, Train Loss: 0.2884, Valid Loss: 0.2449
+Epoch 9/10, Batch 10/40, Loss: 0.2136
+Epoch 9/10, Batch 20/40, Loss: 0.2538
+Epoch 9/10, Batch 30/40, Loss: 0.3099
+Epoch 9/10, Batch 40/40, Loss: 0.2847
+Epoch 9/10, Train Loss: 0.2518, Valid Loss: 0.3938
+Epoch 10/10, Batch 10/40, Loss: 0.2216
+Epoch 10/10, Batch 20/40, Loss: 0.2666
+Epoch 10/10, Batch 30/40, Loss: 0.2040
+Epoch 10/10, Batch 40/40, Loss: 0.1716
+Epoch 10/10, Train Loss: 0.2331, Valid Loss: 0.6926
+Accuracy: 0.8065
+Precision: 0.8184
+Recall: 0.8065
+F1-score: 0.7999
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0673
+Epoch 1/10, Batch 20/40, Loss: 0.8960
+Epoch 1/10, Batch 30/40, Loss: 0.8096
+Epoch 1/10, Batch 40/40, Loss: 0.6851
+Epoch 1/10, Train Loss: 0.8945, Valid Loss: 0.7274
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.5726
+Epoch 2/10, Batch 20/40, Loss: 0.6225
+Epoch 2/10, Batch 30/40, Loss: 0.6101
+Epoch 2/10, Batch 40/40, Loss: 0.7147
+Epoch 2/10, Train Loss: 0.6392, Valid Loss: 0.5538
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.4374
+Epoch 3/10, Batch 20/40, Loss: 0.4539
+Epoch 3/10, Batch 30/40, Loss: 0.4215
+Epoch 3/10, Batch 40/40, Loss: 0.4839
+Epoch 3/10, Train Loss: 0.4825, Valid Loss: 0.3831
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4383
+Epoch 4/10, Batch 20/40, Loss: 0.3691
+Epoch 4/10, Batch 30/40, Loss: 0.4369
+Epoch 4/10, Batch 40/40, Loss: 0.3891
+Epoch 4/10, Train Loss: 0.4264, Valid Loss: 0.4671
+Epoch 5/10, Batch 10/40, Loss: 0.3619
+Epoch 5/10, Batch 20/40, Loss: 0.3865
+Epoch 5/10, Batch 30/40, Loss: 0.4359
+Epoch 5/10, Batch 40/40, Loss: 0.4110
+Epoch 5/10, Train Loss: 0.3509, Valid Loss: 0.7202
+Epoch 6/10, Batch 10/40, Loss: 0.3544
+Epoch 6/10, Batch 20/40, Loss: 0.2528
+Epoch 6/10, Batch 30/40, Loss: 0.3104
+Epoch 6/10, Batch 40/40, Loss: 0.2792
+Epoch 6/10, Train Loss: 0.3013, Valid Loss: 0.3306
+Model saved!
+Epoch 7/10, Batch 10/40, Loss: 0.2562
+Epoch 7/10, Batch 20/40, Loss: 0.3199
+Epoch 7/10, Batch 30/40, Loss: 0.2218
+Epoch 7/10, Batch 40/40, Loss: 0.2571
+Epoch 7/10, Train Loss: 0.3075, Valid Loss: 0.6382
+Epoch 8/10, Batch 10/40, Loss: 0.2722
+Epoch 8/10, Batch 20/40, Loss: 0.3049
+Epoch 8/10, Batch 30/40, Loss: 0.2755
+Epoch 8/10, Batch 40/40, Loss: 0.3088
+Epoch 8/10, Train Loss: 0.2692, Valid Loss: 0.8111
+Epoch 9/10, Batch 10/40, Loss: 0.2609
+Epoch 9/10, Batch 20/40, Loss: 0.3063
+Epoch 9/10, Batch 30/40, Loss: 0.3761
+Epoch 9/10, Batch 40/40, Loss: 0.2300
+Epoch 9/10, Train Loss: 0.2393, Valid Loss: 0.2618
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.2348
+Epoch 10/10, Batch 20/40, Loss: 0.1250
+Epoch 10/10, Batch 30/40, Loss: 0.1648
+Epoch 10/10, Batch 40/40, Loss: 0.2629
+Epoch 10/10, Train Loss: 0.2322, Valid Loss: 0.3420
+Accuracy: 0.7849
+Precision: 0.8059
+Recall: 0.7849
+F1-score: 0.7786
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0197
+Epoch 1/10, Batch 20/40, Loss: 0.9235
+Epoch 1/10, Batch 30/40, Loss: 0.7819
+Epoch 1/10, Batch 40/40, Loss: 0.7659
+Epoch 1/10, Train Loss: 0.9277, Valid Loss: 0.8289
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.7304
+Epoch 2/10, Batch 20/40, Loss: 0.6284
+Epoch 2/10, Batch 30/40, Loss: 0.6405
+Epoch 2/10, Batch 40/40, Loss: 0.5868
+Epoch 2/10, Train Loss: 0.6509, Valid Loss: 0.6146
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.4811
+Epoch 3/10, Batch 20/40, Loss: 0.4839
+Epoch 3/10, Batch 30/40, Loss: 0.5177
+Epoch 3/10, Batch 40/40, Loss: 0.4762
+Epoch 3/10, Train Loss: 0.5046, Valid Loss: 0.5007
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4115
+Epoch 4/10, Batch 20/40, Loss: 0.3744
+Epoch 4/10, Batch 30/40, Loss: 0.4515
+Epoch 4/10, Batch 40/40, Loss: 0.3908
+Epoch 4/10, Train Loss: 0.4183, Valid Loss: 0.3821
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3950
+Epoch 5/10, Batch 20/40, Loss: 0.3430
+Epoch 5/10, Batch 30/40, Loss: 0.2987
+Epoch 5/10, Batch 40/40, Loss: 0.4658
+Epoch 5/10, Train Loss: 0.3707, Valid Loss: 0.4274
+Epoch 6/10, Batch 10/40, Loss: 0.3035
+Epoch 6/10, Batch 20/40, Loss: 0.3000
+Epoch 6/10, Batch 30/40, Loss: 0.3835
+Epoch 6/10, Batch 40/40, Loss: 0.2477
+Epoch 6/10, Train Loss: 0.3211, Valid Loss: 0.7144
+Epoch 7/10, Batch 10/40, Loss: 0.2855
+Epoch 7/10, Batch 20/40, Loss: 0.3058
+Epoch 7/10, Batch 30/40, Loss: 0.3228
+Epoch 7/10, Batch 40/40, Loss: 0.3147
+Epoch 7/10, Train Loss: 0.2967, Valid Loss: 0.4414
+Epoch 8/10, Batch 10/40, Loss: 0.2632
+Epoch 8/10, Batch 20/40, Loss: 0.3374
+Epoch 8/10, Batch 30/40, Loss: 0.1666
+Epoch 8/10, Batch 40/40, Loss: 0.2623
+Epoch 8/10, Train Loss: 0.2636, Valid Loss: 0.3347
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2087
+Epoch 9/10, Batch 20/40, Loss: 0.3031
+Epoch 9/10, Batch 30/40, Loss: 0.2704
+Epoch 9/10, Batch 40/40, Loss: 0.2373
+Epoch 9/10, Train Loss: 0.2384, Valid Loss: 0.3549
+Epoch 10/10, Batch 10/40, Loss: 0.1798
+Epoch 10/10, Batch 20/40, Loss: 0.2168
+Epoch 10/10, Batch 30/40, Loss: 0.2428
+Epoch 10/10, Batch 40/40, Loss: 0.1928
+Epoch 10/10, Train Loss: 0.2352, Valid Loss: 0.3671
+Accuracy: 0.8199
+Precision: 0.8385
+Recall: 0.8199
+F1-score: 0.8171
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0227
+Epoch 1/10, Batch 20/40, Loss: 0.9228
+Epoch 1/10, Batch 30/40, Loss: 0.8625
+Epoch 1/10, Batch 40/40, Loss: 0.6707
+Epoch 1/10, Train Loss: 0.9363, Valid Loss: 0.8393
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.7415
+Epoch 2/10, Batch 20/40, Loss: 0.5995
+Epoch 2/10, Batch 30/40, Loss: 0.5731
+Epoch 2/10, Batch 40/40, Loss: 0.6351
+Epoch 2/10, Train Loss: 0.6538, Valid Loss: 0.7338
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5630
+Epoch 3/10, Batch 20/40, Loss: 0.4790
+Epoch 3/10, Batch 30/40, Loss: 0.4798
+Epoch 3/10, Batch 40/40, Loss: 0.5276
+Epoch 3/10, Train Loss: 0.5216, Valid Loss: 0.5531
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4275
+Epoch 4/10, Batch 20/40, Loss: 0.4694
+Epoch 4/10, Batch 30/40, Loss: 0.4330
+Epoch 4/10, Batch 40/40, Loss: 0.3699
+Epoch 4/10, Train Loss: 0.4388, Valid Loss: 0.3361
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3833
+Epoch 5/10, Batch 20/40, Loss: 0.4060
+Epoch 5/10, Batch 30/40, Loss: 0.3412
+Epoch 5/10, Batch 40/40, Loss: 0.4544
+Epoch 5/10, Train Loss: 0.3650, Valid Loss: 0.3412
+Epoch 6/10, Batch 10/40, Loss: 0.3833
+Epoch 6/10, Batch 20/40, Loss: 0.3688
+Epoch 6/10, Batch 30/40, Loss: 0.2452
+Epoch 6/10, Batch 40/40, Loss: 0.3657
+Epoch 6/10, Train Loss: 0.3171, Valid Loss: 0.4548
+Epoch 7/10, Batch 10/40, Loss: 0.2623
+Epoch 7/10, Batch 20/40, Loss: 0.2536
+Epoch 7/10, Batch 30/40, Loss: 0.2816
+Epoch 7/10, Batch 40/40, Loss: 0.3940
+Epoch 7/10, Train Loss: 0.2944, Valid Loss: 0.5561
+Epoch 8/10, Batch 10/40, Loss: 0.3711
+Epoch 8/10, Batch 20/40, Loss: 0.3037
+Epoch 8/10, Batch 30/40, Loss: 0.2872
+Epoch 8/10, Batch 40/40, Loss: 0.2623
+Epoch 8/10, Train Loss: 0.2782, Valid Loss: 0.2901
+Model saved!
+Epoch 9/10, Batch 10/40, Loss: 0.2601
+Epoch 9/10, Batch 20/40, Loss: 0.2338
+Epoch 9/10, Batch 30/40, Loss: 0.4814
+Epoch 9/10, Batch 40/40, Loss: 0.2471
+Epoch 9/10, Train Loss: 0.2415, Valid Loss: 0.2817
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.3865
+Epoch 10/10, Batch 20/40, Loss: 0.2662
+Epoch 10/10, Batch 30/40, Loss: 0.2465
+Epoch 10/10, Batch 40/40, Loss: 0.3500
+Epoch 10/10, Train Loss: 0.2354, Valid Loss: 0.2708
+Model saved!
+Accuracy: 0.8118
+Precision: 0.8378
+Recall: 0.8118
+F1-score: 0.8085
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 0.9549
+Epoch 1/10, Batch 20/40, Loss: 0.8659
+Epoch 1/10, Batch 30/40, Loss: 0.7973
+Epoch 1/10, Batch 40/40, Loss: 0.7182
+Epoch 1/10, Train Loss: 0.9034, Valid Loss: 0.6508
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6761
+Epoch 2/10, Batch 20/40, Loss: 0.7845
+Epoch 2/10, Batch 30/40, Loss: 0.5517
+Epoch 2/10, Batch 40/40, Loss: 0.5148
+Epoch 2/10, Train Loss: 0.6322, Valid Loss: 0.6258
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5701
+Epoch 3/10, Batch 20/40, Loss: 0.4231
+Epoch 3/10, Batch 30/40, Loss: 0.4491
+Epoch 3/10, Batch 40/40, Loss: 0.4968
+Epoch 3/10, Train Loss: 0.5006, Valid Loss: 0.3786
+Model saved!
+Epoch 4/10, Batch 10/40, Loss: 0.4097
+Epoch 4/10, Batch 20/40, Loss: 0.6205
+Epoch 4/10, Batch 30/40, Loss: 0.3199
+Epoch 4/10, Batch 40/40, Loss: 0.5539
+Epoch 4/10, Train Loss: 0.4085, Valid Loss: 0.6037
+Epoch 5/10, Batch 10/40, Loss: 0.3532
+Epoch 5/10, Batch 20/40, Loss: 0.3032
+Epoch 5/10, Batch 30/40, Loss: 0.3232
+Epoch 5/10, Batch 40/40, Loss: 0.3606
+Epoch 5/10, Train Loss: 0.3703, Valid Loss: 0.2354
+Model saved!
+Epoch 6/10, Batch 10/40, Loss: 0.2855
+Epoch 6/10, Batch 20/40, Loss: 0.3606
+Epoch 6/10, Batch 30/40, Loss: 0.3491
+Epoch 6/10, Batch 40/40, Loss: 0.3639
+Epoch 6/10, Train Loss: 0.3235, Valid Loss: 0.3445
+Epoch 7/10, Batch 10/40, Loss: 0.2714
+Epoch 7/10, Batch 20/40, Loss: 0.2349
+Epoch 7/10, Batch 30/40, Loss: 0.2732
+Epoch 7/10, Batch 40/40, Loss: 0.2731
+Epoch 7/10, Train Loss: 0.2827, Valid Loss: 0.3560
+Epoch 8/10, Batch 10/40, Loss: 0.3056
+Epoch 8/10, Batch 20/40, Loss: 0.2523
+Epoch 8/10, Batch 30/40, Loss: 0.2659
+Epoch 8/10, Batch 40/40, Loss: 0.2909
+Epoch 8/10, Train Loss: 0.2791, Valid Loss: 0.4269
+Epoch 9/10, Batch 10/40, Loss: 0.3142
+Epoch 9/10, Batch 20/40, Loss: 0.2704
+Epoch 9/10, Batch 30/40, Loss: 0.2846
+Epoch 9/10, Batch 40/40, Loss: 0.3421
+Epoch 9/10, Train Loss: 0.2605, Valid Loss: 0.5399
+Epoch 10/10, Batch 10/40, Loss: 0.1952
+Epoch 10/10, Batch 20/40, Loss: 0.2124
+Epoch 10/10, Batch 30/40, Loss: 0.1603
+Epoch 10/10, Batch 40/40, Loss: 0.2601
+Epoch 10/10, Train Loss: 0.2246, Valid Loss: 1.2886
+Accuracy: 0.8065
+Precision: 0.8176
+Recall: 0.8065
+F1-score: 0.8015
+Memory Allocated after cleanup: 17.71 MB
+End time: 2024-10-15 19:31:57.001228
+Duration: 0:18:08.339427
+
+
+Mejor accuracy al acabar el algoritmo: 0.8306
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/40, Loss: 1.0191
+Epoch 1/10, Batch 20/40, Loss: 0.8758
+Epoch 1/10, Batch 30/40, Loss: 0.8050
+Epoch 1/10, Batch 40/40, Loss: 0.8549
+Epoch 1/10, Train Loss: 0.9103, Valid Loss: 1.0311
+Model saved!
+Epoch 2/10, Batch 10/40, Loss: 0.6457
+Epoch 2/10, Batch 20/40, Loss: 0.5852
+Epoch 2/10, Batch 30/40, Loss: 0.6048
+Epoch 2/10, Batch 40/40, Loss: 0.6223
+Epoch 2/10, Train Loss: 0.6432, Valid Loss: 0.4984
+Model saved!
+Epoch 3/10, Batch 10/40, Loss: 0.5152
+Epoch 3/10, Batch 20/40, Loss: 0.5574
+Epoch 3/10, Batch 30/40, Loss: 0.4163
+Epoch 3/10, Batch 40/40, Loss: 0.4180
+Epoch 3/10, Train Loss: 0.4690, Valid Loss: 0.5176
+Epoch 4/10, Batch 10/40, Loss: 0.3556
+Epoch 4/10, Batch 20/40, Loss: 0.3771
+Epoch 4/10, Batch 30/40, Loss: 0.3603
+Epoch 4/10, Batch 40/40, Loss: 0.4237
+Epoch 4/10, Train Loss: 0.4210, Valid Loss: 0.3445
+Model saved!
+Epoch 5/10, Batch 10/40, Loss: 0.3415
+Epoch 5/10, Batch 20/40, Loss: 0.3413
+Epoch 5/10, Batch 30/40, Loss: 0.4392
+Epoch 5/10, Batch 40/40, Loss: 0.8691
+Epoch 5/10, Train Loss: 0.3657, Valid Loss: 0.4778
+Epoch 6/10, Batch 10/40, Loss: 0.4560
+Epoch 6/10, Batch 20/40, Loss: 0.3873
+Epoch 6/10, Batch 30/40, Loss: 0.2488
+Epoch 6/10, Batch 40/40, Loss: 0.2785
+Epoch 6/10, Train Loss: 0.3247, Valid Loss: 0.7146
+Epoch 7/10, Batch 10/40, Loss: 0.1846
+Epoch 7/10, Batch 20/40, Loss: 0.2931
+Epoch 7/10, Batch 30/40, Loss: 0.2319
+Epoch 7/10, Batch 40/40, Loss: 0.2724
+Epoch 7/10, Train Loss: 0.2893, Valid Loss: 0.7327
+Epoch 8/10, Batch 10/40, Loss: 0.2995
+Epoch 8/10, Batch 20/40, Loss: 0.2562
+Epoch 8/10, Batch 30/40, Loss: 0.2354
+Epoch 8/10, Batch 40/40, Loss: 0.2624
+Epoch 8/10, Train Loss: 0.2679, Valid Loss: 0.7378
+Epoch 9/10, Batch 10/40, Loss: 0.2430
+Epoch 9/10, Batch 20/40, Loss: 0.1592
+Epoch 9/10, Batch 30/40, Loss: 0.3734
+Epoch 9/10, Batch 40/40, Loss: 0.2143
+Epoch 9/10, Train Loss: 0.2425, Valid Loss: 0.3310
+Model saved!
+Epoch 10/10, Batch 10/40, Loss: 0.2379
+Epoch 10/10, Batch 20/40, Loss: 0.2050
+Epoch 10/10, Batch 30/40, Loss: 0.3261
+Epoch 10/10, Batch 40/40, Loss: 0.2999
+Epoch 10/10, Train Loss: 0.2343, Valid Loss: 0.3304
+Model saved!
+Accuracy: 0.7419
+Precision: 0.8037
+Recall: 0.7419
+F1-score: 0.7381
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.7419
+
+
+------------------------------------------------------ALEATORIO-------------------------------------------------
+Start time: 2024-10-15 19:33:49.535328
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/79, Loss: 1.0569
+Epoch 1/10, Batch 20/79, Loss: 0.8961
+Epoch 1/10, Batch 30/79, Loss: 0.7773
+Epoch 1/10, Batch 40/79, Loss: 0.7357
+Epoch 1/10, Batch 50/79, Loss: 0.6077
+Epoch 1/10, Batch 60/79, Loss: 0.6104
+Epoch 1/10, Batch 70/79, Loss: 0.6081
+Epoch 1/10, Train Loss: 0.7662, Valid Loss: 0.9948
+Model saved!
+Epoch 2/10, Batch 10/79, Loss: 0.5130
+Epoch 2/10, Batch 20/79, Loss: 0.4666
+Epoch 2/10, Batch 30/79, Loss: 0.4648
+Epoch 2/10, Batch 40/79, Loss: 0.3812
+Epoch 2/10, Batch 50/79, Loss: 0.4272
+Epoch 2/10, Batch 60/79, Loss: 0.4285
+Epoch 2/10, Batch 70/79, Loss: 0.4267
+Epoch 2/10, Train Loss: 0.4548, Valid Loss: 0.3331
+Model saved!
+Epoch 3/10, Batch 10/79, Loss: 0.3668
+Epoch 3/10, Batch 20/79, Loss: 0.2852
+Epoch 3/10, Batch 30/79, Loss: 0.3842
+Epoch 3/10, Batch 40/79, Loss: 0.3202
+Epoch 3/10, Batch 50/79, Loss: 0.2875
+Epoch 3/10, Batch 60/79, Loss: 0.3538
+Epoch 3/10, Batch 70/79, Loss: 0.2977
+Epoch 3/10, Train Loss: 0.3255, Valid Loss: 0.3682
+Epoch 4/10, Batch 10/79, Loss: 0.2455
+Epoch 4/10, Batch 20/79, Loss: 0.3578
+Epoch 4/10, Batch 30/79, Loss: 0.2803
+Epoch 4/10, Batch 40/79, Loss: 0.1949
+Epoch 4/10, Batch 50/79, Loss: 0.2611
+Epoch 4/10, Batch 60/79, Loss: 0.2823
+Epoch 4/10, Batch 70/79, Loss: 0.2945
+Epoch 4/10, Train Loss: 0.2728, Valid Loss: 0.2470
+Model saved!
+Epoch 5/10, Batch 10/79, Loss: 0.1989
+Epoch 5/10, Batch 20/79, Loss: 0.2487
+Epoch 5/10, Batch 30/79, Loss: 0.1954
+Epoch 5/10, Batch 40/79, Loss: 0.3182
+Epoch 5/10, Batch 50/79, Loss: 0.3802
+Epoch 5/10, Batch 60/79, Loss: 0.2336
+Epoch 5/10, Batch 70/79, Loss: 0.2740
+Epoch 5/10, Train Loss: 0.2417, Valid Loss: 0.2200
+Model saved!
+Epoch 6/10, Batch 10/79, Loss: 0.3726
+Epoch 6/10, Batch 20/79, Loss: 0.2261
+Epoch 6/10, Batch 30/79, Loss: 0.2723
+Epoch 6/10, Batch 40/79, Loss: 0.2377
+Epoch 6/10, Batch 50/79, Loss: 0.1537
+Epoch 6/10, Batch 60/79, Loss: 0.1348
+Epoch 6/10, Batch 70/79, Loss: 0.2964
+Epoch 6/10, Train Loss: 0.2244, Valid Loss: 0.2349
+Epoch 7/10, Batch 10/79, Loss: 0.2002
+Epoch 7/10, Batch 20/79, Loss: 0.1254
+Epoch 7/10, Batch 30/79, Loss: 0.2186
+Epoch 7/10, Batch 40/79, Loss: 0.2313
+Epoch 7/10, Batch 50/79, Loss: 0.2161
+Epoch 7/10, Batch 60/79, Loss: 0.3252
+Epoch 7/10, Batch 70/79, Loss: 0.1372
+Epoch 7/10, Train Loss: 0.1979, Valid Loss: 0.3182
+Epoch 8/10, Batch 10/79, Loss: 0.1978
+Epoch 8/10, Batch 20/79, Loss: 0.2484
+Epoch 8/10, Batch 30/79, Loss: 0.2676
+Epoch 8/10, Batch 40/79, Loss: 0.2203
+Epoch 8/10, Batch 50/79, Loss: 0.1556
+Epoch 8/10, Batch 60/79, Loss: 0.2004
+Epoch 8/10, Batch 70/79, Loss: 0.1708
+Epoch 8/10, Train Loss: 0.1873, Valid Loss: 0.2746
+Epoch 9/10, Batch 10/79, Loss: 0.1268
+Epoch 9/10, Batch 20/79, Loss: 0.1422
+Epoch 9/10, Batch 30/79, Loss: 0.1256
+Epoch 9/10, Batch 40/79, Loss: 0.0965
+Epoch 9/10, Batch 50/79, Loss: 0.1188
+Epoch 9/10, Batch 60/79, Loss: 0.2709
+Epoch 9/10, Batch 70/79, Loss: 0.1306
+Epoch 9/10, Train Loss: 0.1622, Valid Loss: 1.0024
+Epoch 10/10, Batch 10/79, Loss: 0.1775
+Epoch 10/10, Batch 20/79, Loss: 0.1876
+Epoch 10/10, Batch 30/79, Loss: 0.1616
+Epoch 10/10, Batch 40/79, Loss: 0.3033
+Epoch 10/10, Batch 50/79, Loss: 0.2929
+Epoch 10/10, Batch 60/79, Loss: 0.1955
+Epoch 10/10, Batch 70/79, Loss: 0.1461
+Epoch 10/10, Train Loss: 0.1579, Valid Loss: 0.1461
+Model saved!
+Accuracy: 0.8065
+Precision: 0.8288
+Recall: 0.8065
+F1-score: 0.8032
+Memory Allocated after cleanup: 17.71 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.8065
+End time: 2024-10-15 19:37:18.668185
+Duration: 0:03:29.132857
+
+
+Mejor accuracy al acabar el algoritmo: 0.8065
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Using device: cuda
+Epoch 1/10, Batch 10/79, Loss: 0.9692
+Epoch 1/10, Batch 20/79, Loss: 0.8650
+Epoch 1/10, Batch 30/79, Loss: 0.8295
+Epoch 1/10, Batch 40/79, Loss: 0.7027
+Epoch 1/10, Batch 50/79, Loss: 0.6850
+Epoch 1/10, Batch 60/79, Loss: 0.6297
+Epoch 1/10, Batch 70/79, Loss: 0.6372
+Epoch 1/10, Train Loss: 0.7695, Valid Loss: 0.7642
+Model saved!
+Epoch 2/10, Batch 10/79, Loss: 0.4698
+Epoch 2/10, Batch 20/79, Loss: 0.4240
+Epoch 2/10, Batch 30/79, Loss: 0.4562
+Epoch 2/10, Batch 40/79, Loss: 0.4232
+Epoch 2/10, Batch 50/79, Loss: 0.3997
+Epoch 2/10, Batch 60/79, Loss: 0.5056
+Epoch 2/10, Batch 70/79, Loss: 0.3955
+Epoch 2/10, Train Loss: 0.4529, Valid Loss: 0.5543
+Model saved!
+Epoch 3/10, Batch 10/79, Loss: 0.3249
+Epoch 3/10, Batch 20/79, Loss: 0.3400
+Epoch 3/10, Batch 30/79, Loss: 0.2773
+Epoch 3/10, Batch 40/79, Loss: 0.3484
+Epoch 3/10, Batch 50/79, Loss: 0.3896
+Epoch 3/10, Batch 60/79, Loss: 0.3109
+Epoch 3/10, Batch 70/79, Loss: 0.3307
+Epoch 3/10, Train Loss: 0.3333, Valid Loss: 0.2568
+Model saved!
+Epoch 4/10, Batch 10/79, Loss: 0.3301
+Epoch 4/10, Batch 20/79, Loss: 0.2258
+Epoch 4/10, Batch 30/79, Loss: 0.3343
+Epoch 4/10, Batch 40/79, Loss: 0.1924
+Epoch 4/10, Batch 50/79, Loss: 0.3587
+Epoch 4/10, Batch 60/79, Loss: 0.2879
+Epoch 4/10, Batch 70/79, Loss: 0.2203
+Epoch 4/10, Train Loss: 0.2790, Valid Loss: 0.2228
+Model saved!
+Epoch 5/10, Batch 10/79, Loss: 0.2072
+Epoch 5/10, Batch 20/79, Loss: 0.3121
+Epoch 5/10, Batch 30/79, Loss: 0.3492
+Epoch 5/10, Batch 40/79, Loss: 0.1839
+Epoch 5/10, Batch 50/79, Loss: 0.2482
+Epoch 5/10, Batch 60/79, Loss: 0.1924
+Epoch 5/10, Batch 70/79, Loss: 0.2138
+Epoch 5/10, Train Loss: 0.2362, Valid Loss: 0.4449
+Epoch 6/10, Batch 10/79, Loss: 0.1579
+Epoch 6/10, Batch 20/79, Loss: 0.1834
+Epoch 6/10, Batch 30/79, Loss: 0.2070
+Epoch 6/10, Batch 40/79, Loss: 0.2372
+Epoch 6/10, Batch 50/79, Loss: 0.1901
+Epoch 6/10, Batch 60/79, Loss: 0.0991
+Epoch 6/10, Batch 70/79, Loss: 0.1407
+Epoch 6/10, Train Loss: 0.2140, Valid Loss: 0.5437
+Epoch 7/10, Batch 10/79, Loss: 0.1790
+Epoch 7/10, Batch 20/79, Loss: 0.2088
+Epoch 7/10, Batch 30/79, Loss: 0.1438
+Epoch 7/10, Batch 40/79, Loss: 0.3205
+Epoch 7/10, Batch 50/79, Loss: 0.2385
+Epoch 7/10, Batch 60/79, Loss: 0.1786
+Epoch 7/10, Batch 70/79, Loss: 0.1060
+Epoch 7/10, Train Loss: 0.1919, Valid Loss: 0.2857
+Epoch 8/10, Batch 10/79, Loss: 0.2520
+Epoch 8/10, Batch 20/79, Loss: 0.2382
+Epoch 8/10, Batch 30/79, Loss: 0.1325
+Epoch 8/10, Batch 40/79, Loss: 0.1087
+Epoch 8/10, Batch 50/79, Loss: 0.2437
+Epoch 8/10, Batch 60/79, Loss: 0.1182
+Epoch 8/10, Batch 70/79, Loss: 0.1958
+Epoch 8/10, Train Loss: 0.1718, Valid Loss: 0.1773
+Model saved!
+Epoch 9/10, Batch 10/79, Loss: 0.2047
+Epoch 9/10, Batch 20/79, Loss: 0.1443
+Epoch 9/10, Batch 30/79, Loss: 0.1353
+Epoch 9/10, Batch 40/79, Loss: 0.2059
+Epoch 9/10, Batch 50/79, Loss: 0.2392
+Epoch 9/10, Batch 60/79, Loss: 0.1841
+Epoch 9/10, Batch 70/79, Loss: 0.1632
+Epoch 9/10, Train Loss: 0.1663, Valid Loss: 0.4443
+Epoch 10/10, Batch 10/79, Loss: 0.2465
+Epoch 10/10, Batch 20/79, Loss: 0.1573
+Epoch 10/10, Batch 30/79, Loss: 0.1174
+Epoch 10/10, Batch 40/79, Loss: 0.1023
+Epoch 10/10, Batch 50/79, Loss: 0.0700
+Epoch 10/10, Batch 60/79, Loss: 0.1671
+Epoch 10/10, Batch 70/79, Loss: 0.2131
+Epoch 10/10, Train Loss: 0.1578, Valid Loss: 0.2094
+Accuracy: 0.8172
+Precision: 0.8330
+Recall: 0.8172
+F1-score: 0.8133
+Memory Allocated after cleanup: 17.71 MB
+
+
+Mejor accuracy encontrado: 0.8172
+Se ha creado el Excels con todos los resultados correctamente.

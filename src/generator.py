@@ -5,12 +5,12 @@ from src.main import main
 from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
-from utils.utils import plot_fitness_evolution_multiple
+from utils.utils import plot_multiple_fitness_evolution
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 20, 50]
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 1
     evaluaciones_maximas_sin_mejora = 10
 
     metric: MetricList = MetricList.ACCURACY
@@ -38,7 +38,7 @@ if __name__ == "__main__":
             )
             fitness_list.append(fitness_history)
 
-        plot_fitness_evolution_multiple(fitness_list, labels, alg.value, metric.value, modelo.value)
+        plot_multiple_fitness_evolution(fitness_list, labels, alg.value, metric.value, modelo.value)
 
     result, fitness_history = main(
         initial_percentage=100,
