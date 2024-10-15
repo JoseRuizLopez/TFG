@@ -39,7 +39,7 @@ def plot_fitness_evolution(
     plt.xlabel('Iteración')
     plt.ylabel(metric.capitalize())
     plt.grid(True)
-    plt.savefig(f'img/{model}-{algorithm_name}-{str(initial_percentage)}-{metric}.png')
+    plt.savefig(f'img/{model}-{algorithm_name.replace(" ", "_")}-{str(initial_percentage)}-{metric}.png')
     plt.close()
 
 

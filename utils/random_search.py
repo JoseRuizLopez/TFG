@@ -13,18 +13,19 @@ def random_search(
     model_name: str = "resnet"
 ) -> tuple[dict, float, list, int]:
     """
-        Implementa un algoritmo de búsqueda local para selección de imágenes.
+    Implementa un algoritmo de búsqueda local para selección de imágenes.
 
-        Args:
-            data_dir: Diccionaro inicial que contiene las imágenes seleccionadas
-            initial_percentage: Número que indica el porcentaje de las imágenes seleccionadas
-            max_evaluations: Número máximo de evaluaciones
-            max_evaluations_without_improvement: Criterio de parada si no hay mejoras
-            metric: Métrica a optimizar ("accuracy" o "f1")
+    Args:
+        data_dir: Diccionaro inicial que contiene las imágenes seleccionadas
+        initial_percentage: Número que indica el porcentaje de las imágenes seleccionadas
+        max_evaluations: Número máximo de evaluaciones
+        max_evaluations_without_improvement: Criterio de parada si no hay mejoras
+        metric: Métrica a optimizar ("accuracy" o "f1")
+        model_name: Nombré del modelo a usar
 
-        Returns:
-            tuple: mejor_valor_fitness
-        """
+    Returns:
+        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
+    """
     evaluations_without_improvement = 0
     evaluations_done = 0
     best_fitness = 0.0
