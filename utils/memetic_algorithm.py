@@ -37,9 +37,10 @@ def memetic_algorithm(
         local_search_evaluations: Número de evaluaciones de búsqueda local
         local_search_neighbor_size: Tamaño del vecindario en búsqueda local
         metric: Métrica a optimizar ("accuracy" o "f1")
+        model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: (mejor_solucion, mejor_valor_fitness)
+        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
     """
     # Contador global de evaluaciones
     evaluations_done = 0

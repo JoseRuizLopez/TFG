@@ -1,4 +1,3 @@
-import datetime
 import random
 
 from utils.utils import crear_dict_imagenes
@@ -89,9 +88,10 @@ def local_search(
         neighbor_size: Número de cambios para generar cada vecino
         metric: Métrica a optimizar ("accuracy" o "f1")
         vary_percentage: Indica si el porcentaje de imágenes seleccionadas va a variar
+        model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: mejor_valor_fitness
+        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
     """
 
     # Generar y evaluar solución inicial

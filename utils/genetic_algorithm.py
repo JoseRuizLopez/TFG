@@ -104,9 +104,10 @@ def genetic_algorithm(
         tournament_size: Tamaño del torneo para selección
         mutation_rate: Probabilidad de mutación
         metric: Métrica a optimizar ("accuracy" o "f1")
+        model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: mejor_valor_fitness
+        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
     """
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
