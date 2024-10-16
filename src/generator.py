@@ -1,3 +1,5 @@
+import datetime
+
 import torch
 import polars as pl
 
@@ -16,7 +18,25 @@ if __name__ == "__main__":
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
     resultados = []
-    labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
+    labels = [str(porcentaje) + '%' for porcentaje in porcentajes] + ["100%"]
+    date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+    result, fitness_history_100 = main(
+        initial_percentage=100,
+        max_evaluations=1,
+        max_evaluations_without_improvement=1,
+        algoritmo="aleatorio",
+        metric=metric.value,
+        model_name=modelo.value,
+        date=date
+    )
+
+    resultados.append(
+        result | {
+            "Porcentaje Inicial": 100,
+            "Algoritmo": "aleatorio"
+        }
+    )
 
     for alg in AlgorithmList:
         fitness_list = []
@@ -27,7 +47,8 @@ if __name__ == "__main__":
                 max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
                 algoritmo=alg.value,
                 metric=metric.value,
-                model_name=modelo.value
+                model_name=modelo.value,
+                date=date
             )
 
             resultados.append(
@@ -38,24 +59,8 @@ if __name__ == "__main__":
             )
             fitness_list.append(fitness_history)
 
+        fitness_list.append(fitness_history_100)
         plot_multiple_fitness_evolution(fitness_list, labels, alg.value, metric.value, modelo.value)
-
-    result, fitness_history = main(
-        initial_percentage=100,
-        max_evaluations=evaluaciones_maximas,
-        max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-        algoritmo="aleatorio",
-        metric=metric.value,
-        model_name=modelo.value
-    )
-
-    resultados.append(
-        result | {
-            "Porcentaje Inicial": 100,
-            "Algoritmo": "aleatorio"
-        }
-    )
-
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
@@ -72,6 +77,6 @@ if __name__ == "__main__":
         "Porcentaje Scissors": pl.Float32
     })
 
-    df.write_csv("results/resultados.csv")
+    df.write_csv(f"results/resultados_{date}.csv")
 
     print("Se ha creado el Excels con todos los resultados correctamente.")

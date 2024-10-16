@@ -19,8 +19,8 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
-# Obtener la fecha y hora actual en formato YYYY-MM-DD_HH-MM-SS
-fecha_actual=$(date +"%Y-%m-%d_%H-%M-%S")
+# Obtener la fecha y hora actual en formato YYYY-MM-DD_HH-MM
+fecha_actual=$(date +"%Y-%m-%d_%H-%M")
 
 # Definir el nombre del archivo de salida con la fecha y hora
 archivo_salida="results/salida_${fecha_actual}.txt"

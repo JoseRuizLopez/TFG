@@ -20,7 +20,8 @@ def plot_fitness_evolution(
     initial_percentage: int,
     algorithm_name: str,
     metric: str,
-    model: str
+    model: str,
+    carpeta: str
 ):
     """
     Crea y guarda una gráfica que muestra la evolución del fitness.
@@ -31,6 +32,7 @@ def plot_fitness_evolution(
         algorithm_name: Nombre del algoritmo utilizado
         metric: Métrica utilizada (accuracy o f1)
         model: Nombre del modelo usado
+        carpeta: Nombre de la carpeta
     """
     plt.figure(figsize=(10, 6))
     plt.plot(fitness_history, marker='o')
@@ -39,7 +41,7 @@ def plot_fitness_evolution(
     plt.xlabel('Iteración')
     plt.ylabel(metric.capitalize())
     plt.grid(True)
-    plt.savefig(f'img/{model}-{algorithm_name.replace(" ", "_")}-{str(initial_percentage)}-{metric}.png')
+    plt.savefig(f'img/{carpeta}/{model}-{algorithm_name.replace(" ", "_")}-{str(initial_percentage)}-{metric}.png')
     plt.close()
 
 

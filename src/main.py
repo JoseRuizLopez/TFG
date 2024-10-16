@@ -1,4 +1,5 @@
 import datetime
+import os
 import random
 from pathlib import Path
 
@@ -32,7 +33,8 @@ def main(
     max_evaluations_without_improvement: int = 10,
     algoritmo: str = "memetico",
     metric: str = "accuracy",
-    model_name: str = "resnet"
+    model_name: str = "resnet",
+    date: str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 ):
     set_seed(24012000)
 
@@ -110,13 +112,15 @@ def main(
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
+        os.mkdir("img/" + date)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
-            fitness_history=fitness_history,
+            fitness_history=fitness_history if max_evaluations != 1 else fitness_history * 50,
             initial_percentage=initial_percentage,
             algorithm_name=algoritmo,
             metric=metric,
-            model=model_name
+            model=model_name,
+            carpeta=date
         )
 
         final_fitness = fitness(best_selection, metric, model_name=model_name)
