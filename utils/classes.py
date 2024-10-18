@@ -14,5 +14,5 @@ class MetricList(Enum):
 
 
 class ModelList(Enum):
-    # RESNET = "resnet"
+    RESNET = "resnet"
     MOBILENET = "mobilenet"

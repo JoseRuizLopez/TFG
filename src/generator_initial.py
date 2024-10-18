@@ -12,8 +12,8 @@ from utils.utils import plot_multiple_fitness_evolution
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 20, 50, 100]
-    evaluaciones_maximas = 5
-    evaluaciones_maximas_sin_mejora = 5
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
 
     metric: MetricList = MetricList.ACCURACY
     resultados = []
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         for ptg in porcentajes:
             result, fitness_history, best_fitness_history = main(
                 initial_percentage=ptg,
-                max_evaluations=evaluaciones_maximas,
+                max_evaluations=evaluaciones_maximas if ptg != 100 else 1,
                 max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
                 algoritmo="aleatorio",
                 metric=metric.value,
