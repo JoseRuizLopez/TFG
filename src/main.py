@@ -42,18 +42,23 @@ def main(
 
     with open("results/evaluations_logs.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
-                   f"-----------------{algoritmo.upper()}-------"
+                   f"{algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n")
         file.flush()  # Forzar la escritura inmediata al disco
 
     start = datetime.datetime.now()
     print(f"\n\n--------------------------------------"
-          f"----------------{algoritmo.upper()}-------"
+          f"{algoritmo.upper()}  {str(initial_percentage)}%-------"
           f"------------------------------------------")
     print("Start time: " + str(start))
 
+    best_fitness = 0.0
+    best_selection = {}
+    fitness_history = []
+    best_fitness_history = []
+    evaluations_done = 0
     if algoritmo == "aleatorio":
-        best_selection, best_fitness, fitness_history, evaluations_done = random_search(
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = random_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -98,11 +103,6 @@ def main(
             metric=metric,
             model_name=model_name
         )
-    else:
-        best_fitness = 0.0
-        best_selection = {}
-        fitness_history = []
-        evaluations_done = 0
 
     end = datetime.datetime.now()
     duration = end - start
@@ -112,10 +112,11 @@ def main(
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
-        os.mkdir("img/" + date)
+        if not os.path.exists("img/" + date):
+            os.mkdir("img/" + date)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
-            fitness_history=fitness_history if max_evaluations != 1 else fitness_history * 50,
+            fitness_history=best_fitness_history if max_evaluations != 1 else fitness_history * 50,
             initial_percentage=initial_percentage,
             algorithm_name=algoritmo,
             metric=metric,
@@ -123,7 +124,7 @@ def main(
             carpeta=date
         )
 
-        final_fitness = fitness(best_selection, metric, model_name=model_name)
+        final_fitness = fitness(best_selection, model_name=model_name)
         print(f"\n\nMejor {metric} encontrado: {final_fitness[metric.title()]:.4f}")
 
         num_images = sum(1 for _ in Path(dataset).rglob('*') if _.is_file())
@@ -143,7 +144,7 @@ def main(
             ) / len(images_selected) * 100,
         }
 
-        return resultado, fitness_history
+        return resultado, fitness_history, best_fitness_history
 
     else:
         raise ValueError("No se ha seleccionado ningún algoritmo.")
@@ -159,7 +160,7 @@ if __name__ == "__main__":
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.RESNET
 
-    main(
+    result, fitness_history, best_fitness_history = main(
         porcentaje_inicial,
         evaluaciones_maximas,
         evaluaciones_maximas_sin_mejora,

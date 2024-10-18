@@ -1,44 +1,26 @@
 import datetime
 
+import numpy as np
 import torch
 import polars as pl
 
 from src.main import main
-from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.utils import plot_multiple_fitness_evolution
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 20, 50]
-    evaluaciones_maximas = 100
-    evaluaciones_maximas_sin_mejora = 10
+    porcentajes = [10, 20, 50, 100]
+    evaluaciones_maximas = 5
+    evaluaciones_maximas_sin_mejora = 5
 
     metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.MOBILENET
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes] + ["100%"]
     date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
-    result, fitness_history_100, best_fitness_history_100 = main(
-        initial_percentage=100,
-        max_evaluations=1,
-        max_evaluations_without_improvement=1,
-        algoritmo="aleatorio",
-        metric=metric.value,
-        model_name=modelo.value,
-        date=date
-    )
-
-    resultados.append(
-        result | {
-            "Porcentaje Inicial": 100,
-            "Algoritmo": "aleatorio"
-        }
-    )
-
-    for alg in AlgorithmList:
+    for model in ModelList:
         fitness_list = []
         best_fitness_list = []
         for ptg in porcentajes:
@@ -46,33 +28,41 @@ if __name__ == "__main__":
                 initial_percentage=ptg,
                 max_evaluations=evaluaciones_maximas,
                 max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-                algoritmo=alg.value,
+                algoritmo="aleatorio",
                 metric=metric.value,
-                model_name=modelo.value,
+                model_name=model.value,
                 date=date
             )
+
+            result["Accuracy"] = np.mean([fitness["Accuracy"] for fitness in fitness_history])
+            result["Precision"] = np.mean([fitness["Precision"] for fitness in fitness_history])
+            result["Recall"] = np.mean([fitness["Recall"] for fitness in fitness_history])
+            result["F1-score"] = np.mean([fitness["F1-score"] for fitness in fitness_history])
 
             resultados.append(
                 result | {
                     "Porcentaje Inicial": ptg,
-                    "Algoritmo": alg.value
+                    "Algoritmo": "aleatorio"
                 }
             )
-            fitness_list.append(fitness_history)
-            best_fitness_history.append(best_fitness_history)
+            fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history])
+            best_fitness_list.append(best_fitness_history)
 
-        best_fitness_list.append(best_fitness_history_100)
-        fitness_list.append(fitness_history_100)
-        plot_multiple_fitness_evolution(fitness_list, labels, alg.value, metric.value, modelo.value)
+        plot_multiple_fitness_evolution(
+            fitness_list, labels, "aleatorio", metric.value, model.value, "mean"
+        )
+        plot_multiple_fitness_evolution(
+            best_fitness_list, labels, "aleatorio", metric.value, model.value, "best"
+        )
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
         "Porcentaje Inicial": pl.Int32,
         "Duracion": pl.Utf8,
-        "Accuracy": pl.Float64,
-        "Precision": pl.Float64,
-        "Recall": pl.Float64,
-        "F1-score": pl.Float64,
+        "Accuracy (Avg)": pl.Float64,
+        "Precision (Avg)": pl.Float64,
+        "Recall (Avg)": pl.Float64,
+        "F1-score (Avg)": pl.Float64,
         "Evaluaciones Realizadas": pl.Int32,
         "Porcentaje Final": pl.Float32,
         "Porcentaje Paper": pl.Float32,

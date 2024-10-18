@@ -2,12 +2,13 @@ import datetime
 import os
 import random
 from typing import List
+from typing import Literal
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
-from torchvision import transforms, models
+from torchvision import models
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Subset
 from torchvision.models import MobileNet_V2_Weights
@@ -50,7 +51,8 @@ def plot_multiple_fitness_evolution(
     labels: List[str],
     algorithm_name: str,
     metric: str,
-    model: str
+    model: str,
+    seleccion: Literal["mean", "best"] = "best"
 ):
     """
     Crea y guarda una gráfica que muestra la evolución del fitness multiple.
@@ -78,7 +80,7 @@ def plot_multiple_fitness_evolution(
         plt.plot(line_data, label=labels[i])
 
     # Títulos y etiquetas
-    plt.title(f'Evolución del {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
+    plt.title(f'Evolución del {seleccion} {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
               f'Con cada porcentaje', fontsize=14)
     plt.xlabel('Iteración', fontsize=12)
     plt.ylabel(metric.capitalize(), fontsize=12)
@@ -87,19 +89,12 @@ def plot_multiple_fitness_evolution(
     plt.legend(loc='best', fontsize=10)
 
     plt.grid(True)
-    plt.savefig(f'img/{model}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
+    plt.savefig(f'img/{model}-{seleccion}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
     plt.close()
 
 
-def create_data_loaders(data_dir, dict_selection, batch_size=32):
-    transform = transforms.Compose([
-        transforms.Resize((256, 256)),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(10),
-        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
+def create_data_loaders(data_dir, dict_selection, weights, batch_size=32):
+    transform = weights.transforms()
 
     full_dataset = ImageFolder(root=data_dir, transform=transform)
 
@@ -205,7 +200,12 @@ def evaluate_model(model, test_loader, device):
     return accuracy, precision, recall, f1
 
 
-def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evaluations: int | None = None):
+def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int | None = None):
+    old_seed = torch.seed()
+    seed = 5234
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
     # Verificar y mostrar la disponibilidad de GPU
     if os.getenv("SERVER") is not None:
         while torch.cuda.device_count() < 1:
@@ -219,16 +219,30 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evalu
         print(f"GPU: {torch.cuda.get_device_name(0)}")
         print(f"Memory Allocated: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
-    # Crear data loaders
-    train_dataset, train_loader, train_classes = create_data_loaders("data/dataset/train", dict_selection)
-    valid_dataset, valid_loader, _ = create_data_loaders("data/dataset/test", None)
-    test_dataset, test_loader, _ = create_data_loaders("data/dataset/valid", None)
-
     # Definir el modelo
     if model_name == "resnet":
-        model = models.resnet50(weights=ResNet50_Weights.DEFAULT)
+        weights = ResNet50_Weights.DEFAULT
+        model = models.resnet50(weights=weights)
     else:
-        model = models.mobilenet_v2(weights=MobileNet_V2_Weights.DEFAULT)
+        weights = MobileNet_V2_Weights.DEFAULT
+        model = models.mobilenet_v2(weights=weights)
+
+    # Crear data loaders
+    train_dataset, train_loader, train_classes = create_data_loaders(
+        data_dir="data/dataset/train",
+        dict_selection=dict_selection,
+        weights=weights
+    )
+    valid_dataset, valid_loader, _ = create_data_loaders(
+        data_dir="data/dataset/test",
+        dict_selection=None,
+        weights=weights
+    )
+    test_dataset, test_loader, _ = create_data_loaders(
+        data_dir="data/dataset/valid",
+        dict_selection=None,
+        weights=weights
+    )
 
     # Congelar todas las capas
     for param in model.parameters():
@@ -276,23 +290,27 @@ def fitness(dict_selection: dict, metric: str, model_name: str = "resnet", evalu
         torch.cuda.empty_cache()
         print(f"Memory Allocated after cleanup: {torch.cuda.memory_allocated(0) / 1024 ** 2:.2f} MB")
 
+    torch.manual_seed(old_seed)
+    torch.cuda.manual_seed_all(old_seed)
+
     if evaluations is not None:
         with open("results/evaluations_logs.txt", "a") as file:
             file.write(f"Evaluación {str(evaluations+1)} -> {str(datetime.datetime.now())}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 
-    else:
-        return {
-            "Accuracy": accuracy,
-            "Precision": precision,
-            "Recall": recall,
-            "F1-score": f1
-        }
+    # else:
 
-    if metric == "accuracy":
-        return accuracy
-    else:
-        return f1
+    return {
+        "Accuracy": accuracy,
+        "Precision": precision,
+        "Recall": recall,
+        "F1-score": f1
+    }
+
+    # if metric == "accuracy":
+    #     return accuracy
+    # else:
+    #     return f1
 
 
 def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):
