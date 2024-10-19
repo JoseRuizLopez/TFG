@@ -12,7 +12,7 @@ from utils.utils import plot_multiple_fitness_evolution
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 20, 50, 100]
-    evaluaciones_maximas = 2
+    evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
 
     metric: MetricList = MetricList.ACCURACY
@@ -71,15 +71,21 @@ if __name__ == "__main__":
         "Algoritmo": pl.Utf8,
         "Porcentaje Inicial": pl.Int32,
         "Duracion": pl.Utf8,
-        "Accuracy (Avg)": pl.Float64,
-        "Precision (Avg)": pl.Float64,
-        "Recall (Avg)": pl.Float64,
-        "F1-score (Avg)": pl.Float64,
+        "Accuracy": pl.Float64,
+        "Precision": pl.Float64,
+        "Recall": pl.Float64,
+        "F1-score": pl.Float64,
         "Evaluaciones Realizadas": pl.Int32,
         "Porcentaje Final": pl.Float32,
         "Porcentaje Paper": pl.Float32,
         "Porcentaje Rock": pl.Float32,
         "Porcentaje Scissors": pl.Float32
+    })
+    df = df.rename({
+        "Accuracy": "Accuracy (Avg)",
+        "Precision": "Precision (Avg)",
+        "Recall": "Recall (Avg)",
+        "F1-score": "F1-score (Avg)",
     })
 
     df.write_csv(f"results/resultados_{date}.csv")

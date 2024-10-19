@@ -48,7 +48,7 @@ def main(
 
     start = datetime.datetime.now()
     print(f"\n\n--------------------------------------"
-          f"{algoritmo.upper()}  {str(initial_percentage)}%-------"
+          f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
           f"------------------------------------------")
     print("Start time: " + str(start))
 
