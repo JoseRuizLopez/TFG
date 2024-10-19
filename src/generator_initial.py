@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     metric: MetricList = MetricList.ACCURACY
     resultados = []
-    labels = [str(porcentaje) + '%' for porcentaje in porcentajes] + ["100%"]
+    labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
     date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
     for model in ModelList:

@@ -116,7 +116,7 @@ def main(
             os.mkdir("img/" + date)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
-            fitness_history=best_fitness_history if max_evaluations != 1 else fitness_history * 50,
+            fitness_history=best_fitness_history if max_evaluations != 1 else best_fitness_history * 50,
             initial_percentage=initial_percentage,
             algorithm_name=algoritmo,
             metric=metric,
