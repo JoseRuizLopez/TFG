@@ -42,7 +42,7 @@ def main(
 
     with open("results/evaluations_logs.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
-                   f"{algoritmo.upper()}  {str(initial_percentage)}%-------"
+                   f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n")
         file.flush()  # Forzar la escritura inmediata al disco
 
