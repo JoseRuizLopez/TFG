@@ -12,7 +12,7 @@ from utils.utils import plot_multiple_fitness_evolution
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 20, 50, 100]
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 2
     evaluaciones_maximas_sin_mejora = 100
 
     metric: MetricList = MetricList.ACCURACY
@@ -49,10 +49,22 @@ if __name__ == "__main__":
             best_fitness_list.append(best_fitness_history)
 
         plot_multiple_fitness_evolution(
-            fitness_list, labels, "aleatorio", metric.value, model.value, "mean"
+            data=fitness_list,
+            labels=labels,
+            algorithm_name="aleatorio",
+            metric=metric.value,
+            model=model.value,
+            date=date,
+            selection="mean"
         )
         plot_multiple_fitness_evolution(
-            best_fitness_list, labels, "aleatorio", metric.value, model.value, "best"
+            data=best_fitness_list,
+            labels=labels,
+            algorithm_name="aleatorio",
+            metric=metric.value,
+            model=model.value,
+            date=date,
+            selection="best"
         )
 
     df = pl.DataFrame(resultados, schema={

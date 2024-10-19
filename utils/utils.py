@@ -52,7 +52,8 @@ def plot_multiple_fitness_evolution(
     algorithm_name: str,
     metric: str,
     model: str,
-    seleccion: Literal["mean", "best"] = "best"
+    date: str,
+    selection: Literal["mean", "best"] = "best"
 ):
     """
     Crea y guarda una gráfica que muestra la evolución del fitness multiple.
@@ -63,6 +64,8 @@ def plot_multiple_fitness_evolution(
         algorithm_name: Nombre del algoritmo utilizado
         metric: Métrica utilizada (accuracy o f1)
         model: Nombre del modelo usado
+        date: Fecha para seleccionar la carpeta
+        selection: Método de seleccion para distinguir nombres
     """
     # Encontrar la longitud máxima entre todas las listas
     max_length = max(len(lst) for lst in data)
@@ -80,7 +83,7 @@ def plot_multiple_fitness_evolution(
         plt.plot(line_data, label=labels[i])
 
     # Títulos y etiquetas
-    plt.title(f'Evolución del {seleccion} {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
+    plt.title(f'Evolución del {selection} {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
               f'Con cada porcentaje', fontsize=14)
     plt.xlabel('Iteración', fontsize=12)
     plt.ylabel(metric.capitalize(), fontsize=12)
@@ -89,7 +92,7 @@ def plot_multiple_fitness_evolution(
     plt.legend(loc='best', fontsize=10)
 
     plt.grid(True)
-    plt.savefig(f'img/{model}-{seleccion}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
+    plt.savefig(f'img/{date}/{model}-{selection}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
     plt.close()
 
 
