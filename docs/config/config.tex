@@ -1,0 +1,78 @@
+% Archivo: config.tex
+% Configuraciones generales, paquetes y definiciones
+
+\documentclass[a4paper,11pt]{book}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage{dcolumn}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage[pdfborder={000}]{hyperref}
+\usepackage{url}
+\usepackage{colortbl,longtable}
+\usepackage[stable]{footmisc}
+\usepackage{verbatim}
+\usepackage{booktabs}
+
+% Columnas con punto decimal español
+\newcolumntype{.}{D{.}{\esperiod}{-1}}
+\makeatletter
+\addto\shorthandsspanish{\let\esperiod\es@period@code}
+\makeatother
+
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+
+
+% Información reutilizable
+\newcommand{\myTitle}{Algoritmos meméticos para reducir datos de entrenamiento en modelos de aprendizaje profundo convolucionales\xspace}
+\newcommand{\myDegree}{Grado en Ingeniería Informática\xspace}
+\newcommand{\myName}{José Ruiz López (alumno)\xspace}
+\newcommand{\myProf}{Daniel Molina Cabrera (tutor)\xspace}
+\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación\xspace}
+\newcommand{\myDepartment}{Departamento de Ciencias de la Computación e Inteligencia Artificial\xspace}
+\newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
+\newcommand{\myLocation}{Granada\xspace}
+\newcommand{\myTime}{\today\xspace}
+\newcommand{\myVersion}{Version 0.1\xspace}
+
+
+% Configuración de hyperlinks
+\hypersetup{
+    pdfauthor = {\myName (email (en) ugr (punto) es)},
+    pdftitle = {\myTitle},
+    pdfsubject = {},
+    pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
+    pdfcreator = {LaTeX con el paquete ....},
+    pdfproducer = {pdflatex}
+}
+
+% Definición de teoremas y otros entornos
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+
+% Configuración de listings para código
+\lstset{
+    frame=Ltb, framerule=0.5pt, aboveskip=0.5cm, framextopmargin=3pt,
+    framexbottommargin=3pt, framexleftmargin=0.1cm, framesep=0pt, rulesep=.4pt,
+    backgroundcolor=\color{gray97}, rulesepcolor=\color{black},
+    stringstyle=\ttfamily, showstringspaces=false, basicstyle=\scriptsize\ttfamily,
+    commentstyle=\color{gray45}, keywordstyle=\bfseries, numbers=left,
+    numbersep=6pt, numberstyle=\tiny, breaklines=true
+}
+
+% Definiciones adicionales
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+\setlength{\headheight}{1.5\headheight}

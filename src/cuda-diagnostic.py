@@ -3,6 +3,7 @@ import sys
 import subprocess
 import os
 
+
 def check_cuda_availability():
     print("=== Sistema Python ===")
     print(f"Python version: {sys.version}")
@@ -25,6 +26,7 @@ def check_cuda_availability():
     print("\n=== CUDA_HOME ===")
     cuda_home = os.environ.get('CUDA_HOME') or os.environ.get('CUDA_PATH')
     print(f"CUDA_HOME: {cuda_home}")
+
 
 if __name__ == "__main__":
     check_cuda_availability()

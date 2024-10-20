@@ -1,4 +1,5 @@
 import datetime
+import os
 
 import numpy as np
 import torch
@@ -18,7 +19,12 @@ if __name__ == "__main__":
     metric: MetricList = MetricList.ACCURACY
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
-    date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+    now = datetime.datetime.now()
+    if os.getenv("SERVER") is not None:
+        now = now + datetime.timedelta(hours=2)
+
+    date = now.strftime("%Y-%m-%d_%H-%M")
 
     for model in ModelList:
         fitness_list = []

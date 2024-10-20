@@ -1,4 +1,5 @@
 import datetime
+import os
 
 import torch
 import polars as pl
@@ -12,14 +13,19 @@ from utils.utils import plot_multiple_fitness_evolution
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 20, 50]
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 1
     evaluaciones_maximas_sin_mejora = 10
 
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes] + ["100%"]
-    date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+    now = datetime.datetime.now()
+    if os.getenv("SERVER") is not None:
+        now = now + datetime.timedelta(hours=2)
+
+    date = now.strftime("%Y-%m-%d_%H-%M")
 
     result, fitness_history_100, best_fitness_history_100 = main(
         initial_percentage=100,
@@ -58,12 +64,30 @@ if __name__ == "__main__":
                     "Algoritmo": alg.value
                 }
             )
-            fitness_list.append(fitness_history)
-            best_fitness_history.append(best_fitness_history)
+            fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history])
+            best_fitness_list.append(best_fitness_history)
 
+        fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history_100])
         best_fitness_list.append(best_fitness_history_100)
-        fitness_list.append(fitness_history_100)
-        plot_multiple_fitness_evolution(fitness_list, labels, alg.value, metric.value, modelo.value)
+
+        plot_multiple_fitness_evolution(
+            data=fitness_list,
+            labels=labels,
+            algorithm_name=alg.value,
+            metric=metric.value,
+            model=modelo.value,
+            date=date,
+            selection="mean"
+        )
+        plot_multiple_fitness_evolution(
+            data=best_fitness_list,
+            labels=labels,
+            algorithm_name=alg.value,
+            metric=metric.value,
+            model=modelo.value,
+            date=date,
+            selection="best"
+        )
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
