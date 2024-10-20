@@ -102,7 +102,7 @@ def local_search(
 
     best_fitness = current_fitness
     best_solution = current_solution
-    fitness_history = [current_fitness]
+    fitness_history = [current_fitness_dict]
     best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
@@ -118,6 +118,7 @@ def local_search(
         if neighbor_fitness >= current_fitness:
             current_solution = neighbor.copy()
             current_fitness = neighbor_fitness
+            current_fitness_dict = neighbor_fitness_dict
 
             if current_fitness > best_fitness:
                 best_fitness = current_fitness
@@ -129,7 +130,7 @@ def local_search(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.append(current_fitness)
+        fitness_history.append(current_fitness_dict)
         best_fitness_history.append(best_fitness)
 
         if evaluations_without_improvement >= max_evaluations_without_improvement:

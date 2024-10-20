@@ -79,7 +79,7 @@ def main(
     elif algoritmo == "genetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
             data_dir=dataset,
-            population_size=10,
+            population_size=3,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,

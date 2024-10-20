@@ -19,7 +19,7 @@ if __name__ == "__main__":
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
     resultados = []
-    labels = [str(porcentaje) + '%' for porcentaje in porcentajes] + ["100%"]
+    labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
 
     now = datetime.datetime.now()
     if os.getenv("SERVER") is not None:
@@ -27,22 +27,22 @@ if __name__ == "__main__":
 
     date = now.strftime("%Y-%m-%d_%H-%M")
 
-    result, fitness_history_100, best_fitness_history_100 = main(
-        initial_percentage=100,
-        max_evaluations=1,
-        max_evaluations_without_improvement=1,
-        algoritmo="aleatorio",
-        metric=metric.value,
-        model_name=modelo.value,
-        date=date
-    )
-
-    resultados.append(
-        result | {
-            "Porcentaje Inicial": 100,
-            "Algoritmo": "aleatorio"
-        }
-    )
+    # result, fitness_history_100, best_fitness_history_100 = main(
+    #     initial_percentage=100,
+    #     max_evaluations=1,
+    #     max_evaluations_without_improvement=1,
+    #     algoritmo="aleatorio",
+    #     metric=metric.value,
+    #     model_name=modelo.value,
+    #     date=date
+    # )
+    #
+    # resultados.append(
+    #     result | {
+    #         "Porcentaje Inicial": 100,
+    #         "Algoritmo": "aleatorio"
+    #     }
+    # )
 
     for alg in AlgorithmList:
         fitness_list = []
@@ -67,8 +67,8 @@ if __name__ == "__main__":
             fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history])
             best_fitness_list.append(best_fitness_history)
 
-        fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history_100])
-        best_fitness_list.append(best_fitness_history_100)
+        # fitness_list.append([fitness[metric.value.title()] for fitness in fitness_history_100])
+        # best_fitness_list.append(best_fitness_history_100)
 
         plot_multiple_fitness_evolution(
             data=fitness_list,

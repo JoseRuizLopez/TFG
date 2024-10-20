@@ -112,28 +112,28 @@ def genetic_algorithm(
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
-    fitness_values = [
-        fitness(
-            dict_selection=ind, model_name=model_name, evaluations=iteration
-        )[metric.title()] for ind, iteration in zip(population, range(population_size))
+    fitness_dicts = [
+        fitness(dict_selection=ind, model_name=model_name, evaluations=iteration)
+        for ind, iteration in zip(population, range(population_size))
     ]
+    fitness_values = [f_dict[metric.title()] for f_dict in fitness_dicts]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    fitness_history = fitness_values.copy()
+    fitness_history = fitness_dicts.copy()
     best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
 
     while evaluations_done < max_evaluations:
         new_population = []
-        new_fitness_values = []
+        new_fitness_dicts = []
 
         # Elitismo
         new_population.append(best_individual.copy())
-        new_fitness_values.append(best_fitness)
+        new_fitness_dicts.append(fitness_dicts[best_fitness_idx])
 
         # Generar nueva población
         while len(new_population) < population_size and evaluations_done < max_evaluations:
@@ -147,15 +147,16 @@ def genetic_algorithm(
 
             for child in [child1, child2]:
                 if len(new_population) < population_size and evaluations_done < max_evaluations:
-                    child_fitness = fitness(
+                    child_fitness_dict = fitness(
                         dict_selection=child, model_name=model_name, evaluations=evaluations_done
-                    )[metric.title()]
+                    )
                     evaluations_done += 1
                     new_population.append(child)
-                    new_fitness_values.append(child_fitness)
+                    new_fitness_dicts.append(child_fitness_dict)
 
         population = new_population
-        fitness_values = new_fitness_values
+        fitness_dicts = new_fitness_dicts
+        fitness_values = [f_dict[metric.title()] for f_dict in fitness_dicts]
 
         current_best_idx = fitness_values.index(max(fitness_values))
         if fitness_values[current_best_idx] > best_fitness:
@@ -166,7 +167,7 @@ def genetic_algorithm(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.extend(fitness_values)
+        fitness_history.extend(fitness_dicts)
         best_fitness_history.append(best_fitness)
 
         if evaluations_without_improvement >= max_evaluations_without_improvement:

@@ -69,6 +69,7 @@ def plot_multiple_fitness_evolution(
     """
     # Encontrar la longitud máxima entre todas las listas
     max_length = max(len(lst) for lst in data)
+    max_length = max_length if max_length != 1 else 50
 
     # Extender cada lista repitiendo el último valor hasta la longitud máxima
     extended_data = []
