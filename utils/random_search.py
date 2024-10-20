@@ -36,7 +36,7 @@ def random_search(
     while evaluations_done < max_evaluations:
         # Generar y evaluar solución
         current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-        current_fitness = fitness(current_solution, model_name, evaluations_done)
+        current_fitness = fitness(dict_selection=current_solution, model_name=model_name, evaluations=evaluations_done)
         fitness_history.append(current_fitness)
 
         current_metric = current_fitness[metric.title()]

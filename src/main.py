@@ -124,7 +124,7 @@ def main(
             carpeta=date
         )
 
-        final_fitness = fitness(best_selection, model_name=model_name)
+        final_fitness = fitness(dict_selection=best_selection, model_name=model_name)
         print(f"\n\nMejor {metric} encontrado: {final_fitness[metric.title()]:.4f}")
 
         num_images = sum(1 for _ in Path(dataset).rglob('*') if _.is_file())

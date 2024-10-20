@@ -48,7 +48,7 @@ def memetic_algorithm(
     def local_search_improvement_with_limit(individual, remaining_evaluations):
         nonlocal evaluations_done
         current_solution = individual.copy()
-        current_fitness = fitness(current_solution, metric, model_name)
+        current_fitness = fitness(dict_selection=current_solution, model_name=model_name)
         evaluations_done += 1
         local_evals = 1
 
@@ -60,7 +60,7 @@ def memetic_algorithm(
 
         while local_evals < max_local_evals and evaluations_done < max_evaluations:
             neighbor = generate_neighbor(current_solution, local_search_neighbor_size)
-            neighbor_fitness = fitness(neighbor, metric, model_name)
+            neighbor_fitness = fitness(dict_selection=neighbor, model_name=model_name)
             evaluations_done += 1
             local_evals += 1
 
@@ -78,7 +78,9 @@ def memetic_algorithm(
     population = [crear_dict_imagenes(data_dir, initial_percentage)
                   for _ in range(population_size)]
     fitness_values = [
-        fitness(ind, metric, model_name, iteration) for ind, iteration in zip(population, range(population_size))
+        fitness(
+            dict_selection=ind, model_name=model_name, evaluations=iteration
+        ) for ind, iteration in zip(population, range(population_size))
     ]
     evaluations_done = population_size
 
@@ -115,7 +117,7 @@ def memetic_algorithm(
                         )
                         new_population.append(improved_child)
                     else:
-                        child_fitness = fitness(child, metric, model_name)
+                        child_fitness = fitness(dict_selection=child, model_name=model_name)
                         evaluations_done += 1
                         new_population.append(child)
                     new_fitness_values.append(child_fitness)
