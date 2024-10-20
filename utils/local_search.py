@@ -76,7 +76,7 @@ def local_search(
     metric: str = "accuracy",
     vary_percentage: bool = False,
     model_name: str = "resnet"
-) -> tuple[dict, float, list, int]:
+) -> tuple[dict, float, list, list, int]:
     """
     Implementa un algoritmo de búsqueda local para selección de imágenes.
 
@@ -91,24 +91,27 @@ def local_search(
         model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
+        tuple: (best_solution, best_fitness, fitness_history, best_fitness_history, evaluations_done)
     """
 
     # Generar y evaluar solución inicial
     current_solution = crear_dict_imagenes(data_dir, initial_percentage)
-    current_fitness = fitness(dict_selection=current_solution, model_name=model_name, evaluations=0)
+    current_fitness_dict = fitness(dict_selection=current_solution, model_name=model_name, evaluations=0)
+    current_fitness = current_fitness_dict[metric.title()]
     evaluations_done = 1
 
     best_fitness = current_fitness
     best_solution = current_solution
-    fitness_history = [best_fitness]
+    fitness_history = [current_fitness]
+    best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
 
     while evaluations_done < max_evaluations:
         # Generar y evaluar vecino
         neighbor = generate_neighbor(current_solution, neighbor_size, vary_percentage)
-        neighbor_fitness = fitness(dict_selection=neighbor, model_name=model_name, evaluations=evaluations_done)
+        neighbor_fitness_dict = fitness(dict_selection=neighbor, model_name=model_name, evaluations=evaluations_done)
+        neighbor_fitness = neighbor_fitness_dict[metric.title()]
         evaluations_done += 1
 
         # Criterio de aceptación
@@ -126,10 +129,11 @@ def local_search(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.append(best_fitness)
+        fitness_history.append(current_fitness)
+        best_fitness_history.append(best_fitness)
 
         if evaluations_without_improvement >= max_evaluations_without_improvement:
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
-    return best_solution, best_fitness, fitness_history, evaluations_done
+    return best_solution, best_fitness, fitness_history, best_fitness_history, evaluations_done

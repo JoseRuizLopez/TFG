@@ -91,7 +91,7 @@ def genetic_algorithm(
     mutation_rate: float = 0.1,
     metric: str = "accuracy",
     model_name: str = "resnet"
-) -> tuple[dict, float, list, int]:
+) -> tuple[dict, float, list, list, int]:
     """
     Implementa un algoritmo genético para la selección de imágenes.
 
@@ -107,7 +107,7 @@ def genetic_algorithm(
         model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
+        tuple: (best_solution, best_fitness, fitness_history, best_fitness_history, evaluations_done)
     """
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
@@ -115,14 +115,15 @@ def genetic_algorithm(
     fitness_values = [
         fitness(
             dict_selection=ind, model_name=model_name, evaluations=iteration
-        ) for ind, iteration in zip(population, range(population_size))
+        )[metric.title()] for ind, iteration in zip(population, range(population_size))
     ]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    fitness_history = [best_fitness]
+    fitness_history = fitness_values.copy()
+    best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
 
@@ -146,7 +147,9 @@ def genetic_algorithm(
 
             for child in [child1, child2]:
                 if len(new_population) < population_size and evaluations_done < max_evaluations:
-                    child_fitness = fitness(dict_selection=child, model_name=model_name, evaluations=evaluations_done)
+                    child_fitness = fitness(
+                        dict_selection=child, model_name=model_name, evaluations=evaluations_done
+                    )[metric.title()]
                     evaluations_done += 1
                     new_population.append(child)
                     new_fitness_values.append(child_fitness)
@@ -163,16 +166,11 @@ def genetic_algorithm(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.append(best_fitness)
+        fitness_history.extend(fitness_values)
+        best_fitness_history.append(best_fitness)
 
         if evaluations_without_improvement >= max_evaluations_without_improvement:
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
-    # Última comprobación para asegurar que se coge el mejor individuo
-    final_best_idx = fitness_values.index(max(fitness_values))
-    if fitness_values[final_best_idx] > best_fitness:
-        best_individual = population[final_best_idx].copy()
-        best_fitness = fitness_values[final_best_idx]
-
-    return best_individual, best_fitness, fitness_history, evaluations_done
+    return best_individual, best_fitness, fitness_history, best_fitness_history, evaluations_done

@@ -67,7 +67,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "busqueda local":
-        best_selection, best_fitness, fitness_history, evaluations_done = local_search(
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
             data_dir=dataset,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -77,7 +77,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "genetico":
-        best_selection, best_fitness, fitness_history, evaluations_done = genetic_algorithm(
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,
@@ -89,7 +89,7 @@ def main(
             model_name=model_name
         )
     elif algoritmo == "memetico":
-        best_selection, best_fitness, fitness_history, evaluations_done = memetic_algorithm(
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
             data_dir=dataset,
             population_size=10,
             initial_percentage=initial_percentage,

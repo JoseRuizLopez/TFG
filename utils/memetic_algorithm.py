@@ -21,7 +21,7 @@ def memetic_algorithm(
     local_search_neighbor_size: int = 5,
     metric: str = "accuracy",
     model_name: str = "resnet"
-) -> tuple[dict, float, list, int]:
+) -> tuple[dict, float, list, list, int]:
     """
     Implementa un algoritmo memético para la selección de imágenes.
 
@@ -40,7 +40,7 @@ def memetic_algorithm(
         model_name: Nombré del modelo a usar
 
     Returns:
-        tuple: (best_solution, best_fitness, fitness_history, evaluations_done)
+        tuple: (best_solution, best_fitness, fitness_history, best_fitness_history, evaluations_done)
     """
     # Contador global de evaluaciones
     evaluations_done = 0
@@ -48,7 +48,10 @@ def memetic_algorithm(
     def local_search_improvement_with_limit(individual, remaining_evaluations):
         nonlocal evaluations_done
         current_solution = individual.copy()
-        current_fitness = fitness(dict_selection=current_solution, model_name=model_name)
+        current_fitness_dict = fitness(
+            dict_selection=current_solution, model_name=model_name, evaluations=evaluations_done
+        )
+        current_fitness = current_fitness_dict[metric.title()]
         evaluations_done += 1
         local_evals = 1
 
@@ -60,7 +63,10 @@ def memetic_algorithm(
 
         while local_evals < max_local_evals and evaluations_done < max_evaluations:
             neighbor = generate_neighbor(current_solution, local_search_neighbor_size)
-            neighbor_fitness = fitness(dict_selection=neighbor, model_name=model_name)
+            neighbor_fitness_dict = fitness(
+                dict_selection=neighbor, model_name=model_name, evaluations=evaluations_done
+            )
+            neighbor_fitness = neighbor_fitness_dict[metric.title()]
             evaluations_done += 1
             local_evals += 1
 
@@ -80,14 +86,15 @@ def memetic_algorithm(
     fitness_values = [
         fitness(
             dict_selection=ind, model_name=model_name, evaluations=iteration
-        ) for ind, iteration in zip(population, range(population_size))
+        )[metric.title()] for ind, iteration in zip(population, range(population_size))
     ]
     evaluations_done = population_size
 
     best_fitness_idx = fitness_values.index(max(fitness_values))
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
-    fitness_history = [best_fitness]
+    fitness_history = fitness_values.copy()
+    best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
 
@@ -117,7 +124,10 @@ def memetic_algorithm(
                         )
                         new_population.append(improved_child)
                     else:
-                        child_fitness = fitness(dict_selection=child, model_name=model_name)
+                        child_fitness_dict = fitness(
+                            dict_selection=child, model_name=model_name, evaluations=evaluations_done
+                        )
+                        child_fitness = child_fitness_dict[metric.title()]
                         evaluations_done += 1
                         new_population.append(child)
                     new_fitness_values.append(child_fitness)
@@ -134,7 +144,9 @@ def memetic_algorithm(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.append(best_fitness)
+        fitness_history.extend(fitness_values)
+        best_fitness_history.append(best_fitness)
+
         print(f"Evaluaciones realizadas: {evaluations_done}/{max_evaluations}")
         print(f"Mejor fitness actual: {best_fitness:.4f}")
         print(f"Evaluaciones sin mejora: {evaluations_without_improvement}")
@@ -143,4 +155,4 @@ def memetic_algorithm(
             print(f"Búsqueda terminada por estancamiento después de {evaluations_done} evaluaciones")
             break
 
-    return best_individual, best_fitness, fitness_history, evaluations_done
+    return best_individual, best_fitness, fitness_history, best_fitness_history, evaluations_done
