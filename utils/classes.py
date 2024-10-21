@@ -4,7 +4,7 @@ from enum import Enum
 class AlgorithmList(Enum):
     ALEATORIO = "aleatorio"
     BUSQUEDA_LOCAL = "busqueda local"
-    GENETICO = "genetico"
+    # GENETICO = "genetico"
     # MEMETICO = "memetico"
 
 

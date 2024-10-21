@@ -1,0 +1,11 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy (Avg),Precision (Avg),Recall (Avg),F1-score (Avg),Evaluaciones Realizadas
+aleatorio,10,00:45:08,"76,55 %","81,80 %","76,55 %","76,25 %",100
+aleatorio,20,01:10:27,"81,77 %","84,70 %","81,77 %","81,59 %",100
+aleatorio,50,02:24:49,"87,14 %","88,09 %","87,14 %","86,97 %",100
+aleatorio,100,00:02:42,"87,90 %","88,96 %","87,90 %","87,81 %",1
+,,,,,,,
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy (Avg),Precision (Avg),Recall (Avg),F1-score (Avg),Evaluaciones Realizadas
+aleatorio,10,00:29:29,"72,31 %","76,40 %","72,31 %","69,62 %",100
+aleatorio,20,00:50:36,"76,48 %","78,82 %","76,48 %","75,58 %",100
+aleatorio,50,01:54:09,"75,56 %","79,72 %","75,56 %","74,67 %",100
+aleatorio,100,00:02:12,"76,08 %","79,97 %","76,08 %","75,61 %",1
