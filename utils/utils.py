@@ -298,11 +298,14 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     torch.cuda.manual_seed_all(old_seed)
 
     if evaluations is not None:
-        with open("logs/evaluations_logs.txt", "a") as file:
-            file.write(f"Evaluación {str(evaluations+1)} -> {str(datetime.datetime.now())}\n")
-            file.flush()  # Forzar la escritura inmediata al disco
+        now = datetime.datetime.now()
+        if os.getenv("SERVER") is not None:
+            now = now + datetime.timedelta(hours=2)
 
-    # else:
+        date = now.strftime("%Y-%m-%d_%H-%M")
+        with open("logs/evaluations_logs.txt", "a") as file:
+            file.write(f"Evaluación {str(evaluations+1)} -> {date}\n")
+            file.flush()  # Forzar la escritura inmediata al disco
 
     return {
         "Accuracy": accuracy,
@@ -310,11 +313,6 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
         "Recall": recall,
         "F1-score": f1
     }
-
-    # if metric == "accuracy":
-    #     return accuracy
-    # else:
-    #     return f1
 
 
 def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):

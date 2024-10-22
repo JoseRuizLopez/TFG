@@ -10,6 +10,7 @@ from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.genetic_algorithm import genetic_algorithm
+from utils.genetic_algorithm2 import genetic_algorithm2
 from utils.local_search import local_search
 from utils.memetic_algorithm import memetic_algorithm
 from utils.random_search import random_search
@@ -103,6 +104,18 @@ def main(
             metric=metric,
             model_name=model_name
         )
+    elif algoritmo == "genetico2":
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
+            data_dir=dataset,
+            population_size=4,
+            initial_percentage=initial_percentage,
+            max_evaluations=max_evaluations,
+            max_evaluations_without_improvement=max_evaluations_without_improvement,
+            tournament_size=4,
+            mutation_rate=0.05,
+            metric=metric,
+            model_name=model_name
+        )
 
     end = datetime.datetime.now()
     duration = end - start
@@ -153,12 +166,12 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentaje_inicial = 10
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 20
     evaluaciones_maximas_sin_mejora = 100
 
-    algoritmo: AlgorithmList = AlgorithmList.ALEATORIO
+    algoritmo: AlgorithmList = AlgorithmList.GENETICO2
     metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.RESNET
+    modelo: ModelList = ModelList.MOBILENET
 
     result, fitness_history, best_fitness_history = main(
         porcentaje_inicial,

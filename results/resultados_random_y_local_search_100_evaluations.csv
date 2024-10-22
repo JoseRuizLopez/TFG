@@ -1,0 +1,9 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+aleatorio,10,00:30:43,"80,38 %","81,43 %","80,38 %","79,40 %",100,10,"36,51 %","29,76 %","33,73 %"
+aleatorio,20,00:51:07,"81,99 %","83,73 %","81,99 %","81,24 %",100,20,"30,16 %","34,92 %","34,92 %"
+aleatorio,50,01:55:08,"80,11 %","83,11 %","80,11 %","79,45 %",100,50,"32,86 %","32,86 %","34,29 %"
+,,,,,,,,,,,
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+busqueda local,10,00:29:57,"80,11 %","81,39 %","80,11 %","79,03 %",100,10,"30,56 %","35,71 %","33,73 %"
+busqueda local,20,00:51:08,"79,03 %","80,52 %","79,03 %","78,47 %",100,20,"33,13 %","35,91 %","30,95 %"
+busqueda local,50,01:55:02,"78,76 %","81,76 %","78,76 %","78,31 %",100,50,"33,65 %","33,25 %","33,10 %"
