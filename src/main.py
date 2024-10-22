@@ -40,7 +40,7 @@ def main(
 
     dataset = "data/dataset/train"
 
-    with open(f"logs/evaluations_{date}.txt", "a") as file:
+    with open(f"logs/evaluations_logs.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
                    f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n")

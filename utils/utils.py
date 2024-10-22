@@ -298,7 +298,7 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     torch.cuda.manual_seed_all(old_seed)
 
     if evaluations is not None:
-        with open("results/evaluations_logs.txt", "a") as file:
+        with open("logs/evaluations_logs.txt", "a") as file:
             file.write(f"Evaluación {str(evaluations+1)} -> {str(datetime.datetime.now())}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 
