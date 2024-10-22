@@ -107,7 +107,7 @@ def main(
     elif algoritmo == "genetico2":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
             data_dir=dataset,
-            population_size=4,
+            population_size=10,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
@@ -166,7 +166,7 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentaje_inicial = 10
-    evaluaciones_maximas = 20
+    evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
 
     algoritmo: AlgorithmList = AlgorithmList.GENETICO2
