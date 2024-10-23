@@ -1,6 +1,6 @@
-\chapter{Fundamentos de Aprendizaje Profundo}\label{ch:fundamentos_de_aprendizaje_profundo}
+\chapter{Fundamentos de Aprendizaje Profundo}\label{ch:fundamentos-de-aprendizaje-profundo}
 %Fundamentos de Aprendizaje Profundo: Explica los conceptos básicos, incluyendo redes neuronales convolucionales.
-\section{Definición de Aprendizaje Profundo}\label{subsec:definicion_de_aprendizaje_profundo}
+\section{Definición de Aprendizaje Profundo}\label{sec:definicion-de-aprendizaje-profundo}
 El \textbf{aprendizaje profundo} (Deep Learning) es una subcategoría del aprendizaje automático que se basa
 en el uso de \textbf{redes neuronales artificiales} con muchas capas (de ahí el término \("\)profundo\("\)).
 Estas redes están diseñadas para imitar el funcionamiento del cerebro humano, lo que les permite aprender
@@ -22,16 +22,25 @@ El aprendizaje profundo ha mostrado un rendimiento sobresaliente en diversas tar
 imágenes, el procesamiento del lenguaje natural, la conducción autónoma y el diagnóstico médico, gracias a su capacidad
 para \textbf{capturar patrones complejos} en grandes volúmenes de datos.
 
-\section{Redes Neuronales Artificiales}\label{subsec:redes_neuronales_artificiales}
-Las \textbf{redes neuronales artificiales} (ANN) son el corazón del aprendizaje profundo.
+\section{Redes Neuronales Artificiales}\label{sec:redes-neuronales-artificiales}
+Las \textbf{redes neuronales artificiales} (ANN)~\cite{Handbook of measuring system design} son el corazón del
+aprendizaje profundo.
 Estas redes están compuestas por neuronas artificiales, que son unidades matemáticas inspiradas en las neuronas
 biológicas.
 Cada neurona toma varias entradas, las procesa mediante una \textbf{función de activación}, y produce una salida.
 Cuando se combinan muchas de estas neuronas en capas, forman una red neuronal.
 
-\subsubsection{Componentes de una Red Neuronal}\label{subsubsec:componentes_de_una_red_neuronal}
+\subsection{Componentes de una Red Neuronal}\label{subsec:componentes-de-una-red-neuronal}
 \begin{enumerate}
-    \item \textbf{Neuronas o Unidades}: Cada \textbf{neurona} realiza una operación simple: recibe varias entradas, las
+    \item \textbf{Neuronas o Unidades}:
+    \begin{figure}[htp] \label{fig:neuron}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{imagenes/neuron}
+        \end{center}
+        \caption[Neurona Artificial]{}
+    \end{figure}
+
+Cada \textbf{neurona} realiza una operación simple: recibe varias entradas, las
 pondera por medio de \textbf{pesos} $w_{i}$, suma estos valores junto con un \textbf{sesgo} $b$, y aplica una función
 de activación.
 La salida de la neurona se expresa como:
@@ -41,6 +50,12 @@ $z =w_{1}x_{1} + w_{2}x_{2} + \dots + w_{n}x_{n} + b_{z} = w_{1}x_{1} + w_{2}x_{
 Luego, el valor $z$ pasa por una función de activación, que introduce la no linealidad en el sistema, permitiendo que
 las redes neuronales modelen relaciones complejas.
     \item \textbf{Capas de la Red}:
+    \begin{figure}[htp] \label{fig:capas-red-neuronal}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{imagenes/capas_red_neuronal}
+        \end{center}
+        \caption[Capas de la Red Neuonial Artificial]{}
+    \end{figure}
 \begin{itemize}
     \item \textbf{Capa de entrada}: Es la primera capa de la red neuronal, que recibe los datos crudos (por ejemplo,
 píxeles de una imagen).
@@ -68,7 +83,7 @@ Entre las más comunes se encuentran:
 El uso de \textbf{backpropagation} o retropropagación permite ajustar los pesos y biases durante el entrenamiento
 mediante un algoritmo de optimización, como el descenso de gradiente.
 De esta manera, la red aprende minimizando la diferencia entre sus predicciones y las respuestas correctas.
-\section{Redes Neuronales Convolucionales}\label{subsec:redes_neuronales_convolucionales}
+\section{Redes Neuronales Convolucionales}\label{sec:redes-neuronales-convolucionales}
 Las \textbf{Redes Neuronales Convolucionales} (Convolutional Neural Networks, CNNs) son una clase de redes neuronales
 profundas especialmente efectivas para el procesamiento de datos que tienen una estructura de tipo rejilla, como las
 imágenes.
@@ -82,11 +97,10 @@ Lo que diferencia a las CNNs de las redes neuronales tradicionales es su capacid
 características.
 
 
-\subsubsection{Componentes principales de una CNN}\label{subsubsec:componentes_principales_de_una_cnn}
-
-\begin{figure}[htp] \label{fig:convolution_layer}
+\subsection{Componentes principales de una CNN}\label{subsec:componentes-principales-de-una-cnn}
+\begin{figure}[htp] \label{fig:convolution-layer}
     \begin{center}
-        \includegraphics[width=1\textwidth]{imagenes/convolution_layer.png}
+        \includegraphics[width=1\textwidth]{imagenes/convolution_layer}
     \end{center}
     \caption[Puntos globales y locales]{En esta imagen extraída de
     \cite{A review of convolutional neural networks in computer vision} puede observarse de la estructura de una red
@@ -129,7 +143,7 @@ Esta técnica mejora la generalización de la red, lo que la hace funcionar mejo
 
 \end{enumerate}
 
-\subsubsection{Funcionamiento General de una CNN}\label{subsubsec:funcionamiento_general_de_una_cnn}
+\subsection{Funcionamiento General de una CNN}\label{subsec:funcionamiento-general-de-una-cnn}
 Al pasar una imagen a través de varias capas convolucionales, la red aprende a identificar características simples como
 líneas y bordes.
 Conforme avanza a capas más profundas, las características se vuelven más abstractas, capturando patrones más complejos
@@ -139,7 +153,7 @@ Por ejemplo, en una red entrenada para reconocer caras, las primeras capas puede
 capas intermedias pueden aprender a reconocer ojos, nariz o boca, y las últimas capas pueden identificar una cara
 completa.
 
-\subsubsection{Aplicaciones de las CNN}\label{subsubsec:aplicaciones_de_las_cnn}
+\subsection{Aplicaciones de las CNN}\label{subsec:aplicaciones-de-las-cnn}
 \begin{itemize}
     \item \textbf{Clasificación de imágenes}: Etiquetar imágenes en distintas categorías, como identificar animales o
 vehículos.
@@ -149,3 +163,46 @@ vehículos.
 
 Las CNN son fundamentales en muchas aplicaciones modernas debido a su capacidad para procesar y entender datos visuales
 de manera eficiente y automática.
+
+\section{Datasets}\label{sec:datasets}
+En el aprendizaje profundo, los datasets son colecciones de datos etiquetados o no etiquetados que se utilizan para
+entrenar modelos.
+Estos conjuntos de datos suelen contener ejemplos organizados que representan la entrada para el modelo, y en muchos
+casos, también las etiquetas correspondientes que indican la salida deseada.
+Los datasets varían en tamaño, calidad y tipo, dependiendo de la tarea a resolver, como la clasificación de imágenes,
+el reconocimiento de patrones o la predicción de series temporales.
+
+\subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
+\textbf{Rock, Paper, Scissors}~\cite{Rock Paper Scissors Dataset} fue creado originalmente por Laurence Moroney y se
+utiliza para clasificar imágenes de las manos representando los gestos de `piedra', `papel' y `tijeras'.
+El conjunto de datos contiene alrededor de 2,500 imágenes distribuidas en tres categorías: piedra, papel y tijeras.
+Las imágenes están en color y tienen un tamaño de 300x300 píxeles.
+
+En este trabajo, se ha utilizado el dataset de \textbf{Rock, Paper, Scissors} para evaluar el rendimiento del modelo en
+un problema de clasificación de imágenes más variado y natural, que involucra múltiples clases.
+Además, permite explorar la eficacia de los algoritmos meméticos en un entorno más cercano al reconocimiento de
+objetos, lo que añade mayor complejidad al problema.
+
+\subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
+\textbf{MNIST}~\cite{MNIST Dataset} es uno de los datasets más utilizados en el campo del aprendizaje automático y el
+aprendizaje profundo.
+Contiene 70,000 imágenes de dígitos escritos a mano (60,000 para el conjunto de entrenamiento y 10,000 para el de
+prueba).
+Las imágenes son en escala de grises y tienen un tamaño de 28x28 píxeles, con cada píxel representando una intensidad
+de color entre 0 (negro) y 255 (blanco).
+
+Este dataset se utiliza comúnmente como \textbf{benchmark} para evaluar modelos de clasificación de imágenes,
+particularmente en arquitecturas convolucionales.
+
+La simplicidad de \textbf{MNIST} lo hace ideal para probar modelos de redes neuronales convolucionales, ya que ofrece un
+equilibrio entre un problema fácil de entender, pero con suficiente complejidad para que los modelos más avanzados
+demuestren mejoras.
+
+\subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
+La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
+complejidad.
+\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
+estandarizada para comparar el rendimiento y la reducción de datos.
+Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
+permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
+representativos de aplicaciones más reales en visión por computadora.

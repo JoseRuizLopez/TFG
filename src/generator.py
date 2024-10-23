@@ -12,7 +12,7 @@ from utils.utils import plot_multiple_fitness_evolution
 
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [70]
+    porcentajes = [10, 20, 50, 70]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False

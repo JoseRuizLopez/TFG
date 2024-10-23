@@ -145,16 +145,16 @@ def main(
         resultado = final_fitness | {
             "Duracion": str(duration),
             "Evaluaciones Realizadas": evaluations_done,
-            "Porcentaje Final":  len(images_selected) / num_images * 100,
+            "Porcentaje Final":  len(images_selected) / num_images,
             "Porcentaje Paper": len(
                 [key for key, value in images_selected.items() if 'paper' in key]
-            ) / len(images_selected) * 100,
+            ) / len(images_selected),
             "Porcentaje Rock": len(
                 [key for key, value in images_selected.items() if 'rock' in key]
-            ) / len(images_selected) * 100,
+            ) / len(images_selected),
             "Porcentaje Scissors": len(
                 [key for key, value in images_selected.items() if 'scissors' in key]
-            ) / len(images_selected) * 100,
+            ) / len(images_selected),
         }
 
         return resultado, fitness_history, best_fitness_history
@@ -166,10 +166,10 @@ def main(
 if __name__ == "__main__":
     print(f"GPU: {torch.cuda.is_available()}")
     porcentaje_inicial = 10
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 10
     evaluaciones_maximas_sin_mejora = 100
 
-    algoritmo: AlgorithmList = AlgorithmList.GENETICO2
+    algoritmo: AlgorithmList = AlgorithmList.MEMETICO
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
 

@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+aleatorio,70,02:14:43,"82,53 %","84,19 %","82,53 %","82,10 %",100,70,"32,48","33,79","33,73"
+busqueda local,70,02:14:07,"81,99 %","83,66 %","81,99 %","81,63 %",100,70,"33,73","33,11","33,16"
+genetico,70,02:14:06,"82,80 %","84,73 %","82,80 %","82,43 %",100,70,"33,39","33,33","33,28"
+genetico2,70,02:14:20,"81,99 %","83,76 %","81,99 %","81,52 %",100,70,"33,84","33,67","32,48"

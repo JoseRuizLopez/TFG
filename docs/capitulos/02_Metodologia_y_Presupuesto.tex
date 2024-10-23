@@ -1,4 +1,186 @@
-\chapter{Metodología y Presupuesto}\label{ch:metodologia_y_presupuesto}
-Aqui debo poner que he usado metodologia agil y eso.
+\chapter{Metodología y Presupuesto}\label{ch:metodologia-y-presupuesto}
+En este capítulo se describe la metodología utilizada para gestionar el desarrollo del proyecto, así como el
+presupuesto estimado.
+Se ha optado por una \textbf{metodología ágil}, adaptada a la naturaleza iterativa y flexible del desarrollo de un
+proyecto de investigación como este.
+Además, se presenta el presupuesto que refleja los recursos empleados, tanto en tiempo como en infraestructura.
 
-Y realizar el presupuesto.
+\section{Metodología}\label{sec:metodologia}
+El enfoque elegido para la gestión del proyecto ha sido la \textbf{metodología ágil}, que permite gestionar proyectos
+de forma incremental e iterativa.
+Dado que el desarrollo de un trabajo de investigación implica constantes ajustes y mejoras en cada etapa, la
+flexibilidad de la metodología ágil ha sido clave para adaptarse a los nuevos descubrimientos y desafíos a lo largo del
+proyecto. \\[6pt]
+
+Para gestionar el proyecto de manera efectiva, se utilizó \textbf{Git}~\cite{} para el control de versiones del código
+y el transpaso fácil de datos entre el servidor y el alumno.
+
+\subsection{Metodología Ágil}\label{subsec:metodologia-agil}
+La metodología ágil se caracteriza por su capacidad para organizar el trabajo en ciclos cortos, cada uno con
+objetivos específicos y entregas incrementales.
+Para este proyecto, la \textbf{planificación}, el \textbf{desarrollo}, la \textbf{investigación} y el
+\textbf{análisis de resultados} no se realizaron como fases completamente separadas, sino que se intercalaron durante
+todo el ciclo del proyecto.
+
+\subsection{Fases iterativas}\label{subsec:fases-iterativas}
+A diferencia de una planificación tradicional secuencial, en este proyecto se ha trabajado en varias fases de forma
+simultánea y en ciclos iterativos, con los objetivos y prioridades ajustándose a medida que avanzaba el trabajo.
+
+\begin{enumerate}
+    \item \textbf{Planificación e investigación continua}:
+    \begin{itemize}
+        \item En lugar de una planificación inicial fija, se realizó una planificación continua.
+Los objetivos de cada iteración se establecían al inicio de cada ciclo de trabajo, según las necesidades y avances
+previos.
+        \item La investigación sobre los algoritmos y técnicas de reducción de datos fue un proceso continuo,
+intercalado con el desarrollo y análisis de los resultados obtenidos en las distintas iteraciones.
+    \end{itemize}
+
+    \item \textbf{Desarrollo iterativo de los algoritmos}:
+    \begin{itemize}
+        \item La implementación de los diferentes algoritmos (aleatorio, búsqueda local y genéticos) no fue una única
+fase, sino que se intercaló con la investigación y análisis.
+Los algoritmos se desarrollaron en incrementos, permitiendo una mejora continua basada en la retroalimentación y
+pruebas constantes.
+        \item Los algoritmos se evaluaron y ajustaron constantemente, lo que permitió hacer mejoras tempranas y
+corregir posibles fallos durante el ciclo de desarrollo.
+    \end{itemize}
+
+    \item \textbf{Análisis incremental de resultados}:
+    \begin{itemize}
+        \item El análisis de los resultados se realizó tras cada ciclo de pruebas, lo que permitió evaluar el impacto
+de los cambios implementados en los algoritmos y ajustar la planificación para las siguientes iteraciones.
+        \item Este enfoque incremental permitió identificar patrones y problemas a medida que avanzaba el proyecto, lo
+que facilitó la optimización de los algoritmos, planificación de nuevas pruebas y la reducción de datos de manera más
+eficiente.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ciclos de trabajo}\label{subsec:ciclos-de-trabajo}
+El trabajo se organizó en ciclos de aproximadamente 2 semanas cada uno, donde se definían metas concretas,
+como la implementación de un algoritmo o la evaluación de un conjunto de resultados.
+Al final de cada ciclo, se realizaba una revisión de los avances y se ajustaban los objetivos del siguiente ciclo,
+además de realizar una reunión con el tutor para orientar las nuevas pruebas y los siguientes avances. \\[6pt]
+
+Cada ciclo estaba formado por:
+\begin{enumerate}
+    \item \textbf{Investigación} inicial y \textbf{diseño} preliminar del algoritmo.
+    \item \textbf{Implementación} básica del algoritmo y \textbf{evaluación} inicial.
+    \item \textbf{Ajustes} en los parámetros del algoritmo y \textbf{pruebas} comparativas.
+    \item \textbf{Optimización} y \textbf{análisis} final de resultados.
+    \item \textbf{Documentación} del algoritmo y de los resultados obtenidos.
+\end{enumerate}
+
+Cada ciclo permitiría la entrega de un incremento funcional del proyecto, con un enfoque en mantener la flexibilidad
+para adaptarse a cualquier descubrimiento nuevo.
+
+Pero tras atrasarse el desarrollo del TFG, se tuvo que adaptar el tiempo de cada ciclo para que diese tiempo a
+realizar todas las pruebas necesarias.
+
+\section{Presupuesto}\label{sec:presupuesto}
+El presupuesto estimado incluye tanto el tiempo dedicado al proyecto (mano de obra) como los recursos computacionales y
+otros gastos relacionados.
+Aunque muchos recursos utilizados son gratuitos o de bajo coste, se ha realizado una estimación considerando el valor
+del tiempo invertido y el uso de recursos computacionales.
+
+\subsection{Mano de obra}\label{subsec:mano-de-obra}
+El trabajo total estimado es de \textbf{400 horas}, repartidas de manera flexible a lo largo de los ciclos.
+El coste por hora se ha estimado en \textbf{20 euros}, lo cual incluye las tareas de investigación, desarrollo de
+algoritmos, análisis de resultados y documentación.
+
+\begin{table}[htp]\label{tab:mano-de-obra}
+    \centering
+    \begin{adjustbox}{width=\linewidth}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Fase} & \textbf{Horas dedicadas} & \textbf{Coste por hora (€)} & \textbf{Coste total (€)} \\ \hline
+            Planificación e investigación & 60 & 20 & 1.200 \\
+            Desarrollo de algoritmos & 180 & 20 & 3.600 \\
+            Análisis de resultados & 80 & 20 & 1.600 \\
+            Redacción y documentación & 80 & 20 & 1.600 \\ \hline
+            \textbf{Total} & \textbf{400 horas} & & \textbf{8.000 €} \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+    \caption{Coste estimado de la mano de obra.}
+\end{table}
+
+
+\subsection{Recursos computacionales}\label{subsec:recursos-computacionales}
+El proyecto ha requerido el uso de recursos computacionales para entrenar los modelos de aprendizaje profundo,
+especialmente para evaluar la eficacia de los algoritmos en la reducción de datos. \\[6pt]
+
+El tutor \textbf{Daniel Molina Cabrera} me puso en disposición el acceso a un servidor de investigación con
+disponibilidad de GPU, de manera que no ha supuesto ningún coste.
+Por ello, para suponer un coste estimado, se ha supuesto lo que nos costaria un servidor de
+\textbf{Google Cloud}~\cite{} de \textbf{Compute Engine}~\cite{} en Bélgica. \\[6pt]
+
+Los componentes equivalentes del servidor en Compute Engine serían:
+\begin{itemize}
+    \item Un \textbf{Intel Xeon E-2226G} equivaldría a un \textbf{c2-standard-8}, cuyo coste es de 0.43 EUR/h.
+    \item Un \textbf{NVIDIA TITAN Xp} equivaldría a una \textbf{NVIDIA K80 1 GPU}, GDDR5 de 12 GB cuyo coste es de 0.42
+EUR/h.
+\end{itemize}
+
+De manerá que los gastos estimados serían:
+\begin{table}[htp]\label{tab:recursos-computacionales}
+    \centering
+    \begin{adjustbox}{width=\linewidth}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Recurso} & \textbf{Horas utilizadas} & \textbf{Coste por hora (€)} & \textbf{Coste total (€)} \\ \hline
+            CPU (c2-standard-8) & 210 & 0.43 & 90.3 \\
+            GPU (NVIDIA K80 1 GPU) & 210 & 0.42 & 88.2 \\ \hline
+            \textbf{Total} & \textbf{210} & \textbf{0.85} & \textbf{178.5} \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+    \caption{Coste estimado de los recursos computacionales.}
+\end{table}
+
+
+\subsection{Software y licencias}\label{subsec:software-y-licencias}
+Para este proyecto, todas las herramientas de desarrollo utilizadas han sido de \textbf{código abierto}, por lo que no
+se han generado costes asociados a licencias de software.
+
+\subsection{Otros gastos}\label{subsec:otros-gastos}
+Se han considerado gastos adicionales, como el uso de \textbf{conexión a internet} y el consumo de
+\textbf{electricidad} durante el desarrollo y entrenamiento de los modelos.
+
+\begin{table}[htp]\label{tab:otros-gastos}
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Concepto} & \textbf{Coste estimado (€)} \\ \hline
+        Conexión a internet & 50 \\
+        Electricidad & 40 \\ \hline
+        \textbf{Total} & \textbf{90 €} \\ \hline
+    \end{tabular}
+    \caption{Otros gastos estimados.}
+\end{table}
+
+
+\subsection{Presupuesto total}\label{subsec:presupuesto-total}
+Sumando los costes de mano de obra, los recursos computacionales y otros gastos, el presupuesto total estimado es el
+siguiente:
+
+\begin{table}[htp]\label{tab:presupuesto-total}
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Concepto} & \textbf{Coste (€)} \\ \hline
+        Mano de obra & 8.000 \\
+        Recursos computacionales & 178.5 \\
+        Otros gastos & 90 \\ \hline
+        \textbf{Total} & \textbf{8.268,5 €} \\ \hline
+    \end{tabular}
+    \caption{Presupuesto total estimado del proyecto.}
+\end{table}
+
+
+\section{Conclusión}\label{sec:conclusion}
+La utilización de una \textbf{metodología ágil} ha permitido gestionar este proyecto de manera flexible y eficiente,
+favoreciendo la adaptación continua a medida que surgían nuevos retos y descubrimientos.
+La intercalación de las fases de planificación, desarrollo, investigación y análisis ha garantizado una entrega
+incremental y un ajuste continuo del trabajo, asegurando la calidad y la optimización de los resultados. \\[6pt]
+
+El presupuesto total estimado, de \textbf{8.268,5 euros}, refleja principalmente los costes asociados a la mano de obra y
+los recursos computacionales necesarios para el desarrollo de los modelos y la ejecución de los experimentos.
