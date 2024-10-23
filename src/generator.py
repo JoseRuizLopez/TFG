@@ -15,10 +15,10 @@ if __name__ == "__main__":
     porcentajes = [10, 20, 50, 70]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = False
+    add_100 = True
 
     metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.MOBILENET
+    modelo: ModelList = ModelList.RESNET
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
 
