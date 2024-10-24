@@ -1,0 +1,34 @@
+=== Sistema Python ===
+Python version: 3.10.15 (main, Oct  3 2024, 07:27:34) [GCC 11.2.0]
+
+=== Versiones de PyTorch ===
+PyTorch version: 2.0.1+cu117
+CUDA available: True
+CUDA version: 11.7
+GPU device name: NVIDIA TITAN Xp
+
+=== NVIDIA-SMI ===
+Wed Oct 23 14:44:50 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.161.08             Driver Version: 535.161.08   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA TITAN Xp                On  | 00000000:81:00.0 Off |                  N/A |
+| 23%   20C    P8               8W / 250W |      4MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+
+=== CUDA_HOME ===
+CUDA_HOME: None
