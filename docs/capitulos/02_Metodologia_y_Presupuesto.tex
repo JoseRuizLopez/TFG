@@ -1,81 +1,95 @@
 \chapter{Metodología y Presupuesto}\label{ch:metodologia-y-presupuesto}
-En este capítulo se describe la metodología utilizada para gestionar el desarrollo del proyecto, así como el
-presupuesto estimado.
-Se ha optado por una \textbf{metodología ágil}, adaptada a la naturaleza iterativa y flexible del desarrollo de un
-proyecto de investigación como este.
-Además, se presenta el presupuesto que refleja los recursos empleados, tanto en tiempo como en infraestructura.
-
 \section{Metodología}\label{sec:metodologia}
-El enfoque elegido para la gestión del proyecto ha sido la \textbf{metodología ágil}, que permite gestionar proyectos
-de forma incremental e iterativa.
-Dado que el desarrollo de un trabajo de investigación implica constantes ajustes y mejoras en cada etapa, la
-flexibilidad de la metodología ágil ha sido clave para adaptarse a los nuevos descubrimientos y desafíos a lo largo del
-proyecto. \\[6pt]
+La metodología adoptada para el desarrollo de este proyecto ha estado inspirada en el marco ágil
+\textbf{Scrum}~\cite{}, una estrategia ampliamente utilizada en proyectos que requieren flexibilidad,
+adaptabilidad y entregas incrementales.
+Dado que un trabajo de investigación como este demanda constantes ajustes en función de los hallazgos y resultados
+obtenidos, Scrum ha sido el marco adecuado para organizar el desarrollo de manera iterativa y colaborativa, facilitando
+la mejora continua durante el proceso.
 
-Para gestionar el proyecto de manera efectiva, se utilizó \textbf{Git}~\cite{} para el control de versiones del código
-y el transpaso fácil de datos entre el servidor y el alumno.
+\subsection{Metodología Ágil Inspirada en Scrum}\label{subsec:metodologia-agil-inspirada-en-scrum}
+El desarrollo del proyecto se organizó en \textbf{sprints}, que consistían en ciclos cortos de
+trabajo (de dos semanas, generalmente), donde se definían objetivos concretos al inicio y se revisaban los avances al
+final de cada sprint.
+Esto permitió adaptar el trabajo de acuerdo con los descubrimientos y problemas emergentes a lo largo del proyecto.
+\\[6pt]
 
-\subsection{Metodología Ágil}\label{subsec:metodologia-agil}
-La metodología ágil se caracteriza por su capacidad para organizar el trabajo en ciclos cortos, cada uno con
-objetivos específicos y entregas incrementales.
-Para este proyecto, la \textbf{planificación}, el \textbf{desarrollo}, la \textbf{investigación} y el
-\textbf{análisis de resultados} no se realizaron como fases completamente separadas, sino que se intercalaron durante
-todo el ciclo del proyecto.
+Además, el uso de \textbf{Git}~\cite{} como herramienta para el control de versiones fue clave en la gestión
+de los avances de desarrollo.
+Git permitió mantener un registro preciso de cada cambio en el código y los algoritmos, facilitando la colaboración con
+el tutor y garantizando una trazabilidad eficiente de los ajustes realizados durante cada iteración.
+Gracias a Git, se pudo revisar, deshacer y modificar el código de forma ágil, integrando nuevos enfoques o mejoras de
+manera controlada tras cada sprint.
 
-\subsection{Fases iterativas}\label{subsec:fases-iterativas}
-A diferencia de una planificación tradicional secuencial, en este proyecto se ha trabajado en varias fases de forma
-simultánea y en ciclos iterativos, con los objetivos y prioridades ajustándose a medida que avanzaba el trabajo.
+\subsection{Ciclos de Trabajo}\label{subsec:ciclos-de-trabajo}
+En consonancia con Scrum, cada ciclo de trabajo (o sprint) incluyó una planificación detallada, desarrollo, pruebas y
+análisis de los resultados obtenidos.
+Los sprints se estructuraron en torno a objetivos específicos, como la implementación de un algoritmo o el ajuste de
+parámetros, y estuvieron formados por las siguientes fases:
 
-\begin{enumerate}
-    \item \textbf{Planificación e investigación continua}:
-    \begin{itemize}
-        \item En lugar de una planificación inicial fija, se realizó una planificación continua.
-Los objetivos de cada iteración se establecían al inicio de cada ciclo de trabajo, según las necesidades y avances
-previos.
-        \item La investigación sobre los algoritmos y técnicas de reducción de datos fue un proceso continuo,
-intercalado con el desarrollo y análisis de los resultados obtenidos en las distintas iteraciones.
-    \end{itemize}
+\begin{itemize}
+    \item \textbf{Planificación del sprint}: Al inicio de cada sprint, se realizaba una sesión de planificación donde
+    se establecían los objetivos específicos del ciclo.
+    Estos objetivos podían incluir tareas como la implementación de un nuevo algoritmo o la optimización de uno
+    existente.
+    La planificación se ajustaba constantemente en función del progreso logrado en sprints anteriores y de los nuevos
+    descubrimientos.
+    Aquí también se establecían las prioridades para asegurar que los esfuerzos se enfocaran en los puntos críticos del
+    proyecto.
+    \item \textbf{Desarrollo e implementación de algoritmos}: Durante la fase de desarrollo, se implementaban los
+    algoritmos planificados, como los algoritmos aleatorios, de búsqueda local y genéticos.
+    En lugar de completar el desarrollo de un algoritmo en su totalidad antes de pasar al siguiente, se seguía un
+    enfoque iterativo.
+    Esto permitía construir versiones básicas de los algoritmos que luego se refinaban en iteraciones sucesivas.
 
-    \item \textbf{Desarrollo iterativo de los algoritmos}:
-    \begin{itemize}
-        \item La implementación de los diferentes algoritmos (aleatorio, búsqueda local y genéticos) no fue una única
-fase, sino que se intercaló con la investigación y análisis.
-Los algoritmos se desarrollaron en incrementos, permitiendo una mejora continua basada en la retroalimentación y
-pruebas constantes.
-        \item Los algoritmos se evaluaron y ajustaron constantemente, lo que permitió hacer mejoras tempranas y
-corregir posibles fallos durante el ciclo de desarrollo.
-    \end{itemize}
 
-    \item \textbf{Análisis incremental de resultados}:
-    \begin{itemize}
-        \item El análisis de los resultados se realizó tras cada ciclo de pruebas, lo que permitió evaluar el impacto
-de los cambios implementados en los algoritmos y ajustar la planificación para las siguientes iteraciones.
-        \item Este enfoque incremental permitió identificar patrones y problemas a medida que avanzaba el proyecto, lo
-que facilitó la optimización de los algoritmos, planificación de nuevas pruebas y la reducción de datos de manera más
-eficiente.
-    \end{itemize}
-\end{enumerate}
+    Git fue fundamental en esta etapa, ya que permitía gestionar los cambios en el código de manera efectiva.
+    A medida que se introducían mejoras o correcciones, Git ayudaba a mantener el historial de versiones, facilitando
+    la identificación de regresiones o la comparación entre diferentes enfoques.
+    \item \textbf{Pruebas y ajustes iterativos}: Una vez implementados los algoritmos, se realizaban pruebas continuas
+    para evaluar su rendimiento en función de los resultados obtenidos.
+    Esta fase era crucial para identificar posibles áreas de mejora en los algoritmos o en los parámetros utilizados.
+    Los resultados de las pruebas proporcionaban retroalimentación inmediata, lo que permitía realizar ajustes en
+    tiempo real dentro del mismo sprint.
+    Durante este ciclo, los algoritmos se ajustaban y optimizaban iterativamente, lo que permitía identificar errores o
+    ineficiencias de manera temprana.
+    \item \textbf{Revisión y análisis de resultados}: Al final de cada sprint, se realizaba una revisión detallada de
+    los resultados obtenidos durante las pruebas.
+    Este análisis incluía no solo la evaluación del rendimiento de los algoritmos, sino también la reflexión sobre los
+    avances logrados respecto a los objetivos iniciales del sprint.
 
-\subsection{Ciclos de trabajo}\label{subsec:ciclos-de-trabajo}
-El trabajo se organizó en ciclos de aproximadamente 2 semanas cada uno, donde se definían metas concretas,
-como la implementación de un algoritmo o la evaluación de un conjunto de resultados.
-Al final de cada ciclo, se realizaba una revisión de los avances y se ajustaban los objetivos del siguiente ciclo,
-además de realizar una reunión con el tutor para orientar las nuevas pruebas y los siguientes avances. \\[6pt]
 
-Cada ciclo estaba formado por:
-\begin{enumerate}
-    \item \textbf{Investigación} inicial y \textbf{diseño} preliminar del algoritmo.
-    \item \textbf{Implementación} básica del algoritmo y \textbf{evaluación} inicial.
-    \item \textbf{Ajustes} en los parámetros del algoritmo y \textbf{pruebas} comparativas.
-    \item \textbf{Optimización} y \textbf{análisis} final de resultados.
-    \item \textbf{Documentación} del algoritmo y de los resultados obtenidos.
-\end{enumerate}
+    Durante las reuniones con el tutor, se discutían los resultados y se revisaban posibles cambios en la planificación
+    de los próximos sprints, ajustando las prioridades y estableciendo nuevos objetivos en función de los hallazgos.
+    Esta fase permitía un enfoque incremental, donde las mejoras y ajustes se incorporaban de manera continua, lo que
+    aseguraba que el proyecto avanzara de forma óptima y se pudieran hacer correcciones oportunas antes de continuar
+    con el siguiente sprint.
 
-Cada ciclo permitiría la entrega de un incremento funcional del proyecto, con un enfoque en mantener la flexibilidad
-para adaptarse a cualquier descubrimiento nuevo.
+    \item \textbf{Documentación de los algoritmos y resultados}: El último paso en cada sprint consistía en documentar
+    los avances alcanzados, tanto en la implementación de los algoritmos como en los resultados obtenidos.
+    Esta documentación no solo reflejaba el estado del proyecto al final de cada sprint, sino que también era esencial
+    para realizar un seguimiento exhaustivo de las mejoras realizadas en cada iteración.
+\end{itemize}
 
-Pero tras atrasarse el desarrollo del TFG, se tuvo que adaptar el tiempo de cada ciclo para que diese tiempo a
-realizar todas las pruebas necesarias.
+\subsection{Git como Herramienta de Control de Versiones}\label{subsec:git-como-herramienta-de-control-de-versiones}
+\textbf{Git} se utilizó no solo como repositorio de control de versiones, sino también para gestionar de manera
+eficiente el flujo de trabajo entre el servidor y el entorno local. \\[6pt]
+
+Esto permitió:
+\begin{itemize}
+    \item \textbf{Sincronizar} el código y los datos entre el alumno y el servidor, garantizando que siempre se
+    trabajara con la última versión del proyecto.
+    \item Mantener un \textbf{historial de cambios}, facilitando la posibilidad de revertir versiones si era necesario
+    y permitiendo comparaciones entre diferentes iteraciones.
+    \item \textbf{Colaborar} de manera eficiente con el tutor, quien podía revisar el código actualizado al final de
+    cada sprint, realizar comentarios y sugerir cambios en cada versión.
+\end{itemize}
+
+\subsection{Adaptación del Tiempo de los Sprints}\label{subsec:adaptacion-del-tiempo-de-los-sprints}
+Debido a ciertos retrasos en el desarrollo del TFG, fue necesario ajustar la duración de los sprints para asegurarse de
+que todas las fases y pruebas del proyecto se completaran a tiempo.
+La flexibilidad de Scrum y el uso de Git para coordinar versiones y tareas pendientes permitieron reorganizar las
+prioridades y garantizar que los objetivos del proyecto fueran alcanzados sin comprometer la calidad de los resultados.
 
 \section{Presupuesto}\label{sec:presupuesto}
 El presupuesto estimado incluye tanto el tiempo dedicado al proyecto (mano de obra) como los recursos computacionales y
@@ -85,7 +99,7 @@ del tiempo invertido y el uso de recursos computacionales.
 
 \subsection{Mano de obra}\label{subsec:mano-de-obra}
 El trabajo total estimado es de \textbf{400 horas}, repartidas de manera flexible a lo largo de los ciclos.
-El coste por hora se ha estimado en \textbf{20 euros}, lo cual incluye las tareas de investigación, desarrollo de
+El coste por hora se ha estimado en \textbf{20 euros}~\cite{salario-medio}, lo cual incluye las tareas de investigación, desarrollo de
 algoritmos, análisis de resultados y documentación.
 
 \begin{table}[htp]\label{tab:mano-de-obra}
@@ -93,16 +107,18 @@ algoritmos, análisis de resultados y documentación.
     \begin{adjustbox}{width=\linewidth}
         \begin{tabular}{|l|c|c|c|}
             \hline
-            \textbf{Fase} & \textbf{Horas dedicadas} & \textbf{Coste por hora (€)} & \textbf{Coste total (€)} \\ \hline
-            Planificación e investigación & 60 & 20 & 1.200 \\
-            Desarrollo de algoritmos & 180 & 20 & 3.600 \\
-            Análisis de resultados & 80 & 20 & 1.600 \\
-            Redacción y documentación & 80 & 20 & 1.600 \\ \hline
+            \textbf{Ciclo de trabajo} & \textbf{Horas dedicadas} & \textbf{Coste por hora (€)} & \textbf{Coste total (€)} \\ \hline
+            Planificación del sprint & 30 & 20 & 600 \\
+            Desarrollo e implementación de algoritmos & 80 & 20 & 1.600 \\
+            Pruebas y ajustes iterativos & 180 & 20 & 3.600 \\
+            Revisión y análisis de resultados & 55 & 20 & 1.100 \\
+            Documentación de algoritmos y resultados & 55 & 20 & 1.100 \\ \hline
             \textbf{Total} & \textbf{400 horas} & & \textbf{8.000 €} \\ \hline
         \end{tabular}
     \end{adjustbox}
-    \caption{Coste estimado de la mano de obra.}
+    \caption{Coste estimado de la mano de obra basado en los ciclos de trabajo.}
 \end{table}
+
 
 
 \subsection{Recursos computacionales}\label{subsec:recursos-computacionales}
@@ -128,9 +144,9 @@ De manerá que los gastos estimados serían:
         \begin{tabular}{|l|c|c|c|}
             \hline
             \textbf{Recurso} & \textbf{Horas utilizadas} & \textbf{Coste por hora (€)} & \textbf{Coste total (€)} \\ \hline
-            CPU (c2-standard-8) & 210 & 0.43 & 90.3 \\
-            GPU (NVIDIA K80 1 GPU) & 210 & 0.42 & 88.2 \\ \hline
-            \textbf{Total} & \textbf{210} & \textbf{0.85} & \textbf{178.5} \\ \hline
+            CPU (c2-standard-8) & 600 & 0.43 & 258 \\
+            GPU (NVIDIA K80 1 GPU) & 600 & 0.42 & 252 \\ \hline
+            \textbf{Total} & \textbf{600} & \textbf{0.85} & \textbf{510} \\ \hline
         \end{tabular}
     \end{adjustbox}
     \caption{Coste estimado de los recursos computacionales.}
@@ -168,19 +184,9 @@ siguiente:
         \hline
         \textbf{Concepto} & \textbf{Coste (€)} \\ \hline
         Mano de obra & 8.000 \\
-        Recursos computacionales & 178.5 \\
+        Recursos computacionales & 510 \\
         Otros gastos & 90 \\ \hline
-        \textbf{Total} & \textbf{8.268,5 €} \\ \hline
+        \textbf{Total} & \textbf{8.600 €} \\ \hline
     \end{tabular}
     \caption{Presupuesto total estimado del proyecto.}
 \end{table}
-
-
-\section{Conclusión}\label{sec:conclusion}
-La utilización de una \textbf{metodología ágil} ha permitido gestionar este proyecto de manera flexible y eficiente,
-favoreciendo la adaptación continua a medida que surgían nuevos retos y descubrimientos.
-La intercalación de las fases de planificación, desarrollo, investigación y análisis ha garantizado una entrega
-incremental y un ajuste continuo del trabajo, asegurando la calidad y la optimización de los resultados. \\[6pt]
-
-El presupuesto total estimado, de \textbf{8.268,5 euros}, refleja principalmente los costes asociados a la mano de obra y
-los recursos computacionales necesarios para el desarrollo de los modelos y la ejecución de los experimentos.
