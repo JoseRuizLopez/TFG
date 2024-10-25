@@ -172,3 +172,9 @@ pt2.3py3.10/
 slurm-*
 /src/pruebas.py
 /Notas 16-10-24
+/Notas-24-10-24
+docs/out/*.out
+docs/out/*.log
+docs/out/*.aux
+docs/out/*.toc
+docs/out/*.gz
