@@ -4,6 +4,8 @@
 #SBATCH --partition dios   # Cola para ejecutar
 #SBATCH --gres=gpu:1                                       # Numero de gpus a usar
 #SBATCH --array=0-4                                        # Rango para tareas paralelas
+#SBATCH --exclude=atenea                                   # Excluir nodo "atenea"
+
 
 export PATH="/opt/anaconda/anaconda3/bin:$PATH"
 export PATH="/opt/anaconda/bin:$PATH"

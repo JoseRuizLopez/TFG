@@ -10,6 +10,8 @@ from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.utils import plot_multiple_fitness_evolution
+from utils.classes import ConfiguracionGlobal
+
 
 if __name__ == "__main__":
     # Configuración de argumentos
@@ -39,6 +41,9 @@ if __name__ == "__main__":
 
     date = now.strftime("%Y-%m-%d_%H-%M") + "_task_" + str(task_id)
 
+    # Crear una instancia de ConfiguracionGlobal
+    config = ConfiguracionGlobal(date=date)
+
     fitness_history_100 = []
     best_fitness_history_100 = []
     if add_100:
@@ -50,7 +55,7 @@ if __name__ == "__main__":
             algoritmo="aleatorio",
             metric=metric.value,
             model_name=modelo.value,
-            date=date
+            # date=date
         )
 
         resultados.append(
@@ -71,7 +76,7 @@ if __name__ == "__main__":
                 algoritmo=alg.value,
                 metric=metric.value,
                 model_name=modelo.value,
-                date=date
+                # date=date
             )
 
             resultados.append(

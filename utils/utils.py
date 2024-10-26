@@ -15,6 +15,8 @@ from torchvision.models import MobileNet_V2_Weights
 from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
+from utils.classes import ConfiguracionGlobal
+
 
 def plot_fitness_evolution(
     fitness_history: List[float],
@@ -298,13 +300,9 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     torch.cuda.manual_seed_all(old_seed)
 
     if evaluations is not None:
-        now = datetime.datetime.now()
-        if os.getenv("SERVER") is not None:
-            now = now + datetime.timedelta(hours=2)
-
-        date = now.strftime("%Y-%m-%d_%H-%M")
-        with open("logs/evaluations_logs.txt", "a") as file:
-            file.write(f"Evaluación {str(evaluations+1)} -> {date}\n")
+        config3 = ConfiguracionGlobal()
+        with open(f"logs/evaluations_log_{config3.date}.txt", "a") as file:
+            file.write(f"Evaluación {str(evaluations+1)} -> {config3.date}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 
     return {

@@ -163,7 +163,7 @@ cython_debug/
 /Notas 09-10-24
 /results/best_checkpoint.pth
 /docs/out/proyecto.toc
-/logs/evaluations_logs.txt
+/logs/
 channeldata.json
 index.html
 noarch/

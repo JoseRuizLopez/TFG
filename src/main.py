@@ -16,6 +16,7 @@ from utils.memetic_algorithm import memetic_algorithm
 from utils.random_search import random_search
 from utils.utils import fitness
 from utils.utils import plot_fitness_evolution
+from utils.classes import ConfiguracionGlobal
 
 
 def set_seed(seed):
@@ -35,13 +36,13 @@ def main(
     algoritmo: str = "memetico",
     metric: str = "accuracy",
     model_name: str = "resnet",
-    date: str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+    # date: str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 ):
     set_seed(24012000)
-
+    config2 = ConfiguracionGlobal()
     dataset = "data/dataset/train"
 
-    with open(f"logs/evaluations_logs.txt", "a") as file:
+    with open(f"logs/evaluations_log_{config2.date}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
                    f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n")
@@ -125,8 +126,8 @@ def main(
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
-        if not os.path.exists("img/" + date):
-            os.mkdir("img/" + date)
+        if not os.path.exists("img/" + config2.date):
+            os.mkdir("img/" + config2.date)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
             fitness_history=best_fitness_history if max_evaluations != 1 else best_fitness_history * 50,
@@ -134,7 +135,7 @@ def main(
             algorithm_name=algoritmo,
             metric=metric,
             model=model_name,
-            carpeta=date
+            carpeta=config2.date
         )
 
         final_fitness = fitness(dict_selection=best_selection, model_name=model_name)

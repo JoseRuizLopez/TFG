@@ -17,3 +17,14 @@ class MetricList(Enum):
 class ModelList(Enum):
     RESNET = "resnet"
     MOBILENET = "mobilenet"
+
+
+class ConfiguracionGlobal:
+    _instance = None  # Instancia única de la clase
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(ConfiguracionGlobal, cls).__new__(cls)
+            # Inicializa la instancia con los valores
+            cls._instance.date = kwargs.get("date", "valor_predeterminado1")
+        return cls._instance
