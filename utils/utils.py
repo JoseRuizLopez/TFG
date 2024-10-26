@@ -1,4 +1,3 @@
-import datetime
 import os
 import random
 from typing import List
@@ -15,7 +14,7 @@ from torchvision.models import MobileNet_V2_Weights
 from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-from utils.classes import ConfiguracionGlobal
+from classes import ConfiguracionGlobal
 
 
 def plot_fitness_evolution(
@@ -170,7 +169,8 @@ def train_model(model, train_loader, valid_loader, criterion, optimizer, device,
             best_valid_loss = avg_valid_loss
             # Guardar el modelo en CPU para evitar problemas de compatibilidad
             model_state = {k: v.cpu() for k, v in model.state_dict().items()}
-            torch.save(model_state, "results/best_checkpoint.pth")
+            config = ConfiguracionGlobal()
+            torch.save(model_state, f"tmp/best_checkpoint{config.task_id}.pth")
             print("Model saved!")
 
 
@@ -285,7 +285,8 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     train_model(model, train_loader, valid_loader, criterion, optimizer, device=device, num_epochs=10)
 
     # Cargar el mejor modelo
-    checkpoint = torch.load("results/best_checkpoint.pth", map_location=device, weights_only=True)
+    config = ConfiguracionGlobal()
+    checkpoint = torch.load(f"tmp/best_checkpoint{config.task_id}.pth", map_location=device, weights_only=True)
     model.load_state_dict(checkpoint)
 
     # Evaluar el modelo
@@ -300,9 +301,9 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     torch.cuda.manual_seed_all(old_seed)
 
     if evaluations is not None:
-        config3 = ConfiguracionGlobal()
-        with open(f"logs/evaluations_log_{config3.date}.txt", "a") as file:
-            file.write(f"Evaluación {str(evaluations+1)} -> {config3.date}\n")
+        config = ConfiguracionGlobal()
+        with open(f"logs/evaluations_log_{config.date}.txt", "a") as file:
+            file.write(f"Evaluación {str(evaluations+1)} -> {config.date}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 
     return {

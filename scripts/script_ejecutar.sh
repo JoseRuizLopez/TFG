@@ -3,7 +3,7 @@
 #SBATCH --job-name entrenamiento_jose_ruiz                 # Nombre del proceso
 #SBATCH --partition dios   # Cola para ejecutar
 #SBATCH --gres=gpu:1                           # Numero de gpus a usar
-
+#SBATCH --exclude=atenea                                   # Excluir nodo "atenea"
 
 export PATH="/opt/anaconda/anaconda3/bin:$PATH"
 export PATH="/opt/anaconda/bin:$PATH"
@@ -23,9 +23,9 @@ export TFHUB_CACHE_DIR=.
 fecha_actual=$(date -d "+2 hours" +"%Y-%m-%d_%H-%M")
 
 # Definir el nombre del archivo de salida con la fecha y hora
-archivo_salida="results/salida_${fecha_actual}.txt"
+archivo_salida="results/salidas/salida_${fecha_actual}.txt"
 
 # Ejecutar el script de Python y redirigir la salida al archivo
-python src/generator.py > "$archivo_salida"
+python src/generator.py --task_id "-1" > "$archivo_salida"
 
 mail -s "Proceso finalizado" ruizlopezjose@correo.ugr.es <<< "El proceso ha finalizado"

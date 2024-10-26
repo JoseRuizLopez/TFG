@@ -26,5 +26,7 @@ class ConfiguracionGlobal:
         if cls._instance is None:
             cls._instance = super(ConfiguracionGlobal, cls).__new__(cls)
             # Inicializa la instancia con los valores
-            cls._instance.date = kwargs.get("date", "valor_predeterminado1")
+            cls._instance.date = kwargs.get("date", "-")
+            cls._instance.task_id = kwargs.get("task_id", "-")
+
         return cls._instance

@@ -24,7 +24,7 @@ export TFHUB_CACHE_DIR=.
 fecha_actual=$(date -d "+2 hours" +"%Y-%m-%d_%H-%M")
 
 # Definir el nombre del archivo de salida con la fecha y hora, identificando cada tarea con SLURM_ARRAY_TASK_ID
-archivo_salida="results/salida_${fecha_actual}_task_${SLURM_ARRAY_TASK_ID}.txt"
+archivo_salida="results/salidas/salida_${fecha_actual}_task_${SLURM_ARRAY_TASK_ID}.txt"
 
 # Ejecutar el script de Python y redirigir la salida al archivo
 python src/generator.py --task_id "$SLURM_ARRAY_TASK_ID" > "$archivo_salida"

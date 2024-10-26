@@ -35,14 +35,15 @@ def main(
     max_evaluations_without_improvement: int = 10,
     algoritmo: str = "memetico",
     metric: str = "accuracy",
-    model_name: str = "resnet",
-    # date: str = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+    model_name: str = "resnet"
 ):
     set_seed(24012000)
-    config2 = ConfiguracionGlobal()
+    config = ConfiguracionGlobal()
     dataset = "data/dataset/train"
 
-    with open(f"logs/evaluations_log_{config2.date}.txt", "a") as file:
+    if not os.path.isdir(f"logs/{config.date}"):
+        os.mkdir(f"logs/{config.date}")
+    with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
                    f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n")
@@ -126,8 +127,11 @@ def main(
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
-        if not os.path.exists("img/" + config2.date):
-            os.mkdir("img/" + config2.date)
+        if not os.path.exists("img/" + config.date):
+            os.mkdir("img/" + config.date)
+        carpeta = f"img/{config.date}/task_id_{config.task_id}"
+        if not os.path.exists(carpeta):
+            os.mkdir(carpeta)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
             fitness_history=best_fitness_history if max_evaluations != 1 else best_fitness_history * 50,
@@ -135,7 +139,7 @@ def main(
             algorithm_name=algoritmo,
             metric=metric,
             model=model_name,
-            carpeta=config2.date
+            carpeta=carpeta
         )
 
         final_fitness = fitness(dict_selection=best_selection, model_name=model_name)

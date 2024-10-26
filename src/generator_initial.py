@@ -37,7 +37,6 @@ if __name__ == "__main__":
                 algoritmo="aleatorio",
                 metric=metric.value,
                 model_name=model.value,
-                date=date
             )
 
             result["Accuracy"] = np.mean([fitness["Accuracy"] for fitness in fitness_history])
@@ -94,6 +93,6 @@ if __name__ == "__main__":
         "F1-score": "F1-score (Avg)",
     })
 
-    df.write_csv(f"results/resultados_{date}.csv")
+    df.write_csv(f"results/csvs/resultados_{date}.csv")
 
     print("Se ha creado el Excels con todos los resultados correctamente.")

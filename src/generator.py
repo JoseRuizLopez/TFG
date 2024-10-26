@@ -39,10 +39,10 @@ if __name__ == "__main__":
     if os.getenv("SERVER") is not None:
         now = now + datetime.timedelta(hours=2)
 
-    date = now.strftime("%Y-%m-%d_%H-%M") + "_task_" + str(task_id)
+    date = now.strftime("%Y-%m-%d_%H-%M")
 
     # Crear una instancia de ConfiguracionGlobal
-    config = ConfiguracionGlobal(date=date)
+    config = ConfiguracionGlobal(date=date, task_id=str(task_id))
 
     fitness_history_100 = []
     best_fitness_history_100 = []
@@ -75,8 +75,7 @@ if __name__ == "__main__":
                 max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
                 algoritmo=alg.value,
                 metric=metric.value,
-                model_name=modelo.value,
-                # date=date
+                model_name=modelo.value
             )
 
             resultados.append(
@@ -126,6 +125,6 @@ if __name__ == "__main__":
         "Porcentaje Scissors": pl.Float32
     })
 
-    df.write_csv(f"results/resultados_{date}.csv")
+    df.write_csv(f"results/csvs/resultados_{date}_task_{task_id}.csv")
 
     print("Se ha creado el Excels con todos los resultados correctamente.")
