@@ -143,7 +143,7 @@ def main(
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
         os.makedirs("img/" + config.date, exist_ok=True)
-        carpeta = f"img/{config.date}/task_{config.task_id}"
+        carpeta = f"img/{config.date}" + (f"/task_{config.task_id}" if config.task_id != -1 else "")
         os.makedirs(carpeta, exist_ok=True)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
@@ -154,6 +154,16 @@ def main(
             model=model_name,
             carpeta=carpeta
         )
+        if algoritmo == "genetico3":
+            plot_fitness_evolution(
+                fitness_history=[fit[metric.title()] for fit in fitness_history] if max_evaluations != 1
+                else [fit[metric.title()] for fit in fitness_history] * 50,
+                initial_percentage=initial_percentage,
+                algorithm_name=algoritmo,
+                metric=metric,
+                model=model_name,
+                carpeta=carpeta
+            )
 
         final_fitness = fitness(dict_selection=best_selection, model_name=model_name)
         print(f"\n\nMejor {metric} encontrado: {final_fitness[metric.title()]:.4f}")
@@ -215,9 +225,9 @@ if __name__ == "__main__":
     )
 
     df = pl.DataFrame([result | {
-                "Porcentaje Inicial": porcentaje_inicial / 100,
-                "Algoritmo": algoritmo.value
-            }], schema={
+        "Porcentaje Inicial": porcentaje_inicial / 100,
+        "Algoritmo": algoritmo.value
+    }], schema={
         "Algoritmo": pl.Utf8,
         "Porcentaje Inicial": pl.Float32,
         "Duracion": pl.Utf8,

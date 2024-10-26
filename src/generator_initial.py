@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # Crear una instancia de ConfiguracionGlobal
     config = ConfiguracionGlobal(date=date, task_id=str(task_id))
-    carpeta_img = f"img/{date}/task_{task_id}"
+    carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
 
     for model in ModelList:
         fitness_list = []
