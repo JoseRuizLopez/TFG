@@ -1,0 +1,11 @@
+Task ID recibido: -1
+GPU: True
+
+
+--------------------------------------mobilenet  GENETICO3  10%-------------------------------------------------
+Start time: 2024-10-26 16:49:03.247000
+Using device: cuda
+GPU: NVIDIA TITAN RTX
+Memory Allocated: 0.00 MB
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0422, Valid Loss: 0.9110
