@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
         resultados.append(
             result | {
-                "Porcentaje Inicial": 100,
+                "Porcentaje Inicial": 1,
                 "Algoritmo": "aleatorio"
             }
         )
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
             resultados.append(
                 result | {
-                    "Porcentaje Inicial": ptg,
+                    "Porcentaje Inicial": ptg / 100,
                     "Algoritmo": alg.value
                 }
             )
