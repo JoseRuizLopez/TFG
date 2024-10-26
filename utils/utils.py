@@ -14,7 +14,7 @@ from torchvision.models import MobileNet_V2_Weights
 from torchvision.models import ResNet50_Weights
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-from classes import ConfiguracionGlobal
+from utils.classes import ConfiguracionGlobal
 
 
 def plot_fitness_evolution(
@@ -43,7 +43,7 @@ def plot_fitness_evolution(
     plt.xlabel('Iteración')
     plt.ylabel(metric.capitalize())
     plt.grid(True)
-    plt.savefig(f'img/{carpeta}/{model}-{algorithm_name.replace(" ", "_")}-{str(initial_percentage)}-{metric}.png')
+    plt.savefig(f'{carpeta}/{model}-{algorithm_name.replace(" ", "_")}-{str(initial_percentage)}-{metric}.png')
     plt.close()
 
 
