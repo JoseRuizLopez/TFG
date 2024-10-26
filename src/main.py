@@ -41,8 +41,7 @@ def main(
     config = ConfiguracionGlobal()
     dataset = "data/dataset/train"
 
-    if not os.path.isdir(f"logs/{config.date}"):
-        os.mkdir(f"logs/{config.date}")
+    os.makedirs(f"logs/{config.date}", exist_ok=True)
     with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
                    f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
@@ -127,11 +126,9 @@ def main(
 
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
-        if not os.path.exists("img/" + config.date):
-            os.mkdir("img/" + config.date)
+        os.makedirs("img/" + config.date, exist_ok=True)
         carpeta = f"img/{config.date}/task_id_{config.task_id}"
-        if not os.path.exists(carpeta):
-            os.mkdir(carpeta)
+        os.makedirs(carpeta, exist_ok=True)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
             fitness_history=best_fitness_history if max_evaluations != 1 else best_fitness_history * 50,

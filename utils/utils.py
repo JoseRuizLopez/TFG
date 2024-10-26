@@ -53,7 +53,7 @@ def plot_multiple_fitness_evolution(
     algorithm_name: str,
     metric: str,
     model: str,
-    date: str,
+    carpeta: str,
     selection: Literal["mean", "best"] = "best"
 ):
     """
@@ -65,7 +65,7 @@ def plot_multiple_fitness_evolution(
         algorithm_name: Nombre del algoritmo utilizado
         metric: Métrica utilizada (accuracy o f1)
         model: Nombre del modelo usado
-        date: Fecha para seleccionar la carpeta
+        carpeta: Carpepta donde guarda los resultados
         selection: Método de seleccion para distinguir nombres
     """
     # Encontrar la longitud máxima entre todas las listas
@@ -94,7 +94,7 @@ def plot_multiple_fitness_evolution(
     plt.legend(loc='best', fontsize=10)
 
     plt.grid(True)
-    plt.savefig(f'img/{date}/{model}-{selection}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
+    plt.savefig(f'{carpeta}/{model}-{selection}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
     plt.close()
 
 

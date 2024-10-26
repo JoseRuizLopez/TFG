@@ -43,6 +43,7 @@ if __name__ == "__main__":
 
     # Crear una instancia de ConfiguracionGlobal
     config = ConfiguracionGlobal(date=date, task_id=str(task_id))
+    carpeta_img = f"img/{date}/task_{task_id}"
 
     fitness_history_100 = []
     best_fitness_history_100 = []
@@ -97,7 +98,7 @@ if __name__ == "__main__":
             algorithm_name=alg.value,
             metric=metric.value,
             model=modelo.value,
-            date=date,
+            carpeta=carpeta_img,
             selection="mean"
         )
         plot_multiple_fitness_evolution(
@@ -106,7 +107,7 @@ if __name__ == "__main__":
             algorithm_name=alg.value,
             metric=metric.value,
             model=modelo.value,
-            date=date,
+            carpeta=carpeta_img,
             selection="best"
         )
 
