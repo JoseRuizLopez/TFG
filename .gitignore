@@ -177,4 +177,4 @@ docs/out/*.log
 docs/out/*.aux
 docs/out/*.toc
 docs/out/*.gz
-/tmp/best_checkpoint.pth
+/tmp/

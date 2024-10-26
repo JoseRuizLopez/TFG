@@ -17,16 +17,13 @@ if __name__ == "__main__":
     # Configuración de argumentos
     parser = argparse.ArgumentParser(description="Script de generación")
     parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")
-
-    # Parsear los argumentos
     task_id = parser.parse_args().task_id
 
-    # Usar el valor de task_id
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 20, ]
-    evaluaciones_maximas = 1
+    porcentajes = [10, 20, 50, 70]
+    evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
 
@@ -55,8 +52,7 @@ if __name__ == "__main__":
             max_evaluations_without_improvement=1,
             algoritmo="aleatorio",
             metric=metric.value,
-            model_name=modelo.value,
-            # date=date
+            model_name=modelo.value
         )
 
         resultados.append(

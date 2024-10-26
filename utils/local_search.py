@@ -4,13 +4,13 @@ from utils.utils import crear_dict_imagenes
 from utils.utils import fitness
 
 
-def generate_neighbor(current_selection, neighbor_size, vary_percentage: bool = False):
+def generate_neighbor(current_selection, neighbor_percent, vary_percentage: bool = False):
     """
     Genera un vecino modificando la selección actual de imágenes.
 
     Args:
         current_selection (dict): Diccionario con nombres de imágenes como keys y 0/1 como values
-        neighbor_size (int): Número de modificaciones a realizar
+        neighbor_percent (float): Porcentaje mínimo de los vecinos que cambia
         vary_percentage (bool): Indica si debe de mantener el número de imágenes seleccionadas
 
     Returns:
@@ -23,9 +23,11 @@ def generate_neighbor(current_selection, neighbor_size, vary_percentage: bool = 
     selected_images = [img for img, val in neighbor.items() if val == 1]
     unselected_images = [img for img, val in neighbor.items() if val == 0]
 
+    modifications_number = int(min(0.15 * len(neighbor), len(selected_images) * neighbor_percent))
+
     # Realizar las modificaciones
     if vary_percentage:
-        for _ in range(neighbor_size):
+        for _ in range(modifications_number):
             if not selected_images or not unselected_images:
                 break
 
@@ -45,7 +47,7 @@ def generate_neighbor(current_selection, neighbor_size, vary_percentage: bool = 
                 unselected_images.append(img_to_remove)
                 selected_images.remove(img_to_remove)
     else:
-        for _ in range(int(neighbor_size / 2)):
+        for _ in range(modifications_number):
             if not selected_images or not unselected_images:
                 break
 

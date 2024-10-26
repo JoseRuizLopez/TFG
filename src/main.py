@@ -1,3 +1,4 @@
+import argparse
 import datetime
 import os
 import random
@@ -5,12 +6,14 @@ from pathlib import Path
 
 import torch
 import numpy as np
+import polars as pl
 
 from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.genetic_algorithm import genetic_algorithm
 from utils.genetic_algorithm2 import genetic_algorithm2
+from utils.genetic_algorithm3 import genetic_algorithm_with_restart
 from utils.local_search import local_search
 from utils.memetic_algorithm import memetic_algorithm
 from utils.random_search import random_search
@@ -117,6 +120,19 @@ def main(
             metric=metric,
             model_name=model_name
         )
+    elif algoritmo == "genetico3":
+        best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
+            genetic_algorithm_with_restart(
+                data_dir=dataset,
+                population_size=5,
+                initial_percentage=initial_percentage,
+                max_evaluations=max_evaluations,
+                max_evaluations_without_improvement=max_evaluations_without_improvement,
+                tournament_size=4,
+                mutation_rate=0.05,
+                metric=metric,
+                model_name=model_name
+            ))
 
     end = datetime.datetime.now()
     duration = end - start
@@ -147,7 +163,7 @@ def main(
         resultado = final_fitness | {
             "Duracion": str(duration),
             "Evaluaciones Realizadas": evaluations_done,
-            "Porcentaje Final":  len(images_selected) / num_images,
+            "Porcentaje Final": len(images_selected) / num_images,
             "Porcentaje Paper": len(
                 [key for key, value in images_selected.items() if 'paper' in key]
             ) / len(images_selected),
@@ -166,12 +182,26 @@ def main(
 
 
 if __name__ == "__main__":
+    # Configuración de argumentos
+    parser = argparse.ArgumentParser(description="Script de generación")
+    parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")
+    task_id = parser.parse_args().task_id
+
+    print(f"Task ID recibido: {task_id}")
+
     print(f"GPU: {torch.cuda.is_available()}")
     porcentaje_inicial = 10
-    evaluaciones_maximas = 10
+    evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
 
-    algoritmo: AlgorithmList = AlgorithmList.MEMETICO
+    now = datetime.datetime.now()
+    if os.getenv("SERVER") is not None:
+        now = now + datetime.timedelta(hours=2)
+
+    date = now.strftime("%Y-%m-%d_%H-%M")
+    config = ConfiguracionGlobal(date=date, task_id=str(task_id))
+
+    algoritmo: AlgorithmList = AlgorithmList.GENETICO3
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
 
@@ -183,3 +213,23 @@ if __name__ == "__main__":
         metric.value,
         modelo.value
     )
+
+    df = pl.DataFrame([result | {
+                "Porcentaje Inicial": porcentaje_inicial / 100,
+                "Algoritmo": algoritmo.value
+            }], schema={
+        "Algoritmo": pl.Utf8,
+        "Porcentaje Inicial": pl.Float32,
+        "Duracion": pl.Utf8,
+        "Accuracy": pl.Float64,
+        "Precision": pl.Float64,
+        "Recall": pl.Float64,
+        "F1-score": pl.Float64,
+        "Evaluaciones Realizadas": pl.Int32,
+        "Porcentaje Final": pl.Float32,
+        "Porcentaje Paper": pl.Float32,
+        "Porcentaje Rock": pl.Float32,
+        "Porcentaje Scissors": pl.Float32
+    })
+
+    df.write_csv(f"results/csvs/resultados_{date}_task_{task_id}.csv")
