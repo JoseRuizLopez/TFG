@@ -302,7 +302,7 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
 
     if evaluations is not None:
         config = ConfiguracionGlobal()
-        with open(f"logs/evaluations_log_{config.date}.txt", "a") as file:
+        with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
             file.write(f"Evaluación {str(evaluations+1)} -> {config.date}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 

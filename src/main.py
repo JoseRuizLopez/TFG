@@ -127,7 +127,7 @@ def main(
     if best_fitness != 0.0:
         print("\n\nFitness check:\n")
         os.makedirs("img/" + config.date, exist_ok=True)
-        carpeta = f"img/{config.date}/task_id_{config.task_id}"
+        carpeta = f"img/{config.date}/task_{config.task_id}"
         os.makedirs(carpeta, exist_ok=True)
         # Crear y guardar la gráfica
         plot_fitness_evolution(
