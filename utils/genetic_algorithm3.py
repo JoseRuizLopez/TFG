@@ -161,7 +161,7 @@ def genetic_algorithm_with_restart(
                 child1_fitness_dict = fitness(
                     dict_selection=child1, model_name=model_name, evaluations=evaluations_done
                 )
-                new_fitness_dicts.append(child1_fitness_dict)
+                fitness_history.append(child1_fitness_dict)
                 evaluations_done += 1
 
             child2_fitness_dict = None
@@ -169,17 +169,20 @@ def genetic_algorithm_with_restart(
                 child2_fitness_dict = fitness(
                     dict_selection=child2, model_name=model_name, evaluations=evaluations_done
                 )
-                new_fitness_dicts.append(child2_fitness_dict)
+                fitness_history.append(child2_fitness_dict)
                 evaluations_done += 1
 
             # Seleccionar el mejor hijo
             if child1_fitness_dict is not None and child2_fitness_dict is not None:
                 if child1_fitness_dict[metric.title()] > child2_fitness_dict[metric.title()]:
                     new_population.append(child1)
+                    new_fitness_dicts.append(child1_fitness_dict)
                 else:
                     new_population.append(child2)
+                    new_fitness_dicts.append(child2_fitness_dict)
             elif child1_fitness_dict is not None:
                 new_population.append(child1)
+                new_fitness_dicts.append(child1_fitness_dict)
 
         population = new_population
         fitness_dicts: list[dict] = new_fitness_dicts
@@ -225,12 +228,12 @@ def genetic_algorithm_with_restart(
             best_fitness_dict = fitness_dicts[best_idx].copy()
             second_best_fitness = fitness_values[second_best_idx]
 
-            fitness_history = fitness_dicts.copy()
             best_fitness_history = [best_fitness]
+            fitness_history.extend(fitness_dicts)
         else:
             second_best_fitness = current_second_best_fitness
 
-        fitness_history.extend(fitness_dicts)
+        # fitness_history.extend(fitness_dicts)
         best_fitness_history.append(best_fitness)
         iterations += 1
 
