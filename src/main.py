@@ -40,8 +40,9 @@ def main(
     metric: str = "accuracy",
     model_name: str = "resnet"
 ):
-    set_seed(24012000)
     config = ConfiguracionGlobal()
+
+    set_seed(24012000 + int(config.task_id))
     dataset = "data/dataset/train"
 
     os.makedirs(f"logs/{config.date}", exist_ok=True)
@@ -124,7 +125,7 @@ def main(
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
             genetic_algorithm_with_restart(
                 data_dir=dataset,
-                population_size=5,
+                population_size=10,
                 initial_percentage=initial_percentage,
                 max_evaluations=max_evaluations,
                 max_evaluations_without_improvement=max_evaluations_without_improvement,

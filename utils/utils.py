@@ -207,8 +207,10 @@ def evaluate_model(model, test_loader, device):
 
 
 def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int | None = None):
+    config = ConfiguracionGlobal()
+
     old_seed = torch.seed()
-    seed = 5234
+    seed = 5234 + int(config.task_id)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
@@ -285,7 +287,6 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     train_model(model, train_loader, valid_loader, criterion, optimizer, device=device, num_epochs=10)
 
     # Cargar el mejor modelo
-    config = ConfiguracionGlobal()
     checkpoint = torch.load(f"tmp/best_checkpoint{config.task_id}.pth", map_location=device, weights_only=True)
     model.load_state_dict(checkpoint)
 
@@ -301,7 +302,6 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     torch.cuda.manual_seed_all(old_seed)
 
     if evaluations is not None:
-        config = ConfiguracionGlobal()
         with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
             file.write(f"Evaluación {str(evaluations+1)} -> {config.date}\n")
             file.flush()  # Forzar la escritura inmediata al disco

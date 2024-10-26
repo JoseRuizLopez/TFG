@@ -22,7 +22,7 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 20, 50, 70]
+    porcentajes = [10, 25, 50, 75]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
-        "Porcentaje Inicial": pl.Int32,
+        "Porcentaje Inicial": pl.Float32,
         "Duracion": pl.Utf8,
         "Accuracy": pl.Float64,
         "Precision": pl.Float64,

@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     df = pl.DataFrame(resultados, schema={
         "Algoritmo": pl.Utf8,
-        "Porcentaje Inicial": pl.Int32,
+        "Porcentaje Inicial": pl.Float32,
         "Duracion": pl.Utf8,
         "Accuracy": pl.Float64,
         "Precision": pl.Float64,
