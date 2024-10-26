@@ -3,6 +3,7 @@ import os
 
 import torch
 import polars as pl
+import argparse
 
 from src.main import main
 from utils.classes import AlgorithmList
@@ -11,14 +12,24 @@ from utils.classes import ModelList
 from utils.utils import plot_multiple_fitness_evolution
 
 if __name__ == "__main__":
+    # Configuración de argumentos
+    parser = argparse.ArgumentParser(description="Script de generación")
+    parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")
+
+    # Parsear los argumentos
+    task_id = parser.parse_args().task_id
+
+    # Usar el valor de task_id
+    print(f"Task ID recibido: {task_id}")
+
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 20, 50, 70]
-    evaluaciones_maximas = 100
+    porcentajes = [10, 20, ]
+    evaluaciones_maximas = 1
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
 
     metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.RESNET
+    modelo: ModelList = ModelList.MOBILENET
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
 
@@ -26,7 +37,7 @@ if __name__ == "__main__":
     if os.getenv("SERVER") is not None:
         now = now + datetime.timedelta(hours=2)
 
-    date = now.strftime("%Y-%m-%d_%H-%M")
+    date = now.strftime("%Y-%m-%d_%H-%M") + "_task_" + str(task_id)
 
     fitness_history_100 = []
     best_fitness_history_100 = []
