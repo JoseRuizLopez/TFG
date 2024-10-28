@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
     now = datetime.datetime.now()
     if os.getenv("SERVER") is not None:
-        now = now + datetime.timedelta(hours=2)
+        now = now + datetime.timedelta(hours=1)
 
     date = now.strftime("%Y-%m-%d_%H-%M")
     config = ConfiguracionGlobal(date=date, task_id=str(task_id))
