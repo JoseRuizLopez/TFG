@@ -42,7 +42,7 @@ def main(
 ):
     config = ConfiguracionGlobal()
 
-    set_seed(24012000 + int(config.task_id))
+    set_seed(24012000 + 4 + int(config.task_id))
     dataset = "data/dataset/train"
 
     os.makedirs(f"logs/{config.date}", exist_ok=True)
@@ -203,7 +203,7 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentaje_inicial = 10
+    porcentaje_inicial = 25
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
 
