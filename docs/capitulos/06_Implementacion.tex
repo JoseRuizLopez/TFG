@@ -1,19 +1,34 @@
 \chapter{Implementación}\label{ch:implementacion}
-En este capítulo se detallan la arquitectura del sistema que se ha implementado, como la tecnología usada, diseños, etc.
+En este capítulo se presenta en detalle la arquitectura técnica del sistema implementado, incluyendo los componentes y
+módulos principales, las herramientas específicas empleadas en la construcción del sistema, y los elementos clave para
+optimizar el rendimiento de los algoritmos y su evaluación.
+
 
 \section{Descripción del Sistema}\label{sec:descripcion-del-sistema}
 %Descripción del Sistema: Detalla la arquitectura del sistema que estás implementando.
+La estructura de carpetas y archivos del proyecto se organizó para facilitar el acceso modular al código, datos y
+documentación.
+Cada componente se divide en módulos específicos que agrupan funcionalidad relacionada, lo cual permite una mejor
+organización, mantenibilidad y pruebas independientes.
+
+\subsection{Estructura de Archivos}\label{subsec:estructura-de-archivos}
 La estructura del proyecto es la siguiente:
 \begin{itemize}
     \item \texttt{data} -- Almacena los dataset utilizados por el proyecto.
     \item \texttt{docs} -- Documentación del proyecto en latex.
     \item \texttt{img} -- Imágenes generadas en el proyecto.
     \item \texttt{LICENSE} -- Términos de distribución del proyecto.
+    \item \texttt{logs} -- Registros para el control y seguimiento de las evaluaciones.
     \item \texttt{README.md} -- Descripción general.
     \item \texttt{requirements.txt} -- Dependencias del proyecto.
     \item \texttt{results} -- Resultados generados por el proyecto (fitness, tiempos, etc.).
+    \begin{itemize}
+        \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
+        \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
+    \end{itemize}
     \item \texttt{scripts} -- Scripts y programas secundarios para ejecutarse en el servidor GPU\@.
     \item \texttt{src} -- Código fuente del proyecto.
+    \item \texttt{tmp} -- Archivos temporales.
     \item \texttt{utils} -- Módulos y scripts de utilidad.
 \end{itemize}
 
@@ -27,45 +42,119 @@ procesamiento de datos y la implementación de modelos de \textbf{machine learni
 
 Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
 \begin{itemize}
-    \item \textbf{PyTorch 2.3.1}~\cite{}: Biblioteca usada para implementar redes neuronales y modelos de aprendizaje
-profundo, con flexibilidad para experimentar y aprovechar GPU\@.
-    \item \textbf{Scikit-learn 1.5.2}~\cite{}: Librería para el procesamiento de datos y modelos de machine learning,
-que incluye herramientas para selección de características y validación cruzada.
-    \item \textbf{Numpy 2.0.0}~\cite{}: Herramienta para realizar operaciones matemáticas y de álgebra lineal, esencial
-para manejar grandes conjuntos de datos.
-    \item \textbf{Polars 1.9.0}~\cite{}: Alternativa más eficiente a Pandas, utilizada para gestionar grandes volúmenes
-de datos y mejorar el procesamiento de DataFrames.
+    \item \textbf{PyTorch 2.3.1}~\cite{}: Para la construcción, entrenamiento y optimización de modelos de aprendizaje
+    profundo.
+    PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
+    \item \textbf{Scikit-learn 1.5.2}~\cite{}: Utilizado en la selección de características y la validación cruzada de
+    modelos.
+    Su API permite una integración fluida con PyTorch y otros módulos.
+    \item \textbf{Numpy 2.0.0}~\cite{}: Para operaciones matemáticas y manipulación de matrices, siendo una herramienta
+    esencial en el procesamiento de datos.
+    \item \textbf{Polars 1.9.0}~\cite{}: Biblioteca para manejar DataFrames de gran tamaño, elegida por su rendimiento
+    superior en comparación con Pandas.
+    \item \textbf{matplotlib 3.9.2}~\cite{}: Biblioteca utilizada para la generación y visualización de gráficas.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
 específicos del proyecto, facilitando tanto la implementación de los algoritmos meméticos como la reducción y el
 análisis de los datos utilizados en los modelos de aprendizaje profundo. \\[6pt]
 
-\section{Proceso de Desarrollo}\label{sec:proceso-de-desarrollo}
-%Proceso de Desarrollo: Explica cómo planeas programar y realizar pruebas.
-El desarrollo de este Trabajo de Fin de Grado (TFG) se inició con una cuidadosa \textbf{planificación inicial}.
-Se definieron \textbf{objetivos claros} y un \textbf{plan temporal} que guiaría cada una de las fases del proyecto.
-El primer paso consistió en llevar a cabo una \textbf{investigación preliminar} para comprender el
-\textbf{estado del arte} en cuanto al uso de algoritmos meméticos en el ámbito del \textbf{aprendizaje profundo}.
-Esta investigación incluyó la revisión de trabajos previos relevantes, así como la identificación de las
-\textbf{herramientas y tecnologías} más adecuadas para el desarrollo del proyecto. \\[6pt]
+\section{Gestión de Dependencias}\label{sec:gestion-de-dependencias}
+Para garantizar que el proyecto se ejecute correctamente y todas las bibliotecas necesarias estén disponibles, se ha
+utilizado un archivo \texttt{requirements.txt}.
+Este archivo contiene una lista de todas las bibliotecas y sus versiones específicas que el proyecto requiere. \\[6pt]
 
-Con una base teórica sólida y una planificación definida, se procedió a la \textbf{fase de desarrollo}.
-Esta etapa comenzó con la implementación de un \textbf{prototipo inicial}, que permitió realizar pruebas preliminares y
-sentar las bases del código principal.
-A medida que se implementaba esta primera versión, se llevó a cabo una \textbf{experimentación iterativa}, un proceso
-en el que se fueron incorporando \textbf{nuevos experimentos} y realizando \textbf{ajustes continuos} a partir de los
-resultados obtenidos.
-Este enfoque de \textbf{desarrollo incremental} permitió refinar el rendimiento de los algoritmos meméticos y mejorar la
-eficiencia de los modelos. \\[6pt]
+Para el \textbf{desarrollo local}, se ha optado por crear un entorno virtual utilizando \texttt{venv}~\cite{venv}.
+Esta práctica permite aislar las dependencias del proyecto de otros proyectos en la máquina, evitando conflictos entre
+versiones de bibliotecas. \\[6pt]
 
-Finalmente, el proceso culminó con la \textbf{documentación exhaustiva} de todos los pasos realizados, así como la
-\textbf{preparación de la presentación} y la \textbf{defensa} del proyecto final.
-La documentación incluyó tanto el \textbf{análisis de los resultados experimentales} como una reflexión crítica sobre
-los logros y las limitaciones del TFG, asegurando que todo el proceso fuera presentado de manera clara y coherente.
+Para la \textbf{implementación en el servidor}, se ha utilizado \texttt{conda}~\cite{conda} como gestor de paquetes y 0
+entornos.
+Conda facilita la gestión de entornos y la instalación de bibliotecas, especialmente en configuraciones más complejas.
 \\[6pt]
 
+Esto facilita la reproducibilidad del proyecto y minimiza posibles conflictos de versión, lo que es fundamental para
+mantener la integridad del código y el rendimiento de las aplicaciones.
 
-%EXTRA
-%Nuevas Pruebas/Experimentos: Documenta las pruebas adicionales que decidiste realizar, incluyendo la justificación.
-%Resultados y Ajustes: Incluye los resultados de estas nuevas pruebas y los ajustes realizados en consecuencia.
+\section{Arquitectura de la Implementación}\label{sec:arquitectura-de-la-implementacion}
+La arquitectura de la implementación se organiza en varios módulos, que a continuación se describen en detalle:
+
+\subsection{Módulo de Algoritmos}\label{subsec:modulo-de-algoritmos}
+Ubicado en \texttt{src/algorithms/} este módulo contiene las implementaciones principales de los
+algoritmos desarrollados en el proyecto.
+
+Este módulo utiliza la arquitectura GPU para maximizar la velocidad de ejecución y está diseñado para ser escalable,
+permitiendo la inclusión de nuevos operadores meméticos si es necesario.
+
+\subsection{Módulo Principal}\label{subsec:modulo-principal}
+El módulo \texttt{main.py} constituye el núcleo de la implementación de los algoritmos de optimización aplicados en el
+proyecto.
+Este archivo contiene el código necesario para inicializar, configurar, y ejecutar los algoritmos sobre un conjunto de
+datos, además de registrar y visualizar los resultados de las evaluaciones de rendimiento.
+A continuación, se describen las secciones principales del módulo. \\[6pt]
+
+Para asegurar que los experimentos sean reproducibles, se implementa la función \texttt{set\_seed(seed)}, que toma un
+valor de semilla y lo establece para todas las librerías de manejo aleatorio utilizadas (incluyendo torch, numpy, y
+random).
+Esto permite obtener resultados consistentes en cada ejecución del mismo experimento. \\[6pt]
+
+La función main es el núcleo del archivo y permite ejecutar uno de varios algoritmos según los parámetros
+especificados.
+Toma los siguientes parámetros principales:
+\begin{itemize}
+    \item \texttt{initial\_percentage}: Porcentaje inicial de datos a evaluar.
+    \item \texttt{max\_evaluations} y \texttt{max\_evaluations\_without\_improvement}: Límite de evaluaciones para el
+    algoritmo y cantidad máxima sin mejora antes de detenerse.
+    \item \texttt{algoritmo}, \texttt{metric}, y \texttt{model\_name}: Especifican el tipo de algoritmo, la métrica de
+    evaluación y el modelo que se usa.
+\end{itemize}
+
+Los pasos de la función principal de \texttt{main} es:
+\begin{enumerate}
+    \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
+    \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
+    la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
+    \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
+    métrica final en un archivo.
+    \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
+    largo del proceso.
+    \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
+    Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
+\end{enumerate}
+
+\subsection{Módulos de Iniciación}\label{subsec:modulos-de-iniciacion}
+El módulo inicial de Iniciación fue el de \texttt{main.py}, ya que establece un task\_id —que se utiliza para
+identificar la tarea— y unos valores para los parámetros principales del \texttt{main}. \\[6pt]
+
+El resto de estos módulos (\texttt{generator\_initial.py} y \texttt{generator.py}) son una extensión de
+\texttt{main.py}, por el hecho de que están diseñados para realizar ejecuciones comparativas de diferentes algoritmos
+de optimización sobre una serie de porcentajes iniciales de datos de entrada, evaluando el rendimiento de cada
+algoritmo. \\[6pt]
+
+Estos módulos también se encargan de generar gráficas comparativas entre distintos porcentajes o algoritmos y en
+generar un CSV con los datos finales para ser analizados.
+
+\subsection{Scripts de Ejecución en GPU}\label{subsec:scripts-de-ejecucion-en-gpu}
+En scripts, se encuentran los programas necesarios para ejecutar los algoritmos en un servidor GPU, lo que permite
+maximizar la eficiencia en el entrenamiento y la evaluación de modelos.
+\begin{enumerate}
+    \item \textbf{Configuración de GPU}: Los scripts están configurados para identificar y utilizar las GPU disponibles
+    en el servidor, reduciendo los tiempos de entrenamiento de modelos.
+    \item \textbf{Optimización de Ejecución}: Se implementaron configuraciones de batch size y técnicas de
+    procesamiento paralelo en PyTorch, aprovechando la memoria y el poder de procesamiento de las GPU\@.
+\end{enumerate}
+
+Estos scripts están diseñados para ser ejecutados en un entorno de servidor, reduciendo los tiempos de prueba en el
+entorno local y permitiendo un análisis iterativo más rápido.
+
+\section{Consideraciones de Optimización}\label{sec:consideraciones-de-optimizacion}
+Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimiento del sistema:
+
+\begin{enumerate}
+    \item \textbf{Optimización en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
+    PyTorch.
+    \item \textbf{Uso Eficiente de Memoria}: Con Polars y Numpy, se optimizó el manejo de grandes volúmenes de datos,
+    utilizando tipos de datos específicos para reducir el uso de memoria.
+    \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
+    evaluación continua sin intervención manual.
+\end{enumerate}

@@ -1,7 +1,7 @@
 import random
 
-from utils.genetic_algorithm2 import mutation
-from utils.genetic_algorithm2 import tournament_selection
+from src.algorithms.genetic_algorithm2 import mutation
+from src.algorithms.genetic_algorithm2 import tournament_selection
 from utils.utils import crear_dict_imagenes
 from utils.utils import fitness
 
@@ -91,9 +91,9 @@ def genetic_algorithm_with_restart(
         if keep_best and 'best_individual' in locals():
             new_pop.append(best_individual)
             new_local_fitness_dicts.append(best_fitness_dict)
-            remaining_size = size - 1
+            remaining_size = min(size - 1, max_evaluations - evaluations_done)
         else:
-            remaining_size = size
+            remaining_size = min(size, max_evaluations - evaluations_done)
 
         # Generar el resto de la población aleatoriamente
         random_population = [crear_dict_imagenes(data_dir, initial_percentage)
@@ -108,6 +108,15 @@ def genetic_algorithm_with_restart(
         new_pop.extend(random_population)
         new_local_fitness_dicts.extend(random_fitness_dicts)
         new_fitness_values = [f_dict[metric.title()] for f_dict in new_local_fitness_dicts]
+
+        if keep_best and 'population' in locals() and len(new_pop) < size:
+            # Calcular cuántos individuos adicionales necesitamos
+            slots_remaining = size - len(new_pop)
+
+            # Añadir los mejores de la población anterior (excluyendo el mejor que ya añadimos)
+            new_pop.extend([population[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
+            new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
+            new_fitness_values.extend([fitness_values[idx] for idx in sorted_indices[1:slots_remaining+1]])
 
         return new_pop, new_local_fitness_dicts, new_fitness_values
 
@@ -214,7 +223,8 @@ def genetic_algorithm_with_restart(
 
             # Reiniciar población manteniendo solo el mejor
             population, fitness_dicts, fitness_values = initialize_population(
-                population_size, keep_best=True)
+                population_size, keep_best=True
+            )
             evaluations_done += population_size - 1  # -1 porque ya contamos el mejor
 
             # Encontrar el mejor y segundo mejor inicial

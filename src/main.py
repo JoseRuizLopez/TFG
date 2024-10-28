@@ -11,12 +11,12 @@ import polars as pl
 from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
-from utils.genetic_algorithm import genetic_algorithm
-from utils.genetic_algorithm2 import genetic_algorithm2
-from utils.genetic_algorithm3 import genetic_algorithm_with_restart
-from utils.local_search import local_search
-from utils.memetic_algorithm import memetic_algorithm
-from utils.random_search import random_search
+from src.algorithms.genetic_algorithm import genetic_algorithm
+from src.algorithms.genetic_algorithm2 import genetic_algorithm2
+from src.algorithms.genetic_algorithm3 import genetic_algorithm_with_restart
+from src.algorithms.local_search import local_search
+from src.algorithms.memetic_algorithm import memetic_algorithm
+from src.algorithms.random_search import random_search
 from utils.utils import fitness
 from utils.utils import plot_fitness_evolution
 from utils.classes import ConfiguracionGlobal
@@ -137,6 +137,8 @@ def main(
 
     end = datetime.datetime.now()
     duration = end - start
+    duration = datetime.timedelta(seconds=int(duration.total_seconds()))
+
     print("End time: " + str(end))
     print("Duration: " + str(duration))
     print(f"\n\nMejor {metric} al acabar el algoritmo: {best_fitness:.4f}")

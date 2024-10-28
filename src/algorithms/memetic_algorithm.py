@@ -1,10 +1,10 @@
 import random
 
 from utils.utils import fitness
-from utils.genetic_algorithm import crossover
-from utils.genetic_algorithm import mutation
-from utils.genetic_algorithm import tournament_selection
-from utils.local_search import generate_neighbor
+from src.algorithms.genetic_algorithm import crossover
+from src.algorithms.genetic_algorithm import mutation
+from src.algorithms.genetic_algorithm import tournament_selection
+from src.algorithms.local_search import generate_neighbor
 from utils.utils import crear_dict_imagenes
 
 
