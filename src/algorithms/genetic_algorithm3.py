@@ -90,7 +90,7 @@ def genetic_algorithm_with_restart(
         # Si debemos mantener el mejor individuo, lo añadimos primero
         if keep_best and 'best_individual' in locals():
             new_pop.append(best_individual)
-            new_local_fitness_dicts.append(best_fitness_dict)
+            # new_local_fitness_dicts.append(best_fitness_dict)
             remaining_size = min(size - 1, max_evaluations - evaluations_done)
         else:
             remaining_size = min(size, max_evaluations - evaluations_done)
@@ -115,7 +115,7 @@ def genetic_algorithm_with_restart(
 
             # Añadir los mejores de la población anterior (excluyendo el mejor que ya añadimos)
             new_pop.extend([population[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
-            new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
+            # new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
             new_fitness_values.extend([fitness_values[idx] for idx in sorted_indices[1:slots_remaining+1]])
 
         return new_pop, new_local_fitness_dicts, new_fitness_values
