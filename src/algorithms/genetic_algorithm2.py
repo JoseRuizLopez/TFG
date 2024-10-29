@@ -172,7 +172,7 @@ def genetic_algorithm2(
 
         # Elitismo
         new_population.append(best_individual.copy())
-        new_fitness_dicts.append(fitness_dicts[best_fitness_idx])
+        # new_fitness_dicts.append(fitness_dicts[best_fitness_idx])
 
         # Generar nueva población
         while len(new_population) < population_size and evaluations_done < max_evaluations:
@@ -198,25 +198,24 @@ def genetic_algorithm2(
                     dict_selection=child1, model_name=model_name, evaluations=evaluations_done
                 )
                 evaluations_done += 1
+                new_fitness_dicts.append(child1_fitness_dict)
 
             child2_fitness_dict = None
             if evaluations_done + 1 <= max_evaluations:
                 child2_fitness_dict = fitness(
-                    dict_selection=child2, model_name=model_name, evaluations=evaluations_done + 1
+                    dict_selection=child2, model_name=model_name, evaluations=evaluations_done
                 )
                 evaluations_done += 1
+                new_fitness_dicts.append(child2_fitness_dict)
 
             # Seleccionar el mejor hijo
             if child1_fitness_dict is not None and child2_fitness_dict is not None:
                 if child1_fitness_dict[metric.title()] > child2_fitness_dict[metric.title()]:
                     new_population.append(child1)
-                    new_fitness_dicts.append(child1_fitness_dict)
                 else:
                     new_population.append(child2)
-                    new_fitness_dicts.append(child2_fitness_dict)
             elif child1_fitness_dict is not None:
                 new_population.append(child1)
-                new_fitness_dicts.append(child1_fitness_dict)
 
             if len(new_population) >= population_size:
                 break

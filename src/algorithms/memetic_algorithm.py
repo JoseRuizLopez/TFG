@@ -112,7 +112,7 @@ def memetic_algorithm(
 
         # Elitismo
         new_population.append(best_individual.copy())
-        new_fitness_dicts.append(best_fitness_dict.copy())
+        # new_fitness_dicts.append(best_fitness_dict.copy())
 
         while len(new_population) < population_size and evaluations_done < max_evaluations:
             parent1 = tournament_selection(population, fitness_values, tournament_size)
