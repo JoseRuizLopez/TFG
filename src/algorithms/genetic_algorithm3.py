@@ -79,7 +79,7 @@ def genetic_algorithm_with_restart(
     Algoritmo genético mejorado con reinicio de población cuando el segundo mejor no mejora.
     """
 
-    def initialize_population(size: int, keep_best: bool = False) -> tuple[list, list, list]:
+    def initialize_population(size: int, keep_best: bool = False) -> tuple[list, list, list, list]:
         """
         Inicializa o reinicia la población, opcionalmente manteniendo el mejor individuo.
         """
@@ -90,7 +90,7 @@ def genetic_algorithm_with_restart(
         # Si debemos mantener el mejor individuo, lo añadimos primero
         if keep_best and 'best_individual' in locals():
             new_pop.append(best_individual)
-            # new_local_fitness_dicts.append(best_fitness_dict)
+            new_local_fitness_dicts.append(best_fitness_dict)
             remaining_size = min(size - 1, max_evaluations - evaluations_done)
         else:
             remaining_size = min(size, max_evaluations - evaluations_done)
@@ -107,6 +107,7 @@ def genetic_algorithm_with_restart(
 
         new_pop.extend(random_population)
         new_local_fitness_dicts.extend(random_fitness_dicts)
+        new_local_fitness_history = random_fitness_dicts
         new_fitness_values = [f_dict[metric.title()] for f_dict in new_local_fitness_dicts]
 
         if keep_best and 'population' in locals() and len(new_pop) < size:
@@ -115,14 +116,14 @@ def genetic_algorithm_with_restart(
 
             # Añadir los mejores de la población anterior (excluyendo el mejor que ya añadimos)
             new_pop.extend([population[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
-            # new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
+            new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
             new_fitness_values.extend([fitness_values[idx] for idx in sorted_indices[1:slots_remaining+1]])
 
-        return new_pop, new_local_fitness_dicts, new_fitness_values
+        return new_pop, new_local_fitness_dicts, new_fitness_values, new_local_fitness_history
 
     # Inicialización
     evaluations_done = 0
-    population, fitness_dicts, fitness_values = initialize_population(population_size)
+    population, fitness_dicts, fitness_values, fitness_history = initialize_population(population_size)
     evaluations_done += population_size
 
     # Encontrar el mejor y segundo mejor inicial
@@ -136,7 +137,6 @@ def genetic_algorithm_with_restart(
     best_fitness_dict = fitness_dicts[best_idx].copy()
     second_best_fitness = fitness_values[second_best_idx]
 
-    fitness_history = fitness_dicts.copy()
     best_fitness_history = [best_fitness]
 
     evaluations_without_improvement = 0
@@ -222,7 +222,7 @@ def genetic_algorithm_with_restart(
             print(f"Segundo mejor actual: {current_second_best_fitness:.4f}")
 
             # Reiniciar población manteniendo solo el mejor
-            population, fitness_dicts, fitness_values = initialize_population(
+            population, fitness_dicts, fitness_values, local_fitness_history = initialize_population(
                 population_size, keep_best=True
             )
             evaluations_done += population_size - 1  # -1 porque ya contamos el mejor
@@ -239,7 +239,7 @@ def genetic_algorithm_with_restart(
             second_best_fitness = fitness_values[second_best_idx]
 
             best_fitness_history = [best_fitness]
-            fitness_history.extend(fitness_dicts)
+            fitness_history.extend(local_fitness_history)
         else:
             second_best_fitness = current_second_best_fitness
 
