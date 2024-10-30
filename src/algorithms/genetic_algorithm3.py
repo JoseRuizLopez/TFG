@@ -170,7 +170,7 @@ def genetic_algorithm_with_restart(
                 child1_fitness_dict = fitness(
                     dict_selection=child1, model_name=model_name, evaluations=evaluations_done
                 )
-                fitness_history.append(child1_fitness_dict)
+                fitness_history.append(child1_fitness_dict.copy())
                 evaluations_done += 1
 
             child2_fitness_dict = None
@@ -178,7 +178,7 @@ def genetic_algorithm_with_restart(
                 child2_fitness_dict = fitness(
                     dict_selection=child2, model_name=model_name, evaluations=evaluations_done
                 )
-                fitness_history.append(child2_fitness_dict)
+                fitness_history.append(child2_fitness_dict.copy())
                 evaluations_done += 1
 
             # Seleccionar el mejor hijo

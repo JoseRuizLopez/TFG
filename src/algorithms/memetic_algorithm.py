@@ -57,6 +57,7 @@ def memetic_algorithm(
 
         best_solution = current_solution.copy()
         best_fitness_local = current_fitness
+        fitness_history_local = [current_fitness_dict.copy()]
         best_fitness_dict_local = current_fitness_dict.copy()
 
         # Calculamos el número máximo de evaluaciones permitidas para esta búsqueda local
@@ -84,7 +85,7 @@ def memetic_algorithm(
                     best_fitness_local = current_fitness
                     best_fitness_dict_local = neighbor_fitness_dict.copy()
 
-        return best_solution, best_fitness_local, best_fitness_dict_local, local_fitness_dicts
+        return best_solution, best_fitness_local, best_fitness_dict_local, local_fitness_dicts, fitness_history_local
 
     # Generar y evaluar población inicial
     population = [crear_dict_imagenes(data_dir, initial_percentage)
@@ -112,7 +113,7 @@ def memetic_algorithm(
 
         # Elitismo
         new_population.append(best_individual.copy())
-        # new_fitness_dicts.append(best_fitness_dict.copy())
+        new_fitness_dicts.append(best_fitness_dict.copy())
 
         while len(new_population) < population_size and evaluations_done < max_evaluations:
             parent1 = tournament_selection(population, fitness_values, tournament_size)
@@ -126,15 +127,19 @@ def memetic_algorithm(
             for child in [child1, child2]:
                 if len(new_population) < population_size and evaluations_done < max_evaluations:
                     if random.random() < local_search_probability:
-                        improved_child, child_fitness, child_fitness_dict, local_fitness_dicts = (
-                            local_search_improvement_with_limit(
-                                child,
-                                max_evaluations - evaluations_done
-                            )
+                        (
+                            improved_child,
+                            child_fitness,
+                            child_fitness_dict,
+                            local_fitness_dicts,
+                            local_fitness_history
+                        ) = local_search_improvement_with_limit(
+                            child,
+                            max_evaluations - evaluations_done
                         )
                         new_population.append(improved_child)
                         new_fitness_dicts.append(child_fitness_dict)
-                        fitness_history.extend(local_fitness_dicts)
+                        fitness_history.extend(local_fitness_history)
                     else:
                         child_fitness_dict = fitness(
                             dict_selection=child, model_name=model_name, evaluations=evaluations_done
@@ -142,6 +147,7 @@ def memetic_algorithm(
                         evaluations_done += 1
                         new_population.append(child)
                         new_fitness_dicts.append(child_fitness_dict)
+                        fitness_history.append(child_fitness_dict)
 
         population = new_population
         fitness_dicts = new_fitness_dicts
@@ -157,7 +163,7 @@ def memetic_algorithm(
         else:
             evaluations_without_improvement += 1
 
-        fitness_history.extend(fitness_dicts)
+        # fitness_history.extend(fitness_dicts)
         best_fitness_history.append(best_fitness)
 
         print(f"Evaluaciones realizadas: {evaluations_done}/{max_evaluations}")

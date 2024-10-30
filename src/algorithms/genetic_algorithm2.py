@@ -162,7 +162,7 @@ def genetic_algorithm2(
     best_individual = population[best_fitness_idx].copy()
     best_fitness = fitness_values[best_fitness_idx]
     fitness_history = fitness_dicts.copy()
-    best_fitness_history = [best_fitness]
+    best_fitness_history = [best_fitness.copy()]
 
     evaluations_without_improvement = 0
 
