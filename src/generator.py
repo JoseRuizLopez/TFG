@@ -42,8 +42,6 @@ if __name__ == "__main__":
     config = ConfiguracionGlobal(date=date, task_id=str(task_id))
     carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
 
-    fitness_history_100 = []
-    best_fitness_history_100 = []
     if add_100:
         labels.append("100%")
         result, fitness_history_100, best_fitness_history_100 = main(
@@ -61,6 +59,9 @@ if __name__ == "__main__":
                 "Algoritmo": "aleatorio"
             }
         )
+    else:
+        fitness_history_100 = []
+        best_fitness_history_100 = []
 
     for alg in AlgorithmList:
         fitness_list = []
