@@ -2,10 +2,10 @@ from enum import Enum
 
 
 class AlgorithmList(Enum):
-    # ALEATORIO = "aleatorio"
+    ALEATORIO = "aleatorio"
     BUSQUEDA_LOCAL = "busqueda local"
     GENETICO = "genetico"
-    # MEMETICO = "memetico"
+    MEMETICO = "memetico"
     GENETICO2 = "genetico2"
     GENETICO3 = "genetico3"
 

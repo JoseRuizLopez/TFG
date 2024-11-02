@@ -1,6 +1,5 @@
 import datetime
 import os
-
 import torch
 import polars as pl
 import argparse
@@ -9,8 +8,10 @@ from src.main import main
 from utils.classes import AlgorithmList
 from utils.classes import MetricList
 from utils.classes import ModelList
+from utils.utils import plot_boxplot
 from utils.utils import plot_multiple_fitness_evolution
 from utils.classes import ConfiguracionGlobal
+
 
 if __name__ == "__main__":
     # Configuración de argumentos
@@ -21,10 +22,10 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10]
+    porcentajes = [10, 25, 50, 75]
     evaluaciones_maximas = 101
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = False
+    add_100 = True
 
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
@@ -92,18 +93,19 @@ if __name__ == "__main__":
             data=fitness_list,
             labels=labels,
             metric=metric.value,
-            title=f'Evolución de cada evaluación - {metric} - Algoritmo {alg.value} - Modelo {modelo.value} - '
+            title=f'Evolución de cada evaluación - {metric.value} - Algoritmo {alg.value} - Modelo {modelo.value} - '
                   f'Con cada porcentaje',
-            filename=f'{carpeta_img}/{modelo.value}-evaluaciones-{alg.value.replace(" ", "_")}-combined-{metric}.png',
+            filename=f'{carpeta_img}/{modelo.value}-evaluaciones-{alg.value.replace(" ", "_")}-combined-'
+                     f'{metric.value}.png',
             x_label="Evaluación"
         )
         plot_multiple_fitness_evolution(
             data=best_fitness_list,
             labels=labels,
             metric=metric.value,
-            title=f'Evolución del best {metric} - Algoritmo {alg.value} - Modelo {modelo.value} - '
+            title=f'Evolución del best {metric.value} - Algoritmo {alg.value} - Modelo {modelo.value} - '
                   f'Con cada porcentaje',
-            filename=f'{carpeta_img}/{modelo.value}-best-{alg.value.replace(" ", "_")}-combined-{metric}.png',
+            filename=f'{carpeta_img}/{modelo.value}-best-{alg.value.replace(" ", "_")}-combined-{metric.value}.png',
             x_label="Iteración"
         )
 
@@ -121,6 +123,12 @@ if __name__ == "__main__":
         "Porcentaje Rock": pl.Float32,
         "Porcentaje Scissors": pl.Float32
     })
+
+    plot_boxplot(
+        df=df,
+        metric=metric.value,
+        filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-combined-{metric.value}.png'
+    )
 
     df.write_csv(f"results/csvs/resultados_{date}_task_{task_id}.csv")
 

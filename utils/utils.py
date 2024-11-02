@@ -1,12 +1,13 @@
 import os
 import random
 from typing import List
-from typing import Literal
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
+import seaborn as sns
+import polars as pl
 from torchvision import models
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Subset
@@ -69,8 +70,6 @@ def plot_multiple_fitness_evolution(
     max_length = max(len(lst) for lst in data)
     max_length = max_length if max_length != 1 else 50
 
-    x_values = list(range(1, max_length + 1))
-
     # Extender cada lista repitiendo el último valor hasta la longitud máxima
     extended_data = []
     for lst in data:
@@ -81,7 +80,7 @@ def plot_multiple_fitness_evolution(
 
     # Graficar cada lista interna de data
     for i, line_data in enumerate(extended_data):
-        plt.plot(x_values, line_data, label=labels[i])
+        plt.plot(line_data, label=labels[i])
 
     # Títulos y etiquetas
     plt.title(title, fontsize=14)
@@ -90,6 +89,27 @@ def plot_multiple_fitness_evolution(
 
     # Mostrar la leyenda
     plt.legend(loc='best', fontsize=10)
+
+    plt.grid(True)
+    plt.savefig(filename)
+    plt.close()
+
+
+def plot_boxplot(
+    df: pl.DataFrame,
+    metric: str,
+    filename: str,
+    eje_x: str = "Algoritmo"
+):
+    # Configurar el gráfico boxplot usando seaborn
+    plt.figure(figsize=(10, 6))
+
+    sns.boxplot(data=df, x=eje_x, y=metric.title(), hue='Porcentaje Inicial')
+
+    plt.title(f"Comparación de {metric.title()} entre Algoritmos y Porcentajes Iniciales")
+    plt.xlabel("Algoritmo")
+    plt.ylabel(metric.title())
+    plt.legend(title="Porcentaje Inicial")
 
     plt.grid(True)
     plt.savefig(filename)
