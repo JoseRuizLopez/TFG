@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10]
-    evaluaciones_maximas = 10
+    evaluaciones_maximas = 101
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
 
