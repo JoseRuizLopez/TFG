@@ -198,7 +198,6 @@ def genetic_algorithm2(
                     dict_selection=child1, model_name=model_name, evaluations=evaluations_done
                 )
                 evaluations_done += 1
-                new_fitness_dicts.append(child1_fitness_dict)
                 fitness_history.append(child1_fitness_dict)
 
             child2_fitness_dict = None
@@ -207,20 +206,19 @@ def genetic_algorithm2(
                     dict_selection=child2, model_name=model_name, evaluations=evaluations_done
                 )
                 evaluations_done += 1
-                new_fitness_dicts.append(child2_fitness_dict)
                 fitness_history.append(child2_fitness_dict)
 
             # Seleccionar el mejor hijo
             if child1_fitness_dict is not None and child2_fitness_dict is not None:
                 if child1_fitness_dict[metric.title()] > child2_fitness_dict[metric.title()]:
                     new_population.append(child1)
+                    new_fitness_dicts.append(child1_fitness_dict)
                 else:
                     new_population.append(child2)
+                    new_fitness_dicts.append(child2_fitness_dict)
             elif child1_fitness_dict is not None:
                 new_population.append(child1)
-
-            if len(new_population) >= population_size:
-                break
+                new_fitness_dicts.append(child1_fitness_dict)
 
         population = new_population
         fitness_dicts = new_fitness_dicts

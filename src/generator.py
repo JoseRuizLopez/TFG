@@ -12,7 +12,6 @@ from utils.classes import ModelList
 from utils.utils import plot_multiple_fitness_evolution
 from utils.classes import ConfiguracionGlobal
 
-
 if __name__ == "__main__":
     # Configuración de argumentos
     parser = argparse.ArgumentParser(description="Script de generación")
@@ -22,10 +21,10 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 25, 50, 75]
-    evaluaciones_maximas = 100
+    porcentajes = [10]
+    evaluaciones_maximas = 10
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = True
+    add_100 = False
 
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
@@ -92,20 +91,20 @@ if __name__ == "__main__":
         plot_multiple_fitness_evolution(
             data=fitness_list,
             labels=labels,
-            algorithm_name=alg.value,
             metric=metric.value,
-            model=modelo.value,
-            carpeta=carpeta_img,
-            selection="mean"
+            title=f'Evolución de cada evaluación - {metric} - Algoritmo {alg.value} - Modelo {modelo.value} - '
+                  f'Con cada porcentaje',
+            filename=f'{carpeta_img}/{modelo.value}-evaluaciones-{alg.value.replace(" ", "_")}-combined-{metric}.png',
+            x_label="Evaluación"
         )
         plot_multiple_fitness_evolution(
             data=best_fitness_list,
             labels=labels,
-            algorithm_name=alg.value,
             metric=metric.value,
-            model=modelo.value,
-            carpeta=carpeta_img,
-            selection="best"
+            title=f'Evolución del best {metric} - Algoritmo {alg.value} - Modelo {modelo.value} - '
+                  f'Con cada porcentaje',
+            filename=f'{carpeta_img}/{modelo.value}-best-{alg.value.replace(" ", "_")}-combined-{metric}.png',
+            x_label="Iteración"
         )
 
     df = pl.DataFrame(resultados, schema={

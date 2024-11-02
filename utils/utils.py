@@ -50,11 +50,10 @@ def plot_fitness_evolution(
 def plot_multiple_fitness_evolution(
     data: List[List[float]],
     labels: List[str],
-    algorithm_name: str,
     metric: str,
-    model: str,
-    carpeta: str,
-    selection: Literal["mean", "best"] = "best"
+    title: str,
+    filename: str,
+    x_label: str = "Iteración"
 ):
     """
     Crea y guarda una gráfica que muestra la evolución del fitness multiple.
@@ -62,15 +61,15 @@ def plot_multiple_fitness_evolution(
     Args:
         data: Lista de listas, donde cada lista interna contiene los valores de una línea a lo largo de las iteraciones
         labels: Lista de etiquetas para cada línea
-        algorithm_name: Nombre del algoritmo utilizado
         metric: Métrica utilizada (accuracy o f1)
-        model: Nombre del modelo usado
-        carpeta: Carpepta donde guarda los resultados
-        selection: Método de seleccion para distinguir nombres
+        title: Título de la gráfica
+        filename: Nombre del archivo generado en el directorio
     """
     # Encontrar la longitud máxima entre todas las listas
     max_length = max(len(lst) for lst in data)
     max_length = max_length if max_length != 1 else 50
+
+    x_values = list(range(1, max_length + 1))
 
     # Extender cada lista repitiendo el último valor hasta la longitud máxima
     extended_data = []
@@ -82,19 +81,18 @@ def plot_multiple_fitness_evolution(
 
     # Graficar cada lista interna de data
     for i, line_data in enumerate(extended_data):
-        plt.plot(line_data, label=labels[i])
+        plt.plot(x_values, line_data, label=labels[i])
 
     # Títulos y etiquetas
-    plt.title(f'Evolución del {selection} {metric} - Algoritmo {algorithm_name} - Modelo {model} - '
-              f'Con cada porcentaje', fontsize=14)
-    plt.xlabel('Iteración', fontsize=12)
+    plt.title(title, fontsize=14)
+    plt.xlabel(x_label, fontsize=12)
     plt.ylabel(metric.capitalize(), fontsize=12)
 
     # Mostrar la leyenda
     plt.legend(loc='best', fontsize=10)
 
     plt.grid(True)
-    plt.savefig(f'{carpeta}/{model}-{selection}-{algorithm_name.replace(" ", "_")}-combined-{metric}.png')
+    plt.savefig(filename)
     plt.close()
 
 

@@ -26,6 +26,6 @@ fecha_actual=$(date -d "+2 hours" +"%Y-%m-%d_%H-%M")
 archivo_salida="results/salidas/salida_${fecha_actual}.txt"
 
 # Ejecutar el script de Python y redirigir la salida al archivo
-python src/main.py --task_id "-1" > "$archivo_salida"
+python src/generator.py --task_id "-1" > "$archivo_salida"
 
 mail -s "Proceso finalizado" ruizlopezjose@correo.ugr.es <<< "El proceso ha finalizado"

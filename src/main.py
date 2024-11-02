@@ -43,7 +43,7 @@ def main(
 
     config = ConfiguracionGlobal()
 
-    set_seed(24012000 + int(config.task_id))
+    set_seed(24012000 + 1 + int(config.task_id))
     dataset = "data/dataset/train"
 
     os.makedirs(f"logs/{config.date}", exist_ok=True)

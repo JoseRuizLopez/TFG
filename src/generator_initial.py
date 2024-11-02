@@ -69,20 +69,18 @@ if __name__ == "__main__":
         plot_multiple_fitness_evolution(
             data=fitness_list,
             labels=labels,
-            algorithm_name="aleatorio",
             metric=metric.value,
-            model=model.value,
-            carpeta=carpeta_img,
-            selection="mean"
+            title=f'Evolución de cada evaluación - {metric} - Algoritmo {"aleatorio"} - Modelo {model.value} - '
+                  f'Con cada porcentaje',
+            filename=f'{carpeta_img}/{model.value}-evaluaciones-{"aleatorio".replace(" ", "_")}-combined-{metric}.png'
         )
         plot_multiple_fitness_evolution(
             data=best_fitness_list,
             labels=labels,
-            algorithm_name="aleatorio",
             metric=metric.value,
-            model=model.value,
-            carpeta=carpeta_img,
-            selection="best"
+            title=f'Evolución del best {metric} - Algoritmo {"aleatorio"} - Modelo {model.value} - '
+                  f'Con cada porcentaje',
+            filename=f'{carpeta_img}/{model.value}-best-{"aleatorio"}-combined-{metric}.png'
         )
 
     df = pl.DataFrame(resultados, schema={
