@@ -1,0 +1,10 @@
+Task ID recibido: 3
+GPU: True
+
+
+--------------------------------------mobilenet  ALEATORIO  100%-------------------------------------------------
+Start time: 2024-11-02 21:04:50.730700
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.00 MB
+Using device: cuda
