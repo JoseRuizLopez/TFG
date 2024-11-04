@@ -1,7 +1,7 @@
 \chapter{Fundamentos de Aprendizaje Profundo}\label{ch:fundamentos-de-aprendizaje-profundo}
 %Fundamentos de Aprendizaje Profundo: Explica los conceptos básicos, incluyendo redes neuronales convolucionales.
 \section{Definición de Aprendizaje Profundo}\label{sec:definicion-de-aprendizaje-profundo}
-El \textbf{aprendizaje profundo} (Deep Learning) es una subcategoría del aprendizaje automático que se basa
+El \textbf{aprendizaje profundo} (Deep Learning)~\cite{} es una subcategoría del aprendizaje automático que se basa
 en el uso de \textbf{redes neuronales artificiales} con muchas capas (de ahí el término ``profundo''.
 Estas redes están diseñadas para imitar el funcionamiento del cerebro humano, lo que les permite aprender
 representaciones complejas de los datos de manera jerárquica. \\[2pt]
@@ -164,49 +164,6 @@ vehículos.
 Las CNN son fundamentales en muchas aplicaciones modernas debido a su capacidad para procesar y entender datos visuales
 de manera eficiente y automática.
 
-\section{Datasets}\label{sec:datasets}
-En el aprendizaje profundo, los datasets son colecciones de datos etiquetados o no etiquetados que se utilizan para
-entrenar modelos.
-Estos conjuntos de datos suelen contener ejemplos organizados que representan la entrada para el modelo, y en muchos
-casos, también las etiquetas correspondientes que indican la salida deseada.
-Los datasets varían en tamaño, calidad y tipo, dependiendo de la tarea a resolver, como la clasificación de imágenes,
-el reconocimiento de patrones o la predicción de series temporales.
-
-\subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
-\textbf{Rock, Paper, Scissors}~\cite{Rock Paper Scissors Dataset} fue creado originalmente por Laurence Moroney y se
-utiliza para clasificar imágenes de las manos representando los gestos de `piedra', `papel' y `tijeras'.
-El conjunto de datos contiene alrededor de 2,500 imágenes distribuidas en tres categorías: piedra, papel y tijeras.
-Las imágenes están en color y tienen un tamaño de 300x300 píxeles. \\[6pt]
-
-En este trabajo, se ha utilizado el dataset de \textbf{Rock, Paper, Scissors} para evaluar el rendimiento del modelo en
-un problema de clasificación de imágenes más variado y natural, que involucra múltiples clases.
-Además, permite explorar la eficacia de los algoritmos meméticos en un entorno más cercano al reconocimiento de
-objetos, lo que añade mayor complejidad al problema.
-
-\subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
-\textbf{MNIST}~\cite{MNIST Dataset} es uno de los datasets más utilizados en el campo del aprendizaje automático y el
-aprendizaje profundo.
-Contiene 70,000 imágenes de dígitos escritos a mano (60,000 para el conjunto de entrenamiento y 10,000 para el de
-prueba).
-Las imágenes son en escala de grises y tienen un tamaño de 28x28 píxeles, con cada píxel representando una intensidad
-de color entre 0 (negro) y 255 (blanco).
-
-Este dataset se utiliza comúnmente como \textbf{benchmark} para evaluar modelos de clasificación de imágenes,
-particularmente en arquitecturas convolucionales.
-
-La simplicidad de \textbf{MNIST} lo hace ideal para probar modelos de redes neuronales convolucionales, ya que ofrece un
-equilibrio entre un problema fácil de entender, pero con suficiente complejidad para que los modelos más avanzados
-demuestren mejoras.
-
-\subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
-La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
-complejidad.
-\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
-estandarizada para comparar el rendimiento y la reducción de datos.
-Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
-permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
-representativos de aplicaciones más reales en visión por computadora.
-
 \section{Modelos}\label{sec:modelos}
 En el ámbito del aprendizaje profundo, existen diversas arquitecturas de redes neuronales convolucionales que han
 demostrado un rendimiento excepcional en diversas tareas de visión por computadora.
@@ -217,7 +174,7 @@ A continuación, se explorarán algunas de estas arquitecturas que representan a
 efectividad del aprendizaje profundo.
 
 \subsection{ResNet50}\label{subsec:resnet50}
-\textbf{ResNet50}~\cite{resnet} es una arquitectura de red neuronal convolucional introducida por Kaiming He et al. en 2015.
+\textbf{ResNet50}~\cite{resnet} es una arquitectura de red neuronal convolucional introducida por Kaiming He et al.\ en 2015.
 La principal innovación de ResNet es la introducción de \textbf{bloques de residualidad}, que permiten la construcción
 de redes extremadamente profundas sin el problema de la degradación del rendimiento. \\[6pt]
 
@@ -231,6 +188,14 @@ La arquitectura incluye capas de normalización y activación (ReLU), así como 
 conexión, lo que significa que la entrada de una capa se suma a la salida de una capa posterior.
 
 \subsection{MobileNetV2}\label{subsec:mobilenet}
+
+\begin{figure}[htp] \label{fig:resnet50}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{imagenes/resnet50}
+    \end{center}
+    \caption[ResNet50]{Diagrama de la Arquitectuda de ResNet50}
+\end{figure}
+
 \textbf{MobileNet}~\cite{} es una arquitectura de red neuronal diseñada específicamente para aplicaciones móviles y de visión
 por computadora en dispositivos con recursos limitados.
 Introducida por Andrew G. Howard et al.\ en 2017, MobileNet se basa en el principio de
@@ -242,6 +207,14 @@ Esta técnica reduce significativamente el número de parámetros y el costo com
 modelos de visión por computadora en dispositivos móviles sin sacrificar drásticamente la precisión.
 
 \subsubsection{MobileNetV2}\label{subsubsec:mobilenetv2}
+
+\begin{figure}[htp] \label{fig:mobilenetv2}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{imagenes/mobilenetv2}
+    \end{center}
+    \caption[MobileNetV2]{Diagrama de la Arquitectuda de MobileNetV2}
+\end{figure}
+
 \textbf{MobileNetV2}~\cite{}, introducido por Sandler et al.\ en 2018, mejora la arquitectura de MobileNet original al
 incorporar varias innovaciones.
 La principal contribución de MobileNetV2 es la introducción de los bloques de \textbf{residualidad invertida} (inverted
