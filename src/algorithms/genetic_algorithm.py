@@ -82,7 +82,7 @@ def tournament_selection(population: list[dict], fitness_values: list[float], to
 
 
 def genetic_algorithm(
-    data_dir: str = "data/dataset/train",
+    data_dir: str = "data/RPS/train",
     population_size: int = 10,
     initial_percentage: int = 10,
     max_evaluations: int = 50,

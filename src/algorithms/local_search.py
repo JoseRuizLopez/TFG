@@ -70,7 +70,7 @@ def generate_neighbor(current_selection, neighbor_percent, vary_percentage: bool
 
 
 def local_search(
-    data_dir: str = "data/dataset/train",
+    data_dir: str = "data/RPS/train",
     initial_percentage: int = 10,
     max_evaluations: int = 100,
     max_evaluations_without_improvement: int = 20,

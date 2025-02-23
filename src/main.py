@@ -9,6 +9,7 @@ import numpy as np
 import polars as pl
 
 from utils.classes import AlgorithmList
+from utils.classes import DatasetList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from src.algorithms.genetic_algorithm import genetic_algorithm
@@ -17,7 +18,9 @@ from src.algorithms.genetic_algorithm3 import genetic_algorithm_with_restart
 from src.algorithms.local_search import local_search
 from src.algorithms.memetic_algorithm import memetic_algorithm
 from src.algorithms.random_search import random_search
+from utils.utils import clear_ds_store
 from utils.utils import fitness
+from utils.utils import plot_boxplot
 from utils.utils import plot_fitness_evolution
 from utils.classes import ConfiguracionGlobal
 
@@ -40,11 +43,13 @@ def main(
     metric: str = "accuracy",
     model_name: str = "resnet"
 ):
-
     config = ConfiguracionGlobal()
 
+    dataset = config.dataset
+
+    clear_ds_store(dataset)
+
     set_seed(24012000 + 1 + int(config.task_id))
-    dataset = "data/dataset/train"
 
     os.makedirs(f"logs/{config.date}", exist_ok=True)
     with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
@@ -64,9 +69,10 @@ def main(
     fitness_history = []
     best_fitness_history = []
     evaluations_done = 0
+    train_path = os.path.join(dataset, 'train')
     if algoritmo == "aleatorio":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = random_search(
-            data_dir=dataset,
+            data_dir=train_path,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
@@ -75,7 +81,7 @@ def main(
         )
     elif algoritmo == "busqueda local":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
-            data_dir=dataset,
+            data_dir=train_path,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
@@ -85,7 +91,7 @@ def main(
         )
     elif algoritmo == "genetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
-            data_dir=dataset,
+            data_dir=train_path,
             population_size=10,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -97,7 +103,7 @@ def main(
         )
     elif algoritmo == "memetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
-            data_dir=dataset,
+            data_dir=train_path,
             population_size=10,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -112,7 +118,7 @@ def main(
         )
     elif algoritmo == "genetico2":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
-            data_dir=dataset,
+            data_dir=train_path,
             population_size=10,
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
@@ -125,7 +131,7 @@ def main(
     elif algoritmo == "genetico3":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
             genetic_algorithm_with_restart(
-                data_dir=dataset,
+                data_dir=train_path,
                 population_size=10,
                 initial_percentage=initial_percentage,
                 max_evaluations=max_evaluations,
@@ -199,25 +205,52 @@ if __name__ == "__main__":
     # Configuración de argumentos
     parser = argparse.ArgumentParser(description="Script de generación")
     parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")
+    algoritmo_input = input(
+        "Introduce algoritmo para esta ejecución. Opciones: " + str([color.value for color in AlgorithmList])
+    ) or 'busqueda local'
+    metric_input = input(
+        "Introduce metrica para esta ejecución. Opciones: " + str([color.value for color in MetricList])
+    ) or 'accuracy'
+    modelo_input = input(
+        "Introduce modelo para esta ejecución. Opciones: " + str([color.value for color in ModelList])
+    ) or 'mobilenet'
+    dataset_input = input(
+        "Introduce dataset para esta ejecución. Opciones: " + str([color.value for color in DatasetList])
+    ) or 'rps'
+
+    porcentaje_inicial = int(input(
+        "Introduce dataset para esta ejecución. Default: 25"
+    ) or 25)
+    evaluaciones_maximas = int(input(
+        "Introduce dataset para esta ejecución. Default: 10"
+    ) or 10)
+    evaluaciones_maximas_sin_mejora = int(input(
+        "Introduce dataset para esta ejecución. Default: 10"
+    ) or 10)
     task_id = parser.parse_args().task_id
 
     print(f"Task ID recibido: {task_id}")
-
+    print(f"algoritmo recibido: {algoritmo_input}")
+    print(f"metric recibido: {metric_input}")
+    print(f"modelo recibido: {modelo_input}")
+    print(f"dataset recibido: {dataset_input}")
+    print(f"porcentaje_inicial recibido: {porcentaje_inicial}")
+    print(f"evaluaciones_maximas recibido: {evaluaciones_maximas}")
+    print(f"evaluaciones_maximas_sin_mejora recibido: {evaluaciones_maximas_sin_mejora}")
+    print(f"---------------------------------------------------------\n")
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentaje_inicial = 25
-    evaluaciones_maximas = 100
-    evaluaciones_maximas_sin_mejora = 100
 
     now = datetime.datetime.now()
     if os.getenv("SERVER") is not None:
         now = now + datetime.timedelta(hours=1)
 
-    date = now.strftime("%Y-%m-%d_%H-%M")
-    config = ConfiguracionGlobal(date=date, task_id=str(task_id))
+    algoritmo: AlgorithmList = AlgorithmList(algoritmo_input.lower())
+    metric: MetricList = MetricList(metric_input.lower())
+    modelo: ModelList = ModelList(modelo_input.lower())
+    dataset_choosen: DatasetList = DatasetList(dataset_input.upper())
 
-    algoritmo: AlgorithmList = AlgorithmList.GENETICO3
-    metric: MetricList = MetricList.ACCURACY
-    modelo: ModelList = ModelList.MOBILENET
+    date = now.strftime("%Y-%m-%d_%H-%M")
+    config = ConfiguracionGlobal(date=date, task_id=str(task_id), dataset=dataset_choosen.value)
 
     result, fitness_history, best_fitness_history = main(
         porcentaje_inicial,
@@ -245,5 +278,29 @@ if __name__ == "__main__":
         "Porcentaje Rock": pl.Float32,
         "Porcentaje Scissors": pl.Float32
     })
+
+    carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
+    try:
+        # ====== Boxplot 1: Fijando Algoritmo, variando Porcentaje Inicial ======
+        plot_boxplot(
+            df=df,
+            metric="Accuracy",  # O "Precision"
+            eje_x="Porcentaje Inicial",
+            hue=None,
+            title="Comparación de Accuracy según Porcentaje Inicial y Algoritmo",
+            filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-porcentaje.png',
+        )
+
+        # ====== Boxplot 2: Fijando Porcentaje Inicial, variando Algoritmo ======
+        plot_boxplot(
+            df=df,
+            metric="Accuracy",  # O "Precision"
+            eje_x="Algoritmo",
+            hue=None,
+            title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
+            filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-algoritmo.png',
+        )
+    except Exception as e:
+        print("Ha fallado el bloxplot: " + str(e))
 
     df.write_csv(f"results/csvs/resultados_{date}_task_{task_id}.csv")

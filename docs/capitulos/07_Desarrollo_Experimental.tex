@@ -55,40 +55,130 @@ Vemos que son tiempos muy grandes, por ello se decidió probar el algoritmo \tex
 \end{table}
 
 
-
 \section{Datasets}\label{sec:datasets}
 En el aprendizaje profundo, los datasets son colecciones de datos etiquetados o no etiquetados que se utilizan para
 entrenar modelos.
-Estos conjuntos de datos suelen contener ejemplos organizados que representan la entrada para el modelo, y en muchos
-casos, también las etiquetas correspondientes que indican la salida deseada.
+Estos conjuntos de datos contienen ejemplos organizados que representan la entrada para el modelo y, en muchos casos,
+también las etiquetas correspondientes que indican la salida deseada.
 Los datasets varían en tamaño, calidad y tipo, dependiendo de la tarea a resolver, como la clasificación de imágenes,
 el reconocimiento de patrones o la predicción de series temporales.
 
 \subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
-\textbf{Rock, Paper, Scissors}~\cite{Rock Paper Scissors Dataset} fue creado originalmente por Laurence Moroney y se
-utiliza para clasificar imágenes de las manos representando los gestos de `piedra', `papel' y `tijeras'.
-El conjunto de datos contiene alrededor de 2,500 imágenes distribuidas en tres categorías: piedra, papel y tijeras.
-Las imágenes están en color y tienen un tamaño de 300x300 píxeles. \\[6pt]
+\textbf{Rock, Paper, Scissors}~\cite{noauthor_rock_nodate} es un conjunto de datos creado por Laurence Moroney
+que se utiliza para la clasificación de imágenes de manos representando los gestos de `piedra', `papel' y `tijeras'.
 
-En este trabajo, se ha utilizado el dataset de \textbf{Rock, Paper, Scissors} para evaluar el rendimiento del modelo en
-un problema de clasificación de imágenes más variado y natural, que involucra múltiples clases.
-Además, permite explorar la eficacia de los algoritmos meméticos en un entorno más cercano al reconocimiento de
-objetos, lo que añade mayor complejidad al problema.
+\subsubsection{Estructura del Dataset}
+El conjunto de datos contiene aproximadamente 2,500 imágenes, distribuidas en tres categorías: piedra, papel y tijeras.
+Las imágenes están en color y tienen un tamaño de 300x300 píxeles.
+
+Las imágenes están organizadas en directorios según su categoría artística:
+\begin{verbatim}
++-- train
+|   +-- rock
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   +-- paper
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   \-- scissors
++-- test (originalmente valid)
+|   +-- rock
+|   +-- paper
+|   \-- scissors
++-- valid (originalmente test)
+|   +-- rock
+|   +-- paper
+|   \-- scissors
+\end{verbatim}
+
+
+\subsubsection{Formato de los Datos}
+Las imágenes están en formato JPEG (\texttt{.jpg}). Para su procesamiento, se han aplicado técnicas de preprocesamiento
+adaptadas a los requerimientos del modelo.
+
+\subsubsection{Uso del Dataset}
+Este dataset se ha utilizado para evaluar el rendimiento del modelo en un problema de clasificación de imágenes con
+múltiples clases, pero siendo un dataset sencillo y con un número de clases pequeño.
+Además, permite explorar la eficacia de los algoritmos meméticos en un entorno más cercano al reconocimiento de objetos.
+
+\subsubsection{Correcciones en la División de Datos}
+Según la nota observada en el README del dataset:
+\begin{quote}
+\textit{Note: in the source, Laurence calls ``validation'' as the ``test'', and ``test'' the ``validation''.}
+\end{quote}
+se han renombrado las particiones de \texttt{test} y \texttt{valid} para que correspondan correctamente con sus
+propósitos.
+
+\subsection{PAINTING (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
+El dataset \textbf{Art Images: Drawing/Painting/Sculptures/Engravings} es una colección de aproximadamente 9,000
+imágenes organizadas en cinco categorías de arte: dibujos, pinturas, esculturas, grabados y arte iconográfico.
+
+\subsubsection{Estructura del Dataset}
+Las imágenes están organizadas en directorios según su categoría artística:
+\begin{verbatim}
++-- Train (originalmente training_set)
+|   +-- drawings
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   +-- paintings
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   +-- sculptures
+|   +-- engravings
+|   \-- iconography
++-- Test (originalmente validation_set)
+|   +-- drawings
+|   +-- paintings
+|   +-- sculptures
+|   +-- engravings
+|   \-- iconography
+\end{verbatim}
+
+\subsubsection{Correcciones en la División de Datos}
+Observando los tamaños de la división de los datos, y teniendo en cuenta que la divisón de los datos suele ser en train
+y test, se ha decidido por renombrar las particiones de \texttt{valid} por \texttt{test} para que corresponda
+correctamente con su propósito.
+Y el set de validation lo he obtenido separando el set de train, normalmente haciendo una división 80\% test y 20\%
+valid.
+
+\subsubsection{Formato de los Datos}
+Todas las imágenes están en formato JPEG (\texttt{.jpg}) y presentan variaciones en resolución y dimensiones.
+Se han aplicado técnicas de preprocesamiento para homogenizar las características de las imágenes.
+
+\subsubsection{Uso del Dataset}
+Este dataset se ha utilizado para entrenar y evaluar modelos de clasificación de imágenes en un entorno diferente al
+RPS\@.
+
+\subsubsection{Acceso al Dataset}
+Inicialmente, el dataset se descargó desde Kaggle~\cite{noauthor_original_nodate}
+
+Sin embargo, debido a la presencia de archivos innecesarios y algunas imágenes corruptas, se optó por una versión
+limpia disponible en Kaggle~\cite{noauthor_cleaned_nodate}.
+
+\subsubsection{Licencia y Uso}
+Antes de su uso, se revisaron los términos y condiciones establecidos en la página de Kaggle para asegurar el
+cumplimiento con las licencias y restricciones aplicables.
 
 \subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
-\textbf{MNIST}~\cite{MNIST Dataset} es uno de los datasets más utilizados en el campo del aprendizaje automático y el
-aprendizaje profundo.
-Contiene 70,000 imágenes de dígitos escritos a mano (60,000 para el conjunto de entrenamiento y 10,000 para el de
-prueba).
-Las imágenes son en escala de grises y tienen un tamaño de 28x28 píxeles, con cada píxel representando una intensidad
-de color entre 0 (negro) y 255 (blanco).
+\textbf{MNIST}~\cite{noauthor_mnist_nodate} es un dataset ampliamente utilizado en aprendizaje profundo.
+Contiene 70,000 imágenes de dígitos escritos a mano, divididas en 60,000 imágenes para el entrenamiento y 10,000 para
+la prueba.
 
-Este dataset se utiliza comúnmente como \textbf{benchmark} para evaluar modelos de clasificación de imágenes,
-particularmente en arquitecturas convolucionales.
+\subsubsection{Estructura del Dataset}
+Las imágenes tienen un tamaño de 28x28 píxeles y están en escala de grises, con valores de intensidad entre 0 (negro) y
+255 (blanco).
 
-La simplicidad de \textbf{MNIST} lo hace ideal para probar modelos de redes neuronales convolucionales, ya que ofrece un
-equilibrio entre un problema fácil de entender, pero con suficiente complejidad para que los modelos más avanzados
-demuestren mejoras.
+\subsubsection{Formato de los Datos}
+Las imágenes están almacenadas en formato IDX, un formato binario específico para este dataset.
+Se ha realizado una conversión a matrices NumPy para su procesamiento eficiente.
+
+\subsubsection{Uso del Dataset}
+Este conjunto de datos se ha empleado como benchmark para evaluar modelos de clasificación de imágenes, especialmente
+en arquitecturas convolucionales.
 
 \subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
 La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de

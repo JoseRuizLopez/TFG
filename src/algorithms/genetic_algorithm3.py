@@ -65,7 +65,7 @@ def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: 
 
 
 def genetic_algorithm_with_restart(
-    data_dir: str = "data/dataset/train",
+    data_dir: str = "data/RPS/train",
     population_size: int = 10,
     initial_percentage: int = 10,
     max_evaluations: int = 50,

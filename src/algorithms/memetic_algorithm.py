@@ -9,7 +9,7 @@ from utils.utils import crear_dict_imagenes
 
 
 def memetic_algorithm(
-    data_dir: str = "data/dataset/train",
+    data_dir: str = "data/RPS/train",
     population_size: int = 20,
     initial_percentage: int = 10,
     max_evaluations: int = 50,

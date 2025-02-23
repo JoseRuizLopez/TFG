@@ -1,0 +1,180 @@
+\chapter{Desarrollo Experimental}\label{ch:desarrollo-experimental}
+
+Tras la explicación del contenido necesario para el entendendimiento y desarrollo del TFG en los anteriores capítulos,
+en este capítulo se prcedera a explicar las pruebas y posteriores mejoras que se han realizado y los posteriores
+resultados obtenidos. \\[6pt]
+
+Las pruebas iniciales que se plantearon fueron tomar un dataset simple para realizar las primeras pruedas, y ya cuando
+funcionase correctamente, probar con otro dataset más complejo o realista.
+Para ello se decidió usar el dataset de \textbf{RPS}. \\[6pt]
+
+Para obtener unos primeros resultados con este dataset, se planteó usar el modelo de \textbf{Resnet50}.
+Se hicieron unas pruebas con distintos porcentajes para ver distintos resultados posibles.
+
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+            \toprule
+            \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
+            \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} &
+            \textbf{Evaluaciones Realizadas} \\
+            \midrule
+            aleatorio & 10 & 00:45:08 & 76,55\% & 81,80\% & 76,55\% & 76,25\% & 100 \\
+            aleatorio & 20 & 01:10:27 & 81,77\% & 84,70\% & 81,77\% & 81,59\% & 100 \\
+            aleatorio & 50 & 02:24:49 & 87,14\% & 88,09\% & 87,14\% & 86,97\% & 100 \\
+            aleatorio & 100 & 00:02:42 & 87,90\% & 88,96\% & 87,90\% & 87,81\% & 1 \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de la generación inicial con \textbf{Resnet50}}
+    \label{tab:initial-generation-resnet}
+\end{table}
+
+Fijandonos en la tabla~\ref{tab:initial-generation-resnet}, las duraciones que se indican son lo que tarda en
+ejecutarse todas las evaluaciones que se indican.
+Vemos que son tiempos muy grandes, por ello se decidió probar el algoritmo \textbf{MobileNet} para agilizar el proceso.
+
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+            \toprule
+        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
+        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
+        \midrule
+        aleatorio & 10 & 00:29:29 & 72,31\% & 76,40\% & 72,31\% & 69,62\% & 100 \\
+        aleatorio & 20 & 00:50:36 & 76,48\% & 78,82\% & 76,48\% & 75,58\% & 100 \\
+        aleatorio & 50 & 01:54:09 & 75,56\% & 79,72\% & 75,56\% & 74,67\% & 100 \\
+        aleatorio & 100 & 00:02:12 & 76,08\% & 79,97\% & 76,08\% & 75,61\% & 1 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de la generación inicial con \textbf{MobileNet}}
+    \label{tab:initial-generation-mobilenet}
+\end{table}
+
+
+
+\section{Datasets}\label{sec:datasets}
+En el aprendizaje profundo, los datasets son colecciones de datos etiquetados o no etiquetados que se utilizan para
+entrenar modelos.
+Estos conjuntos de datos suelen contener ejemplos organizados que representan la entrada para el modelo, y en muchos
+casos, también las etiquetas correspondientes que indican la salida deseada.
+Los datasets varían en tamaño, calidad y tipo, dependiendo de la tarea a resolver, como la clasificación de imágenes,
+el reconocimiento de patrones o la predicción de series temporales.
+
+\subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
+\textbf{Rock, Paper, Scissors}~\cite{Rock Paper Scissors Dataset} fue creado originalmente por Laurence Moroney y se
+utiliza para clasificar imágenes de las manos representando los gestos de `piedra', `papel' y `tijeras'.
+El conjunto de datos contiene alrededor de 2,500 imágenes distribuidas en tres categorías: piedra, papel y tijeras.
+Las imágenes están en color y tienen un tamaño de 300x300 píxeles. \\[6pt]
+
+En este trabajo, se ha utilizado el dataset de \textbf{Rock, Paper, Scissors} para evaluar el rendimiento del modelo en
+un problema de clasificación de imágenes más variado y natural, que involucra múltiples clases.
+Además, permite explorar la eficacia de los algoritmos meméticos en un entorno más cercano al reconocimiento de
+objetos, lo que añade mayor complejidad al problema.
+
+Debido a la nota observada en el README del Dataset de RPS:
+\begin{quote}
+\textit{Note: in the source, Laurence calls ``validation'' as the ``test'', and ``test'' the ``validation''.}
+\end{quote}
+y verificandolo con los tamaños de cada set, se ha cambiado el nombre del \texttt{test} y del \texttt{valid} para que
+correspondan correctamente.
+
+\subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
+\textbf{MNIST}~\cite{MNIST Dataset} es uno de los datasets más utilizados en el campo del aprendizaje automático y el
+aprendizaje profundo.
+Contiene 70,000 imágenes de dígitos escritos a mano (60,000 para el conjunto de entrenamiento y 10,000 para el de
+prueba).
+Las imágenes son en escala de grises y tienen un tamaño de 28x28 píxeles, con cada píxel representando una intensidad
+de color entre 0 (negro) y 255 (blanco).
+
+Este dataset se utiliza comúnmente como \textbf{benchmark} para evaluar modelos de clasificación de imágenes,
+particularmente en arquitecturas convolucionales.
+
+La simplicidad de \textbf{MNIST} lo hace ideal para probar modelos de redes neuronales convolucionales, ya que ofrece un
+equilibrio entre un problema fácil de entender, pero con suficiente complejidad para que los modelos más avanzados
+demuestren mejoras.
+
+\subsection{PAINTING (Art Images: Drawing/Painting/Sculptures/Engravings)}
+\label{subsec:painting-(art-images:-drawing/painting/sculptures/engravings)}
+
+Para mi trabajo, he utilizado el dataset \textit{Art Images: Drawing/Painting/Sculptures/Engravings}, que es una colección de aproximadamente 9,000 imágenes organizadas en cinco categorías principales de arte:
+
+\begin{itemize}
+    \item Dibujos
+    \item Pinturas
+    \item Esculturas
+    \item Grabados
+    \item Arte iconográfico
+\end{itemize}
+
+Este conjunto de datos me ha resultado especialmente útil para llevar a cabo tareas de clasificación de imágenes y
+análisis en otro ambiente, distinto al RPS\@.
+
+\subsubsection{Estructura del Dataset}
+Las imágenes están organizadas en directorios según su categoría artística.
+Cada directorio contiene imágenes correspondientes a su respectiva categoría.
+La estructura general del dataset es la siguiente:
+
+\begin{verbatim}
++-- Train
+|   +-- Drawings
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   +-- Paintings
+|   |   +-- image1.jpg
+|   |   +-- image2.jpg
+|   |   \-- ...
+|   +-- Sculptures
+|   |   \-- ...
+|   +-- Engravings
+|   |   \-- ...
+|   \-- Iconography
+|   |   \-- ...
++-- Test
+|   +-- Drawings
+|   |   \-- ...
+|   +-- Paintings
+|   |   \-- ...
+|   +-- Sculptures
+|   |   \-- ...
+|   +-- Engravings
+|   |   \-- ...
+|   \-- Iconography
+|   |   \-- ...
+\end{verbatim}
+
+\subsubsection{Formato de los Datos}
+Todas las imágenes están en formato JPEG (\texttt{.jpg}) y presentan variaciones en resolución y dimensiones.
+Para garantizar un procesamiento eficiente, he aplicado técnicas de preprocesamiento de imágenes según los requisitos
+específicos de mi análisis.
+
+\subsubsection{Uso del Dataset}
+He utilizado este dataset para entrenar y evaluar modelos de clasificación de imágenes.
+
+\subsubsection{Acceso al Dataset}
+Inicialmente, descargué el dataset desde Kaggle a través del siguiente enlace:
+
+\url{https://www.kaggle.com/datasets/thedownhill/art-images-drawings-painting-sculpture-engraving}
+
+Sin embargo, detecté que contenía archivos innecesarios del sistema operativo MAC y algunas imágenes corruptas que
+impedían su correcta lectura.
+Para evitar estos problemas, decidí descargar directamente una versión limpia del dataset desde:
+
+\url{https://www.kaggle.com/datasets/moosecat/art-images-drawings-painting-sculpture-engraving/data}
+
+\subsubsection{Licencia y Uso}
+Antes de utilizar el dataset, revisé los términos y condiciones establecidos en la página de Kaggle para asegurarme de
+cumplir con las licencias y restricciones aplicables.
+
+\subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
+La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
+complejidad.
+\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
+estandarizada para comparar el rendimiento y la reducción de datos.
+Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
+permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
+representativos de aplicaciones más reales en visión por computadora.

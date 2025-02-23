@@ -1,13 +1,17 @@
 import os
 import random
+import shutil
 from typing import List
 
+import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
 import seaborn as sns
 import polars as pl
+from torch.utils.data import random_split
 from torchvision import models
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Subset
@@ -65,6 +69,7 @@ def plot_multiple_fitness_evolution(
         metric: Métrica utilizada (accuracy o f1)
         title: Título de la gráfica
         filename: Nombre del archivo generado en el directorio
+        x_label: Nombre de la etiqueta para el eje x
     """
     # Encontrar la longitud máxima entre todas las listas
     max_length = max(len(lst) for lst in data)
@@ -95,33 +100,59 @@ def plot_multiple_fitness_evolution(
     plt.close()
 
 
-def plot_boxplot(
-    df: pl.DataFrame,
-    metric: str,
-    filename: str,
-    eje_x: str = "Algoritmo"
-):
-    # Configurar el gráfico boxplot usando seaborn
+def plot_min_max_lines(df: pd.DataFrame | pl.DataFrame, y_col, x_col):
+    # Convertir a pandas si es un DataFrame de polars (porque matplotlib funciona mejor con pandas)
+    if isinstance(df, pl.DataFrame):
+        # df = df.to_pandas()  # No disponible por la version de polars
+        df = pd.DataFrame(df.to_dict())
+
+    # Obtener los valores mínimo y máximo por cada categoría en x_col
+    grouped = df.groupby(x_col)[y_col].agg(['min', 'max'])
+
+    # Iterar sobre cada categoría
+    for i, (cat, values) in enumerate(grouped.iterrows()):
+        min_val, max_val = values['min'], values['max']
+
+        # Dibujar líneas horizontales en los valores min y max
+        plt.plot([i - 0.2, i + 0.2], [min_val, min_val], color='red', lw=2)
+        plt.plot([i - 0.2, i + 0.2], [max_val, max_val], color='blue', lw=2)
+
+        # Anotar los valores exactos
+        plt.text(i, min_val, f'{min_val:.2f}', ha='center', va='top', fontsize=10, color='red')
+        plt.text(i, max_val, f'{max_val:.2f}', ha='center', va='bottom', fontsize=10, color='blue')
+
+
+def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
+
     plt.figure(figsize=(10, 6))
 
-    sns.boxplot(data=df, x=eje_x, y=metric.title(), hue='Porcentaje Inicial')
+    sns.boxplot(data=df, x=eje_x, y=metric.title())
 
-    plt.title(f"Comparación de {metric.title()} entre Algoritmos y Porcentajes Iniciales")
-    plt.xlabel("Algoritmo")
+    plt.title(title)
+    plt.xlabel(eje_x)
     plt.ylabel(metric.title())
-    plt.legend(title="Porcentaje Inicial")
+    if hue:
+        plt.legend(title=hue, bbox_to_anchor=(1.05, 1), loc='best')
+
+    plot_min_max_lines(df, metric, eje_x)
 
     plt.grid(True)
-    plt.savefig(filename)
-    plt.close()
+    plt.show()
+
+    if filename is not None:
+        plt.savefig(filename)
 
 
 def create_data_loaders(data_dir, dict_selection, weights, batch_size=32):
     transform = weights.transforms()
 
-    full_dataset = ImageFolder(root=data_dir, transform=transform)
+    full_dataset = ImageFolder(
+        root=data_dir,
+        transform=transform,
+        is_valid_file=is_valid_image  # Filtra archivos no válidos
+    )
 
-    # Filtrar el dataset basado en la selección JSON
+    # Filtrar el RPS basado en la selección JSON
     if dict_selection:
         indices = [i for i, (path, _) in enumerate(full_dataset.samples)
                    if dict_selection.get(os.path.relpath(path, data_dir), 0) == 1]
@@ -132,6 +163,86 @@ def create_data_loaders(data_dir, dict_selection, weights, batch_size=32):
     data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     return dataset, data_loader, full_dataset.classes
+
+
+# Verifica que el archivo tenga una extensión válida
+def is_valid_image(file_path):
+    valid_extensions = {".jpg", ".jpeg", ".png", ".ppm", ".bmp", ".pgm", ".tif", ".tiff", ".webp"}
+    return os.path.splitext(file_path)[1].lower() in valid_extensions
+
+
+def generate_datasets(dataset_path, weights, dict_selection=None, batch_size=32, train_split=0.8):
+    """
+    Carga los datasets de train, valid y test.
+    Si no existe valid, lo crea a partir del train dataset.
+    Aplica un filtro en train basado en dict_selection.
+
+    Args:
+        dataset_path (str): Ruta base donde están las carpetas train, valid y test.
+        weights: Transformaciones predefinidas de torchvision.
+        dict_selection (dict, opcional): Diccionario con imágenes seleccionadas para train.
+        batch_size (int): Tamaño del batch para los DataLoaders.
+        train_split (float): Proporción del train dataset que se usará para entrenamiento (default 80%).
+
+    Returns:
+        dict: Diccionario con los DataLoaders de train, valid y test.
+    """
+
+    # Cargar el dataset completo desde la carpeta de entrenamiento
+    full_train_dataset = ImageFolder(
+        root=os.path.join(dataset_path, "train"),
+        transform=weights.transforms(),
+        is_valid_file=is_valid_image  # Filtra archivos no válidos
+    )
+    classes = full_train_dataset.classes  # Obtener las clases del dataset
+
+    # Aplicar filtro basado en `dict_selection`
+    if dict_selection:
+        indices = [i for i, (path, _) in enumerate(full_train_dataset.samples)
+                   if dict_selection.get(os.path.relpath(path, os.path.join(dataset_path, "train")), 0) == 1]
+        filtered_train_dataset = Subset(full_train_dataset, indices)
+    else:
+        filtered_train_dataset = full_train_dataset  # Si no hay filtro, usar dataset completo
+
+    # Comprobar si la carpeta de validación existe
+    valid_path = os.path.join(dataset_path, "valid")
+
+    if not os.path.exists(valid_path):
+        print("No se encontró la carpeta de validación. Creando valid set desde train...")
+
+        train_size = int(train_split * len(filtered_train_dataset))  # 80% train
+        valid_size = len(filtered_train_dataset) - train_size  # 20% valid
+
+        train_dataset, valid_dataset = random_split(filtered_train_dataset, [train_size, valid_size])
+    else:
+        print("Carpeta de validación encontrada. Cargando valid dataset...")
+
+        train_dataset = filtered_train_dataset  # Train se mantiene con el filtro aplicado
+        valid_dataset = ImageFolder(
+            root=valid_path,
+            transform=weights.transforms(),
+            is_valid_file=is_valid_image  # Filtra archivos no válidos
+        )
+
+    # Cargar el test dataset
+    test_dataset = ImageFolder(
+        root=os.path.join(dataset_path, "test"),
+        transform=weights.transforms(),
+        is_valid_file=is_valid_image  # Filtra archivos no válidos
+    )
+
+    # Crear DataLoaders
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+    print("Datasets cargados correctamente.")
+
+    return {
+        "train_loader": train_loader,
+        "valid_loader": valid_loader,
+        "test_loader": test_loader
+    }, classes
 
 
 def train_model(model, train_loader, valid_loader, criterion, optimizer, device, num_epochs=10):
@@ -227,6 +338,8 @@ def evaluate_model(model, test_loader, device):
 def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int | None = None):
     config = ConfiguracionGlobal()
 
+    dataset_path = config.dataset
+
     old_seed = torch.seed()
     seed = 5234 + int(config.task_id)
     torch.manual_seed(seed)
@@ -253,29 +366,28 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
         weights = MobileNet_V2_Weights.DEFAULT
         model = models.mobilenet_v2(weights=weights)
 
+    # He renombrado el dataset PAINTING para que concidan los nonmbres
+    # He renombrado el dataset RPS, cambiando el test por test y el test por test
+
     # Crear data loaders
-    train_dataset, train_loader, train_classes = create_data_loaders(
-        data_dir="data/dataset/train",
+    loaders, classes = generate_datasets(
+        dataset_path=dataset_path,
+        weights=weights,
         dict_selection=dict_selection,
-        weights=weights
+        batch_size=32,
+        train_split=0.8
     )
-    valid_dataset, valid_loader, _ = create_data_loaders(
-        data_dir="data/dataset/test",
-        dict_selection=None,
-        weights=weights
-    )
-    test_dataset, test_loader, _ = create_data_loaders(
-        data_dir="data/dataset/valid",
-        dict_selection=None,
-        weights=weights
-    )
+
+    train_loader = loaders["train_loader"]
+    valid_loader = loaders["valid_loader"]
+    test_loader = loaders["test_loader"]
 
     # Congelar todas las capas
     for param in model.parameters():
         param.requires_grad = False
 
     # Reemplazar la última capa fully connected
-    num_classes = len(train_classes)
+    num_classes = len(classes)
     if model_name == "resnet":
         model.fc = nn.Linear(model.fc.in_features, num_classes)
     else:
@@ -349,3 +461,19 @@ def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):
         dict_dir[archivo] = 1 if archivo in archivos_usar else 0
 
     return dict_dir
+
+
+def clear_ds_store(dataset_path: str):
+    # Recorrer el dataset y eliminar .DS_Store (archivos y carpetas)
+    for root, dirs, files in os.walk(dataset_path, topdown=False):
+        for name in files:
+            if name == ".DS_Store":
+                file_path = os.path.join(root, name)
+                os.remove(file_path)
+                print(f"Archivo eliminado: {file_path}")
+
+        for name in dirs:
+            if name == ".DS_Store":
+                dir_path = os.path.join(root, name)
+                shutil.rmtree(dir_path, ignore_errors=True)
+                print(f"Directorio eliminado: {dir_path}")

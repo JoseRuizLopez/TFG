@@ -5,7 +5,7 @@ from utils.utils import crear_dict_imagenes
 
 
 def random_search(
-    data_dir: str = "data/dataset/train",
+    data_dir: str = "data/RPS/train",
     initial_percentage: int = 10,
     max_evaluations: int = 100,
     max_evaluations_without_improvement: int = 20,
