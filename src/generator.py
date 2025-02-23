@@ -6,6 +6,7 @@ import argparse
 
 from src.main import main
 from utils.classes import AlgorithmList
+from utils.classes import DatasetList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.utils import plot_boxplot
@@ -21,12 +22,13 @@ if __name__ == "__main__":
 
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 25, 50, 75]
-    evaluaciones_maximas = 10
-    evaluaciones_maximas_sin_mejora = 10
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
     add_100 = True
 
     metric: MetricList = MetricList.ACCURACY
     modelo: ModelList = ModelList.MOBILENET
+    dataset_choosen: DatasetList = DatasetList.PAINTING
     resultados = []
 
     now = datetime.datetime.now()
@@ -34,7 +36,7 @@ if __name__ == "__main__":
         now = now + datetime.timedelta(hours=1)
     date = now.strftime("%Y-%m-%d_%H-%M")
 
-    config = ConfiguracionGlobal(date=date, task_id=str(task_id), dataset='')
+    config = ConfiguracionGlobal(date=date, task_id=str(task_id), dataset=dataset_choosen.value)
     carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
 
     for alg in AlgorithmList:
