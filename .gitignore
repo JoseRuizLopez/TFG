@@ -178,3 +178,8 @@ docs/out/*.aux
 docs/out/*.toc
 docs/out/*.gz
 /tmp/
+/docs/out/proyecto.bbl
+/docs/out/proyecto.bcf
+/docs/out/proyecto.blg
+/docs/out/proyecto.run.xml
+/docs/out/TFG_joseruiz_v1.pdf

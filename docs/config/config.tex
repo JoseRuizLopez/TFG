@@ -10,13 +10,27 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{afterpage}
-\usepackage[pdfborder={000}]{hyperref}
-\usepackage{url}
+\usepackage[colorlinks=false, pdfborder={0 0 1}, pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage{colortbl,longtable}
 \usepackage[stable]{footmisc}
 \usepackage{verbatim}
 \usepackage{booktabs}
 \usepackage{adjustbox}
+\usepackage{breakurl}
+\usepackage{pgfgantt} % Paquete para diagramas de Gantt
+%\usepackage{caption} % Para usar \captionof fuera de figure
+\PassOptionsToPackage{hyphens}{url}
+
+\usepackage[backend=biber, defernumbers=true, citestyle=numeric-comp, bibstyle=ieee, sorting=none]{biblatex}
+
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+% Configurando BibLaTeX
+\DefineBibliographyStrings{spanish}{
+  url = {URL},
+  andothers={et ~al\adddot}
+}
+\addbibresource{bibliografia/bibliografia.bib}
 
 % Columnas con punto decimal español
 \newcolumntype{.}{D{.}{\esperiod}{-1}}
@@ -66,7 +80,6 @@
     numbersep=6pt, numberstyle=\tiny, breaklines=true
 }
 
-\bibliographystyle{miunsrturl}
 
 % Definiciones adicionales
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}

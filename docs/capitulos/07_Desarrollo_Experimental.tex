@@ -1,15 +1,30 @@
 \chapter{Desarrollo Experimental}\label{ch:desarrollo-experimental}
 
-Tras la explicación del contenido necesario para el entendendimiento y desarrollo del TFG en los anteriores capítulos,
-en este capítulo se prcedera a explicar las pruebas y posteriores mejoras que se han realizado y los posteriores
-resultados obtenidos. \\[6pt]
+Tras la explicación del contenido necesario para el entendimiento y desarrollo del TFG en los capítulos anteriores, en
+este capítulo se procederá a explicar las pruebas realizadas, las mejoras implementadas y los resultados obtenidos.
+\\[6pt]
 
-Las pruebas iniciales que se plantearon fueron tomar un dataset simple para realizar las primeras pruedas, y ya cuando
-funcionase correctamente, probar con otro dataset más complejo o realista.
-Para ello se decidió usar el dataset de \textbf{RPS}. \\[6pt]
+Las pruebas iniciales se plantearon tomando un dataset simple para realizar las primeras evaluaciones.
+Una vez que el modelo funcionara correctamente con este conjunto de datos, se probaría con un dataset más complejo o
+realista.
+Para ello, se decidió utilizar el dataset de \textbf{RPS} \hyperref[subsec:rock-paper-scissors]{[Rock Paper Scissors]}.
+\\[6pt]
 
-Para obtener unos primeros resultados con este dataset, se planteó usar el modelo de \textbf{Resnet50}.
-Se hicieron unas pruebas con distintos porcentajes para ver distintos resultados posibles.
+Para obtener los primeros resultados con este dataset, se utilizó el modelo \textbf{ResNet50}.
+Se realizaron pruebas con distintos porcentajes de datos para evaluar su impacto en el rendimiento del modelo. \\[6pt]
+
+Tras las primeras pruebas, se observó que los resultados variaban entre ejecuciones.
+Para abordar este problema y garantizar la reproducibilidad de los experimentos, se decidió fijar la semilla en Python
+y en todas las librerías que empleaban algún tipo de aleatoriedad (\texttt{torch}, \texttt{cuda}, \texttt{numpy} y
+\texttt{random}). \\[6pt]
+
+Además, al investigar las posibles causas de esta variabilidad, se identificó que \texttt{cuDNN} puede utilizar ciertos
+algoritmos no deterministas.
+Para mitigar este efecto, se optó por forzar el uso de algoritmos deterministas en
+\texttt{cuDNN}~\cite{noauthor_cublas_nodate}. \\[6pt]
+
+Con estas configuraciones establecidas, se obtuvieron los primeros datos:
+
 
 \begin{table}[htp]
     \centering
@@ -31,9 +46,13 @@ Se hicieron unas pruebas con distintos porcentajes para ver distintos resultados
     \label{tab:initial-generation-resnet}
 \end{table}
 
-Fijandonos en la tabla~\ref{tab:initial-generation-resnet}, las duraciones que se indican son lo que tarda en
-ejecutarse todas las evaluaciones que se indican.
-Vemos que son tiempos muy grandes, por ello se decidió probar el algoritmo \textbf{MobileNet} para agilizar el proceso.
+Los resultados de la Tabla~\ref{tab:initial-generation-resnet} muestran que, a medida que se incrementa el porcentaje
+inicial de datos utilizados, se observa una mejora en las métricas de precisión, recall y F1-score.
+Esto indica que el modelo logra aprender mejor con una mayor cantidad de datos disponibles; sin embargo, también se
+evidencia un incremento significativo en el tiempo de entrenamiento.
+De hecho, las duraciones indicadas en la tabla corresponden al tiempo necesario para completar todas las evaluaciones
+especificadas, y se observa que estos tiempos son considerablemente elevados.
+Debido a esta limitación, se decidió probar el algoritmo \textbf{MobileNet} con el objetivo de agilizar el proceso.
 
 \begin{table}[htp]
     \centering
@@ -111,6 +130,12 @@ Según la nota observada en el README del dataset:
 se han renombrado las particiones de \texttt{test} y \texttt{valid} para que correspondan correctamente con sus
 propósitos.
 
+\subsubsection{Licencia y uso}
+ Este conjunto de datos se distribuye bajo la licencia
+\textbf{Creative Commons Attribution 4.0 International (CC BY 4.0)}, lo que permite su uso, modificación y distribución
+con la condición de otorgar el crédito adecuado a los creadores originales~\cite{moroney_laurence_nodate}.
+
+
 \subsection{PAINTING (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
 El dataset \textbf{Art Images: Drawing/Painting/Sculptures/Engravings} es una colección de aproximadamente 9,000
 imágenes organizadas en cinco categorías de arte: dibujos, pinturas, esculturas, grabados y arte iconográfico.
@@ -138,13 +163,6 @@ Las imágenes están organizadas en directorios según su categoría artística:
 |   \-- iconography
 \end{verbatim}
 
-\subsubsection{Correcciones en la División de Datos}
-Observando los tamaños de la división de los datos, y teniendo en cuenta que la divisón de los datos suele ser en train
-y test, se ha decidido por renombrar las particiones de \texttt{valid} por \texttt{test} para que corresponda
-correctamente con su propósito.
-Y el set de validation lo he obtenido separando el set de train, normalmente haciendo una división 80\% test y 20\%
-valid.
-
 \subsubsection{Formato de los Datos}
 Todas las imágenes están en formato JPEG (\texttt{.jpg}) y presentan variaciones en resolución y dimensiones.
 Se han aplicado técnicas de preprocesamiento para homogenizar las características de las imágenes.
@@ -152,6 +170,15 @@ Se han aplicado técnicas de preprocesamiento para homogenizar las característi
 \subsubsection{Uso del Dataset}
 Este dataset se ha utilizado para entrenar y evaluar modelos de clasificación de imágenes en un entorno diferente al
 RPS\@.
+Con este dataset, se ha comprobado el funcionamiento para evaluar los algoritmos con un dataset un poco mas complejo
+que el RPS, con un par de clases más y con un número mayor de imágenes.
+
+\subsubsection{Correcciones en la División de Datos}
+Observando los tamaños de la división de los datos, y teniendo en cuenta que la divisón de los datos suele ser en train
+y test, se ha decidido por renombrar las particiones de \texttt{valid} por \texttt{test} para que corresponda
+correctamente con su propósito.
+Y el set de validation lo he obtenido separando el set de train, normalmente haciendo una división 80\% test y 20\%
+valid.
 
 \subsubsection{Acceso al Dataset}
 Inicialmente, el dataset se descargó desde Kaggle~\cite{noauthor_original_nodate}
@@ -179,6 +206,12 @@ Se ha realizado una conversión a matrices NumPy para su procesamiento eficiente
 \subsubsection{Uso del Dataset}
 Este conjunto de datos se ha empleado como benchmark para evaluar modelos de clasificación de imágenes, especialmente
 en arquitecturas convolucionales.
+
+\subsubsection{Licencia y uso}
+El dataset MNIST se distribuye bajo una licencia de dominio público.
+Fue creado a partir de los datos originales del NIST y está disponible en diversas plataformas, incluyendo la página
+oficial de Yann LeCun~\cite{lecun_yann_nodate}.
+
 
 \subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
 La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
