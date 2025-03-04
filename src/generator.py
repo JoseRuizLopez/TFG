@@ -21,7 +21,7 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 25, 50, 75]
+    porcentajes = [10]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = True
@@ -38,6 +38,23 @@ if __name__ == "__main__":
 
     config = ConfiguracionGlobal(date=date, task_id=str(task_id), dataset=dataset_choosen.value)
     carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
+
+    if add_100:
+        result, fitness_history, best_fitness_history = main(
+            initial_percentage=100,
+            max_evaluations=evaluaciones_maximas,
+            max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+            algoritmo=AlgorithmList.ALEATORIO.value,
+            metric=metric.value,
+            model_name=modelo.value
+        )
+
+        resultados.append(
+            result | {
+                "Porcentaje Inicial": 1,
+                "Algoritmo": '-'
+            }
+        )
 
     for alg in AlgorithmList:
         for ptg in porcentajes:
