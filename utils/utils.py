@@ -1,3 +1,4 @@
+import datetime
 import os
 import random
 import shutil
@@ -118,8 +119,8 @@ def plot_min_max_lines(df: pd.DataFrame | pl.DataFrame, y_col, x_col):
         plt.plot([i - 0.2, i + 0.2], [max_val, max_val], color='blue', lw=2)
 
         # Anotar los valores exactos
-        plt.text(i, min_val, f'{min_val:.2f}', ha='center', va='top', fontsize=10, color='red')
-        plt.text(i, max_val, f'{max_val:.2f}', ha='center', va='bottom', fontsize=10, color='blue')
+        plt.text(i, min_val, f'{min_val:.3f}', ha='center', va='top', fontsize=10, color='red')
+        plt.text(i, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=10, color='blue')
 
 
 def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
@@ -137,10 +138,10 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     plot_min_max_lines(df, metric, eje_x)
 
     plt.grid(True)
-    plt.show()
-
     if filename is not None:
         plt.savefig(filename)
+
+    plt.show()
 
 
 def create_data_loaders(data_dir, dict_selection, weights, batch_size=32):
@@ -433,7 +434,7 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
 
     if evaluations is not None:
         with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
-            file.write(f"Evaluación {str(evaluations+1)} -> {config.date}\n")
+            file.write(f"Evaluación {str(evaluations+1)} -> {datetime.datetime.now()}\n")
             file.flush()  # Forzar la escritura inmediata al disco
 
     return {

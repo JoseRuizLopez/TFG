@@ -8,6 +8,7 @@ import polars as pl
 
 from src.main import main
 from utils.classes import ConfiguracionGlobal
+from utils.classes import DatasetList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.utils import plot_multiple_fitness_evolution
@@ -16,7 +17,14 @@ if __name__ == "__main__":
     # Configuración de argumentos
     parser = argparse.ArgumentParser(description="Script de generación")
     parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")
-    task_id = parser.parse_args().task_id
+    parser.add_argument("--FECHA_ACTUAL", type=str, required=True, help="Fecha actual para esta ejecución")
+    parser.add_argument("--MODELO", type=str, required=False, help="Nombre del modelo (opcional)")
+
+    args = parser.parse_args()
+
+    task_id = args.task_id
+    date = args.FECHA_ACTUAL
+    model_name = args.MODELO
 
     print(f"Task ID recibido: {task_id}")
 
@@ -26,6 +34,7 @@ if __name__ == "__main__":
     evaluaciones_maximas_sin_mejora = 100
 
     metric: MetricList = MetricList.ACCURACY
+    dataset_choosen: DatasetList = DatasetList.PAINTING
     resultados = []
     labels = [str(porcentaje) + '%' for porcentaje in porcentajes]
 
@@ -36,7 +45,7 @@ if __name__ == "__main__":
     date = now.strftime("%Y-%m-%d_%H-%M")
 
     # Crear una instancia de ConfiguracionGlobal
-    config = ConfiguracionGlobal(date=date, task_id=str(task_id))
+    config = ConfiguracionGlobal(date=date, task_id=str(task_id), dataset=dataset_choosen.value)
     carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
 
     for model in ModelList:
@@ -104,6 +113,6 @@ if __name__ == "__main__":
         "F1-score": "F1-score (Avg)",
     })
 
-    df.write_csv(f"results/csvs/resultados_{date}_task_{task_id}.csv")
+    df.write_csv(f"results/csvs/{date}/task_{task_id}.csv")
 
     print("Se ha creado el Excels con todos los resultados correctamente.")

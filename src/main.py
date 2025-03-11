@@ -35,6 +35,19 @@ def set_seed(seed):
     torch.backends.cudnn.benchmark = False
 
 
+def create_directories(task, date_path):
+    if task == -1:
+        task_path = ""
+    else:
+        task_path = "/task_" + task
+
+    os.makedirs(f"img/{date_path}{task_path}", exist_ok=True)
+    os.makedirs(f"logs/{date_path}", exist_ok=True)
+    os.makedirs(f"results/csvs/{date_path}", exist_ok=True)
+    os.makedirs(f"results/salidas/{date_path}", exist_ok=True)
+    os.makedirs(f"tmp", exist_ok=True)
+
+
 def main(
     initial_percentage: int = 10,
     max_evaluations: int = 10,
@@ -47,18 +60,21 @@ def main(
 
     dataset = config.dataset
 
+    create_directories(task=config.task_id, date_path=config.date)
+
     clear_ds_store(dataset)
 
     set_seed(24012000 + 1 + int(config.task_id))
 
+    start = datetime.datetime.now()
     os.makedirs(f"logs/{config.date}", exist_ok=True)
     with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
                    f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
-                   f"---------------------------------------\n\n")
+                   f"---------------------------------------\n\n"
+                   f"Start time: {str(start)}\n")
         file.flush()  # Forzar la escritura inmediata al disco
 
-    start = datetime.datetime.now()
     print(f"\n\n--------------------------------------"
           f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
           f"------------------------------------------")
@@ -281,25 +297,26 @@ if __name__ == "__main__":
 
     carpeta_img = f"img/{date}" + (f"/task_{task_id}" if task_id != -1 else "")
     try:
-        # ====== Boxplot 1: Fijando Algoritmo, variando Porcentaje Inicial ======
-        plot_boxplot(
-            df=df,
-            metric="Accuracy",  # O "Precision"
-            eje_x="Porcentaje Inicial",
-            hue=None,
-            title="Comparación de Accuracy según Porcentaje Inicial y Algoritmo",
-            filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-porcentaje.png',
-        )
-
-        # ====== Boxplot 2: Fijando Porcentaje Inicial, variando Algoritmo ======
-        plot_boxplot(
-            df=df,
-            metric="Accuracy",  # O "Precision"
-            eje_x="Algoritmo",
-            hue=None,
-            title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
-            filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-algoritmo.png',
-        )
+        # # ====== Boxplot 1: Fijando Algoritmo, variando Porcentaje Inicial ======
+        # plot_boxplot(
+        #     df=df,
+        #     metric="Accuracy",  # O "Precision"
+        #     eje_x="Porcentaje Inicial",
+        #     hue=None,
+        #     title="Comparación de Accuracy según Porcentaje Inicial y Algoritmo",
+        #     filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-porcentaje.png',
+        # )
+        #
+        # # ====== Boxplot 2: Fijando Porcentaje Inicial, variando Algoritmo ======
+        # plot_boxplot(
+        #     df=df,
+        #     metric="Accuracy",  # O "Precision"
+        #     eje_x="Algoritmo",
+        #     hue=None,
+        #     title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
+        #     filename=f'{carpeta_img}/{modelo.value}-BOXPLOT-accuracy-algoritmo.png',
+        # )
+        None
     except Exception as e:
         print("Ha fallado el bloxplot: " + str(e))
 

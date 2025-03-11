@@ -3,11 +3,11 @@ from enum import Enum
 
 class AlgorithmList(Enum):
     ALEATORIO = "aleatorio"
-    BUSQUEDA_LOCAL = "busqueda local"
+    # BUSQUEDA_LOCAL = "busqueda local"
     GENETICO = "genetico"
-    MEMETICO = "memetico"
-    GENETICO2 = "genetico2"
-    GENETICO3 = "genetico3"
+    # MEMETICO = "memetico"
+    # GENETICO2 = "genetico2"
+    # GENETICO3 = "genetico3"
 
 
 class MetricList(Enum):
