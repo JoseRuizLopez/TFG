@@ -25,14 +25,22 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
+# Extract the date directory structure from FECHA_ACTUAL
+DATE_DIR=$(dirname "results/salidas/${FECHA_ACTUAL}")
+
+# Create the directory structure
+mkdir -p "$DATE_DIR"
+
 # Utiliza la variable CURRENT_TIME que se recibió del master_script
 archivo_salida="results/salidas/${FECHA_ACTUAL}_task_${SLURM_ARRAY_TASK_ID}.txt"
 echo "Executing task ${SLURM_ARRAY_TASK_ID} with output to ${archivo_salida}"
 
+pwd
+
 # Construct command line parameters
 PYTHON_ARGS=()
 PYTHON_ARGS+=("--task_id" "$SLURM_ARRAY_TASK_ID")
-PYTHON_ARGS+=("--FECHA_ACTUAL" "$FECHA_FORMATEADA")
+PYTHON_ARGS+=("--FECHA_ACTUAL" "$FECHA_ACTUAL")
 
 # Only add MODELO if it's defined
 if [ -n "$MODELO" ]; then
@@ -41,9 +49,3 @@ fi
 
 python src/generator.py "${PYTHON_ARGS[@]}" > "$archivo_salida"
 
-# Check if the Python script executed successfully
-if [ $? -eq 0 ]; then
-    mail -s "Proceso finalizado - Task $SLURM_ARRAY_TASK_ID" ruizlopezjose@correo.ugr.es <<< "El proceso $SLURM_ARRAY_TASK_ID ha finalizado con éxito"
-else
-    mail -s "ERROR - Proceso fallido - Task $SLURM_ARRAY_TASK_ID" ruizlopezjose@correo.ugr.es <<< "El proceso $SLURM_ARRAY_TASK_ID ha fallado"
-fi

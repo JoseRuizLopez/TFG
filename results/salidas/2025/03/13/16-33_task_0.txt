@@ -1,0 +1,1160 @@
+Task ID recibido: 0
+GPU: True
+
+
+--------------------------------------mobilenet  ALEATORIO  10%-------------------------------------------------
+Start time: 2025-03-13 14:34:22.233952
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.00 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3341
+Epoch 1/10, Batch 20/20, Loss: 0.8993
+Epoch 1/10, Train Loss: 1.2575, Valid Loss: 0.9921
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8770
+Epoch 2/10, Batch 20/20, Loss: 0.6336
+Epoch 2/10, Train Loss: 0.8383, Valid Loss: 0.7090
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6627
+Epoch 3/10, Batch 20/20, Loss: 0.7308
+Epoch 3/10, Train Loss: 0.6294, Valid Loss: 0.5746
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3744
+Epoch 4/10, Batch 20/20, Loss: 0.4793
+Epoch 4/10, Train Loss: 0.5052, Valid Loss: 0.5077
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5674
+Epoch 5/10, Batch 20/20, Loss: 0.5813
+Epoch 5/10, Train Loss: 0.4334, Valid Loss: 0.4510
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2651
+Epoch 6/10, Batch 20/20, Loss: 0.5204
+Epoch 6/10, Train Loss: 0.4212, Valid Loss: 0.4247
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.3086
+Epoch 7/10, Batch 20/20, Loss: 0.6287
+Epoch 7/10, Train Loss: 0.3771, Valid Loss: 0.4006
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3229
+Epoch 8/10, Batch 20/20, Loss: 0.4526
+Epoch 8/10, Train Loss: 0.3276, Valid Loss: 0.3788
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2413
+Epoch 9/10, Batch 20/20, Loss: 0.4751
+Epoch 9/10, Train Loss: 0.2984, Valid Loss: 0.3634
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2717
+Epoch 10/10, Batch 20/20, Loss: 0.3128
+Epoch 10/10, Train Loss: 0.2777, Valid Loss: 0.3531
+Model saved!
+Accuracy: 0.8879
+Precision: 0.8817
+Recall: 0.8879
+F1-score: 0.8826
+Memory Allocated after cleanup: 17.76 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.8879
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3385
+Epoch 1/10, Batch 20/20, Loss: 0.9087
+Epoch 1/10, Train Loss: 1.2477, Valid Loss: 0.9923
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8154
+Epoch 2/10, Batch 20/20, Loss: 0.5676
+Epoch 2/10, Train Loss: 0.8159, Valid Loss: 0.7312
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.8101
+Epoch 3/10, Batch 20/20, Loss: 0.7718
+Epoch 3/10, Train Loss: 0.6249, Valid Loss: 0.5992
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4254
+Epoch 4/10, Batch 20/20, Loss: 0.5517
+Epoch 4/10, Train Loss: 0.5086, Valid Loss: 0.5360
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4354
+Epoch 5/10, Batch 20/20, Loss: 0.7167
+Epoch 5/10, Train Loss: 0.4335, Valid Loss: 0.4837
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2511
+Epoch 6/10, Batch 20/20, Loss: 0.4462
+Epoch 6/10, Train Loss: 0.4160, Valid Loss: 0.4467
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2887
+Epoch 7/10, Batch 20/20, Loss: 0.4643
+Epoch 7/10, Train Loss: 0.3590, Valid Loss: 0.4340
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3249
+Epoch 8/10, Batch 20/20, Loss: 0.2864
+Epoch 8/10, Train Loss: 0.3129, Valid Loss: 0.4173
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2839
+Epoch 9/10, Batch 20/20, Loss: 0.2077
+Epoch 9/10, Train Loss: 0.2753, Valid Loss: 0.4053
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2309
+Epoch 10/10, Batch 20/20, Loss: 0.4476
+Epoch 10/10, Train Loss: 0.2772, Valid Loss: 0.3821
+Model saved!
+Accuracy: 0.8867
+Precision: 0.8805
+Recall: 0.8867
+F1-score: 0.8813
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3432
+Epoch 1/10, Batch 20/20, Loss: 0.9907
+Epoch 1/10, Train Loss: 1.2740, Valid Loss: 1.0428
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8560
+Epoch 2/10, Batch 20/20, Loss: 0.4973
+Epoch 2/10, Train Loss: 0.8219, Valid Loss: 0.7667
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6914
+Epoch 3/10, Batch 20/20, Loss: 0.8324
+Epoch 3/10, Train Loss: 0.6284, Valid Loss: 0.6373
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4804
+Epoch 4/10, Batch 20/20, Loss: 0.3733
+Epoch 4/10, Train Loss: 0.4912, Valid Loss: 0.5625
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4671
+Epoch 5/10, Batch 20/20, Loss: 0.6571
+Epoch 5/10, Train Loss: 0.4341, Valid Loss: 0.5062
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2860
+Epoch 6/10, Batch 20/20, Loss: 0.4120
+Epoch 6/10, Train Loss: 0.4042, Valid Loss: 0.4808
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2342
+Epoch 7/10, Batch 20/20, Loss: 0.4808
+Epoch 7/10, Train Loss: 0.3526, Valid Loss: 0.4524
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3570
+Epoch 8/10, Batch 20/20, Loss: 0.3157
+Epoch 8/10, Train Loss: 0.3179, Valid Loss: 0.4391
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2060
+Epoch 9/10, Batch 20/20, Loss: 0.2467
+Epoch 9/10, Train Loss: 0.2851, Valid Loss: 0.4087
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3045
+Epoch 10/10, Batch 20/20, Loss: 0.3542
+Epoch 10/10, Train Loss: 0.2794, Valid Loss: 0.4075
+Model saved!
+Accuracy: 0.8949
+Precision: 0.8910
+Recall: 0.8949
+F1-score: 0.8913
+Memory Allocated after cleanup: 17.76 MB
+Nueva mejor solución encontrada en evaluación 3. Fitness: 0.8949
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3214
+Epoch 1/10, Batch 20/20, Loss: 0.9273
+Epoch 1/10, Train Loss: 1.2771, Valid Loss: 0.9611
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8265
+Epoch 2/10, Batch 20/20, Loss: 0.5576
+Epoch 2/10, Train Loss: 0.8063, Valid Loss: 0.6764
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6573
+Epoch 3/10, Batch 20/20, Loss: 0.6832
+Epoch 3/10, Train Loss: 0.6047, Valid Loss: 0.5386
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4268
+Epoch 4/10, Batch 20/20, Loss: 0.5592
+Epoch 4/10, Train Loss: 0.4867, Valid Loss: 0.4562
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.3539
+Epoch 5/10, Batch 20/20, Loss: 0.5999
+Epoch 5/10, Train Loss: 0.4109, Valid Loss: 0.4074
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3404
+Epoch 6/10, Batch 20/20, Loss: 0.6671
+Epoch 6/10, Train Loss: 0.4178, Valid Loss: 0.3789
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2376
+Epoch 7/10, Batch 20/20, Loss: 0.3698
+Epoch 7/10, Train Loss: 0.3414, Valid Loss: 0.3572
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2816
+Epoch 8/10, Batch 20/20, Loss: 0.2663
+Epoch 8/10, Train Loss: 0.3001, Valid Loss: 0.3346
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2796
+Epoch 9/10, Batch 20/20, Loss: 0.2389
+Epoch 9/10, Train Loss: 0.2597, Valid Loss: 0.3215
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.1912
+Epoch 10/10, Batch 20/20, Loss: 0.3054
+Epoch 10/10, Train Loss: 0.2667, Valid Loss: 0.3115
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8942
+Recall: 0.8995
+F1-score: 0.8946
+Memory Allocated after cleanup: 17.76 MB
+Nueva mejor solución encontrada en evaluación 4. Fitness: 0.8995
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3026
+Epoch 1/10, Batch 20/20, Loss: 0.8956
+Epoch 1/10, Train Loss: 1.2675, Valid Loss: 0.9859
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8717
+Epoch 2/10, Batch 20/20, Loss: 0.6920
+Epoch 2/10, Train Loss: 0.8396, Valid Loss: 0.7024
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.7752
+Epoch 3/10, Batch 20/20, Loss: 0.8023
+Epoch 3/10, Train Loss: 0.6470, Valid Loss: 0.5704
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.5643
+Epoch 4/10, Batch 20/20, Loss: 0.5516
+Epoch 4/10, Train Loss: 0.5148, Valid Loss: 0.4988
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5144
+Epoch 5/10, Batch 20/20, Loss: 0.6617
+Epoch 5/10, Train Loss: 0.4511, Valid Loss: 0.4517
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2706
+Epoch 6/10, Batch 20/20, Loss: 0.7853
+Epoch 6/10, Train Loss: 0.4359, Valid Loss: 0.4234
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2341
+Epoch 7/10, Batch 20/20, Loss: 0.3716
+Epoch 7/10, Train Loss: 0.3645, Valid Loss: 0.3991
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2949
+Epoch 8/10, Batch 20/20, Loss: 0.3651
+Epoch 8/10, Train Loss: 0.3198, Valid Loss: 0.3732
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2427
+Epoch 9/10, Batch 20/20, Loss: 0.2996
+Epoch 9/10, Train Loss: 0.2746, Valid Loss: 0.3627
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2481
+Epoch 10/10, Batch 20/20, Loss: 0.1478
+Epoch 10/10, Train Loss: 0.2722, Valid Loss: 0.3512
+Model saved!
+Accuracy: 0.8960
+Precision: 0.8911
+Recall: 0.8960
+F1-score: 0.8921
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3499
+Epoch 1/10, Batch 20/20, Loss: 0.9800
+Epoch 1/10, Train Loss: 1.2700, Valid Loss: 1.0573
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8359
+Epoch 2/10, Batch 20/20, Loss: 0.8057
+Epoch 2/10, Train Loss: 0.8420, Valid Loss: 0.7480
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6925
+Epoch 3/10, Batch 20/20, Loss: 0.4775
+Epoch 3/10, Train Loss: 0.6311, Valid Loss: 0.5910
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3852
+Epoch 4/10, Batch 20/20, Loss: 0.4935
+Epoch 4/10, Train Loss: 0.5163, Valid Loss: 0.5096
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4635
+Epoch 5/10, Batch 20/20, Loss: 0.4050
+Epoch 5/10, Train Loss: 0.4400, Valid Loss: 0.4545
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3173
+Epoch 6/10, Batch 20/20, Loss: 0.4261
+Epoch 6/10, Train Loss: 0.4429, Valid Loss: 0.4125
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.4031
+Epoch 7/10, Batch 20/20, Loss: 0.4369
+Epoch 7/10, Train Loss: 0.3824, Valid Loss: 0.3849
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2905
+Epoch 8/10, Batch 20/20, Loss: 0.4040
+Epoch 8/10, Train Loss: 0.3545, Valid Loss: 0.3641
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2585
+Epoch 9/10, Batch 20/20, Loss: 0.4848
+Epoch 9/10, Train Loss: 0.3035, Valid Loss: 0.3340
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3100
+Epoch 10/10, Batch 20/20, Loss: 0.2553
+Epoch 10/10, Train Loss: 0.2936, Valid Loss: 0.3257
+Model saved!
+Accuracy: 0.8797
+Precision: 0.8775
+Recall: 0.8797
+F1-score: 0.8763
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.4405
+Epoch 1/10, Batch 20/20, Loss: 0.9191
+Epoch 1/10, Train Loss: 1.2839, Valid Loss: 1.0314
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8394
+Epoch 2/10, Batch 20/20, Loss: 0.7795
+Epoch 2/10, Train Loss: 0.8531, Valid Loss: 0.7336
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6747
+Epoch 3/10, Batch 20/20, Loss: 0.8233
+Epoch 3/10, Train Loss: 0.6532, Valid Loss: 0.5767
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4549
+Epoch 4/10, Batch 20/20, Loss: 0.3543
+Epoch 4/10, Train Loss: 0.5138, Valid Loss: 0.4971
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5349
+Epoch 5/10, Batch 20/20, Loss: 0.6257
+Epoch 5/10, Train Loss: 0.4578, Valid Loss: 0.4541
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3560
+Epoch 6/10, Batch 20/20, Loss: 0.3421
+Epoch 6/10, Train Loss: 0.4277, Valid Loss: 0.4190
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.4544
+Epoch 7/10, Batch 20/20, Loss: 0.7102
+Epoch 7/10, Train Loss: 0.3877, Valid Loss: 0.3975
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3646
+Epoch 8/10, Batch 20/20, Loss: 0.2828
+Epoch 8/10, Train Loss: 0.3343, Valid Loss: 0.3755
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.1757
+Epoch 9/10, Batch 20/20, Loss: 0.1662
+Epoch 9/10, Train Loss: 0.2913, Valid Loss: 0.3733
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2222
+Epoch 10/10, Batch 20/20, Loss: 0.3364
+Epoch 10/10, Train Loss: 0.2882, Valid Loss: 0.3519
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8950
+Recall: 0.8995
+F1-score: 0.8965
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.2338
+Epoch 1/10, Batch 20/20, Loss: 1.0623
+Epoch 1/10, Train Loss: 1.2745, Valid Loss: 1.0520
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.7922
+Epoch 2/10, Batch 20/20, Loss: 0.5804
+Epoch 2/10, Train Loss: 0.8241, Valid Loss: 0.7627
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6706
+Epoch 3/10, Batch 20/20, Loss: 0.7104
+Epoch 3/10, Train Loss: 0.6208, Valid Loss: 0.6286
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3370
+Epoch 4/10, Batch 20/20, Loss: 0.3939
+Epoch 4/10, Train Loss: 0.4964, Valid Loss: 0.5487
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4703
+Epoch 5/10, Batch 20/20, Loss: 0.5712
+Epoch 5/10, Train Loss: 0.4232, Valid Loss: 0.4984
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2338
+Epoch 6/10, Batch 20/20, Loss: 0.5252
+Epoch 6/10, Train Loss: 0.4186, Valid Loss: 0.4658
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2211
+Epoch 7/10, Batch 20/20, Loss: 0.3420
+Epoch 7/10, Train Loss: 0.3497, Valid Loss: 0.4469
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3125
+Epoch 8/10, Batch 20/20, Loss: 0.4324
+Epoch 8/10, Train Loss: 0.3225, Valid Loss: 0.4295
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2077
+Epoch 9/10, Batch 20/20, Loss: 0.2727
+Epoch 9/10, Train Loss: 0.2775, Valid Loss: 0.4164
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3170
+Epoch 10/10, Batch 20/20, Loss: 0.3287
+Epoch 10/10, Train Loss: 0.2702, Valid Loss: 0.4109
+Model saved!
+Accuracy: 0.8879
+Precision: 0.8895
+Recall: 0.8879
+F1-score: 0.8866
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3626
+Epoch 1/10, Batch 20/20, Loss: 0.8648
+Epoch 1/10, Train Loss: 1.2601, Valid Loss: 1.0040
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.9263
+Epoch 2/10, Batch 20/20, Loss: 0.7567
+Epoch 2/10, Train Loss: 0.8394, Valid Loss: 0.7037
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6958
+Epoch 3/10, Batch 20/20, Loss: 0.7608
+Epoch 3/10, Train Loss: 0.6374, Valid Loss: 0.5685
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.5284
+Epoch 4/10, Batch 20/20, Loss: 0.2440
+Epoch 4/10, Train Loss: 0.4842, Valid Loss: 0.4936
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4798
+Epoch 5/10, Batch 20/20, Loss: 0.4672
+Epoch 5/10, Train Loss: 0.4268, Valid Loss: 0.4488
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.4328
+Epoch 6/10, Batch 20/20, Loss: 0.4417
+Epoch 6/10, Train Loss: 0.4280, Valid Loss: 0.4154
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2925
+Epoch 7/10, Batch 20/20, Loss: 0.3533
+Epoch 7/10, Train Loss: 0.3534, Valid Loss: 0.3937
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2646
+Epoch 8/10, Batch 20/20, Loss: 0.3822
+Epoch 8/10, Train Loss: 0.3281, Valid Loss: 0.3798
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2439
+Epoch 9/10, Batch 20/20, Loss: 0.3205
+Epoch 9/10, Train Loss: 0.2847, Valid Loss: 0.3614
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2664
+Epoch 10/10, Batch 20/20, Loss: 0.2408
+Epoch 10/10, Train Loss: 0.2707, Valid Loss: 0.3507
+Model saved!
+Accuracy: 0.8762
+Precision: 0.8705
+Recall: 0.8762
+F1-score: 0.8720
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3712
+Epoch 1/10, Batch 20/20, Loss: 1.1251
+Epoch 1/10, Train Loss: 1.2975, Valid Loss: 1.0612
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.9005
+Epoch 2/10, Batch 20/20, Loss: 0.6107
+Epoch 2/10, Train Loss: 0.8459, Valid Loss: 0.7632
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.7044
+Epoch 3/10, Batch 20/20, Loss: 0.7102
+Epoch 3/10, Train Loss: 0.6405, Valid Loss: 0.6186
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3671
+Epoch 4/10, Batch 20/20, Loss: 0.4715
+Epoch 4/10, Train Loss: 0.5226, Valid Loss: 0.5451
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4556
+Epoch 5/10, Batch 20/20, Loss: 0.6418
+Epoch 5/10, Train Loss: 0.4505, Valid Loss: 0.4953
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.4427
+Epoch 6/10, Batch 20/20, Loss: 0.4923
+Epoch 6/10, Train Loss: 0.4277, Valid Loss: 0.4609
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2764
+Epoch 7/10, Batch 20/20, Loss: 0.3225
+Epoch 7/10, Train Loss: 0.3676, Valid Loss: 0.4302
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3512
+Epoch 8/10, Batch 20/20, Loss: 0.4945
+Epoch 8/10, Train Loss: 0.3350, Valid Loss: 0.4065
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2369
+Epoch 9/10, Batch 20/20, Loss: 0.3133
+Epoch 9/10, Train Loss: 0.2984, Valid Loss: 0.3916
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2580
+Epoch 10/10, Batch 20/20, Loss: 0.3176
+Epoch 10/10, Train Loss: 0.2865, Valid Loss: 0.3755
+Model saved!
+Accuracy: 0.8949
+Precision: 0.8914
+Recall: 0.8949
+F1-score: 0.8923
+Memory Allocated after cleanup: 17.76 MB
+End time: 2025-03-13 14:44:48.207379
+Duration: 0:10:25
+
+
+Mejor accuracy al acabar el algoritmo: 0.8995
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3214
+Epoch 1/10, Batch 20/20, Loss: 0.9273
+Epoch 1/10, Train Loss: 1.2771, Valid Loss: 0.9611
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8265
+Epoch 2/10, Batch 20/20, Loss: 0.5576
+Epoch 2/10, Train Loss: 0.8063, Valid Loss: 0.6764
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6573
+Epoch 3/10, Batch 20/20, Loss: 0.6832
+Epoch 3/10, Train Loss: 0.6047, Valid Loss: 0.5386
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4268
+Epoch 4/10, Batch 20/20, Loss: 0.5592
+Epoch 4/10, Train Loss: 0.4867, Valid Loss: 0.4562
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.3539
+Epoch 5/10, Batch 20/20, Loss: 0.5999
+Epoch 5/10, Train Loss: 0.4109, Valid Loss: 0.4074
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3404
+Epoch 6/10, Batch 20/20, Loss: 0.6671
+Epoch 6/10, Train Loss: 0.4178, Valid Loss: 0.3789
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2376
+Epoch 7/10, Batch 20/20, Loss: 0.3698
+Epoch 7/10, Train Loss: 0.3414, Valid Loss: 0.3572
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2816
+Epoch 8/10, Batch 20/20, Loss: 0.2663
+Epoch 8/10, Train Loss: 0.3001, Valid Loss: 0.3346
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2796
+Epoch 9/10, Batch 20/20, Loss: 0.2389
+Epoch 9/10, Train Loss: 0.2597, Valid Loss: 0.3215
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.1912
+Epoch 10/10, Batch 20/20, Loss: 0.3054
+Epoch 10/10, Train Loss: 0.2667, Valid Loss: 0.3115
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8942
+Recall: 0.8995
+F1-score: 0.8946
+Memory Allocated after cleanup: 17.76 MB
+
+
+Mejor accuracy encontrado: 0.8995
+
+
+--------------------------------------mobilenet  GENETICO  10%-------------------------------------------------
+Start time: 2025-03-13 14:45:47.921877
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3341
+Epoch 1/10, Batch 20/20, Loss: 0.8993
+Epoch 1/10, Train Loss: 1.2575, Valid Loss: 0.9921
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8770
+Epoch 2/10, Batch 20/20, Loss: 0.6336
+Epoch 2/10, Train Loss: 0.8383, Valid Loss: 0.7090
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6627
+Epoch 3/10, Batch 20/20, Loss: 0.7308
+Epoch 3/10, Train Loss: 0.6294, Valid Loss: 0.5746
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3744
+Epoch 4/10, Batch 20/20, Loss: 0.4793
+Epoch 4/10, Train Loss: 0.5052, Valid Loss: 0.5077
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5674
+Epoch 5/10, Batch 20/20, Loss: 0.5813
+Epoch 5/10, Train Loss: 0.4334, Valid Loss: 0.4510
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2651
+Epoch 6/10, Batch 20/20, Loss: 0.5204
+Epoch 6/10, Train Loss: 0.4212, Valid Loss: 0.4247
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.3086
+Epoch 7/10, Batch 20/20, Loss: 0.6287
+Epoch 7/10, Train Loss: 0.3771, Valid Loss: 0.4006
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3229
+Epoch 8/10, Batch 20/20, Loss: 0.4526
+Epoch 8/10, Train Loss: 0.3276, Valid Loss: 0.3788
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2413
+Epoch 9/10, Batch 20/20, Loss: 0.4751
+Epoch 9/10, Train Loss: 0.2984, Valid Loss: 0.3634
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2717
+Epoch 10/10, Batch 20/20, Loss: 0.3128
+Epoch 10/10, Train Loss: 0.2777, Valid Loss: 0.3531
+Model saved!
+Accuracy: 0.8879
+Precision: 0.8817
+Recall: 0.8879
+F1-score: 0.8826
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3385
+Epoch 1/10, Batch 20/20, Loss: 0.9087
+Epoch 1/10, Train Loss: 1.2477, Valid Loss: 0.9923
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8154
+Epoch 2/10, Batch 20/20, Loss: 0.5676
+Epoch 2/10, Train Loss: 0.8159, Valid Loss: 0.7312
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.8101
+Epoch 3/10, Batch 20/20, Loss: 0.7718
+Epoch 3/10, Train Loss: 0.6249, Valid Loss: 0.5992
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4254
+Epoch 4/10, Batch 20/20, Loss: 0.5517
+Epoch 4/10, Train Loss: 0.5086, Valid Loss: 0.5360
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4354
+Epoch 5/10, Batch 20/20, Loss: 0.7167
+Epoch 5/10, Train Loss: 0.4335, Valid Loss: 0.4837
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2511
+Epoch 6/10, Batch 20/20, Loss: 0.4462
+Epoch 6/10, Train Loss: 0.4160, Valid Loss: 0.4467
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2887
+Epoch 7/10, Batch 20/20, Loss: 0.4643
+Epoch 7/10, Train Loss: 0.3590, Valid Loss: 0.4340
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3249
+Epoch 8/10, Batch 20/20, Loss: 0.2864
+Epoch 8/10, Train Loss: 0.3129, Valid Loss: 0.4173
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2839
+Epoch 9/10, Batch 20/20, Loss: 0.2077
+Epoch 9/10, Train Loss: 0.2753, Valid Loss: 0.4053
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2309
+Epoch 10/10, Batch 20/20, Loss: 0.4476
+Epoch 10/10, Train Loss: 0.2772, Valid Loss: 0.3821
+Model saved!
+Accuracy: 0.8867
+Precision: 0.8805
+Recall: 0.8867
+F1-score: 0.8813
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3432
+Epoch 1/10, Batch 20/20, Loss: 0.9907
+Epoch 1/10, Train Loss: 1.2740, Valid Loss: 1.0428
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8560
+Epoch 2/10, Batch 20/20, Loss: 0.4973
+Epoch 2/10, Train Loss: 0.8219, Valid Loss: 0.7667
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6914
+Epoch 3/10, Batch 20/20, Loss: 0.8324
+Epoch 3/10, Train Loss: 0.6284, Valid Loss: 0.6373
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4804
+Epoch 4/10, Batch 20/20, Loss: 0.3733
+Epoch 4/10, Train Loss: 0.4912, Valid Loss: 0.5625
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4671
+Epoch 5/10, Batch 20/20, Loss: 0.6571
+Epoch 5/10, Train Loss: 0.4341, Valid Loss: 0.5062
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2860
+Epoch 6/10, Batch 20/20, Loss: 0.4120
+Epoch 6/10, Train Loss: 0.4042, Valid Loss: 0.4808
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2342
+Epoch 7/10, Batch 20/20, Loss: 0.4808
+Epoch 7/10, Train Loss: 0.3526, Valid Loss: 0.4524
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3570
+Epoch 8/10, Batch 20/20, Loss: 0.3157
+Epoch 8/10, Train Loss: 0.3179, Valid Loss: 0.4391
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2060
+Epoch 9/10, Batch 20/20, Loss: 0.2467
+Epoch 9/10, Train Loss: 0.2851, Valid Loss: 0.4087
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3045
+Epoch 10/10, Batch 20/20, Loss: 0.3542
+Epoch 10/10, Train Loss: 0.2794, Valid Loss: 0.4075
+Model saved!
+Accuracy: 0.8949
+Precision: 0.8910
+Recall: 0.8949
+F1-score: 0.8913
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3214
+Epoch 1/10, Batch 20/20, Loss: 0.9273
+Epoch 1/10, Train Loss: 1.2771, Valid Loss: 0.9611
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8265
+Epoch 2/10, Batch 20/20, Loss: 0.5576
+Epoch 2/10, Train Loss: 0.8063, Valid Loss: 0.6764
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6573
+Epoch 3/10, Batch 20/20, Loss: 0.6832
+Epoch 3/10, Train Loss: 0.6047, Valid Loss: 0.5386
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4268
+Epoch 4/10, Batch 20/20, Loss: 0.5592
+Epoch 4/10, Train Loss: 0.4867, Valid Loss: 0.4562
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.3539
+Epoch 5/10, Batch 20/20, Loss: 0.5999
+Epoch 5/10, Train Loss: 0.4109, Valid Loss: 0.4074
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3404
+Epoch 6/10, Batch 20/20, Loss: 0.6671
+Epoch 6/10, Train Loss: 0.4178, Valid Loss: 0.3789
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2376
+Epoch 7/10, Batch 20/20, Loss: 0.3698
+Epoch 7/10, Train Loss: 0.3414, Valid Loss: 0.3572
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2816
+Epoch 8/10, Batch 20/20, Loss: 0.2663
+Epoch 8/10, Train Loss: 0.3001, Valid Loss: 0.3346
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2796
+Epoch 9/10, Batch 20/20, Loss: 0.2389
+Epoch 9/10, Train Loss: 0.2597, Valid Loss: 0.3215
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.1912
+Epoch 10/10, Batch 20/20, Loss: 0.3054
+Epoch 10/10, Train Loss: 0.2667, Valid Loss: 0.3115
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8942
+Recall: 0.8995
+F1-score: 0.8946
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3026
+Epoch 1/10, Batch 20/20, Loss: 0.8956
+Epoch 1/10, Train Loss: 1.2675, Valid Loss: 0.9859
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8717
+Epoch 2/10, Batch 20/20, Loss: 0.6920
+Epoch 2/10, Train Loss: 0.8396, Valid Loss: 0.7024
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.7752
+Epoch 3/10, Batch 20/20, Loss: 0.8023
+Epoch 3/10, Train Loss: 0.6470, Valid Loss: 0.5704
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.5643
+Epoch 4/10, Batch 20/20, Loss: 0.5516
+Epoch 4/10, Train Loss: 0.5148, Valid Loss: 0.4988
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5144
+Epoch 5/10, Batch 20/20, Loss: 0.6617
+Epoch 5/10, Train Loss: 0.4511, Valid Loss: 0.4517
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2706
+Epoch 6/10, Batch 20/20, Loss: 0.7853
+Epoch 6/10, Train Loss: 0.4359, Valid Loss: 0.4234
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2341
+Epoch 7/10, Batch 20/20, Loss: 0.3716
+Epoch 7/10, Train Loss: 0.3645, Valid Loss: 0.3991
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2949
+Epoch 8/10, Batch 20/20, Loss: 0.3651
+Epoch 8/10, Train Loss: 0.3198, Valid Loss: 0.3732
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2427
+Epoch 9/10, Batch 20/20, Loss: 0.2996
+Epoch 9/10, Train Loss: 0.2746, Valid Loss: 0.3627
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2481
+Epoch 10/10, Batch 20/20, Loss: 0.1478
+Epoch 10/10, Train Loss: 0.2722, Valid Loss: 0.3512
+Model saved!
+Accuracy: 0.8960
+Precision: 0.8911
+Recall: 0.8960
+F1-score: 0.8921
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3499
+Epoch 1/10, Batch 20/20, Loss: 0.9800
+Epoch 1/10, Train Loss: 1.2700, Valid Loss: 1.0573
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8359
+Epoch 2/10, Batch 20/20, Loss: 0.8057
+Epoch 2/10, Train Loss: 0.8420, Valid Loss: 0.7480
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6925
+Epoch 3/10, Batch 20/20, Loss: 0.4775
+Epoch 3/10, Train Loss: 0.6311, Valid Loss: 0.5910
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3852
+Epoch 4/10, Batch 20/20, Loss: 0.4935
+Epoch 4/10, Train Loss: 0.5163, Valid Loss: 0.5096
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4635
+Epoch 5/10, Batch 20/20, Loss: 0.4050
+Epoch 5/10, Train Loss: 0.4400, Valid Loss: 0.4545
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3173
+Epoch 6/10, Batch 20/20, Loss: 0.4261
+Epoch 6/10, Train Loss: 0.4429, Valid Loss: 0.4125
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.4031
+Epoch 7/10, Batch 20/20, Loss: 0.4369
+Epoch 7/10, Train Loss: 0.3824, Valid Loss: 0.3849
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2905
+Epoch 8/10, Batch 20/20, Loss: 0.4040
+Epoch 8/10, Train Loss: 0.3545, Valid Loss: 0.3641
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2585
+Epoch 9/10, Batch 20/20, Loss: 0.4848
+Epoch 9/10, Train Loss: 0.3035, Valid Loss: 0.3340
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3100
+Epoch 10/10, Batch 20/20, Loss: 0.2553
+Epoch 10/10, Train Loss: 0.2936, Valid Loss: 0.3257
+Model saved!
+Accuracy: 0.8797
+Precision: 0.8775
+Recall: 0.8797
+F1-score: 0.8763
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.4405
+Epoch 1/10, Batch 20/20, Loss: 0.9191
+Epoch 1/10, Train Loss: 1.2839, Valid Loss: 1.0314
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8394
+Epoch 2/10, Batch 20/20, Loss: 0.7795
+Epoch 2/10, Train Loss: 0.8531, Valid Loss: 0.7336
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6747
+Epoch 3/10, Batch 20/20, Loss: 0.8233
+Epoch 3/10, Train Loss: 0.6532, Valid Loss: 0.5767
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4549
+Epoch 4/10, Batch 20/20, Loss: 0.3543
+Epoch 4/10, Train Loss: 0.5138, Valid Loss: 0.4971
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.5349
+Epoch 5/10, Batch 20/20, Loss: 0.6257
+Epoch 5/10, Train Loss: 0.4578, Valid Loss: 0.4541
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3560
+Epoch 6/10, Batch 20/20, Loss: 0.3421
+Epoch 6/10, Train Loss: 0.4277, Valid Loss: 0.4190
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.4544
+Epoch 7/10, Batch 20/20, Loss: 0.7102
+Epoch 7/10, Train Loss: 0.3877, Valid Loss: 0.3975
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3646
+Epoch 8/10, Batch 20/20, Loss: 0.2828
+Epoch 8/10, Train Loss: 0.3343, Valid Loss: 0.3755
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.1757
+Epoch 9/10, Batch 20/20, Loss: 0.1662
+Epoch 9/10, Train Loss: 0.2913, Valid Loss: 0.3733
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2222
+Epoch 10/10, Batch 20/20, Loss: 0.3364
+Epoch 10/10, Train Loss: 0.2882, Valid Loss: 0.3519
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8950
+Recall: 0.8995
+F1-score: 0.8965
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.2338
+Epoch 1/10, Batch 20/20, Loss: 1.0623
+Epoch 1/10, Train Loss: 1.2745, Valid Loss: 1.0520
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.7922
+Epoch 2/10, Batch 20/20, Loss: 0.5804
+Epoch 2/10, Train Loss: 0.8241, Valid Loss: 0.7627
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6706
+Epoch 3/10, Batch 20/20, Loss: 0.7104
+Epoch 3/10, Train Loss: 0.6208, Valid Loss: 0.6286
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3370
+Epoch 4/10, Batch 20/20, Loss: 0.3939
+Epoch 4/10, Train Loss: 0.4964, Valid Loss: 0.5487
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4703
+Epoch 5/10, Batch 20/20, Loss: 0.5712
+Epoch 5/10, Train Loss: 0.4232, Valid Loss: 0.4984
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.2338
+Epoch 6/10, Batch 20/20, Loss: 0.5252
+Epoch 6/10, Train Loss: 0.4186, Valid Loss: 0.4658
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2211
+Epoch 7/10, Batch 20/20, Loss: 0.3420
+Epoch 7/10, Train Loss: 0.3497, Valid Loss: 0.4469
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3125
+Epoch 8/10, Batch 20/20, Loss: 0.4324
+Epoch 8/10, Train Loss: 0.3225, Valid Loss: 0.4295
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2077
+Epoch 9/10, Batch 20/20, Loss: 0.2727
+Epoch 9/10, Train Loss: 0.2775, Valid Loss: 0.4164
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.3170
+Epoch 10/10, Batch 20/20, Loss: 0.3287
+Epoch 10/10, Train Loss: 0.2702, Valid Loss: 0.4109
+Model saved!
+Accuracy: 0.8879
+Precision: 0.8895
+Recall: 0.8879
+F1-score: 0.8866
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3626
+Epoch 1/10, Batch 20/20, Loss: 0.8648
+Epoch 1/10, Train Loss: 1.2601, Valid Loss: 1.0040
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.9263
+Epoch 2/10, Batch 20/20, Loss: 0.7567
+Epoch 2/10, Train Loss: 0.8394, Valid Loss: 0.7037
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6958
+Epoch 3/10, Batch 20/20, Loss: 0.7608
+Epoch 3/10, Train Loss: 0.6374, Valid Loss: 0.5685
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.5284
+Epoch 4/10, Batch 20/20, Loss: 0.2440
+Epoch 4/10, Train Loss: 0.4842, Valid Loss: 0.4936
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4798
+Epoch 5/10, Batch 20/20, Loss: 0.4672
+Epoch 5/10, Train Loss: 0.4268, Valid Loss: 0.4488
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.4328
+Epoch 6/10, Batch 20/20, Loss: 0.4417
+Epoch 6/10, Train Loss: 0.4280, Valid Loss: 0.4154
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2925
+Epoch 7/10, Batch 20/20, Loss: 0.3533
+Epoch 7/10, Train Loss: 0.3534, Valid Loss: 0.3937
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2646
+Epoch 8/10, Batch 20/20, Loss: 0.3822
+Epoch 8/10, Train Loss: 0.3281, Valid Loss: 0.3798
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2439
+Epoch 9/10, Batch 20/20, Loss: 0.3205
+Epoch 9/10, Train Loss: 0.2847, Valid Loss: 0.3614
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2664
+Epoch 10/10, Batch 20/20, Loss: 0.2408
+Epoch 10/10, Train Loss: 0.2707, Valid Loss: 0.3507
+Model saved!
+Accuracy: 0.8762
+Precision: 0.8705
+Recall: 0.8762
+F1-score: 0.8720
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3712
+Epoch 1/10, Batch 20/20, Loss: 1.1251
+Epoch 1/10, Train Loss: 1.2975, Valid Loss: 1.0612
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.9005
+Epoch 2/10, Batch 20/20, Loss: 0.6107
+Epoch 2/10, Train Loss: 0.8459, Valid Loss: 0.7632
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.7044
+Epoch 3/10, Batch 20/20, Loss: 0.7102
+Epoch 3/10, Train Loss: 0.6405, Valid Loss: 0.6186
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.3671
+Epoch 4/10, Batch 20/20, Loss: 0.4715
+Epoch 4/10, Train Loss: 0.5226, Valid Loss: 0.5451
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.4556
+Epoch 5/10, Batch 20/20, Loss: 0.6418
+Epoch 5/10, Train Loss: 0.4505, Valid Loss: 0.4953
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.4427
+Epoch 6/10, Batch 20/20, Loss: 0.4923
+Epoch 6/10, Train Loss: 0.4277, Valid Loss: 0.4609
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2764
+Epoch 7/10, Batch 20/20, Loss: 0.3225
+Epoch 7/10, Train Loss: 0.3676, Valid Loss: 0.4302
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.3512
+Epoch 8/10, Batch 20/20, Loss: 0.4945
+Epoch 8/10, Train Loss: 0.3350, Valid Loss: 0.4065
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2369
+Epoch 9/10, Batch 20/20, Loss: 0.3133
+Epoch 9/10, Train Loss: 0.2984, Valid Loss: 0.3916
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.2580
+Epoch 10/10, Batch 20/20, Loss: 0.3176
+Epoch 10/10, Train Loss: 0.2865, Valid Loss: 0.3755
+Model saved!
+Accuracy: 0.8949
+Precision: 0.8914
+Recall: 0.8949
+F1-score: 0.8923
+Memory Allocated after cleanup: 17.76 MB
+End time: 2025-03-13 14:55:25.934405
+Duration: 0:09:38
+
+
+Mejor accuracy al acabar el algoritmo: 0.8995
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/20, Loss: 1.3214
+Epoch 1/10, Batch 20/20, Loss: 0.9273
+Epoch 1/10, Train Loss: 1.2771, Valid Loss: 0.9611
+Model saved!
+Epoch 2/10, Batch 10/20, Loss: 0.8265
+Epoch 2/10, Batch 20/20, Loss: 0.5576
+Epoch 2/10, Train Loss: 0.8063, Valid Loss: 0.6764
+Model saved!
+Epoch 3/10, Batch 10/20, Loss: 0.6573
+Epoch 3/10, Batch 20/20, Loss: 0.6832
+Epoch 3/10, Train Loss: 0.6047, Valid Loss: 0.5386
+Model saved!
+Epoch 4/10, Batch 10/20, Loss: 0.4268
+Epoch 4/10, Batch 20/20, Loss: 0.5592
+Epoch 4/10, Train Loss: 0.4867, Valid Loss: 0.4562
+Model saved!
+Epoch 5/10, Batch 10/20, Loss: 0.3539
+Epoch 5/10, Batch 20/20, Loss: 0.5999
+Epoch 5/10, Train Loss: 0.4109, Valid Loss: 0.4074
+Model saved!
+Epoch 6/10, Batch 10/20, Loss: 0.3404
+Epoch 6/10, Batch 20/20, Loss: 0.6671
+Epoch 6/10, Train Loss: 0.4178, Valid Loss: 0.3789
+Model saved!
+Epoch 7/10, Batch 10/20, Loss: 0.2376
+Epoch 7/10, Batch 20/20, Loss: 0.3698
+Epoch 7/10, Train Loss: 0.3414, Valid Loss: 0.3572
+Model saved!
+Epoch 8/10, Batch 10/20, Loss: 0.2816
+Epoch 8/10, Batch 20/20, Loss: 0.2663
+Epoch 8/10, Train Loss: 0.3001, Valid Loss: 0.3346
+Model saved!
+Epoch 9/10, Batch 10/20, Loss: 0.2796
+Epoch 9/10, Batch 20/20, Loss: 0.2389
+Epoch 9/10, Train Loss: 0.2597, Valid Loss: 0.3215
+Model saved!
+Epoch 10/10, Batch 10/20, Loss: 0.1912
+Epoch 10/10, Batch 20/20, Loss: 0.3054
+Epoch 10/10, Train Loss: 0.2667, Valid Loss: 0.3115
+Model saved!
+Accuracy: 0.8995
+Precision: 0.8942
+Recall: 0.8995
+F1-score: 0.8946
+Memory Allocated after cleanup: 17.76 MB
+
+
+Mejor accuracy encontrado: 0.8995
+Se ha generado el CSV con los resultados correctamente.

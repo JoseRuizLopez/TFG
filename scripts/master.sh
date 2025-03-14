@@ -34,14 +34,14 @@ FECHA_FORMATEADA=${FECHA_FORMATEADA/-/\/}  # Segundo '-'
 FECHA_FORMATEADA=${FECHA_FORMATEADA/_/\/}
 
 # Create export variables string for sbatch
-EXPORT_VARS="ALL,FECHA_ACTUAL=\"$FECHA_FORMATEADA\""
+EXPORT_VARS="ALL,FECHA_ACTUAL=$FECHA_FORMATEADA"
 if [ -n "$MODELO" ]; then
-    EXPORT_VARS="$EXPORT_VARS,MODELO=\"$MODELO\""
+    EXPORT_VARS="$EXPORT_VARS,MODELO=$MODELO"
     echo "Using model: $MODELO"
 fi
 
 # Submit the array job
-JOBID=$(sbatch --export="$EXPORT_VARS" ejecutar_paralelo.sh | awk '{print $4}')
+JOBID=$(sbatch --export="$EXPORT_VARS" scripts/ejecutar_paralelo.sh | awk '{print $4}')
 if [ -z "$JOBID" ]; then
     echo "Error: Failed to submit array job"
     exit 1
@@ -49,7 +49,7 @@ fi
 echo "Job array submitted with ID: $JOBID"
 
 # Submit the final job with dependency
-BOXPLOT_JOB=$(sbatch --dependency=afterok:$JOBID --export="$EXPORT_VARS" generar_boxplot.sh | awk '{print $4}')
+BOXPLOT_JOB=$(sbatch --dependency=afterok:$JOBID --export="$EXPORT_VARS" scripts/generar_boxplot.sh | awk '{print $4}')
 if [ -z "$BOXPLOT_JOB" ]; then
     echo "Error: Failed to submit boxplot job"
     exit 1

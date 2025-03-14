@@ -43,8 +43,8 @@ export CUBLAS_WORKSPACE_CONFIG=:16:8
 export SERVER="gpu"
 
 # Activate Conda environment
-#eval "$(conda shell.bash hook)"
-#conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
+eval "$(conda shell.bash hook)"
+conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
@@ -61,6 +61,3 @@ echo "Running boxplot generation with parameters: ${PYTHON_ARGS[@]}"
 
 # Execute the Python script with the parameters
 python src/generar_boxplot.py "${PYTHON_ARGS[@]}"
-
-## Send notification email when done
-#mail -s "Generación de boxplot completada" ruizlopezjose@correo.ugr.es <<< "El proceso de generación de boxplot ha finalizado. Fecha: $FECHA_ACTUAL"
