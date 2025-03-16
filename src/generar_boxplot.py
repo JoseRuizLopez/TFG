@@ -19,4 +19,4 @@ if __name__ == "__main__":
 
     archivos_csv = [f"results/csvs/{FECHA_ACTUAL}/task_{str(x)}.csv" for x in range(5)]
 
-    generate_boxplot_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}/", modelo_name=MODELO)
+    generate_boxplot_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)

@@ -1,14 +1,9 @@
 import re
 
-import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 from openpyxl import Workbook
 
 from utils.utils import plot_boxplot
-from utils.utils import plot_min_max_lines
 
 
 def generate_excel_by_salidas(
@@ -76,6 +71,7 @@ def generate_excel_by_salidas(
 
     # Define una posición inicial en la hoja de Excel
     columna_actual = 1
+    max_filas_generales = 1
 
     # Agrega los datos de cada algoritmo en bloques de columnas
     for resultado in resultados_algoritmos:
@@ -215,11 +211,11 @@ def generate_boxplot_from_csvs(
 if __name__ == "__main__":
     # generate_excel_by_salidas()
 
-    archivos_csv = [
-        "results/csvs/2025/03/04/16-35_task_0.csv",
-        "results/csvs/2025/03/04/16-35_task_1.csv",
-        "results/csvs/2025/03/04/16-35_task_2.csv",
-        "results/csvs/2025/03/04/16-35_task_3.csv",
-        "results/csvs/2025/03/04/16-35_task_4.csv",
+    read_csvs = [
+        "results/csvs/2025/03/04/16-35/task_0.csv",
+        "results/csvs/2025/03/04/16-35/task_1.csv",
+        "results/csvs/2025/03/04/16-35/task_2.csv",
+        "results/csvs/2025/03/04/16-35/task_3.csv",
+        "results/csvs/2025/03/04/16-35/task_4.csv",
     ]
-    generate_boxplot_from_csvs(archivos_csv)
+    generate_boxplot_from_csvs(read_csvs, f"img/2025/03/04/16-35", modelo_name="mobilenet")

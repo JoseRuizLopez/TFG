@@ -1,27 +1,45 @@
 #!/bin/bash
 
-# Process options with getopt
-PARSED=$(getopt -o "" -l MODELO: -- "$@")
+# Procesar opciones con getopt
+PARSED=$(getopt -o "m:" -l MODELO: -- "$@")
 if [ $? -ne 0 ]; then
-    echo "Usage: $0 [--MODELO value]"
+    echo "Usage: $0 [-m value] [--MODELO value]"
     exit 1
 fi
 eval set -- "$PARSED"
 
+# Variable para almacenar el valor de MODELO
 MODELO=""
+MODELO_SET=false  # Variable para saber si MODELO fue pasado como argumento
 
+# Leer opciones
 while true; do
-  case "$1" in
-    --MODELO) MODELO="$2"; shift 2 ;;
-    --) shift; break ;;
-    *) echo "Usage: $0 [--MODELO value]"; exit 1 ;;
-  esac
+    case "$1" in
+        -m|--MODELO)
+            MODELO="$2"
+            MODELO_SET=true
+            shift 2
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            break
+            ;;
+    esac
 done
+
+# Si no se pasó -m ni --MODELO, mostrar mensaje informativo
+if ! $MODELO_SET; then
+    echo "No ha especificado un modelo. Puede usar '-m valor' o '--MODELO valor'."
+fi
+
+# Mostrar el valor de MODELO
+echo "MODELO: ${MODELO:-'Ninguno especificado'}"
 
 # Get current date and time, adding 1 hours
 FECHA_ACTUAL=$(date -d "+1 hours" +"%Y-%m-%d_%H-%M")
-echo "Using timestamp: $FECHA_ACTUAL"
-
 
 # Format date for output filename - create a safe copy of the variable
 FECHA_FORMATEADA=$FECHA_ACTUAL
@@ -37,8 +55,9 @@ FECHA_FORMATEADA=${FECHA_FORMATEADA/_/\/}
 EXPORT_VARS="ALL,FECHA_ACTUAL=$FECHA_FORMATEADA"
 if [ -n "$MODELO" ]; then
     EXPORT_VARS="$EXPORT_VARS,MODELO=$MODELO"
-    echo "Using model: $MODELO"
 fi
+
+echo "Using parameters: $EXPORT_VARS"
 
 # Submit the array job
 JOBID=$(sbatch --export="$EXPORT_VARS" scripts/ejecutar_paralelo.sh | awk '{print $4}')

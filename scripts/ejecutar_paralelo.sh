@@ -31,11 +31,9 @@ DATE_DIR=$(dirname "results/salidas/${FECHA_ACTUAL}")
 # Create the directory structure
 mkdir -p "$DATE_DIR"
 
-# Utiliza la variable CURRENT_TIME que se recibió del master_script
+# Define output file path
 archivo_salida="results/salidas/${FECHA_ACTUAL}_task_${SLURM_ARRAY_TASK_ID}.txt"
 echo "Executing task ${SLURM_ARRAY_TASK_ID} with output to ${archivo_salida}"
-
-pwd
 
 # Construct command line parameters
 PYTHON_ARGS=()

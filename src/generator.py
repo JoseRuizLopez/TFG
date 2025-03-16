@@ -50,8 +50,8 @@ if __name__ == "__main__":
     if add_100:
         result, fitness_history, best_fitness_history = main(
             initial_percentage=100,
-            max_evaluations=evaluaciones_maximas,
-            max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+            max_evaluations=1,
+            max_evaluations_without_improvement=1,
             algoritmo=AlgorithmList.ALEATORIO.value,
             metric=metric.value,
             model_name=modelo.value
