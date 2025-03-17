@@ -2,10 +2,10 @@ import random
 
 from utils.utils import fitness
 from src.algorithms.genetic_algorithm import crossover
-from src.algorithms.genetic_algorithm import mutation
 from src.algorithms.genetic_algorithm import tournament_selection
 from src.algorithms.local_search import generate_neighbor
 from utils.utils import crear_dict_imagenes
+from utils.utils import mutation
 
 
 def memetic_algorithm(

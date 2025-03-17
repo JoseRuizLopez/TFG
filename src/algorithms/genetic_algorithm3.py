@@ -1,9 +1,9 @@
 import random
 
-from src.algorithms.genetic_algorithm2 import mutation
 from src.algorithms.genetic_algorithm2 import tournament_selection
 from utils.utils import crear_dict_imagenes
 from utils.utils import fitness
+from utils.utils import mutation
 
 
 def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: float) -> tuple[dict, dict]:

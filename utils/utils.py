@@ -479,3 +479,34 @@ def clear_ds_store(dataset_path: str):
                 dir_path = os.path.join(root, name)
                 shutil.rmtree(dir_path, ignore_errors=True)
                 print(f"Directorio eliminado: {dir_path}")
+
+
+def mutation(individual: dict, mutation_rate: float = 0.1) -> dict:
+    """
+    Aplica mutación a un individuo con una determinada probabilidad.
+    Mantiene el mismo número de imágenes seleccionadas.
+    """
+    if random.random() > mutation_rate:
+        return individual
+
+    mutated = individual.copy()
+    selected = [img for img, val in mutated.items() if val == 1]
+    unselected = [img for img, val in mutated.items() if val == 0]
+
+    # Número de intercambios a realizar
+    num_swaps = max(1, int(min(len(mutated) * 0.15, len(selected) * 0.8)))
+
+    for _ in range(num_swaps):
+        if selected and unselected:
+            img_to_remove = random.choice(selected)
+            img_to_add = random.choice(unselected)
+
+            mutated[img_to_remove] = 0
+            mutated[img_to_add] = 1
+
+            selected.remove(img_to_remove)
+            unselected.remove(img_to_add)
+            selected.append(img_to_add)
+            unselected.append(img_to_remove)
+
+    return mutated

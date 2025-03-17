@@ -2,6 +2,7 @@ import random
 
 from utils.utils import crear_dict_imagenes
 from utils.utils import fitness
+from utils.utils import mutation
 
 
 def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: float) -> tuple[dict, dict]:
@@ -80,37 +81,6 @@ def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: 
     child2 = fix_selection_count(child2, target_selected)
 
     return child1, child2
-
-
-def mutation(individual: dict, mutation_rate: float = 0.05) -> dict:
-    """
-    Aplica mutación a un individuo con una determinada probabilidad.
-    Mantiene el mismo número de imágenes seleccionadas.
-    """
-    if random.random() > mutation_rate:
-        return individual
-
-    mutated = individual.copy()
-    selected = [img for img, val in mutated.items() if val == 1]
-    unselected = [img for img, val in mutated.items() if val == 0]
-
-    # Número de intercambios a realizar
-    num_swaps = max(1, int(len(selected) * 0.1))
-
-    for _ in range(num_swaps):
-        if selected and unselected:
-            img_to_remove = random.choice(selected)
-            img_to_add = random.choice(unselected)
-
-            mutated[img_to_remove] = 0
-            mutated[img_to_add] = 1
-
-            selected.remove(img_to_remove)
-            unselected.remove(img_to_add)
-            selected.append(img_to_add)
-            unselected.append(img_to_remove)
-
-    return mutated
 
 
 def tournament_selection(
