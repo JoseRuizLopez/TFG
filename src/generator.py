@@ -34,13 +34,13 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 25, 50, 75]
+    porcentajes = [10]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = True
 
     metric: MetricList = MetricList.ACCURACY
-    dataset_choosen: DatasetList = DatasetList.RPS
+    dataset_choosen: DatasetList = DatasetList.PAINTING
 
     resultados = []
 
