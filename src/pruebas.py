@@ -1,9 +1,8 @@
 import re
 
-import pandas as pd
 from openpyxl import Workbook
 
-from utils.utils import plot_boxplot
+from utils.utils_plot import generate_boxplot_from_csvs
 
 
 def generate_excel_by_salidas(
@@ -129,93 +128,14 @@ def generate_excel_by_salidas(
     wb.save('resultados_algoritmos_horizontal_con_fitness_unificado.xlsx')
 
 
-def generate_boxplot_from_csvs(
-    # Lista de archivos CSV
-    archivos_csv=[
-        "results/csvs/resultados_2025-02-23_17-06_task_-1.csv"
-    ],
-    carpeta_img: str | None = None,
-    modelo_name: str | None = None,
-):
-    # Lista para almacenar cada DataFrame
-    dataframes = []
-
-    # Especificar las columnas que deberían ser numéricas
-    columnas_numericas = ["Porcentaje Inicial", "Duracion", "Accuracy", "Precision", "Recall", "F1-score",
-                          "Evaluaciones Realizadas", "Porcentaje Final", "Porcentaje Paper",
-                          "Porcentaje Rock", "Porcentaje Scissors"]
-
-    # Cargar cada archivo CSV y forzar las columnas numéricas
-    for archivo in archivos_csv:
-        df = pd.read_csv(archivo)
-
-        # Forzar las columnas específicas a numéricas
-        columnas_numericas_2 = columnas_numericas.copy()
-        columnas_numericas_2.remove("Duracion")
-        for col in columnas_numericas_2:
-            if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors='coerce')
-
-        df['Duracion'] = pd.to_timedelta(df['Duracion'])
-
-        dataframes.append(df)
-
-    # Concatenar todos los DataFrames
-    df_concatenado = pd.concat(dataframes)
-
-    # Calcular la media solo de las columnas especificadas
-    df_media = df_concatenado.groupby(["Algoritmo", "Porcentaje Inicial"]).mean()
-
-    # Guardar el DataFrame resultante con las medias en un nuevo archivo CSV
-    df_media.to_csv("results/media.csv", index=True)
-
-    df = pd.read_csv("results/media.csv")
-
-    # ====== Boxplot 1: Fijando Algoritmo, variando Porcentaje Inicial ======
-
-    if modelo_name is None:
-        modelo_name = ""
-
-    if carpeta_img is not None:
-        filename1 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-porcentaje.png'
-        filename2 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-algoritmo.png'
-    else:
-        filename1 = None
-        filename2 = None
-
-    plot_boxplot(
-        df=df,
-        metric="Accuracy",  # O "Precision"
-        eje_x="Porcentaje Inicial",
-        hue=None,
-        title="Comparación de Accuracy según Porcentaje Inicial y Algoritmo",
-        filename=filename1
-    )
-
-    # ====== Boxplot 2: Fijando Porcentaje Inicial, variando Algoritmo ======
-    plot_boxplot(
-        df=df,
-        metric="Accuracy",  # O "Precision"
-        eje_x="Algoritmo",
-        hue=None,
-        title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
-        filename=filename2
-    )
-
-    print(
-        "Los valores se han guardado en el archivo 'resultados_algoritmos_horizontal_con_fitness_unificado.xlsx' con "
-        "una sección unificada de Fitness Check que incluye los nombres de los algoritmos."
-    )
-
-
 if __name__ == "__main__":
     # generate_excel_by_salidas()
 
     read_csvs = [
-        "results/csvs/2025/03/04/16-35/task_0.csv",
-        "results/csvs/2025/03/04/16-35/task_1.csv",
-        "results/csvs/2025/03/04/16-35/task_2.csv",
-        "results/csvs/2025/03/04/16-35/task_3.csv",
-        "results/csvs/2025/03/04/16-35/task_4.csv",
+        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_0.csv",
+        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_1.csv",
+        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_2.csv",
+        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_3.csv",
+        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_4.csv",
     ]
-    generate_boxplot_from_csvs(read_csvs, f"img/2025/03/04/16-35", modelo_name="mobilenet")
+    generate_boxplot_from_csvs(read_csvs, None, modelo_name="mobilenet")

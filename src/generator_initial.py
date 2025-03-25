@@ -11,7 +11,7 @@ from utils.classes import ConfiguracionGlobal
 from utils.classes import DatasetList
 from utils.classes import MetricList
 from utils.classes import ModelList
-from utils.utils import plot_multiple_fitness_evolution
+from utils.utils_plot import plot_multiple_fitness_evolution
 
 if __name__ == "__main__":
     # Configuración de argumentos

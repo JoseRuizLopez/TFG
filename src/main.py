@@ -20,8 +20,8 @@ from src.algorithms.memetic_algorithm import memetic_algorithm
 from src.algorithms.random_search import random_search
 from utils.utils import clear_ds_store
 from utils.utils import fitness
-from utils.utils import plot_fitness_evolution
 from utils.classes import ConfiguracionGlobal
+from utils.utils_plot import plot_fitness_evolution
 
 
 def set_seed(seed):
@@ -69,7 +69,7 @@ def main(
     os.makedirs(f"logs/{config.date}", exist_ok=True)
     with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
-                   f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
+                   f"{config.dataset_name}  {model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n"
                    f"Start time: {str(start)} " + "UTC\n" if os.getenv("SERVER") is not None else "\n")
         file.flush()  # Forzar la escritura inmediata al disco

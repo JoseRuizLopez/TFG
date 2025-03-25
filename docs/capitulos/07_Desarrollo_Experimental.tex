@@ -23,6 +23,10 @@ algoritmos no deterministas.
 Para mitigar este efecto, se optó por forzar el uso de algoritmos deterministas en
 \texttt{cuDNN}~\cite{noauthor_cublas_nodate}. \\[6pt]
 
+También, para intentar garantizar unos resultados mas reales, se decidió por realizar 5 ejecuciones simultaneas cada
+vez que se hiciese alguna prueba, en la que cada ejecución tendria un seed distinto, pero correspondiente a su hebra.
+De esta manera, se podria realizar una media de los 5 resultados, obteniendo asi resultados mas realistas
+
 Con estas configuraciones establecidas, se obtuvieron los primeros datos:
 
 
@@ -74,13 +78,150 @@ Debido a esta limitación, se decidió probar el algoritmo \textbf{MobileNet} co
 \end{table}
 
 
+Se han realizado experimentos utilizando dos arquitecturas de redes neuronales convolucionales: ResNet50 y MobileNet.
+A partir de las tablas presentadas [\ref{tab:initial-generation-resnet},\ref{tab:initial-generation-mobilenet}], se
+observa lo siguiente:
+
+\begin{itemize}
+\item\textbf{Impacto del Porcentaje Inicial de Datos}
+Tanto en ResNet50 como en MobileNet, el aumento del porcentaje inicial de datos utilizados para el entrenamiento se
+traduce en una mejora progresiva de las métricas de desempeño (Accuracy, Precision, Recall y F1-score).
+Por ejemplo, en el caso de ResNet50, al incrementar el porcentaje inicial de datos de 10\% a 50\%, se pasa de un
+accuracy del 76,55\% a un 87,14\%.
+Esto evidencia que disponer de mayor cantidad de datos permite al modelo aprender de forma más robusta y generalizar
+mejor en las evaluaciones.
+
+
+\item\textbf{Comparación de Métricas de Desempeño}
+\begin{itemize}
+    \item \textbf{ResNet50}: Presenta valores superiores en todas las métricas analizadas, lo que indica una mayor
+    capacidad para capturar características complejas y diferenciales en el conjunto de datos.
+    \item \textbf{MobileNet}:Aunque ofrece métricas algo inferiores (por ejemplo, un accuracy de 75,56\% con el 50\% de
+    los datos), la disminución en el rendimiento se ve contrarrestada por su eficiencia computacional, siendo
+    especialmente notable en tiempos de entrenamiento.
+\end{itemize}
+
+\item\textbf{Tiempo de Entrenamiento}
+Un aspecto crucial a considerar es la duración del entrenamiento.
+Mientras que ResNet50 requiere tiempos significativamente mayores (más de 2 horas con un 50\% de datos), MobileNet
+reduce este tiempo de manera considerable (alrededor de 1 hora y 54 minutos en el mismo escenario).
+La diferencia en la duración es determinante en entornos donde los recursos computacionales o el tiempo disponible son
+limitados.
+\end{itemize}
+
+Aunque los resultados iniciales de MobileNet son inferiores a los de ResNet50 en términos de precisión, MobileNet ha
+demostrado una considerable reducción en los tiempos de entrenamiento en comparación con ResNet50.
+Esta eficiencia es fundamental para realizar múltiples iteraciones de prueba y error en un plazo razonable, lo que
+permite explorar diferentes configuraciones, hiperparámetros y estrategias de aumento de datos sin incurrir en altos
+costos computacionales.
+
+Para intentar obtener mejores datos, se decidió probar con varios algoritmos:
+
+
+%\begin{table}
+%\end{table}
+\colorbox{yellow}{FALTA AÑADIR LA TABLA Y SU ANÁLISIS}
+
+Tras las pruebas de los distintos algoritmos, se optó por hacer una pequeña modificación en el funcionamiento de los
+algoritmos genéticos.
+Donde se modificó el funcianieminto de la mutacion, a la que se le aplicó la siguiente fórmula:
+\[
+img\_elegidas(length, ratio)=\min(length*0.15, length*ratio*0.8)
+\]
+donde:
+\begin{itemize}
+    \item $length$ es el número total de imágenes que hay en la población.
+    \item $ratio$ es el número de imágenes que se seleccionan en esa población.
+\end{itemize}
+
+Este cambio se aplicó a todos los algoritmos genéticos y el memético, por lo que se decidió volver a realizar una
+comparación de todos los algoritmos:
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+        \toprule
+        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
+        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
+        \midrule
+        - & 100 & 00:02:37 & 78.6\% & 81.55\% & 78.6\% & 77.69\% & 1 \\
+        aleatorio & 10 & 00:31:13 & 81.34\% & 82.46\% & 81.34\% & 80.52\% & 100 \\
+        aleatorio & 25 & 01:03:36 & 80.7\% & 81.9\% & 80.7\% & 79.9\% & 100 \\
+        aleatorio & 50 & 02:05:09 & 80.86\% & 82.65\% & 80.86\% & 80.22\% & 100 \\
+        aleatorio & 75 & 02:50:13 & 82.26\% & 84.16\% & 82.26\% & 81.67\% & 100 \\
+        busqueda local & 10 & 00:30:42 & 81.24\% & 81.81\% & 81.24\% & 80.61\% & 100 \\
+        busqueda local & 25 & 01:03:50 & 82.47\% & 83.95\% & 82.47\% & 81.76\% & 100 \\
+        busqueda local & 50 & 01:58:58 & 80.75\% & 82.77\% & 80.75\% & 80.09\% & 100 \\
+        busqueda local & 75 & 02:51:28 & 82.37\% & 83.97\% & 82.37\% & 81.67\% & 100 \\
+        genetico & 10 & 00:30:29 & 81.51\% & 83.42\% & 81.51\% & 80.49\% & 100 \\
+        genetico & 25 & 01:02:59 & 81.34\% & 82.95\% & 81.34\% & 80.59\% & 100 \\
+        genetico & 50 & 01:56:58 & 81.34\% & 82.97\% & 81.34\% & 80.75\% & 100 \\
+        genetico & 75 & 02:50:00 & 82.8\% & 84.47\% & 82.8\% & 82.26\% & 100 \\
+        genetico2 & 10 & 00:30:09 & 84.25\% & 84.69\% & 84.25\% & 83.65\% & 100 \\
+        genetico2 & 25 & 01:01:48 & 82.74\% & 84.35\% & 82.74\% & 82.13\% & 100 \\
+        genetico2 & 50 & 01:56:02 & 81.72\% & 83.49\% & 81.72\% & 81.12\% & 100 \\
+        genetico2 & 75 & 02:49:34 & 82.58\% & 84.24\% & 82.58\% & 81.96\% & 100 \\
+        genetico3 & 10 & 00:30:05 & 83.28\% & 83.96\% & 83.28\% & 82.49\% & 101 \\
+        genetico3 & 25 & 01:02:18 & 81.94\% & 83.12\% & 81.94\% & 81.28\% & 101 \\
+        genetico3 & 50 & 01:56:19 & 81.77\% & 83.39\% & 81.77\% & 81.15\% & 105 \\
+        genetico3 & 75 & 02:46:54 & 82.8\% & 84.54\% & 82.8\% & 82.09\% & 100 \\
+        memetico & 10 & 00:29:55 & 82.47\% & 83.38\% & 82.47\% & 81.63\% & 100 \\
+        memetico & 25 & 01:02:10 & 81.88\% & 82.96\% & 81.88\% & 81.3\% & 100 \\
+        memetico & 50 & 01:55:53 & 81.08\% & 83.13\% & 81.08\% & 80.38\% & 100 \\
+        memetico & 75 & 02:48:48 & 82.53\% & 84.2\% & 82.53\% & 81.8\% & 100 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de todos los algoritmos con la nueva mutación usando \textbf{MobileNet}}
+    \label{tab:generation-rps-with-new-mutation}
+\end{table}
+
+\colorbox{yellow}{FALTA AÑADIR SU ANÁLISIS}
+
+
+Una vez realizada la prueba con RPS, podemos hacer otras comprobaciones con datasets más grandes como el de PAINTING
+\hyperref[subsec:painting]{[Art Images: Drawing/Painting/Sculptures/Engravings]}:
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+            \toprule
+        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
+        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
+        \midrule
+        - & 100 & 00:08:55 & 92.24\% & 92.05\% & 92.24\% & 92.06\% & 1 \\
+        aleatorio & 10 & 01:36:51 & 90.05\% & 89.62\% & 90.05\% & 89.73\% & 100 \\
+        busqueda local & 10 & 01:36:20 & 90.58\% & 90.23\% & 90.58\% & 90.26\% & 100 \\
+        genetico & 10 & 01:36:22 & 90.49\% & 90.07\% & 90.49\% & 90.17\% & 100 \\
+        genetico2 & 10 & 01:36:44 & 90.61\% & 90.28\% & 90.61\% & 90.32\% & 100 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de todos los algoritmos para PAINTING con la nueva mutación usando \textbf{MobileNet}}
+    \label{tab:generation-painting-with-new-mutation}
+\end{table}
+
+\colorbox{yellow}{FALTA AÑADIR SU ANÁLISIS}
+
+%Además, se contempla la posibilidad de aplicación de técnicas adicionales de optimización como:
+%\begin{itemize}
+%\item\textbf{Ajuste de Hiperparámetros}: Refinar la configuración del modelo puede ayudar a mejorar la precisión sin
+%    sacrificar la eficiencia.
+%\item\textbf{Aumento de Datos}: Implementar técnicas de data augmentation podría mejorar la capacidad de generalización
+%    del modelo.
+%\item\textbf{Transfer Learning}: Aprovechar modelos preentrenados y adaptarlos a la tarea específica puede cerrar la
+%    brecha de desempeño.
+%\end{itemize}
+
 \section{Datasets}\label{sec:datasets}
 En el aprendizaje profundo, los datasets son colecciones de datos etiquetados o no etiquetados que se utilizan para
 entrenar modelos.
 Estos conjuntos de datos contienen ejemplos organizados que representan la entrada para el modelo y, en muchos casos,
 también las etiquetas correspondientes que indican la salida deseada.
 Los datasets varían en tamaño, calidad y tipo, dependiendo de la tarea a resolver, como la clasificación de imágenes,
-el reconocimiento de patrones o la predicción de series temporales.
+el reconocimiento de patrones o la predicción de series temporales. \\[6pt]
+
+A continuación, se van a explicar cada uno de los Datasets que se han utilizado en el desarrollo del proyecto.
 
 \subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
 \textbf{Rock, Paper, Scissors}~\cite{noauthor_rock_nodate} es un conjunto de datos creado por Laurence Moroney
@@ -214,10 +355,11 @@ oficial de Yann LeCun~\cite{lecun_yann_nodate}.
 
 
 \subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
-La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
-complejidad.
-\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
-estandarizada para comparar el rendimiento y la reducción de datos.
-Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
-permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
-representativos de aplicaciones más reales en visión por computadora.
+Aqui va una comparación de todos los datasets usados
+%La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
+%complejidad.
+%\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
+%estandarizada para comparar el rendimiento y la reducción de datos.
+%Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
+%permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
+%representativos de aplicaciones más reales en visión por computadora.

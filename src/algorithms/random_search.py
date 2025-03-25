@@ -1,5 +1,3 @@
-import datetime
-
 from utils.utils import fitness
 from utils.utils import crear_dict_imagenes
 
