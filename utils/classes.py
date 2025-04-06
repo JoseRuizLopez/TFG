@@ -35,8 +35,8 @@ class ConfiguracionGlobal:
             # Inicializa la instancia con los valores
             cls._instance.date = kwargs.get("date", "-")
             cls._instance.task_id = kwargs.get("task_id", "-")
-            dataset_name = kwargs.get("dataset", "-")
+            cls._instance.dataset_name = kwargs.get("dataset", "-")
 
-            cls._instance.dataset = f"data/{dataset_name}"
+            cls._instance.dataset = f"data/{cls._instance.dataset_name}"
 
         return cls._instance
