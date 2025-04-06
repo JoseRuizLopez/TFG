@@ -2,6 +2,8 @@ import datetime
 import os
 import random
 import shutil
+from collections import defaultdict
+from pathlib import Path
 
 import torch
 import torch.nn as nn
@@ -296,6 +298,10 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
 
     # Evaluar el modelo
     accuracy, precision, recall, f1 = evaluate_model(model, test_loader, device=device)
+    percentage_classes = calculate_percentage_classes(selection=dict_selection)
+
+    for clave, valor in percentage_classes.items():
+        print(f"{clave}: {valor:.4f}")
 
     # Liberar memoria GPU
     if torch.cuda.is_available():
@@ -315,7 +321,7 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
         "Accuracy": accuracy,
         "Precision": precision,
         "Recall": recall,
-        "F1-score": f1
+        "F1-score": f1,
     }
 
 
@@ -383,3 +389,24 @@ def mutation(individual: dict, mutation_rate: float = 0.1) -> dict:
             unselected.append(img_to_remove)
 
     return mutated
+
+
+def calculate_percentage_classes(selection: dict) -> dict[str, float]:
+    num_images = len(selection)  # Contar solo imágenes
+    images_selected = {key: value for key, value in selection.items() if value == 1}
+
+    if not images_selected:
+        return {"Porcentaje Final": 0.0}  # Evita división por cero
+
+    percentages = {"Porcentaje Final": len(images_selected) / num_images}
+    class_counts = defaultdict(int)
+
+    for key in images_selected:
+        key_path = Path(key)
+        class_name = key_path.parent.name  # Obtener la carpeta (clase) donde está la imagen
+        class_counts[class_name] += 1
+
+    for class_name, count in class_counts.items():
+        percentages[f"Porcentaje {class_name.capitalize()}"] = count / len(images_selected)
+
+    return percentages

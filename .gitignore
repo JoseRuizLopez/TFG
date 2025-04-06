@@ -159,8 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 # RPS/*
-/Notas 1-10-24
-/Notas 09-10-24
+Notas*
 /tmp/best_checkpoint.pth
 /docs/out/proyecto.toc
 channeldata.json
@@ -169,8 +168,6 @@ noarch/
 pt2.2py310/
 pt2.3py3.10/
 slurm-*
-/Notas 16-10-24
-/Notas-24-10-24
 docs/out/*.out
 docs/out/*.log
 docs/out/*.aux
@@ -182,3 +179,4 @@ docs/out/*.gz
 /docs/out/proyecto.blg
 /docs/out/proyecto.run.xml
 /docs/out/TFG_joseruiz_v1.pdf
+/docs/out/TFG_joseruiz_v2.pdf

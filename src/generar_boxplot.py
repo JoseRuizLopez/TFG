@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from src.pruebas import generate_boxplot_from_csvs
 
@@ -17,6 +18,8 @@ if __name__ == "__main__":
     FECHA_ACTUAL = args.FECHA_ACTUAL
     MODELO = args.MODELO
 
-    archivos_csv = [f"results/csvs/{FECHA_ACTUAL}/task_{str(x)}.csv" for x in range(5)]
+    path = f"results/csvs/{FECHA_ACTUAL}"
+
+    archivos_csv = [f for f in os.listdir(path) if f.startswith("task_")]
 
     generate_boxplot_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)

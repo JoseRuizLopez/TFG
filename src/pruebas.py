@@ -1,3 +1,4 @@
+import os
 import re
 
 from openpyxl import Workbook
@@ -130,12 +131,7 @@ def generate_excel_by_salidas(
 
 if __name__ == "__main__":
     # generate_excel_by_salidas()
+    path = "results/csvs/2025/04/03/14-23/"
+    archivos_csv = [path + f for f in os.listdir(path) if f.startswith("task_")]
 
-    read_csvs = [
-        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_0.csv",
-        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_1.csv",
-        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_2.csv",
-        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_3.csv",
-        "results/csvs/ultima-prueba-PAINTING/2025-03-17_12-26/task_4.csv",
-    ]
-    generate_boxplot_from_csvs(read_csvs, None, modelo_name="mobilenet")
+    generate_boxplot_from_csvs(archivos_csv, None, modelo_name="mobilenet")

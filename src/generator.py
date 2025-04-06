@@ -1,4 +1,6 @@
 import datetime
+import os
+import random
 
 import torch
 import polars as pl
@@ -10,7 +12,6 @@ from utils.classes import DatasetList
 from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.classes import ConfiguracionGlobal
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script de generación")
@@ -34,13 +35,13 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10]
-    evaluaciones_maximas = 100
-    evaluaciones_maximas_sin_mejora = 100
-    add_100 = True
+    porcentajes = [10, 25, 50, 75]
+    evaluaciones_maximas = 13
+    evaluaciones_maximas_sin_mejora = 13
+    add_100 = False
 
     metric: MetricList = MetricList.ACCURACY
-    dataset_choosen: DatasetList = DatasetList.PAINTING
+    dataset_choosen: DatasetList = DatasetList.RPS
 
     resultados = []
 
@@ -52,7 +53,7 @@ if __name__ == "__main__":
             initial_percentage=100,
             max_evaluations=1,
             max_evaluations_without_improvement=1,
-            algoritmo=AlgorithmList.ALEATORIO.value,
+            algoritmo="aleatorio",
             metric=metric.value,
             model_name=modelo.value
         )
@@ -64,35 +65,63 @@ if __name__ == "__main__":
             }
         )
 
+    if "FREE_BUSQUEDA_LOCAL" in AlgorithmList.__members__:
+        random.seed(24012000 + 1 + int(config.task_id))
+        random_initial_percentage = random.randint(1, 100)
+        result, fitness_history, best_fitness_history = main(
+            initial_percentage=random_initial_percentage,
+            max_evaluations=evaluaciones_maximas,
+            max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+            algoritmo="busqueda local",
+            metric=metric.value,
+            model_name=modelo.value,
+            vary_percentage=False
+        )
+
+        resultados.append(
+            result | {
+                "Porcentaje Inicial": random_initial_percentage / 100,
+                "Algoritmo": AlgorithmList.FREE_BUSQUEDA_LOCAL.value
+            }
+        )
+
     for alg in AlgorithmList:
-        for ptg in porcentajes:
-            result, fitness_history, best_fitness_history = main(
-                initial_percentage=ptg,
-                max_evaluations=evaluaciones_maximas,
-                max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-                algoritmo=alg.value,
-                metric=metric.value,
-                model_name=modelo.value
-            )
+        if alg.value != "free busqueda local":
+            for ptg in porcentajes:
+                result, fitness_history, best_fitness_history = main(
+                    initial_percentage=ptg,
+                    max_evaluations=evaluaciones_maximas,
+                    max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+                    algoritmo=alg.value,
+                    metric=metric.value,
+                    model_name=modelo.value
+                )
 
-            resultados.append(
-                result | {
-                    "Porcentaje Inicial": ptg / 100,
-                    "Algoritmo": alg.value
-                }
-            )
-
-    df = pl.DataFrame(resultados, schema={
+                resultados.append(
+                    result | {
+                        "Porcentaje Inicial": ptg / 100,
+                        "Algoritmo": alg.value
+                    }
+                )
+    schema = {
         "Algoritmo": pl.Utf8,
-        "Porcentaje Inicial": pl.Float32,
+        "Porcentaje Inicial": pl.Float64,
         "Duracion": pl.Utf8,
         "Accuracy": pl.Float64,
         "Precision": pl.Float64,
         "Recall": pl.Float64,
         "F1-score": pl.Float64,
         "Evaluaciones Realizadas": pl.Int32,
-        "Porcentaje Final": pl.Float32
-    })
+        "Porcentaje Final": pl.Float64,  # len(images_selected) / num_images
+    } | {
+        "Porcentaje " + name.capitalize(): pl.Float64
+        for name in os.listdir(config.dataset + '/train')
+        if os.path.isdir(os.path.join(config.dataset + '/train', name))
+    }
+
+    df = pl.DataFrame(resultados, schema=schema).with_columns(
+        pl.col(pl.Float64).round(4)
+    )
 
     result_csv = f"results/csvs/{date}/task_{task_id}.csv"
     df.write_csv(result_csv)

@@ -2,7 +2,6 @@ import argparse
 import datetime
 import os
 import random
-from pathlib import Path
 
 import torch
 import numpy as np
@@ -18,6 +17,7 @@ from src.algorithms.genetic_algorithm3 import genetic_algorithm_with_restart
 from src.algorithms.local_search import local_search
 from src.algorithms.memetic_algorithm import memetic_algorithm
 from src.algorithms.random_search import random_search
+from utils.utils import calculate_percentage_classes
 from utils.utils import clear_ds_store
 from utils.utils import fitness
 from utils.classes import ConfiguracionGlobal
@@ -53,7 +53,8 @@ def main(
     max_evaluations_without_improvement: int = 10,
     algoritmo: str = "memetico",
     metric: str = "accuracy",
-    model_name: str = "resnet"
+    model_name: str = "resnet",
+    vary_percentage: bool = False
 ):
     config = ConfiguracionGlobal()
 
@@ -92,7 +93,8 @@ def main(
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
             metric=metric,
-            model_name=model_name
+            model_name=model_name,
+            # vary_percentage=vary_percentage
         )
     elif algoritmo == "busqueda local":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
@@ -102,7 +104,8 @@ def main(
             max_evaluations_without_improvement=max_evaluations_without_improvement,
             neighbor_size=10,
             metric=metric,
-            model_name=model_name
+            model_name=model_name,
+            vary_percentage=vary_percentage
         )
     elif algoritmo == "genetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
@@ -114,7 +117,8 @@ def main(
             tournament_size=3,
             mutation_rate=0.1,
             metric=metric,
-            model_name=model_name
+            model_name=model_name,
+            # vary_percentage=vary_percentage
         )
     elif algoritmo == "memetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
@@ -129,7 +133,8 @@ def main(
             local_search_evaluations=10,
             local_search_neighbor_size=5,
             metric=metric,
-            model_name=model_name
+            model_name=model_name,
+            # vary_percentage=vary_percentage
         )
     elif algoritmo == "genetico2":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
@@ -141,7 +146,8 @@ def main(
             tournament_size=4,
             mutation_rate=0.05,
             metric=metric,
-            model_name=model_name
+            model_name=model_name,
+            # vary_percentage=vary_percentage
         )
     elif algoritmo == "genetico3":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
@@ -154,8 +160,10 @@ def main(
                 tournament_size=4,
                 mutation_rate=0.05,
                 metric=metric,
-                model_name=model_name
-            ))
+                model_name=model_name,
+                # vary_percentage=vary_percentage
+            )
+        )
 
     end = datetime.datetime.now()
     duration = end - start
@@ -193,22 +201,16 @@ def main(
         final_fitness = fitness(dict_selection=best_selection, model_name=model_name)
         print(f"\n\nMejor {metric} encontrado: {final_fitness[metric.title()]:.4f}")
 
-        num_images = sum(1 for _ in Path(dataset).rglob('*') if _.is_file())
-        images_selected = {key: value for key, value in best_selection.items() if value == 1}
         resultado = final_fitness | {
             "Duracion": str(duration),
-            "Evaluaciones Realizadas": evaluations_done,
-            "Porcentaje Final": len(images_selected) / num_images,
-            "Porcentaje Paper": len(
-                [key for key, value in images_selected.items() if 'paper' in key]
-            ) / len(images_selected),
-            "Porcentaje Rock": len(
-                [key for key, value in images_selected.items() if 'rock' in key]
-            ) / len(images_selected),
-            "Porcentaje Scissors": len(
-                [key for key, value in images_selected.items() if 'scissors' in key]
-            ) / len(images_selected),
-        }
+            "Evaluaciones Realizadas": evaluations_done
+        } | calculate_percentage_classes(best_selection)
+        print("Los resultados obtenidos son: ")
+        for clave, valor in resultado.items():
+            if isinstance(valor, (int, float)):  # Si es numérico, formatea con 2 decimales
+                print(f"{clave}: {valor:.4f}")
+            else:  # Si es string u otro tipo, imprimir tal cual
+                print(f"{clave}: {valor}")
 
         return resultado, fitness_history, best_fitness_history
 

@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from typing import List
 
 import pandas as pd
@@ -135,23 +137,21 @@ def generate_boxplot_from_csvs(
     carpeta_img: str | None = None,
     modelo_name: str | None = None,
 ):
+    path_media = os.path.dirname(archivos_csv[0])
+
     # Lista para almacenar cada DataFrame
     dataframes = []
 
     # Especificar las columnas que deberían ser numéricas
-    columnas_numericas = ["Porcentaje Inicial", "Duracion", "Accuracy", "Precision", "Recall", "F1-score",
-                          "Evaluaciones Realizadas", "Porcentaje Final", "Porcentaje Paper",
-                          "Porcentaje Rock", "Porcentaje Scissors"]
+    columnas_numericas = ["Accuracy", "Precision", "Recall", "F1-score",
+                          "Evaluaciones", "Porcentaje"]
 
     # Cargar cada archivo CSV y forzar las columnas numéricas
     for archivo in archivos_csv:
         df = pd.read_csv(archivo)
 
-        # Forzar las columnas específicas a numéricas
-        columnas_numericas_2 = columnas_numericas.copy()
-        columnas_numericas_2.remove("Duracion")
-        for col in columnas_numericas_2:
-            if col in df.columns:
+        for col in df.columns:
+            if col.split(' ')[0] in columnas_numericas:
                 df[col] = pd.to_numeric(df[col], errors='coerce')
 
         df['Duracion'] = pd.to_timedelta(df['Duracion'])
@@ -164,10 +164,9 @@ def generate_boxplot_from_csvs(
     # Calcular la media solo de las columnas especificadas
     df_media = df_concatenado.groupby(["Algoritmo", "Porcentaje Inicial"]).mean()
 
-    # Guardar el DataFrame resultante con las medias en un nuevo archivo CSV
-    df_media.to_csv("tmp/media.csv", index=True)
+    df_media.to_csv(f'{path_media}/media.csv', index=True)
 
-    df = pd.read_csv("tmp/media.csv")
+    df = pd.read_csv(f'{path_media}/media.csv')
 
     if modelo_name is None:
         modelo_name = ""
