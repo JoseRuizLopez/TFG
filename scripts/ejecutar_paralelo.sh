@@ -32,7 +32,7 @@ DATE_DIR=$(dirname "results/salidas/${FECHA_ACTUAL}")
 mkdir -p "$DATE_DIR"
 
 # Define output file path
-archivo_salida="results/salidas/${FECHA_ACTUAL}_task_${SLURM_ARRAY_TASK_ID}.txt"
+archivo_salida="results/salidas/${FECHA_ACTUAL}/task_${SLURM_ARRAY_TASK_ID}.txt"
 echo "Executing task ${SLURM_ARRAY_TASK_ID} with output to ${archivo_salida}"
 
 # Construct command line parameters

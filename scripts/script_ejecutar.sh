@@ -19,8 +19,21 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
-# Obtener la fecha y hora actual en formato YYYY-MM-DD_HH-MM
-fecha_actual=$(date -d "+2 hours" +"%Y-%m-%d_%H-%M")
+# Get current date and time, adding 1 hours
+FECHA_ACTUAL=$(date -d "+1 hours" +"%Y-%m-%d_%H-%M")
+
+# Format date for output filename - create a safe copy of the variable
+FECHA_FORMATEADA=$FECHA_ACTUAL
+
+# Reemplazar los dos primeros '-'
+FECHA_FORMATEADA=${FECHA_FORMATEADA/-/\/}  # Primer '-'
+FECHA_FORMATEADA=${FECHA_FORMATEADA/-/\/}  # Segundo '-'
+
+# Reemplazar el primer '_'
+FECHA_FORMATEADA=${FECHA_FORMATEADA/_/\/}
+
+# Extract the date directory structure from FECHA_ACTUAL
+DATE_DIR=$(dirname "results/salidas/${FECHA_FORMATEADA}")
 
 # Definir el nombre del archivo de salida con la fecha y hora
 archivo_salida="results/salidas/salida_${fecha_actual}.txt"

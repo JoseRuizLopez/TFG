@@ -66,13 +66,13 @@ if __name__ == "__main__":
         )
 
     if "FREE_BUSQUEDA_LOCAL" in AlgorithmList.__members__:
-        random.seed(24012000 + 1 + int(config.task_id))
+        random.seed(24012000 + 1)
         random_initial_percentage = random.randint(1, 100)
         result, fitness_history, best_fitness_history = main(
             initial_percentage=random_initial_percentage,
             max_evaluations=evaluaciones_maximas,
             max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-            algoritmo="busqueda local",
+            algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
             metric=metric.value,
             model_name=modelo.value,
             vary_percentage=False

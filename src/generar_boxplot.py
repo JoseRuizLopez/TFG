@@ -20,6 +20,6 @@ if __name__ == "__main__":
 
     path = f"results/csvs/{FECHA_ACTUAL}"
 
-    archivos_csv = [f for f in os.listdir(path) if f.startswith("task_")]
+    archivos_csv = [f"{path}/{f}" for f in os.listdir(path) if f.startswith("task_")]
 
     generate_boxplot_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)
