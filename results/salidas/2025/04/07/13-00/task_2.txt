@@ -1,0 +1,11 @@
+Task ID recibido: 2
+GPU: True
+
+
+--------------------------------------mobilenet  FREE BUSQUEDA LOCAL  6%-------------------------------------------------
+Start time: 2025-04-07 10:03:50.267491
+End time: 2025-04-07 10:03:50.268876
+Duration: 0:00:00
+
+
+Mejor accuracy al acabar el algoritmo: 0.0000
