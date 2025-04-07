@@ -1,0 +1,2 @@
+Task ID recibido: 4
+GPU: True
