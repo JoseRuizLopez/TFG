@@ -25,14 +25,16 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
+echo "$FECHA_ACTUAL"
 # Extract the date directory structure from FECHA_ACTUAL
-DATE_DIR=$(dirname "results/salidas/${FECHA_ACTUAL}")
+DATE_DIR="results/salidas/${FECHA_ACTUAL}"
+echo "$DATE_DIR"
 
 # Create the directory structure
 mkdir -p "$DATE_DIR"
 
 # Define output file path
-archivo_salida="results/salidas/${FECHA_ACTUAL}/task_${SLURM_ARRAY_TASK_ID}.txt"
+archivo_salida="${DATE_DIR}/task_${SLURM_ARRAY_TASK_ID}.txt"
 echo "Executing task ${SLURM_ARRAY_TASK_ID} with output to ${archivo_salida}"
 
 # Construct command line parameters

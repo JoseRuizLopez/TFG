@@ -116,47 +116,11 @@ permite explorar diferentes configuraciones, hiperparámetros y estrategias de a
 costos computacionales.
 
 Para intentar obtener mejores datos, se decidió probar con varios algoritmos:
-\begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
-        \toprule
-        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
-        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
-        \midrule
-        - & 100 & 00:03:51 & 78.60\% & 81.55\% & 78.60\% & 77.69\% & 1 \\
-        \rowcolor{gray!10}aleatorio & 10 & 00:32:39 & 81.34\% & 82.46\% & 81.34\% & 80.52\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 25 & 01:02:18 & 80.70\% & 81.90\% & 80.70\% & 79.90\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 50 & 02:00:46 & 80.86\% & 82.65\% & 80.86\% & 80.22\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 75 & 02:52:33 & 82.26\% & 84.16\% & 82.26\% & 81.67\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 10 & 00:30:11 & 81.24\% & 81.81\% & 81.24\% & 80.61\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 25 & 01:02:30 & 82.47\% & 83.95\% & 82.47\% & 81.76\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 50 & 01:57:37 & 80.75\% & 82.77\% & 80.75\% & 80.09\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 75 & 02:52:32 & 82.37\% & 83.97\% & 82.37\% & 81.67\% & 100 \\
-        \rowcolor{gray!10}genetico & 10 & 00:30:29 & 83.49\% & 84.70\% & 83.49\% & 82.87\% & 100 \\
-        \rowcolor{gray!10}genetico & 25 & 01:03:21 & 81.88\% & 83.40\% & 81.88\% & 81.16\% & 100 \\
-        \rowcolor{gray!10}genetico & 50 & 02:00:26 & 81.34\% & 83.07\% & 81.34\% & 80.73\% & 100 \\
-        \rowcolor{gray!10}genetico & 75 & 02:58:00 & 82.69\% & 84.47\% & 82.69\% & 82.09\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 10 & 00:31:07 & 82.90\% & 83.47\% & 82.90\% & 82.38\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 25 & 01:04:40 & 82.15\% & 83.75\% & 82.15\% & 81.49\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 50 & 02:00:57 & 81.67\% & 83.26\% & 81.67\% & 81.10\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 75 & 02:56:40 & 82.63\% & 84.11\% & 82.63\% & 82.07\% & 100 \\
-        \rowcolor{gray!10}genetico3 & 10 & 00:30:59 & 83.01\% & 84.11\% & 83.01\% & 82.21\% & 101 \\
-        \rowcolor{gray!10}genetico3 & 25 & 01:04:28 & 81.67\% & 82.85\% & 81.67\% & 80.82\% & 101 \\
-        \rowcolor{gray!10}genetico3 & 50 & 02:01:10 & 81.45\% & 83.25\% & 81.45\% & 80.88\% & 101 \\
-        \rowcolor{gray!10}genetico3 & 75 & 02:56:41 & 82.53\% & 84.03\% & 82.53\% & 81.96\% & 103 \\
-        \rowcolor{gray!40}memetico & 10 & 00:31:02 & 82.04\% & 82.53\% & 82.04\% & 81.61\% & 100 \\
-        \rowcolor{gray!40}memetico & 25 & 01:04:26 & 82.58\% & 83.55\% & 82.58\% & 82.01\% & 100 \\
-        \rowcolor{gray!40}memetico & 50 & 02:01:20 & 81.67\% & 83.53\% & 81.67\% & 81.18\% & 100 \\
-        \rowcolor{gray!40}memetico & 75 & 02:57:33 & 82.58\% & 84.32\% & 82.58\% & 82.00\% & 100 \\
-        \bottomrule
-        \end{tabular}
-    }
-    \caption{Resultados de todos los algoritmos con la nueva mutación usando \textbf{MobileNet}}
-    \label{tab:generation-rps-with-old-mutation}
-\end{table}
 
-\colorbox{yellow}{FALTA AÑADIR SU ANÁLISIS}
+
+%\begin{table}
+%\end{table}
+\colorbox{yellow}{FALTA AÑADIR LA TABLA Y SU ANÁLISIS}
 
 Tras las pruebas de los distintos algoritmos, se optó por hacer una pequeña modificación en el funcionamiento de los
 algoritmos genéticos.
@@ -172,47 +136,48 @@ donde:
 
 Este cambio se aplicó a todos los algoritmos genéticos y el memético, por lo que se decidió volver a realizar una
 comparación de todos los algoritmos:
-\begin{sidewaystable}[htp]
+\begin{table}[htp]
     \centering
-    \begin{adjustbox}{width=\linewidth}
-        \begin{tabular}{llllllllllllll}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
         \toprule
         \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
         \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
         \midrule
         - & 100 & 00:02:37 & 78.6\% & 81.55\% & 78.6\% & 77.69\% & 1 \\
-        \rowcolor{gray!10}aleatorio & 10 & 00:31:13 & 81.34\% & 82.46\% & 81.34\% & 80.52\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 25 & 01:03:36 & 80.7\% & 81.9\% & 80.7\% & 79.9\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 50 & 02:05:09 & 80.86\% & 82.65\% & 80.86\% & 80.22\% & 100 \\
-        \rowcolor{gray!10}aleatorio & 75 & 02:50:13 & 82.26\% & 84.16\% & 82.26\% & 81.67\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 10 & 00:30:42 & 81.24\% & 81.81\% & 81.24\% & 80.61\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 25 & 01:03:50 & 82.47\% & 83.95\% & 82.47\% & 81.76\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 50 & 01:58:58 & 80.75\% & 82.77\% & 80.75\% & 80.09\% & 100 \\
-        \rowcolor{gray!40}busqueda local & 75 & 02:51:28 & 82.37\% & 83.97\% & 82.37\% & 81.67\% & 100 \\
-        \rowcolor{gray!10}genetico & 10 & 00:30:29 & 81.51\% & 83.42\% & 81.51\% & 80.49\% & 100 \\
-        \rowcolor{gray!10}genetico & 25 & 01:02:59 & 81.34\% & 82.95\% & 81.34\% & 80.59\% & 100 \\
-        \rowcolor{gray!10}genetico & 50 & 01:56:58 & 81.34\% & 82.97\% & 81.34\% & 80.75\% & 100 \\
-        \rowcolor{gray!10}genetico & 75 & 02:50:00 & 82.8\% & 84.47\% & 82.8\% & 82.26\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 10 & 00:30:09 & 84.25\% & 84.69\% & 84.25\% & 83.65\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 25 & 01:01:48 & 82.74\% & 84.35\% & 82.74\% & 82.13\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 50 & 01:56:02 & 81.72\% & 83.49\% & 81.72\% & 81.12\% & 100 \\
-        \rowcolor{gray!40}genetico2 & 75 & 02:49:34 & 82.58\% & 84.24\% & 82.58\% & 81.96\% & 100 \\
-        \rowcolor{gray!10}genetico3 & 10 & 00:30:05 & 83.28\% & 83.96\% & 83.28\% & 82.49\% & 101 \\
-        \rowcolor{gray!10}genetico3 & 25 & 01:02:18 & 81.94\% & 83.12\% & 81.94\% & 81.28\% & 101 \\
-        \rowcolor{gray!10}genetico3 & 50 & 01:56:19 & 81.77\% & 83.39\% & 81.77\% & 81.15\% & 105 \\
-        \rowcolor{gray!10}genetico3 & 75 & 02:46:54 & 82.8\% & 84.54\% & 82.8\% & 82.09\% & 100 \\
-        \rowcolor{gray!40}memetico & 10 & 00:29:55 & 82.47\% & 83.38\% & 82.47\% & 81.63\% & 100 \\
-        \rowcolor{gray!40}memetico & 25 & 01:02:10 & 81.88\% & 82.96\% & 81.88\% & 81.3\% & 100 \\
-        \rowcolor{gray!40}memetico & 50 & 01:55:53 & 81.08\% & 83.13\% & 81.08\% & 80.38\% & 100 \\
-        \rowcolor{gray!40}memetico & 75 & 02:48:48 & 82.53\% & 84.2\% & 82.53\% & 81.8\% & 100 \\
+        aleatorio & 10 & 00:31:13 & 81.34\% & 82.46\% & 81.34\% & 80.52\% & 100 \\
+        aleatorio & 25 & 01:03:36 & 80.7\% & 81.9\% & 80.7\% & 79.9\% & 100 \\
+        aleatorio & 50 & 02:05:09 & 80.86\% & 82.65\% & 80.86\% & 80.22\% & 100 \\
+        aleatorio & 75 & 02:50:13 & 82.26\% & 84.16\% & 82.26\% & 81.67\% & 100 \\
+        busqueda local & 10 & 00:30:42 & 81.24\% & 81.81\% & 81.24\% & 80.61\% & 100 \\
+        busqueda local & 25 & 01:03:50 & 82.47\% & 83.95\% & 82.47\% & 81.76\% & 100 \\
+        busqueda local & 50 & 01:58:58 & 80.75\% & 82.77\% & 80.75\% & 80.09\% & 100 \\
+        busqueda local & 75 & 02:51:28 & 82.37\% & 83.97\% & 82.37\% & 81.67\% & 100 \\
+        genetico & 10 & 00:30:29 & 81.51\% & 83.42\% & 81.51\% & 80.49\% & 100 \\
+        genetico & 25 & 01:02:59 & 81.34\% & 82.95\% & 81.34\% & 80.59\% & 100 \\
+        genetico & 50 & 01:56:58 & 81.34\% & 82.97\% & 81.34\% & 80.75\% & 100 \\
+        genetico & 75 & 02:50:00 & 82.8\% & 84.47\% & 82.8\% & 82.26\% & 100 \\
+        genetico2 & 10 & 00:30:09 & 84.25\% & 84.69\% & 84.25\% & 83.65\% & 100 \\
+        genetico2 & 25 & 01:01:48 & 82.74\% & 84.35\% & 82.74\% & 82.13\% & 100 \\
+        genetico2 & 50 & 01:56:02 & 81.72\% & 83.49\% & 81.72\% & 81.12\% & 100 \\
+        genetico2 & 75 & 02:49:34 & 82.58\% & 84.24\% & 82.58\% & 81.96\% & 100 \\
+        genetico3 & 10 & 00:30:05 & 83.28\% & 83.96\% & 83.28\% & 82.49\% & 101 \\
+        genetico3 & 25 & 01:02:18 & 81.94\% & 83.12\% & 81.94\% & 81.28\% & 101 \\
+        genetico3 & 50 & 01:56:19 & 81.77\% & 83.39\% & 81.77\% & 81.15\% & 105 \\
+        genetico3 & 75 & 02:46:54 & 82.8\% & 84.54\% & 82.8\% & 82.09\% & 100 \\
+        memetico & 10 & 00:29:55 & 82.47\% & 83.38\% & 82.47\% & 81.63\% & 100 \\
+        memetico & 25 & 01:02:10 & 81.88\% & 82.96\% & 81.88\% & 81.3\% & 100 \\
+        memetico & 50 & 01:55:53 & 81.08\% & 83.13\% & 81.08\% & 80.38\% & 100 \\
+        memetico & 75 & 02:48:48 & 82.53\% & 84.2\% & 82.53\% & 81.8\% & 100 \\
         \bottomrule
         \end{tabular}
-    \end{adjustbox}
+    }
     \caption{Resultados de todos los algoritmos con la nueva mutación usando \textbf{MobileNet}}
     \label{tab:generation-rps-with-new-mutation}
-\end{sidewaystable}
+\end{table}
 
 \colorbox{yellow}{FALTA AÑADIR SU ANÁLISIS}
+
 
 Una vez realizada la prueba con RPS, podemos hacer otras comprobaciones con datasets más grandes como el de PAINTING
 \hyperref[subsec:painting]{[Art Images: Drawing/Painting/Sculptures/Engravings]}:

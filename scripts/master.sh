@@ -38,8 +38,8 @@ fi
 # Mostrar el valor de MODELO
 echo "MODELO: ${MODELO:-'Ninguno especificado'}"
 
-# Get current date and time, adding 1 hours
-FECHA_ACTUAL=$(date -d "+1 hours" +"%Y-%m-%d_%H-%M")
+# Get current date and time, adding 0 hours (dependiendo de horario verano o invierno)
+FECHA_ACTUAL=$(date -d "+0 hours" +"%Y-%m-%d_%H-%M")
 
 # Format date for output filename - create a safe copy of the variable
 FECHA_FORMATEADA=$FECHA_ACTUAL

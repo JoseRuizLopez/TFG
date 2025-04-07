@@ -13,6 +13,7 @@ from utils.classes import MetricList
 from utils.classes import ModelList
 from utils.classes import ConfiguracionGlobal
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script de generación")
     parser.add_argument("--task_id", type=int, required=True, help="ID de la tarea para esta ejecución")

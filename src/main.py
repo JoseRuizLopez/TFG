@@ -76,7 +76,7 @@ def main(
         file.flush()  # Forzar la escritura inmediata al disco
 
     print(f"\n\n--------------------------------------"
-          f"{model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
+          f"{config.dataset_name}  {model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
           f"------------------------------------------")
     print("Start time: " + str(start))
 
@@ -96,7 +96,7 @@ def main(
             model_name=model_name,
             # vary_percentage=vary_percentage
         )
-    elif algoritmo == "busqueda local":
+    elif "busqueda local" in algoritmo:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
             data_dir=train_path,
             initial_percentage=initial_percentage,
