@@ -25,7 +25,6 @@ conda activate /mnt/homeGPU/joruiz/TFG/pt2.3py3.10
 
 export TFHUB_CACHE_DIR=.
 
-echo "$FECHA_ACTUAL"
 # Extract the date directory structure from FECHA_ACTUAL
 DATE_DIR="results/salidas/${FECHA_ACTUAL}"
 echo "$DATE_DIR"

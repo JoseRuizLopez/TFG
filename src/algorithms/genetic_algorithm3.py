@@ -153,7 +153,7 @@ def genetic_algorithm_with_restart(
         new_fitness_dicts.append(best_fitness_dict.copy())
 
         # Generar nueva población
-        while len(new_population) < population_size and evaluations_done < max_evaluations:
+        while len(new_population) < population_size and evaluations_done + 1 < max_evaluations:
             parent1_idx, parent2_idx = tournament_selection(population, fitness_values, tournament_size)
             parent1 = population[parent1_idx].copy()
             parent2 = population[parent2_idx].copy()
@@ -188,6 +188,10 @@ def genetic_algorithm_with_restart(
                 )
                 evaluations_done += 1
                 fitness_history.append(child1_fitness_dict.copy())
+
+            else:
+                # No hay evaluaciones disponibles
+                break
 
             if child1_fitness_dict and child2_fitness_dict:
                 if child1_fitness_dict[metric.title()] > child2_fitness_dict[metric.title()]:
