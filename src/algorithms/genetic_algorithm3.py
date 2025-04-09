@@ -82,18 +82,26 @@ def genetic_algorithm_with_restart(
     def initialize_population(size: int, keep_best: bool = False) -> tuple[list, list, list, list]:
         """
         Inicializa o reinicia la población, opcionalmente manteniendo el mejor individuo.
+        Controla el número máximo de evaluaciones permitidas.
         """
         print("Inicializando población...")
         new_pop = []
         new_local_fitness_dicts: list[dict] = []
+        nonlocal evaluations_done
 
         # Si debemos mantener el mejor individuo, lo añadimos primero
         if keep_best and 'best_individual' in locals():
             new_pop.append(best_individual)
             new_local_fitness_dicts.append(best_fitness_dict)
-            remaining_size = min(size - 1, max_evaluations - evaluations_done)
+            remaining_evals = max_evaluations - evaluations_done
+            remaining_size = min(size - 1, remaining_evals)
         else:
-            remaining_size = min(size, max_evaluations - evaluations_done)
+            remaining_evals = max_evaluations - evaluations_done
+            remaining_size = min(size, remaining_evals)
+
+        if remaining_size <= 0:
+            print("No hay evaluaciones disponibles para inicializar nuevos individuos.")
+            return new_pop, new_local_fitness_dicts, [], []
 
         # Generar el resto de la población aleatoriamente
         random_population = [crear_dict_imagenes(data_dir, initial_percentage)
@@ -105,6 +113,9 @@ def genetic_algorithm_with_restart(
             for i, ind in enumerate(random_population)
         ]
 
+        # Actualizar el contador global de evaluaciones
+        evaluations_done += remaining_size
+
         new_pop.extend(random_population)
         new_local_fitness_dicts.extend(random_fitness_dicts)
         new_local_fitness_history = random_fitness_dicts
@@ -112,12 +123,12 @@ def genetic_algorithm_with_restart(
 
         if keep_best and 'population' in locals() and len(new_pop) < size:
             # Calcular cuántos individuos adicionales necesitamos
-            slots_remaining = size - len(new_pop)
+            slots_remaining = min(size - len(new_pop), max(0, max_evaluations - evaluations_done))
 
             # Añadir los mejores de la población anterior (excluyendo el mejor que ya añadimos)
-            new_pop.extend([population[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
-            new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining+1]])
-            new_fitness_values.extend([fitness_values[idx] for idx in sorted_indices[1:slots_remaining+1]])
+            new_pop.extend([population[idx].copy() for idx in sorted_indices[1:slots_remaining + 1]])
+            new_local_fitness_dicts.extend([fitness_dicts[idx].copy() for idx in sorted_indices[1:slots_remaining + 1]])
+            new_fitness_values.extend([fitness_values[idx] for idx in sorted_indices[1:slots_remaining + 1]])
 
         return new_pop, new_local_fitness_dicts, new_fitness_values, new_local_fitness_history
 
@@ -126,7 +137,6 @@ def genetic_algorithm_with_restart(
     generations_second_best_not_improved = 0
 
     population, fitness_dicts, fitness_values, fitness_history = initialize_population(population_size)
-    evaluations_done += population_size
 
     # Encontrar el mejor y segundo mejor inicial
     sorted_indices = sorted(range(len(fitness_values)),
@@ -153,7 +163,12 @@ def genetic_algorithm_with_restart(
         new_fitness_dicts.append(best_fitness_dict.copy())
 
         # Generar nueva población
-        while len(new_population) < population_size and evaluations_done + 1 < max_evaluations:
+        while len(new_population) < population_size:
+            remaining_evals = max_evaluations - evaluations_done
+            if remaining_evals <= 0:
+                print("Se alcanzó el máximo de evaluaciones. Saliendo del bucle de generación.")
+                break
+
             parent1_idx, parent2_idx = tournament_selection(population, fitness_values, tournament_size)
             parent1 = population[parent1_idx].copy()
             parent2 = population[parent2_idx].copy()
@@ -164,10 +179,6 @@ def genetic_algorithm_with_restart(
 
             child1 = mutation(child1, mutation_rate)
             child2 = mutation(child2, mutation_rate)
-
-            remaining_evals = max_evaluations - evaluations_done
-            child1_fitness_dict = None
-            child2_fitness_dict = None
 
             if remaining_evals >= 2:
                 child1_fitness_dict = fitness(
@@ -181,19 +192,17 @@ def genetic_algorithm_with_restart(
                 evaluations_done += 1
 
                 fitness_history.extend([child1_fitness_dict.copy(), child2_fitness_dict.copy()])
-
             elif remaining_evals == 1:
                 child1_fitness_dict = fitness(
                     dict_selection=child1, model_name=model_name, evaluations=evaluations_done
                 )
                 evaluations_done += 1
                 fitness_history.append(child1_fitness_dict.copy())
-
+                child2_fitness_dict = None
             else:
-                # No hay evaluaciones disponibles
                 break
 
-            if child1_fitness_dict and child2_fitness_dict:
+            if child1_fitness_dict and (child2_fitness_dict is not None):
                 if child1_fitness_dict[metric.title()] > child2_fitness_dict[metric.title()]:
                     new_population.append(child1)
                     new_fitness_dicts.append(child1_fitness_dict)
@@ -213,6 +222,10 @@ def genetic_algorithm_with_restart(
                                 key=lambda k: fitness_values[k],
                                 reverse=True)
         current_best_idx = sorted_indices[0]
+
+        if len(fitness_values) < 2:
+            print("Población demasiado pequeña para continuar.")
+            break
         current_second_best_idx = sorted_indices[1]
         # current_second_best_fitness = fitness_values[current_second_best_idx]
 
@@ -230,6 +243,32 @@ def genetic_algorithm_with_restart(
         if fitness_values[current_second_best_idx] <= second_best_fitness:
             generations_second_best_not_improved += 1
             print(f"El segundo mejor no mejoró. Contador: {generations_second_best_not_improved}/2")
+
+            if generations_second_best_not_improved >= 2:
+                print("El segundo mejor no mejoró por 2 generaciones. Reiniciando población...")
+                population, fitness_dicts, fitness_values, local_fitness_history = initialize_population(
+                    population_size, keep_best=True
+                )
+
+                if len(fitness_values) < 2:
+                    print("No hay suficientes individuos tras el reinicio para continuar.")
+                    break
+
+                sorted_indices = sorted(range(len(fitness_values)),
+                                        key=lambda k: fitness_values[k],
+                                        reverse=True)
+
+                best_idx, second_best_idx = sorted_indices[0], sorted_indices[1]
+
+                best_individual = population[best_idx].copy()
+                best_fitness = fitness_values[best_idx]
+                best_fitness_dict = fitness_dicts[best_idx].copy()
+                second_best_fitness = fitness_values[second_best_idx]
+                generations_second_best_not_improved = 0
+                best_fitness_history.append(best_fitness)
+                fitness_history.extend(local_fitness_history)
+                iterations += 1
+                continue  # Saltar al siguiente ciclo
         else:
             generations_second_best_not_improved = 0
             second_best_fitness = fitness_values[current_second_best_idx]
@@ -238,12 +277,16 @@ def genetic_algorithm_with_restart(
             population, fitness_dicts, fitness_values, local_fitness_history = initialize_population(
                 population_size, keep_best=True
             )
-            evaluations_done += population_size - 1  # -1 porque ya contamos el mejor
 
             # Encontrar el mejor y segundo mejor inicial
             sorted_indices = sorted(range(len(fitness_values)),
                                     key=lambda k: fitness_values[k],
                                     reverse=True)
+
+            if len(sorted_indices) < 2:
+                print("No hay suficientes individuos tras el reinicio para continuar.")
+                break  # o return con los valores actuales
+
             best_idx, second_best_idx = sorted_indices[0], sorted_indices[1]
 
             best_individual = population[best_idx].copy()
