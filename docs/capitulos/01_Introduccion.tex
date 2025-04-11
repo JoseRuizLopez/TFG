@@ -2,50 +2,56 @@
 
 \section{Contexto}\label{sec:contexto}
 %Contexto: Breve introducción al tema y su relevancia.
-En la actualidad, nos encontramos en una era caracterizada por la generación de datos, que crece a un ritmo sin
-precedentes.
-Este fenómeno plantea la necesidad de desarrollar métodos capaces de procesar y analizar grandes volúmenes de
-información de manera eficiente.
-Los \textbf{modelos de aprendizaje profundo} —especialmente las \textbf{redes neuronales convolucionales} (CNNs)— han
-demostrado ser particularmente efectivos en tareas como la \textbf{clasificación de imágenes}, el
-\textbf{reconocimiento de patrones} y otras aplicaciones complejas.
-Sin embargo, el entrenamiento de estos modelos requiere numerosas cantidades de datos, lo que trae consigo importantes
-desafíos relacionados con el \textbf{tiempo} obtenerlos y el \textbf{costo económico} de obtener tantos datos. \\[6pt]
+En la actualidad, vivimos en una era marcada por una constante y acelerada generación de datos.
+Este fenómeno ha incrementado la necesidad de desarrollar métodos eficaces para el procesamiento y análisis de grandes
+volúmenes de información.
+En este contexto, los \textbf{modelos de aprendizaje profundo}, y en particular las
+\textbf{redes neuronales convolucionales} (CNN), han demostrado un notable rendimiento en tareas como la
+\textbf{clasificación de imágenes}, el \textbf{reconocimiento de patrones} y diversas aplicaciones de alta complejidad.
+No obstante, el entrenamiento de estos modelos suele requerir grandes cantidades de datos, lo que plantea desafíos
+significativos tanto en términos de \textbf{tiempo} como de \textbf{costes} asociados a su obtención. \\[6pt]
 
-A medida que los modelos de inteligencia artificial avanzan hacia configuraciones más complejas y precisas, la
-necesidad de disponer de datos de entrenamiento adecuados y en gran cantidad se hace cada vez más evidente.
-No obstante, la recolección, almacenamiento y procesamiento de estos datos representan barreras significativas para
-muchas organizaciones —especialmente aquellas con recursos limitados—, lo que subraya la importancia de explorar
-enfoques innovadores que permitan la \textbf{optimización y reducción} de los conjuntos de datos necesarios para
-entrenar estos modelos. \\[6pt]
+
+Conforme los sistemas de inteligencia artificial evolucionan hacia estructuras más sofisticadas y precisas, la
+disponibilidad de conjuntos de datos amplios y adecuados se vuelve un requisito cada vez más crucial.
+Sin embargo, la recopilación, almacenamiento y tratamiento de estos datos suponen obstáculos importantes, especialmente
+para aquellas instituciones u organizaciones que cuentan con recursos limitados.
+Esta situación pone de relieve la necesidad de investigar estrategias innovadoras que permitan
+\textbf{reducir y optimizar los conjuntos de datos} sin comprometer el rendimiento de los modelos entrenados. \\[6pt]
+
 
 \section{Motivación}\label{sec:motivacion}
-La necesidad de \textbf{reducir los conjuntos de datos de entrenamiento} surge de la búsqueda por optimizar la
+La necesidad de \textbf{reducir los conjuntos de datos de entrenamiento} responde al objetivo de mejorar la
 \textbf{eficiencia} en el desarrollo de modelos de aprendizaje profundo.
-Si bien las redes neuronales convolucionales han alcanzado resultados impresionantes, sus
-\textbf{altos costos computacionales} y la extensa cantidad de datos que requieren suponen limitaciones para muchos
-entornos.
-Entrenar estos modelos utilizando solo una parte de los datos —seleccionados de manera óptima— podría reducir
-considerablemente los recursos necesarios (sin comprometer la precisión de los resultados); ello marcaría un avance
-significativo para la \textbf{inteligencia artificial} y sus aplicaciones en entornos con
-\textbf{restricciones de recursos}. \\[6pt]
+Aunque las redes neuronales convolucionales han demostrado un rendimiento notable en diversas tareas, su implementación
+conlleva \textbf{altos costes computacionales} y una gran demanda de datos, lo que representa una barrera considerable
+para muchos entornos, especialmente aquellos con recursos limitados.
+Una estrategia prometedora consiste en entrenar estos modelos utilizando únicamente una fracción de los datos
+disponibles, seleccionados de manera óptima.
+Esta aproximación permitiría disminuir significativamente el consumo de recursos sin comprometer la precisión del
+modelo, lo que supondría un avance importante para la \textbf{inteligencia artificial}, en particular en aplicaciones
+donde existen \textbf{restricciones de recursos}. \\[6pt]
 
-La selección de subconjuntos de datos más representativos permite reducir los tiempos de procesamiento y el consumo de
-recursos sin afectar el rendimiento de los modelos.
-Es aquí donde las \textbf{metaheurísticas} entran en juego: las metaheurísticas son métodos de optimización avanzados
-diseñados para resolver problemas complejos donde los métodos tradicionales resultan ineficaces.
-Funcionan a través de \textbf{estrategias de búsqueda} y \textbf{exploración del espacio de soluciones}, combinando
-heurísticas específicas para encontrar soluciones aproximadas en tiempos razonables.
-Son útiles en problemas donde encontrar la solución óptima es computacionalmente costoso o impracticable.
-Así, las metaheurísticas se posicionan como una solución prometedora para hacer que el aprendizaje profundo sea
-más \textbf{accesible y eficiente} —incluso en escenarios donde los recursos son limitados—, lo cual es crucial para
-democratizar el uso de la inteligencia artificial en una amplia gama de aplicaciones. \\[6pt]
+En este contexto, la selección de subconjuntos representativos se presenta como una solución eficaz para reducir tanto
+los tiempos de entrenamiento como el uso de recursos, sin afectar negativamente el rendimiento.
+Es precisamente en este punto donde las \textbf{metaheurísticas} adquieren un papel relevante.
+Estas técnicas de optimización están diseñadas para abordar problemas complejos en los que los métodos tradicionales
+resultan ineficaces, gracias a sus \textbf{estrategias de búsqueda} y \textbf{exploración del espacio de soluciones}.
+Al combinar diversas heurísticas, permiten encontrar soluciones aproximadas en tiempos razonables, lo que las convierte
+en una herramienta especialmente útil cuando la obtención de una solución exacta resulta inviable desde el punto de
+vista computacional. \\[6pt]
 
-Este trabajo de fin de grado busca utilizar el uso de metaheurísticas para hacer una selección inteligente de ejemplos
-para reducir los datos de entrenamiento manteniendo, en la medida de lo posible, los buenos resultados del
-entrenamiento.
-La investigación pretende abrir nuevas vías para el desarrollo de modelos más \textbf{eficientes}, accesibles y
-económicamente viables, lo que favorecerá un futuro en el que la inteligencia artificial sea \textbf{inclusiva} y más
+Por tanto, las metaheurísticas se posicionan como una alternativa sólida para mejorar la eficiencia y accesibilidad del
+aprendizaje profundo, incluso en contextos con recursos limitados.
+Esto resulta fundamental para avanzar hacia una inteligencia artificial más abierta, \textbf{democrática} y aplicable
+en una mayor variedad de escenarios. \\[6pt]
+
+
+Este Trabajo de Fin de Grado tiene como objetivo aplicar técnicas metaheurísticas para realizar una selección
+inteligente de ejemplos, con el fin de reducir el tamaño de los conjuntos de entrenamiento sin que ello afecte
+significativamente a los resultados obtenidos.
+La investigación aspira a contribuir al desarrollo de modelos más \textbf{eficientes}, accesibles y económicamente
+sostenibles, fomentando así un futuro en el que la inteligencia artificial sea más \textbf{inclusiva} y
 \textbf{sostenible}. \\[6pt]
 
 \section{Objetivos}\label{sec:objetivos}
