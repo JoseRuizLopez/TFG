@@ -37,8 +37,8 @@ if __name__ == "__main__":
 
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 25, 50, 75]
-    evaluaciones_maximas = 13
-    evaluaciones_maximas_sin_mejora = 13
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
     add_100 = False
 
     metric: MetricList = MetricList.ACCURACY
