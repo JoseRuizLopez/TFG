@@ -1,5 +1,0 @@
-Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-genetico3,0.1,0:10:10,0.8602,0.8659,0.8602,0.859,13,0.1,0.381,0.3254,0.2937
-genetico3,0.25,0:16:05,0.8118,0.8294,0.8118,0.803,13,0.25,0.3365,0.3429,0.3206
-genetico3,0.5,0:29:54,0.8145,0.8317,0.8145,0.8084,13,0.5,0.3484,0.3159,0.3357
-genetico3,0.75,0:44:08,0.8091,0.8283,0.8091,0.8049,13,0.75,0.336,0.3323,0.3317

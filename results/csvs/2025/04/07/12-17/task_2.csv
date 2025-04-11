@@ -1,6 +1,0 @@
-Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-free busqueda local,0.06,0:03:43,0.8602,0.868,0.8602,0.8544,13,0.0599,0.3841,0.3245,0.2914
-genetico3,0.1,0:05:16,0.8602,0.8659,0.8602,0.859,13,0.1,0.381,0.3254,0.2937
-genetico3,0.25,0:10:56,0.8118,0.8294,0.8118,0.803,13,0.25,0.3365,0.3429,0.3206
-genetico3,0.5,0:21:55,0.8145,0.8317,0.8145,0.8084,22,0.5,0.3484,0.3159,0.3357
-genetico3,0.75,0:32:03,0.8118,0.8287,0.8118,0.8082,22,0.75,0.3434,0.3307,0.3259
