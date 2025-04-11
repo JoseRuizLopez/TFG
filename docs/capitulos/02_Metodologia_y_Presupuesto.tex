@@ -1,99 +1,60 @@
 \chapter{Metodología y Presupuesto}\label{ch:metodologia-y-presupuesto}
 \section{Metodología}\label{sec:metodologia}
-La metodología adoptada para el desarrollo de este proyecto ha estado inspirada en el marco ágil
-\textbf{Scrum}~\cite{noauthor_scrum_nodate}, una estrategia ampliamente utilizada en proyectos que requieren
-flexibilidad, adaptabilidad y entregas incrementales.
-Dado que un trabajo de investigación como este demanda constantes ajustes en función de los hallazgos y resultados
-obtenidos, Scrum ha sido el marco adecuado para organizar el desarrollo de manera iterativa y colaborativa, facilitando
-la mejora continua durante el proceso.
+Para organizar el desarrollo del proyecto se optó por una metodología inspirada en el marco ágil
+\textbf{Scrum}~\cite{noauthor_scrum_nodate}, ampliamente utilizado en entornos donde se requiere adaptación constante y
+entregas progresivas.
+Al tratarse de un trabajo de investigación que ha ido evolucionando a medida que se obtenían resultados, este enfoque
+resultó adecuado para mantener una estructura flexible y avanzar de forma iterativa.
 
-\subsection{Metodología Ágil Inspirada en Scrum}\label{subsec:metodologia-agil-inspirada-en-scrum}
-El desarrollo del proyecto se organizó en \textbf{sprints}, que consistían en ciclos cortos de
-trabajo (de dos semanas, generalmente), donde se definían objetivos concretos al inicio y se revisaban los avances al
-final de cada sprint.
-Esto permitió adaptar el trabajo de acuerdo con los descubrimientos y problemas emergentes a lo largo del proyecto.
+\subsection{Enfoque Ágil Basado en Scrum}\label{subsec:enfoque-agil-basado-en-scrum}
+El proyecto se dividió en ciclos de trabajo breves (\textbf{sprints}), generalmente de dos semanas.
+Cada sprint comenzaba con una planificación en la que se establecían objetivos concretos y finalizaba con una revisión
+para evaluar el progreso y hacer ajustes si era necesario.
+Esta dinámica permitió mantener un ritmo constante, al tiempo que se dejaba margen para adaptarse a posibles
+imprevistos o nuevas ideas surgidas durante el desarrollo.
 
-\subsection{Gestión de Tareas}
-\label{subsec:gestion-de-tareas}
-Para mantener un control eficiente del progreso del proyecto, se utilizaron herramientas de gestión de tareas de forma
-personal como \textbf{Notion}~\cite{noauthor_notion_nodate}, donde se organizaban las actividades de cada sprint.
-Estas plataformas permitieron visualizar el estado de cada tarea y establecer plazos de entrega, promoviendo un flujo
-de trabajo estructurado y ágil.\\[6pt]
+\subsection{Organización de Tareas}\label{subsec:organizacion-de-tareas}
+Para gestionar las tareas de forma ordenada, se utilizó \textbf{Notion}~\cite{noauthor_notion_nodate} como herramienta
+personal de planificación.
+Esta plataforma facilitó la visualización de las actividades pendientes y cumplidas, lo que ayudó a no perder de vista
+los plazos y prioridades de cada fase. \\[6pt]
 
-Además, el uso de \textbf{Git}~\cite{chacon_pro_2014} como herramienta para el control de versiones fue clave en la
-gestión de los avances de desarrollo.
-Git permitió mantener un registro preciso de cada cambio en el código y los algoritmos, facilitando la colaboración con
-el tutor y garantizando una trazabilidad eficiente de los ajustes realizados durante cada iteración.
-Gracias a Git, se pudo revisar, deshacer y modificar el código de forma ágil, integrando nuevos enfoques o mejoras de
-manera controlada tras cada sprint.\\[6pt]
-
-Asimismo, se empleó \textbf{GitHub} como repositorio central del código, facilitando la colaboración y el control de
-versiones.
-Gracias a esta herramienta, fue posible llevar un historial detallado de los cambios, realizar revisiones de código y
-gestionar ramas de desarrollo de manera efectiva.
+En paralelo, se empleó \textbf{Git}~\cite{chacon_pro_2014} para el control de versiones del código, lo que resultó
+fundamental para mantener un seguimiento detallado de los cambios realizados en cada etapa del proyecto.
+También se utilizó \textbf{GitHub} como repositorio central, facilitando así la colaboración con el tutor y permitiendo
+una trazabilidad clara de todas las modificaciones. \\[6pt]
 
 \subsection{Ciclos de Trabajo}\label{subsec:ciclos-de-trabajo}
-El desarrollo del proyecto se llevó a cabo mediante un enfoque iterativo basado en la metodología \textit{Scrum}, con
-el propósito de garantizar una evolución progresiva del sistema y una adaptación eficiente a los desafíos encontrados
-durante su implementación.
-Para ello, el trabajo se organizó en \textbf{sprints}, cada uno con una duración aproximada de dos semanas.\\[6pt]
+Los sprints se estructuraron en varias fases, que se repetían en cada iteración:
 
-Cada sprint se estructuró en diferentes fases que permitieron planificar, ejecutar, evaluar y documentar los avances de
-manera sistemática.
-A continuación, se describen en detalle cada una de estas fases:
+\begin{itemize}
+    \item \textbf{Planificación}: En esta etapa se definían los objetivos del sprint, basándose en lo ya realizado y en
+las tareas pendientes más prioritarias.
+El análisis del \textbf{backlog} permitía seleccionar actividades realistas que se pudieran completar en el plazo
+previsto.
 
-\subsubsection{Planificación del Sprint}
-Al inicio de cada sprint, se realizaba una sesión de planificación en la que se definían los objetivos específicos para
-el período.
-En esta etapa, se revisaban los avances del sprint anterior, se priorizaban tareas pendientes y se establecían nuevos
-hitos de acuerdo con las necesidades del proyecto.
-Esta planificación se basaba en un análisis del \textit{backlog}, asegurando que las actividades seleccionadas fueran
-alcanzables dentro del tiempo estipulado.
+    \item \textbf{Desarrollo e implementación}: Se ejecutaban las tareas previstas, como la programación de nuevos
+módulos, mejoras en algoritmos o la integración de componentes.
+El enfoque fue incremental, es decir, se añadían funcionalidades poco a poco, asegurando que cada avance se pudiera
+probar por separado.
 
-\subsubsection{Desarrollo e Implementación}
-Durante esta fase, se llevaba a cabo la ejecución de las tareas planificadas.
-Dependiendo de los objetivos del sprint, esto podía incluir la implementación de nuevos módulos, la optimización de
-algoritmos, la integración de componentes o la corrección de errores identificados en iteraciones previas.\\[6pt]
+    \item \textbf{Pruebas y ajustes}: Una vez desarrolladas las funcionalidades, se realizaban pruebas (unitarias, de
+integración o empíricas) para validar el funcionamiento del sistema y ajustar parámetros si era necesario.
+A veces, los resultados de esta fase daban lugar a nuevas tareas que se añadían al backlog.
 
-La estrategia de trabajo se basó en la implementación incremental, donde cada nueva funcionalidad se agregaba de manera
-progresiva, permitiendo pruebas y validaciones continuas.
+    \item \textbf{Revisión y análisis de resultados}: Al finalizar el sprint, se revisaban los objetivos cumplidos, se
+analizaban los resultados obtenidos y se valoraba la necesidad de replantear enfoques.
+Esta revisión también ayudaba a identificar puntos de mejora y reforzar los que ya funcionaban bien.
 
-\subsubsection{Pruebas y Ajustes}
-Una vez desarrolladas las funcionalidades previstas en cada sprint, se procedía a la fase de pruebas.
-En este punto, se aplicaban diferentes estrategias de evaluación, como pruebas unitarias, pruebas de integración y
-validaciones experimentales, con el fin de verificar el correcto funcionamiento del sistema y detectar posibles fallos
-o áreas de mejora.\\[6pt]
-
-Durante esta etapa, también se realizaban ajustes en los parámetros de los algoritmos y en la configuración del sistema
-para optimizar el rendimiento.
-En algunos casos, los resultados de las pruebas conducían a la identificación de nuevas tareas o mejoras que se
-incorporaban en el \textit{backlog} para ser abordadas en sprints posteriores.
-
-\subsubsection{Revisión y Análisis de Resultados}
-Al finalizar cada sprint, se realizaba una revisión en la que se analizaban los resultados obtenidos.
-Se comparaban los avances con los objetivos planteados en la fase de planificación y se identificaban los logros
-alcanzados, así como los aspectos que requerían mayor atención en futuras iteraciones.
-Esta revisión permitía evaluar la efectividad de las estrategias implementadas y ajustar el enfoque del proyecto en
-función de los aprendizajes obtenidos.\\[6pt]
-
-Además, se documentaban los principales hallazgos y se generaban representaciones visuales, como gráficas y tablas,
-para facilitar la comparación de los algoritmos, las pruebas y los resultados, proporcionando una visión clara de
-la evolución del desarrollo.
-
-\subsubsection{Documentación}
-Un aspecto fundamental del proceso fue la documentación continua de cada sprint.
-Esto incluyó la elaboración de registros detallados sobre las modificaciones en el código, los cambios en la
-arquitectura del sistema, los resultados de las pruebas y los ajustes realizados en la configuración.\\[6pt]
-
-La documentación también abarcó la justificación de decisiones técnicas, lo que permitió mantener una trazabilidad
-clara del desarrollo.
-Esto fue particularmente útil para garantizar la reproducibilidad de los experimentos y facilitar la generación de la
-memoria del proyecto.
+    \item \textbf{Documentación}: Durante todo el proceso se fue registrando la evolución del proyecto, desde los
+cambios en el código hasta los resultados de las pruebas.
+Este esfuerzo permitió tener una memoria bien estructurada, facilitar la reproducción de experimentos y justificar cada
+decisión tomada.
+\end{itemize}
 
 
 \newpage
-\subsection{Visualización del Progreso}\label{subsec:visualizacion-del-progreso}
-
+\subsection{Seguimiento del Progreso}\label{subsec:seguimiento-del-progreso}
 
 \begin{figure}[htp]
 \definecolor{sprint_color1}{RGB}{51,102,254} % Azul oscuro para Sprint 1
@@ -168,24 +129,22 @@ memoria del proyecto.
     \end{ganttchart}
 }
 \caption{
-Diagrama de Gantt que ilustra la planificación del proyecto. Cada barra representa un sprint, incluyendo sus fases
-de planificación, desarrollo, pruebas y revisión. Las líneas verticales indican el día en relación con el
-cronograma establecido.
+Diagrama de Gantt que muestra la planificación de dos sprints del proyecto, con sus respectivas fases: planificación,
+desarrollo, pruebas, revisión y documentación. Este esquema ilustra la estructura iterativa seguida durante el
+desarrollo.
 }\label{fig:gantt-diagram}
 \end{figure}
 
-En la Figura~\ref{fig:gantt-diagram} se presenta el \textit{Diagrama de Gantt} del proyecto, donde se detallan dos
-sprints junto con sus respectivas fases.
-Si bien el proyecto ha consistido en múltiples sprints debido a su naturaleza iterativa, en este diagrama se han
-seleccionado únicamente dos como ejemplo representativo del proceso de desarrollo.
-Esta representación permite visualizar la distribución del tiempo y las interdependencias entre las distintas etapas,
-proporcionando un seguimiento claro del progreso alcanzado.
+Para tener una visión clara del avance del proyecto, se elaboró un \textbf{diagrama de Gantt}~[\ref{fig:gantt-diagram}]
+que recogía dos sprints como ejemplo del proceso general.
+En él se reflejan las distintas fases mencionadas, así como la duración aproximada de cada una.
+Aunque se realizaron más sprints a lo largo del trabajo, este diagrama sirve como muestra del esquema de planificación
+utilizado.
 
-\subsection{Adaptación del Tiempo de los Sprints}\label{subsec:adaptacion-del-tiempo-de-los-sprints}
-Debido a ciertos retrasos en el desarrollo del TFG, fue necesario ajustar la duración de los sprints para asegurarse de
-que todas las fases y pruebas del proyecto se completaran a tiempo.
-La flexibilidad de Scrum y el uso de Git para coordinar versiones y tareas pendientes permitieron reorganizar las
-prioridades y garantizar que los objetivos del proyecto fueran alcanzados sin comprometer la calidad de los resultados.
+\subsection{Ajuste de los Tiempos}\label{subsec:ajuste-de-los-tiempos}
+Durante el desarrollo surgieron algunos retrasos que obligaron a reajustar los tiempos previstos para los sprints.
+Gracias a la flexibilidad que permite \textbf{Scrum} y al uso de herramientas como \textbf{Git}, fue posible
+reorganizar prioridades y redistribuir tareas para poder llegar a los objetivos sin comprometer la calidad del trabajo.
 
 \section{Presupuesto}\label{sec:presupuesto}
 El presupuesto estimado incluye tanto el tiempo dedicado al proyecto (mano de obra) como los recursos computacionales y
