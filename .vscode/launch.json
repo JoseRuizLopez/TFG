@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    //   {
+    //     "name": "Run main sin argumentos",
+    //     "type": "debugpy",
+    //     "request": "launch",
+    //     "program": "${workspaceFolder}/main.py",
+    //     "console": "integratedTerminal"
+    //   },
+      {
+        "name": "Run Generador",
+        "type": "debugpy",
+        "request": "launch",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        },
+        "program": "${workspaceFolder}/src/generator.py",
+        "console": "integratedTerminal",
+        "args": ["--task_id", "-1", "--MODELO", "mobilenet"]
+      },
+      {
+        "name": "Run BoxPlot",
+        "type": "debugpy",
+        "request": "launch",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        },
+        "program": "${workspaceFolder}/src/generar_boxplot.py",
+        "console": "integratedTerminal",
+        "args": ["--FECHA_ACTUAL", "2025/03/19/12-26", "--MODELO", "mobilenet"]
+      }
+    ]
+  }
+  
