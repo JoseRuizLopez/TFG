@@ -60,4 +60,4 @@ fi
 echo "Running boxplot generation with parameters: ${PYTHON_ARGS[@]}"
 
 # Execute the Python script with the parameters
-python src/generar_boxplot.py "${PYTHON_ARGS[@]}"
+python src/generar_plots.py "${PYTHON_ARGS[@]}"

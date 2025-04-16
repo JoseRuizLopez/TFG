@@ -3,7 +3,7 @@ import os
 import matplotlib
 matplotlib.use('Agg')
 
-from src.pruebas import generate_boxplot_from_csvs
+from src.pruebas import generate_plots_from_csvs
 
 
 if __name__ == "__main__":
@@ -24,4 +24,4 @@ if __name__ == "__main__":
 
     archivos_csv = [f"{path}/{f}" for f in os.listdir(path) if f.startswith("task_")]
 
-    generate_boxplot_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)
+    generate_plots_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)

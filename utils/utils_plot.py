@@ -178,7 +178,7 @@ def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: 
     # plt.show()
 
 
-def generate_boxplot_from_csvs(
+def generate_plots_from_csvs(
     archivos_csv=[
         "results/csvs/resultados_2025-02-23_17-06_task_-1.csv"
     ],
@@ -212,8 +212,8 @@ def generate_boxplot_from_csvs(
     if carpeta_img is not None:
         filename1 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-porcentaje.png'
         filename2 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-algoritmo.png'
-        filename3 = f'{carpeta_img}/{modelo_name}-balance-de-clases-por-algoritmo.png'
-        filename4 = f'{carpeta_img}/{modelo_name}-porcentaje-inical-vs-final-por-algoritmo.png'
+        filename3 = f'{carpeta_img}/{modelo_name}-BARPLOT-balance-de-clases-por-algoritmo.png'
+        filename4 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inical-vs-final-por-algoritmo.png'
     else:
         filename1 = filename2 = filename3 = None
 

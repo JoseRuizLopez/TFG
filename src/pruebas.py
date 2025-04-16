@@ -3,7 +3,7 @@ import re
 
 from openpyxl import Workbook
 
-from utils.utils_plot import generate_boxplot_from_csvs
+from utils.utils_plot import generate_plots_from_csvs
 
 
 def generate_excel_by_salidas(
@@ -134,4 +134,4 @@ if __name__ == "__main__":
     path = "results/csvs/2025/04/03/14-23/"
     archivos_csv = [path + f for f in os.listdir(path) if f.startswith("task_")]
 
-    generate_boxplot_from_csvs(archivos_csv, None, modelo_name="mobilenet")
+    generate_plots_from_csvs(archivos_csv, None, modelo_name="mobilenet")

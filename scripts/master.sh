@@ -68,7 +68,7 @@ fi
 echo "Job array submitted with ID: $JOBID"
 
 # Submit the final job with dependency
-BOXPLOT_JOB=$(sbatch --dependency=afterok:$JOBID --export="$EXPORT_VARS" scripts/generar_boxplot.sh | awk '{print $4}')
+BOXPLOT_JOB=$(sbatch --dependency=afterok:$JOBID --export="$EXPORT_VARS" scripts/generar_plots.sh | awk '{print $4}')
 if [ -z "$BOXPLOT_JOB" ]; then
     echo "Error: Failed to submit boxplot job"
     exit 1
