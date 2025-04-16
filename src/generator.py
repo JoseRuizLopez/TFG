@@ -39,7 +39,7 @@ if __name__ == "__main__":
     porcentajes = [10, 25, 50, 75]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = True
+    add_100 = False
 
     metric: MetricList = MetricList.ACCURACY
     dataset_choosen: DatasetList = DatasetList.RPS
@@ -76,7 +76,7 @@ if __name__ == "__main__":
             algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
             metric=metric.value,
             model_name=modelo.value,
-            vary_percentage=False
+            vary_percentage=True
         )
 
         resultados.append(
