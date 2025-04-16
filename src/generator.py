@@ -39,7 +39,7 @@ if __name__ == "__main__":
     porcentajes = [10, 25, 50, 75]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = False
+    add_100 = True
 
     metric: MetricList = MetricList.ACCURACY
     dataset_choosen: DatasetList = DatasetList.RPS
