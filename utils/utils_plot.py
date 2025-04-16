@@ -126,11 +126,59 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     if filename is not None:
         plt.savefig(filename)
 
-    plt.show()
+    # plt.show()
+
+    
+def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: list | None = None, filename: str | None = None):
+    """
+    Genera un gráfico de barras comparando porcentajes agrupados por algoritmo.
+
+    Args:
+        df: DataFrame con los datos.
+        tipo: Tipo de gráfico. Puede ser:
+              - "inicial_final" para comparar Porcentaje Inicial vs Final.
+              - "clases" para mostrar balance de clases por algoritmo.
+        columnas_clase: Lista de columnas de clases, solo necesario si tipo == "clases".
+        filename: Nombre del archivo de salida (opcional).
+    """
+    if "Algoritmo" not in df.columns:
+        raise ValueError("El DataFrame debe contener la columna 'Algoritmo'.")
+
+    if tipo == "inicial_final":
+        if "Porcentaje Inicial" not in df.columns or "Porcentaje Final" not in df.columns:
+            raise ValueError("Faltan columnas 'Porcentaje Inicial' o 'Porcentaje Final'.")
+        df_melt = df.melt(id_vars=["Algoritmo"], value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+                          var_name="Tipo", value_name="Porcentaje")
+        titulo = "Porcentaje Inicial vs Final por Algoritmo"
+        hue_col = "Tipo"
+
+    elif tipo == "clases":
+        if not columnas_clase:
+            raise ValueError("Debes proporcionar 'columnas_clase' cuando tipo='clases'.")
+        df_melt = df.melt(id_vars=["Algoritmo"], value_vars=columnas_clase,
+                          var_name="Clase", value_name="Porcentaje")
+        titulo = "Distribución de Clases por Algoritmo"
+        hue_col = "Clase"
+
+    else:
+        raise ValueError("El parámetro 'tipo' debe ser 'inicial_final' o 'clases'.")
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col, errorbar=None)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+    plt.title(titulo)
+    plt.ylabel("Porcentaje (%)")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    if filename:
+        plt.savefig(filename)
+        print(f"Gráfico guardado en {filename}.")
+
+    # plt.show()
 
 
 def generate_boxplot_from_csvs(
-    # Lista de archivos CSV
     archivos_csv=[
         "results/csvs/resultados_2025-02-23_17-06_task_-1.csv"
     ],
@@ -138,35 +186,25 @@ def generate_boxplot_from_csvs(
     modelo_name: str | None = None,
 ):
     path_media = os.path.dirname(archivos_csv[0])
-
-    # Lista para almacenar cada DataFrame
     dataframes = []
 
-    # Especificar las columnas que deberían ser numéricas
     columnas_numericas = ["Accuracy", "Precision", "Recall", "F1-score",
                           "Evaluaciones", "Porcentaje"]
 
-    # Cargar cada archivo CSV y forzar las columnas numéricas
     for archivo in archivos_csv:
         df = pd.read_csv(archivo)
-
         for col in df.columns:
             if col.split(' ')[0] in columnas_numericas:
                 df[col] = pd.to_numeric(df[col], errors='coerce')
-
-        df['Duracion'] = pd.to_timedelta(df['Duracion'])
-
+        df['Duracion'] = pd.to_timedelta(df['Duracion'], errors='coerce')
         dataframes.append(df)
 
     # Concatenar todos los DataFrames
     df_concatenado = pd.concat(dataframes)
 
-    # Calcular la media solo de las columnas especificadas
-    df_media = df_concatenado.groupby(["Algoritmo", "Porcentaje Inicial"]).mean()
+    df_concatenado.to_csv(f'{path_media}/concatenado.csv', index=True)
 
-    df_media.to_csv(f'{path_media}/media.csv', index=True)
-
-    df = pd.read_csv(f'{path_media}/media.csv')
+    df = pd.read_csv(f'{path_media}/concatenado.csv')
 
     if modelo_name is None:
         modelo_name = ""
@@ -174,30 +212,40 @@ def generate_boxplot_from_csvs(
     if carpeta_img is not None:
         filename1 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-porcentaje.png'
         filename2 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-algoritmo.png'
+        filename3 = f'{carpeta_img}/{modelo_name}-balance-de-clases-por-algoritmo.png'
+        filename4 = f'{carpeta_img}/{modelo_name}-porcentaje-inical-vs-final-por-algoritmo.png'
     else:
-        filename1 = None
-        filename2 = None
+        filename1 = filename2 = filename3 = None
 
-    # ====== Boxplot 1: Fijando Algoritmo, variando Porcentaje Inicial ======
+
+    # ====== Boxplot 1: Accuracy vs Porcentaje Inicial ======
     plot_boxplot(
         df=df,
-        metric="Accuracy",  # O "Precision"
+        metric="Accuracy",
         eje_x="Porcentaje Inicial",
         hue=None,
         title="Comparación de Accuracy según Porcentaje Inicial y Algoritmo",
         filename=filename1
     )
 
-    # ====== Boxplot 2: Fijando Porcentaje Inicial, variando Algoritmo ======
+    # ====== Boxplot 2: Accuracy vs Algoritmo ======
     plot_boxplot(
         df=df,
-        metric="Accuracy",  # O "Precision"
+        metric="Accuracy",
         eje_x="Algoritmo",
         hue=None,
         title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
         filename=filename2
     )
 
-    print(
-        f"Los Boxplot se han guardado en {filename1} y {filename2}."
-    )
+    if filename1 and filename2:
+        print(f"Los Boxplot se han guardado en {filename1} y {filename2}.")
+        
+
+    columnas_clase = [col for col in df.columns if col.startswith("Porcentaje ") and col not in ["Porcentaje Inicial", "Porcentaje Final"]]
+    
+    if "Porcentaje Final" in df.columns and len(columnas_clase) > 1:
+        plot_porcentajes_por_algoritmo(df, tipo="clases", columnas_clase=columnas_clase, filename=filename3)
+        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4)
+        
+        print("Se han generado los diagramas de barras.")

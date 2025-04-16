@@ -1,5 +1,7 @@
 import argparse
 import os
+import matplotlib
+matplotlib.use('Agg')
 
 from src.pruebas import generate_boxplot_from_csvs
 
