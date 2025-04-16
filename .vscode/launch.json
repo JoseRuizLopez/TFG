@@ -28,7 +28,7 @@
         },
         "program": "${workspaceFolder}/src/generar_boxplot.py",
         "console": "integratedTerminal",
-        "args": ["--FECHA_ACTUAL", "2025/03/19/12-26", "--MODELO", "mobilenet"]
+        "args": ["--FECHA_ACTUAL", "2025/04/13/19-50", "--MODELO", "mobilenet"]
       }
     ]
   }

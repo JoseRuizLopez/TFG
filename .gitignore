@@ -180,3 +180,8 @@ docs/out/*.gz
 /docs/out/proyecto.run.xml
 /docs/out/TFG_joseruiz_v1.pdf
 /docs/out/TFG_joseruiz_v2.pdf
+.idea
+docs/out/desarrollo_experimental.pdf
+docs/out/proyecto_gpt.pdf
+docs/capitulos/02_Metodologia_y_Presupuesto_old.tex
+resultados_algoritmos_horizontal_con_fitness_unificado.xlsx
