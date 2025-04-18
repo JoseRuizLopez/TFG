@@ -86,44 +86,43 @@ def plot_multiple_fitness_evolution(
     plt.close()
 
 
-def plot_min_max_lines(df: pd.DataFrame | pl.DataFrame, y_col, x_col):
-    # Convertir a pandas si es un DataFrame de polars (porque matplotlib funciona mejor con pandas)
-    if isinstance(df, pl.DataFrame):
-        # df = df.to_pandas()  # No disponible por la version de polars
-        df = pd.DataFrame(df.to_dict())
+def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
+    grouped = df.groupby(x_col)[y_col].agg(['min', 'max']).reset_index()
 
-    # Obtener los valores mínimo y máximo por cada categoría en x_col
-    grouped = df.groupby(x_col)[y_col].agg(['min', 'max'])
+    # Obtener lo que se ve realmente en el eje X
+    xlabels = [tick.get_text() for tick in ax.get_xticklabels()]
+    xticks = ax.get_xticks()
+    positions = dict(zip(xlabels, xticks))
 
-    # Iterar sobre cada categoría
-    for i, (cat, values) in enumerate(grouped.iterrows()):
-        min_val, max_val = values['min'], values['max']
+    for _, row in grouped.iterrows():
+        cat = str(row[x_col])
+        min_val = row['min']
+        max_val = row['max']
 
-        # Dibujar líneas horizontales en los valores min y max
-        plt.plot([i - 0.2, i + 0.2], [min_val, min_val], color='red', lw=2)
-        plt.plot([i - 0.2, i + 0.2], [max_val, max_val], color='blue', lw=2)
-
-        # Anotar los valores exactos
-        plt.text(i, min_val, f'{min_val:.3f}', ha='center', va='top', fontsize=10, color='red')
-        plt.text(i, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=10, color='blue')
+        if cat in positions:
+            xpos = positions[cat]
+            ax.hlines(min_val, xpos - 0.2, xpos + 0.2, color='red', lw=2)
+            ax.hlines(max_val, xpos - 0.2, xpos + 0.2, color='blue', lw=2)
+            ax.text(xpos, min_val, f'{min_val:.3f}', ha='center', va='top', fontsize=9, color='red')
+            ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=9, color='blue')
 
 
 def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
+    plt.figure(figsize=(12, 6))
+    ax = sns.boxplot(data=df, x=eje_x, y=metric.title())
 
-    plt.figure(figsize=(10, 6))
-
-    sns.boxplot(data=df, x=eje_x, y=metric.title())
-
+    plt.xticks(rotation=30, ha="right")
     plt.title(title)
     plt.xlabel(eje_x)
     plt.ylabel(metric.title())
     if hue:
         plt.legend(title=hue, bbox_to_anchor=(1.05, 1), loc='best')
 
-    plot_min_max_lines(df, metric, eje_x)
+    plot_min_max_lines(df, metric.title(), eje_x, ax)
 
     plt.grid(True)
-    if filename is not None:
+    plt.tight_layout()
+    if filename:
         plt.savefig(filename)
 
     # plt.show()

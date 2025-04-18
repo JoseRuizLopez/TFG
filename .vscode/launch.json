@@ -28,7 +28,7 @@
         },
         "program": "${workspaceFolder}/src/generar_plots.py",
         "console": "integratedTerminal",
-        "args": ["--FECHA_ACTUAL", "2025/04/13/19-50", "--MODELO", "mobilenet"]
+        "args": ["--FECHA_ACTUAL", "primera-ejecucion-algoritmos-con-porcentaje", "--MODELO", "mobilenet"]
       }
     ]
   }
