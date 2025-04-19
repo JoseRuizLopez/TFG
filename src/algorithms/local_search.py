@@ -4,14 +4,14 @@ from utils.utils import crear_dict_imagenes
 from utils.utils import fitness
 
 
-def generate_neighbor(current_selection, neighbor_percent, vary_percentage: bool = False):
+def generate_neighbor(current_selection, neighbor_percent, adjust_size: bool = False):
     """
     Genera un vecino modificando la selección actual de imágenes.
 
     Args:
         current_selection (dict): Diccionario con nombres de imágenes como keys y 0/1 como values
         neighbor_percent (float): Porcentaje mínimo de los vecinos que cambia
-        vary_percentage (bool): Indica si debe de mantener el número de imágenes seleccionadas
+        adjust_size (bool): Indica si debe de mantener el número de imágenes seleccionadas
 
     Returns:
         dict: Nueva selección de imágenes
@@ -26,7 +26,7 @@ def generate_neighbor(current_selection, neighbor_percent, vary_percentage: bool
     modifications_number = int(min(0.15 * len(neighbor), len(selected_images) * neighbor_percent))
 
     # Realizar las modificaciones
-    if vary_percentage:
+    if adjust_size:
         for _ in range(modifications_number):
             if not selected_images or not unselected_images:
                 break
@@ -76,7 +76,7 @@ def local_search(
     max_evaluations_without_improvement: int = 20,
     neighbor_size: int = 10,
     metric: str = "accuracy",
-    vary_percentage: bool = False,
+    adjust_size: bool = False,
     model_name: str = "resnet"
 ) -> tuple[dict, float, list, list, int]:
     """
@@ -89,7 +89,7 @@ def local_search(
         max_evaluations_without_improvement: Criterio de parada si no hay mejoras
         neighbor_size: Número de cambios para generar cada vecino
         metric: Métrica a optimizar ("accuracy" o "f1")
-        vary_percentage: Indica si el porcentaje de imágenes seleccionadas va a variar
+        adjust_size: Indica si el porcentaje de imágenes seleccionadas va a variar
         model_name: Nombré del modelo a usar
 
     Returns:
@@ -111,7 +111,7 @@ def local_search(
 
     while evaluations_done < max_evaluations:
         # Generar y evaluar vecino
-        neighbor = generate_neighbor(current_solution, neighbor_size, vary_percentage)
+        neighbor = generate_neighbor(current_solution, neighbor_size, adjust_size)
         neighbor_fitness_dict = fitness(dict_selection=neighbor, model_name=model_name, evaluations=evaluations_done)
         neighbor_fitness = neighbor_fitness_dict[metric.title()]
         evaluations_done += 1

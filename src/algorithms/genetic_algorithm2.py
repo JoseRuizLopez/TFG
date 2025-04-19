@@ -5,7 +5,7 @@ from utils.utils import fitness
 from utils.utils import mutation
 
 
-def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: float) -> tuple[dict, dict]:
+def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: float, adjust_size: bool = False) -> tuple[dict, dict]:
     """
     Realiza el cruce entre dos padres donde:
     - El primer hijo toma un porcentaje de imágenes de cada padre basado en sus fitness
@@ -49,7 +49,16 @@ def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: 
     selected2 = set(img for img, val in parent2.items() if val == 1)
 
     # Calcular el número total de imágenes que deben ser seleccionadas
-    target_selected = len(selected1)
+    default_target = len(selected1)
+    if adjust_size:
+        min_size = int(default_target * 0.5)
+        max_size = int(default_target * 1.5)
+        target_selected = random.randint(min_size, max_size)
+    else:
+        target_selected = default_target
+
+    print("Default_target: " + str(default_target))
+    print("Selected_target: " + str(target_selected))
 
     # Calcular los pesos basados en el fitness
     total_fitness = fitness1 + fitness2
@@ -113,7 +122,8 @@ def genetic_algorithm2(
     tournament_size: int = 4,
     mutation_rate: float = 0.05,
     metric: str = "accuracy",
-    model_name: str = "resnet"
+    model_name: str = "resnet",
+    adjust_size: bool = False
 ) -> tuple[dict, float, list, list, int]:
     """
     Algoritmo genético mejorado que da más peso a mejores padres y selecciona el mejor hijo.
@@ -156,7 +166,7 @@ def genetic_algorithm2(
             fitness2 = fitness_values[parent2_idx]
 
             # Generar hijos usando weighted_crossover
-            child1, child2 = weighted_crossover(parent1, parent2, fitness1, fitness2)
+            child1, child2 = weighted_crossover(parent1, parent2, fitness1, fitness2, adjust_size)
 
             child1 = mutation(child1, mutation_rate)
             child2 = mutation(child2, mutation_rate)

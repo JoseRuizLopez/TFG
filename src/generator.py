@@ -76,7 +76,7 @@ if __name__ == "__main__":
             algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
             metric=metric.value,
             model_name=modelo.value,
-            vary_percentage=True
+            adjust_size=True
         )
 
         resultados.append(
@@ -95,7 +95,8 @@ if __name__ == "__main__":
                     max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
                     algoritmo=alg.value,
                     metric=metric.value,
-                    model_name=modelo.value
+                    model_name=modelo.value,
+                    adjust_size=True
                 )
 
                 resultados.append(

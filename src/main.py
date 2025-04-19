@@ -54,7 +54,7 @@ def main(
     algoritmo: str = "memetico",
     metric: str = "accuracy",
     model_name: str = "resnet",
-    vary_percentage: bool = False
+    adjust_size: bool = False
 ):
     config = ConfiguracionGlobal()
 
@@ -94,7 +94,7 @@ def main(
             max_evaluations_without_improvement=max_evaluations_without_improvement,
             metric=metric,
             model_name=model_name,
-            # vary_percentage=vary_percentage
+            # adjust_size=adjust_size
         )
     elif "busqueda local" in algoritmo:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
@@ -105,7 +105,7 @@ def main(
             neighbor_size=10,
             metric=metric,
             model_name=model_name,
-            vary_percentage=vary_percentage
+            adjust_size=adjust_size
         )
     elif algoritmo == "genetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
@@ -118,7 +118,7 @@ def main(
             mutation_rate=0.1,
             metric=metric,
             model_name=model_name,
-            # vary_percentage=vary_percentage
+            # adjust_size=adjust_size
         )
     elif algoritmo == "memetico":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
@@ -134,7 +134,7 @@ def main(
             local_search_neighbor_size=5,
             metric=metric,
             model_name=model_name,
-            # vary_percentage=vary_percentage
+            # adjust_size=adjust_size
         )
     elif algoritmo == "genetico2":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
@@ -147,7 +147,7 @@ def main(
             mutation_rate=0.05,
             metric=metric,
             model_name=model_name,
-            # vary_percentage=vary_percentage
+            adjust_size=adjust_size
         )
     elif algoritmo == "genetico3":
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
@@ -161,7 +161,7 @@ def main(
                 mutation_rate=0.05,
                 metric=metric,
                 model_name=model_name,
-                # vary_percentage=vary_percentage
+                # adjust_size=adjust_size
             )
         )
 
