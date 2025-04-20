@@ -1,0 +1,1196 @@
+Task ID recibido: 3
+GPU: True
+
+
+--------------------------------------RPS  mobilenet  GENETICO2  10%-------------------------------------------------
+Start time: 2025-04-19 08:01:19.353754
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.00 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0153, Valid Loss: 0.8893
+Model saved!
+Epoch 2/10, Train Loss: 0.8217, Valid Loss: 0.7719
+Model saved!
+Epoch 3/10, Train Loss: 0.6984, Valid Loss: 0.7229
+Model saved!
+Epoch 4/10, Train Loss: 0.6007, Valid Loss: 0.7327
+Epoch 5/10, Train Loss: 0.4908, Valid Loss: 0.8111
+Epoch 6/10, Train Loss: 0.4359, Valid Loss: 0.7548
+Epoch 7/10, Train Loss: 0.4060, Valid Loss: 0.7545
+Epoch 8/10, Train Loss: 0.3425, Valid Loss: 0.7842
+Epoch 9/10, Train Loss: 0.3088, Valid Loss: 0.7697
+Epoch 10/10, Train Loss: 0.3189, Valid Loss: 0.8630
+Accuracy: 0.6989
+Precision: 0.7286
+Recall: 0.6989
+F1-score: 0.6525
+Porcentaje Final: 0.1000
+Porcentaje Scissors: 0.3452
+Porcentaje Rock: 0.3254
+Porcentaje Paper: 0.3294
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0058, Valid Loss: 0.9398
+Model saved!
+Epoch 2/10, Train Loss: 0.8334, Valid Loss: 0.7848
+Model saved!
+Epoch 3/10, Train Loss: 0.6993, Valid Loss: 0.7308
+Model saved!
+Epoch 4/10, Train Loss: 0.6017, Valid Loss: 0.7440
+Epoch 5/10, Train Loss: 0.4931, Valid Loss: 0.8123
+Epoch 6/10, Train Loss: 0.4447, Valid Loss: 0.7673
+Epoch 7/10, Train Loss: 0.4152, Valid Loss: 0.7013
+Model saved!
+Epoch 8/10, Train Loss: 0.3582, Valid Loss: 0.7004
+Model saved!
+Epoch 9/10, Train Loss: 0.3215, Valid Loss: 0.6648
+Model saved!
+Epoch 10/10, Train Loss: 0.3257, Valid Loss: 0.7150
+Accuracy: 0.6909
+Precision: 0.7456
+Recall: 0.6909
+F1-score: 0.6601
+Porcentaje Final: 0.1000
+Porcentaje Rock: 0.3452
+Porcentaje Paper: 0.3333
+Porcentaje Scissors: 0.3214
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0253, Valid Loss: 0.9305
+Model saved!
+Epoch 2/10, Train Loss: 0.8398, Valid Loss: 0.8170
+Model saved!
+Epoch 3/10, Train Loss: 0.7083, Valid Loss: 0.7826
+Model saved!
+Epoch 4/10, Train Loss: 0.6010, Valid Loss: 0.8309
+Epoch 5/10, Train Loss: 0.5032, Valid Loss: 0.9029
+Epoch 6/10, Train Loss: 0.4445, Valid Loss: 0.8351
+Epoch 7/10, Train Loss: 0.4074, Valid Loss: 0.7880
+Epoch 8/10, Train Loss: 0.3539, Valid Loss: 0.7048
+Model saved!
+Epoch 9/10, Train Loss: 0.3193, Valid Loss: 0.6654
+Model saved!
+Epoch 10/10, Train Loss: 0.3327, Valid Loss: 0.7589
+Accuracy: 0.7043
+Precision: 0.7598
+Recall: 0.7043
+F1-score: 0.6697
+Porcentaje Final: 0.1000
+Porcentaje Rock: 0.3452
+Porcentaje Scissors: 0.3452
+Porcentaje Paper: 0.3095
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0122, Valid Loss: 0.8670
+Model saved!
+Epoch 2/10, Train Loss: 0.8351, Valid Loss: 0.7489
+Model saved!
+Epoch 3/10, Train Loss: 0.7030, Valid Loss: 0.7088
+Model saved!
+Epoch 4/10, Train Loss: 0.6041, Valid Loss: 0.7089
+Epoch 5/10, Train Loss: 0.5092, Valid Loss: 0.7305
+Epoch 6/10, Train Loss: 0.4528, Valid Loss: 0.6747
+Model saved!
+Epoch 7/10, Train Loss: 0.4254, Valid Loss: 0.6919
+Epoch 8/10, Train Loss: 0.3494, Valid Loss: 0.6515
+Model saved!
+Epoch 9/10, Train Loss: 0.3127, Valid Loss: 0.5825
+Model saved!
+Epoch 10/10, Train Loss: 0.3153, Valid Loss: 0.6589
+Accuracy: 0.7258
+Precision: 0.7938
+Recall: 0.7258
+F1-score: 0.6710
+Porcentaje Final: 0.1000
+Porcentaje Scissors: 0.3968
+Porcentaje Rock: 0.2937
+Porcentaje Paper: 0.3095
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0343, Valid Loss: 0.9303
+Model saved!
+Epoch 2/10, Train Loss: 0.8448, Valid Loss: 0.7853
+Model saved!
+Epoch 3/10, Train Loss: 0.7224, Valid Loss: 0.7477
+Model saved!
+Epoch 4/10, Train Loss: 0.6209, Valid Loss: 0.7216
+Model saved!
+Epoch 5/10, Train Loss: 0.5168, Valid Loss: 0.7212
+Model saved!
+Epoch 6/10, Train Loss: 0.4611, Valid Loss: 0.6397
+Model saved!
+Epoch 7/10, Train Loss: 0.4249, Valid Loss: 0.6025
+Model saved!
+Epoch 8/10, Train Loss: 0.3702, Valid Loss: 0.5707
+Model saved!
+Epoch 9/10, Train Loss: 0.3331, Valid Loss: 0.5097
+Model saved!
+Epoch 10/10, Train Loss: 0.3235, Valid Loss: 0.5570
+Accuracy: 0.7581
+Precision: 0.7832
+Recall: 0.7581
+F1-score: 0.7331
+Porcentaje Final: 0.1000
+Porcentaje Paper: 0.3492
+Porcentaje Scissors: 0.3532
+Porcentaje Rock: 0.2976
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0190, Valid Loss: 0.9278
+Model saved!
+Epoch 2/10, Train Loss: 0.8375, Valid Loss: 0.7563
+Model saved!
+Epoch 3/10, Train Loss: 0.7109, Valid Loss: 0.7098
+Model saved!
+Epoch 4/10, Train Loss: 0.6191, Valid Loss: 0.7191
+Epoch 5/10, Train Loss: 0.5137, Valid Loss: 0.7518
+Epoch 6/10, Train Loss: 0.4687, Valid Loss: 0.6734
+Model saved!
+Epoch 7/10, Train Loss: 0.4324, Valid Loss: 0.6594
+Model saved!
+Epoch 8/10, Train Loss: 0.3786, Valid Loss: 0.6207
+Model saved!
+Epoch 9/10, Train Loss: 0.3326, Valid Loss: 0.5597
+Model saved!
+Epoch 10/10, Train Loss: 0.3456, Valid Loss: 0.5996
+Accuracy: 0.6774
+Precision: 0.7212
+Recall: 0.6774
+F1-score: 0.6587
+Porcentaje Final: 0.1000
+Porcentaje Paper: 0.3492
+Porcentaje Scissors: 0.3135
+Porcentaje Rock: 0.3373
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0427, Valid Loss: 0.9181
+Model saved!
+Epoch 2/10, Train Loss: 0.8431, Valid Loss: 0.8293
+Model saved!
+Epoch 3/10, Train Loss: 0.7371, Valid Loss: 0.7867
+Model saved!
+Epoch 4/10, Train Loss: 0.6322, Valid Loss: 0.8210
+Epoch 5/10, Train Loss: 0.5238, Valid Loss: 0.8941
+Epoch 6/10, Train Loss: 0.4763, Valid Loss: 0.8887
+Epoch 7/10, Train Loss: 0.4264, Valid Loss: 0.9730
+Epoch 8/10, Train Loss: 0.3714, Valid Loss: 0.9752
+Epoch 9/10, Train Loss: 0.3413, Valid Loss: 0.8253
+Epoch 10/10, Train Loss: 0.3431, Valid Loss: 0.9640
+Accuracy: 0.6989
+Precision: 0.7769
+Recall: 0.6989
+F1-score: 0.6390
+Porcentaje Final: 0.1000
+Porcentaje Paper: 0.3452
+Porcentaje Rock: 0.3016
+Porcentaje Scissors: 0.3532
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0235, Valid Loss: 0.8999
+Model saved!
+Epoch 2/10, Train Loss: 0.8314, Valid Loss: 0.7920
+Model saved!
+Epoch 3/10, Train Loss: 0.6991, Valid Loss: 0.7309
+Model saved!
+Epoch 4/10, Train Loss: 0.6124, Valid Loss: 0.7221
+Model saved!
+Epoch 5/10, Train Loss: 0.5065, Valid Loss: 0.7702
+Epoch 6/10, Train Loss: 0.4490, Valid Loss: 0.7295
+Epoch 7/10, Train Loss: 0.4146, Valid Loss: 0.7173
+Model saved!
+Epoch 8/10, Train Loss: 0.3592, Valid Loss: 0.7190
+Epoch 9/10, Train Loss: 0.3254, Valid Loss: 0.6381
+Model saved!
+Epoch 10/10, Train Loss: 0.3424, Valid Loss: 0.7243
+Accuracy: 0.7043
+Precision: 0.7591
+Recall: 0.7043
+F1-score: 0.6745
+Porcentaje Final: 0.1000
+Porcentaje Rock: 0.3651
+Porcentaje Scissors: 0.3413
+Porcentaje Paper: 0.2937
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0294, Valid Loss: 0.9097
+Model saved!
+Epoch 2/10, Train Loss: 0.8431, Valid Loss: 0.7746
+Model saved!
+Epoch 3/10, Train Loss: 0.7138, Valid Loss: 0.6986
+Model saved!
+Epoch 4/10, Train Loss: 0.6177, Valid Loss: 0.7008
+Epoch 5/10, Train Loss: 0.5069, Valid Loss: 0.7422
+Epoch 6/10, Train Loss: 0.4688, Valid Loss: 0.6870
+Model saved!
+Epoch 7/10, Train Loss: 0.4307, Valid Loss: 0.7074
+Epoch 8/10, Train Loss: 0.3621, Valid Loss: 0.7151
+Epoch 9/10, Train Loss: 0.3310, Valid Loss: 0.6092
+Model saved!
+Epoch 10/10, Train Loss: 0.3212, Valid Loss: 0.7088
+Accuracy: 0.7177
+Precision: 0.7475
+Recall: 0.7177
+F1-score: 0.7040
+Porcentaje Final: 0.1000
+Porcentaje Scissors: 0.3611
+Porcentaje Paper: 0.3492
+Porcentaje Rock: 0.2897
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0188, Valid Loss: 0.9277
+Model saved!
+Epoch 2/10, Train Loss: 0.8292, Valid Loss: 0.7860
+Model saved!
+Epoch 3/10, Train Loss: 0.7028, Valid Loss: 0.7512
+Model saved!
+Epoch 4/10, Train Loss: 0.6025, Valid Loss: 0.7425
+Model saved!
+Epoch 5/10, Train Loss: 0.4973, Valid Loss: 0.7932
+Epoch 6/10, Train Loss: 0.4493, Valid Loss: 0.7710
+Epoch 7/10, Train Loss: 0.4140, Valid Loss: 0.7764
+Epoch 8/10, Train Loss: 0.3532, Valid Loss: 0.7318
+Model saved!
+Epoch 9/10, Train Loss: 0.3263, Valid Loss: 0.7304
+Model saved!
+Epoch 10/10, Train Loss: 0.3295, Valid Loss: 0.8044
+Accuracy: 0.6882
+Precision: 0.7338
+Recall: 0.6882
+F1-score: 0.6680
+Porcentaje Final: 0.1000
+Porcentaje Scissors: 0.3333
+Porcentaje Paper: 0.3333
+Porcentaje Rock: 0.3333
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 160
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.1076, Valid Loss: 1.0558
+Model saved!
+Epoch 2/10, Train Loss: 0.9534, Valid Loss: 0.8850
+Model saved!
+Epoch 3/10, Train Loss: 0.8540, Valid Loss: 0.7833
+Model saved!
+Epoch 4/10, Train Loss: 0.7692, Valid Loss: 0.7664
+Model saved!
+Epoch 5/10, Train Loss: 0.6946, Valid Loss: 0.7636
+Model saved!
+Epoch 6/10, Train Loss: 0.6071, Valid Loss: 0.7462
+Model saved!
+Epoch 7/10, Train Loss: 0.5522, Valid Loss: 0.7457
+Model saved!
+Epoch 8/10, Train Loss: 0.4963, Valid Loss: 0.7588
+Epoch 9/10, Train Loss: 0.4568, Valid Loss: 0.7070
+Model saved!
+Epoch 10/10, Train Loss: 0.4172, Valid Loss: 0.7234
+Accuracy: 0.7796
+Precision: 0.7988
+Recall: 0.7796
+F1-score: 0.7686
+Porcentaje Final: 0.0635
+Porcentaje Rock: 0.3063
+Porcentaje Paper: 0.3563
+Porcentaje Scissors: 0.3375
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0407, Valid Loss: 0.9342
+Model saved!
+Epoch 2/10, Train Loss: 0.9024, Valid Loss: 0.8040
+Model saved!
+Epoch 3/10, Train Loss: 0.8153, Valid Loss: 0.7470
+Model saved!
+Epoch 4/10, Train Loss: 0.7363, Valid Loss: 0.7374
+Model saved!
+Epoch 5/10, Train Loss: 0.6689, Valid Loss: 0.7572
+Epoch 6/10, Train Loss: 0.6133, Valid Loss: 0.7480
+Epoch 7/10, Train Loss: 0.5641, Valid Loss: 0.6728
+Model saved!
+Epoch 8/10, Train Loss: 0.4986, Valid Loss: 0.6661
+Model saved!
+Epoch 9/10, Train Loss: 0.4430, Valid Loss: 0.6251
+Model saved!
+Epoch 10/10, Train Loss: 0.4253, Valid Loss: 0.5929
+Model saved!
+Accuracy: 0.6989
+Precision: 0.8036
+Recall: 0.6989
+F1-score: 0.6104
+Porcentaje Final: 0.0635
+Porcentaje Paper: 0.2687
+Porcentaje Scissors: 0.4375
+Porcentaje Rock: 0.2938
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 139
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0039, Valid Loss: 0.9210
+Model saved!
+Epoch 2/10, Train Loss: 0.8982, Valid Loss: 0.8257
+Model saved!
+Epoch 3/10, Train Loss: 0.7753, Valid Loss: 0.7503
+Model saved!
+Epoch 4/10, Train Loss: 0.6775, Valid Loss: 0.6933
+Model saved!
+Epoch 5/10, Train Loss: 0.5929, Valid Loss: 0.7129
+Epoch 6/10, Train Loss: 0.5562, Valid Loss: 0.6410
+Model saved!
+Epoch 7/10, Train Loss: 0.4923, Valid Loss: 0.6001
+Model saved!
+Epoch 8/10, Train Loss: 0.4440, Valid Loss: 0.6072
+Epoch 9/10, Train Loss: 0.4394, Valid Loss: 0.5823
+Model saved!
+Epoch 10/10, Train Loss: 0.3887, Valid Loss: 0.5568
+Model saved!
+Accuracy: 0.7177
+Precision: 0.7971
+Recall: 0.7177
+F1-score: 0.6754
+Porcentaje Final: 0.0552
+Porcentaje Scissors: 0.3885
+Porcentaje Rock: 0.3022
+Porcentaje Paper: 0.3094
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0067, Valid Loss: 0.9387
+Model saved!
+Epoch 2/10, Train Loss: 0.9049, Valid Loss: 0.8280
+Model saved!
+Epoch 3/10, Train Loss: 0.7576, Valid Loss: 0.7425
+Model saved!
+Epoch 4/10, Train Loss: 0.6740, Valid Loss: 0.7152
+Model saved!
+Epoch 5/10, Train Loss: 0.6090, Valid Loss: 0.7176
+Epoch 6/10, Train Loss: 0.5395, Valid Loss: 0.7128
+Model saved!
+Epoch 7/10, Train Loss: 0.5290, Valid Loss: 0.7444
+Epoch 8/10, Train Loss: 0.4450, Valid Loss: 0.7347
+Epoch 9/10, Train Loss: 0.4194, Valid Loss: 0.7040
+Model saved!
+Epoch 10/10, Train Loss: 0.3983, Valid Loss: 0.7084
+Accuracy: 0.7016
+Precision: 0.8085
+Recall: 0.7016
+F1-score: 0.6204
+Porcentaje Final: 0.0552
+Porcentaje Scissors: 0.3813
+Porcentaje Rock: 0.3597
+Porcentaje Paper: 0.2590
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 326
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/11, Loss: 0.9228
+Epoch 1/10, Train Loss: 0.9720, Valid Loss: 0.8686
+Model saved!
+Epoch 2/10, Batch 10/11, Loss: 0.6752
+Epoch 2/10, Train Loss: 0.7705, Valid Loss: 0.7048
+Model saved!
+Epoch 3/10, Batch 10/11, Loss: 0.6071
+Epoch 3/10, Train Loss: 0.6226, Valid Loss: 0.6418
+Model saved!
+Epoch 4/10, Batch 10/11, Loss: 0.5498
+Epoch 4/10, Train Loss: 0.5212, Valid Loss: 0.6646
+Epoch 5/10, Batch 10/11, Loss: 0.3961
+Epoch 5/10, Train Loss: 0.4384, Valid Loss: 0.5097
+Model saved!
+Epoch 6/10, Batch 10/11, Loss: 0.3265
+Epoch 6/10, Train Loss: 0.3906, Valid Loss: 0.5121
+Epoch 7/10, Batch 10/11, Loss: 0.3742
+Epoch 7/10, Train Loss: 0.3580, Valid Loss: 0.4491
+Model saved!
+Epoch 8/10, Batch 10/11, Loss: 0.2898
+Epoch 8/10, Train Loss: 0.3188, Valid Loss: 0.5024
+Epoch 9/10, Batch 10/11, Loss: 0.3203
+Epoch 9/10, Train Loss: 0.2983, Valid Loss: 0.4550
+Epoch 10/10, Batch 10/11, Loss: 0.2293
+Epoch 10/10, Train Loss: 0.2568, Valid Loss: 0.4166
+Model saved!
+Accuracy: 0.7312
+Precision: 0.7538
+Recall: 0.7312
+F1-score: 0.7191
+Porcentaje Final: 0.1294
+Porcentaje Scissors: 0.3620
+Porcentaje Paper: 0.3160
+Porcentaje Rock: 0.3221
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/11, Loss: 0.9504
+Epoch 1/10, Train Loss: 0.9694, Valid Loss: 0.8471
+Model saved!
+Epoch 2/10, Batch 10/11, Loss: 0.7703
+Epoch 2/10, Train Loss: 0.7712, Valid Loss: 0.7053
+Model saved!
+Epoch 3/10, Batch 10/11, Loss: 0.6030
+Epoch 3/10, Train Loss: 0.6249, Valid Loss: 0.7095
+Epoch 4/10, Batch 10/11, Loss: 0.6258
+Epoch 4/10, Train Loss: 0.5443, Valid Loss: 0.8193
+Epoch 5/10, Batch 10/11, Loss: 0.4183
+Epoch 5/10, Train Loss: 0.4721, Valid Loss: 0.6457
+Model saved!
+Epoch 6/10, Batch 10/11, Loss: 0.3083
+Epoch 6/10, Train Loss: 0.3998, Valid Loss: 0.7083
+Epoch 7/10, Batch 10/11, Loss: 0.3892
+Epoch 7/10, Train Loss: 0.3558, Valid Loss: 0.6543
+Epoch 8/10, Batch 10/11, Loss: 0.3473
+Epoch 8/10, Train Loss: 0.3342, Valid Loss: 0.6955
+Epoch 9/10, Batch 10/11, Loss: 0.3241
+Epoch 9/10, Train Loss: 0.2960, Valid Loss: 0.5962
+Model saved!
+Epoch 10/10, Batch 10/11, Loss: 0.2491
+Epoch 10/10, Train Loss: 0.2750, Valid Loss: 0.6241
+Accuracy: 0.7312
+Precision: 0.7799
+Recall: 0.7312
+F1-score: 0.6937
+Porcentaje Final: 0.1294
+Porcentaje Paper: 0.3589
+Porcentaje Scissors: 0.3466
+Porcentaje Rock: 0.2945
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 322
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/11, Loss: 0.8739
+Epoch 1/10, Train Loss: 0.9903, Valid Loss: 0.8804
+Model saved!
+Epoch 2/10, Batch 10/11, Loss: 0.8135
+Epoch 2/10, Train Loss: 0.8498, Valid Loss: 0.7678
+Model saved!
+Epoch 3/10, Batch 10/11, Loss: 0.6864
+Epoch 3/10, Train Loss: 0.6904, Valid Loss: 0.7124
+Model saved!
+Epoch 4/10, Batch 10/11, Loss: 0.6214
+Epoch 4/10, Train Loss: 0.5785, Valid Loss: 0.8291
+Epoch 5/10, Batch 10/11, Loss: 0.4900
+Epoch 5/10, Train Loss: 0.5369, Valid Loss: 0.7009
+Model saved!
+Epoch 6/10, Batch 10/11, Loss: 0.4555
+Epoch 6/10, Train Loss: 0.4492, Valid Loss: 0.6733
+Model saved!
+Epoch 7/10, Batch 10/11, Loss: 0.3314
+Epoch 7/10, Train Loss: 0.4024, Valid Loss: 0.6510
+Model saved!
+Epoch 8/10, Batch 10/11, Loss: 0.3059
+Epoch 8/10, Train Loss: 0.4159, Valid Loss: 0.6936
+Epoch 9/10, Batch 10/11, Loss: 0.3300
+Epoch 9/10, Train Loss: 0.3981, Valid Loss: 0.6099
+Model saved!
+Epoch 10/10, Batch 10/11, Loss: 0.3029
+Epoch 10/10, Train Loss: 0.3320, Valid Loss: 0.7413
+Accuracy: 0.7527
+Precision: 0.7912
+Recall: 0.7527
+F1-score: 0.7331
+Porcentaje Final: 0.1278
+Porcentaje Scissors: 0.3571
+Porcentaje Paper: 0.3354
+Porcentaje Rock: 0.3075
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/11, Loss: 0.8749
+Epoch 1/10, Train Loss: 1.0087, Valid Loss: 0.8944
+Model saved!
+Epoch 2/10, Batch 10/11, Loss: 0.7837
+Epoch 2/10, Train Loss: 0.8549, Valid Loss: 0.7843
+Model saved!
+Epoch 3/10, Batch 10/11, Loss: 0.7532
+Epoch 3/10, Train Loss: 0.6999, Valid Loss: 0.6954
+Model saved!
+Epoch 4/10, Batch 10/11, Loss: 0.5772
+Epoch 4/10, Train Loss: 0.5978, Valid Loss: 0.7961
+Epoch 5/10, Batch 10/11, Loss: 0.5725
+Epoch 5/10, Train Loss: 0.5529, Valid Loss: 0.6283
+Model saved!
+Epoch 6/10, Batch 10/11, Loss: 0.4192
+Epoch 6/10, Train Loss: 0.4565, Valid Loss: 0.6869
+Epoch 7/10, Batch 10/11, Loss: 0.3672
+Epoch 7/10, Train Loss: 0.4329, Valid Loss: 0.6547
+Epoch 8/10, Batch 10/11, Loss: 0.3430
+Epoch 8/10, Train Loss: 0.4434, Valid Loss: 0.6562
+Epoch 9/10, Batch 10/11, Loss: 0.3160
+Epoch 9/10, Train Loss: 0.3961, Valid Loss: 0.5827
+Model saved!
+Epoch 10/10, Batch 10/11, Loss: 0.3115
+Epoch 10/10, Train Loss: 0.3348, Valid Loss: 0.5575
+Model saved!
+Accuracy: 0.7312
+Precision: 0.7581
+Recall: 0.7312
+F1-score: 0.7220
+Porcentaje Final: 0.1278
+Porcentaje Paper: 0.3199
+Porcentaje Rock: 0.3323
+Porcentaje Scissors: 0.3478
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 154
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 0.9957, Valid Loss: 0.9009
+Model saved!
+Epoch 2/10, Train Loss: 0.8621, Valid Loss: 0.8247
+Model saved!
+Epoch 3/10, Train Loss: 0.7773, Valid Loss: 0.7431
+Model saved!
+Epoch 4/10, Train Loss: 0.6894, Valid Loss: 0.7109
+Model saved!
+Epoch 5/10, Train Loss: 0.6026, Valid Loss: 0.7145
+Epoch 6/10, Train Loss: 0.5453, Valid Loss: 0.7379
+Epoch 7/10, Train Loss: 0.4901, Valid Loss: 0.7866
+Epoch 8/10, Train Loss: 0.4516, Valid Loss: 0.7972
+Epoch 9/10, Train Loss: 0.3954, Valid Loss: 0.8025
+Epoch 10/10, Train Loss: 0.4107, Valid Loss: 0.7775
+Accuracy: 0.6156
+Precision: 0.7588
+Recall: 0.6156
+F1-score: 0.5824
+Porcentaje Final: 0.0611
+Porcentaje Paper: 0.3312
+Porcentaje Scissors: 0.4221
+Porcentaje Rock: 0.2468
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0381, Valid Loss: 0.9906
+Model saved!
+Epoch 2/10, Train Loss: 0.9082, Valid Loss: 0.9250
+Model saved!
+Epoch 3/10, Train Loss: 0.7853, Valid Loss: 0.7767
+Model saved!
+Epoch 4/10, Train Loss: 0.7146, Valid Loss: 0.7226
+Model saved!
+Epoch 5/10, Train Loss: 0.6106, Valid Loss: 0.6970
+Model saved!
+Epoch 6/10, Train Loss: 0.5515, Valid Loss: 0.6937
+Model saved!
+Epoch 7/10, Train Loss: 0.4887, Valid Loss: 0.7181
+Epoch 8/10, Train Loss: 0.4599, Valid Loss: 0.7080
+Epoch 9/10, Train Loss: 0.4001, Valid Loss: 0.6615
+Model saved!
+Epoch 10/10, Train Loss: 0.3969, Valid Loss: 0.6397
+Model saved!
+Accuracy: 0.7204
+Precision: 0.7424
+Recall: 0.7204
+F1-score: 0.6973
+Porcentaje Final: 0.0611
+Porcentaje Rock: 0.3312
+Porcentaje Scissors: 0.3247
+Porcentaje Paper: 0.3442
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 210
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0084, Valid Loss: 0.9071
+Model saved!
+Epoch 2/10, Train Loss: 0.8421, Valid Loss: 0.7485
+Model saved!
+Epoch 3/10, Train Loss: 0.7276, Valid Loss: 0.6880
+Model saved!
+Epoch 4/10, Train Loss: 0.6265, Valid Loss: 0.7034
+Epoch 5/10, Train Loss: 0.5396, Valid Loss: 0.6600
+Model saved!
+Epoch 6/10, Train Loss: 0.5021, Valid Loss: 0.6464
+Model saved!
+Epoch 7/10, Train Loss: 0.4604, Valid Loss: 0.5939
+Model saved!
+Epoch 8/10, Train Loss: 0.3890, Valid Loss: 0.5549
+Model saved!
+Epoch 9/10, Train Loss: 0.3482, Valid Loss: 0.6429
+Epoch 10/10, Train Loss: 0.3219, Valid Loss: 0.5524
+Model saved!
+Accuracy: 0.7231
+Precision: 0.7903
+Recall: 0.7231
+F1-score: 0.6726
+Porcentaje Final: 0.0833
+Porcentaje Paper: 0.2714
+Porcentaje Scissors: 0.4095
+Porcentaje Rock: 0.3190
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0080, Valid Loss: 0.9227
+Model saved!
+Epoch 2/10, Train Loss: 0.8501, Valid Loss: 0.7663
+Model saved!
+Epoch 3/10, Train Loss: 0.7377, Valid Loss: 0.7319
+Model saved!
+Epoch 4/10, Train Loss: 0.6388, Valid Loss: 0.7531
+Epoch 5/10, Train Loss: 0.5636, Valid Loss: 0.8008
+Epoch 6/10, Train Loss: 0.5145, Valid Loss: 0.8104
+Epoch 7/10, Train Loss: 0.4580, Valid Loss: 0.7664
+Epoch 8/10, Train Loss: 0.3979, Valid Loss: 0.8663
+Epoch 9/10, Train Loss: 0.3722, Valid Loss: 0.8700
+Epoch 10/10, Train Loss: 0.3304, Valid Loss: 0.7424
+Accuracy: 0.7043
+Precision: 0.7949
+Recall: 0.7043
+F1-score: 0.6816
+Porcentaje Final: 0.0833
+Porcentaje Scissors: 0.3714
+Porcentaje Paper: 0.3524
+Porcentaje Rock: 0.2762
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 243
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 0.9989, Valid Loss: 0.8690
+Model saved!
+Epoch 2/10, Train Loss: 0.8338, Valid Loss: 0.7408
+Model saved!
+Epoch 3/10, Train Loss: 0.6941, Valid Loss: 0.6977
+Model saved!
+Epoch 4/10, Train Loss: 0.5807, Valid Loss: 0.7397
+Epoch 5/10, Train Loss: 0.4948, Valid Loss: 0.7380
+Epoch 6/10, Train Loss: 0.4343, Valid Loss: 0.6857
+Model saved!
+Epoch 7/10, Train Loss: 0.3749, Valid Loss: 0.6988
+Epoch 8/10, Train Loss: 0.3382, Valid Loss: 0.7008
+Epoch 9/10, Train Loss: 0.3008, Valid Loss: 0.7696
+Epoch 10/10, Train Loss: 0.2951, Valid Loss: 0.7240
+Accuracy: 0.7500
+Precision: 0.8061
+Recall: 0.7500
+F1-score: 0.7122
+Porcentaje Final: 0.0964
+Porcentaje Scissors: 0.3951
+Porcentaje Paper: 0.3169
+Porcentaje Rock: 0.2881
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0171, Valid Loss: 0.8975
+Model saved!
+Epoch 2/10, Train Loss: 0.8535, Valid Loss: 0.7623
+Model saved!
+Epoch 3/10, Train Loss: 0.7164, Valid Loss: 0.7038
+Model saved!
+Epoch 4/10, Train Loss: 0.6162, Valid Loss: 0.7025
+Model saved!
+Epoch 5/10, Train Loss: 0.5285, Valid Loss: 0.6813
+Model saved!
+Epoch 6/10, Train Loss: 0.4572, Valid Loss: 0.6599
+Model saved!
+Epoch 7/10, Train Loss: 0.3893, Valid Loss: 0.6239
+Model saved!
+Epoch 8/10, Train Loss: 0.3654, Valid Loss: 0.6101
+Model saved!
+Epoch 9/10, Train Loss: 0.3271, Valid Loss: 0.5696
+Model saved!
+Epoch 10/10, Train Loss: 0.3065, Valid Loss: 0.5360
+Model saved!
+Accuracy: 0.7634
+Precision: 0.7896
+Recall: 0.7634
+F1-score: 0.7436
+Porcentaje Final: 0.0964
+Porcentaje Paper: 0.3457
+Porcentaje Scissors: 0.3580
+Porcentaje Rock: 0.2963
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 147
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0213, Valid Loss: 0.9487
+Model saved!
+Epoch 2/10, Train Loss: 0.8873, Valid Loss: 0.8700
+Model saved!
+Epoch 3/10, Train Loss: 0.7661, Valid Loss: 0.7579
+Model saved!
+Epoch 4/10, Train Loss: 0.6649, Valid Loss: 0.7353
+Model saved!
+Epoch 5/10, Train Loss: 0.6285, Valid Loss: 0.7279
+Model saved!
+Epoch 6/10, Train Loss: 0.5317, Valid Loss: 0.7310
+Epoch 7/10, Train Loss: 0.4753, Valid Loss: 0.7941
+Epoch 8/10, Train Loss: 0.4380, Valid Loss: 0.8612
+Epoch 9/10, Train Loss: 0.4212, Valid Loss: 0.8274
+Epoch 10/10, Train Loss: 0.3700, Valid Loss: 0.8168
+Accuracy: 0.6613
+Precision: 0.7468
+Recall: 0.6613
+F1-score: 0.5772
+Porcentaje Final: 0.0583
+Porcentaje Scissors: 0.3537
+Porcentaje Rock: 0.3197
+Porcentaje Paper: 0.3265
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0206, Valid Loss: 0.9370
+Model saved!
+Epoch 2/10, Train Loss: 0.8849, Valid Loss: 0.8635
+Model saved!
+Epoch 3/10, Train Loss: 0.7818, Valid Loss: 0.7978
+Model saved!
+Epoch 4/10, Train Loss: 0.6772, Valid Loss: 0.8099
+Epoch 5/10, Train Loss: 0.6409, Valid Loss: 0.8629
+Epoch 6/10, Train Loss: 0.5501, Valid Loss: 0.8847
+Epoch 7/10, Train Loss: 0.4956, Valid Loss: 0.9190
+Epoch 8/10, Train Loss: 0.4766, Valid Loss: 1.0127
+Epoch 9/10, Train Loss: 0.4466, Valid Loss: 0.9669
+Epoch 10/10, Train Loss: 0.4063, Valid Loss: 0.9727
+Accuracy: 0.4220
+Precision: 0.7587
+Recall: 0.4220
+F1-score: 0.3326
+Porcentaje Final: 0.0583
+Porcentaje Rock: 0.2585
+Porcentaje Scissors: 0.3810
+Porcentaje Paper: 0.3605
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 252
+Selected_target: 153
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0550, Valid Loss: 0.9401
+Model saved!
+Epoch 2/10, Train Loss: 0.9122, Valid Loss: 0.8980
+Model saved!
+Epoch 3/10, Train Loss: 0.8188, Valid Loss: 0.7802
+Model saved!
+Epoch 4/10, Train Loss: 0.7517, Valid Loss: 0.7009
+Model saved!
+Epoch 5/10, Train Loss: 0.6618, Valid Loss: 0.6821
+Model saved!
+Epoch 6/10, Train Loss: 0.6140, Valid Loss: 0.6992
+Epoch 7/10, Train Loss: 0.5550, Valid Loss: 0.7423
+Epoch 8/10, Train Loss: 0.4870, Valid Loss: 0.7086
+Epoch 9/10, Train Loss: 0.4691, Valid Loss: 0.6927
+Epoch 10/10, Train Loss: 0.4314, Valid Loss: 0.6281
+Model saved!
+Accuracy: 0.7661
+Precision: 0.8029
+Recall: 0.7661
+F1-score: 0.7392
+Porcentaje Final: 0.0607
+Porcentaje Scissors: 0.3922
+Porcentaje Paper: 0.3268
+Porcentaje Rock: 0.2810
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0559, Valid Loss: 0.9355
+Model saved!
+Epoch 2/10, Train Loss: 0.9113, Valid Loss: 0.8910
+Model saved!
+Epoch 3/10, Train Loss: 0.8175, Valid Loss: 0.7770
+Model saved!
+Epoch 4/10, Train Loss: 0.7351, Valid Loss: 0.7134
+Model saved!
+Epoch 5/10, Train Loss: 0.6460, Valid Loss: 0.6997
+Model saved!
+Epoch 6/10, Train Loss: 0.5928, Valid Loss: 0.7443
+Epoch 7/10, Train Loss: 0.5165, Valid Loss: 0.8587
+Epoch 8/10, Train Loss: 0.4566, Valid Loss: 0.8459
+Epoch 9/10, Train Loss: 0.4338, Valid Loss: 0.8566
+Epoch 10/10, Train Loss: 0.4121, Valid Loss: 0.7817
+Accuracy: 0.6989
+Precision: 0.7778
+Recall: 0.6989
+F1-score: 0.6438
+Porcentaje Final: 0.0607
+Porcentaje Scissors: 0.3529
+Porcentaje Rock: 0.3333
+Porcentaje Paper: 0.3137
+Memory Allocated after cleanup: 17.71 MB
+Nueva mejor solución encontrada en evaluación 28. Fitness: 0.7796
+Default_target: 160
+Selected_target: 233
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 0.9906, Valid Loss: 0.8960
+Model saved!
+Epoch 2/10, Train Loss: 0.8317, Valid Loss: 0.7488
+Model saved!
+Epoch 3/10, Train Loss: 0.7522, Valid Loss: 0.7237
+Model saved!
+Epoch 4/10, Train Loss: 0.6050, Valid Loss: 0.7628
+Epoch 5/10, Train Loss: 0.5270, Valid Loss: 0.7131
+Model saved!
+Epoch 6/10, Train Loss: 0.5138, Valid Loss: 0.6182
+Model saved!
+Epoch 7/10, Train Loss: 0.4421, Valid Loss: 0.6645
+Epoch 8/10, Train Loss: 0.4374, Valid Loss: 0.6057
+Model saved!
+Epoch 9/10, Train Loss: 0.3877, Valid Loss: 0.5186
+Model saved!
+Epoch 10/10, Train Loss: 0.3405, Valid Loss: 0.6007
+Accuracy: 0.7016
+Precision: 0.7581
+Recall: 0.7016
+F1-score: 0.6428
+Porcentaje Final: 0.0925
+Porcentaje Paper: 0.3519
+Porcentaje Rock: 0.2575
+Porcentaje Scissors: 0.3906
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 0.9991, Valid Loss: 0.9425
+Model saved!
+Epoch 2/10, Train Loss: 0.8227, Valid Loss: 0.7322
+Model saved!
+Epoch 3/10, Train Loss: 0.7584, Valid Loss: 0.7208
+Model saved!
+Epoch 4/10, Train Loss: 0.5978, Valid Loss: 0.8407
+Epoch 5/10, Train Loss: 0.5485, Valid Loss: 0.8850
+Epoch 6/10, Train Loss: 0.4972, Valid Loss: 0.7901
+Epoch 7/10, Train Loss: 0.4337, Valid Loss: 0.9653
+Epoch 8/10, Train Loss: 0.4221, Valid Loss: 0.9651
+Epoch 9/10, Train Loss: 0.3712, Valid Loss: 0.7024
+Model saved!
+Epoch 10/10, Train Loss: 0.3551, Valid Loss: 0.8205
+Accuracy: 0.6989
+Precision: 0.7685
+Recall: 0.6989
+F1-score: 0.6767
+Porcentaje Final: 0.0925
+Porcentaje Rock: 0.3648
+Porcentaje Scissors: 0.2918
+Porcentaje Paper: 0.3433
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 160
+Selected_target: 96
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0703, Valid Loss: 1.0474
+Model saved!
+Epoch 2/10, Train Loss: 0.9432, Valid Loss: 1.0724
+Epoch 3/10, Train Loss: 0.8901, Valid Loss: 1.0766
+Epoch 4/10, Train Loss: 0.8049, Valid Loss: 0.9739
+Model saved!
+Epoch 5/10, Train Loss: 0.7369, Valid Loss: 0.8604
+Model saved!
+Epoch 6/10, Train Loss: 0.6611, Valid Loss: 0.8004
+Model saved!
+Epoch 7/10, Train Loss: 0.6238, Valid Loss: 0.8064
+Epoch 8/10, Train Loss: 0.5842, Valid Loss: 0.8392
+Epoch 9/10, Train Loss: 0.5423, Valid Loss: 0.7979
+Model saved!
+Epoch 10/10, Train Loss: 0.4960, Valid Loss: 0.7614
+Model saved!
+Accuracy: 0.7419
+Precision: 0.7509
+Recall: 0.7419
+F1-score: 0.7355
+Porcentaje Final: 0.0381
+Porcentaje Rock: 0.3333
+Porcentaje Paper: 0.3854
+Porcentaje Scissors: 0.2812
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0471, Valid Loss: 0.9643
+Model saved!
+Epoch 2/10, Train Loss: 0.9317, Valid Loss: 0.9089
+Model saved!
+Epoch 3/10, Train Loss: 0.8580, Valid Loss: 0.8806
+Model saved!
+Epoch 4/10, Train Loss: 0.7817, Valid Loss: 0.8182
+Model saved!
+Epoch 5/10, Train Loss: 0.7065, Valid Loss: 0.7643
+Model saved!
+Epoch 6/10, Train Loss: 0.6522, Valid Loss: 0.7121
+Model saved!
+Epoch 7/10, Train Loss: 0.5902, Valid Loss: 0.6944
+Model saved!
+Epoch 8/10, Train Loss: 0.5458, Valid Loss: 0.6796
+Model saved!
+Epoch 9/10, Train Loss: 0.5058, Valid Loss: 0.6718
+Model saved!
+Epoch 10/10, Train Loss: 0.4843, Valid Loss: 0.6332
+Model saved!
+Accuracy: 0.6586
+Precision: 0.7512
+Recall: 0.6586
+F1-score: 0.6085
+Porcentaje Final: 0.0381
+Porcentaje Paper: 0.3021
+Porcentaje Rock: 0.2604
+Porcentaje Scissors: 0.4375
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 153
+Selected_target: 100
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0626, Valid Loss: 1.0057
+Model saved!
+Epoch 2/10, Train Loss: 0.9622, Valid Loss: 0.9290
+Model saved!
+Epoch 3/10, Train Loss: 0.8882, Valid Loss: 0.8439
+Model saved!
+Epoch 4/10, Train Loss: 0.8269, Valid Loss: 0.7728
+Model saved!
+Epoch 5/10, Train Loss: 0.7477, Valid Loss: 0.7795
+Epoch 6/10, Train Loss: 0.7606, Valid Loss: 0.8144
+Epoch 7/10, Train Loss: 0.7060, Valid Loss: 0.8014
+Epoch 8/10, Train Loss: 0.6091, Valid Loss: 0.8308
+Epoch 9/10, Train Loss: 0.5844, Valid Loss: 0.8280
+Epoch 10/10, Train Loss: 0.5891, Valid Loss: 0.8511
+Accuracy: 0.6586
+Precision: 0.7646
+Recall: 0.6586
+F1-score: 0.6101
+Porcentaje Final: 0.0397
+Porcentaje Scissors: 0.3200
+Porcentaje Paper: 0.3300
+Porcentaje Rock: 0.3500
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0383, Valid Loss: 0.9537
+Model saved!
+Epoch 2/10, Train Loss: 1.0215, Valid Loss: 0.8739
+Model saved!
+Epoch 3/10, Train Loss: 0.8902, Valid Loss: 0.8412
+Model saved!
+Epoch 4/10, Train Loss: 0.8378, Valid Loss: 0.7934
+Model saved!
+Epoch 5/10, Train Loss: 0.7905, Valid Loss: 0.7645
+Model saved!
+Epoch 6/10, Train Loss: 0.7408, Valid Loss: 0.7540
+Model saved!
+Epoch 7/10, Train Loss: 0.8019, Valid Loss: 0.7305
+Model saved!
+Epoch 8/10, Train Loss: 0.6908, Valid Loss: 0.7590
+Epoch 9/10, Train Loss: 0.6106, Valid Loss: 0.7472
+Epoch 10/10, Train Loss: 0.5928, Valid Loss: 0.7522
+Accuracy: 0.6102
+Precision: 0.8203
+Recall: 0.6102
+F1-score: 0.5761
+Porcentaje Final: 0.0397
+Porcentaje Rock: 0.2900
+Porcentaje Paper: 0.3300
+Porcentaje Scissors: 0.3800
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 153
+Selected_target: 119
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0449, Valid Loss: 0.9735
+Model saved!
+Epoch 2/10, Train Loss: 0.9173, Valid Loss: 0.8746
+Model saved!
+Epoch 3/10, Train Loss: 0.8243, Valid Loss: 0.7819
+Model saved!
+Epoch 4/10, Train Loss: 0.7385, Valid Loss: 0.7162
+Model saved!
+Epoch 5/10, Train Loss: 0.6648, Valid Loss: 0.7069
+Model saved!
+Epoch 6/10, Train Loss: 0.5896, Valid Loss: 0.6967
+Model saved!
+Epoch 7/10, Train Loss: 0.5197, Valid Loss: 0.6910
+Model saved!
+Epoch 8/10, Train Loss: 0.5096, Valid Loss: 0.6906
+Model saved!
+Epoch 9/10, Train Loss: 0.4345, Valid Loss: 0.7458
+Epoch 10/10, Train Loss: 0.4124, Valid Loss: 0.7866
+Accuracy: 0.7204
+Precision: 0.8071
+Recall: 0.7204
+F1-score: 0.6618
+Porcentaje Final: 0.0472
+Porcentaje Scissors: 0.3866
+Porcentaje Paper: 0.2773
+Porcentaje Rock: 0.3361
+Memory Allocated after cleanup: 17.71 MB
+Using device: cuda
+GPU: NVIDIA GeForce RTX 2080 Ti
+Memory Allocated: 0.25 MB
+Carpeta de validación encontrada. Cargando valid dataset...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Train Loss: 1.0414, Valid Loss: 1.0001
+Model saved!
+Epoch 2/10, Train Loss: 0.9177, Valid Loss: 0.8912
+Model saved!
+Epoch 3/10, Train Loss: 0.8534, Valid Loss: 0.8174
+Model saved!
+Epoch 4/10, Train Loss: 0.7762, Valid Loss: 0.7521
+Model saved!
+Epoch 5/10, Train Loss: 0.7027, Valid Loss: 0.7204
+Model saved!
+Epoch 6/10, Train Loss: 0.6387, Valid Loss: 0.6880
+Model saved!
+Epoch 7/10, Train Loss: 0.5785, Valid Loss: 0.6718
+Model saved!
+Epoch 8/10, Train Loss: 0.5704, Valid Loss: 0.6453
+Model saved!
+Epoch 9/10, Train Loss: 0.4878, Valid Loss: 0.6383
+Model saved!
+Epoch 10/10, Train Loss: 0.4717, Valid Loss: 0.6314
+Model saved!
+Accuracy: 0.7769
+Precision: 0.7905
+Recall: 0.7769
+F1-score: 0.7754
+Porcentaje Final: 0.0472
+Porcentaje Scissors: 0.3697
+Porcentaje Paper: 0.3866
+Porcentaje Rock: 0.2437
+Memory Allocated after cleanup: 17.71 MB
+Default_target: 243
+Selected_target: 358
