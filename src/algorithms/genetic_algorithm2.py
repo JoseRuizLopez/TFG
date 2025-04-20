@@ -67,13 +67,17 @@ def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: 
     # Calcular cuántas imágenes tomar de cada padre para el primer hijo
     num_from_parent1 = int(target_selected * weight1)
     num_from_parent2 = target_selected - num_from_parent1
+    
+    # Asegurar que no se pide más de lo que hay disponible
+    num_from_parent1 = min(num_from_parent1, len(selected1))
+    num_from_parent2 = min(num_from_parent2, len(selected2))
 
     # Seleccionar imágenes aleatorias del padre 1 para el primer hijo
-    selected_from_1 = set(random.sample(list(selected1), num_from_parent1))
+    selected_from_1 = set(random.sample(list(selected1), num_from_parent1)) if num_from_parent1 > 0 else set()
     remaining_from_1 = selected1 - selected_from_1
 
     # Seleccionar imágenes aleatorias del padre 2 para el primer hijo
-    selected_from_2 = set(random.sample(list(selected2), num_from_parent2))
+    selected_from_2 = set(random.sample(list(selected2), num_from_parent2)) if num_from_parent2 > 0 else set()
     remaining_from_2 = selected2 - selected_from_2
 
     # Construir el primer hijo
