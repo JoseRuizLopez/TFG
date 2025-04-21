@@ -1,3 +1,5 @@
+% !TeX root = ../proyecto.tex
+
 \chapter{Descripción de los Algoritmos}\label{ch:descripcion-algoritmos}
 En este capítulo se describen los diferentes algoritmos utilizados en el desarrollo de este trabajo.
 Todos ellos tienen como objetivo principal reducir el tamaño del conjunto de datos de entrenamiento utilizado en los
@@ -80,17 +82,17 @@ El funcionamiento de los algoritmos genéticos se basa en los conceptos de \text
 El proceso se puede resumir en los siguientes pasos:
 \begin{enumerate}
     \item \textbf{Inicialización}: Se genera una población inicial de posibles soluciones, cada una de ellas
-representando un subconjunto del conjunto de datos.
+          representando un subconjunto del conjunto de datos.
     \item \textbf{Evaluación}: Cada subconjunto de datos (o `individuo') es evaluado entrenando el modelo con ese
-subconjunto y midiendo su rendimiento.
+          subconjunto y midiendo su rendimiento.
     \item \textbf{Selección}: Se seleccionan los mejores individuos de la población basándose en su rendimiento.
-Los mejores individuos tienen más probabilidades de ser seleccionados para la siguiente generación.
+          Los mejores individuos tienen más probabilidades de ser seleccionados para la siguiente generación.
     \item \textbf{Cruzamiento}: Se combinan pares de individuos seleccionados para crear nuevos subconjuntos.
-Esto se realiza intercambiando ejemplos entre los subconjuntos.
+          Esto se realiza intercambiando ejemplos entre los subconjuntos.
     \item \textbf{Mutación}: Con una pequeña probabilidad, se realizan cambios aleatorios en algunos individuos, como
-añadir o eliminar ejemplos del subconjunto.
+          añadir o eliminar ejemplos del subconjunto.
     \item \textbf{Iteración}: El proceso de evaluación, selección, cruzamiento y mutación se repite durante varias
-generaciones, con la esperanza de que cada generación produzca soluciones mejores que la anterior.
+          generaciones, con la esperanza de que cada generación produzca soluciones mejores que la anterior.
 \end{enumerate}
 
 \subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos3}

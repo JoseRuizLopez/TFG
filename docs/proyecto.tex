@@ -1,13 +1,18 @@
-% Archivo: main.tex
+% Archivo: proyecto.tex
 % Archivo principal que incluye la configuración y el contenido del documento
 
-\input{config/config}  % Importa las configuraciones desde config.tex
+\makeatletter
+\def\input@path{{./config/}{./capitulos/}{./portada/}{./prefacios/}}
+\makeatother
+
+
+\input{config}  % Importa las configuraciones desde config.tex
 
 \begin{document}
 
 % Portada y prefacio
-\input{portada/portada}
-\input{prefacios/prefacio}
+\input{portada}
+\input{prefacio}
 
 % Índices
 \frontmatter
@@ -17,14 +22,14 @@
 
 % Cuerpo del documento
 \mainmatter
-\input{capitulos/01_Introduccion}
-\input{capitulos/02_Metodologia_y_Presupuesto}
-\input{capitulos/03_Fundamentos_de_Aprendizaje_Profundo}
-\input{capitulos/04_Repaso_Bibliografico}
-\input{capitulos/05_Descripcion_Algoritmos}
-\input{capitulos/06_Implementacion}
-\input{capitulos/07_Desarrollo_Experimental}
-\input{capitulos/08_Conclusiones}
+\input{01_Introduccion}
+\input{02_Metodologia_y_Presupuesto}
+\input{03_Fundamentos_de_Aprendizaje_Profundo}
+\input{04_Repaso_Bibliografico}
+\input{05_Descripcion_Algoritmos}
+\input{06_Implementacion}
+\input{07_Desarrollo_Experimental}
+\input{08_Conclusiones}
 
 % Bibliografía y apéndices
 \chapter{Bibliografía}\label{ch:bibliografia}
@@ -39,3 +44,4 @@
 \thispagestyle{empty}
 
 \end{document}
+% !TEX root = proyecto.tex

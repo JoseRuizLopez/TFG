@@ -1,3 +1,5 @@
+% !TeX root = ../proyecto.tex
+
 \chapter{Desarrollo Experimental}\label{ch:desarrollo-experimental}
 
 Tras la explicación del contenido necesario para el entendimiento y desarrollo del TFG en los capítulos anteriores, en
@@ -35,14 +37,14 @@ Con estas configuraciones establecidas, se obtuvieron los primeros datos:
     \resizebox{\textwidth}{!}{
         \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
-            \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} &
-            \textbf{Evaluaciones Realizadas} \\
+            \textbf{Algoritmo}       & \textbf{Porcentaje Inicial} & \textbf{Duracion}       & \textbf{Accuracy (Avg)} &
+            \textbf{Precision (Avg)} & \textbf{Recall (Avg)}       & \textbf{F1-score (Avg)} &
+            \textbf{Evaluaciones Realizadas}                                                                                                               \\
             \midrule
-            aleatorio & 10 & 00:45:08 & 76,55\% & 81,80\% & 76,55\% & 76,25\% & 100 \\
-            aleatorio & 20 & 01:10:27 & 81,77\% & 84,70\% & 81,77\% & 81,59\% & 100 \\
-            aleatorio & 50 & 02:24:49 & 87,14\% & 88,09\% & 87,14\% & 86,97\% & 100 \\
-            aleatorio & 100 & 00:02:42 & 87,90\% & 88,96\% & 87,90\% & 87,81\% & 1 \\
+            aleatorio                & 10                          & 00:45:08                & 76,55\%                 & 81,80\% & 76,55\% & 76,25\% & 100 \\
+            aleatorio                & 20                          & 01:10:27                & 81,77\%                 & 84,70\% & 81,77\% & 81,59\% & 100 \\
+            aleatorio                & 50                          & 02:24:49                & 87,14\%                 & 88,09\% & 87,14\% & 86,97\% & 100 \\
+            aleatorio                & 100                         & 00:02:42                & 87,90\%                 & 88,96\% & 87,90\% & 87,81\% & 1   \\
             \bottomrule
         \end{tabular}
     }
@@ -63,14 +65,14 @@ Debido a esta limitación, se decidió probar el algoritmo \textbf{MobileNet} co
     \resizebox{\textwidth}{!}{
         \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
             \toprule
-        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
-        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
-        \midrule
-        aleatorio & 10 & 00:29:29 & 72,31\% & 76,40\% & 72,31\% & 69,62\% & 100 \\
-        aleatorio & 20 & 00:50:36 & 76,48\% & 78,82\% & 76,48\% & 75,58\% & 100 \\
-        aleatorio & 50 & 01:54:09 & 75,56\% & 79,72\% & 75,56\% & 74,67\% & 100 \\
-        aleatorio & 100 & 00:02:12 & 76,08\% & 79,97\% & 76,08\% & 75,61\% & 1 \\
-        \bottomrule
+            \textbf{Algoritmo}       & \textbf{Porcentaje Inicial} & \textbf{Duracion}       & \textbf{Accuracy (Avg)}          &
+            \textbf{Precision (Avg)} & \textbf{Recall (Avg)}       & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas}                                     \\
+            \midrule
+            aleatorio                & 10                          & 00:29:29                & 72,31\%                          & 76,40\% & 72,31\% & 69,62\% & 100 \\
+            aleatorio                & 20                          & 00:50:36                & 76,48\%                          & 78,82\% & 76,48\% & 75,58\% & 100 \\
+            aleatorio                & 50                          & 01:54:09                & 75,56\%                          & 79,72\% & 75,56\% & 74,67\% & 100 \\
+            aleatorio                & 100                         & 00:02:12                & 76,08\%                          & 79,97\% & 76,08\% & 75,61\% & 1   \\
+            \bottomrule
         \end{tabular}
     }
     \caption{Resultados de la generación inicial con \textbf{MobileNet}}
@@ -83,30 +85,30 @@ A partir de las tablas presentadas [\ref{tab:initial-generation-resnet},\ref{tab
 observa lo siguiente:
 
 \begin{itemize}
-\item\textbf{Impacto del Porcentaje Inicial de Datos}
-Tanto en ResNet50 como en MobileNet, el aumento del porcentaje inicial de datos utilizados para el entrenamiento se
-traduce en una mejora progresiva de las métricas de desempeño (Accuracy, Precision, Recall y F1-score).
-Por ejemplo, en el caso de ResNet50, al incrementar el porcentaje inicial de datos de 10\% a 50\%, se pasa de un
-accuracy del 76,55\% a un 87,14\%.
-Esto evidencia que disponer de mayor cantidad de datos permite al modelo aprender de forma más robusta y generalizar
-mejor en las evaluaciones.
+    \item\textbf{Impacto del Porcentaje Inicial de Datos}
+          Tanto en ResNet50 como en MobileNet, el aumento del porcentaje inicial de datos utilizados para el entrenamiento se
+          traduce en una mejora progresiva de las métricas de desempeño (Accuracy, Precision, Recall y F1-score).
+          Por ejemplo, en el caso de ResNet50, al incrementar el porcentaje inicial de datos de 10\% a 50\%, se pasa de un
+          accuracy del 76,55\% a un 87,14\%.
+          Esto evidencia que disponer de mayor cantidad de datos permite al modelo aprender de forma más robusta y generalizar
+          mejor en las evaluaciones.
 
 
-\item\textbf{Comparación de Métricas de Desempeño}
-\begin{itemize}
-    \item \textbf{ResNet50}: Presenta valores superiores en todas las métricas analizadas, lo que indica una mayor
-    capacidad para capturar características complejas y diferenciales en el conjunto de datos.
-    \item \textbf{MobileNet}:Aunque ofrece métricas algo inferiores (por ejemplo, un accuracy de 75,56\% con el 50\% de
-    los datos), la disminución en el rendimiento se ve contrarrestada por su eficiencia computacional, siendo
-    especialmente notable en tiempos de entrenamiento.
-\end{itemize}
+    \item\textbf{Comparación de Métricas de Desempeño}
+          \begin{itemize}
+              \item \textbf{ResNet50}: Presenta valores superiores en todas las métricas analizadas, lo que indica una mayor
+                    capacidad para capturar características complejas y diferenciales en el conjunto de datos.
+              \item \textbf{MobileNet}:Aunque ofrece métricas algo inferiores (por ejemplo, un accuracy de 75,56\% con el 50\% de
+                    los datos), la disminución en el rendimiento se ve contrarrestada por su eficiencia computacional, siendo
+                    especialmente notable en tiempos de entrenamiento.
+          \end{itemize}
 
-\item\textbf{Tiempo de Entrenamiento}
-Un aspecto crucial a considerar es la duración del entrenamiento.
-Mientras que ResNet50 requiere tiempos significativamente mayores (más de 2 horas con un 50\% de datos), MobileNet
-reduce este tiempo de manera considerable (alrededor de 1 hora y 54 minutos en el mismo escenario).
-La diferencia en la duración es determinante en entornos donde los recursos computacionales o el tiempo disponible son
-limitados.
+    \item\textbf{Tiempo de Entrenamiento}
+          Un aspecto crucial a considerar es la duración del entrenamiento.
+          Mientras que ResNet50 requiere tiempos significativamente mayores (más de 2 horas con un 50\% de datos), MobileNet
+          reduce este tiempo de manera considerable (alrededor de 1 hora y 54 minutos en el mismo escenario).
+          La diferencia en la duración es determinante en entornos donde los recursos computacionales o el tiempo disponible son
+          limitados.
 \end{itemize}
 
 Aunque los resultados iniciales de MobileNet son inferiores a los de ResNet50 en términos de precisión, MobileNet ha
@@ -126,7 +128,7 @@ Tras las pruebas de los distintos algoritmos, se optó por hacer una pequeña mo
 algoritmos genéticos.
 Donde se modificó el funcianieminto de la mutacion, a la que se le aplicó la siguiente fórmula:
 \[
-img\_elegidas(length, ratio)=\min(length*0.15, length*ratio*0.8)
+    img\_elegidas(length, ratio)=\min(length*0.15, length*ratio*0.8)
 \]
 donde:
 \begin{itemize}
@@ -140,36 +142,36 @@ comparación de todos los algoritmos:
     \centering
     \resizebox{\textwidth}{!}{
         \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
-        \toprule
-        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
-        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
-        \midrule
-        - & 100 & 00:02:37 & 78.6\% & 81.55\% & 78.6\% & 77.69\% & 1 \\
-        aleatorio & 10 & 00:31:13 & 81.34\% & 82.46\% & 81.34\% & 80.52\% & 100 \\
-        aleatorio & 25 & 01:03:36 & 80.7\% & 81.9\% & 80.7\% & 79.9\% & 100 \\
-        aleatorio & 50 & 02:05:09 & 80.86\% & 82.65\% & 80.86\% & 80.22\% & 100 \\
-        aleatorio & 75 & 02:50:13 & 82.26\% & 84.16\% & 82.26\% & 81.67\% & 100 \\
-        busqueda local & 10 & 00:30:42 & 81.24\% & 81.81\% & 81.24\% & 80.61\% & 100 \\
-        busqueda local & 25 & 01:03:50 & 82.47\% & 83.95\% & 82.47\% & 81.76\% & 100 \\
-        busqueda local & 50 & 01:58:58 & 80.75\% & 82.77\% & 80.75\% & 80.09\% & 100 \\
-        busqueda local & 75 & 02:51:28 & 82.37\% & 83.97\% & 82.37\% & 81.67\% & 100 \\
-        genetico & 10 & 00:30:29 & 81.51\% & 83.42\% & 81.51\% & 80.49\% & 100 \\
-        genetico & 25 & 01:02:59 & 81.34\% & 82.95\% & 81.34\% & 80.59\% & 100 \\
-        genetico & 50 & 01:56:58 & 81.34\% & 82.97\% & 81.34\% & 80.75\% & 100 \\
-        genetico & 75 & 02:50:00 & 82.8\% & 84.47\% & 82.8\% & 82.26\% & 100 \\
-        genetico2 & 10 & 00:30:09 & 84.25\% & 84.69\% & 84.25\% & 83.65\% & 100 \\
-        genetico2 & 25 & 01:01:48 & 82.74\% & 84.35\% & 82.74\% & 82.13\% & 100 \\
-        genetico2 & 50 & 01:56:02 & 81.72\% & 83.49\% & 81.72\% & 81.12\% & 100 \\
-        genetico2 & 75 & 02:49:34 & 82.58\% & 84.24\% & 82.58\% & 81.96\% & 100 \\
-        genetico3 & 10 & 00:30:05 & 83.28\% & 83.96\% & 83.28\% & 82.49\% & 101 \\
-        genetico3 & 25 & 01:02:18 & 81.94\% & 83.12\% & 81.94\% & 81.28\% & 101 \\
-        genetico3 & 50 & 01:56:19 & 81.77\% & 83.39\% & 81.77\% & 81.15\% & 105 \\
-        genetico3 & 75 & 02:46:54 & 82.8\% & 84.54\% & 82.8\% & 82.09\% & 100 \\
-        memetico & 10 & 00:29:55 & 82.47\% & 83.38\% & 82.47\% & 81.63\% & 100 \\
-        memetico & 25 & 01:02:10 & 81.88\% & 82.96\% & 81.88\% & 81.3\% & 100 \\
-        memetico & 50 & 01:55:53 & 81.08\% & 83.13\% & 81.08\% & 80.38\% & 100 \\
-        memetico & 75 & 02:48:48 & 82.53\% & 84.2\% & 82.53\% & 81.8\% & 100 \\
-        \bottomrule
+            \toprule
+            \textbf{Algoritmo}       & \textbf{Porcentaje Inicial} & \textbf{Duracion}       & \textbf{Accuracy (Avg)}          &
+            \textbf{Precision (Avg)} & \textbf{Recall (Avg)}       & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas}                                     \\
+            \midrule
+            -                        & 100                         & 00:02:37                & 78.6\%                           & 81.55\% & 78.6\%  & 77.69\% & 1   \\
+            aleatorio                & 10                          & 00:31:13                & 81.34\%                          & 82.46\% & 81.34\% & 80.52\% & 100 \\
+            aleatorio                & 25                          & 01:03:36                & 80.7\%                           & 81.9\%  & 80.7\%  & 79.9\%  & 100 \\
+            aleatorio                & 50                          & 02:05:09                & 80.86\%                          & 82.65\% & 80.86\% & 80.22\% & 100 \\
+            aleatorio                & 75                          & 02:50:13                & 82.26\%                          & 84.16\% & 82.26\% & 81.67\% & 100 \\
+            busqueda local           & 10                          & 00:30:42                & 81.24\%                          & 81.81\% & 81.24\% & 80.61\% & 100 \\
+            busqueda local           & 25                          & 01:03:50                & 82.47\%                          & 83.95\% & 82.47\% & 81.76\% & 100 \\
+            busqueda local           & 50                          & 01:58:58                & 80.75\%                          & 82.77\% & 80.75\% & 80.09\% & 100 \\
+            busqueda local           & 75                          & 02:51:28                & 82.37\%                          & 83.97\% & 82.37\% & 81.67\% & 100 \\
+            genetico                 & 10                          & 00:30:29                & 81.51\%                          & 83.42\% & 81.51\% & 80.49\% & 100 \\
+            genetico                 & 25                          & 01:02:59                & 81.34\%                          & 82.95\% & 81.34\% & 80.59\% & 100 \\
+            genetico                 & 50                          & 01:56:58                & 81.34\%                          & 82.97\% & 81.34\% & 80.75\% & 100 \\
+            genetico                 & 75                          & 02:50:00                & 82.8\%                           & 84.47\% & 82.8\%  & 82.26\% & 100 \\
+            genetico2                & 10                          & 00:30:09                & 84.25\%                          & 84.69\% & 84.25\% & 83.65\% & 100 \\
+            genetico2                & 25                          & 01:01:48                & 82.74\%                          & 84.35\% & 82.74\% & 82.13\% & 100 \\
+            genetico2                & 50                          & 01:56:02                & 81.72\%                          & 83.49\% & 81.72\% & 81.12\% & 100 \\
+            genetico2                & 75                          & 02:49:34                & 82.58\%                          & 84.24\% & 82.58\% & 81.96\% & 100 \\
+            genetico3                & 10                          & 00:30:05                & 83.28\%                          & 83.96\% & 83.28\% & 82.49\% & 101 \\
+            genetico3                & 25                          & 01:02:18                & 81.94\%                          & 83.12\% & 81.94\% & 81.28\% & 101 \\
+            genetico3                & 50                          & 01:56:19                & 81.77\%                          & 83.39\% & 81.77\% & 81.15\% & 105 \\
+            genetico3                & 75                          & 02:46:54                & 82.8\%                           & 84.54\% & 82.8\%  & 82.09\% & 100 \\
+            memetico                 & 10                          & 00:29:55                & 82.47\%                          & 83.38\% & 82.47\% & 81.63\% & 100 \\
+            memetico                 & 25                          & 01:02:10                & 81.88\%                          & 82.96\% & 81.88\% & 81.3\%  & 100 \\
+            memetico                 & 50                          & 01:55:53                & 81.08\%                          & 83.13\% & 81.08\% & 80.38\% & 100 \\
+            memetico                 & 75                          & 02:48:48                & 82.53\%                          & 84.2\%  & 82.53\% & 81.8\%  & 100 \\
+            \bottomrule
         \end{tabular}
     }
     \caption{Resultados de todos los algoritmos con la nueva mutación usando \textbf{MobileNet}}
@@ -186,15 +188,15 @@ Una vez realizada la prueba con RPS, podemos hacer otras comprobaciones con data
     \resizebox{\textwidth}{!}{
         \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
             \toprule
-        \textbf{Algoritmo} & \textbf{Porcentaje Inicial} & \textbf{Duracion} & \textbf{Accuracy (Avg)} &
-        \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas} \\
-        \midrule
-        - & 100 & 00:08:55 & 92.24\% & 92.05\% & 92.24\% & 92.06\% & 1 \\
-        aleatorio & 10 & 01:36:51 & 90.05\% & 89.62\% & 90.05\% & 89.73\% & 100 \\
-        busqueda local & 10 & 01:36:20 & 90.58\% & 90.23\% & 90.58\% & 90.26\% & 100 \\
-        genetico & 10 & 01:36:22 & 90.49\% & 90.07\% & 90.49\% & 90.17\% & 100 \\
-        genetico2 & 10 & 01:36:44 & 90.61\% & 90.28\% & 90.61\% & 90.32\% & 100 \\
-        \bottomrule
+            \textbf{Algoritmo}       & \textbf{Porcentaje Inicial} & \textbf{Duracion}       & \textbf{Accuracy (Avg)}          &
+            \textbf{Precision (Avg)} & \textbf{Recall (Avg)}       & \textbf{F1-score (Avg)} & \textbf{Evaluaciones Realizadas}                                     \\
+            \midrule
+            -                        & 100                         & 00:08:55                & 92.24\%                          & 92.05\% & 92.24\% & 92.06\% & 1   \\
+            aleatorio                & 10                          & 01:36:51                & 90.05\%                          & 89.62\% & 90.05\% & 89.73\% & 100 \\
+            busqueda local           & 10                          & 01:36:20                & 90.58\%                          & 90.23\% & 90.58\% & 90.26\% & 100 \\
+            genetico                 & 10                          & 01:36:22                & 90.49\%                          & 90.07\% & 90.49\% & 90.17\% & 100 \\
+            genetico2                & 10                          & 01:36:44                & 90.61\%                          & 90.28\% & 90.61\% & 90.32\% & 100 \\
+            \bottomrule
         \end{tabular}
     }
     \caption{Resultados de todos los algoritmos para PAINTING con la nueva mutación usando \textbf{MobileNet}}
@@ -266,13 +268,13 @@ Además, permite explorar la eficacia de los algoritmos meméticos en un entorno
 \subsubsection{Correcciones en la División de Datos}
 Según la nota observada en el README del dataset:
 \begin{quote}
-\textit{Note: in the source, Laurence calls ``validation'' as the ``test'', and ``test'' the ``validation''.}
+    \textit{Note: in the source, Laurence calls ``validation'' as the ``test'', and ``test'' the ``validation''.}
 \end{quote}
 se han renombrado las particiones de \texttt{test} y \texttt{valid} para que correspondan correctamente con sus
 propósitos.
 
 \subsubsection{Licencia y uso}
- Este conjunto de datos se distribuye bajo la licencia
+Este conjunto de datos se distribuye bajo la licencia
 \textbf{Creative Commons Attribution 4.0 International (CC BY 4.0)}, lo que permite su uso, modificación y distribución
 con la condición de otorgar el crédito adecuado a los creadores originales~\cite{moroney_laurence_nodate}.
 

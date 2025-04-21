@@ -1,3 +1,5 @@
+% !TeX root = ../proyecto.tex
+
 \chapter{Fundamentos de Aprendizaje Profundo}\label{ch:fundamentos-de-aprendizaje-profundo}
 %Fundamentos de Aprendizaje Profundo: Explica los conceptos básicos, incluyendo redes neuronales convolucionales.
 \section{Definición de Aprendizaje Profundo}\label{sec:definicion-de-aprendizaje-profundo}
@@ -11,12 +13,12 @@ La principal diferencia entre el \textbf{aprendizaje automático tradicional} y 
 que se manejan las características de los datos:
 \begin{itemize}
     \item En los enfoques tradicionales, el ingeniero o científico de datos debe extraer manualmente las
-características más importantes para entrenar al modelo (por ejemplo, bordes, formas, texturas en imágenes).
-En el aprendizaje profundo, las redes neuronales son capaces de
-\textbf{aprender automáticamente las representaciones de los datos} a partir de los datos crudos (por ejemplo,
-imágenes, texto, sonido).
+          características más importantes para entrenar al modelo (por ejemplo, bordes, formas, texturas en imágenes).
+          En el aprendizaje profundo, las redes neuronales son capaces de
+          \textbf{aprender automáticamente las representaciones de los datos} a partir de los datos crudos (por ejemplo,
+          imágenes, texto, sonido).
     \item Este proceso es denominado \textbf{aprendizaje de características} (feature learning), lo que reduce la
-necesidad de intervención humana.
+          necesidad de intervención humana.
 \end{itemize}
 
 El aprendizaje profundo ha mostrado un rendimiento sobresaliente en diversas tareas, como el reconocimiento de
@@ -33,51 +35,51 @@ Cuando se combinan muchas de estas neuronas en capas, forman una red neuronal.
 \subsection{Componentes de una Red Neuronal}\label{subsec:componentes-de-una-red-neuronal}
 \begin{enumerate}
     \item \textbf{Neuronas o Unidades}:
-    \begin{figure}[htp] \label{fig:neuron}
-        \begin{center}
-            \includegraphics[width=0.5\textwidth]{imagenes/neuron}
-        \end{center}
-        \caption[Neurona Artificial]{}
-    \end{figure}
+          \begin{figure}[htp] \label{fig:neuron}
+              \begin{center}
+                  \includegraphics[width=0.5\textwidth]{imagenes/neuron}
+              \end{center}
+              \caption[Neurona Artificial]{}
+          \end{figure}
 
-Cada \textbf{neurona} realiza una operación simple: recibe varias entradas, las
-pondera por medio de \textbf{pesos} $w_{i}$, suma estos valores junto con un \textbf{sesgo} $b$, y aplica una función
-de activación.
-La salida de la neurona se expresa como:
+          Cada \textbf{neurona} realiza una operación simple: recibe varias entradas, las
+          pondera por medio de \textbf{pesos} $w_{i}$, suma estos valores junto con un \textbf{sesgo} $b$, y aplica una función
+          de activación.
+          La salida de la neurona se expresa como:
 
-$z =w_{1}x_{1} + w_{2}x_{2} + \dots + w_{n}x_{n} + b_{z} = w_{1}x_{1} + w_{2}x_{2} + \dots + w_{n}x_{n} + b$
+          $z =w_{1}x_{1} + w_{2}x_{2} + \dots + w_{n}x_{n} + b_{z} = w_{1}x_{1} + w_{2}x_{2} + \dots + w_{n}x_{n} + b$
 
-Luego, el valor $z$ pasa por una función de activación, que introduce la no linealidad en el sistema, permitiendo que
-las redes neuronales modelen relaciones complejas.
+          Luego, el valor $z$ pasa por una función de activación, que introduce la no linealidad en el sistema, permitiendo que
+          las redes neuronales modelen relaciones complejas.
     \item \textbf{Capas de la Red}:
-    \begin{figure}[htp] \label{fig:capas-red-neuronal}
-        \begin{center}
-            \includegraphics[width=0.5\textwidth]{imagenes/capas_red_neuronal}
-        \end{center}
-        \caption[Capas de la Red Neuonial Artificial]{}
-    \end{figure}
-\begin{itemize}
-    \item \textbf{Capa de entrada}: Es la primera capa de la red neuronal, que recibe los datos crudos (por ejemplo,
-píxeles de una imagen).
-    \item \textbf{Capas ocultas}: Estas capas intermedias entre la entrada y la salida aprenden representaciones
-abstractas de los datos.
-En una red profunda, hay múltiples capas ocultas, lo que permite la \textbf{transformación jerárquica} de los datos.
-    \item \textbf{Capa de salida}: Produce la predicción final, que puede ser una clase (en problemas de clasificación)
-o un valor numérico (en problemas de regresión).
-\end{itemize}
+          \begin{figure}[htp] \label{fig:capas-red-neuronal}
+              \begin{center}
+                  \includegraphics[width=0.5\textwidth]{imagenes/capas_red_neuronal}
+              \end{center}
+              \caption[Capas de la Red Neuonial Artificial]{}
+          \end{figure}
+          \begin{itemize}
+              \item \textbf{Capa de entrada}: Es la primera capa de la red neuronal, que recibe los datos crudos (por ejemplo,
+                    píxeles de una imagen).
+              \item \textbf{Capas ocultas}: Estas capas intermedias entre la entrada y la salida aprenden representaciones
+                    abstractas de los datos.
+                    En una red profunda, hay múltiples capas ocultas, lo que permite la \textbf{transformación jerárquica} de los datos.
+              \item \textbf{Capa de salida}: Produce la predicción final, que puede ser una clase (en problemas de clasificación)
+                    o un valor numérico (en problemas de regresión).
+          \end{itemize}
     \item \textbf{Pesos y Bias}: Los \textbf{pesos} son parámetros ajustables que determinan la importancia de cada
-entrada en la neurona.
-El \textbf{bias} es otro parámetro que se suma al valor ponderado para desplazar la activación de la neurona y permitir
-que el modelo ajuste mejor los datos.
+          entrada en la neurona.
+          El \textbf{bias} es otro parámetro que se suma al valor ponderado para desplazar la activación de la neurona y permitir
+          que el modelo ajuste mejor los datos.
 
     \item \textbf{Funciones de Activación}: Las funciones de activación son fundamentales para que las redes neuronales
-puedan aprender relaciones no lineales.
-Entre las más comunes se encuentran:
-\begin{itemize}
-    \item \textbf{ReLU(Rectified Linear Unit)}: $ReLU(x)=\max(0,x)$, que activa solo valores positivos.
-    \item \textbf{Sigmoide}: Que transforma los valores en un rango entre 0 y 1.
-    \item \textbf{Tanh (Tangente hiperbólica)}: Transforma los valores en un rango entre -1 y 1.
-\end{itemize}
+          puedan aprender relaciones no lineales.
+          Entre las más comunes se encuentran:
+          \begin{itemize}
+              \item \textbf{ReLU(Rectified Linear Unit)}: $ReLU(x)=\max(0,x)$, que activa solo valores positivos.
+              \item \textbf{Sigmoide}: Que transforma los valores en un rango entre 0 y 1.
+              \item \textbf{Tanh (Tangente hiperbólica)}: Transforma los valores en un rango entre -1 y 1.
+          \end{itemize}
 \end{enumerate}
 
 El uso de \textbf{backpropagation} o retropropagación permite ajustar los pesos y biases durante el entrenamiento
@@ -103,43 +105,43 @@ características.
         \includegraphics[width=1\textwidth]{imagenes/convolution_layer}
     \end{center}
     \caption[Puntos globales y locales]{En esta imagen extraída de
-    \cite{zhao_review_2024} puede observarse de la estructura de una red
-    neuronale convolucional. Junto a sus capas convolucionales. }
+        \cite{zhao_review_2024} puede observarse de la estructura de una red
+        neuronale convolucional. Junto a sus capas convolucionales. }
 \end{figure}
 
 \begin{enumerate}
     \item \textbf{Capas Convolucionales}: Estas capas aplican \textbf{filtros o kernels} sobre las imágenes de entrada
-para detectar características locales, como bordes, esquinas o texturas.
-Un filtro convolucional es una pequeña matriz que se mueve a lo largo de la imagen, calculando productos escalares en
-cada posición para producir un mapa de características.
+          para detectar características locales, como bordes, esquinas o texturas.
+          Un filtro convolucional es una pequeña matriz que se mueve a lo largo de la imagen, calculando productos escalares en
+          cada posición para producir un mapa de características.
 
-Las convoluciones son útiles porque explotan la \textbf{localidad de las características}, es decir, las relaciones
-espaciales entre píxeles cercanos.
-Además, la cantidad de parámetros se reduce drásticamente en comparación con las capas densas, ya que el filtro se
-comparte a lo largo de la imagen.
+          Las convoluciones son útiles porque explotan la \textbf{localidad de las características}, es decir, las relaciones
+          espaciales entre píxeles cercanos.
+          Además, la cantidad de parámetros se reduce drásticamente en comparación con las capas densas, ya que el filtro se
+          comparte a lo largo de la imagen.
     \item \textbf{Pooling (Submuestreo o Agrupamiento)}: Las capas de pooling reducen la dimensionalidad de las
-características extraídas por las capas convolucionales, lo que hace que las representaciones sean más manejables y
-robustas frente a pequeños cambios o desplazamientos en la imagen.
+          características extraídas por las capas convolucionales, lo que hace que las representaciones sean más manejables y
+          robustas frente a pequeños cambios o desplazamientos en la imagen.
 
-El max-pooling es la técnica de pooling más común, donde se toma el valor máximo dentro de una ventana de píxeles,
-reduciendo el tamaño de la imagen, pero reteniendo las características más importantes.
+          El max-pooling es la técnica de pooling más común, donde se toma el valor máximo dentro de una ventana de píxeles,
+          reduciendo el tamaño de la imagen, pero reteniendo las características más importantes.
     \item \textbf{Capas Densas}: Después de varias capas convolucionales y de pooling, se agregan una o más
-\textbf{capas densas} (fully connected) para realizar la clasificación o predicción final.
-Estas capas toman todas las características aprendidas en las capas convolucionales y las combinan para generar una
-decisión final.
+          \textbf{capas densas} (fully connected) para realizar la clasificación o predicción final.
+          Estas capas toman todas las características aprendidas en las capas convolucionales y las combinan para generar una
+          decisión final.
     \item \textbf{Batch Normalization}: Esta técnica se utiliza para \textbf{normalizar} las salidas de las capas
-intermedias de una red neuronal.
-Batch Normalization ayuda a \textbf{acelerar el entrenamiento} y a hacer que la red sea más estable, al reducir el
-\textbf{desplazamiento covariante} (cambios en las distribuciones de las entradas de las capas intermedias a lo largo
-del entrenamiento).
-Esto se logra al normalizar las entradas de cada capa convolucional o densa antes de aplicar la activación, ajustando
-su media y varianza.
+          intermedias de una red neuronal.
+          Batch Normalization ayuda a \textbf{acelerar el entrenamiento} y a hacer que la red sea más estable, al reducir el
+          \textbf{desplazamiento covariante} (cambios en las distribuciones de las entradas de las capas intermedias a lo largo
+          del entrenamiento).
+          Esto se logra al normalizar las entradas de cada capa convolucional o densa antes de aplicar la activación, ajustando
+          su media y varianza.
 
     \item \textbf{Dropout}: El Dropout es una técnica de \textbf{regularización} que se utiliza para prevenir el
-\textbf{sobreajuste} (overfitting) durante el entrenamiento de una red neuronal.
-Durante cada iteración del entrenamiento, Dropout \textbf{desactiva aleatoriamente} un porcentaje de las neuronas, lo
-que obliga a la red a no depender excesivamente de ciertas neuronas y a ser más robusta.
-Esta técnica mejora la generalización de la red, lo que la hace funcionar mejor en datos no vistos.
+          \textbf{sobreajuste} (overfitting) durante el entrenamiento de una red neuronal.
+          Durante cada iteración del entrenamiento, Dropout \textbf{desactiva aleatoriamente} un porcentaje de las neuronas, lo
+          que obliga a la red a no depender excesivamente de ciertas neuronas y a ser más robusta.
+          Esta técnica mejora la generalización de la red, lo que la hace funcionar mejor en datos no vistos.
 
 \end{enumerate}
 
@@ -156,7 +158,7 @@ completa.
 \subsection{Aplicaciones de las CNN}\label{subsec:aplicaciones-de-las-cnn}
 \begin{itemize}
     \item \textbf{Clasificación de imágenes}: Etiquetar imágenes en distintas categorías, como identificar animales o
-vehículos.
+          vehículos.
     \item \textbf{Detección de objetos}: Identificar y localizar objetos en imágenes.
     \item \textbf{Reconocimiento facial}: Utilizado en sistemas de seguridad, como el desbloqueo de teléfonos móviles.
 \end{itemize}
