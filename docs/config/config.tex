@@ -1,13 +1,22 @@
+% !TeX root = ../proyecto.tex
+
 % Archivo: config.tex
 % Configuraciones generales, paquetes y definiciones
 
 \documentclass[a4paper,11pt]{book}
+
+\makeatletter
+\def\input@path{{./config/}{./capitulos/}{./portada/}{./prefacios/}}
+\makeatother
+
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \decimalpoint
 \usepackage{dcolumn}
 \usepackage{fancyhdr}
+\setlength{\headheight}{25.3pt}
+\addtolength{\topmargin}{-7.3pt}
 \usepackage{graphicx}
 \usepackage{afterpage}
 \usepackage[colorlinks=false, pdfborder={0 0 1}, pdfborderstyle={/S/U/W 1}]{hyperref}
@@ -19,6 +28,10 @@
 \usepackage{breakurl}
 \usepackage{pgfgantt} % Paquete para diagramas de Gantt
 %\usepackage{caption} % Para usar \captionof fuera de figure
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
 \PassOptionsToPackage{hyphens}{url}
 
 \usepackage[backend=biber, defernumbers=true, citestyle=numeric-comp, bibstyle=ieee, sorting=none]{biblatex}
@@ -42,10 +55,10 @@
 
 
 % Información reutilizable
-\newcommand{\myTitle}{Algoritmos meméticos para reducir datos de entrenamiento en modelos de aprendizaje profundo convolucionales\xspace}
+\newcommand{\myTitle}{Algoritmos memeticos para reducir datos de entrenamiento en modelos de aprendizaje profundo convolucionales\xspace}
 \newcommand{\myDegree}{Grado en Ingeniería Informática\xspace}
-\newcommand{\myName}{José Ruiz López (alumno)\xspace}
-\newcommand{\myProf}{Daniel Molina Cabrera (tutor)\xspace}
+\newcommand{\myName}{JOSE RUIZ LOPEZ (alumno)\xspace}
+\newcommand{\myProf}{DANIEL MOLINA CABRERA (tutor)\xspace}
 \newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación\xspace}
 \newcommand{\myDepartment}{Departamento de Ciencias de la Computación e Inteligencia Artificial\xspace}
 \newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
@@ -56,13 +69,13 @@
 
 % Configuración de hyperlinks
 \hypersetup{
-    pdfauthor = {\myName (email (en) ugr (punto) es)},
-    pdftitle = {\myTitle},
-    pdfsubject = {},
-    pdfkeywords = {palabra_clave1, palabra_clave2, palabra_clave3, ...},
-    pdfcreator = {LaTeX con el paquete ....},
-    pdfproducer = {pdflatex},
-    breaklinks=true
+  pdfauthor = {\myName —(ruizlopezjose@correo.ugr.es)},
+  pdftitle = {\myTitle},
+  pdfsubject = {Trabajo Fin de Grado},
+  pdfkeywords = {Algoritmos memeticos, Imagenes, Modelos de Aprendizaje profundo convolucionales},
+  pdfcreator = {LaTeX con el paquete PDFLatex y Biber},
+  pdfproducer = {PDFLatex},
+  breaklinks=true
 }
 
 % Definición de teoremas y otros entornos
@@ -72,12 +85,12 @@
 
 % Configuración de listings para código
 \lstset{
-    frame=Ltb, framerule=0.5pt, aboveskip=0.5cm, framextopmargin=3pt,
-    framexbottommargin=3pt, framexleftmargin=0.1cm, framesep=0pt, rulesep=.4pt,
-    backgroundcolor=\color{gray97}, rulesepcolor=\color{black},
-    stringstyle=\ttfamily, showstringspaces=false, basicstyle=\scriptsize\ttfamily,
-    commentstyle=\color{gray45}, keywordstyle=\bfseries, numbers=left,
-    numbersep=6pt, numberstyle=\tiny, breaklines=true
+  frame=Ltb, framerule=0.5pt, aboveskip=0.5cm, framextopmargin=3pt,
+  framexbottommargin=3pt, framexleftmargin=0.1cm, framesep=0pt, rulesep=.4pt,
+  backgroundcolor=\color{gray97}, rulesepcolor=\color{black},
+  stringstyle=\ttfamily, showstringspaces=false, basicstyle=\scriptsize\ttfamily,
+  commentstyle=\color{gray45}, keywordstyle=\bfseries, numbers=left,
+  numbersep=6pt, numberstyle=\tiny, breaklines=true
 }
 
 

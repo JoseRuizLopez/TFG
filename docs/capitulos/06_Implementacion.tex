@@ -1,3 +1,5 @@
+% !TeX root = ../proyecto.tex
+
 \chapter{Implementación}\label{ch:implementacion}
 En este capítulo se presenta en detalle la arquitectura técnica del sistema implementado, incluyendo los componentes y
 módulos principales, las herramientas específicas empleadas en la construcción del sistema, y los elementos clave para
@@ -22,10 +24,10 @@ La estructura del proyecto es la siguiente:
     \item \texttt{README.md} -- Descripción general.
     \item \texttt{requirements.txt} -- Dependencias del proyecto.
     \item \texttt{results} -- Resultados generados por el proyecto (fitness, tiempos, etc.).
-    \begin{itemize}
-        \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
-        \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
-    \end{itemize}
+          \begin{itemize}
+              \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
+              \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
+          \end{itemize}
     \item \texttt{scripts} -- Scripts y programas secundarios para ejecutarse en el servidor GPU\@.
     \item \texttt{src} -- Código fuente del proyecto.
     \item \texttt{tmp} -- Archivos temporales.
@@ -43,17 +45,17 @@ procesamiento de datos y la implementación de modelos de \textbf{machine learni
 Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
 \begin{itemize}
     \item \textbf{PyTorch 2.3.1}~\cite{ketkar_introduction_2021, noauthor_torchcuda_nodate}: Para la construcción,
-    entrenamiento y optimización de modelos de aprendizaje profundo.
-    PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
+          entrenamiento y optimización de modelos de aprendizaje profundo.
+          PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
     \item \textbf{Scikit-learn 1.5.2}~\cite{kramer_scikit-learn_2016}: Utilizado en la selección de características y
-    la validación cruzada de modelos.
-    Su API permite una integración fluida con PyTorch y otros módulos.
+          la validación cruzada de modelos.
+          Su API permite una integración fluida con PyTorch y otros módulos.
     \item \textbf{Numpy 2.0.0}~\cite{noauthor_numpy_nodate}: Para operaciones matemáticas y manipulación de matrices,
-    siendo una herramienta esencial en el procesamiento de datos.
+          siendo una herramienta esencial en el procesamiento de datos.
     \item \textbf{Polars 1.9.0}~\cite{noauthor_polars_nodate}: Biblioteca para manejar DataFrames de gran tamaño,
-    elegida por su rendimiento superior en comparación con Pandas.
+          elegida por su rendimiento superior en comparación con Pandas.
     \item \textbf{Matplotlib 3.9.2}~\cite{noauthor_matplotlib_nodate}: Biblioteca utilizada para la generación y
-    visualización de gráficas.
+          visualización de gráficas.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
@@ -106,22 +108,22 @@ Toma los siguientes parámetros principales:
 \begin{itemize}
     \item \texttt{initial\_percentage}: Porcentaje inicial de datos a evaluar.
     \item \texttt{max\_evaluations} y \texttt{max\_evaluations\_without\_improvement}: Límite de evaluaciones para el
-    algoritmo y cantidad máxima sin mejora antes de detenerse.
+          algoritmo y cantidad máxima sin mejora antes de detenerse.
     \item \texttt{algoritmo}, \texttt{metric}, y \texttt{model\_name}: Especifican el tipo de algoritmo, la métrica de
-    evaluación y el modelo que se usa.
+          evaluación y el modelo que se usa.
 \end{itemize}
 
 Los pasos de la función principal de \texttt{main} es:
 \begin{enumerate}
     \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
     \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
-    la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
+          la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
     \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
-    métrica final en un archivo.
+          métrica final en un archivo.
     \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
-    largo del proceso.
+          largo del proceso.
     \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
-    Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
+          Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
 \end{enumerate}
 
 \subsection{Módulos de Iniciación}\label{subsec:modulos-de-iniciacion}
@@ -141,9 +143,9 @@ En scripts, se encuentran los programas necesarios para ejecutar los algoritmos 
 maximizar la eficiencia en el entrenamiento y la evaluación de modelos.
 \begin{enumerate}
     \item \textbf{Configuración de GPU}: Los scripts están configurados para identificar y utilizar las GPU disponibles
-    en el servidor, reduciendo los tiempos de entrenamiento de modelos.
+          en el servidor, reduciendo los tiempos de entrenamiento de modelos.
     \item \textbf{Optimización de Ejecución}: Se implementaron configuraciones de batch size y técnicas de
-    procesamiento paralelo en PyTorch, aprovechando la memoria y el poder de procesamiento de las GPU\@.
+          procesamiento paralelo en PyTorch, aprovechando la memoria y el poder de procesamiento de las GPU\@.
 \end{enumerate}
 
 Estos scripts están diseñados para ser ejecutados en un entorno de servidor, reduciendo los tiempos de prueba en el
@@ -154,13 +156,13 @@ Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimient
 
 \begin{enumerate}
     \item \textbf{Optimización en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
-    PyTorch.
+          PyTorch.
     \item \textbf{Uso Eficiente de Memoria}: Con Polars y Numpy, se optimizó el manejo de grandes volúmenes de datos,
-    utilizando tipos de datos específicos para reducir el uso de memoria.
+          utilizando tipos de datos específicos para reducir el uso de memoria.
     \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
-    evaluación continua sin intervención manual.
+          evaluación continua sin intervención manual.
     \item \textbf{Early Stopping}: Para evitar el sobreajuste durante el entrenamiento del modelo, se implementó early
-    stopping utilizando la pérdida de validación como criterio principal.
-    Este enfoque ha demostrado ser más fiable que detenerse según la precisión del conjunto de entrenamiento, ya que la
-    pérdida de validación ofrece una mejor estimación del rendimiento en datos no vistos~\cite{noauthor_early_2024}.
+          stopping utilizando la pérdida de validación como criterio principal.
+          Este enfoque ha demostrado ser más fiable que detenerse según la precisión del conjunto de entrenamiento, ya que la
+          pérdida de validación ofrece una mejor estimación del rendimiento en datos no vistos~\cite{noauthor_early_2024}.
 \end{enumerate}
