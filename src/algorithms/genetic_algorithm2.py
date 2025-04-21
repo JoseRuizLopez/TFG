@@ -88,10 +88,13 @@ def weighted_crossover(parent1: dict, parent2: dict, fitness1: float, fitness2: 
     for img in remaining_from_1 | remaining_from_2:
         child2[img] = 1
 
-    # Asegurar que ambos hijos tienen el número correcto de imágenes seleccionadas
+    # Asegurar que el número objetivo no excede el total posible
+    max_possible = len(child1)
+    safe_target = min(target_selected, max_possible)
 
-    child1 = fix_selection_count(child1, target_selected)
-    child2 = fix_selection_count(child2, target_selected)
+    # Asegurar que ambos hijos tienen el número correcto de imágenes seleccionadas
+    child1 = fix_selection_count(child1, safe_target)
+    child2 = fix_selection_count(child2, safe_target)
 
     return child1, child2
 
