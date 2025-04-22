@@ -1,2 +1,2 @@
 Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-free busqueda local,0.06,0:25:45,0.8038,0.8008,0.8038,0.797,100,0.071,0.4078,0.2402,0.352
+busqueda local (libre),0.06,0:25:45,0.8038,0.8008,0.8038,0.797,100,0.071,0.4078,0.2402,0.352

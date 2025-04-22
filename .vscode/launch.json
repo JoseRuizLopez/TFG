@@ -29,15 +29,7 @@
         "program": "${workspaceFolder}/src/generar_plots.py",
         "console": "integratedTerminal",
         "args": ["--FECHA_ACTUAL", "primera-ejecucion-algoritmos-con-porcentaje", "--MODELO", "mobilenet"]
-      },
-      {
-        "name": "Compilar LaTeX (Node)",
-        "type": "node",
-        "request": "launch",
-        "program": "${workspaceFolder}/docs/compilar.sh",
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen"
-      }            
+      }
     ]
   }
   
