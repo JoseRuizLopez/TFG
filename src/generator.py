@@ -66,28 +66,28 @@ if __name__ == "__main__":
             }
         )
 
-    if "FREE_BUSQUEDA_LOCAL" in AlgorithmList.__members__:
-        random.seed(24012000 + 1)
-        random_initial_percentage = random.randint(1, 100)
-        result, fitness_history, best_fitness_history = main(
-            initial_percentage=random_initial_percentage,
-            max_evaluations=evaluaciones_maximas,
-            max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-            algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
-            metric=metric.value,
-            model_name=modelo.value,
-            adjust_size=True
-        )
+    # if "FREE_BUSQUEDA_LOCAL" in AlgorithmList.__members__:
+    #     random.seed(24012001)
+    #     random_initial_percentage = random.randint(1, 100)
+    #     result, fitness_history, best_fitness_history = main(
+    #         initial_percentage=random_initial_percentage,
+    #         max_evaluations=evaluaciones_maximas,
+    #         max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+    #         algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
+    #         metric=metric.value,
+    #         model_name=modelo.value,
+    #         adjust_size='(libre)' in AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
+    #     )
 
-        resultados.append(
-            result | {
-                "Porcentaje Inicial": random_initial_percentage / 100,
-                "Algoritmo": AlgorithmList.FREE_BUSQUEDA_LOCAL.value
-            }
-        )
+    #     resultados.append(
+    #         result | {
+    #             "Porcentaje Inicial": random_initial_percentage / 100,
+    #             "Algoritmo": AlgorithmList.FREE_BUSQUEDA_LOCAL.value
+    #         }
+    #     )
 
     for alg in AlgorithmList:
-        if alg.value != "free busqueda local":
+        if alg.value != "busqueda local (libre)":
             for ptg in porcentajes:
                 result, fitness_history, best_fitness_history = main(
                     initial_percentage=ptg,
@@ -96,7 +96,7 @@ if __name__ == "__main__":
                     algoritmo=alg.value,
                     metric=metric.value,
                     model_name=modelo.value,
-                    adjust_size=True
+                    adjust_size='(libre)' in alg.value,
                 )
 
                 resultados.append(
@@ -105,6 +105,26 @@ if __name__ == "__main__":
                         "Algoritmo": alg.value
                     }
                 )
+        else:
+            random.seed(24012001)
+            for ptg in porcentajes:
+                result, fitness_history, best_fitness_history = main(
+                    initial_percentage=random.randint(1, 100),
+                    max_evaluations=evaluaciones_maximas,
+                    max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
+                    algoritmo=alg.value,
+                    metric=metric.value,
+                    model_name=modelo.value,
+                    adjust_size='(libre)' in alg.value,
+                )
+
+                resultados.append(
+                    result | {
+                        "Porcentaje Inicial": ptg / 100,
+                        "Algoritmo": alg.value
+                    }
+                )
+                
     schema = {
         "Algoritmo": pl.Utf8,
         "Porcentaje Inicial": pl.Float64,

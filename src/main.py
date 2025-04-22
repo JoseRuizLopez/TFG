@@ -64,7 +64,7 @@ def main(
 
     clear_ds_store(dataset)
 
-    set_seed(24012000 + 1 + int(config.task_id))
+    set_seed(24012001 + int(config.task_id))
 
     start = datetime.datetime.now()
     os.makedirs(f"logs/{config.date}", exist_ok=True)

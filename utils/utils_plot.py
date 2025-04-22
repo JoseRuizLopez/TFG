@@ -108,14 +108,37 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
 
 
 def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
+    """
+    Genera un boxplot personalizado con orden automático de categorías y min/max destacados.
+
+    Args:
+        df: DataFrame con los datos.
+        metric: Columna a usar como métrica en el eje Y.
+        filename: Archivo de salida (opcional).
+        hue: Columna a usar como color (opcional).
+        title: Título del gráfico.
+        eje_x: Columna a usar como eje X.
+    """
+    if metric.title() not in df.columns or eje_x not in df.columns:
+        raise ValueError(f"Faltan columnas necesarias: '{metric.title()}' o '{eje_x}'.")
+
+    # Determinar orden personalizado del eje X (alfabético o numérico si se puede)
+    categorias = df[eje_x].dropna().unique()
+    try:
+        # Si se pueden convertir a int, orden numérico
+        orden_x = sorted(categorias, key=lambda x: int(x))
+    except ValueError:
+        orden_x = sorted(categorias)
+
     plt.figure(figsize=(12, 6))
-    ax = sns.boxplot(data=df, x=eje_x, y=metric.title())
+    ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
 
     plt.xticks(rotation=30, ha="right")
     plt.title(title)
     plt.xlabel(eje_x)
     plt.ylabel(metric.title())
-    if hue:
+
+    if hue and hue in df.columns:
         plt.legend(title=hue, bbox_to_anchor=(1.05, 1), loc='best')
 
     plot_min_max_lines(df, metric.title(), eje_x, ax)
@@ -124,8 +147,6 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     plt.tight_layout()
     if filename:
         plt.savefig(filename)
-
-    # plt.show()
 
     
 def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: list | None = None, filename: str | None = None):
@@ -162,8 +183,12 @@ def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: 
     else:
         raise ValueError("El parámetro 'tipo' debe ser 'inicial_final' o 'clases'.")
 
+    # Ordenar algoritmos por orden alfabético (o puedes personalizarlo)
+    orden_algoritmos = sorted(df["Algoritmo"].unique())
+
     plt.figure(figsize=(10, 6))
-    sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col, errorbar=None)
+    sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
+                order=orden_algoritmos, errorbar=None)
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
     plt.title(titulo)
     plt.ylabel("Porcentaje (%)")
@@ -174,7 +199,34 @@ def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: 
         plt.savefig(filename)
         print(f"Gráfico guardado en {filename}.")
 
-    # plt.show()
+
+def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None):
+    """
+    Genera un gráfico de barras comparando porcentajes agrupados por 'Porcentaje Inicial'.
+
+    Args:
+        df: DataFrame con los datos.
+        filename: Nombre del archivo de salida (opcional).
+    """
+    if "Porcentaje Inicial" not in df.columns or "Porcentaje Final" not in df.columns:
+        raise ValueError("El DataFrame debe contener las columnas 'Porcentaje Inicial' y 'Porcentaje Final'.")
+
+    df["Porcentaje Inicial"] = df["Porcentaje Inicial"].astype(str)  # Convertir a str para usar como categoría
+    df_melt = df.melt(id_vars=["Porcentaje Inicial"], value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+                      var_name="Tipo", value_name="Porcentaje")
+
+    plt.figure(figsize=(10, 6))
+    sns.barplot(data=df_melt, x="Porcentaje Inicial", y="Porcentaje", hue="Tipo", errorbar=None)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
+    plt.title("Porcentaje Inicial vs Final agrupado por Porcentaje Inicial")
+    plt.ylabel("Porcentaje (%)")
+    plt.xlabel("Porcentaje Inicial")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    if filename:
+        plt.savefig(filename)
+        print(f"Gráfico guardado en {filename}.")
 
 
 def generate_plots_from_csvs(
@@ -213,6 +265,7 @@ def generate_plots_from_csvs(
         filename2 = f'{carpeta_img}/{modelo_name}-BOXPLOT-accuracy-algoritmo.png'
         filename3 = f'{carpeta_img}/{modelo_name}-BARPLOT-balance-de-clases-por-algoritmo.png'
         filename4 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inical-vs-final-por-algoritmo.png'
+        filename5 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inicial-vs-final-por-pi.png'
     else:
         filename1 = filename2 = filename3 = None
 
@@ -246,5 +299,6 @@ def generate_plots_from_csvs(
     if "Porcentaje Final" in df.columns and len(columnas_clase) > 1:
         plot_porcentajes_por_algoritmo(df, tipo="clases", columnas_clase=columnas_clase, filename=filename3)
         plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4)
+        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5)
         
         print("Se han generado los diagramas de barras.")
