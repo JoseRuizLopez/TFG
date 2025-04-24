@@ -225,10 +225,52 @@ La primera comparativa se centró en tres enfoques principales:
     \item \textbf{Algoritmo memético}, que combinaba el genético con un proceso de mejora local adicional.
 \end{itemize}
 
-\colorbox{yellow}{FALTA ANALISIS DE LA ITERACION INICIAL}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-generacion-inicial}
+    \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo de los iniciales.}
+    \label{fig:boxplot-generacion-inicial}
+\end{figure}
+
+El gráfico de la Figura~\ref{fig:boxplot-generacion-inicial} ofrece una visión comparativa del rendimiento de los algoritmos evaluados en la etapa inicial del proyecto.
+Se observa que el algoritmo aleatorio, como era de esperar, presenta una alta dispersión y una mediana de accuracy relativamente baja.
+Este comportamiento se justifica por la ausencia de una estrategia que guíe la selección de datos, lo que da lugar a conjuntos de entrenamiento inconsistentes.
+
+
+Por su parte, la búsqueda local mejora notablemente la mediana de accuracy, manteniendo una menor variabilidad que el enfoque aleatorio.
+Esto indica que, pese a su simplicidad, la exploración guiada del espacio de soluciones permite alcanzar resultados más estables y competitivos.
+
+
+El algoritmo genético (v1) representa un salto adicional en rendimiento.
+La combinación de operadores evolutivos como la selección, el cruce y la mutación genera soluciones más refinadas,
+lo que se traduce en una mediana superior y en una mayor compactación de los valores en torno a ella.
+
+
+Finalmente, el algoritmo memético destaca como el más eficiente dentro de esta primera iteración.
+Al incorporar una fase de mejora local sobre la evolución genética, logra afinar aún más las soluciones obtenidas.
+Este enfoque híbrido permite reducir la dispersión y minimizar la probabilidad de obtener soluciones poco efectivas.
+
 
 \subsection{Mejoras progresivas: evolución del algoritmo genético}\label{sec:mejoras-progresivas-evolucion-algoritmo-genetico}
-Conforme se analizaron los primeros resultados, se fueron incorporando mejoras importantes al algoritmo genético:
+Aunque el algoritmo memético alcanzó el mejor resultado puntual en la comparativa inicial, se decidió continuar el desarrollo
+sobre el algoritmo genético por varias razones estratégicas.
+
+
+En primer lugar, el análisis detallado mostró que el genético también presentaba una mediana de accuracy más alta,
+lo que sugiere un rendimiento más consistente.
+Además, incluso en sus ejecuciones menos favorables, el genético mostró mejores valores mínimos que el memético,
+lo cual evidencia una mayor robustez frente a escenarios menos óptimos.
+
+
+A nivel práctico, el algoritmo genético ofrecía una estructura más simple y modular, lo que facilitó la introducción progresiva de mejoras específicas.
+Esta simplicidad también implicaba una menor carga computacional al prescindir de la búsqueda local en cada iteración,
+permitiendo realizar pruebas más rápidas y escalables.
+Por estos motivos, se consideró que centrar los esfuerzos en afinar el genético aportaría beneficios significativos
+tanto en eficiencia como en estabilidad, sin renunciar a un rendimiento competitivo.
+
+
+Por lo tanto, se optó por implementar varias versiones del algoritmo genético, cada una con mejoras específicas:
+
 
 \begin{itemize}
     \item \textbf{Versión 2 (Genético v2)}: se introdujo un cruce ponderado que daba más peso al progenitor con mejor fitness,
