@@ -235,8 +235,9 @@ def generate_plots_from_csvs(
     ],
     carpeta_img: str | None = None,
     modelo_name: str | None = None,
+    carpeta_csv: str | None = None,
 ):
-    path_media = os.path.dirname(archivos_csv[0])
+    path_csvs = os.path.dirname(archivos_csv[0]) if carpeta_csv is None else carpeta_csv
     dataframes = []
 
     columnas_numericas = ["Accuracy", "Precision", "Recall", "F1-score",
@@ -250,12 +251,31 @@ def generate_plots_from_csvs(
         df['Duracion'] = pd.to_timedelta(df['Duracion'], errors='coerce')
         dataframes.append(df)
 
-    # Concatenar todos los DataFrames
+    # Guardar todos los DataFrames
+    os.makedirs(path_csvs, exist_ok=True)
+    
     df_concatenado = pd.concat(dataframes)
+    df_concatenado.to_csv(f'{path_csvs}/concatenado.csv', index=True)
+    
 
-    df_concatenado.to_csv(f'{path_media}/concatenado.csv', index=True)
+    # Convertir Duracion a segundos para incluirla en el promedio
+    df_modified = df_concatenado.copy()
+    df_modified["Duracion_segundos"] = df_modified["Duracion"].dt.total_seconds()
 
-    df = pd.read_csv(f'{path_media}/concatenado.csv')
+    # Agrupar y calcular media incluyendo la duración
+    agrupado_media = df_modified.groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).mean(numeric_only=True)
+
+    # Convertir duración promedio de nuevo a formato timedelta
+    agrupado_media["Duracion"] = pd.to_timedelta(agrupado_media["Duracion_segundos"], unit='s')
+    agrupado_media.drop(columns=["Duracion_segundos"], inplace=True)
+
+    agrupado_media.to_csv(f"{carpeta_csv}/media.csv", index=False)
+
+    agrupado_mejor = df_concatenado.sort_values(by="Accuracy", ascending=False).groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).first()
+    agrupado_mejor.to_csv(f"{carpeta_csv}/mejor.csv", index=False)
+
+
+    df = pd.read_csv(f'{path_csvs}/concatenado.csv')
 
     if modelo_name is None:
         modelo_name = ""

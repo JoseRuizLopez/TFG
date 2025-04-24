@@ -29,6 +29,17 @@
         "program": "${workspaceFolder}/src/generar_plots.py",
         "console": "integratedTerminal",
         "args": ["--FECHA_ACTUAL", "primera-ejecucion-algoritmos-con-porcentaje", "--MODELO", "mobilenet"]
+      },
+      {
+        "name": "Run Final BoxPlot",
+        "type": "debugpy",
+        "request": "launch",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        },
+        "program": "${workspaceFolder}/src/generar_plots_finales.py",
+        "console": "integratedTerminal",
+        "args": ["--FECHA_ACTUAL", "2025/04/24", "--MODELO", "mobilenet", "--CARPETAS", "-", "aleatorio", "bl", "gen_v1","memetico"]
       }
     ]
   }

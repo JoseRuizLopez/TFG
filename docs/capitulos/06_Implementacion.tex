@@ -16,22 +16,22 @@ organización, mantenibilidad y pruebas independientes.
 \subsection{Estructura de Archivos}\label{subsec:estructura-de-archivos}
 La estructura del proyecto es la siguiente:
 \begin{itemize}
-    \item \texttt{data} -- Almacena los dataset utilizados por el proyecto.
-    \item \texttt{docs} -- Documentación del proyecto en latex.
-    \item \texttt{img} -- Imágenes generadas en el proyecto.
-    \item \texttt{LICENSE} -- Términos de distribución del proyecto.
-    \item \texttt{logs} -- Registros para el control y seguimiento de las evaluaciones.
-    \item \texttt{README.md} -- Descripción general.
-    \item \texttt{requirements.txt} -- Dependencias del proyecto.
-    \item \texttt{results} -- Resultados generados por el proyecto (fitness, tiempos, etc.).
-          \begin{itemize}
-              \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
-              \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
-          \end{itemize}
-    \item \texttt{scripts} -- Scripts y programas secundarios para ejecutarse en el servidor GPU\@.
-    \item \texttt{src} -- Código fuente del proyecto.
-    \item \texttt{tmp} -- Archivos temporales.
-    \item \texttt{utils} -- Módulos y scripts de utilidad.
+      \item \texttt{data} -- Almacena los dataset utilizados por el proyecto.
+      \item \texttt{docs} -- Documentación del proyecto en latex.
+      \item \texttt{img} -- Imágenes generadas en el proyecto.
+      \item \texttt{LICENSE} -- Términos de distribución del proyecto.
+      \item \texttt{logs} -- Registros para el control y seguimiento de las evaluaciones.
+      \item \texttt{README.md} -- Descripción general.
+      \item \texttt{requirements.txt} -- Dependencias del proyecto.
+      \item \texttt{results} -- Resultados generados por el proyecto (fitness, tiempos, etc.).
+            \begin{itemize}
+                  \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
+                  \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
+            \end{itemize}
+      \item \texttt{scripts} -- Scripts y programas secundarios para ejecutarse en el servidor GPU\@.
+      \item \texttt{src} -- Código fuente del proyecto.
+      \item \texttt{tmp} -- Archivos temporales.
+      \item \texttt{utils} -- Módulos y scripts de utilidad.
 \end{itemize}
 
 \section{Herramientas y Lenguajes de Programación}\label{sec:herramientas-y-lenguajes-de-programacion}
@@ -40,42 +40,46 @@ El desarrollo del proyecto se ha llevado a cabo utilizando \textbf{Python 3.10}~
 lenguaje principal, debido a su versatilidad y amplia adopción en el campo del \textbf{aprendizaje profundo} y la
 \textbf{manipulación de datos}.
 Python es conocido por su facilidad de uso, extensibilidad y la gran cantidad de bibliotecas disponibles para el
-procesamiento de datos y la implementación de modelos de \textbf{machine learning}. \\[6pt]
+procesamiento de datos y la implementación de modelos de \textbf{machine learning}.
+
 
 Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
 \begin{itemize}
-    \item \textbf{PyTorch 2.3.1}~\cite{ketkar_introduction_2021, noauthor_torchcuda_nodate}: Para la construcción,
-          entrenamiento y optimización de modelos de aprendizaje profundo.
-          PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
-    \item \textbf{Scikit-learn 1.5.2}~\cite{kramer_scikit-learn_2016}: Utilizado en la selección de características y
-          la validación cruzada de modelos.
-          Su API permite una integración fluida con PyTorch y otros módulos.
-    \item \textbf{Numpy 2.0.0}~\cite{noauthor_numpy_nodate}: Para operaciones matemáticas y manipulación de matrices,
-          siendo una herramienta esencial en el procesamiento de datos.
-    \item \textbf{Polars 1.9.0}~\cite{noauthor_polars_nodate}: Biblioteca para manejar DataFrames de gran tamaño,
-          elegida por su rendimiento superior en comparación con Pandas.
-    \item \textbf{Matplotlib 3.9.2}~\cite{noauthor_matplotlib_nodate}: Biblioteca utilizada para la generación y
-          visualización de gráficas.
+      \item \textbf{PyTorch 2.3.1}~\cite{ketkar_introduction_2021, noauthor_torchcuda_nodate}: Para la construcción,
+            entrenamiento y optimización de modelos de aprendizaje profundo.
+            PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
+      \item \textbf{Scikit-learn 1.5.2}~\cite{kramer_scikit-learn_2016}: Utilizado en la selección de características y
+            la validación cruzada de modelos.
+            Su API permite una integración fluida con PyTorch y otros módulos.
+      \item \textbf{Numpy 2.0.0}~\cite{noauthor_numpy_nodate}: Para operaciones matemáticas y manipulación de matrices,
+            siendo una herramienta esencial en el procesamiento de datos.
+      \item \textbf{Polars 1.9.0}~\cite{noauthor_polars_nodate}: Biblioteca para manejar DataFrames de gran tamaño,
+            elegida por su rendimiento superior en comparación con Pandas.
+      \item \textbf{Matplotlib 3.9.2}~\cite{noauthor_matplotlib_nodate}: Biblioteca utilizada para la generación y
+            visualización de gráficas.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
 específicos del proyecto, facilitando tanto la implementación de los algoritmos meméticos como la reducción y el
-análisis de los datos utilizados en los modelos de aprendizaje profundo. \\[6pt]
+análisis de los datos utilizados en los modelos de aprendizaje profundo.
 
 \section{Gestión de Dependencias}\label{sec:gestion-de-dependencias}
 Para garantizar que el proyecto se ejecute correctamente y todas las bibliotecas necesarias estén disponibles, se ha
 utilizado un archivo \texttt{requirements.txt}.
-Este archivo contiene una lista de todas las bibliotecas y sus versiones específicas que el proyecto requiere. \\[6pt]
+Este archivo contiene una lista de todas las bibliotecas y sus versiones específicas que el proyecto requiere.
+
 
 Para el \textbf{desarrollo local}, se ha optado por crear un entorno virtual utilizando
 \texttt{venv}~\cite{noauthor_creation_nodate}.
 Esta práctica permite aislar las dependencias del proyecto de otros proyectos en la máquina, evitando conflictos entre
-versiones de bibliotecas. \\[6pt]
+versiones de bibliotecas.
+
 
 Para la \textbf{implementación en el servidor}, se ha utilizado \texttt{conda}~\cite{noauthor_conda_nodate} como gestor
 de paquetes y entornos.
 Conda facilita la gestión de entornos y la instalación de bibliotecas, especialmente en configuraciones más complejas.
-\\[6pt]
+
+
 
 Esto facilita la reproducibilidad del proyecto y minimiza posibles conflictos de versión, lo que es fundamental para
 mantener la integridad del código y el rendimiento de las aplicaciones.
@@ -95,45 +99,49 @@ El módulo \texttt{main.py} constituye el núcleo de la implementación de los a
 proyecto.
 Este archivo contiene el código necesario para inicializar, configurar, y ejecutar los algoritmos sobre un conjunto de
 datos, además de registrar y visualizar los resultados de las evaluaciones de rendimiento.
-A continuación, se describen las secciones principales del módulo. \\[6pt]
+A continuación, se describen las secciones principales del módulo.
+
 
 Para asegurar que los experimentos sean reproducibles, se implementa la función \texttt{set\_seed(seed)}, que toma un
 valor de semilla y lo establece para todas las librerías de manejo aleatorio utilizadas (incluyendo torch, numpy, y
 random).
-Esto permite obtener resultados consistentes en cada ejecución del mismo experimento. \\[6pt]
+Esto permite obtener resultados consistentes en cada ejecución del mismo experimento.
+
 
 La función main es el núcleo del archivo y permite ejecutar uno de varios algoritmos según los parámetros
 especificados.
 Toma los siguientes parámetros principales:
 \begin{itemize}
-    \item \texttt{initial\_percentage}: Porcentaje inicial de datos a evaluar.
-    \item \texttt{max\_evaluations} y \texttt{max\_evaluations\_without\_improvement}: Límite de evaluaciones para el
-          algoritmo y cantidad máxima sin mejora antes de detenerse.
-    \item \texttt{algoritmo}, \texttt{metric}, y \texttt{model\_name}: Especifican el tipo de algoritmo, la métrica de
-          evaluación y el modelo que se usa.
+      \item \texttt{initial\_percentage}: Porcentaje inicial de datos a evaluar.
+      \item \texttt{max\_evaluations} y \texttt{max\_evaluations\_without\_improvement}: Límite de evaluaciones para el
+            algoritmo y cantidad máxima sin mejora antes de detenerse.
+      \item \texttt{algoritmo}, \texttt{metric}, y \texttt{model\_name}: Especifican el tipo de algoritmo, la métrica de
+            evaluación y el modelo que se usa.
 \end{itemize}
 
 Los pasos de la función principal de \texttt{main} es:
 \begin{enumerate}
-    \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
-    \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
-          la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
-    \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
-          métrica final en un archivo.
-    \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
-          largo del proceso.
-    \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
-          Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
+      \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
+      \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
+            la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
+      \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
+            métrica final en un archivo.
+      \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
+            largo del proceso.
+      \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
+            Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
 \end{enumerate}
 
 \subsection{Módulos de Iniciación}\label{subsec:modulos-de-iniciacion}
 El módulo inicial de Iniciación fue el de \texttt{main.py}, ya que establece un task\_id —que se utiliza para
-identificar la tarea— y unos valores para los parámetros principales del \texttt{main}. \\[6pt]
+identificar la tarea— y unos valores para los parámetros principales del \texttt{main}.
+
 
 El resto de estos módulos (\texttt{generator\_initial.py} y \texttt{generator.py}) son una extensión de
 \texttt{main.py}, por el hecho de que están diseñados para realizar ejecuciones comparativas de diferentes algoritmos
 de optimización sobre una serie de porcentajes iniciales de datos de entrada, evaluando el rendimiento de cada
-algoritmo. \\[6pt]
+algoritmo.
+
 
 Estos módulos también se encargan de generar gráficas comparativas entre distintos porcentajes o algoritmos y en
 generar un CSV con los datos finales para ser analizados.
@@ -142,10 +150,10 @@ generar un CSV con los datos finales para ser analizados.
 En scripts, se encuentran los programas necesarios para ejecutar los algoritmos en un servidor GPU, lo que permite
 maximizar la eficiencia en el entrenamiento y la evaluación de modelos.
 \begin{enumerate}
-    \item \textbf{Configuración de GPU}: Los scripts están configurados para identificar y utilizar las GPU disponibles
-          en el servidor, reduciendo los tiempos de entrenamiento de modelos.
-    \item \textbf{Optimización de Ejecución}: Se implementaron configuraciones de batch size y técnicas de
-          procesamiento paralelo en PyTorch, aprovechando la memoria y el poder de procesamiento de las GPU\@.
+      \item \textbf{Configuración de GPU}: Los scripts están configurados para identificar y utilizar las GPU disponibles
+            en el servidor, reduciendo los tiempos de entrenamiento de modelos.
+      \item \textbf{Optimización de Ejecución}: Se implementaron configuraciones de batch size y técnicas de
+            procesamiento paralelo en PyTorch, aprovechando la memoria y el poder de procesamiento de las GPU\@.
 \end{enumerate}
 
 Estos scripts están diseñados para ser ejecutados en un entorno de servidor, reduciendo los tiempos de prueba en el
@@ -155,14 +163,14 @@ entorno local y permitiendo un análisis iterativo más rápido.
 Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimiento del sistema:
 
 \begin{enumerate}
-    \item \textbf{Optimización en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
-          PyTorch.
-    \item \textbf{Uso Eficiente de Memoria}: Con Polars y Numpy, se optimizó el manejo de grandes volúmenes de datos,
-          utilizando tipos de datos específicos para reducir el uso de memoria.
-    \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
-          evaluación continua sin intervención manual.
-    \item \textbf{Early Stopping}: Para evitar el sobreajuste durante el entrenamiento del modelo, se implementó early
-          stopping utilizando la pérdida de validación como criterio principal.
-          Este enfoque ha demostrado ser más fiable que detenerse según la precisión del conjunto de entrenamiento, ya que la
-          pérdida de validación ofrece una mejor estimación del rendimiento en datos no vistos~\cite{noauthor_early_2024}.
+      \item \textbf{Optimización en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
+            PyTorch.
+      \item \textbf{Uso Eficiente de Memoria}: Con Polars y Numpy, se optimizó el manejo de grandes volúmenes de datos,
+            utilizando tipos de datos específicos para reducir el uso de memoria.
+      \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
+            evaluación continua sin intervención manual.
+      \item \textbf{Early Stopping}: Para evitar el sobreajuste durante el entrenamiento del modelo, se implementó early
+            stopping utilizando la pérdida de validación como criterio principal.
+            Este enfoque ha demostrado ser más fiable que detenerse según la precisión del conjunto de entrenamiento, ya que la
+            pérdida de validación ofrece una mejor estimación del rendimiento en datos no vistos~\cite{noauthor_early_2024}.
 \end{enumerate}

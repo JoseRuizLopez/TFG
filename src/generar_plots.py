@@ -3,7 +3,7 @@ import os
 import matplotlib
 matplotlib.use('Agg')
 
-from src.pruebas import generate_plots_from_csvs
+from utils.utils_plot import generate_plots_from_csvs
 
 
 if __name__ == "__main__":
