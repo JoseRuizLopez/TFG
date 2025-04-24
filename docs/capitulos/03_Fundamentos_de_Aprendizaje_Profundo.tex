@@ -7,7 +7,8 @@ El \textbf{aprendizaje profundo} (Deep Learning)~\cite{weidman_deep_2019} es una
 automático que se basa en el uso de \textbf{redes neuronales artificiales} con muchas capas (de ahí el término
 ``profundo''.
 Estas redes están diseñadas para imitar el funcionamiento del cerebro humano, lo que les permite aprender
-representaciones complejas de los datos de manera jerárquica. \\[2pt]
+representaciones complejas de los datos de manera jerárquica.
+
 
 La principal diferencia entre el \textbf{aprendizaje automático tradicional} y el aprendizaje profundo es la manera en
 que se manejan las características de los datos:
@@ -90,7 +91,8 @@ Las \textbf{Redes Neuronales Convolucionales} (Convolutional Neural Networks, CN
 profundas especialmente efectivas para el procesamiento de datos que tienen una estructura de tipo rejilla, como las
 imágenes.
 Fueron inspiradas por el sistema visual de los mamíferos, donde diferentes capas de neuronas responden a estímulos
-visuales de manera jerárquica. \\[2pt]
+visuales de manera jerárquica.
+
 
 Las CNN son ampliamente utilizadas en tareas de \textbf{visión por computador}, como el reconocimiento de imágenes, la
 segmentación de objetos y la clasificación de imágenes.
@@ -149,7 +151,8 @@ características.
 Al pasar una imagen a través de varias capas convolucionales, la red aprende a identificar características simples como
 líneas y bordes.
 Conforme avanza a capas más profundas, las características se vuelven más abstractas, capturando patrones más complejos
-como formas, texturas y, finalmente, estructuras completas como objetos. \\[6pt]
+como formas, texturas y, finalmente, estructuras completas como objetos.
+
 
 Por ejemplo, en una red entrenada para reconocer caras, las primeras capas pueden detectar bordes o contornos, las
 capas intermedias pueden aprender a reconocer ojos, nariz o boca, y las últimas capas pueden identificar una cara
@@ -170,7 +173,8 @@ de manera eficiente y automática.
 En el ámbito del aprendizaje profundo, existen diversas arquitecturas de redes neuronales convolucionales que han
 demostrado un rendimiento excepcional en diversas tareas de visión por computadora.
 Estas arquitecturas están diseñadas para abordar problemas complejos y variados, desde la clasificación de imágenes
-hasta la detección de objetos y el segmentado de imágenes. \\[6pt]
+hasta la detección de objetos y el segmentado de imágenes.
+
 
 A continuación, se explorarán algunas de estas arquitecturas que representan avances significativos en la eficiencia y
 efectividad del aprendizaje profundo.
@@ -179,12 +183,14 @@ efectividad del aprendizaje profundo.
 \textbf{ResNet50}~\cite{noauthor_resnet50_nodate} es una arquitectura de red neuronal convolucional introducida por
 \texttt{Kaiming He et}~\cite{he_deep_2016}.
 La principal innovación de ResNet es la introducción de \textbf{bloques de residualidad}, que permiten la construcción
-de redes extremadamente profundas sin el problema de la degradación del rendimiento. \\[6pt]
+de redes extremadamente profundas sin el problema de la degradación del rendimiento.
+
 
 La idea básica de los bloques residuales es permitir que la red aprenda funciones de identidad, facilitando así la
 propagación de la información y el gradiente a través de la red.
 En términos prácticos, esto se traduce en un rendimiento mejorado en tareas de clasificación de imágenes, donde
-ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet. \\[6pt]
+ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet.
+
 
 ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet~\cite{alnuaim_human-computer_2022}.
 Esta arquitectura se compone de 50 capas, de las cuales 49 son convolucionales y una es totalmente conectada,
@@ -205,7 +211,8 @@ aplicaciones móviles y de visión por computadora en dispositivos con recursos 
 Introducida por Andrew G. Howard et al.\ en 2017, MobileNet se basa en el principio de
 \textbf{convoluciones separables en profundidad} (depthwise separable convolutions), que dividen el proceso de
 convolución en dos pasos: primero, se aplica una convolución a cada canal de la entrada (depthwise), y luego, se
-combinan los resultados con una convolución 1x1 (pointwise). \\[6pt]
+combinan los resultados con una convolución 1x1 (pointwise).
+
 
 Esta técnica reduce significativamente el número de parámetros y el costo computacional, lo que permite ejecutar
 modelos de visión por computadora en dispositivos móviles sin sacrificar drásticamente la precisión.
@@ -223,13 +230,15 @@ modelos de visión por computadora en dispositivos móviles sin sacrificar drás
 de MobileNet original al incorporar varias innovaciones.
 La principal contribución de MobileNetV2 es la introducción de los bloques de \textbf{residualidad invertida} (inverted
 residuals), que permiten que la red mantenga una mayor capacidad de representación y flujo de información a través de
-las capas. \\[6pt]
+las capas.
+
 
 Además, MobileNetV2 utiliza una función de activación llamada \textbf{linear bottleneck}, que ayuda a preservar la
 información durante la propagación a través de las capas, lo que mejora aún más el rendimiento del modelo en tareas de
 clasificación y detección.
 Esta arquitectura se optimiza para ser altamente eficiente, permitiendo que sea utilizada en aplicaciones de tiempo
-real en dispositivos con limitaciones de hardware. \\[6pt]
+real en dispositivos con limitaciones de hardware.
+
 
 MobileNetV2 ha demostrado ser una opción popular para aplicaciones en dispositivos móviles y sistemas embebidos,
 ofreciendo un buen equilibrio entre precisión y eficiencia computacional.

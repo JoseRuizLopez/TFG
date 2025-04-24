@@ -11,7 +11,8 @@ En este contexto, los \textbf{modelos de aprendizaje profundo}, y en particular 
 \textbf{redes neuronales convolucionales} (CNN), han demostrado un notable rendimiento en tareas como la
 \textbf{clasificación de imágenes}, el \textbf{reconocimiento de patrones} y diversas aplicaciones de alta complejidad.
 No obstante, el entrenamiento de estos modelos suele requerir grandes cantidades de datos, lo que plantea desafíos
-significativos tanto en términos de \textbf{tiempo} como de \textbf{costes} asociados a su obtención. \\[6pt]
+significativos tanto en términos de \textbf{tiempo} como de \textbf{costes} asociados a su obtención.
+
 
 
 Conforme los sistemas de inteligencia artificial evolucionan hacia estructuras más sofisticadas y precisas, la
@@ -19,7 +20,7 @@ disponibilidad de conjuntos de datos amplios y adecuados se vuelve un requisito 
 Sin embargo, la recopilación, almacenamiento y tratamiento de estos datos suponen obstáculos importantes, especialmente
 para aquellas instituciones u organizaciones que cuentan con recursos limitados.
 Esta situación pone de relieve la necesidad de investigar estrategias innovadoras que permitan
-\textbf{reducir y optimizar los conjuntos de datos} sin comprometer el rendimiento de los modelos entrenados. \\[6pt]
+\textbf{reducir y optimizar los conjuntos de datos} sin comprometer el rendimiento de los modelos entrenados.
 
 
 \section{Motivación}\label{sec:motivacion}
@@ -32,7 +33,8 @@ Una estrategia prometedora consiste en entrenar estos modelos utilizando únicam
 disponibles, seleccionados de manera óptima.
 Esta aproximación permitiría disminuir significativamente el consumo de recursos sin comprometer la precisión del
 modelo, lo que supondría un avance importante para la \textbf{inteligencia artificial}, en particular en aplicaciones
-donde existen \textbf{restricciones de recursos}. \\[6pt]
+donde existen \textbf{restricciones de recursos}.
+
 
 En este contexto, la selección de subconjuntos representativos se presenta como una solución eficaz para reducir tanto
 los tiempos de entrenamiento como el uso de recursos, sin afectar negativamente el rendimiento.
@@ -41,12 +43,13 @@ Estas técnicas de optimización están diseñadas para abordar problemas comple
 resultan ineficaces, gracias a sus \textbf{estrategias de búsqueda} y \textbf{exploración del espacio de soluciones}.
 Al combinar diversas heurísticas, permiten encontrar soluciones aproximadas en tiempos razonables, lo que las convierte
 en una herramienta especialmente útil cuando la obtención de una solución exacta resulta inviable desde el punto de
-vista computacional. \\[6pt]
+vista computacional.
+
 
 Por tanto, las metaheurísticas se posicionan como una alternativa sólida para mejorar la eficiencia y accesibilidad del
 aprendizaje profundo, incluso en contextos con recursos limitados.
 Esto resulta fundamental para avanzar hacia una inteligencia artificial más abierta, \textbf{democrática} y aplicable
-en una mayor variedad de escenarios. \\[6pt]
+en una mayor variedad de escenarios.
 
 
 Este Trabajo de Fin de Grado tiene como objetivo aplicar técnicas metaheurísticas para realizar una selección
@@ -54,7 +57,8 @@ inteligente de ejemplos, con el fin de reducir el tamaño de los conjuntos de en
 significativamente a los resultados obtenidos.
 La investigación aspira a contribuir al desarrollo de modelos más \textbf{eficientes}, accesibles y económicamente
 sostenibles, fomentando así un futuro en el que la inteligencia artificial sea más \textbf{inclusiva} y
-\textbf{sostenible}. \\[6pt]
+\textbf{sostenible}.
+
 
 \section{Objetivos}\label{sec:objetivos}
 %Objetivos: Especifica qué pretendes lograr con tu TFG.
@@ -62,21 +66,24 @@ El objetivo principal de este TFG es investigar la aplicación de \textbf{metahe
 \textbf{reducción de conjuntos de datos de entrenamiento} en modelos de \textbf{aprendizaje profundo convolucionales}.
 Este estudio permitirá evaluar el impacto de dichos algoritmos en la \textbf{eficiencia computacional} y en el
 \textbf{rendimiento de los modelos}.
+
+
 Para cumplir con este objetivo general, se plantean los siguientes \textbf{objetivos específicos}:
 
 \begin{itemize}
-    \item \textbf{Desarrollar} e implementar metaheurísticas que busquen conjuntos reducidos de datos de
-          entrenamiento, con el fin de reducir el volumen de datos requerido para entrenar modelos convolucionales —sin
-          comprometer la precisión de los resultados—.
-    \item \textbf{Evaluar} el impacto de la reducción de datos en el rendimiento de los modelos, comparando aspectos
-          clave como la precisión, eficacia y el tiempo de entrenamiento —en modelos entrenados con conjuntos de datos completos
-          frente a conjuntos reducidos—.
-    \item \textbf{Mejorar la eficiencia} del entrenamiento de redes neuronales convolucionales mediante el uso de
-          metaheurísticas, analizando los beneficios en términos de reducción de tiempo y costo computacional.
-    \item \textbf{Contribuir al avance} de soluciones innovadoras en el campo del aprendizaje profundo, especialmente
-          en escenarios con limitaciones de datos; facilitando así el acceso a esta tecnología a sectores que, de otro modo,
-          tendrían dificultades para implementarla de manera efectiva.
+      \item \textbf{Desarrollar} e implementar metaheurísticas que busquen conjuntos reducidos de datos de
+            entrenamiento, con el fin de reducir el volumen de datos requerido para entrenar modelos convolucionales —sin
+            comprometer la precisión de los resultados—.
+      \item \textbf{Evaluar} el impacto de la reducción de datos en el rendimiento de los modelos, comparando aspectos
+            clave como la precisión, eficacia y el tiempo de entrenamiento —en modelos entrenados con conjuntos de datos completos
+            frente a conjuntos reducidos—.
+      \item \textbf{Mejorar la eficiencia} del entrenamiento de redes neuronales convolucionales mediante el uso de
+            metaheurísticas, analizando los beneficios en términos de reducción de tiempo y costo computacional.
+      \item \textbf{Contribuir al avance} de soluciones innovadoras en el campo del aprendizaje profundo, especialmente
+            en escenarios con limitaciones de datos; facilitando así el acceso a esta tecnología a sectores que, de otro modo,
+            tendrían dificultades para implementarla de manera efectiva.
 \end{itemize}
+
 
 A través de este estudio, se busca no solo mejorar el rendimiento y la eficiencia de los modelos convolucionales, sino
 también fomentar el desarrollo de soluciones más \textbf{sostenibles y accesibles} en el ámbito de la inteligencia

@@ -19,39 +19,41 @@ imprevistos o nuevas ideas surgidas durante el desarrollo.
 Para gestionar las tareas de forma ordenada, se utilizó \textbf{Notion}~\cite{noauthor_notion_nodate} como herramienta
 personal de planificación.
 Esta plataforma facilitó la visualización de las actividades pendientes y cumplidas, lo que ayudó a no perder de vista
-los plazos y prioridades de cada fase. \\[6pt]
+los plazos y prioridades de cada fase.
+
 
 En paralelo, se empleó \textbf{Git}~\cite{chacon_pro_2014} para el control de versiones del código, lo que resultó
 fundamental para mantener un seguimiento detallado de los cambios realizados en cada etapa del proyecto.
 También se utilizó \textbf{GitHub} como repositorio central, facilitando así la colaboración con el tutor y permitiendo
-una trazabilidad clara de todas las modificaciones. \\[6pt]
+una trazabilidad clara de todas las modificaciones.
+
 
 \subsection{Ciclos de Trabajo}\label{subsec:ciclos-de-trabajo}
 Los sprints se estructuraron en varias fases, que se repetían en cada iteración:
 
 \begin{itemize}
-  \item \textbf{Planificación}: En esta etapa se definían los objetivos del sprint, basándose en lo ya realizado y en
-        las tareas pendientes más prioritarias.
-        El análisis del \textbf{backlog} permitía seleccionar actividades realistas que se pudieran completar en el plazo
-        previsto.
+    \item \textbf{Planificación}: En esta etapa se definían los objetivos del sprint, basándose en lo ya realizado y en
+          las tareas pendientes más prioritarias.
+          El análisis del \textbf{backlog} permitía seleccionar actividades realistas que se pudieran completar en el plazo
+          previsto.
 
-  \item \textbf{Desarrollo e implementación}: Se ejecutaban las tareas previstas, como la programación de nuevos
-        módulos, mejoras en algoritmos o la integración de componentes.
-        El enfoque fue incremental, es decir, se añadían funcionalidades poco a poco, asegurando que cada avance se pudiera
-        probar por separado.
+    \item \textbf{Desarrollo e implementación}: Se ejecutaban las tareas previstas, como la programación de nuevos
+          módulos, mejoras en algoritmos o la integración de componentes.
+          El enfoque fue incremental, es decir, se añadían funcionalidades poco a poco, asegurando que cada avance se pudiera
+          probar por separado.
 
-  \item \textbf{Pruebas y ajustes}: Una vez desarrolladas las funcionalidades, se realizaban pruebas (unitarias, de
-        integración o empíricas) para validar el funcionamiento del sistema y ajustar parámetros si era necesario.
-        A veces, los resultados de esta fase daban lugar a nuevas tareas que se añadían al backlog.
+    \item \textbf{Pruebas y ajustes}: Una vez desarrolladas las funcionalidades, se realizaban pruebas (unitarias, de
+          integración o empíricas) para validar el funcionamiento del sistema y ajustar parámetros si era necesario.
+          A veces, los resultados de esta fase daban lugar a nuevas tareas que se añadían al backlog.
 
-  \item \textbf{Revisión y análisis de resultados}: Al finalizar el sprint, se revisaban los objetivos cumplidos, se
-        analizaban los resultados obtenidos y se valoraba la necesidad de replantear enfoques.
-        Esta revisión también ayudaba a identificar puntos de mejora y reforzar los que ya funcionaban bien.
+    \item \textbf{Revisión y análisis de resultados}: Al finalizar el sprint, se revisaban los objetivos cumplidos, se
+          analizaban los resultados obtenidos y se valoraba la necesidad de replantear enfoques.
+          Esta revisión también ayudaba a identificar puntos de mejora y reforzar los que ya funcionaban bien.
 
-  \item \textbf{Documentación}: Durante todo el proceso se fue registrando la evolución del proyecto, desde los
-        cambios en el código hasta los resultados de las pruebas.
-        Este esfuerzo permitió tener una memoria bien estructurada, facilitar la reproducción de experimentos y justificar cada
-        decisión tomada.
+    \item \textbf{Documentación}: Durante todo el proceso se fue registrando la evolución del proyecto, desde los
+          cambios en el código hasta los resultados de las pruebas.
+          Este esfuerzo permitió tener una memoria bien estructurada, facilitar la reproducción de experimentos y justificar cada
+          decisión tomada.
 \end{itemize}
 
 
@@ -59,82 +61,82 @@ Los sprints se estructuraron en varias fases, que se repetían en cada iteració
 \subsection{Seguimiento del Progreso}\label{subsec:seguimiento-del-progreso}
 
 \begin{figure}[htp]
-  \definecolor{sprint_color1}{RGB}{51,102,254} % Azul oscuro para Sprint 1
-  \definecolor{sprint_color2}{RGB}{38, 173, 70} % Verde oscuro para Sprint 2
-  \definecolor{fase_color1}{RGB}{153,204,254} % Azul claro para Fase 1
-  \definecolor{fase_color2}{RGB}{138, 222, 158} % Verde claro más oscuro para Fase 2
-  \renewcommand\sfdefault{phv}
-  \renewcommand\mddefault{mc}
-  \renewcommand\bfdefault{bc}
-  \sffamily
-  \noindent
-  \resizebox{\textwidth}{!}{
-    \begin{ganttchart}[
-        group label node/.append style={anchor=east}, % Alinea grupo a la derecha
-        bar label node/.append style={anchor=east}, % Alinea fases a la derecha
-        group left shift=0,
-        canvas/.append style={fill=none, draw=black!5, line width=.75pt},
-        hgrid style/.style={draw=black!5, line width=.75pt},
-        vgrid={*1{draw=black!5, line width=.75pt}},
-        today label font=\small\bfseries,
-        title/.style={draw=none, fill=none},
-        title label font=\bfseries\footnotesize,
-        title label node/.append style={align=center}, % Centrado horizontal
-        include title in canvas=false,
-        bar/.append style={draw=none}, % Sin borde en las barras
-        bar incomplete/.append style={fill=barblue},
-        group right shift=0,
-        group height=.5,
-        group peaks tip position=0,
-        group progress label font=\bfseries\small,
-        link/.style={-latex, line width=1.5pt, linkred},
-        link label font=\scriptsize\bfseries,
-        link label node/.append style={below left=-2pt and 0pt},
-        x unit=0.4cm,
-        y unit title=0.6cm, % Controla la altura de la fila del título
-      ]{1}{27}
+    \definecolor{sprint_color1}{RGB}{51,102,254} % Azul oscuro para Sprint 1
+    \definecolor{sprint_color2}{RGB}{38, 173, 70} % Verde oscuro para Sprint 2
+    \definecolor{fase_color1}{RGB}{153,204,254} % Azul claro para Fase 1
+    \definecolor{fase_color2}{RGB}{138, 222, 158} % Verde claro más oscuro para Fase 2
+    \renewcommand\sfdefault{phv}
+    \renewcommand\mddefault{mc}
+    \renewcommand\bfdefault{bc}
+    \sffamily
+    \noindent
+    \resizebox{\textwidth}{!}{
+        \begin{ganttchart}[
+                group label node/.append style={anchor=east}, % Alinea grupo a la derecha
+                bar label node/.append style={anchor=east}, % Alinea fases a la derecha
+                group left shift=0,
+                canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+                hgrid style/.style={draw=black!5, line width=.75pt},
+                vgrid={*1{draw=black!5, line width=.75pt}},
+                today label font=\small\bfseries,
+                title/.style={draw=none, fill=none},
+                title label font=\bfseries\footnotesize,
+                title label node/.append style={align=center}, % Centrado horizontal
+                include title in canvas=false,
+                bar/.append style={draw=none}, % Sin borde en las barras
+                bar incomplete/.append style={fill=barblue},
+                group right shift=0,
+                group height=.5,
+                group peaks tip position=0,
+                group progress label font=\bfseries\small,
+                link/.style={-latex, line width=1.5pt, linkred},
+                link label font=\scriptsize\bfseries,
+                link label node/.append style={below left=-2pt and 0pt},
+                x unit=0.4cm,
+                y unit title=0.6cm, % Controla la altura de la fila del título
+            ]{1}{27}
 
-      % Omitimos el título DAYS en el mecanismo estándar y dejamos solo los números
-      \gantttitle{1}{1} \gantttitle{2}{1} \gantttitle{3}{1} \gantttitle{4}{1} \gantttitle{5}{1}
-      \gantttitle{6}{1} \gantttitle{7}{1} \gantttitle{8}{1} \gantttitle{9}{1} \gantttitle{10}{1}
-      \gantttitle{11}{1} \gantttitle{12}{1} \gantttitle{13}{1} \gantttitle{14}{1} \gantttitle{15}{1}
-      \gantttitle{16}{1} \gantttitle{17}{1} \gantttitle{18}{1} \gantttitle{19}{1} \gantttitle{20}{1}
-      \gantttitle{21}{1} \gantttitle{22}{1} \gantttitle{23}{1} \gantttitle{24}{1} \gantttitle{25}{1}
-      \gantttitle{26}{1} \gantttitle{27}{1} \gantttitle{28}{1}
-      \\ % Salto de línea después de los títulos
+            % Omitimos el título DAYS en el mecanismo estándar y dejamos solo los números
+            \gantttitle{1}{1} \gantttitle{2}{1} \gantttitle{3}{1} \gantttitle{4}{1} \gantttitle{5}{1}
+            \gantttitle{6}{1} \gantttitle{7}{1} \gantttitle{8}{1} \gantttitle{9}{1} \gantttitle{10}{1}
+            \gantttitle{11}{1} \gantttitle{12}{1} \gantttitle{13}{1} \gantttitle{14}{1} \gantttitle{15}{1}
+            \gantttitle{16}{1} \gantttitle{17}{1} \gantttitle{18}{1} \gantttitle{19}{1} \gantttitle{20}{1}
+            \gantttitle{21}{1} \gantttitle{22}{1} \gantttitle{23}{1} \gantttitle{24}{1} \gantttitle{25}{1}
+            \gantttitle{26}{1} \gantttitle{27}{1} \gantttitle{28}{1}
+            \\ % Salto de línea después de los títulos
 
-      % Sprint 1 alineado a la derecha - con color personalizado
-      \ganttgroup[name=sprint1, group/.append style={fill=sprint_color1}]{Sprint 1}{1}{14} \\
-      \ganttbar[name=s1fase1, bar/.append style={fill=fase_color1}]
-      {Planificación del sprint \textbf{| Fase 1}}{1}{1} \\
-      \ganttbar[name=s1fase2, bar/.append style={fill=fase_color1}]
-      {Desarrollo e implementación de algoritmos \textbf{| Fase 2}}{2}{4} \\
-      \ganttbar[name=s1fase3, bar/.append style={fill=fase_color1}]
-      {Pruebas y ajustes \textbf{| Fase 3}}{5}{10} \\
-      \ganttbar[name=s1fase4, bar/.append style={fill=fase_color1}]
-      {Revisión y análisis de resultados \textbf{| Fase 4}}{11}{12} \\
-      \ganttbar[name=s1fase5, bar/.append style={fill=fase_color1}]
-      {Documentación de los algoritmos y resultados \textbf{| Fase 5}}{13}{14} \\[grid]
+            % Sprint 1 alineado a la derecha - con color personalizado
+            \ganttgroup[name=sprint1, group/.append style={fill=sprint_color1}]{Sprint 1}{1}{14} \\
+            \ganttbar[name=s1fase1, bar/.append style={fill=fase_color1}]
+            {Planificación del sprint \textbf{| Fase 1}}{1}{1} \\
+            \ganttbar[name=s1fase2, bar/.append style={fill=fase_color1}]
+            {Desarrollo e implementación de algoritmos \textbf{| Fase 2}}{2}{4} \\
+            \ganttbar[name=s1fase3, bar/.append style={fill=fase_color1}]
+            {Pruebas y ajustes \textbf{| Fase 3}}{5}{10} \\
+            \ganttbar[name=s1fase4, bar/.append style={fill=fase_color1}]
+            {Revisión y análisis de resultados \textbf{| Fase 4}}{11}{12} \\
+            \ganttbar[name=s1fase5, bar/.append style={fill=fase_color1}]
+            {Documentación de los algoritmos y resultados \textbf{| Fase 5}}{13}{14} \\[grid]
 
-      % Sprint 2 alineado a la derecha - con color personalizado
-      \ganttgroup[name=sprint2, group/.append style={fill=sprint_color2}]{Sprint 2}{15}{28} \\
-      \ganttbar[name=s2fase1, bar/.append style={fill=fase_color2}]
-      {Planificación del sprint\textbf{| Fase 1}}{15}{15} \\
-      \ganttbar[name=s2fase2, bar/.append style={fill=fase_color2}]
-      {Desarrollo e implementación de algoritmos \textbf{| Fase 2}}{16}{18} \\
-      \ganttbar[name=s2fase3, bar/.append style={fill=fase_color2}]
-      {Pruebas y ajustes \textbf{| Fase 3}}{19}{24} \\
-      \ganttbar[name=s2fase4, bar/.append style={fill=fase_color2}]
-      {Revisión y análisis de resultados \textbf{| Fase 4}}{25}{26} \\
-      \ganttbar[name=s2fase5, bar/.append style={fill=fase_color2}]
-      {Documentación de los algoritmos y resultados \textbf{| Fase 5}}{27}{28}
-    \end{ganttchart}
-  }
-  \caption{
-    Diagrama de Gantt que muestra la planificación de dos sprints del proyecto, con sus respectivas fases: planificación,
-    desarrollo, pruebas, revisión y documentación. Este esquema ilustra la estructura iterativa seguida durante el
-    desarrollo.
-  }\label{fig:gantt-diagram}
+            % Sprint 2 alineado a la derecha - con color personalizado
+            \ganttgroup[name=sprint2, group/.append style={fill=sprint_color2}]{Sprint 2}{15}{28} \\
+            \ganttbar[name=s2fase1, bar/.append style={fill=fase_color2}]
+            {Planificación del sprint\textbf{| Fase 1}}{15}{15} \\
+            \ganttbar[name=s2fase2, bar/.append style={fill=fase_color2}]
+            {Desarrollo e implementación de algoritmos \textbf{| Fase 2}}{16}{18} \\
+            \ganttbar[name=s2fase3, bar/.append style={fill=fase_color2}]
+            {Pruebas y ajustes \textbf{| Fase 3}}{19}{24} \\
+            \ganttbar[name=s2fase4, bar/.append style={fill=fase_color2}]
+            {Revisión y análisis de resultados \textbf{| Fase 4}}{25}{26} \\
+            \ganttbar[name=s2fase5, bar/.append style={fill=fase_color2}]
+            {Documentación de los algoritmos y resultados \textbf{| Fase 5}}{27}{28}
+        \end{ganttchart}
+    }
+    \caption{
+        Diagrama de Gantt que muestra la planificación de dos sprints del proyecto, con sus respectivas fases: planificación,
+        desarrollo, pruebas, revisión y documentación. Este esquema ilustra la estructura iterativa seguida durante el
+        desarrollo.
+    }\label{fig:gantt-diagram}
 \end{figure}
 
 Para tener una visión clara del avance del proyecto, se elaboró un \textbf{diagrama de Gantt}~[\ref{fig:gantt-diagram}]
@@ -160,55 +162,57 @@ El coste por hora se ha estimado en \textbf{20 euros}~\cite{noauthor_salario_nod
 investigación, desarrollo de algoritmos, análisis de resultados y documentación.
 
 \begin{table}[htp]\label{tab:mano-de-obra}
-  \centering
-  \begin{adjustbox}{width=\linewidth}
-    \begin{tabular}{|l|c|c|c|}
-      \hline
-      \textbf{Ciclo de trabajo}                 & \textbf{Horas dedicadas} & \textbf{Coste por hora (€)} &
-      \textbf{Coste total (€)}                                                                                              \\ \hline
-      Planificación del sprint                  & 30                       & 20                          & 600              \\
-      Desarrollo e implementación de algoritmos & 80                       & 20                          & 1.600            \\
-      Pruebas y ajustes                         & 180                      & 20                          & 3.600            \\
-      Revisión y análisis de resultados         & 55                       & 20                          & 1.100            \\
-      Documentación de algoritmos y resultados  & 55                       & 20                          & 1.100            \\ \hline
-      \textbf{Total}                            & \textbf{400 horas}       &                             & \textbf{8.000 €} \\ \hline
-    \end{tabular}
-  \end{adjustbox}
-  \caption{Coste estimado de la mano de obra basado en los ciclos de trabajo.}
+    \centering
+    \begin{adjustbox}{width=\linewidth}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Ciclo de trabajo}                 & \textbf{Horas dedicadas} & \textbf{Coste por hora (€)} &
+            \textbf{Coste total (€)}                                                                                              \\ \hline
+            Planificación del sprint                  & 30                       & 20                          & 600              \\
+            Desarrollo e implementación de algoritmos & 80                       & 20                          & 1.600            \\
+            Pruebas y ajustes                         & 180                      & 20                          & 3.600            \\
+            Revisión y análisis de resultados         & 55                       & 20                          & 1.100            \\
+            Documentación de algoritmos y resultados  & 55                       & 20                          & 1.100            \\ \hline
+            \textbf{Total}                            & \textbf{400 horas}       &                             & \textbf{8.000 €} \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+    \caption{Coste estimado de la mano de obra basado en los ciclos de trabajo.}
 \end{table}
 
 
 \subsection{Recursos computacionales}\label{subsec:recursos-computacionales}
 El proyecto ha requerido el uso de recursos computacionales para entrenar los modelos de aprendizaje profundo,
-especialmente para evaluar la eficacia de los algoritmos en la reducción de datos. \\[6pt]
+especialmente para evaluar la eficacia de los algoritmos en la reducción de datos.
+
 
 El tutor \textbf{Daniel Molina Cabrera} me puso en disposición el acceso a un servidor de investigación con
 disponibilidad de GPU, de manera que no ha supuesto ningún coste.
 Por ello, para suponer un coste estimado, se ha supuesto lo que nos costaria un servidor de
 \textbf{Google Cloud}~\cite{noauthor_overview_nodate} de \textbf{Compute Engine}~\cite{noauthor_what_nodate} en
-Bélgica. \\[6pt]
+Bélgica.
+
 
 Los componentes equivalentes del servidor en Compute Engine serían:
 \begin{itemize}
-  \item Un \textbf{Intel Xeon E-2226G} equivaldría a un \textbf{c2-standard-8}, cuyo coste es de 0.43 EUR/h.
-  \item Un \textbf{NVIDIA TITAN Xp} equivaldría a una \textbf{NVIDIA K80 1 GPU}, GDDR5 de 12 GB cuyo coste es de 0.42
-        EUR/h.
+    \item Un \textbf{Intel Xeon E-2226G} equivaldría a un \textbf{c2-standard-8}, cuyo coste es de 0.43 EUR/h.
+    \item Un \textbf{NVIDIA TITAN Xp} equivaldría a una \textbf{NVIDIA K80 1 GPU}, GDDR5 de 12 GB cuyo coste es de 0.42
+          EUR/h.
 \end{itemize}
 
 De manerá que los gastos estimados serían:
 \begin{table}[htp]\label{tab:recursos-computacionales}
-  \centering
-  \begin{adjustbox}{width=\linewidth}
-    \begin{tabular}{|l|c|c|c|}
-      \hline
-      \textbf{Recurso}       & \textbf{Horas utilizadas} & \textbf{Coste por hora (€)} &
-      \textbf{Coste total (€)}                                                                        \\ \hline
-      CPU (c2-standard-8)    & 600                       & 0.43                        & 258          \\
-      GPU (NVIDIA K80 1 GPU) & 600                       & 0.42                        & 252          \\ \hline
-      \textbf{Total}         & \textbf{600}              & \textbf{0.85}               & \textbf{510} \\ \hline
-    \end{tabular}
-  \end{adjustbox}
-  \caption{Coste estimado de los recursos computacionales.}
+    \centering
+    \begin{adjustbox}{width=\linewidth}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Recurso}       & \textbf{Horas utilizadas} & \textbf{Coste por hora (€)} &
+            \textbf{Coste total (€)}                                                                        \\ \hline
+            CPU (c2-standard-8)    & 600                       & 0.43                        & 258          \\
+            GPU (NVIDIA K80 1 GPU) & 600                       & 0.42                        & 252          \\ \hline
+            \textbf{Total}         & \textbf{600}              & \textbf{0.85}               & \textbf{510} \\ \hline
+        \end{tabular}
+    \end{adjustbox}
+    \caption{Coste estimado de los recursos computacionales.}
 \end{table}
 
 
@@ -221,15 +225,15 @@ Se han considerado gastos adicionales, como el uso de \textbf{conexión a intern
 \textbf{electricidad} durante el desarrollo y entrenamiento de los modelos.
 
 \begin{table}[htp]\label{tab:otros-gastos}
-  \centering
-  \begin{tabular}{|l|c|}
-    \hline
-    \textbf{Concepto}   & \textbf{Coste estimado (€)} \\ \hline
-    Conexión a internet & 50                          \\
-    Electricidad        & 40                          \\ \hline
-    \textbf{Total}      & \textbf{90 €}               \\ \hline
-  \end{tabular}
-  \caption{Otros gastos estimados.}
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Concepto}   & \textbf{Coste estimado (€)} \\ \hline
+        Conexión a internet & 50                          \\
+        Electricidad        & 40                          \\ \hline
+        \textbf{Total}      & \textbf{90 €}               \\ \hline
+    \end{tabular}
+    \caption{Otros gastos estimados.}
 \end{table}
 
 
@@ -238,14 +242,14 @@ Sumando los costes de mano de obra, los recursos computacionales y otros gastos,
 siguiente:
 
 \begin{table}[htp]\label{tab:presupuesto-total}
-  \centering
-  \begin{tabular}{|l|c|}
-    \hline
-    \textbf{Concepto}        & \textbf{Coste (€)} \\ \hline
-    Mano de obra             & 8.000              \\
-    Recursos computacionales & 510                \\
-    Otros gastos             & 90                 \\ \hline
-    \textbf{Total}           & \textbf{8.600 €}   \\ \hline
-  \end{tabular}
-  \caption{Presupuesto total estimado del proyecto.}
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Concepto}        & \textbf{Coste (€)} \\ \hline
+        Mano de obra             & 8.000              \\
+        Recursos computacionales & 510                \\
+        Otros gastos             & 90                 \\ \hline
+        \textbf{Total}           & \textbf{8.600 €}   \\ \hline
+    \end{tabular}
+    \caption{Presupuesto total estimado del proyecto.}
 \end{table}

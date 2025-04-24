@@ -5,7 +5,8 @@ En este capítulo se describen los diferentes algoritmos utilizados en el desarr
 Todos ellos tienen como objetivo principal reducir el tamaño del conjunto de datos de entrenamiento utilizado en los
 modelos de aprendizaje profundo, con el fin de optimizar el rendimiento y reducir el costo computacional.
 El enfoque adoptado en este trabajo es la aplicación de algoritmos meméticos, los cuales combinan principios de
-algoritmos genéticos con estrategias de búsqueda local. \\[6pt]
+algoritmos genéticos con estrategias de búsqueda local.
+
 
 A continuación, se detallan los algoritmos principales implementados en este proyecto: el \textbf{algoritmo aleatorio},
 el \textbf{algoritmo de búsqueda local} y el \textbf{algoritmo genético}
@@ -45,16 +46,17 @@ La búsqueda local se basa en la idea de comenzar con una solución inicial (un 
 cambios o `movimientos' en esa solución para explorar otras soluciones cercanas.
 En este contexto, cada solución es un subconjunto de datos.
 El algoritmo evalúa diferentes subconjuntos de datos probando si estos mejoran el rendimiento del modelo de aprendizaje
-profundo al entrenarlo con ellos. \\[6pt]
+profundo al entrenarlo con ellos.
+
 
 El proceso básico de la búsqueda local es el siguiente:
 \begin{enumerate}
-    \item Se genera una solución inicial, por ejemplo, seleccionando un subconjunto de datos aleatoriamente.
-    \item Se realizan cambios locales en la solución, como añadir o eliminar ejemplos del conjunto de datos.
-    \item Se evalúa la nueva solución según el rendimiento del modelo de aprendizaje profundo.
-    \item Si la nueva solución es mejor, se reemplaza la solución actual por esta.
-    \item El proceso se repite hasta que no se observan mejoras significativas o hasta que se alcanza un número
-    \item predefinido de iteraciones.
+      \item Se genera una solución inicial, por ejemplo, seleccionando un subconjunto de datos aleatoriamente.
+      \item Se realizan cambios locales en la solución, como añadir o eliminar ejemplos del conjunto de datos.
+      \item Se evalúa la nueva solución según el rendimiento del modelo de aprendizaje profundo.
+      \item Si la nueva solución es mejor, se reemplaza la solución actual por esta.
+      \item El proceso se repite hasta que no se observan mejoras significativas o hasta que se alcanza un número
+      \item predefinido de iteraciones.
 \end{enumerate}
 
 \subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos2}
@@ -81,18 +83,18 @@ El funcionamiento de los algoritmos genéticos se basa en los conceptos de \text
 \textbf{cruzamiento} y \textbf{mutación}.
 El proceso se puede resumir en los siguientes pasos:
 \begin{enumerate}
-    \item \textbf{Inicialización}: Se genera una población inicial de posibles soluciones, cada una de ellas
-          representando un subconjunto del conjunto de datos.
-    \item \textbf{Evaluación}: Cada subconjunto de datos (o `individuo') es evaluado entrenando el modelo con ese
-          subconjunto y midiendo su rendimiento.
-    \item \textbf{Selección}: Se seleccionan los mejores individuos de la población basándose en su rendimiento.
-          Los mejores individuos tienen más probabilidades de ser seleccionados para la siguiente generación.
-    \item \textbf{Cruzamiento}: Se combinan pares de individuos seleccionados para crear nuevos subconjuntos.
-          Esto se realiza intercambiando ejemplos entre los subconjuntos.
-    \item \textbf{Mutación}: Con una pequeña probabilidad, se realizan cambios aleatorios en algunos individuos, como
-          añadir o eliminar ejemplos del subconjunto.
-    \item \textbf{Iteración}: El proceso de evaluación, selección, cruzamiento y mutación se repite durante varias
-          generaciones, con la esperanza de que cada generación produzca soluciones mejores que la anterior.
+      \item \textbf{Inicialización}: Se genera una población inicial de posibles soluciones, cada una de ellas
+            representando un subconjunto del conjunto de datos.
+      \item \textbf{Evaluación}: Cada subconjunto de datos (o `individuo') es evaluado entrenando el modelo con ese
+            subconjunto y midiendo su rendimiento.
+      \item \textbf{Selección}: Se seleccionan los mejores individuos de la población basándose en su rendimiento.
+            Los mejores individuos tienen más probabilidades de ser seleccionados para la siguiente generación.
+      \item \textbf{Cruzamiento}: Se combinan pares de individuos seleccionados para crear nuevos subconjuntos.
+            Esto se realiza intercambiando ejemplos entre los subconjuntos.
+      \item \textbf{Mutación}: Con una pequeña probabilidad, se realizan cambios aleatorios en algunos individuos, como
+            añadir o eliminar ejemplos del subconjunto.
+      \item \textbf{Iteración}: El proceso de evaluación, selección, cruzamiento y mutación se repite durante varias
+            generaciones, con la esperanza de que cada generación produzca soluciones mejores que la anterior.
 \end{enumerate}
 
 \subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos3}
@@ -108,7 +110,8 @@ Esto se logra al evaluar diferentes subconjuntos y mejorar las soluciones genera
 \subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones2}
 \textbf{Ventajas}: Los algoritmos genéticos son efectivos para explorar grandes espacios de soluciones y tienen una
 gran capacidad para evitar quedar atrapados en óptimos locales.
-Son especialmente útiles en problemas donde la solución óptima no es evidente desde el principio. \\[6pt]
+Son especialmente útiles en problemas donde la solución óptima no es evidente desde el principio.
+
 
 \textbf{Limitaciones}: Estos algoritmos pueden ser costosos computacionalmente, ya que requieren evaluar muchas
 soluciones a lo largo de múltiples generaciones.
