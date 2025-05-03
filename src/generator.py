@@ -66,26 +66,6 @@ if __name__ == "__main__":
             }
         )
 
-    # if "FREE_BUSQUEDA_LOCAL" in AlgorithmList.__members__:
-    #     random.seed(24012001)
-    #     random_initial_percentage = random.randint(1, 100)
-    #     result, fitness_history, best_fitness_history = main(
-    #         initial_percentage=random_initial_percentage,
-    #         max_evaluations=evaluaciones_maximas,
-    #         max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-    #         algoritmo=AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
-    #         metric=metric.value,
-    #         model_name=modelo.value,
-    #         adjust_size='(libre)' in AlgorithmList.FREE_BUSQUEDA_LOCAL.value,
-    #     )
-
-    #     resultados.append(
-    #         result | {
-    #             "Porcentaje Inicial": random_initial_percentage / 100,
-    #             "Algoritmo": AlgorithmList.FREE_BUSQUEDA_LOCAL.value
-    #         }
-    #     )
-
     for alg in AlgorithmList:
         if alg.value != "busqueda local (libre)":
             for ptg in porcentajes:
