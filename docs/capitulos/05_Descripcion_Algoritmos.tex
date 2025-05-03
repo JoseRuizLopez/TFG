@@ -9,7 +9,7 @@ algoritmos genéticos con estrategias de búsqueda local.
 
 
 A continuación, se detallan los algoritmos principales implementados en este proyecto: el \textbf{algoritmo aleatorio},
-el \textbf{algoritmo de búsqueda local} y el \textbf{algoritmo genético}
+el \textbf{algoritmo de búsqueda local}, el \textbf{algoritmo genético}y el \textbf{algoritmo memético}.
 
 \section{Algoritmo Aleatorio}\label{sec:algoritmo-aleatorio}
 %Algoritmos Meméticos: Detalla qué son y cómo se aplican a la reducción de datos.
@@ -70,6 +70,8 @@ conservando solo aquellos que son cruciales para el rendimiento del modelo.
 \textbf{Ventajas}: Este enfoque permite una exploración más exhaustiva del espacio de soluciones que un algoritmo
 aleatorio.
 Al hacer pequeños ajustes en cada iteración, el algoritmo puede encontrar mejores soluciones de manera eficiente.
+
+
 \textbf{Limitaciones}: Sin embargo, la búsqueda local puede quedarse atrapada en \textbf{óptimos locales}, es decir,
 soluciones que parecen buenas en comparación con las cercanas, pero que no son globalmente óptimas.
 
@@ -119,3 +121,77 @@ Además, su convergencia a veces puede ser lenta, dependiendo del tamaño del es
 parámetros del algoritmo (tamaño de la población, tasa de mutación, etc.).
 
 \subsection{Versiones}\label{subsec:versiones}
+A lo largo del desarrollo del proyecto, se implementaron diversas versiones del algoritmo genético con el fin de
+mejorar su rendimiento, adaptabilidad y capacidad para escapar de óptimos locales.
+
+\subsubsection{Versión 1 (Genético clásico)}
+Esta primera versión emplea un operador de cruce simple que intercambia subconjuntos de imágenes seleccionadas entre dos padres.
+La selección se realiza mediante torneos y se aplica una tasa de mutación fija.
+El elitismo garantiza la preservación del mejor individuo.
+Aunque funcional, esta versión presentaba ciertas limitaciones en la calidad de los hijos generados,
+especialmente en fases avanzadas de la evolución.
+
+\subsubsection{Versión 2 (Genético con cruce ponderado)}
+En esta versión se introdujo un operador de cruce mejorado (\textit{weighted\_crossover}), que asigna más imágenes al hijo
+desde el progenitor con mejor fitness, favoreciendo la herencia de características exitosas.
+Además, se selecciona solo el mejor de los hijos generados en cada cruce, de esta forma se reduce la propagación de malas soluciones.
+
+\subsubsection{Versión 2 libre (ajuste dinámico de tamaño)}
+Se trata de una variante de la versión 2 donde se permite que el número de imágenes seleccionadas por los hijos varíe
+dentro de un rango flexible (entre el 50\% y el 150\% del objetivo inicial).
+Esto se logra mediante el parámetro \textit{adjust\_size}, lo que introduce mayor diversidad en la población y fomenta la exploración del espacio de búsqueda.
+
+\subsubsection{Versión 3 (Genético con reinicio poblacional)}
+Esta versión añade un mecanismo de reinicio que se activa si el segundo mejor individuo no mejora en dos generaciones consecutivas.
+En ese caso, se mantiene el mejor individuo y se reemplaza el resto de la población,
+generando así nuevos candidatos aleatorios y dando la posibilidad de escapar de estancamientos evolutivos.
+
+
+\section{Algoritmo Memético}\label{sec:algoritmo-memetico}
+El \textbf{algoritmo memético} es una extensión del enfoque genético tradicional que incorpora técnicas de búsqueda
+local dentro del proceso evolutivo.
+Su objetivo es combinar la exploración global del espacio de soluciones (propia de los algoritmos evolutivos)
+con la explotación local de buenas soluciones (propia de la optimización heurística).
+En este trabajo, se implementó una versión adaptada del algoritmo memético orientada a la selección de subconjuntos
+óptimos de imágenes para el entrenamiento de modelos convolucionales.
+
+
+\subsection{Descripción}\label{subsec:descripcion4}
+El funcionamiento general del algoritmo memético se basa en una estructura genética clásica:
+generación de población inicial, selección por torneo, cruce, mutación y reemplazo elitista.
+Sin embargo, introduce una novedad clave: la aplicación probabilística de una búsqueda local sobre los individuos recién generados.
+Este procedimiento local intenta mejorar los hijos generados por cruce, evaluando soluciones vecinas
+mediante pequeñas modificaciones (mutaciones controladas).
+
+
+En concreto, el algoritmo:
+\begin{enumerate}
+      \item Aplica cruce y mutación para generar dos hijos por pareja de padres.
+      \item Con una cierta probabilidad, aplica búsqueda local a uno de los hijos.
+      \item Evalúa múltiples vecinos durante un número limitado de evaluaciones (\textit{local\_search\_evaluations}), seleccionando el mejor encontrado.
+      \item Incorpora elitismo para asegurar que el mejor individuo no se pierde.
+\end{enumerate}
+
+
+La búsqueda local está limitada por el número total de evaluaciones permitidas y permite realizar mejoras incrementales únicamente cuando resultan beneficiosas.
+
+
+\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos4}
+El \textbf{algoritmo memético} fue diseñado para encontrar subconjuntos de datos que optimicen métricas
+como la \textit{accuracy} o el \textit{F1-score} en un número reducido de evaluaciones.
+Su capacidad para ajustar localmente los subconjuntos permite afinar las selecciones iniciales generadas
+por los operadores evolutivos, lo que se traduce en soluciones de mayor calidad con menor dispersión.
+
+\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones3}
+\textbf{Ventajas}:
+\begin{itemize}
+      \item Mejora puntual de soluciones mediante refinamiento local.
+      \item Reduce la probabilidad de estancamiento en óptimos locales.
+      \item Genera soluciones más consistentes y robustas frente a la aleatoriedad.
+\end{itemize}
+
+\textbf{Limitaciones}:
+\begin{itemize}
+      \item Aumenta ligeramente el coste computacional por las evaluaciones adicionales de la búsqueda local.
+      \item Requiere calibración adicional de parámetros como la probabilidad de búsqueda local o el tamaño del vecindario.
+\end{itemize}

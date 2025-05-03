@@ -165,9 +165,8 @@ Inicialmente se optó por un dataset simple (Rock, Paper, Scissors) para validar
 Posteriormente, se realizaron pruebas con datasets más exigentes, como PAINTING y MNIST. Los experimentos se repitieron utilizando
 diferentes porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%) para estudiar cómo afecta la cantidad de datos seleccionados al rendimiento del modelo.
 
-Para garantizar la reproducibilidad de los resultados, se fijaron semillas aleatorias tanto en Python como en las principales librerías utilizadas
-(random, numpy, torch, cuda).
-Además, se desactivaron los algoritmos no deterministas de cuDNN.
+Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplicaron las medidas de control de reproducibilidad detalladas previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Capítulo 6}.
+Esto permitió comparar algoritmos en condiciones homogéneas, evitando variaciones indeseadas causadas por componentes aleatorios del entorno de ejecución.
 
 En cada prueba, se realizaron cinco ejecuciones paralelas con semillas distintas.
 Se calcularon las medias de las métricas más relevantes (accuracy, precision, recall y F1-score), junto con el tiempo de ejecución y número
@@ -284,13 +283,24 @@ Por lo tanto, se optó por implementar varias versiones del algoritmo genético,
 \end{itemize}
 
 Estas versiones se probaron bajo las mismas condiciones que los algoritmos iniciales, lo que permitió compararlos en igualdad de condiciones.
-Además, se utilizó una fórmula mejorada de mutación, basada en la expresión:
 
 
+Durante el desarrollo de la Versión 2, se evaluaron distintas estrategias para el operador de mutación.
+Inicialmente, se aplicaba una regla fija que realizaba un 10\% de permutaciones sobre el subconjunto seleccionado:
 \[
-    \mathrm{img\_elegidas} = \min\left(\mathrm{length} \times 0.15,\ \mathrm{length} \times \mathrm{ratio} \times 0.8\right)
+    \mathrm{num\_swaps} = \max\left(1,\ \mathrm{length} \times 0.1\right)
 \]
-que ajustaba dinámicamente cuántas imágenes mutar según el tamaño y proporción seleccionada.
+Sin embargo, esta estrategia podía resultar demasiado conservadora o agresiva, según el tamaño de la solución.
+En la versión final se adoptó una fórmula más flexible que adapta la magnitud de la mutación en función tanto del subconjunto mutado como del original:
+\[
+    \mathrm{num\_swaps} = \min\left(\mathrm{length} \times 0.15,\ \mathrm{length} \times 0.8\right)
+\]
+Esta modificación permite un equilibrio más eficaz entre exploración y preservación de estructura, limitando las perturbaciones excesivas sin eliminar la capacidad de escape de óptimos locales.
+
+\colorbox{yellow}{Debe de comprobarse cómo funciona la fórmula con el ratio añadido:}
+\[
+    \mathrm{num\_swaps} = \min\left(\mathrm{length} \times 0.15,\ \mathrm{length} \times \mathrm{ratio} \times 0.8\right)
+\]
 
 
 \subsection{Evaluación de resultados}\label{sec:evaluacion-de-resultados}
@@ -382,6 +392,8 @@ lo que vuelve a confirmar la tendencia de necesitar más imágenes para mejorar 
 
 \section{Validación con el dataset PAINTING}\label{sec:validacion-con-el-dataset-painting}
 Para comprobar la generalización de los resultados, se repitieron los experimentos con el dataset PAINTING, de mayor tamaño y complejidad.
-En este caso, los mejores resultados también se obtuvieron con las versiones mejoradas de los algoritmos genéticos, seguidos muy de cerca por el memético.
-En todos los casos, se logró mantener o incluso mejorar el rendimiento del modelo en comparación con el uso del 100\% de los datos, empleando únicamente
-un subconjunto optimizado.
+% En este caso, los mejores resultados también se obtuvieron con las versiones mejoradas de los algoritmos genéticos, seguidos muy de cerca por el memético.
+% En todos los casos, se logró mantener o incluso mejorar el rendimiento del modelo en comparación con el uso del 100\% de los datos, empleando únicamente
+% un subconjunto optimizado.
+
+\colorbox{yellow}{Falta añadir el análisis detallado de los resultados obtenidos con el dataset PAINTING.}

@@ -8,30 +8,39 @@ optimizar el rendimiento de los algoritmos y su evaluación.
 
 \section{Descripción del Sistema}\label{sec:descripcion-del-sistema}
 %Descripción del Sistema: Detalla la arquitectura del sistema que estás implementando.
-La estructura de carpetas y archivos del proyecto se organizó para facilitar el acceso modular al código, datos y
-documentación.
-Cada componente se divide en módulos específicos que agrupan funcionalidad relacionada, lo cual permite una mejor
-organización, mantenibilidad y pruebas independientes.
-
-\subsection{Estructura de Archivos}\label{subsec:estructura-de-archivos}
-La estructura del proyecto es la siguiente:
+La estructura del proyecto se organizó modularmente para facilitar el acceso, el mantenimiento y la extensibilidad del código fuente.
+La organización de carpetas es la siguiente:
 \begin{itemize}
-      \item \texttt{data} -- Almacena los dataset utilizados por el proyecto.
+      \item \texttt{data} -- Conjunto de datos utilizados en los experimentos.
       \item \texttt{docs} -- Documentación del proyecto en latex.
-      \item \texttt{img} -- Imágenes generadas en el proyecto.
+            \begin{itemize}
+                  \item \texttt{bibliografia} -- Archivos relacionados con las referencias bibliográficas.
+                  \item \texttt{capitulos} -- Archivos individuales para cada capítulo del documento.
+                  \item \texttt{config} -- Archivos de configuraciones de la documentación LaTeX.
+                  \item \texttt{imagenes} -- Imágenes utilizadas en la documentación.
+                  \item \texttt{out} -- Archivos generados por el compilador de LaTeX.
+                  \item \texttt{portada} -- Archivo portada del documento.
+                  \item \texttt{prefacio} -- Archivo prefacio del documento.
+                  \item \texttt{proyecto.tex} -- Archivo principal de LaTeX que compila el documento.
+            \end{itemize}
+      \item \texttt{img} -- Imágenes generadas automáticamente durante los experimentos.
       \item \texttt{LICENSE} -- Términos de distribución del proyecto.
-      \item \texttt{logs} -- Registros para el control y seguimiento de las evaluaciones.
+      \item \texttt{logs} -- Registros de las ejecuciones, incluyendo tiempos de inicio, fin y resultados intermedios de los algoritmos.
       \item \texttt{README.md} -- Descripción general.
       \item \texttt{requirements.txt} -- Dependencias del proyecto.
-      \item \texttt{results} -- Resultados generados por el proyecto (fitness, tiempos, etc.).
+      \item \texttt{results} -- Resultados de los experimentos.
             \begin{itemize}
                   \item \texttt{csvs} -- Resultados de las ejecuciones guardados en tablas.
-                  \item \texttt{salidas} -- Resultados devueltos por pantalla por el programa.
+                  \item \texttt{salidas} -- Salidas en bruto de consola.
             \end{itemize}
-      \item \texttt{scripts} -- Scripts y programas secundarios para ejecutarse en el servidor GPU\@.
-      \item \texttt{src} -- Código fuente del proyecto.
-      \item \texttt{tmp} -- Archivos temporales.
-      \item \texttt{utils} -- Módulos y scripts de utilidad.
+      \item \texttt{scripts} -- Scripts de ejecución automática, comparación de experimentos y generación de gráficos finales.
+      \item \texttt{src} -- Código fuente principal del proyecto.
+            \begin{itemize}
+                  \item \texttt{algorithms} -- Implementaciones de los algoritmos.
+                  \item \texttt{main.py} -- Módulo principal de ejecución individual.
+            \end{itemize}
+      \item \texttt{tmp} -- Ficheros temporales generados durante la ejecución.
+      \item \texttt{utils} -- Módulos de apoyo, como clases auxiliares, generación de gráficos y funciones utilitarias.
 \end{itemize}
 
 \section{Herramientas y Lenguajes de Programación}\label{sec:herramientas-y-lenguajes-de-programacion}
@@ -57,6 +66,8 @@ Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
             elegida por su rendimiento superior en comparación con Pandas.
       \item \textbf{Matplotlib 3.9.2}~\cite{noauthor_matplotlib_nodate}: Biblioteca utilizada para la generación y
             visualización de gráficas.
+      \item \textbf{Seaborn 0.13.2}~\cite{noauthor_seaborn_nodate}: Estilización avanzada de gráficos estadísticos.
+      \item \textbf{Openpyxl 3.1.5}~\cite{noauthor_openpyxl_nodate}: Generación automática de archivos Excel a partir de resultados experimentales.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
@@ -94,32 +105,12 @@ algoritmos desarrollados en el proyecto.
 Este módulo utiliza la arquitectura GPU para maximizar la velocidad de ejecución y está diseñado para ser escalable,
 permitiendo la inclusión de nuevos operadores meméticos si es necesario.
 
-\subsection{Módulo Principal}\label{subsec:modulo-principal}
-El módulo \texttt{main.py} constituye el núcleo de la implementación de los algoritmos de optimización aplicados en el
-proyecto.
-Este archivo contiene el código necesario para inicializar, configurar, y ejecutar los algoritmos sobre un conjunto de
-datos, además de registrar y visualizar los resultados de las evaluaciones de rendimiento.
-A continuación, se describen las secciones principales del módulo.
+\subsection{Núcleo de Ejecución}\label{subsec:nucleo-de-ejecucion}
+El módulo \texttt{main.py} centraliza la ejecución de un experimento individual, inicializando configuraciones,
+entrenando el modelo y generando gráficos.
 
 
-Para asegurar que los experimentos sean reproducibles, se implementa la función \texttt{set\_seed(seed)}, que toma un
-valor de semilla y lo establece para todas las librerías de manejo aleatorio utilizadas (incluyendo torch, numpy, y
-random).
-Esto permite obtener resultados consistentes en cada ejecución del mismo experimento.
-
-
-La función main es el núcleo del archivo y permite ejecutar uno de varios algoritmos según los parámetros
-especificados.
-Toma los siguientes parámetros principales:
-\begin{itemize}
-      \item \texttt{initial\_percentage}: Porcentaje inicial de datos a evaluar.
-      \item \texttt{max\_evaluations} y \texttt{max\_evaluations\_without\_improvement}: Límite de evaluaciones para el
-            algoritmo y cantidad máxima sin mejora antes de detenerse.
-      \item \texttt{algoritmo}, \texttt{metric}, y \texttt{model\_name}: Especifican el tipo de algoritmo, la métrica de
-            evaluación y el modelo que se usa.
-\end{itemize}
-
-Los pasos de la función principal de \texttt{main} es:
+Los pasos de la función principal de \texttt{main.py} es:
 \begin{enumerate}
       \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
       \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
@@ -132,18 +123,18 @@ Los pasos de la función principal de \texttt{main} es:
             Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
 \end{enumerate}
 
-\subsection{Módulos de Iniciación}\label{subsec:modulos-de-iniciacion}
-El módulo inicial de Iniciación fue el de \texttt{main.py}, ya que establece un task\_id —que se utiliza para
-identificar la tarea— y unos valores para los parámetros principales del \texttt{main}.
 
+Adicionalmente, los scripts \texttt{generator.py} y \texttt{generator\_initial.py} permiten automatizar experimentos masivos combinando distintos algoritmos, porcentajes iniciales y modelos de red neuronal.
 
-El resto de estos módulos (\texttt{generator\_initial.py} y \texttt{generator.py}) son una extensión de
-\texttt{main.py}, por el hecho de que están diseñados para realizar ejecuciones comparativas de diferentes algoritmos
-de optimización sobre una serie de porcentajes iniciales de datos de entrada, evaluando el rendimiento de cada
-algoritmo.
+\subsection{Módulo de Utilidades}\label{subsec:modulo-de-utilidades}
+La carpeta \texttt{utils/} contiene funciones auxiliares:
+\begin{itemize}
+      \item \textbf{utils\_plot.py}: Generación de gráficos.
+      \item \textbf{classes.py}: Definición de enumeraciones para algoritmos, métricas, datasets y modelos.
+      \item \textbf{utils.py}: Funciones de ayuda como el cálculo de métricas o la creación de diccionarios de selección de imágenes.
+\end{itemize}
 
-
-Estos módulos también se encargan de generar gráficas comparativas entre distintos porcentajes o algoritmos y en
+Estos módulos se encargan de generar gráficas comparativas entre distintos porcentajes o algoritmos y en
 generar un CSV con los datos finales para ser analizados.
 
 \subsection{Scripts de Ejecución en GPU}\label{subsec:scripts-de-ejecucion-en-gpu}
@@ -163,14 +154,24 @@ entorno local y permitiendo un análisis iterativo más rápido.
 Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimiento del sistema:
 
 \begin{enumerate}
-      \item \textbf{Optimización en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
+      \item \textbf{Aceleración en GPU}: Todas las operaciones de cálculo intensivo fueron migradas a la GPU mediante
             PyTorch.
       \item \textbf{Uso Eficiente de Memoria}: Con Polars y Numpy, se optimizó el manejo de grandes volúmenes de datos,
             utilizando tipos de datos específicos para reducir el uso de memoria.
       \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
             evaluación continua sin intervención manual.
-      \item \textbf{Early Stopping}: Para evitar el sobreajuste durante el entrenamiento del modelo, se implementó early
-            stopping utilizando la pérdida de validación como criterio principal.
-            Este enfoque ha demostrado ser más fiable que detenerse según la precisión del conjunto de entrenamiento, ya que la
-            pérdida de validación ofrece una mejor estimación del rendimiento en datos no vistos~\cite{noauthor_early_2024}.
+      \item \textbf{Control de reproducibilidad}: Se fijaron semillas aleatorias en todas las librerías involucradas
+            (random, numpy, torch, cuda) y se desactivaron los algoritmos no deterministas de cuDNN~\cite{noauthor_cublas_nodate}.
+            Esta medida garantiza que las ejecuciones del sistema produzcan resultados consistentes entre sesiones,
+            algo esencial en entornos de evaluación comparativa.
+      \item \textbf{Diagnóstico automático de GPU}: Implementación de un script (cuda-diagnostic.py) que comprueba disponibilidad
+            de CUDA y dispositivos antes de lanzar experimentos, garantizando un entorno correcto.
 \end{enumerate}
+
+Además, se implementó un mecanismo de \textbf{early stopping} basado en la ausencia de mejora del valor de fitness durante
+un número determinado de evaluaciones consecutivas.
+Aunque no se utiliza una pérdida de validación explícita como en enfoques tradicionales, este enfoque funcionalmente cumple el mismo propósito:
+detener el algoritmo cuando se detecta estancamiento, reduciendo así el coste computacional innecesario.
+
+
+Gracias a estas optimizaciones, el sistema permite explorar un amplio abanico de configuraciones de manera eficiente, manteniendo la robustez y estabilidad de los resultados.

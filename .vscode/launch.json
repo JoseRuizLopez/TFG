@@ -39,7 +39,11 @@
         },
         "program": "${workspaceFolder}/src/generar_plots_finales.py",
         "console": "integratedTerminal",
-        "args": ["--FECHA_ACTUAL", "2025/04/24", "--MODELO", "mobilenet", "--CARPETAS", "-", "aleatorio", "bl", "gen_v1","memetico"]
+        "args": [
+          "--FECHA_ACTUAL", "2025/04/24", "--MODELO", "mobilenet", 
+          "--CARPETAS", "-", "aleatorio", "bl", "bl-libre", "gen_v1", "gen_v2-2", "gen_v2-libre", "gen_v3", "memetico", 
+          // "--CARPETAS", "bl-libre"
+        ]
       }
     ]
   }
