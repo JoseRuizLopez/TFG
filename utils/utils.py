@@ -373,7 +373,7 @@ def mutation(individual: dict, mutation_rate: float = 0.1) -> dict:
     unselected = [img for img, val in mutated.items() if val == 0]
 
     # Número de intercambios a realizar
-    num_swaps = max(1, int(min(len(mutated) * 0.15, len(selected) * 0.8)))
+    num_swaps = max(1, int(min(len(mutated) * 0.15, len(selected) * mutation_rate * 0.8)))
 
     for _ in range(num_swaps):
         if selected and unselected:

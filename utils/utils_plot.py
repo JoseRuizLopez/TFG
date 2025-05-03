@@ -1,4 +1,5 @@
 import os
+import re
 from pathlib import Path
 from typing import List
 
@@ -149,80 +150,228 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
         plt.savefig(filename)
 
     
-def plot_porcentajes_por_algoritmo(df: pd.DataFrame, tipo: str, columnas_clase: list | None = None, filename: str | None = None):
+def sort_natural(s):
+    return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
+
+
+def plot_porcentajes_por_algoritmo(
+    df: pd.DataFrame,
+    tipo: str,
+    columnas_clase: list | None = None,
+    filename: str | None = None,
+    modo: str = "juntos"
+):
     """
     Genera un gráfico de barras comparando porcentajes agrupados por algoritmo.
 
     Args:
         df: DataFrame con los datos.
-        tipo: Tipo de gráfico. Puede ser:
-              - "inicial_final" para comparar Porcentaje Inicial vs Final.
-              - "clases" para mostrar balance de clases por algoritmo.
-        columnas_clase: Lista de columnas de clases, solo necesario si tipo == "clases".
-        filename: Nombre del archivo de salida (opcional).
+        tipo: "inicial_final" o "clases".
+        columnas_clase: Columnas de clases (solo para tipo="clases").
+        filename: Ruta del archivo a guardar (opcional).
+        modo: "libres", "no_libres", "ambos", "juntos"
     """
     if "Algoritmo" not in df.columns:
         raise ValueError("El DataFrame debe contener la columna 'Algoritmo'.")
 
     if tipo == "inicial_final":
-        if "Porcentaje Inicial" not in df.columns or "Porcentaje Final" not in df.columns:
-            raise ValueError("Faltan columnas 'Porcentaje Inicial' o 'Porcentaje Final'.")
-        df_melt = df.melt(id_vars=["Algoritmo"], value_vars=["Porcentaje Inicial", "Porcentaje Final"],
-                          var_name="Tipo", value_name="Porcentaje")
-        titulo = "Porcentaje Inicial vs Final por Algoritmo"
-        hue_col = "Tipo"
+        columnas_necesarias = {"Porcentaje Inicial", "Porcentaje Final"}
+        if not columnas_necesarias.issubset(df.columns):
+            raise ValueError(f"Faltan columnas necesarias: {columnas_necesarias - set(df.columns)}")
+
+        def preparar(df_sub):
+            return df_sub.melt(id_vars=["Algoritmo"],
+                               value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+                               var_name="Tipo", value_name="Porcentaje"), "Tipo", "Porcentaje Inicial vs Final por Algoritmo"
 
     elif tipo == "clases":
         if not columnas_clase:
             raise ValueError("Debes proporcionar 'columnas_clase' cuando tipo='clases'.")
-        df_melt = df.melt(id_vars=["Algoritmo"], value_vars=columnas_clase,
-                          var_name="Clase", value_name="Porcentaje")
-        titulo = "Distribución de Clases por Algoritmo"
-        hue_col = "Clase"
-
+        def preparar(df_sub):
+            return df_sub.melt(id_vars=["Algoritmo"],
+                               value_vars=columnas_clase,
+                               var_name="Clase", value_name="Porcentaje"), "Clase", "Distribución de Clases por Algoritmo"
     else:
         raise ValueError("El parámetro 'tipo' debe ser 'inicial_final' o 'clases'.")
 
-    # Ordenar algoritmos por orden alfabético (o puedes personalizarlo)
-    orden_algoritmos = sorted(df["Algoritmo"].unique())
+    # Separación por modo
+    df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
+    df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
 
-    plt.figure(figsize=(10, 6))
-    sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
-                order=orden_algoritmos, errorbar=None)
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
-    plt.title(titulo)
-    plt.ylabel("Porcentaje (%)")
-    plt.xticks(rotation=45)
-    plt.tight_layout()
+    if modo not in {"libres", "no_libres", "ambos", "juntos"}:
+        raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
+
+    if modo in {"libres", "no_libres"}:
+        subset_df = df_libres if modo == "libres" else df_no_libres
+
+        if subset_df.empty:
+            print(f"No hay datos para el modo '{modo}'.")
+            return
+
+        df_melt, hue_col, titulo = preparar(subset_df)
+        orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+
+        plt.figure(figsize=(10, 6))
+        sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
+                    order=orden_algoritmos, errorbar=None)
+        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.title(f"{titulo} - Algoritmos {modo.replace('_', ' ').title()}")
+        plt.ylabel("Porcentaje (%)")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+    elif modo == "ambos":
+        fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
+
+        for subset_df, title, ax in [
+            (df_libres, "Algoritmos Libres", axs[0]),
+            (df_no_libres, "Algoritmos No Libres", axs[1])
+        ]:
+            if subset_df.empty:
+                ax.set_visible(False)
+                continue
+
+            df_melt, hue_col, titulo = preparar(subset_df)
+            orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+
+            sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
+                        order=orden_algoritmos, errorbar=None, ax=ax)
+            ax.set_title(f"{titulo} - {title}")
+            ax.set_xlabel("Algoritmo")
+            ax.set_ylabel("Porcentaje (%)")
+            ax.tick_params(axis='x', rotation=45)
+            ax.legend(loc='upper right')
+
+        plt.tight_layout()
+
+    elif modo == "juntos":
+        df_melt, hue_col, titulo = preparar(df)
+        orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+
+        plt.figure(figsize=(10, 6))
+        sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
+                    order=orden_algoritmos, errorbar=None)
+        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.title(f"{titulo} - Todos los algoritmos juntos")
+        plt.ylabel("Porcentaje (%)")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
 
     if filename:
         plt.savefig(filename)
         print(f"Gráfico guardado en {filename}.")
 
 
-def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None):
+def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None, modo: str = "ambos"):
     """
-    Genera un gráfico de barras comparando porcentajes agrupados por 'Porcentaje Inicial'.
+    Genera un gráfico de barras comparando Porcentaje Inicial vs Final,
+    agrupado por Porcentaje Inicial. Puede separarse por tipo de algoritmo o mostrarse todo junto.
 
     Args:
         df: DataFrame con los datos.
         filename: Nombre del archivo de salida (opcional).
+        modo: "libres", "no_libres", "ambos" o "juntos".
     """
-    if "Porcentaje Inicial" not in df.columns or "Porcentaje Final" not in df.columns:
-        raise ValueError("El DataFrame debe contener las columnas 'Porcentaje Inicial' y 'Porcentaje Final'.")
+    required_columns = {"Porcentaje Inicial", "Porcentaje Final", "Algoritmo"}
+    if not required_columns.issubset(df.columns):
+        missing = required_columns - set(df.columns)
+        raise ValueError(f"Faltan columnas necesarias: {', '.join(missing)}")
 
-    df["Porcentaje Inicial"] = df["Porcentaje Inicial"].astype(str)  # Convertir a str para usar como categoría
-    df_melt = df.melt(id_vars=["Porcentaje Inicial"], value_vars=["Porcentaje Inicial", "Porcentaje Final"],
-                      var_name="Tipo", value_name="Porcentaje")
+    df["Porcentaje Inicial"] = df["Porcentaje Inicial"].astype(str)
 
-    plt.figure(figsize=(10, 6))
-    sns.barplot(data=df_melt, x="Porcentaje Inicial", y="Porcentaje", hue="Tipo", errorbar=None)
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)
-    plt.title("Porcentaje Inicial vs Final agrupado por Porcentaje Inicial")
-    plt.ylabel("Porcentaje (%)")
-    plt.xlabel("Porcentaje Inicial")
-    plt.xticks(rotation=45)
-    plt.tight_layout()
+    if modo not in {"libres", "no_libres", "ambos", "juntos"}:
+        raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
+
+    df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
+    df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
+
+    if modo in {"libres", "no_libres"}:
+        subset_df = df_libres if modo == "libres" else df_no_libres
+
+        if subset_df.empty:
+            print(f"No hay datos para el modo '{modo}'.")
+            return
+
+        df_melt = subset_df.melt(
+            id_vars=["Porcentaje Inicial"],
+            value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+            var_name="Tipo", value_name="Porcentaje"
+        )
+        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: int(x))
+
+        plt.figure(figsize=(10, 6))
+        sns.barplot(
+            data=df_melt,
+            x="Porcentaje Inicial",
+            y="Porcentaje",
+            hue="Tipo",
+            order=orden_x,
+            errorbar=None
+        )
+        plt.title(f"Porcentaje Inicial vs Final - Algoritmos {modo.replace('_', ' ').title()}")
+        plt.xlabel("Porcentaje Inicial")
+        plt.ylabel("Porcentaje (%)")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+    elif modo == "ambos":
+        fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
+
+        for subset_df, title, ax in [
+            (df_libres, "Algoritmos Libres", axs[0]),
+            (df_no_libres, "Algoritmos No Libres", axs[1])
+        ]:
+            if subset_df.empty:
+                ax.set_visible(False)
+                continue
+
+            df_melt = subset_df.melt(
+                id_vars=["Porcentaje Inicial"],
+                value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+                var_name="Tipo", value_name="Porcentaje"
+            )
+            orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
+
+
+            sns.barplot(
+                data=df_melt,
+                x="Porcentaje Inicial",
+                y="Porcentaje",
+                hue="Tipo",
+                order=orden_x,
+                errorbar=None,
+                ax=ax
+            )
+            ax.set_title(title)
+            ax.set_xlabel("Porcentaje Inicial")
+            ax.set_ylabel("Porcentaje (%)")
+            ax.tick_params(axis='x', rotation=45)
+            ax.legend(loc='upper right')
+
+        plt.tight_layout()
+
+    elif modo == "juntos":
+        df_melt = df.melt(
+            id_vars=["Porcentaje Inicial"],
+            value_vars=["Porcentaje Inicial", "Porcentaje Final"],
+            var_name="Tipo", value_name="Porcentaje"
+        )
+        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: int(x))
+
+        plt.figure(figsize=(10, 6))
+        sns.barplot(
+            data=df_melt,
+            x="Porcentaje Inicial",
+            y="Porcentaje",
+            hue="Tipo",
+            order=orden_x,
+            errorbar=None
+        )
+        plt.title("Porcentaje Inicial vs Final - Todos los algoritmos juntos")
+        plt.xlabel("Porcentaje Inicial")
+        plt.ylabel("Porcentaje (%)")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
 
     if filename:
         plt.savefig(filename)
@@ -287,7 +436,7 @@ def generate_plots_from_csvs(
         filename4 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inical-vs-final-por-algoritmo.png'
         filename5 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inicial-vs-final-por-pi.png'
     else:
-        filename1 = filename2 = filename3 = None
+        filename1 = filename2 = filename3 = filename4 = filename5 = None
 
 
     # ====== Boxplot 1: Accuracy vs Porcentaje Inicial ======
@@ -317,8 +466,8 @@ def generate_plots_from_csvs(
     columnas_clase = [col for col in df.columns if col.startswith("Porcentaje ") and col not in ["Porcentaje Inicial", "Porcentaje Final"]]
     
     if "Porcentaje Final" in df.columns and len(columnas_clase) > 1:
-        plot_porcentajes_por_algoritmo(df, tipo="clases", columnas_clase=columnas_clase, filename=filename3)
-        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4)
-        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5)
+        plot_porcentajes_por_algoritmo(df, tipo="clases", filename=filename3, columnas_clase=columnas_clase)
+        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4, modo="ambos")
+        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5, modo="ambos")
         
         print("Se han generado los diagramas de barras.")
