@@ -23,11 +23,11 @@
 \usepackage{colortbl,longtable}
 \usepackage[stable]{footmisc}
 \usepackage{verbatim}
+\usepackage{datetime}
 \usepackage{booktabs}
 \usepackage{adjustbox}
 \usepackage{breakurl}
 \usepackage{pgfgantt} % Paquete para diagramas de Gantt
-%\usepackage{caption} % Para usar \captionof fuera de figure
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -44,6 +44,8 @@
   andothers={et ~al\adddot}
 }
 \addbibresource{bibliografia/bibliografia.bib}
+% Incluyo todas las referencias en la bibliografía para ver las que no se han citado
+\nocite{*}
 
 % Columnas con punto decimal español
 \newcolumntype{.}{D{.}{\esperiod}{-1}}
@@ -109,3 +111,20 @@
 \setlength{\parskip}{6pt}       % espacio vertical del salto de linea
 \setlength{\parindent}{15pt}    % espacio de la sangría
 
+\newcommand{\monthnamecaps}[1]{%
+  \ifcase#1
+  \or Enero%
+  \or Febrero%
+  \or Marzo%
+  \or Abril%
+  \or Mayo%
+  \or Junio%
+  \or Julio%
+  \or Agosto%
+  \or Septiembre%
+  \or Octubre%
+  \or Noviembre%
+  \or Diciembre%
+  \fi}
+
+\newdateformat{mesanyo}{\monthnamecaps{\THEMONTH} de \THEYEAR}
