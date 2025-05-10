@@ -45,7 +45,7 @@ La organización de carpetas es la siguiente:
 
 \section{Herramientas y Lenguajes de Programación}\label{sec:herramientas-y-lenguajes-de-programacion}
 %Herramientas y Lenguajes de Programación: Lista las herramientas y tecnologías que usarás.
-El desarrollo del proyecto se ha llevado a cabo utilizando \textbf{Python 3.10}~\cite{vanderplas_python_2016} como
+El desarrollo del proyecto se ha llevado a cabo utilizando \textbf{Python 3.10}~\cite{vanderplasPythonDataScience2016} como
 lenguaje principal, debido a su versatilidad y amplia adopción en el campo del \textbf{aprendizaje profundo} y la
 \textbf{manipulación de datos}.
 Python es conocido por su facilidad de uso, extensibilidad y la gran cantidad de bibliotecas disponibles para el
@@ -54,20 +54,20 @@ procesamiento de datos y la implementación de modelos de \textbf{machine learni
 
 Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
 \begin{itemize}
-      \item \textbf{PyTorch 2.3.1}~\cite{ketkar_introduction_2021, noauthor_torchcuda_nodate}: Para la construcción,
+      \item \textbf{PyTorch 2.3.1}~\cite{ketkarIntroductionPyTorch2021, TorchcudaPyTorch24}: Para la construcción,
             entrenamiento y optimización de modelos de aprendizaje profundo.
             PyTorch fue elegido por su flexibilidad y capacidad para ejecutarse eficientemente en GPU\@.
-      \item \textbf{Scikit-learn 1.5.2}~\cite{kramer_scikit-learn_2016}: Utilizado en la selección de características y
-            la validación cruzada de modelos.
+      \item \textbf{Scikit-learn 1.5.2}~\cite{vanderplasPythonDataScience2016}: Para la evaluación de los modelos se utilizaron
+            métricas estándar~\cite{kramerScikitLearn2016}.
             Su API permite una integración fluida con PyTorch y otros módulos.
-      \item \textbf{Numpy 2.0.0}~\cite{noauthor_numpy_nodate}: Para operaciones matemáticas y manipulación de matrices,
+      \item \textbf{Numpy 2.0.0}~\cite{NumPyV20Manual}: Para operaciones matemáticas y manipulación de matrices,
             siendo una herramienta esencial en el procesamiento de datos.
-      \item \textbf{Polars 1.9.0}~\cite{noauthor_polars_nodate}: Biblioteca para manejar DataFrames de gran tamaño,
+      \item \textbf{Polars 1.9.0}~\cite{PolarsPythonAPI}: Biblioteca para manejar DataFrames de gran tamaño,
             elegida por su rendimiento superior en comparación con Pandas.
-      \item \textbf{Matplotlib 3.9.2}~\cite{noauthor_matplotlib_nodate}: Biblioteca utilizada para la generación y
+      \item \textbf{Matplotlib 3.9.2}~\cite{Matplotlib393Documentation}: Biblioteca utilizada para la generación y
             visualización de gráficas.
-      \item \textbf{Seaborn 0.13.2}~\cite{noauthor_seaborn_nodate}: Estilización avanzada de gráficos estadísticos.
-      \item \textbf{Openpyxl 3.1.5}~\cite{noauthor_openpyxl_nodate}: Generación automática de archivos Excel a partir de resultados experimentales.
+      \item \textbf{Seaborn 0.13.2}~\cite{Seaborn0132Documentation}: Estilización avanzada de gráficos estadísticos.
+      \item \textbf{Openpyxl 3.1.5}~\cite{Openpyxl313Documentation}: Generación automática de archivos Excel a partir de resultados experimentales.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
@@ -81,12 +81,12 @@ Este archivo contiene una lista de todas las bibliotecas y sus versiones especí
 
 
 Para el \textbf{desarrollo local}, se ha optado por crear un entorno virtual utilizando
-\texttt{venv}~\cite{noauthor_creation_nodate}.
+\texttt{venv}~\cite{CreationVirtualEnvironments}.
 Esta práctica permite aislar las dependencias del proyecto de otros proyectos en la máquina, evitando conflictos entre
 versiones de bibliotecas.
 
 
-Para la \textbf{implementación en el servidor}, se ha utilizado \texttt{conda}~\cite{noauthor_conda_nodate} como gestor
+Para la \textbf{implementación en el servidor}, se ha utilizado \texttt{conda}~\cite{CondaDocumentation} como gestor
 de paquetes y entornos.
 Conda facilita la gestión de entornos y la instalación de bibliotecas, especialmente en configuraciones más complejas.
 
@@ -161,7 +161,7 @@ Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimient
       \item \textbf{Automatización de Evaluaciones}: Las pruebas de rendimiento se automatizaron, permitiendo una
             evaluación continua sin intervención manual.
       \item \textbf{Control de reproducibilidad}: Se fijaron semillas aleatorias en todas las librerías involucradas
-            (random, numpy, torch, cuda) y se desactivaron los algoritmos no deterministas de cuDNN~\cite{noauthor_cublas_nodate}.
+            (random, numpy, torch, cuda) y se desactivaron los algoritmos no deterministas de cuDNN~\cite{CuBLASDeterministicAlgorithms}.
             Esta medida garantiza que las ejecuciones del sistema produzcan resultados consistentes entre sesiones,
             algo esencial en entornos de evaluación comparativa.
       \item \textbf{Diagnóstico automático de GPU}: Implementación de un script (cuda-diagnostic.py) que comprueba disponibilidad
@@ -171,7 +171,7 @@ Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimient
 Además, se implementó un mecanismo de \textbf{early stopping} basado en la ausencia de mejora del valor de fitness durante
 un número determinado de evaluaciones consecutivas.
 Aunque no se utiliza una pérdida de validación explícita como en enfoques tradicionales, este enfoque funcionalmente cumple el mismo propósito:
-detener el algoritmo cuando se detecta estancamiento, reduciendo así el coste computacional innecesario.
+detener el algoritmo cuando se detecta estancamiento, reduciendo así el coste computacional innecesario~\cite{EarlyStoppingDiscussion2024}.
 
 
 Gracias a estas optimizaciones, el sistema permite explorar un amplio abanico de configuraciones de manera eficiente, manteniendo la robustez y estabilidad de los resultados.

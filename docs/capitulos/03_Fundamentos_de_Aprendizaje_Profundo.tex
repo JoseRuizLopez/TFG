@@ -3,7 +3,7 @@
 \chapter{Fundamentos de Aprendizaje Profundo}\label{ch:fundamentos-de-aprendizaje-profundo}
 %Fundamentos de Aprendizaje Profundo: Explica los conceptos básicos, incluyendo redes neuronales convolucionales.
 \section{Definición de Aprendizaje Profundo}\label{sec:definicion-de-aprendizaje-profundo}
-El \textbf{aprendizaje profundo} (Deep Learning)~\cite{weidman_deep_2019} es una subcategoría del aprendizaje
+El \textbf{aprendizaje profundo} (Deep Learning)~\cite{weidmanDeepLearningScratch2019} es una subcategoría del aprendizaje
 automático que se basa en el uso de \textbf{redes neuronales artificiales} con muchas capas (de ahí el término
 ``profundo''.
 Estas redes están diseñadas para imitar el funcionamiento del cerebro humano, lo que les permite aprender
@@ -27,7 +27,7 @@ imágenes, el procesamiento del lenguaje natural, la conducción autónoma y el 
 para \textbf{capturar patrones complejos} en grandes volúmenes de datos.
 
 \section{Redes Neuronales Artificiales}\label{sec:redes-neuronales-artificiales}
-Las \textbf{redes neuronales artificiales} (ANN)~\cite{sydenham_handbook_2005} son el corazón del aprendizaje profundo.
+Las \textbf{redes neuronales artificiales} (ANN)~\cite{sydenhamHandbookMeasuringSystem2005} son el corazón del aprendizaje profundo.
 Estas redes están compuestas por neuronas artificiales, que son unidades matemáticas inspiradas en las neuronas
 biológicas.
 Cada neurona toma varias entradas, las procesa mediante una \textbf{función de activación}, y produce una salida.
@@ -107,7 +107,7 @@ características.
         \includegraphics[width=1\textwidth]{imagenes/convolution_layer}
     \end{center}
     \caption[Puntos globales y locales]{En esta imagen extraída de
-        \cite{zhao_review_2024} puede observarse de la estructura de una red
+        \cite{zhaoReviewConvolutionalNeural2024} puede observarse de la estructura de una red
         neuronale convolucional. Junto a sus capas convolucionales. }
 \end{figure}
 
@@ -180,8 +180,8 @@ A continuación, se explorarán algunas de estas arquitecturas que representan a
 efectividad del aprendizaje profundo.
 
 \subsection{ResNet50}\label{subsec:resnet50}
-\textbf{ResNet50}~\cite{noauthor_resnet50_nodate} es una arquitectura de red neuronal convolucional introducida por
-\texttt{Kaiming He et}~\cite{he_deep_2016}.
+\textbf{ResNet50}~\cite{ResNet50} es una arquitectura de red neuronal convolucional introducida por
+\texttt{Kaiming He et}~\cite{heDeepResidualLearning2016}.
 La principal innovación de ResNet es la introducción de \textbf{bloques de residualidad}, que permiten la construcción
 de redes extremadamente profundas sin el problema de la degradación del rendimiento.
 
@@ -192,7 +192,7 @@ En términos prácticos, esto se traduce en un rendimiento mejorado en tareas de
 ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet.
 
 
-ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet~\cite{alnuaim_human-computer_2022}.
+ResNet50 ha logrado resultados sobresalientes en competiciones como ImageNet~\cite{alnuaimHumanComputerInteractionHand2022}.
 Esta arquitectura se compone de 50 capas, de las cuales 49 son convolucionales y una es totalmente conectada,
 incluyendo capas de normalización y activación (ReLU), así como conexiones residuales que facilitan el entrenamiento de
 redes profundas.
@@ -206,7 +206,7 @@ redes profundas.
     \caption[ResNet50]{Diagrama de la Arquitectuda de ResNet50}
 \end{figure}
 
-\textbf{MobileNet}~\cite{howard_mobilenets_2017} es una arquitectura de red neuronal diseñada específicamente para
+\textbf{MobileNet}~\cite{howardMobileNetsEfficientConvolutional2017} es una arquitectura de red neuronal diseñada específicamente para
 aplicaciones móviles y de visión por computadora en dispositivos con recursos limitados.
 Introducida por Andrew G. Howard et al.\ en 2017, MobileNet se basa en el principio de
 \textbf{convoluciones separables en profundidad} (depthwise separable convolutions), que dividen el proceso de
@@ -226,7 +226,7 @@ modelos de visión por computadora en dispositivos móviles sin sacrificar drás
     \caption[MobileNetV2]{Diagrama de la Arquitectuda de MobileNetV2}
 \end{figure}
 
-\textbf{MobileNetV2}~\cite{sandler_mobilenetv2_2019}, introducido por Sandler et al.\ en 2018, mejora la arquitectura
+\textbf{MobileNetV2}~\cite{sandlerMobileNetV2InvertedResiduals2019}, introducido por Sandler et al.\ en 2018, mejora la arquitectura
 de MobileNet original al incorporar varias innovaciones.
 La principal contribución de MobileNetV2 es la introducción de los bloques de \textbf{residualidad invertida} (inverted
 residuals), que permiten que la red mantenga una mayor capacidad de representación y flujo de información a través de
