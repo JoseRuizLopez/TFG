@@ -40,6 +40,16 @@ if __name__ == "__main__":
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
+    algoritmos = [
+        # AlgorithmList.ALEATORIO,
+        # AlgorithmList.BUSQUEDA_LOCAL,
+        AlgorithmList.FREE_BUSQUEDA_LOCAL,
+        # AlgorithmList.GENETICO,
+        # AlgorithmList.MEMETICO,
+        # AlgorithmList.GENETICO2,
+        AlgorithmList.FREE_GENETICO2,
+        # AlgorithmList.GENETICO3,
+    ]
 
     metric: MetricList = MetricList.ACCURACY
     dataset_choosen: DatasetList = DatasetList.RPS
@@ -54,7 +64,7 @@ if __name__ == "__main__":
             initial_percentage=100,
             max_evaluations=1,
             max_evaluations_without_improvement=1,
-            algoritmo="aleatorio",
+            algoritmo=AlgorithmList.ALEATORIO.value,
             metric=metric.value,
             model_name=modelo.value
         )
@@ -66,8 +76,8 @@ if __name__ == "__main__":
             }
         )
 
-    for alg in AlgorithmList:
-        if alg.value != "busqueda local (libre)":
+    for alg in algoritmos:
+        if alg != AlgorithmList.FREE_BUSQUEDA_LOCAL:
             for ptg in porcentajes:
                 result, fitness_history, best_fitness_history = main(
                     initial_percentage=ptg,

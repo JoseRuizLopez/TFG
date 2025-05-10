@@ -86,7 +86,7 @@ def main(
     best_fitness_history = []
     evaluations_done = 0
     train_path = os.path.join(dataset, 'train')
-    if algoritmo == "aleatorio":
+    if algoritmo == AlgorithmList.ALEATORIO.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = random_search(
             data_dir=train_path,
             initial_percentage=initial_percentage,
@@ -96,7 +96,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif "busqueda local" in algoritmo:
+    elif algoritmo == AlgorithmList.BUSQUEDA_LOCAL.value or algoritmo == AlgorithmList.FREE_BUSQUEDA_LOCAL.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
             data_dir=train_path,
             initial_percentage=initial_percentage,
@@ -107,7 +107,7 @@ def main(
             model_name=model_name,
             adjust_size=adjust_size
         )
-    elif algoritmo == "genetico":
+    elif algoritmo == AlgorithmList.GENETICO.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
             data_dir=train_path,
             population_size=10,
@@ -120,7 +120,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif algoritmo == "memetico":
+    elif algoritmo == AlgorithmList.MEMETICO.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
             data_dir=train_path,
             population_size=10,
@@ -136,7 +136,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif algoritmo == "genetico2":
+    elif algoritmo == AlgorithmList.GENETICO2.value or algoritmo == AlgorithmList.FREE_GENETICO2.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
             data_dir=train_path,
             population_size=10,
@@ -149,7 +149,7 @@ def main(
             model_name=model_name,
             adjust_size=adjust_size
         )
-    elif algoritmo == "genetico3":
+    elif algoritmo == AlgorithmList.GENETICO3.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
             genetic_algorithm_with_restart(
                 data_dir=train_path,
