@@ -43,12 +43,12 @@ if __name__ == "__main__":
     algoritmos = [
         # AlgorithmList.ALEATORIO,
         # AlgorithmList.BUSQUEDA_LOCAL,
-        AlgorithmList.FREE_BUSQUEDA_LOCAL,
+        # AlgorithmList.FREE_BUSQUEDA_LOCAL,
         # AlgorithmList.GENETICO,
         # AlgorithmList.MEMETICO,
         # AlgorithmList.GENETICO2,
         AlgorithmList.FREE_GENETICO2,
-        # AlgorithmList.GENETICO3,
+        AlgorithmList.GENETICO3,
     ]
 
     metric: MetricList = MetricList.ACCURACY
