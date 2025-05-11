@@ -1,13 +1,17 @@
 {
     "version": "0.2.0",
     "configurations": [
-    //   {
-    //     "name": "Run main sin argumentos",
-    //     "type": "debugpy",
-    //     "request": "launch",
-    //     "program": "${workspaceFolder}/main.py",
-    //     "console": "integratedTerminal"
-    //   },
+    {
+        "name": "Run Resumen",
+        "type": "debugpy",
+        "request": "launch",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        },
+        "program": "${workspaceFolder}/src/generar_resumen.py",
+        "console": "integratedTerminal",
+        "args": []
+      },
       {
         "name": "Run Generador",
         "type": "debugpy",
@@ -28,7 +32,7 @@
         },
         "program": "${workspaceFolder}/src/generar_plots.py",
         "console": "integratedTerminal",
-        "args": ["--FECHA_ACTUAL", "primera-ejecucion-algoritmos-con-porcentaje", "--MODELO", "mobilenet"]
+        "args": ["--FECHA_ACTUAL", "2025/05/10/11-12", "--MODELO", "mobilenet"]
       },
       {
         "name": "Run Final BoxPlot",

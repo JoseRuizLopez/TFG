@@ -21,7 +21,9 @@ if __name__ == "__main__":
     MODELO = args.MODELO
 
     path = f"results/csvs/{FECHA_ACTUAL}"
+    path_img = f"img/{FECHA_ACTUAL}"
 
     archivos_csv = [f"{path}/{f}" for f in os.listdir(path) if f.startswith("task_")]
 
-    generate_plots_from_csvs(archivos_csv, f"img/{FECHA_ACTUAL}", modelo_name=MODELO)
+    os.makedirs(path_img, exist_ok=True)
+    generate_plots_from_csvs(archivos_csv, path_img, modelo_name=MODELO)

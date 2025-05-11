@@ -418,10 +418,10 @@ def generate_plots_from_csvs(
     agrupado_media["Duracion"] = pd.to_timedelta(agrupado_media["Duracion_segundos"], unit='s')
     agrupado_media.drop(columns=["Duracion_segundos"], inplace=True)
 
-    agrupado_media.to_csv(f"{carpeta_csv}/media.csv", index=False)
+    agrupado_media.to_csv(f"{path_csvs}/media.csv", index=False)
 
     agrupado_mejor = df_concatenado.sort_values(by="Accuracy", ascending=False).groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).first()
-    agrupado_mejor.to_csv(f"{carpeta_csv}/mejor.csv", index=False)
+    agrupado_mejor.to_csv(f"{path_csvs}/mejor.csv", index=False)
 
 
     df = pd.read_csv(f'{path_csvs}/concatenado.csv')
