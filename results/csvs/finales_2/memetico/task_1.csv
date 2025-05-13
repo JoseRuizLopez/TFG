@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+memetico,0.1,0:29:51,0.8011,0.8507,0.8011,0.7776,100,0.1,0.3571,0.2976,0.3452
+memetico,0.25,1:01:25,0.8038,0.8215,0.8038,0.795,100,0.25,0.3111,0.3413,0.3476
+memetico,0.5,1:55:18,0.8172,0.8307,0.8172,0.813,100,0.5,0.3484,0.3246,0.327
+memetico,0.75,2:47:37,0.8306,0.8478,0.8306,0.8255,100,0.75,0.3423,0.327,0.3307
