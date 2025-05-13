@@ -34,7 +34,7 @@
 
 \PassOptionsToPackage{hyphens}{url}
 
-\usepackage[backend=biber, defernumbers=true, citestyle=numeric-comp, bibstyle=ieee, sorting=none]{biblatex}
+\usepackage[backend=biber, citestyle=numeric-comp, bibstyle=ieee, sorting=none, defernumbers=false]{biblatex}
 
 \DeclareBibliographyCategory{cited}
 \AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
@@ -45,7 +45,7 @@
 }
 \addbibresource{bibliografia/bibliografia.bib}
 % Incluyo todas las referencias en la bibliografía para ver las que no se han citado
-\nocite{*}
+% \nocite{*}
 
 % Columnas con punto decimal español
 \newcolumntype{.}{D{.}{\esperiod}{-1}}
