@@ -27,7 +27,7 @@ def recolectar_csvs_de_carpetas(base_dir, carpetas):
 
 def main(fecha_actual, modelo, carpetas_elegidas):
     base_csv_path = "results/csvs/finales_2"
-    carpeta_salida = f"img/finales_/{fecha_actual}"
+    carpeta_salida = f"img/finales/{fecha_actual}"
     os.makedirs(carpeta_salida, exist_ok=True)
 
     todos_los_csvs = recolectar_csvs_de_carpetas(base_csv_path, carpetas_elegidas)
