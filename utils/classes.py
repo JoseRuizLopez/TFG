@@ -7,6 +7,7 @@ class AlgorithmList(Enum):
     FREE_BUSQUEDA_LOCAL = "busqueda local (libre)"
     GENETICO = "genetico"
     MEMETICO = "memetico"
+    FREE_MEMETICO = "memetico (libre)"
     GENETICO2 = "genetico2"
     FREE_GENETICO2 = "genetico2 (libre)"
     GENETICO3 = "genetico3"

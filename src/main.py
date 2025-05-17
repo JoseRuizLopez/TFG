@@ -120,7 +120,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.MEMETICO.value:
+    elif algoritmo == AlgorithmList.MEMETICO.value or algoritmo == AlgorithmList.FREE_MEMETICO.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
             data_dir=train_path,
             population_size=10,
@@ -134,7 +134,7 @@ def main(
             local_search_neighbor_size=5,
             metric=metric,
             model_name=model_name,
-            # adjust_size=adjust_size
+            adjust_size=adjust_size
         )
     elif algoritmo == AlgorithmList.GENETICO2.value or algoritmo == AlgorithmList.FREE_GENETICO2.value:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(

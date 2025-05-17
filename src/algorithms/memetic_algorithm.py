@@ -1,7 +1,7 @@
 import random
 
 from utils.utils import fitness
-from src.algorithms.genetic_algorithm import crossover
+from src.algorithms.genetic_algorithm2 import weighted_crossover
 from src.algorithms.genetic_algorithm import tournament_selection
 from src.algorithms.local_search import generate_neighbor
 from utils.utils import crear_dict_imagenes
@@ -20,7 +20,8 @@ def memetic_algorithm(
     local_search_evaluations: int = 10,
     local_search_neighbor_size: int = 5,
     metric: str = "accuracy",
-    model_name: str = "resnet"
+    model_name: str = "resnet",
+    adjust_size: bool = False
 ) -> tuple[dict, float, list, list, int]:
     """
     Implementa un algoritmo memético para la selección de imágenes.
@@ -119,7 +120,9 @@ def memetic_algorithm(
             parent1 = tournament_selection(population, fitness_values, tournament_size)
             parent2 = tournament_selection(population, fitness_values, tournament_size)
 
-            child1, child2 = crossover(parent1, parent2)
+            fitness1 = fitness_values[population.index(parent1)]
+            fitness2 = fitness_values[population.index(parent2)]
+            child1, child2 = weighted_crossover(parent1, parent2, fitness1, fitness2, adjust_size)
 
             child1 = mutation(child1, mutation_rate)
             child2 = mutation(child2, mutation_rate)

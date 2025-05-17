@@ -46,9 +46,10 @@ if __name__ == "__main__":
         # AlgorithmList.FREE_BUSQUEDA_LOCAL,
         # AlgorithmList.GENETICO,
         # AlgorithmList.MEMETICO,
+        AlgorithmList.FREE_MEMETICO,
         # AlgorithmList.GENETICO2,
-        AlgorithmList.FREE_GENETICO2,
-        AlgorithmList.GENETICO3,
+        # AlgorithmList.FREE_GENETICO2,
+        # AlgorithmList.GENETICO3,
     ]
 
     metric: MetricList = MetricList.ACCURACY
