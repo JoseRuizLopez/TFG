@@ -449,13 +449,14 @@ def generate_plots_from_csvs(
         filename=filename1
     )
 
-    # ====== Boxplot 2: Accuracy vs Algoritmo ======
+    # ====== Boxplot 2: Accuracy vs Algoritmo (con hue si está 'Origen') ======
+    hue_col = "Origen" if "Origen" in df.columns else None
     plot_boxplot(
         df=df,
         metric="Accuracy",
         eje_x="Algoritmo",
-        hue=None,
-        title="Comparación de Accuracy según Algoritmo y Porcentaje Inicial",
+        hue=hue_col,
+        title="Comparación de Accuracy según Algoritmo y Origen",
         filename=filename2
     )
 

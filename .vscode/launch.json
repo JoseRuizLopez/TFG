@@ -1,54 +1,73 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
     {
-        "name": "Run Resumen",
-        "type": "debugpy",
-        "request": "launch",
-        "env": {
-          "PYTHONPATH": "${workspaceFolder}"
-        },
-        "program": "${workspaceFolder}/src/generar_resumen.py",
-        "console": "integratedTerminal",
-        "args": []
+      "name": "Run Resumen",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
       },
-      {
-        "name": "Run Generador",
-        "type": "debugpy",
-        "request": "launch",
-        "env": {
-          "PYTHONPATH": "${workspaceFolder}"
-        },
-        "program": "${workspaceFolder}/src/generator.py",
-        "console": "integratedTerminal",
-        "args": ["--task_id", "-1", "--MODELO", "mobilenet"]
+      "program": "${workspaceFolder}/src/generar_resumen.py",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "Run Generador",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
       },
-      {
-        "name": "Run BoxPlot",
-        "type": "debugpy",
-        "request": "launch",
-        "env": {
-          "PYTHONPATH": "${workspaceFolder}"
-        },
-        "program": "${workspaceFolder}/src/generar_plots.py",
-        "console": "integratedTerminal",
-        "args": ["--FECHA_ACTUAL", "2025/05/10/11-12", "--MODELO", "mobilenet"]
+      "program": "${workspaceFolder}/src/generator.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--task_id",
+        "-1",
+        "--MODELO",
+        "mobilenet"
+      ]
+    },
+    {
+      "name": "Run BoxPlot",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
       },
-      {
-        "name": "Run Final BoxPlot",
-        "type": "debugpy",
-        "request": "launch",
-        "env": {
-          "PYTHONPATH": "${workspaceFolder}"
-        },
-        "program": "${workspaceFolder}/src/generar_plots_finales.py",
-        "console": "integratedTerminal",
-        "args": [
-          "--FECHA_ACTUAL", "nueva_formula_mutation", "--MODELO", "mobilenet", 
-          "--CARPETAS", "-", "aleatorio", "bl", "bl-libre", "gen_v1", "gen_v2-2", "gen_v2-libre", "gen_v3", "memetico", 
-          // "--CARPETAS", "bl-libre"
-        ]
-      }
-    ]
-  }
-  
+      "program": "${workspaceFolder}/src/generar_plots.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--FECHA_ACTUAL",
+        "2025/05/10/11-12",
+        "--MODELO",
+        "mobilenet"
+      ]
+    },
+    {
+      "name": "Run Final BoxPlot",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "program": "${workspaceFolder}/src/generar_plots_finales.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--OUT",
+        "nueva_formula_mutation",
+        "--MODELO",
+        "mobilenet",
+        "--CARPETAS",
+        "gen_v1",
+        "gen_v2-2",
+        "gen_v2-libre",
+        "gen_v3",
+        "memetico",
+        // "--CARPETAS", "bl-libre"
+        "--MODO",
+        "individual"
+      ]
+    }
+  ]
+}
