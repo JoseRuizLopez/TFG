@@ -39,7 +39,7 @@
       "console": "integratedTerminal",
       "args": [
         "--FECHA_ACTUAL",
-        "2025/05/10/11-12",
+        "2025/05/18/13-14",
         "--MODELO",
         "mobilenet"
       ]

@@ -161,7 +161,7 @@ def plot_porcentajes_por_algoritmo(
     tipo: str,
     columnas_clase: list | None = None,
     filename: str | None = None,
-    modo: PrintMode = "juntos"
+    modo: PrintMode = PrintMode.JUNTOS
 ):
     """
     Genera un gráfico de barras comparando porcentajes agrupados por algoritmo.
@@ -200,11 +200,11 @@ def plot_porcentajes_por_algoritmo(
     df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
     df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
 
-    if modo in {"libres", "no_libres"}:
-        subset_df = df_libres if modo == "libres" else df_no_libres
+    if modo == PrintMode.LIBRES or modo == PrintMode.NO_LIBRES:
+        subset_df = df_libres if modo == PrintMode.LIBRES else df_no_libres
 
         if subset_df.empty:
-            print(f"No hay datos para el modo '{modo}'.")
+            print(f"No hay datos para el modo '{modo.value}'.")
             return
 
         df_melt, hue_col, titulo = preparar(subset_df)
@@ -214,12 +214,12 @@ def plot_porcentajes_por_algoritmo(
         sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
                     order=orden_algoritmos, errorbar=None)
         plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.title(f"{titulo} - Algoritmos {modo.replace('_', ' ').title()}")
+        plt.title(f"{titulo} - Algoritmos {modo.value.replace('_', ' ').title()}")
         plt.ylabel("Porcentaje (%)")
         plt.xticks(rotation=45)
         plt.tight_layout()
 
-    elif modo == "ambos":
+    elif modo == PrintMode.AMBOS:
         fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
 
         for subset_df, title, ax in [
@@ -243,7 +243,7 @@ def plot_porcentajes_por_algoritmo(
 
         plt.tight_layout()
 
-    elif modo == "juntos":
+    elif modo == PrintMode.JUNTOS:
         df_melt, hue_col, titulo = preparar(df)
         orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
 
@@ -261,7 +261,11 @@ def plot_porcentajes_por_algoritmo(
         print(f"Gráfico guardado en {filename}.")
 
 
-def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None, modo: PrintMode = "ambos"):
+def plot_porcentajes_por_porcentaje_inicial(
+    df: pd.DataFrame, 
+    filename: str | None = None, 
+    modo: PrintMode = PrintMode.AMBOS
+):
     """
     Genera un gráfico de barras comparando Porcentaje Inicial vs Final,
     agrupado por Porcentaje Inicial. Puede separarse por tipo de algoritmo o mostrarse todo junto.
@@ -281,11 +285,11 @@ def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | No
     df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
     df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
 
-    if modo in {"libres", "no_libres"}:
-        subset_df = df_libres if modo == "libres" else df_no_libres
+    if modo == PrintMode.LIBRES or modo == PrintMode.NO_LIBRES:
+        subset_df = df_libres if modo == PrintMode.LIBRES else df_no_libres
 
         if subset_df.empty:
-            print(f"No hay datos para el modo '{modo}'.")
+            print(f"No hay datos para el modo '{modo.value}'.")
             return
 
         df_melt = subset_df.melt(
@@ -304,13 +308,13 @@ def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | No
             order=orden_x,
             errorbar=None
         )
-        plt.title(f"Porcentaje Inicial vs Final - Algoritmos {modo.replace('_', ' ').title()}")
+        plt.title(f"Porcentaje Inicial vs Final - Algoritmos {modo.value.replace('_', ' ').title()}")
         plt.xlabel("Porcentaje Inicial")
         plt.ylabel("Porcentaje (%)")
         plt.xticks(rotation=45)
         plt.tight_layout()
 
-    elif modo == "ambos":
+    elif modo == PrintMode.AMBOS:
         fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
 
         for subset_df, title, ax in [
@@ -346,7 +350,7 @@ def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | No
 
         plt.tight_layout()
 
-    elif modo == "juntos":
+    elif modo == PrintMode.JUNTOS:
         df_melt = df.melt(
             id_vars=["Porcentaje Inicial"],
             value_vars=["Porcentaje Inicial", "Porcentaje Final"],
@@ -381,7 +385,7 @@ def generate_plots_from_csvs(
     carpeta_img: str | None = None,
     modelo_name: str | None = None,
     carpeta_csv: str | None = None,
-    modo: PrintMode = "ambos"
+    modo: PrintMode = PrintMode.AMBOS
 ):
     path_csvs = os.path.dirname(archivos_csv[0]) if carpeta_csv is None else carpeta_csv
     dataframes = []
@@ -465,7 +469,8 @@ def generate_plots_from_csvs(
     
     if "Porcentaje Final" in df.columns and len(columnas_clase) > 1:
         plot_porcentajes_por_algoritmo(df, tipo="clases", filename=filename3, columnas_clase=columnas_clase)
-        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4, modo=modo)
-        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5, modo=modo)
+        plot_porcentajes_por_algoritmo(agrupado_media, tipo="inicial_final", filename=filename4, modo=modo)
+        plot_porcentajes_por_porcentaje_inicial(agrupado_media, filename=filename5, modo=modo)
+
         
         print("Se han generado los diagramas de barras.")
