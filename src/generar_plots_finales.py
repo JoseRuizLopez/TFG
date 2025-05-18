@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from utils.classes import PrintMode
 from utils.utils_plot import generate_plots_from_csvs
 
 
@@ -36,7 +37,8 @@ def comparar_algoritmos_por_modelo(carpetas_algoritmos, carpeta_salida, modelo_f
         "gen_v2-2": "genetico2",
         "gen_v2-libre": "genetico2 (libre)",
         "gen_v3": "genetico3",
-        "memetico": "memetico"
+        "memetico": "memetico",
+        "memetico-libre": "memetico-libre"
     }
 
     base_csv_paths = {
@@ -99,7 +101,7 @@ def comparar_dos_versiones(OUT, modelo, carpetas_elegidas):
     )
 
 
-def graficos_una_version(OUT, modelo, carpetas_elegidas):
+def graficos_una_version(OUT, modelo, carpetas_elegidas, print_mode):
     carpeta_salida_img = f"img/finales/{OUT}"
     base_csv_path = "results/csvs/finales_2"
     os.makedirs(carpeta_salida_img, exist_ok=True)
@@ -116,15 +118,21 @@ def graficos_una_version(OUT, modelo, carpetas_elegidas):
         archivos_csv=todos_los_csvs,
         carpeta_img=carpeta_salida_img,
         modelo_name=modelo or "",
-        carpeta_csv=base_csv_path
+        carpeta_csv=base_csv_path,
+        modo=print_mode
     )
 
 
-def main(OUT, modelo, carpetas_elegidas, modo):
+def main(out, modelo, carpetas_elegidas, modo, modo_print):
+    try:
+        print_mode = PrintMode(modo_print.lower())
+    except Exception as e:
+        raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
+    
     if modo == "comparar":
-        comparar_dos_versiones(OUT, modelo, carpetas_elegidas)
+        comparar_dos_versiones(out, modelo, carpetas_elegidas)
     elif modo == "individual":
-        graficos_una_version(OUT, modelo, carpetas_elegidas)
+        graficos_una_version(out, modelo, carpetas_elegidas, print_mode)
     else:
         print(f"[ERROR] Modo '{modo}' no reconocido. Usa 'comparar' o 'individual'.")
 
@@ -135,6 +143,7 @@ if __name__ == "__main__":
     parser.add_argument("--MODELO", type=str, required=False, help="Nombre del modelo (opcional)")
     parser.add_argument("--CARPETAS", nargs='+', required=True, help="Carpetas a combinar (ej: gen_v1 gen_v2 mem)")
     parser.add_argument("--MODO", type=str, required=True, choices=["comparar", "individual"], help="Modo de ejecución")
+    parser.add_argument("--MODO_PRINT", type=str, required=True, choices=["libres", "no_libres", "ambos", "juntos"], help="Modo de mostrar los gráficos")
 
     args = parser.parse_args()
-    main(args.OUT, args.MODELO, args.CARPETAS, args.MODO)
+    main(out=args.OUT, modelo=args.MODELO, carpetas_elegidas=args.CARPETAS, modo=args.MODO, modo_print=args.MODO_PRINT)

@@ -3,6 +3,7 @@ import os
 import matplotlib
 matplotlib.use('Agg')
 
+from utils.classes import PrintMode
 from utils.utils_plot import generate_plots_from_csvs
 
 
@@ -26,4 +27,4 @@ if __name__ == "__main__":
     archivos_csv = [f"{path}/{f}" for f in os.listdir(path) if f.startswith("task_")]
 
     os.makedirs(path_img, exist_ok=True)
-    generate_plots_from_csvs(archivos_csv, path_img, modelo_name=MODELO)
+    generate_plots_from_csvs(archivos_csv, path_img, modelo_name=MODELO, modo=PrintMode.AMBOS)

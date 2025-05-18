@@ -28,6 +28,13 @@ class DatasetList(Enum):
     PAINTING = "PAINTING"
 
 
+class PrintMode(Enum):
+    LIBRES = "libres"
+    NO_LIBRES = "no_libres"
+    AMBOS = "ambos"
+    JUNTOS = "juntos"
+
+
 class ConfiguracionGlobal:
     _instance = None  # Instancia única de la clase
 

@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import polars as pl
 
+from utils.classes import PrintMode
+
 
 def plot_fitness_evolution(
     fitness_history: List[float],
@@ -159,7 +161,7 @@ def plot_porcentajes_por_algoritmo(
     tipo: str,
     columnas_clase: list | None = None,
     filename: str | None = None,
-    modo: str = "juntos"
+    modo: PrintMode = "juntos"
 ):
     """
     Genera un gráfico de barras comparando porcentajes agrupados por algoritmo.
@@ -197,9 +199,6 @@ def plot_porcentajes_por_algoritmo(
     # Separación por modo
     df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
     df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
-
-    if modo not in {"libres", "no_libres", "ambos", "juntos"}:
-        raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
 
     if modo in {"libres", "no_libres"}:
         subset_df = df_libres if modo == "libres" else df_no_libres
@@ -262,7 +261,7 @@ def plot_porcentajes_por_algoritmo(
         print(f"Gráfico guardado en {filename}.")
 
 
-def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None, modo: str = "ambos"):
+def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | None = None, modo: PrintMode = "ambos"):
     """
     Genera un gráfico de barras comparando Porcentaje Inicial vs Final,
     agrupado por Porcentaje Inicial. Puede separarse por tipo de algoritmo o mostrarse todo junto.
@@ -278,9 +277,6 @@ def plot_porcentajes_por_porcentaje_inicial(df: pd.DataFrame, filename: str | No
         raise ValueError(f"Faltan columnas necesarias: {', '.join(missing)}")
 
     df["Porcentaje Inicial"] = df["Porcentaje Inicial"].astype(str)
-
-    if modo not in {"libres", "no_libres", "ambos", "juntos"}:
-        raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
 
     df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
     df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
@@ -385,6 +381,7 @@ def generate_plots_from_csvs(
     carpeta_img: str | None = None,
     modelo_name: str | None = None,
     carpeta_csv: str | None = None,
+    modo: PrintMode = "ambos"
 ):
     path_csvs = os.path.dirname(archivos_csv[0]) if carpeta_csv is None else carpeta_csv
     dataframes = []
@@ -468,7 +465,7 @@ def generate_plots_from_csvs(
     
     if "Porcentaje Final" in df.columns and len(columnas_clase) > 1:
         plot_porcentajes_por_algoritmo(df, tipo="clases", filename=filename3, columnas_clase=columnas_clase)
-        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4, modo="ambos")
-        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5, modo="ambos")
+        plot_porcentajes_por_algoritmo(df, tipo="inicial_final", filename=filename4, modo=modo)
+        plot_porcentajes_por_porcentaje_inicial(df, filename=filename5, modo=modo)
         
         print("Se han generado los diagramas de barras.")

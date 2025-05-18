@@ -55,18 +55,18 @@
       "console": "integratedTerminal",
       "args": [
         "--OUT",
-        "nueva_formula_mutation",
+        "comparacion_memetico-libre",
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
-        "gen_v1",
         "gen_v2-2",
         "gen_v2-libre",
-        "gen_v3",
         "memetico",
-        // "--CARPETAS", "bl-libre"
+        "memetico-libre",
         "--MODO",
-        "individual"
+        "individual",
+        "--MODO_PRINT",
+        "libres"
       ]
     }
   ]
