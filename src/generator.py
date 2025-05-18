@@ -36,9 +36,9 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [25]
-    evaluaciones_maximas = 10
-    evaluaciones_maximas_sin_mejora = 10
+    porcentajes = [25, 50]
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
     add_100 = False
     algoritmos = [
         # AlgorithmList.ALEATORIO,
