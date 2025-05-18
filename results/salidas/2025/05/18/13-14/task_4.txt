@@ -1,0 +1,1753 @@
+Task ID recibido: 4
+GPU: True
+
+
+--------------------------------------PAINTING  mobilenet  MEMETICO  25%-------------------------------------------------
+Start time: 2025-05-18 11:57:31.182613
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.00 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2811
+Epoch 1/10, Batch 20/49, Loss: 1.1650
+Epoch 1/10, Batch 30/49, Loss: 0.8156
+Epoch 1/10, Batch 40/49, Loss: 0.7846
+Epoch 1/10, Train Loss: 1.0292, Valid Loss: 0.5969
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4413
+Epoch 2/10, Batch 20/49, Loss: 0.6779
+Epoch 2/10, Batch 30/49, Loss: 0.3887
+Epoch 2/10, Batch 40/49, Loss: 0.5674
+Epoch 2/10, Train Loss: 0.5564, Valid Loss: 0.4086
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.4122
+Epoch 3/10, Batch 20/49, Loss: 0.3737
+Epoch 3/10, Batch 30/49, Loss: 0.5582
+Epoch 3/10, Batch 40/49, Loss: 0.3837
+Epoch 3/10, Train Loss: 0.4355, Valid Loss: 0.3375
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3956
+Epoch 4/10, Batch 20/49, Loss: 0.3839
+Epoch 4/10, Batch 30/49, Loss: 0.3811
+Epoch 4/10, Batch 40/49, Loss: 0.3944
+Epoch 4/10, Train Loss: 0.3761, Valid Loss: 0.2965
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3169
+Epoch 5/10, Batch 20/49, Loss: 0.3149
+Epoch 5/10, Batch 30/49, Loss: 0.4232
+Epoch 5/10, Batch 40/49, Loss: 0.3042
+Epoch 5/10, Train Loss: 0.3319, Valid Loss: 0.2725
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3701
+Epoch 6/10, Batch 20/49, Loss: 0.3903
+Epoch 6/10, Batch 30/49, Loss: 0.2606
+Epoch 6/10, Batch 40/49, Loss: 0.1876
+Epoch 6/10, Train Loss: 0.3075, Valid Loss: 0.2611
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3254
+Epoch 7/10, Batch 20/49, Loss: 0.2044
+Epoch 7/10, Batch 30/49, Loss: 0.3366
+Epoch 7/10, Batch 40/49, Loss: 0.2533
+Epoch 7/10, Train Loss: 0.2674, Valid Loss: 0.2490
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2627
+Epoch 8/10, Batch 20/49, Loss: 0.2985
+Epoch 8/10, Batch 30/49, Loss: 0.1296
+Epoch 8/10, Batch 40/49, Loss: 0.3380
+Epoch 8/10, Train Loss: 0.2630, Valid Loss: 0.2452
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2864
+Epoch 9/10, Batch 20/49, Loss: 0.2365
+Epoch 9/10, Batch 30/49, Loss: 0.1689
+Epoch 9/10, Batch 40/49, Loss: 0.2091
+Epoch 9/10, Train Loss: 0.2395, Valid Loss: 0.2295
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2176
+Epoch 10/10, Batch 20/49, Loss: 0.1446
+Epoch 10/10, Batch 30/49, Loss: 0.2727
+Epoch 10/10, Batch 40/49, Loss: 0.2982
+Epoch 10/10, Train Loss: 0.2307, Valid Loss: 0.2289
+Model saved!
+Accuracy: 0.9089
+Precision: 0.9058
+Recall: 0.9089
+F1-score: 0.9068
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.1062
+Porcentaje Iconography: 0.2617
+Porcentaje Painting: 0.2772
+Porcentaje Sculpture: 0.2233
+Porcentaje Drawings: 0.1316
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2567
+Epoch 1/10, Batch 20/49, Loss: 1.1434
+Epoch 1/10, Batch 30/49, Loss: 0.8268
+Epoch 1/10, Batch 40/49, Loss: 0.8767
+Epoch 1/10, Train Loss: 1.0135, Valid Loss: 0.6267
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5444
+Epoch 2/10, Batch 20/49, Loss: 0.5904
+Epoch 2/10, Batch 30/49, Loss: 0.4020
+Epoch 2/10, Batch 40/49, Loss: 0.5035
+Epoch 2/10, Train Loss: 0.5358, Valid Loss: 0.4417
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.2812
+Epoch 3/10, Batch 20/49, Loss: 0.4214
+Epoch 3/10, Batch 30/49, Loss: 0.3792
+Epoch 3/10, Batch 40/49, Loss: 0.3139
+Epoch 3/10, Train Loss: 0.4185, Valid Loss: 0.3866
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3497
+Epoch 4/10, Batch 20/49, Loss: 0.3606
+Epoch 4/10, Batch 30/49, Loss: 0.3793
+Epoch 4/10, Batch 40/49, Loss: 0.5290
+Epoch 4/10, Train Loss: 0.3546, Valid Loss: 0.3478
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2769
+Epoch 5/10, Batch 20/49, Loss: 0.3381
+Epoch 5/10, Batch 30/49, Loss: 0.2919
+Epoch 5/10, Batch 40/49, Loss: 0.3656
+Epoch 5/10, Train Loss: 0.3068, Valid Loss: 0.3279
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3210
+Epoch 6/10, Batch 20/49, Loss: 0.3111
+Epoch 6/10, Batch 30/49, Loss: 0.2573
+Epoch 6/10, Batch 40/49, Loss: 0.2431
+Epoch 6/10, Train Loss: 0.2704, Valid Loss: 0.3111
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2576
+Epoch 7/10, Batch 20/49, Loss: 0.1942
+Epoch 7/10, Batch 30/49, Loss: 0.4226
+Epoch 7/10, Batch 40/49, Loss: 0.3830
+Epoch 7/10, Train Loss: 0.2525, Valid Loss: 0.2981
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2602
+Epoch 8/10, Batch 20/49, Loss: 0.1978
+Epoch 8/10, Batch 30/49, Loss: 0.2044
+Epoch 8/10, Batch 40/49, Loss: 0.2933
+Epoch 8/10, Train Loss: 0.2520, Valid Loss: 0.2885
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2428
+Epoch 9/10, Batch 20/49, Loss: 0.2442
+Epoch 9/10, Batch 30/49, Loss: 0.1561
+Epoch 9/10, Batch 40/49, Loss: 0.2768
+Epoch 9/10, Train Loss: 0.2287, Valid Loss: 0.2871
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2180
+Epoch 10/10, Batch 20/49, Loss: 0.1652
+Epoch 10/10, Batch 30/49, Loss: 0.2588
+Epoch 10/10, Batch 40/49, Loss: 0.1914
+Epoch 10/10, Train Loss: 0.2080, Valid Loss: 0.2795
+Model saved!
+Accuracy: 0.9019
+Precision: 0.8983
+Recall: 0.9019
+F1-score: 0.8992
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0974
+Porcentaje Painting: 0.2637
+Porcentaje Sculpture: 0.2352
+Porcentaje Iconography: 0.2596
+Porcentaje Drawings: 0.1440
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2820
+Epoch 1/10, Batch 20/49, Loss: 1.1569
+Epoch 1/10, Batch 30/49, Loss: 0.8338
+Epoch 1/10, Batch 40/49, Loss: 0.7109
+Epoch 1/10, Train Loss: 1.0127, Valid Loss: 0.5858
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4478
+Epoch 2/10, Batch 20/49, Loss: 0.6572
+Epoch 2/10, Batch 30/49, Loss: 0.4320
+Epoch 2/10, Batch 40/49, Loss: 0.4136
+Epoch 2/10, Train Loss: 0.5317, Valid Loss: 0.4101
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3701
+Epoch 3/10, Batch 20/49, Loss: 0.3198
+Epoch 3/10, Batch 30/49, Loss: 0.4335
+Epoch 3/10, Batch 40/49, Loss: 0.3895
+Epoch 3/10, Train Loss: 0.4160, Valid Loss: 0.3451
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3027
+Epoch 4/10, Batch 20/49, Loss: 0.2758
+Epoch 4/10, Batch 30/49, Loss: 0.2978
+Epoch 4/10, Batch 40/49, Loss: 0.3969
+Epoch 4/10, Train Loss: 0.3406, Valid Loss: 0.3152
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3285
+Epoch 5/10, Batch 20/49, Loss: 0.3399
+Epoch 5/10, Batch 30/49, Loss: 0.2811
+Epoch 5/10, Batch 40/49, Loss: 0.2571
+Epoch 5/10, Train Loss: 0.3100, Valid Loss: 0.2850
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2393
+Epoch 6/10, Batch 20/49, Loss: 0.2420
+Epoch 6/10, Batch 30/49, Loss: 0.1928
+Epoch 6/10, Batch 40/49, Loss: 0.2846
+Epoch 6/10, Train Loss: 0.2779, Valid Loss: 0.2682
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3378
+Epoch 7/10, Batch 20/49, Loss: 0.1206
+Epoch 7/10, Batch 30/49, Loss: 0.2617
+Epoch 7/10, Batch 40/49, Loss: 0.4133
+Epoch 7/10, Train Loss: 0.2556, Valid Loss: 0.2550
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.3025
+Epoch 8/10, Batch 20/49, Loss: 0.1926
+Epoch 8/10, Batch 30/49, Loss: 0.2541
+Epoch 8/10, Batch 40/49, Loss: 0.3179
+Epoch 8/10, Train Loss: 0.2457, Valid Loss: 0.2492
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1890
+Epoch 9/10, Batch 20/49, Loss: 0.2775
+Epoch 9/10, Batch 30/49, Loss: 0.2352
+Epoch 9/10, Batch 40/49, Loss: 0.2236
+Epoch 9/10, Train Loss: 0.2236, Valid Loss: 0.2466
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1993
+Epoch 10/10, Batch 20/49, Loss: 0.1515
+Epoch 10/10, Batch 30/49, Loss: 0.2714
+Epoch 10/10, Batch 40/49, Loss: 0.1673
+Epoch 10/10, Train Loss: 0.2022, Valid Loss: 0.2370
+Model saved!
+Accuracy: 0.8984
+Precision: 0.8942
+Recall: 0.8984
+F1-score: 0.8954
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2824
+Porcentaje Drawings: 0.1389
+Porcentaje Sculpture: 0.2244
+Porcentaje Iconography: 0.2627
+Porcentaje Engraving: 0.0917
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2454
+Epoch 1/10, Batch 20/49, Loss: 1.1355
+Epoch 1/10, Batch 30/49, Loss: 0.7419
+Epoch 1/10, Batch 40/49, Loss: 0.6792
+Epoch 1/10, Train Loss: 1.0062, Valid Loss: 0.6817
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5260
+Epoch 2/10, Batch 20/49, Loss: 0.5559
+Epoch 2/10, Batch 30/49, Loss: 0.4427
+Epoch 2/10, Batch 40/49, Loss: 0.3825
+Epoch 2/10, Train Loss: 0.5261, Valid Loss: 0.4918
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3009
+Epoch 3/10, Batch 20/49, Loss: 0.3216
+Epoch 3/10, Batch 30/49, Loss: 0.4172
+Epoch 3/10, Batch 40/49, Loss: 0.3844
+Epoch 3/10, Train Loss: 0.4072, Valid Loss: 0.4182
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4206
+Epoch 4/10, Batch 20/49, Loss: 0.2690
+Epoch 4/10, Batch 30/49, Loss: 0.3937
+Epoch 4/10, Batch 40/49, Loss: 0.3470
+Epoch 4/10, Train Loss: 0.3419, Valid Loss: 0.3713
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2017
+Epoch 5/10, Batch 20/49, Loss: 0.3128
+Epoch 5/10, Batch 30/49, Loss: 0.3554
+Epoch 5/10, Batch 40/49, Loss: 0.2737
+Epoch 5/10, Train Loss: 0.3103, Valid Loss: 0.3495
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2801
+Epoch 6/10, Batch 20/49, Loss: 0.2738
+Epoch 6/10, Batch 30/49, Loss: 0.3640
+Epoch 6/10, Batch 40/49, Loss: 0.3408
+Epoch 6/10, Train Loss: 0.2748, Valid Loss: 0.3356
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3343
+Epoch 7/10, Batch 20/49, Loss: 0.1836
+Epoch 7/10, Batch 30/49, Loss: 0.4051
+Epoch 7/10, Batch 40/49, Loss: 0.2453
+Epoch 7/10, Train Loss: 0.2468, Valid Loss: 0.3171
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2074
+Epoch 8/10, Batch 20/49, Loss: 0.1935
+Epoch 8/10, Batch 30/49, Loss: 0.0911
+Epoch 8/10, Batch 40/49, Loss: 0.2265
+Epoch 8/10, Train Loss: 0.2407, Valid Loss: 0.3097
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1985
+Epoch 9/10, Batch 20/49, Loss: 0.3324
+Epoch 9/10, Batch 30/49, Loss: 0.2116
+Epoch 9/10, Batch 40/49, Loss: 0.3099
+Epoch 9/10, Train Loss: 0.2231, Valid Loss: 0.3052
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1365
+Epoch 10/10, Batch 20/49, Loss: 0.1079
+Epoch 10/10, Batch 30/49, Loss: 0.1916
+Epoch 10/10, Batch 40/49, Loss: 0.2133
+Epoch 10/10, Train Loss: 0.2040, Valid Loss: 0.2907
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9068
+Recall: 0.9100
+F1-score: 0.9080
+Porcentaje Final: 0.2500
+Porcentaje Iconography: 0.2679
+Porcentaje Engraving: 0.0839
+Porcentaje Drawings: 0.1420
+Porcentaje Painting: 0.2674
+Porcentaje Sculpture: 0.2389
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.3027
+Epoch 1/10, Batch 20/49, Loss: 1.1498
+Epoch 1/10, Batch 30/49, Loss: 0.7266
+Epoch 1/10, Batch 40/49, Loss: 0.7399
+Epoch 1/10, Train Loss: 1.0133, Valid Loss: 0.6229
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4790
+Epoch 2/10, Batch 20/49, Loss: 0.7143
+Epoch 2/10, Batch 30/49, Loss: 0.4895
+Epoch 2/10, Batch 40/49, Loss: 0.4349
+Epoch 2/10, Train Loss: 0.5460, Valid Loss: 0.4342
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3265
+Epoch 3/10, Batch 20/49, Loss: 0.3250
+Epoch 3/10, Batch 30/49, Loss: 0.4462
+Epoch 3/10, Batch 40/49, Loss: 0.5316
+Epoch 3/10, Train Loss: 0.4262, Valid Loss: 0.3799
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4939
+Epoch 4/10, Batch 20/49, Loss: 0.3552
+Epoch 4/10, Batch 30/49, Loss: 0.4168
+Epoch 4/10, Batch 40/49, Loss: 0.4043
+Epoch 4/10, Train Loss: 0.3611, Valid Loss: 0.3409
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.4178
+Epoch 5/10, Batch 20/49, Loss: 0.3065
+Epoch 5/10, Batch 30/49, Loss: 0.3810
+Epoch 5/10, Batch 40/49, Loss: 0.3076
+Epoch 5/10, Train Loss: 0.3160, Valid Loss: 0.3141
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2939
+Epoch 6/10, Batch 20/49, Loss: 0.2759
+Epoch 6/10, Batch 30/49, Loss: 0.3123
+Epoch 6/10, Batch 40/49, Loss: 0.2446
+Epoch 6/10, Train Loss: 0.2928, Valid Loss: 0.3007
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3871
+Epoch 7/10, Batch 20/49, Loss: 0.2804
+Epoch 7/10, Batch 30/49, Loss: 0.2677
+Epoch 7/10, Batch 40/49, Loss: 0.3053
+Epoch 7/10, Train Loss: 0.2603, Valid Loss: 0.2898
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2312
+Epoch 8/10, Batch 20/49, Loss: 0.3156
+Epoch 8/10, Batch 30/49, Loss: 0.1657
+Epoch 8/10, Batch 40/49, Loss: 0.2767
+Epoch 8/10, Train Loss: 0.2577, Valid Loss: 0.2802
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2745
+Epoch 9/10, Batch 20/49, Loss: 0.1529
+Epoch 9/10, Batch 30/49, Loss: 0.3870
+Epoch 9/10, Batch 40/49, Loss: 0.1839
+Epoch 9/10, Train Loss: 0.2184, Valid Loss: 0.2761
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2301
+Epoch 10/10, Batch 20/49, Loss: 0.1375
+Epoch 10/10, Batch 30/49, Loss: 0.1809
+Epoch 10/10, Batch 40/49, Loss: 0.1853
+Epoch 10/10, Train Loss: 0.2137, Valid Loss: 0.2714
+Model saved!
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2623
+Epoch 1/10, Batch 20/49, Loss: 1.1948
+Epoch 1/10, Batch 30/49, Loss: 0.7120
+Epoch 1/10, Batch 40/49, Loss: 0.7279
+Epoch 1/10, Train Loss: 1.0203, Valid Loss: 0.6546
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5900
+Epoch 2/10, Batch 20/49, Loss: 0.5841
+Epoch 2/10, Batch 30/49, Loss: 0.5260
+Epoch 2/10, Batch 40/49, Loss: 0.5875
+Epoch 2/10, Train Loss: 0.5459, Valid Loss: 0.4539
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3015
+Epoch 3/10, Batch 20/49, Loss: 0.4976
+Epoch 3/10, Batch 30/49, Loss: 0.3582
+Epoch 3/10, Batch 40/49, Loss: 0.3363
+Epoch 3/10, Train Loss: 0.4372, Valid Loss: 0.3924
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3578
+Epoch 4/10, Batch 20/49, Loss: 0.2822
+Epoch 4/10, Batch 30/49, Loss: 0.4579
+Epoch 4/10, Batch 40/49, Loss: 0.4089
+Epoch 4/10, Train Loss: 0.3603, Valid Loss: 0.3490
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2926
+Epoch 5/10, Batch 20/49, Loss: 0.3138
+Epoch 5/10, Batch 30/49, Loss: 0.3695
+Epoch 5/10, Batch 40/49, Loss: 0.3605
+Epoch 5/10, Train Loss: 0.3166, Valid Loss: 0.3247
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3553
+Epoch 6/10, Batch 20/49, Loss: 0.1990
+Epoch 6/10, Batch 30/49, Loss: 0.3134
+Epoch 6/10, Batch 40/49, Loss: 0.2406
+Epoch 6/10, Train Loss: 0.2856, Valid Loss: 0.3086
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3458
+Epoch 7/10, Batch 20/49, Loss: 0.1672
+Epoch 7/10, Batch 30/49, Loss: 0.3028
+Epoch 7/10, Batch 40/49, Loss: 0.3364
+Epoch 7/10, Train Loss: 0.2626, Valid Loss: 0.2953
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2557
+Epoch 8/10, Batch 20/49, Loss: 0.3055
+Epoch 8/10, Batch 30/49, Loss: 0.2956
+Epoch 8/10, Batch 40/49, Loss: 0.3784
+Epoch 8/10, Train Loss: 0.2573, Valid Loss: 0.2885
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2496
+Epoch 9/10, Batch 20/49, Loss: 0.1857
+Epoch 9/10, Batch 30/49, Loss: 0.2315
+Epoch 9/10, Batch 40/49, Loss: 0.2330
+Epoch 9/10, Train Loss: 0.2318, Valid Loss: 0.2824
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1977
+Epoch 10/10, Batch 20/49, Loss: 0.1652
+Epoch 10/10, Batch 30/49, Loss: 0.2895
+Epoch 10/10, Batch 40/49, Loss: 0.1464
+Epoch 10/10, Train Loss: 0.2278, Valid Loss: 0.2780
+Model saved!
+Accuracy: 0.9007
+Precision: 0.8968
+Recall: 0.9007
+F1-score: 0.8973
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2606
+Porcentaje Sculpture: 0.2337
+Porcentaje Drawings: 0.1440
+Porcentaje Engraving: 0.1031
+Porcentaje Iconography: 0.2585
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.1880
+Epoch 1/10, Batch 20/49, Loss: 1.1281
+Epoch 1/10, Batch 30/49, Loss: 0.7856
+Epoch 1/10, Batch 40/49, Loss: 0.7952
+Epoch 1/10, Train Loss: 1.0268, Valid Loss: 0.6308
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5321
+Epoch 2/10, Batch 20/49, Loss: 0.5353
+Epoch 2/10, Batch 30/49, Loss: 0.3386
+Epoch 2/10, Batch 40/49, Loss: 0.4114
+Epoch 2/10, Train Loss: 0.5281, Valid Loss: 0.4390
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.4284
+Epoch 3/10, Batch 20/49, Loss: 0.3879
+Epoch 3/10, Batch 30/49, Loss: 0.5200
+Epoch 3/10, Batch 40/49, Loss: 0.5617
+Epoch 3/10, Train Loss: 0.4184, Valid Loss: 0.3786
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3544
+Epoch 4/10, Batch 20/49, Loss: 0.4261
+Epoch 4/10, Batch 30/49, Loss: 0.2371
+Epoch 4/10, Batch 40/49, Loss: 0.3481
+Epoch 4/10, Train Loss: 0.3488, Valid Loss: 0.3401
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2523
+Epoch 5/10, Batch 20/49, Loss: 0.2218
+Epoch 5/10, Batch 30/49, Loss: 0.2780
+Epoch 5/10, Batch 40/49, Loss: 0.4549
+Epoch 5/10, Train Loss: 0.3052, Valid Loss: 0.3163
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3560
+Epoch 6/10, Batch 20/49, Loss: 0.2679
+Epoch 6/10, Batch 30/49, Loss: 0.3358
+Epoch 6/10, Batch 40/49, Loss: 0.2371
+Epoch 6/10, Train Loss: 0.2805, Valid Loss: 0.2947
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2343
+Epoch 7/10, Batch 20/49, Loss: 0.1442
+Epoch 7/10, Batch 30/49, Loss: 0.2754
+Epoch 7/10, Batch 40/49, Loss: 0.2686
+Epoch 7/10, Train Loss: 0.2495, Valid Loss: 0.2863
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2740
+Epoch 8/10, Batch 20/49, Loss: 0.3541
+Epoch 8/10, Batch 30/49, Loss: 0.3201
+Epoch 8/10, Batch 40/49, Loss: 0.2127
+Epoch 8/10, Train Loss: 0.2389, Valid Loss: 0.2794
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2016
+Epoch 9/10, Batch 20/49, Loss: 0.2353
+Epoch 9/10, Batch 30/49, Loss: 0.2571
+Epoch 9/10, Batch 40/49, Loss: 0.2431
+Epoch 9/10, Train Loss: 0.2246, Valid Loss: 0.2732
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1756
+Epoch 10/10, Batch 20/49, Loss: 0.1153
+Epoch 10/10, Batch 30/49, Loss: 0.2714
+Epoch 10/10, Batch 40/49, Loss: 0.1686
+Epoch 10/10, Train Loss: 0.2103, Valid Loss: 0.2628
+Model saved!
+Accuracy: 0.9042
+Precision: 0.9011
+Recall: 0.9042
+F1-score: 0.9022
+Porcentaje Final: 0.2500
+Porcentaje Iconography: 0.2725
+Porcentaje Painting: 0.2725
+Porcentaje Sculpture: 0.2093
+Porcentaje Engraving: 0.1073
+Porcentaje Drawings: 0.1383
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2109
+Epoch 1/10, Batch 20/49, Loss: 1.1919
+Epoch 1/10, Batch 30/49, Loss: 0.7768
+Epoch 1/10, Batch 40/49, Loss: 0.6995
+Epoch 1/10, Train Loss: 0.9893, Valid Loss: 0.5917
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4305
+Epoch 2/10, Batch 20/49, Loss: 0.5216
+Epoch 2/10, Batch 30/49, Loss: 0.3835
+Epoch 2/10, Batch 40/49, Loss: 0.4354
+Epoch 2/10, Train Loss: 0.5105, Valid Loss: 0.4116
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.5926
+Epoch 3/10, Batch 20/49, Loss: 0.3699
+Epoch 3/10, Batch 30/49, Loss: 0.3702
+Epoch 3/10, Batch 40/49, Loss: 0.3792
+Epoch 3/10, Train Loss: 0.4018, Valid Loss: 0.3366
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.5113
+Epoch 4/10, Batch 20/49, Loss: 0.3652
+Epoch 4/10, Batch 30/49, Loss: 0.3113
+Epoch 4/10, Batch 40/49, Loss: 0.3659
+Epoch 4/10, Train Loss: 0.3347, Valid Loss: 0.3046
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2088
+Epoch 5/10, Batch 20/49, Loss: 0.3088
+Epoch 5/10, Batch 30/49, Loss: 0.2979
+Epoch 5/10, Batch 40/49, Loss: 0.3010
+Epoch 5/10, Train Loss: 0.3023, Valid Loss: 0.2832
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2367
+Epoch 6/10, Batch 20/49, Loss: 0.3170
+Epoch 6/10, Batch 30/49, Loss: 0.3686
+Epoch 6/10, Batch 40/49, Loss: 0.1502
+Epoch 6/10, Train Loss: 0.2651, Valid Loss: 0.2661
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2821
+Epoch 7/10, Batch 20/49, Loss: 0.1427
+Epoch 7/10, Batch 30/49, Loss: 0.4268
+Epoch 7/10, Batch 40/49, Loss: 0.2728
+Epoch 7/10, Train Loss: 0.2451, Valid Loss: 0.2602
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.1681
+Epoch 8/10, Batch 20/49, Loss: 0.2183
+Epoch 8/10, Batch 30/49, Loss: 0.1711
+Epoch 8/10, Batch 40/49, Loss: 0.2575
+Epoch 8/10, Train Loss: 0.2333, Valid Loss: 0.2512
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2621
+Epoch 9/10, Batch 20/49, Loss: 0.2146
+Epoch 9/10, Batch 30/49, Loss: 0.2201
+Epoch 9/10, Batch 40/49, Loss: 0.2147
+Epoch 9/10, Train Loss: 0.2093, Valid Loss: 0.2500
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.3101
+Epoch 10/10, Batch 20/49, Loss: 0.1091
+Epoch 10/10, Batch 30/49, Loss: 0.2353
+Epoch 10/10, Batch 40/49, Loss: 0.2110
+Epoch 10/10, Train Loss: 0.1973, Valid Loss: 0.2388
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9070
+Recall: 0.9100
+F1-score: 0.9080
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2513
+Porcentaje Sculpture: 0.2399
+Porcentaje Iconography: 0.2793
+Porcentaje Engraving: 0.0850
+Porcentaje Drawings: 0.1446
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2420
+Epoch 1/10, Batch 20/49, Loss: 1.1908
+Epoch 1/10, Batch 30/49, Loss: 0.9078
+Epoch 1/10, Batch 40/49, Loss: 0.7999
+Epoch 1/10, Train Loss: 1.0363, Valid Loss: 0.6960
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5395
+Epoch 2/10, Batch 20/49, Loss: 0.5571
+Epoch 2/10, Batch 30/49, Loss: 0.3732
+Epoch 2/10, Batch 40/49, Loss: 0.6020
+Epoch 2/10, Train Loss: 0.5493, Valid Loss: 0.5003
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3896
+Epoch 3/10, Batch 20/49, Loss: 0.3333
+Epoch 3/10, Batch 30/49, Loss: 0.4221
+Epoch 3/10, Batch 40/49, Loss: 0.3485
+Epoch 3/10, Train Loss: 0.4373, Valid Loss: 0.4389
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3902
+Epoch 4/10, Batch 20/49, Loss: 0.3624
+Epoch 4/10, Batch 30/49, Loss: 0.4745
+Epoch 4/10, Batch 40/49, Loss: 0.3323
+Epoch 4/10, Train Loss: 0.3603, Valid Loss: 0.3858
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3429
+Epoch 5/10, Batch 20/49, Loss: 0.3175
+Epoch 5/10, Batch 30/49, Loss: 0.2932
+Epoch 5/10, Batch 40/49, Loss: 0.5810
+Epoch 5/10, Train Loss: 0.3177, Valid Loss: 0.3491
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2638
+Epoch 6/10, Batch 20/49, Loss: 0.3062
+Epoch 6/10, Batch 30/49, Loss: 0.2933
+Epoch 6/10, Batch 40/49, Loss: 0.1799
+Epoch 6/10, Train Loss: 0.2982, Valid Loss: 0.3311
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3186
+Epoch 7/10, Batch 20/49, Loss: 0.2248
+Epoch 7/10, Batch 30/49, Loss: 0.3607
+Epoch 7/10, Batch 40/49, Loss: 0.2779
+Epoch 7/10, Train Loss: 0.2651, Valid Loss: 0.3133
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2856
+Epoch 8/10, Batch 20/49, Loss: 0.2292
+Epoch 8/10, Batch 30/49, Loss: 0.2634
+Epoch 8/10, Batch 40/49, Loss: 0.4237
+Epoch 8/10, Train Loss: 0.2565, Valid Loss: 0.3118
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1723
+Epoch 9/10, Batch 20/49, Loss: 0.3554
+Epoch 9/10, Batch 30/49, Loss: 0.2389
+Epoch 9/10, Batch 40/49, Loss: 0.2478
+Epoch 9/10, Train Loss: 0.2468, Valid Loss: 0.3142
+Epoch 10/10, Batch 10/49, Loss: 0.1572
+Epoch 10/10, Batch 20/49, Loss: 0.2871
+Epoch 10/10, Batch 30/49, Loss: 0.3081
+Epoch 10/10, Batch 40/49, Loss: 0.2303
+Epoch 10/10, Train Loss: 0.2165, Valid Loss: 0.2956
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9060
+Recall: 0.9100
+F1-score: 0.9072
+Porcentaje Final: 0.2500
+Porcentaje Drawings: 0.1497
+Porcentaje Painting: 0.2648
+Porcentaje Sculpture: 0.2212
+Porcentaje Engraving: 0.1016
+Porcentaje Iconography: 0.2627
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2138
+Epoch 1/10, Batch 20/49, Loss: 1.0805
+Epoch 1/10, Batch 30/49, Loss: 0.7417
+Epoch 1/10, Batch 40/49, Loss: 0.8763
+Epoch 1/10, Train Loss: 1.0382, Valid Loss: 0.6373
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.6005
+Epoch 2/10, Batch 20/49, Loss: 0.5390
+Epoch 2/10, Batch 30/49, Loss: 0.4746
+Epoch 2/10, Batch 40/49, Loss: 0.4987
+Epoch 2/10, Train Loss: 0.5592, Valid Loss: 0.4394
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3524
+Epoch 3/10, Batch 20/49, Loss: 0.4287
+Epoch 3/10, Batch 30/49, Loss: 0.4445
+Epoch 3/10, Batch 40/49, Loss: 0.4266
+Epoch 3/10, Train Loss: 0.4359, Valid Loss: 0.3738
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.2962
+Epoch 4/10, Batch 20/49, Loss: 0.4517
+Epoch 4/10, Batch 30/49, Loss: 0.5320
+Epoch 4/10, Batch 40/49, Loss: 0.5139
+Epoch 4/10, Train Loss: 0.3742, Valid Loss: 0.3231
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3555
+Epoch 5/10, Batch 20/49, Loss: 0.2579
+Epoch 5/10, Batch 30/49, Loss: 0.4232
+Epoch 5/10, Batch 40/49, Loss: 0.3314
+Epoch 5/10, Train Loss: 0.3226, Valid Loss: 0.3034
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3536
+Epoch 6/10, Batch 20/49, Loss: 0.2120
+Epoch 6/10, Batch 30/49, Loss: 0.2984
+Epoch 6/10, Batch 40/49, Loss: 0.1944
+Epoch 6/10, Train Loss: 0.3017, Valid Loss: 0.2895
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3911
+Epoch 7/10, Batch 20/49, Loss: 0.1875
+Epoch 7/10, Batch 30/49, Loss: 0.3718
+Epoch 7/10, Batch 40/49, Loss: 0.4050
+Epoch 7/10, Train Loss: 0.2755, Valid Loss: 0.2687
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2397
+Epoch 8/10, Batch 20/49, Loss: 0.3421
+Epoch 8/10, Batch 30/49, Loss: 0.1457
+Epoch 8/10, Batch 40/49, Loss: 0.3222
+Epoch 8/10, Train Loss: 0.2778, Valid Loss: 0.2666
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2642
+Epoch 9/10, Batch 20/49, Loss: 0.2445
+Epoch 9/10, Batch 30/49, Loss: 0.1918
+Epoch 9/10, Batch 40/49, Loss: 0.2622
+Epoch 9/10, Train Loss: 0.2466, Valid Loss: 0.2563
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2387
+Epoch 10/10, Batch 20/49, Loss: 0.1711
+Epoch 10/10, Batch 30/49, Loss: 0.1731
+Epoch 10/10, Batch 40/49, Loss: 0.2677
+Epoch 10/10, Train Loss: 0.2278, Valid Loss: 0.2461
+Model saved!
+Accuracy: 0.9054
+Precision: 0.9029
+Recall: 0.9054
+F1-score: 0.9036
+Porcentaje Final: 0.2500
+Porcentaje Sculpture: 0.2130
+Porcentaje Drawings: 0.1409
+Porcentaje Engraving: 0.1041
+Porcentaje Iconography: 0.2798
+Porcentaje Painting: 0.2622
+Memory Allocated after cleanup: 17.76 MB
+End time: 2025-05-18 12:16:37.237016
+Duration: 0:19:06
+
+
+Mejor accuracy al acabar el algoritmo: 0.9112
+
+
+Fitness check:
+
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.3027
+Epoch 1/10, Batch 20/49, Loss: 1.1498
+Epoch 1/10, Batch 30/49, Loss: 0.7266
+Epoch 1/10, Batch 40/49, Loss: 0.7399
+Epoch 1/10, Train Loss: 1.0133, Valid Loss: 0.6229
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4790
+Epoch 2/10, Batch 20/49, Loss: 0.7143
+Epoch 2/10, Batch 30/49, Loss: 0.4895
+Epoch 2/10, Batch 40/49, Loss: 0.4349
+Epoch 2/10, Train Loss: 0.5460, Valid Loss: 0.4342
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3265
+Epoch 3/10, Batch 20/49, Loss: 0.3250
+Epoch 3/10, Batch 30/49, Loss: 0.4462
+Epoch 3/10, Batch 40/49, Loss: 0.5316
+Epoch 3/10, Train Loss: 0.4262, Valid Loss: 0.3799
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4939
+Epoch 4/10, Batch 20/49, Loss: 0.3552
+Epoch 4/10, Batch 30/49, Loss: 0.4168
+Epoch 4/10, Batch 40/49, Loss: 0.4043
+Epoch 4/10, Train Loss: 0.3611, Valid Loss: 0.3409
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.4178
+Epoch 5/10, Batch 20/49, Loss: 0.3065
+Epoch 5/10, Batch 30/49, Loss: 0.3810
+Epoch 5/10, Batch 40/49, Loss: 0.3076
+Epoch 5/10, Train Loss: 0.3160, Valid Loss: 0.3141
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2939
+Epoch 6/10, Batch 20/49, Loss: 0.2759
+Epoch 6/10, Batch 30/49, Loss: 0.3123
+Epoch 6/10, Batch 40/49, Loss: 0.2446
+Epoch 6/10, Train Loss: 0.2928, Valid Loss: 0.3007
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3871
+Epoch 7/10, Batch 20/49, Loss: 0.2804
+Epoch 7/10, Batch 30/49, Loss: 0.2677
+Epoch 7/10, Batch 40/49, Loss: 0.3053
+Epoch 7/10, Train Loss: 0.2603, Valid Loss: 0.2898
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2312
+Epoch 8/10, Batch 20/49, Loss: 0.3156
+Epoch 8/10, Batch 30/49, Loss: 0.1657
+Epoch 8/10, Batch 40/49, Loss: 0.2767
+Epoch 8/10, Train Loss: 0.2577, Valid Loss: 0.2802
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2745
+Epoch 9/10, Batch 20/49, Loss: 0.1529
+Epoch 9/10, Batch 30/49, Loss: 0.3870
+Epoch 9/10, Batch 40/49, Loss: 0.1839
+Epoch 9/10, Train Loss: 0.2184, Valid Loss: 0.2761
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2301
+Epoch 10/10, Batch 20/49, Loss: 0.1375
+Epoch 10/10, Batch 30/49, Loss: 0.1809
+Epoch 10/10, Batch 40/49, Loss: 0.1853
+Epoch 10/10, Train Loss: 0.2137, Valid Loss: 0.2714
+Model saved!
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+Memory Allocated after cleanup: 17.76 MB
+
+
+Mejor accuracy encontrado: 0.9112
+Los resultados obtenidos son: 
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Duracion: 0:19:06
+Evaluaciones Realizadas: 10.0000
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+
+
+--------------------------------------PAINTING  mobilenet  MEMETICO (LIBRE)  25%-------------------------------------------------
+Start time: 2025-05-18 12:18:31.246088
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2811
+Epoch 1/10, Batch 20/49, Loss: 1.1650
+Epoch 1/10, Batch 30/49, Loss: 0.8156
+Epoch 1/10, Batch 40/49, Loss: 0.7846
+Epoch 1/10, Train Loss: 1.0292, Valid Loss: 0.5969
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4413
+Epoch 2/10, Batch 20/49, Loss: 0.6779
+Epoch 2/10, Batch 30/49, Loss: 0.3887
+Epoch 2/10, Batch 40/49, Loss: 0.5674
+Epoch 2/10, Train Loss: 0.5564, Valid Loss: 0.4086
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.4122
+Epoch 3/10, Batch 20/49, Loss: 0.3737
+Epoch 3/10, Batch 30/49, Loss: 0.5582
+Epoch 3/10, Batch 40/49, Loss: 0.3837
+Epoch 3/10, Train Loss: 0.4355, Valid Loss: 0.3375
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3956
+Epoch 4/10, Batch 20/49, Loss: 0.3839
+Epoch 4/10, Batch 30/49, Loss: 0.3811
+Epoch 4/10, Batch 40/49, Loss: 0.3944
+Epoch 4/10, Train Loss: 0.3761, Valid Loss: 0.2965
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3169
+Epoch 5/10, Batch 20/49, Loss: 0.3149
+Epoch 5/10, Batch 30/49, Loss: 0.4232
+Epoch 5/10, Batch 40/49, Loss: 0.3042
+Epoch 5/10, Train Loss: 0.3319, Valid Loss: 0.2725
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3701
+Epoch 6/10, Batch 20/49, Loss: 0.3903
+Epoch 6/10, Batch 30/49, Loss: 0.2606
+Epoch 6/10, Batch 40/49, Loss: 0.1876
+Epoch 6/10, Train Loss: 0.3075, Valid Loss: 0.2611
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3254
+Epoch 7/10, Batch 20/49, Loss: 0.2044
+Epoch 7/10, Batch 30/49, Loss: 0.3366
+Epoch 7/10, Batch 40/49, Loss: 0.2533
+Epoch 7/10, Train Loss: 0.2674, Valid Loss: 0.2490
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2627
+Epoch 8/10, Batch 20/49, Loss: 0.2985
+Epoch 8/10, Batch 30/49, Loss: 0.1296
+Epoch 8/10, Batch 40/49, Loss: 0.3380
+Epoch 8/10, Train Loss: 0.2630, Valid Loss: 0.2452
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2864
+Epoch 9/10, Batch 20/49, Loss: 0.2365
+Epoch 9/10, Batch 30/49, Loss: 0.1689
+Epoch 9/10, Batch 40/49, Loss: 0.2091
+Epoch 9/10, Train Loss: 0.2395, Valid Loss: 0.2295
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2176
+Epoch 10/10, Batch 20/49, Loss: 0.1446
+Epoch 10/10, Batch 30/49, Loss: 0.2727
+Epoch 10/10, Batch 40/49, Loss: 0.2982
+Epoch 10/10, Train Loss: 0.2307, Valid Loss: 0.2289
+Model saved!
+Accuracy: 0.9089
+Precision: 0.9058
+Recall: 0.9089
+F1-score: 0.9068
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.1062
+Porcentaje Iconography: 0.2617
+Porcentaje Painting: 0.2772
+Porcentaje Sculpture: 0.2233
+Porcentaje Drawings: 0.1316
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2567
+Epoch 1/10, Batch 20/49, Loss: 1.1434
+Epoch 1/10, Batch 30/49, Loss: 0.8268
+Epoch 1/10, Batch 40/49, Loss: 0.8767
+Epoch 1/10, Train Loss: 1.0135, Valid Loss: 0.6267
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5444
+Epoch 2/10, Batch 20/49, Loss: 0.5904
+Epoch 2/10, Batch 30/49, Loss: 0.4020
+Epoch 2/10, Batch 40/49, Loss: 0.5035
+Epoch 2/10, Train Loss: 0.5358, Valid Loss: 0.4417
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.2812
+Epoch 3/10, Batch 20/49, Loss: 0.4214
+Epoch 3/10, Batch 30/49, Loss: 0.3792
+Epoch 3/10, Batch 40/49, Loss: 0.3139
+Epoch 3/10, Train Loss: 0.4185, Valid Loss: 0.3866
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3497
+Epoch 4/10, Batch 20/49, Loss: 0.3606
+Epoch 4/10, Batch 30/49, Loss: 0.3793
+Epoch 4/10, Batch 40/49, Loss: 0.5290
+Epoch 4/10, Train Loss: 0.3546, Valid Loss: 0.3478
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2769
+Epoch 5/10, Batch 20/49, Loss: 0.3381
+Epoch 5/10, Batch 30/49, Loss: 0.2919
+Epoch 5/10, Batch 40/49, Loss: 0.3656
+Epoch 5/10, Train Loss: 0.3068, Valid Loss: 0.3279
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3210
+Epoch 6/10, Batch 20/49, Loss: 0.3111
+Epoch 6/10, Batch 30/49, Loss: 0.2573
+Epoch 6/10, Batch 40/49, Loss: 0.2431
+Epoch 6/10, Train Loss: 0.2704, Valid Loss: 0.3111
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2576
+Epoch 7/10, Batch 20/49, Loss: 0.1942
+Epoch 7/10, Batch 30/49, Loss: 0.4226
+Epoch 7/10, Batch 40/49, Loss: 0.3830
+Epoch 7/10, Train Loss: 0.2525, Valid Loss: 0.2981
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2602
+Epoch 8/10, Batch 20/49, Loss: 0.1978
+Epoch 8/10, Batch 30/49, Loss: 0.2044
+Epoch 8/10, Batch 40/49, Loss: 0.2933
+Epoch 8/10, Train Loss: 0.2520, Valid Loss: 0.2885
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2428
+Epoch 9/10, Batch 20/49, Loss: 0.2442
+Epoch 9/10, Batch 30/49, Loss: 0.1561
+Epoch 9/10, Batch 40/49, Loss: 0.2768
+Epoch 9/10, Train Loss: 0.2287, Valid Loss: 0.2871
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2180
+Epoch 10/10, Batch 20/49, Loss: 0.1652
+Epoch 10/10, Batch 30/49, Loss: 0.2588
+Epoch 10/10, Batch 40/49, Loss: 0.1914
+Epoch 10/10, Train Loss: 0.2080, Valid Loss: 0.2795
+Model saved!
+Accuracy: 0.9019
+Precision: 0.8983
+Recall: 0.9019
+F1-score: 0.8992
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0974
+Porcentaje Painting: 0.2637
+Porcentaje Sculpture: 0.2352
+Porcentaje Iconography: 0.2596
+Porcentaje Drawings: 0.1440
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2820
+Epoch 1/10, Batch 20/49, Loss: 1.1569
+Epoch 1/10, Batch 30/49, Loss: 0.8338
+Epoch 1/10, Batch 40/49, Loss: 0.7109
+Epoch 1/10, Train Loss: 1.0127, Valid Loss: 0.5858
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4478
+Epoch 2/10, Batch 20/49, Loss: 0.6572
+Epoch 2/10, Batch 30/49, Loss: 0.4320
+Epoch 2/10, Batch 40/49, Loss: 0.4136
+Epoch 2/10, Train Loss: 0.5317, Valid Loss: 0.4101
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3701
+Epoch 3/10, Batch 20/49, Loss: 0.3198
+Epoch 3/10, Batch 30/49, Loss: 0.4335
+Epoch 3/10, Batch 40/49, Loss: 0.3895
+Epoch 3/10, Train Loss: 0.4160, Valid Loss: 0.3451
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3027
+Epoch 4/10, Batch 20/49, Loss: 0.2758
+Epoch 4/10, Batch 30/49, Loss: 0.2978
+Epoch 4/10, Batch 40/49, Loss: 0.3969
+Epoch 4/10, Train Loss: 0.3406, Valid Loss: 0.3152
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3285
+Epoch 5/10, Batch 20/49, Loss: 0.3399
+Epoch 5/10, Batch 30/49, Loss: 0.2811
+Epoch 5/10, Batch 40/49, Loss: 0.2571
+Epoch 5/10, Train Loss: 0.3100, Valid Loss: 0.2850
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2393
+Epoch 6/10, Batch 20/49, Loss: 0.2420
+Epoch 6/10, Batch 30/49, Loss: 0.1928
+Epoch 6/10, Batch 40/49, Loss: 0.2846
+Epoch 6/10, Train Loss: 0.2779, Valid Loss: 0.2682
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3378
+Epoch 7/10, Batch 20/49, Loss: 0.1206
+Epoch 7/10, Batch 30/49, Loss: 0.2617
+Epoch 7/10, Batch 40/49, Loss: 0.4133
+Epoch 7/10, Train Loss: 0.2556, Valid Loss: 0.2550
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.3025
+Epoch 8/10, Batch 20/49, Loss: 0.1926
+Epoch 8/10, Batch 30/49, Loss: 0.2541
+Epoch 8/10, Batch 40/49, Loss: 0.3179
+Epoch 8/10, Train Loss: 0.2457, Valid Loss: 0.2492
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1890
+Epoch 9/10, Batch 20/49, Loss: 0.2775
+Epoch 9/10, Batch 30/49, Loss: 0.2352
+Epoch 9/10, Batch 40/49, Loss: 0.2236
+Epoch 9/10, Train Loss: 0.2236, Valid Loss: 0.2466
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1993
+Epoch 10/10, Batch 20/49, Loss: 0.1515
+Epoch 10/10, Batch 30/49, Loss: 0.2714
+Epoch 10/10, Batch 40/49, Loss: 0.1673
+Epoch 10/10, Train Loss: 0.2022, Valid Loss: 0.2370
+Model saved!
+Accuracy: 0.8984
+Precision: 0.8942
+Recall: 0.8984
+F1-score: 0.8954
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2824
+Porcentaje Drawings: 0.1389
+Porcentaje Sculpture: 0.2244
+Porcentaje Iconography: 0.2627
+Porcentaje Engraving: 0.0917
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2454
+Epoch 1/10, Batch 20/49, Loss: 1.1355
+Epoch 1/10, Batch 30/49, Loss: 0.7419
+Epoch 1/10, Batch 40/49, Loss: 0.6792
+Epoch 1/10, Train Loss: 1.0062, Valid Loss: 0.6817
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5260
+Epoch 2/10, Batch 20/49, Loss: 0.5559
+Epoch 2/10, Batch 30/49, Loss: 0.4427
+Epoch 2/10, Batch 40/49, Loss: 0.3825
+Epoch 2/10, Train Loss: 0.5261, Valid Loss: 0.4918
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3009
+Epoch 3/10, Batch 20/49, Loss: 0.3216
+Epoch 3/10, Batch 30/49, Loss: 0.4172
+Epoch 3/10, Batch 40/49, Loss: 0.3844
+Epoch 3/10, Train Loss: 0.4072, Valid Loss: 0.4182
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4206
+Epoch 4/10, Batch 20/49, Loss: 0.2690
+Epoch 4/10, Batch 30/49, Loss: 0.3937
+Epoch 4/10, Batch 40/49, Loss: 0.3470
+Epoch 4/10, Train Loss: 0.3419, Valid Loss: 0.3713
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2017
+Epoch 5/10, Batch 20/49, Loss: 0.3128
+Epoch 5/10, Batch 30/49, Loss: 0.3554
+Epoch 5/10, Batch 40/49, Loss: 0.2737
+Epoch 5/10, Train Loss: 0.3103, Valid Loss: 0.3495
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2801
+Epoch 6/10, Batch 20/49, Loss: 0.2738
+Epoch 6/10, Batch 30/49, Loss: 0.3640
+Epoch 6/10, Batch 40/49, Loss: 0.3408
+Epoch 6/10, Train Loss: 0.2748, Valid Loss: 0.3356
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3343
+Epoch 7/10, Batch 20/49, Loss: 0.1836
+Epoch 7/10, Batch 30/49, Loss: 0.4051
+Epoch 7/10, Batch 40/49, Loss: 0.2453
+Epoch 7/10, Train Loss: 0.2468, Valid Loss: 0.3171
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2074
+Epoch 8/10, Batch 20/49, Loss: 0.1935
+Epoch 8/10, Batch 30/49, Loss: 0.0911
+Epoch 8/10, Batch 40/49, Loss: 0.2265
+Epoch 8/10, Train Loss: 0.2407, Valid Loss: 0.3097
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1985
+Epoch 9/10, Batch 20/49, Loss: 0.3324
+Epoch 9/10, Batch 30/49, Loss: 0.2116
+Epoch 9/10, Batch 40/49, Loss: 0.3099
+Epoch 9/10, Train Loss: 0.2231, Valid Loss: 0.3052
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1365
+Epoch 10/10, Batch 20/49, Loss: 0.1079
+Epoch 10/10, Batch 30/49, Loss: 0.1916
+Epoch 10/10, Batch 40/49, Loss: 0.2133
+Epoch 10/10, Train Loss: 0.2040, Valid Loss: 0.2907
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9068
+Recall: 0.9100
+F1-score: 0.9080
+Porcentaje Final: 0.2500
+Porcentaje Iconography: 0.2679
+Porcentaje Engraving: 0.0839
+Porcentaje Drawings: 0.1420
+Porcentaje Painting: 0.2674
+Porcentaje Sculpture: 0.2389
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.3027
+Epoch 1/10, Batch 20/49, Loss: 1.1498
+Epoch 1/10, Batch 30/49, Loss: 0.7266
+Epoch 1/10, Batch 40/49, Loss: 0.7399
+Epoch 1/10, Train Loss: 1.0133, Valid Loss: 0.6229
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4790
+Epoch 2/10, Batch 20/49, Loss: 0.7143
+Epoch 2/10, Batch 30/49, Loss: 0.4895
+Epoch 2/10, Batch 40/49, Loss: 0.4349
+Epoch 2/10, Train Loss: 0.5460, Valid Loss: 0.4342
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3265
+Epoch 3/10, Batch 20/49, Loss: 0.3250
+Epoch 3/10, Batch 30/49, Loss: 0.4462
+Epoch 3/10, Batch 40/49, Loss: 0.5316
+Epoch 3/10, Train Loss: 0.4262, Valid Loss: 0.3799
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4939
+Epoch 4/10, Batch 20/49, Loss: 0.3552
+Epoch 4/10, Batch 30/49, Loss: 0.4168
+Epoch 4/10, Batch 40/49, Loss: 0.4043
+Epoch 4/10, Train Loss: 0.3611, Valid Loss: 0.3409
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.4178
+Epoch 5/10, Batch 20/49, Loss: 0.3065
+Epoch 5/10, Batch 30/49, Loss: 0.3810
+Epoch 5/10, Batch 40/49, Loss: 0.3076
+Epoch 5/10, Train Loss: 0.3160, Valid Loss: 0.3141
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2939
+Epoch 6/10, Batch 20/49, Loss: 0.2759
+Epoch 6/10, Batch 30/49, Loss: 0.3123
+Epoch 6/10, Batch 40/49, Loss: 0.2446
+Epoch 6/10, Train Loss: 0.2928, Valid Loss: 0.3007
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3871
+Epoch 7/10, Batch 20/49, Loss: 0.2804
+Epoch 7/10, Batch 30/49, Loss: 0.2677
+Epoch 7/10, Batch 40/49, Loss: 0.3053
+Epoch 7/10, Train Loss: 0.2603, Valid Loss: 0.2898
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2312
+Epoch 8/10, Batch 20/49, Loss: 0.3156
+Epoch 8/10, Batch 30/49, Loss: 0.1657
+Epoch 8/10, Batch 40/49, Loss: 0.2767
+Epoch 8/10, Train Loss: 0.2577, Valid Loss: 0.2802
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2745
+Epoch 9/10, Batch 20/49, Loss: 0.1529
+Epoch 9/10, Batch 30/49, Loss: 0.3870
+Epoch 9/10, Batch 40/49, Loss: 0.1839
+Epoch 9/10, Train Loss: 0.2184, Valid Loss: 0.2761
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2301
+Epoch 10/10, Batch 20/49, Loss: 0.1375
+Epoch 10/10, Batch 30/49, Loss: 0.1809
+Epoch 10/10, Batch 40/49, Loss: 0.1853
+Epoch 10/10, Train Loss: 0.2137, Valid Loss: 0.2714
+Model saved!
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2623
+Epoch 1/10, Batch 20/49, Loss: 1.1948
+Epoch 1/10, Batch 30/49, Loss: 0.7120
+Epoch 1/10, Batch 40/49, Loss: 0.7279
+Epoch 1/10, Train Loss: 1.0203, Valid Loss: 0.6546
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5900
+Epoch 2/10, Batch 20/49, Loss: 0.5841
+Epoch 2/10, Batch 30/49, Loss: 0.5260
+Epoch 2/10, Batch 40/49, Loss: 0.5875
+Epoch 2/10, Train Loss: 0.5459, Valid Loss: 0.4539
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3015
+Epoch 3/10, Batch 20/49, Loss: 0.4976
+Epoch 3/10, Batch 30/49, Loss: 0.3582
+Epoch 3/10, Batch 40/49, Loss: 0.3363
+Epoch 3/10, Train Loss: 0.4372, Valid Loss: 0.3924
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3578
+Epoch 4/10, Batch 20/49, Loss: 0.2822
+Epoch 4/10, Batch 30/49, Loss: 0.4579
+Epoch 4/10, Batch 40/49, Loss: 0.4089
+Epoch 4/10, Train Loss: 0.3603, Valid Loss: 0.3490
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2926
+Epoch 5/10, Batch 20/49, Loss: 0.3138
+Epoch 5/10, Batch 30/49, Loss: 0.3695
+Epoch 5/10, Batch 40/49, Loss: 0.3605
+Epoch 5/10, Train Loss: 0.3166, Valid Loss: 0.3247
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3553
+Epoch 6/10, Batch 20/49, Loss: 0.1990
+Epoch 6/10, Batch 30/49, Loss: 0.3134
+Epoch 6/10, Batch 40/49, Loss: 0.2406
+Epoch 6/10, Train Loss: 0.2856, Valid Loss: 0.3086
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3458
+Epoch 7/10, Batch 20/49, Loss: 0.1672
+Epoch 7/10, Batch 30/49, Loss: 0.3028
+Epoch 7/10, Batch 40/49, Loss: 0.3364
+Epoch 7/10, Train Loss: 0.2626, Valid Loss: 0.2953
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2557
+Epoch 8/10, Batch 20/49, Loss: 0.3055
+Epoch 8/10, Batch 30/49, Loss: 0.2956
+Epoch 8/10, Batch 40/49, Loss: 0.3784
+Epoch 8/10, Train Loss: 0.2573, Valid Loss: 0.2885
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2496
+Epoch 9/10, Batch 20/49, Loss: 0.1857
+Epoch 9/10, Batch 30/49, Loss: 0.2315
+Epoch 9/10, Batch 40/49, Loss: 0.2330
+Epoch 9/10, Train Loss: 0.2318, Valid Loss: 0.2824
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1977
+Epoch 10/10, Batch 20/49, Loss: 0.1652
+Epoch 10/10, Batch 30/49, Loss: 0.2895
+Epoch 10/10, Batch 40/49, Loss: 0.1464
+Epoch 10/10, Train Loss: 0.2278, Valid Loss: 0.2780
+Model saved!
+Accuracy: 0.9007
+Precision: 0.8968
+Recall: 0.9007
+F1-score: 0.8973
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2606
+Porcentaje Sculpture: 0.2337
+Porcentaje Drawings: 0.1440
+Porcentaje Engraving: 0.1031
+Porcentaje Iconography: 0.2585
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.1880
+Epoch 1/10, Batch 20/49, Loss: 1.1281
+Epoch 1/10, Batch 30/49, Loss: 0.7856
+Epoch 1/10, Batch 40/49, Loss: 0.7952
+Epoch 1/10, Train Loss: 1.0268, Valid Loss: 0.6308
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5321
+Epoch 2/10, Batch 20/49, Loss: 0.5353
+Epoch 2/10, Batch 30/49, Loss: 0.3386
+Epoch 2/10, Batch 40/49, Loss: 0.4114
+Epoch 2/10, Train Loss: 0.5281, Valid Loss: 0.4390
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.4284
+Epoch 3/10, Batch 20/49, Loss: 0.3879
+Epoch 3/10, Batch 30/49, Loss: 0.5200
+Epoch 3/10, Batch 40/49, Loss: 0.5617
+Epoch 3/10, Train Loss: 0.4184, Valid Loss: 0.3786
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3544
+Epoch 4/10, Batch 20/49, Loss: 0.4261
+Epoch 4/10, Batch 30/49, Loss: 0.2371
+Epoch 4/10, Batch 40/49, Loss: 0.3481
+Epoch 4/10, Train Loss: 0.3488, Valid Loss: 0.3401
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2523
+Epoch 5/10, Batch 20/49, Loss: 0.2218
+Epoch 5/10, Batch 30/49, Loss: 0.2780
+Epoch 5/10, Batch 40/49, Loss: 0.4549
+Epoch 5/10, Train Loss: 0.3052, Valid Loss: 0.3163
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3560
+Epoch 6/10, Batch 20/49, Loss: 0.2679
+Epoch 6/10, Batch 30/49, Loss: 0.3358
+Epoch 6/10, Batch 40/49, Loss: 0.2371
+Epoch 6/10, Train Loss: 0.2805, Valid Loss: 0.2947
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2343
+Epoch 7/10, Batch 20/49, Loss: 0.1442
+Epoch 7/10, Batch 30/49, Loss: 0.2754
+Epoch 7/10, Batch 40/49, Loss: 0.2686
+Epoch 7/10, Train Loss: 0.2495, Valid Loss: 0.2863
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2740
+Epoch 8/10, Batch 20/49, Loss: 0.3541
+Epoch 8/10, Batch 30/49, Loss: 0.3201
+Epoch 8/10, Batch 40/49, Loss: 0.2127
+Epoch 8/10, Train Loss: 0.2389, Valid Loss: 0.2794
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2016
+Epoch 9/10, Batch 20/49, Loss: 0.2353
+Epoch 9/10, Batch 30/49, Loss: 0.2571
+Epoch 9/10, Batch 40/49, Loss: 0.2431
+Epoch 9/10, Train Loss: 0.2246, Valid Loss: 0.2732
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.1756
+Epoch 10/10, Batch 20/49, Loss: 0.1153
+Epoch 10/10, Batch 30/49, Loss: 0.2714
+Epoch 10/10, Batch 40/49, Loss: 0.1686
+Epoch 10/10, Train Loss: 0.2103, Valid Loss: 0.2628
+Model saved!
+Accuracy: 0.9042
+Precision: 0.9011
+Recall: 0.9042
+F1-score: 0.9022
+Porcentaje Final: 0.2500
+Porcentaje Iconography: 0.2725
+Porcentaje Painting: 0.2725
+Porcentaje Sculpture: 0.2093
+Porcentaje Engraving: 0.1073
+Porcentaje Drawings: 0.1383
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2109
+Epoch 1/10, Batch 20/49, Loss: 1.1919
+Epoch 1/10, Batch 30/49, Loss: 0.7768
+Epoch 1/10, Batch 40/49, Loss: 0.6995
+Epoch 1/10, Train Loss: 0.9893, Valid Loss: 0.5917
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4305
+Epoch 2/10, Batch 20/49, Loss: 0.5216
+Epoch 2/10, Batch 30/49, Loss: 0.3835
+Epoch 2/10, Batch 40/49, Loss: 0.4354
+Epoch 2/10, Train Loss: 0.5105, Valid Loss: 0.4116
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.5926
+Epoch 3/10, Batch 20/49, Loss: 0.3699
+Epoch 3/10, Batch 30/49, Loss: 0.3702
+Epoch 3/10, Batch 40/49, Loss: 0.3792
+Epoch 3/10, Train Loss: 0.4018, Valid Loss: 0.3366
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.5113
+Epoch 4/10, Batch 20/49, Loss: 0.3652
+Epoch 4/10, Batch 30/49, Loss: 0.3113
+Epoch 4/10, Batch 40/49, Loss: 0.3659
+Epoch 4/10, Train Loss: 0.3347, Valid Loss: 0.3046
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.2088
+Epoch 5/10, Batch 20/49, Loss: 0.3088
+Epoch 5/10, Batch 30/49, Loss: 0.2979
+Epoch 5/10, Batch 40/49, Loss: 0.3010
+Epoch 5/10, Train Loss: 0.3023, Valid Loss: 0.2832
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2367
+Epoch 6/10, Batch 20/49, Loss: 0.3170
+Epoch 6/10, Batch 30/49, Loss: 0.3686
+Epoch 6/10, Batch 40/49, Loss: 0.1502
+Epoch 6/10, Train Loss: 0.2651, Valid Loss: 0.2661
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.2821
+Epoch 7/10, Batch 20/49, Loss: 0.1427
+Epoch 7/10, Batch 30/49, Loss: 0.4268
+Epoch 7/10, Batch 40/49, Loss: 0.2728
+Epoch 7/10, Train Loss: 0.2451, Valid Loss: 0.2602
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.1681
+Epoch 8/10, Batch 20/49, Loss: 0.2183
+Epoch 8/10, Batch 30/49, Loss: 0.1711
+Epoch 8/10, Batch 40/49, Loss: 0.2575
+Epoch 8/10, Train Loss: 0.2333, Valid Loss: 0.2512
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2621
+Epoch 9/10, Batch 20/49, Loss: 0.2146
+Epoch 9/10, Batch 30/49, Loss: 0.2201
+Epoch 9/10, Batch 40/49, Loss: 0.2147
+Epoch 9/10, Train Loss: 0.2093, Valid Loss: 0.2500
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.3101
+Epoch 10/10, Batch 20/49, Loss: 0.1091
+Epoch 10/10, Batch 30/49, Loss: 0.2353
+Epoch 10/10, Batch 40/49, Loss: 0.2110
+Epoch 10/10, Train Loss: 0.1973, Valid Loss: 0.2388
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9070
+Recall: 0.9100
+F1-score: 0.9080
+Porcentaje Final: 0.2500
+Porcentaje Painting: 0.2513
+Porcentaje Sculpture: 0.2399
+Porcentaje Iconography: 0.2793
+Porcentaje Engraving: 0.0850
+Porcentaje Drawings: 0.1446
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2420
+Epoch 1/10, Batch 20/49, Loss: 1.1908
+Epoch 1/10, Batch 30/49, Loss: 0.9078
+Epoch 1/10, Batch 40/49, Loss: 0.7999
+Epoch 1/10, Train Loss: 1.0363, Valid Loss: 0.6960
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.5395
+Epoch 2/10, Batch 20/49, Loss: 0.5571
+Epoch 2/10, Batch 30/49, Loss: 0.3732
+Epoch 2/10, Batch 40/49, Loss: 0.6020
+Epoch 2/10, Train Loss: 0.5493, Valid Loss: 0.5003
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3896
+Epoch 3/10, Batch 20/49, Loss: 0.3333
+Epoch 3/10, Batch 30/49, Loss: 0.4221
+Epoch 3/10, Batch 40/49, Loss: 0.3485
+Epoch 3/10, Train Loss: 0.4373, Valid Loss: 0.4389
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.3902
+Epoch 4/10, Batch 20/49, Loss: 0.3624
+Epoch 4/10, Batch 30/49, Loss: 0.4745
+Epoch 4/10, Batch 40/49, Loss: 0.3323
+Epoch 4/10, Train Loss: 0.3603, Valid Loss: 0.3858
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3429
+Epoch 5/10, Batch 20/49, Loss: 0.3175
+Epoch 5/10, Batch 30/49, Loss: 0.2932
+Epoch 5/10, Batch 40/49, Loss: 0.5810
+Epoch 5/10, Train Loss: 0.3177, Valid Loss: 0.3491
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2638
+Epoch 6/10, Batch 20/49, Loss: 0.3062
+Epoch 6/10, Batch 30/49, Loss: 0.2933
+Epoch 6/10, Batch 40/49, Loss: 0.1799
+Epoch 6/10, Train Loss: 0.2982, Valid Loss: 0.3311
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3186
+Epoch 7/10, Batch 20/49, Loss: 0.2248
+Epoch 7/10, Batch 30/49, Loss: 0.3607
+Epoch 7/10, Batch 40/49, Loss: 0.2779
+Epoch 7/10, Train Loss: 0.2651, Valid Loss: 0.3133
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2856
+Epoch 8/10, Batch 20/49, Loss: 0.2292
+Epoch 8/10, Batch 30/49, Loss: 0.2634
+Epoch 8/10, Batch 40/49, Loss: 0.4237
+Epoch 8/10, Train Loss: 0.2565, Valid Loss: 0.3118
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.1723
+Epoch 9/10, Batch 20/49, Loss: 0.3554
+Epoch 9/10, Batch 30/49, Loss: 0.2389
+Epoch 9/10, Batch 40/49, Loss: 0.2478
+Epoch 9/10, Train Loss: 0.2468, Valid Loss: 0.3142
+Epoch 10/10, Batch 10/49, Loss: 0.1572
+Epoch 10/10, Batch 20/49, Loss: 0.2871
+Epoch 10/10, Batch 30/49, Loss: 0.3081
+Epoch 10/10, Batch 40/49, Loss: 0.2303
+Epoch 10/10, Train Loss: 0.2165, Valid Loss: 0.2956
+Model saved!
+Accuracy: 0.9100
+Precision: 0.9060
+Recall: 0.9100
+F1-score: 0.9072
+Porcentaje Final: 0.2500
+Porcentaje Drawings: 0.1497
+Porcentaje Painting: 0.2648
+Porcentaje Sculpture: 0.2212
+Porcentaje Engraving: 0.1016
+Porcentaje Iconography: 0.2627
+Memory Allocated after cleanup: 17.76 MB
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.2138
+Epoch 1/10, Batch 20/49, Loss: 1.0805
+Epoch 1/10, Batch 30/49, Loss: 0.7417
+Epoch 1/10, Batch 40/49, Loss: 0.8763
+Epoch 1/10, Train Loss: 1.0382, Valid Loss: 0.6373
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.6005
+Epoch 2/10, Batch 20/49, Loss: 0.5390
+Epoch 2/10, Batch 30/49, Loss: 0.4746
+Epoch 2/10, Batch 40/49, Loss: 0.4987
+Epoch 2/10, Train Loss: 0.5592, Valid Loss: 0.4394
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3524
+Epoch 3/10, Batch 20/49, Loss: 0.4287
+Epoch 3/10, Batch 30/49, Loss: 0.4445
+Epoch 3/10, Batch 40/49, Loss: 0.4266
+Epoch 3/10, Train Loss: 0.4359, Valid Loss: 0.3738
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.2962
+Epoch 4/10, Batch 20/49, Loss: 0.4517
+Epoch 4/10, Batch 30/49, Loss: 0.5320
+Epoch 4/10, Batch 40/49, Loss: 0.5139
+Epoch 4/10, Train Loss: 0.3742, Valid Loss: 0.3231
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.3555
+Epoch 5/10, Batch 20/49, Loss: 0.2579
+Epoch 5/10, Batch 30/49, Loss: 0.4232
+Epoch 5/10, Batch 40/49, Loss: 0.3314
+Epoch 5/10, Train Loss: 0.3226, Valid Loss: 0.3034
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.3536
+Epoch 6/10, Batch 20/49, Loss: 0.2120
+Epoch 6/10, Batch 30/49, Loss: 0.2984
+Epoch 6/10, Batch 40/49, Loss: 0.1944
+Epoch 6/10, Train Loss: 0.3017, Valid Loss: 0.2895
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3911
+Epoch 7/10, Batch 20/49, Loss: 0.1875
+Epoch 7/10, Batch 30/49, Loss: 0.3718
+Epoch 7/10, Batch 40/49, Loss: 0.4050
+Epoch 7/10, Train Loss: 0.2755, Valid Loss: 0.2687
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2397
+Epoch 8/10, Batch 20/49, Loss: 0.3421
+Epoch 8/10, Batch 30/49, Loss: 0.1457
+Epoch 8/10, Batch 40/49, Loss: 0.3222
+Epoch 8/10, Train Loss: 0.2778, Valid Loss: 0.2666
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2642
+Epoch 9/10, Batch 20/49, Loss: 0.2445
+Epoch 9/10, Batch 30/49, Loss: 0.1918
+Epoch 9/10, Batch 40/49, Loss: 0.2622
+Epoch 9/10, Train Loss: 0.2466, Valid Loss: 0.2563
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2387
+Epoch 10/10, Batch 20/49, Loss: 0.1711
+Epoch 10/10, Batch 30/49, Loss: 0.1731
+Epoch 10/10, Batch 40/49, Loss: 0.2677
+Epoch 10/10, Train Loss: 0.2278, Valid Loss: 0.2461
+Model saved!
+Accuracy: 0.9054
+Precision: 0.9029
+Recall: 0.9054
+F1-score: 0.9036
+Porcentaje Final: 0.2500
+Porcentaje Sculpture: 0.2130
+Porcentaje Drawings: 0.1409
+Porcentaje Engraving: 0.1041
+Porcentaje Iconography: 0.2798
+Porcentaje Painting: 0.2622
+Memory Allocated after cleanup: 17.76 MB
+End time: 2025-05-18 12:37:32.533006
+Duration: 0:19:01
+
+
+Mejor accuracy al acabar el algoritmo: 0.9112
+
+
+Fitness check:
+
+Using device: cuda
+GPU: Quadro RTX 8000
+Memory Allocated: 0.25 MB
+No se encontró la carpeta de validación. Creando valid set desde train...
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/49, Loss: 1.3027
+Epoch 1/10, Batch 20/49, Loss: 1.1498
+Epoch 1/10, Batch 30/49, Loss: 0.7266
+Epoch 1/10, Batch 40/49, Loss: 0.7399
+Epoch 1/10, Train Loss: 1.0133, Valid Loss: 0.6229
+Model saved!
+Epoch 2/10, Batch 10/49, Loss: 0.4790
+Epoch 2/10, Batch 20/49, Loss: 0.7143
+Epoch 2/10, Batch 30/49, Loss: 0.4895
+Epoch 2/10, Batch 40/49, Loss: 0.4349
+Epoch 2/10, Train Loss: 0.5460, Valid Loss: 0.4342
+Model saved!
+Epoch 3/10, Batch 10/49, Loss: 0.3265
+Epoch 3/10, Batch 20/49, Loss: 0.3250
+Epoch 3/10, Batch 30/49, Loss: 0.4462
+Epoch 3/10, Batch 40/49, Loss: 0.5316
+Epoch 3/10, Train Loss: 0.4262, Valid Loss: 0.3799
+Model saved!
+Epoch 4/10, Batch 10/49, Loss: 0.4939
+Epoch 4/10, Batch 20/49, Loss: 0.3552
+Epoch 4/10, Batch 30/49, Loss: 0.4168
+Epoch 4/10, Batch 40/49, Loss: 0.4043
+Epoch 4/10, Train Loss: 0.3611, Valid Loss: 0.3409
+Model saved!
+Epoch 5/10, Batch 10/49, Loss: 0.4178
+Epoch 5/10, Batch 20/49, Loss: 0.3065
+Epoch 5/10, Batch 30/49, Loss: 0.3810
+Epoch 5/10, Batch 40/49, Loss: 0.3076
+Epoch 5/10, Train Loss: 0.3160, Valid Loss: 0.3141
+Model saved!
+Epoch 6/10, Batch 10/49, Loss: 0.2939
+Epoch 6/10, Batch 20/49, Loss: 0.2759
+Epoch 6/10, Batch 30/49, Loss: 0.3123
+Epoch 6/10, Batch 40/49, Loss: 0.2446
+Epoch 6/10, Train Loss: 0.2928, Valid Loss: 0.3007
+Model saved!
+Epoch 7/10, Batch 10/49, Loss: 0.3871
+Epoch 7/10, Batch 20/49, Loss: 0.2804
+Epoch 7/10, Batch 30/49, Loss: 0.2677
+Epoch 7/10, Batch 40/49, Loss: 0.3053
+Epoch 7/10, Train Loss: 0.2603, Valid Loss: 0.2898
+Model saved!
+Epoch 8/10, Batch 10/49, Loss: 0.2312
+Epoch 8/10, Batch 20/49, Loss: 0.3156
+Epoch 8/10, Batch 30/49, Loss: 0.1657
+Epoch 8/10, Batch 40/49, Loss: 0.2767
+Epoch 8/10, Train Loss: 0.2577, Valid Loss: 0.2802
+Model saved!
+Epoch 9/10, Batch 10/49, Loss: 0.2745
+Epoch 9/10, Batch 20/49, Loss: 0.1529
+Epoch 9/10, Batch 30/49, Loss: 0.3870
+Epoch 9/10, Batch 40/49, Loss: 0.1839
+Epoch 9/10, Train Loss: 0.2184, Valid Loss: 0.2761
+Model saved!
+Epoch 10/10, Batch 10/49, Loss: 0.2301
+Epoch 10/10, Batch 20/49, Loss: 0.1375
+Epoch 10/10, Batch 30/49, Loss: 0.1809
+Epoch 10/10, Batch 40/49, Loss: 0.1853
+Epoch 10/10, Train Loss: 0.2137, Valid Loss: 0.2714
+Model saved!
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+Memory Allocated after cleanup: 17.76 MB
+
+
+Mejor accuracy encontrado: 0.9112
+Los resultados obtenidos son: 
+Accuracy: 0.9112
+Precision: 0.9083
+Recall: 0.9112
+F1-score: 0.9093
+Duracion: 0:19:01
+Evaluaciones Realizadas: 10.0000
+Porcentaje Final: 0.2500
+Porcentaje Engraving: 0.0990
+Porcentaje Sculpture: 0.2275
+Porcentaje Painting: 0.2658
+Porcentaje Drawings: 0.1311
+Porcentaje Iconography: 0.2767
+Se ha generado el CSV con los resultados correctamente.
