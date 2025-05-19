@@ -1,73 +1,72 @@
-Quitar el objetivo Contribuir al avance
+Crear una versión libre del memético y genetico v3.
+
+Hacer prueba del mejor algoritmo para el PAiINTING con el 25 y 50% PI y en modo libre y fijo.
 
 
-Analizar si el uso de metaheuristicas 
-
-objetivos nuevo:
-estudiar la convenencia del uso de metaheuristicas para la reducciones de imagenes
-desarrollar y mejorar
-evaluar ...
-
-comparar metaheuristicas con los porcentajes fijos contra metaheuristicas que flexilicen el porcentajes de ejemplos.
+Memoria: 
+* Resumen sin referencias.
+* Quitar los puntos suspensivos.
+* Quitar el último parrafo.
+* Juntar los parrafos.
 
 
-Detallar mas las partes de la Mano de obra
-POner directamente escritura de memoria
+* Quitar el objetivo Contribuir al avance
+* Analizar si el uso de metaheuristicas 
 
-Planificacion Inicial,
-Repaso bibliografico
-Implementación Inicial
-Desarrollo de propuesta inicial,
-Eleccion de los dataset
-Desarrollo de la memoria
-Propuesta de versiones de algoritmos
-Revision de la memoria,
-Comprension del problema
-
-Poner el portatil como gastos y quitar Electricidad y Conexion a Internet
+* objetivos nuevo:
+  - estudiar la convenencia del uso de metaheuristicas para la reducciones de imagenes
+  - desarrollar y mejorar
+  - evaluar ...
+  - comparar metaheuristicas con los porcentajes fijos contra metaheuristicas que flexilicen el porcentajes de ejemplos.
 
 
-Añadir pseudocodigo en los algoritmos. Añadir distintos apartados como el Cruce, etc.
+* Detallar mas las partes de la Mano de obra:
+  - Ejemplos de Partes en el
+  - Planificacion Inicial
+  - Repaso bibliografico
+  - Implementación Inicial
+  - Desarrollo de propuesta inicial
+  - Eleccion de los dataset
+  - Desarrollo de la memoria
+  - Propuesta de versiones de algoritmos
+  - Revision de la memoria,
+  - Comprension del problema
+* Poner directamente escritura de memoria
+* Poner el portatil como gastos y quitar Electricidad y Conexion a Internet
 
-Añadir esquema en los algoritmos libres por ejemplo
-
-
-Añadir tabla resumen de los problemas y explicando un poco los datos:
-Num de clases,
-
-
-Añadir un par de imagenes de cada dataset.
+* Añadir pseudocodigo en los algoritmos. Añadir distintos apartados como el Cruce, etc.
+* Añadir esquema en los algoritmos libres por ejemplo
+* Añadir tabla resumen de los problemas y explicando un poco los datos:
+Num de clases, ...
+* Añadir un par de imagenes de cada dataset.
 
 DESARROLLO EXPERIMENTAL:
-Explicar bien todo el procedicmienot usado para las ejecuciones:
-    Explciar mas al detalle las metricas, 
+Explicar bien todo el procedimiento usado para las ejecuciones:
+    Explicar mas al detalle las metricas, 
     El realizamiento de 100 evaluaciones, los tiempos, etc
 
-Poner: ejecucion en paralelo de 5 con 5 semillas distintas
+* Poner: ejecucion en paralelo de 5 con 5 semillas distintas
 
-Resuiltados de refencia del 100%
-Explicar como son las tablas y como voy a mostrar los resultados.
-Explciar mas el boxplot
+* Resuiltados de refencia del 100%
+* Explicar como son las tablas y como voy a mostrar los resultados.
+* Explciar mas el boxplot
+* Añadir gráfica en la que se compara el gen_v2 con el gen_v2 libre.
+* Añadir gráfica que compará cada porcentaje inicial con su porcentaje final del gen_v2.
 
-Añadir gráfica en la que se compara el gen_v2 con el gen_v2 libre.
-Añadir gráfica que compará cada porcentaje inicial con su porcentaje final del gen_v2.
+* Como dividir el desarrollo experimental:
+    Primero el 100%
+    Despues el aleatorio
+    Despues el busquela local
+    Memetico al final
 
-Primero el 100%
-despues el aleatorio
-Despues el busquela local
-memetico al final
-
-Mencionar las versiones del apartrado anterior
+* Mencionar las versiones de los algoritmos del apartado anterior en vez de volver a explicarlos tanto.
 
 
-1. EStudiando la mejora metaheuristica
+1. Estudiando la mejora metaheuristica
 2. Modificando el operador de Cruce
 2. Modificacion de la mutuacion
 3. Incorporacion del reinicio
 5. Incorporacion del libres
 4. Incorporando la busqueda local (memetico)
 6. Comparación final
-
-
-
-5. Extendiendo del Dataset
+99. Extendiendo del Dataset
