@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 # RPS/*
 Notas*
+!Notas 2025-05-15.txt
 /tmp/best_checkpoint.pth
 channeldata.json
 index.html
