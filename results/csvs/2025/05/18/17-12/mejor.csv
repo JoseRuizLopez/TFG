@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Drawings,Porcentaje Engraving,Porcentaje Iconography,Porcentaje Painting,Porcentaje Sculpture
+memetico,0.25,0 days 03:25:25,0.9206,0.9173,0.9206,0.9177,100,0.25,0.1456,0.1073,0.2694,0.2637,0.214
+memetico,0.5,0 days 06:30:05,0.9311,0.9321,0.9311,0.931,100,0.5,0.1435,0.0992,0.2692,0.2567,0.2313
+memetico (libre),0.25,0 days 04:21:54,0.9252,0.9237,0.9252,0.9244,100,0.5886,0.1428,0.0999,0.2663,0.265,0.226
+memetico (libre),0.5,0 days 05:58:21,0.9334,0.9324,0.9334,0.9327,100,0.6245,0.145,0.0979,0.2734,0.2618,0.2219
