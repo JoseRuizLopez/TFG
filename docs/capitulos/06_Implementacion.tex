@@ -175,3 +175,57 @@ detener el algoritmo cuando se detecta estancamiento, reduciendo así el coste c
 
 
 Gracias a estas optimizaciones, el sistema permite explorar un amplio abanico de configuraciones de manera eficiente, manteniendo la robustez y estabilidad de los resultados.
+
+\section{Métricas de Evaluación}\label{sec:metricas-evaluacion}
+
+Para evaluar el rendimiento de los modelos de clasificación utilizados en los experimentos,
+se han empleado cuatro métricas estándar en el ámbito del aprendizaje automático: \textbf{accuracy}, \textbf{precisión}, \textbf{recall} y \textbf{F1-score}.
+Dado que se trata de un problema multiclase, estas métricas se han calculado utilizando el promedio \textit{macro},
+lo que implica computarlas individualmente para cada clase y luego obtener la media aritmética.
+
+A continuación se describen y formalizan cada una de estas métricas:
+
+\begin{itemize}
+      \item \textbf{Accuracy} (exactitud): representa la proporción de predicciones correctas sobre el total de ejemplos.
+            $$
+                  Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+            $$
+            En el caso multiclase, se generaliza como:
+            $$
+                  \mathrm{Accuracy} = \frac{\text{Número de predicciones correctas}}{\text{Total de predicciones}}
+            $$
+
+      \item \textbf{Precisión}: mide cuántas de las instancias clasificadas como positivas fueron realmente positivas. En el caso multiclase (macro), se calcula como:
+            $$
+                  \text{Precisión}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{TP_i}{TP_i + FP_i}
+            $$
+
+      \item \textbf{Recall} (exhaustividad): indica cuántas de las instancias realmente positivas fueron correctamente identificadas por el modelo:
+            $$
+                  \mathrm{Recall}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{TP_i}{TP_i + FN_i}
+            $$
+
+      \item \textbf{F1-score}: es la media armónica entre precisión y recall, útil cuando se desea un equilibrio entre ambas:
+            $$
+                  \mathrm{F1\text{-}score}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{2 \cdot \text{Precisión}_i \cdot \text{Recall}_i}{\text{Precisión}_i + \text{Recall}_i}
+            $$
+\end{itemize}
+
+Donde:
+\begin{itemize}
+      \item $TP_i$: verdaderos positivos de la clase $i$
+      \item $FP_i$: falsos positivos de la clase $i$
+      \item $FN_i$: falsos negativos de la clase $i$
+      \item $C$: número total de clases
+\end{itemize}
+
+Para facilitar la comprensión de estos conceptos, en la Figura~\ref{fig:matriz-confusion} se muestra una representación gráfica de una matriz de confusión.
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=0.5\textwidth]{imagenes/matriz-de-confusion.png}
+      \caption{Representación gráfica de una matriz de confusión}
+      \label{fig:matriz-confusion}
+\end{figure}
+
+Estas métricas fueron implementadas utilizando la librería \texttt{scikit-learn}, que permite su cálculo eficiente a partir de las
+predicciones del modelo y las etiquetas reales del conjunto de validación.
