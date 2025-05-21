@@ -17,20 +17,46 @@ El \textbf{algoritmo aleatorio} sirve como referencia básica para medir la efec
 Este enfoque selecciona subconjuntos de datos de manera completamente aleatoria, sin aplicar ningún tipo de estrategia
 de optimización.
 
-\subsection{Descripción}\label{subsec:descripcion}
+\subsection{Descripción}\label{subsec:descripcion-aleatorio}
 El algoritmo comienza tomando el conjunto de datos completo y seleccionando una fracción de los ejemplos de
 entrenamiento de forma aleatoria.
 Esta selección se realiza sin ningún criterio basado en la relevancia de los datos, lo que implica que el conjunto de
 entrenamiento resultante puede no ser representativo o puede contener redundancias innecesarias.
 
-\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos}
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-aleatorio}
+\begin{algorithm}[htp]
+      \caption{Algoritmo Aleatorio}
+      \label{alg:aleatorio}
+      \begin{algorithmic}[1]
+            \State Inicializar \texttt{evaluaciones} $\gets 0$
+            \While{evaluaciones < máximo}
+            \State Generar una selección aleatoria
+            \State Evaluar la selección
+            \If{mejora el mejor fitness global}
+            \State Guardar como mejor solución
+            \State Reiniciar contador sin mejora
+            \Else
+            \State Incrementar contador sin mejora
+            \EndIf
+            \State Incrementar número de evaluaciones
+            \If{se supera el umbral de estancamiento}
+            \State Terminar la búsqueda
+            \EndIf
+            \EndWhile
+            \State \Return mejor solución e historial
+      \end{algorithmic}
+\end{algorithm}
+
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:aleatorio]{\textbf{Algorithm~\ref*{alg:aleatorio}} Algoritmo Aleatorio}.
+
+\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-aleatorio}
 A pesar de su simplicidad, el \textbf{algoritmo aleatorio} puede ser útil como método de comparación.
 En muchos casos, los algoritmos más complejos deben demostrar que pueden superar este enfoque básico en términos de
 precisión y eficiencia.
 Al seleccionar datos de manera aleatoria, este método a menudo produce conjuntos de entrenamiento subóptimos, lo que
 resulta en modelos menos precisos o con mayor varianza.
 
-\subsection{Resultados esperados}\label{subsec:resultados-esperados}
+\subsection{Resultados esperados}\label{subsec:resultados-esperados-aleatorio}
 Debido a la naturaleza aleatoria del algoritmo, los resultados son altamente variables.
 Es probable que en muchas ejecuciones el rendimiento del modelo entrenado sea inferior al obtenido con métodos más
 estructurados.
@@ -41,7 +67,7 @@ Este algoritmo proporciona una línea base importante para evaluar la efectivida
 El \textbf{algoritmo de búsqueda local} es una técnica más sofisticada que explora el espacio de soluciones de manera
 más estructurada, buscando mejorar progresivamente una solución inicial.
 
-\subsection{Descripción}\label{subsec:descripcion2}
+\subsection{Descripción}\label{subsec:descripcion-busqueda-local}
 La búsqueda local se basa en la idea de comenzar con una solución inicial (un subconjunto de datos) y realizar pequeños
 cambios o `movimientos' en esa solución para explorar otras soluciones cercanas.
 En este contexto, cada solución es un subconjunto de datos.
@@ -49,24 +75,46 @@ El algoritmo evalúa diferentes subconjuntos de datos probando si estos mejoran 
 profundo al entrenarlo con ellos.
 
 
-El proceso básico de la búsqueda local es el siguiente:
-\begin{enumerate}
-      \item Se genera una solución inicial, por ejemplo, seleccionando un subconjunto de datos aleatoriamente.
-      \item Se realizan cambios locales en la solución, como añadir o eliminar ejemplos del conjunto de datos.
-      \item Se evalúa la nueva solución según el rendimiento del modelo de aprendizaje profundo.
-      \item Si la nueva solución es mejor, se reemplaza la solución actual por esta.
-      \item El proceso se repite hasta que no se observan mejoras significativas o hasta que se alcanza un número
-      \item predefinido de iteraciones.
-\end{enumerate}
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-busqueda-local}
+\begin{algorithm}[htp]
+      \caption{Algoritmo de Búsqueda Local}
+      \label{alg:busqueda-local}
+      \begin{algorithmic}[1]
+            \State Generar una solución inicial aleatoria
+            \State Evaluar su fitness como \texttt{mejor\_fitness}
+            \While{\texttt{evaluaciones} $<$ \texttt{máximo}}
+            \State Generar un vecino de la solución actual
+            \State Evaluar el fitness del vecino
+            \If{el vecino mejora o iguala la solución actual}
+            \State Reemplazar la solución actual
+            \If{mejora el \texttt{mejor\_fitness}}
+            \State Actualizar mejor solución
+            \State Reiniciar contador sin mejora
+            \Else
+            \State Incrementar contador sin mejora
+            \EndIf
+            \Else
+            \State Incrementar contador sin mejora
+            \EndIf
+            \State Incrementar \texttt{evaluaciones}
+            \If{hay estancamiento}
+            \State Terminar búsqueda
+            \EndIf
+            \EndWhile
+            \State \Return mejor solución
+      \end{algorithmic}
+\end{algorithm}
 
-\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos2}
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:busqueda-local]{\textbf{Algorithm~\ref*{alg:busqueda-local}} Algoritmo Búsqueda Local}.
+
+\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-busqueda-local}
 En el contexto de la reducción de datos, el objetivo de la búsqueda local es identificar un subconjunto más pequeño de
 ejemplos que sea suficiente para entrenar el modelo con un rendimiento similar al obtenido con el conjunto de datos
 completo.
 La búsqueda local explora el espacio de posibles subconjuntos, eliminando ejemplos redundantes o irrelevantes, y
 conservando solo aquellos que son cruciales para el rendimiento del modelo.
 
-\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones}
+\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones-busqueda-local}
 \textbf{Ventajas}: Este enfoque permite una exploración más exhaustiva del espacio de soluciones que un algoritmo
 aleatorio.
 Al hacer pequeños ajustes en cada iteración, el algoritmo puede encontrar mejores soluciones de manera eficiente.
@@ -75,77 +123,248 @@ Al hacer pequeños ajustes en cada iteración, el algoritmo puede encontrar mejo
 \textbf{Limitaciones}: Sin embargo, la búsqueda local puede quedarse atrapada en \textbf{óptimos locales}, es decir,
 soluciones que parecen buenas en comparación con las cercanas, pero que no son globalmente óptimas.
 
-\section{Algoritmos Genéticos}\label{sec:algoritmos-geneticos}
-Los \textbf{algoritmos genéticos} son algoritmos de búsqueda inspirados en los principios de la evolución natural.
-En este trabajo, se aplican con el objetivo de encontrar subconjuntos óptimos de datos de entrenamiento, reduciendo el
-tamaño del conjunto mientras se mantiene o mejora el rendimiento del modelo de aprendizaje profundo.
+\section{Algoritmo Genético}\label{sec:genetico-v1}
+\subsection{Descripción}\label{subsec:descripcion-genetico-v1}
+El algoritmo genético es una técnica de optimización inspirada en los principios de la evolución natural.
+Parte de una población inicial de soluciones candidatas (en este caso, subconjuntos de imágenes) que evoluciona generación
+tras generación mediante operadores de selección, cruce y mutación.
+Cada una de estas soluciones se evalúa con respecto a su aptitud (fitness), que se calcula según la métrica de rendimiento
+del modelo entrenado con dicho subconjunto (accuracy).
 
-\subsection{Descripción}\label{subsec:descripcion3}
-El funcionamiento de los algoritmos genéticos se basa en los conceptos de \textbf{selección natural},
-\textbf{cruzamiento} y \textbf{mutación}.
-El proceso se puede resumir en los siguientes pasos:
-\begin{enumerate}
-      \item \textbf{Inicialización}: Se genera una población inicial de posibles soluciones, cada una de ellas
-            representando un subconjunto del conjunto de datos.
-      \item \textbf{Evaluación}: Cada subconjunto de datos (o `individuo') es evaluado entrenando el modelo con ese
-            subconjunto y midiendo su rendimiento.
-      \item \textbf{Selección}: Se seleccionan los mejores individuos de la población basándose en su rendimiento.
-            Los mejores individuos tienen más probabilidades de ser seleccionados para la siguiente generación.
-      \item \textbf{Cruzamiento}: Se combinan pares de individuos seleccionados para crear nuevos subconjuntos.
-            Esto se realiza intercambiando ejemplos entre los subconjuntos.
-      \item \textbf{Mutación}: Con una pequeña probabilidad, se realizan cambios aleatorios en algunos individuos, como
-            añadir o eliminar ejemplos del subconjunto.
-      \item \textbf{Iteración}: El proceso de evaluación, selección, cruzamiento y mutación se repite durante varias
-            generaciones, con la esperanza de que cada generación produzca soluciones mejores que la anterior.
-\end{enumerate}
+En esta versión inicial, el algoritmo utiliza una implementación sencilla pero funcional,
+diseñada para validar los beneficios de la evolución artificial sobre enfoques aleatorios o deterministas.
+A pesar de su simplicidad, esta versión ya logra una exploración significativa del espacio de soluciones,
+sirviendo como base para versiones posteriores más sofisticadas.
 
-\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos3}
-Los \textbf{algoritmos genéticos} son especialmente adecuados para la reducción de datos porque permiten explorar un
-espacio de soluciones muy amplio de manera eficiente.
-La combinación de individuos y la introducción de mutaciones aleatorias permiten al algoritmo escapar de los óptimos
-locales, un problema común en la búsqueda local.
+\subsection{Componentes del Algoritmo}\label{subsec:componentes-genetico-v1}
 
-El uso de algoritmos genéticos para reducir datos en este contexto implica encontrar subconjuntos de entrenamiento que
-proporcionen un buen equilibrio entre tamaño y rendimiento.
-Esto se logra al evaluar diferentes subconjuntos y mejorar las soluciones generación tras generación.
+A continuación, se describen los principales componentes que conforman esta primera versión del algoritmo genético:
 
-\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones2}
-\textbf{Ventajas}: Los algoritmos genéticos son efectivos para explorar grandes espacios de soluciones y tienen una
-gran capacidad para evitar quedar atrapados en óptimos locales.
-Son especialmente útiles en problemas donde la solución óptima no es evidente desde el principio.
+\subsubsection{Población inicial}
+Se genera aleatoriamente una colección de subconjuntos de datos, donde cada individuo representa una selección binaria de imágenes.
+Este conjunto inicial sirve como punto de partida para la evolución del sistema.
+
+\subsubsection{Evaluación}
+Cada individuo se evalúa entrenando un modelo convolucional sobre el subconjunto de imágenes representado.
+El valor de \textit{fitness} se calcula utilizando la métrica \textit{accuracy}.
+\subsubsection{Selección por torneo}
+Se escogen dos padres de la población mediante el método de torneo.
+Para ello, se elige aleatoriamente un subconjunto de individuos y se selecciona el que tenga mayor fitness.
+Este proceso simula una competencia entre soluciones y prioriza las más prometedoras.
+\subsubsection{Cruce}
+Se aplica un operador de cruce básico que intercambia parte de las imágenes entre ambos padres.
+Este operador garantiza que el número total de imágenes seleccionadas en los hijos se mantenga constante, preservando la estructura del problema.
+\subsubsection{Mutación}
+Cada hijo generado puede sufrir mutaciones aleatorias.
+Con una probabilidad fija, algunas imágenes cambian su estado (de seleccionadas a no seleccionadas y viceversa).
+Este operador introduce diversidad genética en la población, evitando el estancamiento evolutivo.
+\subsubsection{Elitismo}
+Para asegurar que no se pierdan buenas soluciones, el mejor individuo de cada generación se conserva sin modificación.
+Esta estrategia protege el progreso evolutivo alcanzado hasta el momento.
+\subsubsection{Criterio de parada}
+El algoritmo se detiene cuando se alcanza un número máximo de evaluaciones o si no se ha logrado mejorar el mejor fitness durante un número consecutivo de iteraciones.
+Esto evita ciclos innecesarios y mejora la eficiencia computacional.
+
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-genetico-v1}
+\begin{algorithm}[htp]
+      \caption{Algoritmo Genético}
+      \label{alg:genetico-v1}
+      \begin{algorithmic}[1]
+            \State Inicializar población aleatoria
+            \State Evaluar fitness de cada individuo
+            \State Guardar el mejor individuo
+            \While{no se alcance el número máximo de evaluaciones}
+            \State Aplicar elitismo
+            \While{población incompleta}
+            \State Seleccionar dos padres por torneo
+            \State Cruzar padres para obtener hijos
+            \State Mutar hijos
+            \State Evaluar hijos y añadirlos a la nueva población
+            \EndWhile
+            \State Reemplazar población
+            \State Actualizar mejor individuo si mejora
+            \EndWhile
+            \State \Return mejor solución
+      \end{algorithmic}
+\end{algorithm}
+
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:genetico-v1]{\textbf{Algorithm~\ref*{alg:genetico-v1}} Algoritmo Genético}.
+
+\subsection{Aplicación en la Reducción de Datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-genetico-v1}
+El algoritmo genético se adapta de forma natural a la tarea de reducción de datos, ya que cada individuo puede
+representar explícitamente qué instancias se incluyen o excluyen del conjunto de entrenamiento.
+Esta representación binaria permite una manipulación sencilla de los subconjuntos y favorece la exploración combinatoria de múltiples configuraciones posibles.
+
+Gracias a su enfoque evolutivo, este algoritmo puede descubrir subconjuntos de imágenes que,
+aunque significativamente más pequeños que el conjunto completo, mantienen un alto rendimiento del modelo.
+Además, el uso de operadores estocásticos contribuye a escapar de soluciones triviales o subóptimas.
+
+\subsection{Ventajas y Limitaciones}\label{subsec:ventajas-y-limitaciones-genetico-v1}
+\textbf{Ventajas}:
+\begin{itemize}
+      \item Flexible y fácilmente ajustable mediante cambios en los operadores.
+      \item Capaz de encontrar buenas soluciones en espacios grandes y discretos.
+      \item Evoluciona de forma progresiva, permitiendo un seguimiento del proceso.
+\end{itemize}
+
+\textbf{Limitaciones}:
+\begin{itemize}
+      \item El operador de cruce simple puede resultar limitado, ya que no considera la calidad relativa de los padres.
+      \item Sensible a la convergencia prematura si la diversidad de la población se pierde rápidamente.
+      \item Aunque mejor que la búsqueda aleatoria, puede estancarse en óptimos locales sin mecanismos adicionales como reinicios o cruce ponderado.
+\end{itemize}
+
+\section{Algoritmo Genético con Cruce Ponderado}\label{sec:genetico-v2}
+\subsection{Descripción}\label{subsec:descripcion-genetico-v2}
+Esta versión introduce una mejora sobre el algoritmo genético básico al modificar el operador de cruce para que
+tenga en cuenta la calidad relativa de los padres.
+En lugar de combinar aleatoriamente los subconjuntos, el cruce ponderado asigna mayor peso al progenitor con mejor fitness,
+favoreciendo así la herencia de sus características más beneficiosas.
+
+Además, en cada reproducción solo se selecciona el mejor hijo generado por la pareja de padres, descartando el otro.
+Esta estrategia reduce la generación de soluciones subóptimas, acelera la convergencia y mejora la estabilidad general del proceso evolutivo.
+
+Se mantiene el uso de elitismo, selección por torneo y mutación con probabilidad fija, al igual que en la versión anterior.
+
+\subsection{Componentes del Algoritmo}\label{subsec:componentes-genetico-v2}
+A continuación, se describen los principales componentes añadidos o modificados para realizar esta versión con crude pronderado.
+
+\subsubsection{Cruce ponderado}
+El operador de cruce se basa en el fitness de los padres.
+Se asigna un mayor número de imágenes al progenitor con mejor rendimiento, lo que incrementa la probabilidad de heredar características positivas.
+Esta estrategia mejora la calidad de los hijos generados.
+
+\subsubsection{Mutación}
+Se mantiene la mutación aleatoria con probabilidad fija.
+Su propósito es introducir variabilidad en la población y evitar la convergencia prematura.
+En este caso, la mutación se aplica después del cruce ponderado.
+
+\subsubsection{Selección de hijo único}
+A diferencia de versiones anteriores, esta implementación evalúa los dos hijos generados y conserva únicamente el mejor.
+Esta selección más estricta reduce la propagación de soluciones poco prometedoras y acelera la convergencia del algoritmo.
 
 
-\textbf{Limitaciones}: Estos algoritmos pueden ser costosos computacionalmente, ya que requieren evaluar muchas
-soluciones a lo largo de múltiples generaciones.
-Además, su convergencia a veces puede ser lenta, dependiendo del tamaño del espacio de búsqueda y de los
-parámetros del algoritmo (tamaño de la población, tasa de mutación, etc.).
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-genetico-v2}
+\begin{algorithm}[htp]
+      \caption{Algoritmo Genético con Cruce Ponderado}
+      \label{alg:genetico-v2}
+      \begin{algorithmic}[1]
+            \State Inicializar población y evaluar
+            \While{no se alcance el máximo de evaluaciones}
+            \State Conservar el mejor individuo (elitismo)
+            \While{población incompleta}
+            \State Seleccionar padres por torneo
+            \State Aplicar cruce ponderado
+            \State Mutar hijos
+            \State Evaluar ambos hijos
+            \State Conservar solo el mejor hijo
+            \EndWhile
+            \State Reemplazar población
+            \State Actualizar mejor si mejora
+            \EndWhile
+            \State \Return mejor individuo encontrado
+      \end{algorithmic}
+\end{algorithm}
 
-\subsection{Versiones}\label{subsec:versiones}
-A lo largo del desarrollo del proyecto, se implementaron diversas versiones del algoritmo genético con el fin de
-mejorar su rendimiento, adaptabilidad y capacidad para escapar de óptimos locales.
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:genetico-v2]{\textbf{Algorithm~\ref*{alg:genetico-v2}} Algoritmo Genético con Cruce Ponderado}.
 
-\subsubsection{Versión 1 (Genético clásico)}
-Esta primera versión emplea un operador de cruce simple que intercambia subconjuntos de imágenes seleccionadas entre dos padres.
-La selección se realiza mediante torneos y se aplica una tasa de mutación fija.
-El elitismo garantiza la preservación del mejor individuo.
-Aunque funcional, esta versión presentaba ciertas limitaciones en la calidad de los hijos generados,
-especialmente en fases avanzadas de la evolución.
+\subsection{Aplicación en la Reducción de Datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-genetico-v2}
+Este algoritmo permite una selección más refinada de subconjuntos de imágenes representativas al priorizar soluciones de alta calidad durante el cruce.
+Al favorecer a los progenitores con mejor rendimiento, se acelera la convergencia hacia subconjuntos efectivos,
+o que resulta en una reducción más precisa y estable del conjunto de entrenamiento.
 
-\subsubsection{Versión 2 (Genético con cruce ponderado)}
-En esta versión se introdujo un operador de cruce mejorado (\textit{weighted\_crossover}), que asigna más imágenes al hijo
-desde el progenitor con mejor fitness, favoreciendo la herencia de características exitosas.
-Además, se selecciona solo el mejor de los hijos generados en cada cruce, de esta forma se reduce la propagación de malas soluciones.
 
-\subsubsection{Versión 2 libre (ajuste dinámico de tamaño)}
-Se trata de una variante de la versión 2 donde se permite que el número de imágenes seleccionadas por los hijos varíe
-dentro de un rango flexible (entre el 50\% y el 150\% del objetivo inicial).
-Esto se logra mediante el parámetro \textit{adjust\_size}, lo que introduce mayor diversidad en la población y fomenta la exploración del espacio de búsqueda.
+\subsection{Ventajas y Limitaciones}\label{subsec:ventajas-y-limitaciones-genetico-v2}
+\textbf{Ventajas}:
+\begin{itemize}
+      \item Favorece la herencia de características beneficiosas.
+      \item Elimina soluciones débiles al conservar solo el mejor hijo.
+      \item Acelera la convergencia sin sacrificar la calidad de la solución.
+\end{itemize}
 
-\subsubsection{Versión 3 (Genético con reinicio poblacional)}
-Esta versión añade un mecanismo de reinicio que se activa si el segundo mejor individuo no mejora en dos generaciones consecutivas.
-En ese caso, se mantiene el mejor individuo y se reemplaza el resto de la población,
-generando así nuevos candidatos aleatorios y dando la posibilidad de escapar de estancamientos evolutivos.
+\textbf{Limitaciones}:
+\begin{itemize}
+      \item Puede reducir la diversidad de la población si las soluciones convergen demasiado rápido.
+      \item Requiere una evaluación adicional por cada pareja de padres (evaluar dos hijos).
+\end{itemize}
 
+\section{Algoritmo Genético con Reinicio Poblacional}\label{sec:genetico-v3}
+\subsection{Descripción}\label{subsec:descripcion-genetico-v3}
+Esta versión del algoritmo genético introduce una estrategia para evitar el estancamiento evolutivo mediante reinicios poblacionales.
+Cuando el segundo mejor individuo de la población no mejora durante dos generaciones consecutivas, se considera que el algoritmo ha dejado de progresar de forma significativa.
+En ese caso, se reinicia la población manteniendo únicamente el mejor individuo, y se genera el resto de forma aleatoria.
+
+
+Este mecanismo permite escapar de óptimos locales y explorar nuevas regiones del espacio de soluciones sin perder por completo los avances logrados.
+El algoritmo conserva los operadores de selección, cruce ponderado y mutación, así como el elitismo.
+
+
+\subsection{Componentes del Algoritmo}\label{subsec:componentes-genetico-v3}
+Ahora, se describen los principales componentes añadidos o modificados para añadirle el reinicio poblacional al algoritmo genético con cruce ponderado.
+
+\subsubsection{Criterio de reinicio}
+El algoritmo monitoriza el rendimiento del segundo mejor individuo en cada generación.
+Si este no mejora en dos iteraciones consecutivas, se considera que la población ha entrado en un estado de estancamiento evolutivo y se procede a un reinicio.
+
+\subsubsection{Reinicio selectivo}
+Durante el reinicio, solo se conserva el mejor individuo de la población actual.
+El resto de la población se regenera completamente mediante una nueva inicialización aleatoria.
+Esto permite explorar nuevas regiones del espacio de soluciones sin perder los avances obtenidos.
+
+\subsubsection{Evaluación post-reinicio}
+Tras el reinicio, todos los nuevos individuos se evalúan y se reorganiza la población según su fitness.
+Se actualizan los valores del mejor y segundo mejor individuo, y se reanuda el ciclo evolutivo.
+
+\subsubsection{Persistencia de historial}
+Para no perder información relevante, se mantiene un historial acumulativo del fitness a lo largo de todos los reinicios.
+Esto permite realizar un análisis completo del proceso evolutivo una vez finalizada la ejecución.
+
+
+
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-genetico-v3}
+\begin{algorithm}[htp]
+      \caption{Algoritmo Genético con Reinicio Poblacional}
+      \label{alg:genetico-v3}
+      \begin{algorithmic}[1]
+            \State Inicializar población y evaluar
+            \State Guardar mejor y segundo mejor individuos
+            \While{no se alcance el máximo de evaluaciones}
+            \State Aplicar elitismo
+            \While{población incompleta}
+            \State Seleccionar padres por torneo
+            \State Aplicar cruce ponderado y mutación
+            \State Evaluar hijos y conservar el mejor
+            \EndWhile
+            \If{segundo mejor no mejora en 2 generaciones}
+            \State Reiniciar población conservando solo el mejor
+            \EndIf
+            \State Actualizar mejores si hay mejora
+            \EndWhile
+            \State \Return mejor solución
+      \end{algorithmic}
+\end{algorithm}
+
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:genetico-v3]{\textbf{Algorithm~\ref*{alg:genetico-v3}} Algoritmo Genético con Reinicio Poblacional}.
+
+\subsection{Aplicación en la Reducción de Datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-genetico-v3}
+Esta estrategia mejora la robustez del algoritmo en entornos donde hay múltiples óptimos locales.
+Al reintroducir diversidad controlada, incrementa la probabilidad de encontrar subconjuntos más eficientes para el entrenamiento del modelo,
+especialmente en datasets complejos o con clases desbalanceadas.
+
+
+\subsection{Ventajas y Limitaciones}\label{subsec:ventajas-y-limitaciones-genetico-v3}
+\textbf{Ventajas}:
+\begin{itemize}
+      \item Permite escapar de óptimos locales sin descartar los avances previos.
+      \item Favorece una exploración más amplia del espacio de soluciones.
+      \item Mejora la estabilidad y robustez del algoritmo frente al estancamiento.
+\end{itemize}
+
+\textbf{Limitaciones}:
+\begin{itemize}
+      \item Incrementa la complejidad de implementación y control del flujo.
+      \item El reinicio puede introducir ruido si se activa de forma prematura.
+\end{itemize}
 
 \section{Algoritmo Memético}\label{sec:algoritmo-memetico}
 El \textbf{algoritmo memético} es una extensión del enfoque genético tradicional que incorpora técnicas de búsqueda
@@ -156,33 +375,54 @@ En este trabajo, se implementó una versión adaptada del algoritmo memético or
 óptimos de imágenes para el entrenamiento de modelos convolucionales.
 
 
-\subsection{Descripción}\label{subsec:descripcion4}
+\subsection{Descripción}\label{subsec:descripcion-memetico}
 El funcionamiento general del algoritmo memético se basa en una estructura genética clásica:
 generación de población inicial, selección por torneo, cruce, mutación y reemplazo elitista.
 Sin embargo, introduce una novedad clave: la aplicación probabilística de una búsqueda local sobre los individuos recién generados.
 Este procedimiento local intenta mejorar los hijos generados por cruce, evaluando soluciones vecinas
 mediante pequeñas modificaciones (mutaciones controladas).
 
+\subsection{Pseudocódigo}\label{subsec:Pseudocodigo-memetico}
+\begin{algorithm}[htp]
+      \caption[Algoritmo Memético]{Algoritmo Memético.\\ [2pt]
+      \small \textit{La búsqueda local está limitada por el número total de evaluaciones permitidas y permite realizar mejoras incrementales únicamente cuando resultan beneficiosas}.}
+      \label{alg:memetico}
+      \begin{algorithmic}[1]
+            \State Inicializar población y evaluar
+            \State Guardar mejor individuo
+            \While{\texttt{evaluaciones} $<$ \texttt{máximo}}
+            \State Aplicar elitismo
+            \While{nueva población incompleta}
+            \State Seleccionar padres por torneo
+            \State Aplicar cruce ponderado
+            \State Aplicar mutación
+            \If{se cumple probabilidad de búsqueda local}
+            \State Ejecutar búsqueda local sobre el hijo
+            \State Evaluar vecinos y conservar el mejor
+            \Else
+            \State Evaluar hijo directamente
+            \EndIf
+            \State Añadir hijo resultante a la nueva población
+            \EndWhile
+            \State Reemplazar población
+            \State Actualizar mejor si mejora
+            \If{hay estancamiento}
+            \State Terminar
+            \EndIf
+            \EndWhile
+            \State \Return mejor solución
+      \end{algorithmic}
+\end{algorithm}
 
-En concreto, el algoritmo:
-\begin{enumerate}
-      \item Aplica cruce y mutación para generar dos hijos por pareja de padres.
-      \item Con una cierta probabilidad, aplica búsqueda local a uno de los hijos.
-      \item Evalúa múltiples vecinos durante un número limitado de evaluaciones (\textit{local\_search\_evaluations}), seleccionando el mejor encontrado.
-      \item Incorpora elitismo para asegurar que el mejor individuo no se pierde.
-\end{enumerate}
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:memetico]{\textbf{Algorithm~\ref*{alg:memetico}} Algoritmo Memético}.
 
-
-La búsqueda local está limitada por el número total de evaluaciones permitidas y permite realizar mejoras incrementales únicamente cuando resultan beneficiosas.
-
-
-\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos4}
+\subsection{Aplicación en la reducción de datos}\label{subsec:aplicacion-en-la-reduccion-de-datos-memetico}
 El \textbf{algoritmo memético} fue diseñado para encontrar subconjuntos de datos que optimicen métricas
 como la \textit{accuracy} o el \textit{F1-score} en un número reducido de evaluaciones.
 Su capacidad para ajustar localmente los subconjuntos permite afinar las selecciones iniciales generadas
 por los operadores evolutivos, lo que se traduce en soluciones de mayor calidad con menor dispersión.
 
-\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones3}
+\subsection{Ventajas y limitaciones}\label{subsec:ventajas-y-limitaciones-memetico}
 \textbf{Ventajas}:
 \begin{itemize}
       \item Mejora puntual de soluciones mediante refinamiento local.
@@ -195,3 +435,40 @@ por los operadores evolutivos, lo que se traduce en soluciones de mayor calidad 
       \item Aumenta ligeramente el coste computacional por las evaluaciones adicionales de la búsqueda local.
       \item Requiere calibración adicional de parámetros como la probabilidad de búsqueda local o el tamaño del vecindario.
 \end{itemize}
+
+\section{Versiones Libres de los Algoritmos Evolutivos}\label{sec:versiones-libres}
+En esta sección se describen las versiones \textbf{libres} de algunos algoritmos evolutivos,
+caracterizadas por permitir que el número de imágenes seleccionadas evolucione dinámicamente a lo largo del proceso.
+A diferencia de las versiones fijas, donde se impone un porcentaje constante de selección,
+estas variantes adaptan el tamaño de los subconjuntos seleccionados mediante operadores ajustables y estocásticos.
+Esta propiedad resulta útil cuando no se conoce a priori la proporción óptima de instancias para entrenar un modelo eficiente.
+
+\subsection{Algoritmo Genético con Cruce Ponderado (Versión Libre)}\label{subsec:genetico-v2-libre}
+
+La versión libre del \hyperref[sec:genetico-v2]{Algoritmo Genético con Cruce Ponderado} incorpora un operador de
+cruce flexible que ajusta automáticamente el tamaño de los subconjuntos generados.
+Al activar el parámetro \texttt{adjust\_size}, el número de imágenes seleccionadas en cada hijo se calcula aleatoriamente
+dentro de un rango proporcional al tamaño de los padres, en este caso, entre el 50\,\% y el 150\,\% del tamaño base.
+
+Esto permite al algoritmo explorar configuraciones más amplias o más compactas en busca del subconjunto óptimo.
+Además, el operador de mutación también se adapta para permitir fluctuaciones en la cantidad total de imágenes activas,
+aumentando así la diversidad estructural de la población.
+
+\subsection{Algoritmo Genético con Reinicio Poblacional (Versión Libre)}\label{subsec:genetico-v3-libre}
+
+La versión libre del \hyperref[sec:genetico-v3]{Algoritmo Genético con Reinicio Poblacional} conserva la lógica de reinicio para evitar estancamientos,
+pero permite que cada nuevo individuo generado tenga una cantidad de imágenes seleccionadas distinta.
+Este comportamiento se gestiona mediante el mismo mecanismo de cruce adaptativo que en la versión libre del genético v2.
+
+Gracias a esta propiedad, cada reinicio poblacional no solo introduce nueva diversidad en el contenido de los subconjuntos, sino también en su escala.
+Esto es especialmente útil para escapar de regiones del espacio de soluciones con un tamaño fijo subóptimo.
+
+\subsection{Algoritmo Memético (Versión Libre)}\label{subsec:memetico-libre}
+
+La versión libre del \hyperref[sec:algoritmo-memetico]{Algoritmo Memético} combina tanto la flexibilidad del cruce ponderado como la búsqueda local ajustable.
+Al igual que en los algoritmos anteriores, el tamaño de los subconjuntos puede variar en cada generación mediante un parámetro \texttt{adjust\_size}
+activado tanto en los operadores evolutivos como en la heurística local.
+
+Durante la búsqueda local, esta versión permite que un vecino no solo cambie el contenido de las imágenes seleccionadas, sino también su número total.
+Esta dualidad entre exploración global y explotación local con tamaño dinámico convierte al algoritmo en una herramienta poderosa para adaptarse a
+distintas complejidades del conjunto de datos, logrando soluciones robustas sin una configuración de selección fija.
