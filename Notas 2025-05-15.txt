@@ -51,7 +51,7 @@ Explicar bien todo el procedimiento usado para las ejecuciones:
 * Explicar como son las tablas y como voy a mostrar los resultados.
 * Explciar mas el boxplot
 * Añadir gráfica en la que se compara el gen_v2 con el gen_v2 libre.
-* Añadir gráfica que compará cada porcentaje inicial con su porcentaje final del gen_v2.
+* Añadir gráfica que compará cada porcentaje inicial con su porcentaje final del gen_v2. [Hacerlo tambien para el PAINTING]
 
 * Como dividir el desarrollo experimental:
     Primero el 100%
