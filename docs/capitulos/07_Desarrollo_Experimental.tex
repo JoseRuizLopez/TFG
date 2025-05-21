@@ -17,36 +17,80 @@ el reconocimiento de patrones o la predicción de series temporales.
 
 A continuación, se van a explicar cada uno de los Datasets que se han utilizado en el desarrollo del proyecto.
 
+\newpage
+
 \subsection{Rock, Paper, Scissors (Piedra, Papel, Tijera)}\label{subsec:rock-paper-scissors}
 \textbf{Rock, Paper, Scissors}~\cite{RockPaperScissors} es un conjunto de datos creado por Laurence Moroney
 que se utiliza para la clasificación de imágenes de manos representando los gestos de `piedra', `papel' y `tijeras'.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/rock.jpg}
+        \caption*{Rock}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/paper.jpg}
+        \caption*{Paper}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/scissors.jpg}
+        \caption*{Scissors}
+    \end{subfigure}
+    \caption{Ejemplos de imágenes del dataset Rock, Paper, Scissors}
+    \label{fig:ejemplos-rps}
+\end{figure}
+
+En la figura~\ref{fig:ejemplos-rps} se han mostrado una imagen de cada una de las clases del dataset Rock, Paper, Scissors,
+para que se pueda observar la similitud entre las distintas clases.
 
 \subsubsection{Estructura del Dataset}
 El conjunto de datos contiene aproximadamente 2,500 imágenes, distribuidas en tres categorías: piedra, papel y tijeras.
 Las imágenes están en color y tienen un tamaño de 300x300 píxeles.
 
-Las imágenes están organizadas en directorios según su categoría artística:
-\begin{verbatim}
-+-- train
-|   +-- rock
-|   |   +-- image1.jpg
-|   |   +-- image2.jpg
-|   |   \-- ...
-|   +-- paper
-|   |   +-- image1.jpg
-|   |   +-- image2.jpg
-|   |   \-- ...
-|   \-- scissors
-+-- test (originalmente valid)
-|   +-- rock
-|   +-- paper
-|   \-- scissors
-+-- valid (originalmente test)
-|   +-- rock
-|   +-- paper
-|   \-- scissors
-\end{verbatim}
+\begin{figure}[ht]
+    \centering
+    \begin{forest}mydirstyle
+        [RPS
+            [train
+                    [rock
+                            [image1.jpg]
+                            [image2.jpg]
+                            [\dots]
+                    ]
+                    [paper
+                            [image1.jpg]
+                            [image2.jpg]
+                            [\dots]
+                    ]
+                    [scissors
+                            [image1.jpg]
+                            [image2.jpg]
+                            [\dots]
+                    ]
+            ]
+            [test (originalmente valid)
+                [rock]
+                    [paper]
+                    [scissors]
+            ]
+            [valid (originalmente test)
+                [rock]
+                    [paper]
+                    [scissors]
+            ]
+        ]
+    \end{forest}
+    \caption{Estructura de carpetas del dataset Rock, Paper, Scissors}
+    \label{fig:estructura-rps}
+\end{figure}
 
+
+Como se puede observar en la Figura~\ref{fig:estructura-rps}, las imágenes están organizadas en directorios según su función en el entrenamiento
+(entrenamiento, validación o prueba) y, dentro de cada partición, se dividen a su vez por clases del dataset.
 
 \subsubsection{Formato de los Datos}
 Las imágenes están en formato JPEG (\texttt{.jpg}). Para su procesamiento, se han aplicado técnicas de preprocesamiento
@@ -75,28 +119,75 @@ con la condición de otorgar el crédito adecuado a los creadores originales~\ci
 El dataset \textbf{Art Images: Drawing/Painting/Sculptures/Engravings} es una colección de aproximadamente 9,000
 imágenes organizadas en cinco categorías de arte: dibujos, pinturas, esculturas, grabados y arte iconográfico.
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/drawings.jpg}
+        \caption*{Drawings}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/painting.jpg}
+        \caption*{Painting}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/iconography.jpg}
+        \caption*{Iconography}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/engraving.jpg}
+        \caption*{Engraving}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagenes/dataset_examples/sculpture.jpg}
+        \caption*{Sculpture}
+    \end{subfigure}
+    \caption{Ejemplos de clases en el dataset PAINTING}
+    \label{fig:ejemplos-painting}
+\end{figure}
+
+En la figura~\ref{fig:ejemplos-painting} se han mostrado una imagen de cada una de las clases del dataset PAINTING,
+para que se pueda observar la variabilidad de las imágenes.
+
 \subsubsection{Estructura del Dataset}
-Las imágenes están organizadas en directorios según su categoría artística:
-\begin{verbatim}
-+-- Train (originalmente training_set)
-|   +-- drawings
-|   |   +-- image1.jpg
-|   |   +-- image2.jpg
-|   |   \-- ...
-|   +-- paintings
-|   |   +-- image1.jpg
-|   |   +-- image2.jpg
-|   |   \-- ...
-|   +-- sculptures
-|   +-- engravings
-|   \-- iconography
-+-- Test (originalmente validation_set)
-|   +-- drawings
-|   +-- paintings
-|   +-- sculptures
-|   +-- engravings
-|   \-- iconography
-\end{verbatim}
+\begin{figure}[ht]
+    \centering
+    \begin{forest}mydirstyle
+        [Dataset
+            [Train (originalmente training\_set)
+                [drawings
+                            [image1.jpg]
+                            [image2.jpg]
+                            [\dots]
+                    ]
+                    [paintings
+                            [image1.jpg]
+                            [image2.jpg]
+                            [\dots]
+                    ]
+                    [sculptures]
+                    [engravings]
+                    [iconography]
+            ]
+            [Test (originalmente validation\_set)
+                [drawings]
+                    [paintings]
+                    [sculptures]
+                    [engravings]
+                    [iconography]
+            ]
+        ]
+    \end{forest}
+    \caption{Estructura de carpetas del dataset PAINTING}
+    \label{fig:estructura-painting}
+\end{figure}
+
+Como se puede observar en la Figura~\ref{fig:estructura-painting}, las imágenes están organizadas en directorios según su categoría artística,
+que en este caso corresponden a las distintas clases del dataset, previamente divididas en conjuntos de entrenamiento y prueba.
 
 \subsubsection{Formato de los Datos}
 Todas las imágenes están en formato JPEG (\texttt{.jpg}) y presentan variaciones en resolución y dimensiones.
@@ -125,52 +216,138 @@ limpia disponible en Kaggle~\cite{CleanedArtImages}.
 Antes de su uso, se revisaron los términos y condiciones establecidos en la página de Kaggle para asegurar el
 cumplimiento con las licencias y restricciones aplicables.
 
-\subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
-\textbf{MNIST}~\cite{MNISTDataset} es un dataset ampliamente utilizado en aprendizaje profundo.
-Contiene 70,000 imágenes de dígitos escritos a mano, divididas en 60,000 imágenes para el entrenamiento y 10,000 para
-la prueba.
+% \subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
+% \textbf{MNIST}~\cite{MNISTDataset} es un dataset ampliamente utilizado en aprendizaje profundo.
+% Contiene 70,000 imágenes de dígitos escritos a mano, divididas en 60,000 imágenes para el entrenamiento y 10,000 para
+% la prueba.
 
-\subsubsection{Estructura del Dataset}
-Las imágenes tienen un tamaño de 28x28 píxeles y están en escala de grises, con valores de intensidad entre 0 (negro) y
-255 (blanco).
+% \subsubsection{Estructura del Dataset}
+% Las imágenes tienen un tamaño de 28x28 píxeles y están en escala de grises, con valores de intensidad entre 0 (negro) y
+% 255 (blanco).
 
-\subsubsection{Formato de los Datos}
-Las imágenes están almacenadas en formato IDX, un formato binario específico para este dataset.
-Se ha realizado una conversión a matrices NumPy para su procesamiento eficiente.
+% \subsubsection{Formato de los Datos}
+% Las imágenes están almacenadas en formato IDX, un formato binario específico para este dataset.
+% Se ha realizado una conversión a matrices NumPy para su procesamiento eficiente.
 
-\subsubsection{Uso del Dataset}
-Este conjunto de datos se ha empleado como benchmark para evaluar modelos de clasificación de imágenes, especialmente
-en arquitecturas convolucionales.
+% \subsubsection{Uso del Dataset}
+% Este conjunto de datos se ha empleado como benchmark para evaluar modelos de clasificación de imágenes, especialmente
+% en arquitecturas convolucionales.
 
-\subsubsection{Licencia y uso}
-El dataset MNIST se distribuye bajo una licencia de dominio público.
-Fue creado a partir de los datos originales del NIST y está disponible en diversas plataformas, incluyendo la página
-oficial de Yann LeCun~\cite{lecunYannLeCunsWeb}.
+% \subsubsection{Licencia y uso}
+% El dataset MNIST se distribuye bajo una licencia de dominio público.
+% Fue creado a partir de los datos originales del NIST y está disponible en diversas plataformas, incluyendo la página
+% oficial de Yann LeCun.
 
 
-\subsection{Comparación con otros datasets}\label{subsec:comparacion-con-otros-datasets}
-\colorbox{yellow}{Aqui va una comparación de todos los datasets usados}
+\subsection{Comparación entre datasets}\label{subsec:comparacion-entre-datasets}
 %La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
 %complejidad.
-%\textbf{MNIST}, con imágenes en escala de grises de bajo nivel de complejidad, proporciona una referencia clara y
-%estandarizada para comparar el rendimiento y la reducción de datos.
-%Por otro lado, el dataset de \textbf{Rock, Paper, Scissors} introduce más desafíos visuales y complejidades,
-%permitiendo analizar cómo los algoritmos meméticos se comportan en escenarios más complejos que podrían ser
-%representativos de aplicaciones más reales en visión por computadora.
+A continuación, se muestra una tabla resumen con las características más relevantes de los datasets utilizados.
+Esta comparación permite entender mejor la complejidad relativa de cada conjunto y cómo pueden influir en el comportamiento de los algoritmos:
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{|l|c|c|c|c|}
+%         \hline
+%         \textbf{Dataset}      & \textbf{Nº Imágenes} & \textbf{Nº Clases} & \textbf{Formato} & \textbf{Tamaño Imagen} \\
+%         \hline
+%         Rock, Paper, Scissors & \textasciitilde2.500 & 3                  & JPG              & 300$*$300 px           \\
+%         PAINTING              & \textasciitilde9.000 & 5                  & JPG              & Variable               \\
+% MNIST                 & 70.000               & 10 & IDX/PNG & 28×28 px (grayscale) \\
+%         \hline
+%     \end{tabular}
+%     \caption{Resumen comparativo de los datasets utilizados}
+%     \label{tab:resumen-datasets}
+% \end{table}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|c|c|c|c|}
+            \hline
+            \textbf{Dataset}      & \textbf{Nº Imágenes} & \textbf{Nº Clases} & \textbf{Formato} & \textbf{Tamaño Imagen} \\
+            \hline
+            Rock, Paper, Scissors & \textasciitilde2.500 & 3                  & JPG              & 300×300 px             \\
+            PAINTING              & \textasciitilde9.000 & 5                  & JPG              & Variable               \\
+            \hline
+        \end{tabular}
+    }
+    \caption{Resumen comparativo de los datasets utilizados}
+    \label{tab:resumen-datasets}
+\end{table}
+
+El dataset \textbf{Rock, Paper, Scissors} se utilizó en las primeras fases del proyecto como punto de partida,
+ya que ofrecía un entorno sencillo y controlado, con un número reducido de clases y una estructura equilibrada.
+Esto permitió desarrollar las bases del sistema y probar las primeras versiones de los algoritmos de manera más ágil y con menor complejidad computacional.
+
+Por su parte, el dataset \textbf{PAINTING} se empleó posteriormente para validar el comportamiento de los algoritmos en un entorno más exigente.
+Al incluir cinco categorías de arte con distintos estilos visuales, este conjunto introdujo una mayor variabilidad tanto semántica como estructural,
+lo que permitió evaluar la robustez y capacidad de generalización de las soluciones desarrolladas.
 
 
 \section{Diseño de los experimentos}\label{sec:diseño-de-los-experimentos}
 La fase experimental se organizó en varias etapas.
-Inicialmente se optó por un dataset simple (Rock, Paper, Scissors) para validar el funcionamiento general del sistema.
-Posteriormente, se realizaron pruebas con datasets más exigentes, como PAINTING y MNIST. Los experimentos se repitieron utilizando
-diferentes porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%) para estudiar cómo afecta la cantidad de datos seleccionados al rendimiento del modelo.
+Inicialmente se optó por un dataset simple (\textit{Rock, Paper, Scissors}) para validar el funcionamiento general del sistema.
+Posteriormente, se realizaron pruebas con datasets más exigentes.
+Los experimentos se repitieron utilizando diferentes porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%)
+para estudiar cómo afecta la cantidad de datos seleccionados al rendimiento del modelo.
 
-Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplicaron las medidas de control de reproducibilidad detalladas previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Capítulo 6}.
+Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplicaron las medidas de control de reproducibilidad
+descritas en el \hyperref[sec:consideraciones-de-optimizacion]{apartado~\ref*{sec:consideraciones-de-optimizacion}}.
 Esto permitió comparar algoritmos en condiciones homogéneas, evitando variaciones indeseadas causadas por componentes aleatorios del entorno de ejecución.
 
-En cada prueba, se realizaron cinco ejecuciones paralelas con semillas distintas.
-Se calcularon las medias de las métricas más relevantes (accuracy, precision, recall y F1-score), junto con el tiempo de ejecución y número
-de evaluaciones realizadas.
+En cada prueba, se realizaron 5 ejecuciones en paralelo, cada una utilizando una semilla distinta.
+Esta estrategia permitió obtener resultados promedio más robustos frente a la aleatoriedad del proceso evolutivo, asegurando una mayor fiabilidad estadística.
+
+Los apartados siguientes explican con mayor detalle el procedimiento adoptado para llevar a cabo dichas ejecuciones.
+
+
+\section{Procedimiento de Ejecución y Evaluación}\label{sec:procedimiento-de-ejecucion-y-evaluacion}
+
+Para garantizar la consistencia y objetividad en la comparación entre algoritmos, se diseñó un procedimiento experimental sistemático y replicable.
+Cada ejecución se realizó bajo las mismas condiciones computacionales y utilizando los mismos parámetros base,
+salvo en aquellos casos en que se deseaba estudiar una variación concreta, como los distintos porcentajes iniciales o el uso de metaheurísticas con porcentajes libres.
+
+
+\subsection{Métricas de Evaluación}\label{sec:metricas-de-evaluacion}
+Para evaluar el rendimiento de los modelos se utilizaron métricas estándar como \textbf{accuracy}, \textbf{precisión}, \textbf{recall} y \textbf{F1-score},
+calculadas sobre el conjunto de validación tras cada evaluación.
+Para una definición formal de estas métricas, véase el \hyperref[sec:metricas-evaluacion]{apartado~\ref*{sec:metricas-evaluacion}}.
+
+Estas métricas fueron calculadas utilizando las funciones de \texttt{scikit-learn}, a partir de las predicciones del modelo y las etiquetas
+reales correspondientes a los subconjuntos de imágenes seleccionados por cada algoritmo.
+
+\subsection{Evaluaciones por Ejecución}\label{sec:evaluaciones-por-ejecucion}
+Se buscó un equilibrio entre la cantidad de evaluaciones y el tiempo de ejecución, permitiendo una exploración suficiente del espacio de soluciones sin comprometer la eficiencia computacional.
+Por ello, cada algoritmo fue configurado para realizar un máximo de 100 evaluaciones por ejecución,
+independientemente del tipo de algoritmo utilizado, con el fin de mantener la equidad comparativa.
+
+Cada evaluación consistía en generar un subconjunto de datos, entrenar el modelo correspondiente (ResNet50 o MobileNetV2),
+y calcular su \textit{fitness} de acuerdo con las métricas mencionadas.
+
+El número de evaluaciones sin mejora también fue monitorizado para aplicar criterios de parada anticipada,
+explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{apartado~\ref*{sec:consideraciones-de-optimizacion}},
+reduciendo así el tiempo computacional en caso de estancamiento.
+
+\subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
+Con el objetivo de obtener resultados estadísticamente significativos y reducir el efecto de la aleatoriedad,
+cada configuración experimental fue ejecutada 5 veces, utilizando 5 semillas distintas.
+Los resultados presentados en las tablas y gráficos corresponden a la media de esas ejecuciones,
+junto con medidas de dispersión cuando procede, como los boxplots.
+
+Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración, 
+se optó por incluir todos los valores individuales obtenidos con las distintas semillas. 
+Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo, 
+resaltando mejor la mediana, así como los valores máximos y mínimos alcanzados durante las ejecuciones.
+
+
+\subsection{Tiempos de Ejecución}\label{sec:tiempos-de-ejecucion}
+Cada evaluación implicaba entrenar un modelo desde cero, por lo que los tiempos de ejecución fueron considerables.
+Por ejemplo, una ejecución completa con 100 evaluaciones podía tardar entre 30 minutos y 2 horas,
+dependiendo del algoritmo y del modelo utilizado.
+
+Los algoritmos más complejos, como el memético o las versiones con reinicio poblacional,
+requerían un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
+
 
 \section{Evaluación con modelos base}\label{sec:evaluacion-con-modelos-base}
 Los primeros experimentos se realizaron con los algoritmos aleatorios, tanto en ResNet50 como en MobileNet, como línea base comparativa.
