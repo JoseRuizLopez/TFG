@@ -1,0 +1,4 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Drawings,Porcentaje Engraving,Porcentaje Iconography,Porcentaje Painting,Porcentaje Sculpture
+-,1.0,0:07:33,0.9229,0.9206,0.9229,0.9212,1,1.0,0.1434,0.0979,0.269,0.2645,0.2251
+aleatorio,0.25,3:05:18,0.9159,0.9124,0.9159,0.9134,100,0.25,0.1492,0.1078,0.2699,0.2508,0.2223
+aleatorio,0.5,6:00:03,0.9252,0.9232,0.9252,0.9235,100,0.5,0.1477,0.1034,0.2617,0.2666,0.2207
