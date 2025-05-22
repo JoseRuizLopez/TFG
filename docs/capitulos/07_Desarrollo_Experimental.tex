@@ -116,7 +116,7 @@ Este conjunto de datos se distribuye bajo la licencia
 con la condición de otorgar el crédito adecuado a los creadores originales~\cite{moroneyLaurenceMoroneyAI}.
 
 
-\subsection{PAINTING (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
+\subsection{\texttt{PAINTING} (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
 El dataset \textbf{Art Images: Drawing/Painting/Sculptures/Engravings} es una colección de aproximadamente 9,000
 imágenes organizadas en cinco categorías de arte: dibujos, pinturas, esculturas, grabados y arte iconográfico.
 
@@ -147,11 +147,11 @@ imágenes organizadas en cinco categorías de arte: dibujos, pinturas, escultura
         \includegraphics[width=\linewidth]{imagenes/dataset_examples/sculpture.jpg}
         \caption*{Sculpture}
     \end{subfigure}
-    \caption{Ejemplos de clases en el dataset PAINTING}
+    \caption{Ejemplos de clases en el dataset \texttt{PAINTING}}
     \label{fig:ejemplos-painting}
 \end{figure}
 
-En la figura~\ref{fig:ejemplos-painting} se han mostrado una imagen de cada una de las clases del dataset PAINTING,
+En la figura~\ref{fig:ejemplos-painting} se han mostrado una imagen de cada una de las clases del dataset \texttt{PAINTING},
 para que se pueda observar la variabilidad de las imágenes.
 
 \subsubsection{Estructura del Dataset}
@@ -183,7 +183,7 @@ para que se pueda observar la variabilidad de las imágenes.
             ]
         ]
     \end{forest}
-    \caption{Estructura de carpetas del dataset PAINTING}
+    \caption{Estructura de carpetas del dataset \texttt{PAINTING}}
     \label{fig:estructura-painting}
 \end{figure}
 
@@ -288,6 +288,29 @@ y calcular su \textit{fitness} de acuerdo con las métricas mencionadas.
 El número de evaluaciones sin mejora también fue monitorizado para aplicar criterios de parada anticipada,
 explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}},
 reduciendo así el tiempo computacional en caso de estancamiento.
+
+\subsubsection{Visualización de resultados}\label{subsec:visualizacion-de-resultados}
+Para facilitar la comparación entre algoritmos, a lo largo de este capítulo se incluyen representaciones gráficas de los resultados obtenidos mediante \textbf{boxplots} y \textbf{barplots}.
+Ambos tipos de gráficos permiten visualizar el comportamiento global de cada algoritmo a partir de múltiples ejecuciones con distintas semillas.
+
+\textbf{Los boxplots} (diagramas de caja) muestran la distribución estadística de los valores obtenidos.
+En la Figura~\ref{fig:boxplot-explicado} se presenta un ejemplo anotado que ilustra las distintas partes de este tipo de gráfico.
+La línea central de la caja representa la \textbf{mediana},
+mientras que los bordes inferior y superior corresponden al \textbf{primer cuartil} (Q1) y \textbf{tercer cuartil} (Q3), respectivamente.
+La diferencia entre ellos define el \textbf{rango intercuartílico} (\textit{IQR}), que contiene el 50\% central de los valores.
+Las líneas que se extienden desde la caja (conocidas como \textit{bigotes}) alcanzan típicamente hasta 1.5 veces el IQR.
+Los puntos que quedan fuera de ese rango se consideran \textbf{valores atípicos}, lo que permite detectar ejecuciones excepcionales.
+Esta representación es especialmente útil para comparar la tendencia central, la dispersión y la estabilidad de los resultados obtenidos por los distintos algoritmos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{imagenes/boxplot-explicado}
+    \caption{Ejemplo de boxplot explicado.}
+    \label{fig:boxplot-explicado}
+\end{figure}
+
+\textbf{Los barplots} (gráficos de barras), por su parte, se emplean para representar valores agregados como medias o proporciones,
+y son útiles para observar cómo varía una métrica concreta entre distintos algoritmos, modelos o configuraciones.
 
 \subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
 Con el objetivo de obtener resultados estadísticamente significativos y reducir el efecto de la aleatoriedad,
@@ -412,7 +435,7 @@ Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada 
 En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
 la distribución completa de valores obtenidos en las distintas ejecuciones.
 
-Se puede apreciar que el algoritmo de búsqueda local mejora claramente la mediana del accuracy respecto al enfoque aleatorio.
+Se puede apreciar que el algoritmo de búsqueda local mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio.
 Mientras que el enfoque aleatorio se sitúa en torno a una mediana de 0.787, la búsqueda local alcanza una mediana superior, próxima a 0.818.
 Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
 
@@ -439,7 +462,7 @@ ofrecía ya desde sus primeras versiones una capacidad superior para generalizar
     \label{fig:bl-vs-gen-v1}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético consigue una mediana de \textbf{accuracy} más alta que la búsqueda local,
+Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local,
 reflejando un rendimiento medio más consistente.
 Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo que evidencia su mayor potencial para encontrar soluciones de alta calidad.
 
@@ -455,29 +478,61 @@ Estos resultados sirvieron como evidencia empírica para continuar desarrollando
 incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
 \section{Modificando el operador de cruce}\label{sec:incorporacion-cruce}
-La primera mejora introducida fue en el operador de cruce.
-En lugar del cruce aleatorio clásico, se implementó un cruce ponderado que tiene en cuenta el fitness de los progenitores para asignar más peso a las contribuciones del mejor.
-Esta mejora se aplicó en la Versión 2 del algoritmo (ver \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}}).
-Además, se introdujo un criterio selectivo adicional: de los dos hijos generados, solo se conservaba el mejor.
-Esta modificación redujo la dispersión de los resultados y aceleró la convergencia del algoritmo, permitiendo heredar más eficazmente características prometedoras y evitando que soluciones débiles dominaran el proceso evolutivo.
+La primera mejora introducida al algoritmo genético consistió en reemplazar el cruce aleatorio por un cruce ponderado,
+donde se prioriza la contribución del progenitor con mayor \textit{fitness}.
+Además, se incorporó una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
+Ambos cambios, explicados en detalle en la \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}},
+buscan aumentar la presión evolutiva y acelerar la convergencia hacia soluciones de mayor calidad,
+evitando así que soluciones mediocres se propaguen innecesariamente en la población.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce}
+    \caption{Boxplot de \textit{accuracy} para el genético, versión con cruce ponderado y dataset completo.}
+    \label{fig:cruce_ponderado}
+\end{figure}
+
+Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produjo una mejora clara en la calidad y estabilidad de los resultados.
+La versión con cruce ponderado (etiquetada como \texttt{genetico2}) alcanza un valor máximo atípico superior (\textbf{0.887}),
+aunque presenta una mediana más baja que la versión básica.
+
+Pero por otra parte, se aprecia una ligera reducción en la dispersión de los valores inferiores,
+con un mínimo de \textbf{0.798} frente al \textbf{0.796} en la versión anterior, lo que sugiere una mayor consistencia.
+Aunque el IQR (\hyperref[subsec:visualizacion-de-resultados]{Rango Intercuartílico}) sigue siendo amplio,
+la acumulación de valores más cercanos al rango superior refleja una convergencia evolutiva más enfocada y menos dependiente del azar.
+
+En conjunto, esta mejora en el cruce no solo permitió una transferencia más eficiente de características ventajosas,
+sino que también incrementó la presión selectiva sobre la calidad de las soluciones.
+Esto se tradujo en un comportamiento más robusto, menos propenso a resultados erráticos y con una mayor capacidad de exploración dirigida del espacio de soluciones.
+
 
 \section{Modificación del operador de mutación}\label{sec:modificacion-mutacion}
-En paralelo a la mejora del cruce, también se revisó la estrategia de mutación.
-La versión original usaba una tasa fija del 10\% sobre el subconjunto de imágenes seleccionadas:
-$$
-    num_swaps=max(1,lengthx0.1)
-$$
-Sin embargo, esta regla podía resultar demasiado agresiva o demasiado limitada dependiendo del tamaño del subconjunto.
-Por ello, se adoptó una nueva fórmula más adaptativa:
+A partir del algoritmo con cruce ponderado, se evaluó una nueva versión en la que se introdujo una mutación adaptativa
+(ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
+A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado, 
+lo que permite una mayor flexibilidad en escenarios de diferente escala.
 
-$$
-    num_swaps=min(lengthx0.15,lengthx0.8)
-$$
-...
-$$
-    num_swaps=min(lengthx0.15,lengthxratiox0.8)
-$$
-Esta versión ajusta automáticamente el número de intercambios en función del tamaño relativo del subconjunto mutado, favoreciendo un equilibrio más eficaz entre exploración y estabilidad.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo con cruce ponderado (\textit{genetico2}) y su versión con mutación adaptativa (\textit{genetico2\_2}).}
+    \label{fig:mutacion-adaptativa}
+\end{figure}
+
+Como se observa en la Figura~\ref{fig:mutacion-adaptativa}, ambos algoritmos alcanzan un rendimiento similar en términos de mediana y valores extremos, 
+con una ligera ventaja de la versión original (\texttt{genetico2}) en el valor máximo de \textit{accuracy} (\textbf{0.887} frente a \textbf{0.876}).
+Sin embargo, la versión con mutación adaptativa (\texttt{genetico2\_2}) muestra una distribución más compacta en la parte central, 
+con menos dispersión hacia valores bajos, lo que sugiere una mejora en la consistencia entre ejecuciones.
+
+Este resultado refleja que, aunque la mutación adaptativa no produce una mejora radical en precisión media,
+ sí contribuye a una evolución más controlada y robusta, reduciendo la probabilidad de degradaciones abruptas.
+Además, su comportamiento flexible la hace más adecuada en contextos donde el tamaño del subconjunto varía, 
+evitando configuraciones subóptimas impuestas por una tasa fija.
+
+Aunque el valor máximo de \textit{accuracy} se mantiene en niveles similares, la ganancia está en la consistencia y la eficiencia exploratoria, 
+ya que se adapta automáticamente al contexto sin requerir ajustes manuales para diferentes tamaños de subconjuntos.
+En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo.
+
 
 \section{Incorporación del reinicio poblacional}\label{sec:incorporacion-reinicio-poblacional}
 En la Versión 3 del algoritmo (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}}) se incorporó una lógica de reinicio poblacional.
@@ -500,12 +555,142 @@ Aunque con un coste computacional algo mayor, estas versiones ofrecieron una de 
 
 \section{Comparación final entre enfoques}\label{sec:comparacion-final-enfoques}
 En esta sección se realiza una comparación conjunta entre todos los algoritmos implementados.
-Se presentan boxplots y gráficos de barras que muestran la evolución del accuracy, el porcentaje de datos utilizados y el equilibrio entre clases.
+Se presentan boxplots y gráficos de barras que muestran la evolución del \textit{accuracy}, el porcentaje de datos utilizados y el equilibrio entre clases.
 
 Los algoritmos meméticos y genéticos v2/v3 (especialmente en sus versiones libres) destacan como los más eficaces, consiguiendo una reducción significativa del conjunto de entrenamiento sin penalizar la precisión.
 Además, se observa una menor varianza en sus resultados, lo que indica una mayor consistencia entre ejecuciones.
 
-\section{Validación con el dataset PAINTING}\label{sec:validacion-con-painting}
-Para comprobar la generalización de los algoritmos, se repitieron los experimentos con el dataset PAINTING.
-Este conjunto presenta mayor complejidad tanto en número de clases como en diversidad visual.
-A pesar de ello, los algoritmos avanzados lograron mantener un rendimiento competitivo, confirmando su aplicabilidad en contextos más exigentes.
+\section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
+Para comprobar la robustez de los algoritmos desarrollados, se validaron los experimentos con el dataset \texttt{PAINTING},
+caracterizado por una mayor complejidad visual y un número superior de clases respecto al conjunto \texttt{RPS}.
+Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitaron los experimentos a los porcentajes iniciales del 25\% y 50\%,
+evaluando únicamente los algoritmos más representativos.
+
+En particular, se seleccionó el algoritmo memético, junto con su versión libre, ya que ambos habían demostrado ser los más eficaces en las pruebas anteriores.
+Para establecer una referencia clara, se incluyó también los resultados obtenidos usando el 100\% del conjunto de datos, y para la compración de
+\textit{accuracy} entre algoritmos también se añadió el resultado del algoritmo aleatorio.
+
+\subsection{Comparación de \textit{accuracy} entre algoritmos}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo}
+    \caption{Boxplot comparando resultados con el dataset \texttt{PAINTING} usando \textit{accuracy}.}
+    \label{fig:comparacion-por-algoritmo}
+\end{figure}
+
+En la Figura~\ref{fig:comparacion-por-algoritmo} se comparan los valores de \textit{accuracy} obtenidos al aplicar distintos
+algoritmos de selección de subconjuntos en el conjunto de datos \texttt{PAINTING}.
+A simple vista, destaca el buen rendimiento de los tres enfoques meméticos frente al uso directo del 100\% del conjunto o la selección aleatoria,
+lo cual es especialmente significativo al tratarse de un conjunto con alta complejidad visual y estructural.
+
+El algoritmo memético libre obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
+superando incluso la ejecución con el 100\% de los datos, cuyo máximo se sitúa en \textbf{0.929}.
+Esto no solo refuerza su capacidad de generalización, sino que demuestra que una selección optimizada puede superar a la totalidad del conjunto original,
+posiblemente por eliminar ejemplos redundantes o incluso perjudiciales.
+
+El algoritmo memético estándar también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
+Sin embargo, su varianza es ligeramente mayor, lo que sugiere que la falta de ajuste dinámico del tamaño del subconjunto puede limitar su adaptabilidad en ciertas ejecuciones.
+
+Por otro lado, la selección aleatoria, aunque muestra valores aceptables, vuelve a confirmar su principal debilidad: la alta dispersión.
+Con un mínimo de \textbf{0.916} y una mediana prácticamente idéntica a la obtenida con el uso completo del dataset, su comportamiento se sitúa como una referencia básica pero poco fiable.
+Puede alcanzar buenos resultados, pero lo hace de forma inconsistente y sin mecanismos que garanticen estabilidad.
+
+La ejecución con el \textbf{100\%} de los datos, utilizada como referencia absoluta, queda por debajo de las soluciones obtenidas por los algoritmos meméticos.
+Esto valida empíricamente que no es la cantidad de datos, sino su calidad y representatividad, lo que determina la eficacia del entrenamiento en entornos complejos.
+
+\colorbox{yellow}{¿Añadir el párrafo de resumen?}
+En conjunto, esta comparación deja clara la superioridad de las estrategias meméticas, especialmente en su versión libre,
+tanto por su rendimiento medio como por su estabilidad.
+Esto refuerza la hipótesis de que los algoritmos de selección basados en evolución y búsqueda local son capaces de generar
+subconjuntos más eficientes y fiables que los enfoques ingenuos o el uso total de los datos.
+
+\subsection{Impacto del porcentaje inicial}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje}
+    \caption{Boxplot de \textit{accuracy} según el porcentaje inicial de datos.}
+    \label{fig:accuracy_porcentaje_painting}
+\end{figure}
+
+La Figura~\ref{fig:accuracy_porcentaje_painting} muestra cómo varía el rendimiento del modelo (medido en términos de \textit{accuracy})
+al utilizar diferentes porcentajes iniciales de datos para los algoritmos meméticos en el dataset \texttt{PAINTING}.
+Lo primero que destaca es que el uso del 50\% del conjunto original no solo logra un rendimiento equiparable, sino incluso superior al uso del 100\%.
+Con una mediana cercana a \textbf{0.930} y un máximo de \textbf{0.933}, este porcentaje logra un equilibrio ideal entre compresión de datos y preservación de información relevante.
+
+Este resultado sugiere que, a partir de cierto umbral, añadir más datos no solo deja de aportar valor, sino que puede introducir ruido o redundancia.
+En este caso, el entrenamiento con el 100\% de los datos exhibe mayor dispersión y un mínimo significativamente más bajo (\textbf{0.912}),
+lo cual indica una mayor variabilidad entre ejecuciones y una menor estabilidad general.
+
+Por otro lado, el uso del 25\% inicial también demuestra un rendimiento sorprendentemente competitivo,
+alcanzando un máximo de \textbf{0.925}.
+Sin embargo, su rango intercuartílico más estrecho (menor dispersión de los resultados) y su menor valor mínimo (\textbf{0.917}) evidencian una cierta fragilidad ante la reducción excesiva:
+puede funcionar bien si la selección es óptima, pero el margen de error es menor.
+
+Este comportamiento ilustra un fenómeno interesante en la reducción de datos: no existe una relación lineal entre cantidad de datos y precisión,
+sino que el valor está en la calidad y representatividad del subconjunto.
+El resultado más robusto refuerza la hipótesis de que existe un punto de saturación
+a partir del cual la adición de ejemplos tiene un efecto marginal o incluso contraproducente en modelos convolucionales.
+
+\colorbox{yellow}{¿Añadir el párrafo de resumen?}
+En conjunto, los resultados de este apartado respaldan la viabilidad de aplicar técnicas de reducción de datos en entornos reales,
+sugiriendo que con solo la mitad de los datos cuidadosamente seleccionados se puede no solo igualar,
+sino superar el rendimiento de un entrenamiento exhaustivo con todo el dataset.
+
+\subsection{Equilibrio en la distribución de clases}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo}
+    \caption{Distribución de clases seleccionadas por cada algoritmo.}
+    \label{fig:balance_clases_painting}
+\end{figure}
+
+La Figura~\ref{fig:balance_clases_painting} muestra la proporción de clases preservada por cada algoritmo durante el proceso de reducción.
+Se observa que tanto el algoritmo memético estándar como el libre mantienen una distribución prácticamente idéntica a la original,
+sin introducir sesgos estructurales.
+
+Las clases mayoritarias (\texttt{Iconography}, \texttt{Painting} y \texttt{Sculpture}) se mantienen consistentes en su proporción,
+al igual que las clases minoritarias (\texttt{Drawings} y \texttt{Engraving}).
+Esta conservación sugiere que el proceso de selección no actúa de forma aleatoria ni ciega,
+sino que incorpora implícitamente una presión hacia la diversidad, lo cual es clave en problemas multiclase.
+
+\subsection{Evolución del tamaño del subconjunto}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/porcentaje-inical-vs-final-por-algoritmo}
+    \vspace{1em}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/porcentaje-inicial-vs-final-por-pi}
+    \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres.
+        Arriba: comparación por algoritmo.
+        Abajo: evolución según el porcentaje inicial.}
+    \label{fig:evolucion_porcentaje_libre}
+\end{figure}
+
+En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evolucionó el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
+Se observa que el algoritmo memético libre tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
+
+Este comportamiento adaptativo pone de manifiesto la capacidad del algoritmo para ajustar dinámicamente la escala de la solución en función de la complejidad del problema.
+A diferencia de enfoques con tamaño fijo, el algoritmo libre no solo decide qué ejemplos seleccionar, sino también cuántos,
+ampliando el conjunto cuando detecta que puede mejorar el rendimiento sin incurrir en sobreajuste.
+
+Además, se observa que al partir del 25\% inicial, el algoritmo tiende a aumentar el tamaño del subconjunto hasta un 16,35\% adicional,
+en cambio, al partir del 50\% inicial, el crecimiento es mayor, alcanzando un 18,69\% adicional~\footnote{Porcentajes exactos sacados de la tabla de resultados.}.
+Este hecho puede sugerir una cierta prudencia evolutiva: el algoritmo no se expande indiscriminadamente,
+sino que responde a señales de mejora en el proceso de evaluación.
+Este mecanismo emergente refuerza la versatilidad del enfoque libre, que no solo busca soluciones de alta calidad,
+sino que lo hace optimizando también el volumen de datos utilizados.
+
+
+\bigskip
+
+\subsection*{Síntesis final de la validación con \texttt{PAINTING}}
+Los resultados obtenidos con el dataset \texttt{PAINTING} confirman la solidez y capacidad de generalización de los algoritmos desarrollados.
+Tanto el enfoque memético estándar como, especialmente, su versión libre, lograron mantener un rendimiento competitivo en un entorno más complejo y con mayor número de clases.
+
+Se evidenció que es posible superar el rendimiento del conjunto completo de entrenamiento utilizando únicamente un subconjunto bien seleccionado,
+reduciendo significativamente el volumen de datos sin comprometer la precisión.
+Además, los algoritmos meméticos demostraron preservar el equilibrio entre clases y adaptarse dinámicamente al tamaño del subconjunto,
+lo que constituye una ventaja clave en tareas reales donde no siempre se dispone de datasets perfectamente balanceados ni completos.
+
+En conjunto, esta validación externa no solo refuerza las conclusiones obtenidas con \texttt{RPS},
+sino que demuestra que el uso de técnicas evolutivas, y en particular las variantes libres, puede ser una alternativa eficaz,
+escalable y controlable frente a la selección masiva o aleatoria de datos en procesos de entrenamiento profundo.

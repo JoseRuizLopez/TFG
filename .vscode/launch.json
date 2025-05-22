@@ -57,15 +57,15 @@
         "--IN",
         "finales",
         "--OUT",
-        "comparacion_bl-gen_v1",
+        "nueva_formula_mutation",
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
         "-",
-        "bl",
         "gen_v1",
+        "gen_v2-2",
         "--MODO",
-        "individual",
+        "comparar",
         "--MODO_PRINT",
         "juntos"
       ]

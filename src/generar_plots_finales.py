@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from utils.classes import PrintMode
-from utils.utils_plot import generate_plots_from_csvs
+from utils.utils_plot import generate_plots_from_csvs, plot_boxplot
 
 
 def recolectar_csvs_de_carpetas(base_dir, carpetas, origen):
@@ -42,8 +42,8 @@ def comparar_algoritmos_por_modelo(carpetas_algoritmos, carpeta_salida, modelo_f
     }
 
     base_csv_paths = {
-        "version_1": "results/csvs/finales",
-        "version_2": "results/csvs/finales_2",
+        "genetico2": "results/csvs/finales",
+        "genetico2_2": "results/csvs/finales_2",
     }
 
     for alias, nombre_real in mutation_algorithm_names.items():
@@ -76,18 +76,16 @@ def comparar_algoritmos_por_modelo(carpetas_algoritmos, carpeta_salida, modelo_f
             continue
 
         # Generar gráfico comparativo
-        plt.figure(figsize=(10, 6))
-        sns.boxplot(data=df_comb, x="Origen", y="Accuracy")
-        plt.title(f"Comparación de Accuracy - {alias}")
-        plt.ylabel("Accuracy")
-        plt.xlabel("Origen")
-        plt.grid(True)
-        plt.tight_layout()
-
         output_file = os.path.join(carpeta_salida, f"comparacion_{alias}.png")
-        plt.savefig(output_file)
+        plot_boxplot(
+            df=df_comb,
+            metric="Accuracy",
+            filename=output_file,
+            hue=None,
+            title=f"Comparación de Accuracy - {alias}",
+            eje_x="Origen"
+        )
         print(f"[OK] Guardado: {output_file}")
-        plt.close()
 
 
 def comparar_dos_versiones(output_path, modelo, carpetas_elegidas):
