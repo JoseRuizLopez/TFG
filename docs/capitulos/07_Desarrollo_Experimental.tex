@@ -93,7 +93,8 @@ Como se puede observar en la Figura~\ref{fig:estructura-rps}, las imágenes est�
 (entrenamiento, validación o prueba) y, dentro de cada partición, se dividen a su vez por clases del dataset.
 
 \subsubsection{Formato de los Datos}
-Las imágenes están en formato JPEG (\texttt{.jpg}). Para su procesamiento, se han aplicado técnicas de preprocesamiento
+Las imágenes están en formato JPEG (\texttt{.jpg}).
+Para su procesamiento, se han aplicado técnicas de preprocesamiento
 adaptadas a los requerimientos del modelo.
 
 \subsubsection{Uso del Dataset}
@@ -216,49 +217,10 @@ limpia disponible en Kaggle~\cite{CleanedArtImages}.
 Antes de su uso, se revisaron los términos y condiciones establecidos en la página de Kaggle para asegurar el
 cumplimiento con las licencias y restricciones aplicables.
 
-% \subsection{MNIST (Modified National Institute of Standards and Technology)}\label{subsec:mnist}
-% \textbf{MNIST}~\cite{MNISTDataset} es un dataset ampliamente utilizado en aprendizaje profundo.
-% Contiene 70,000 imágenes de dígitos escritos a mano, divididas en 60,000 imágenes para el entrenamiento y 10,000 para
-% la prueba.
-
-% \subsubsection{Estructura del Dataset}
-% Las imágenes tienen un tamaño de 28x28 píxeles y están en escala de grises, con valores de intensidad entre 0 (negro) y
-% 255 (blanco).
-
-% \subsubsection{Formato de los Datos}
-% Las imágenes están almacenadas en formato IDX, un formato binario específico para este dataset.
-% Se ha realizado una conversión a matrices NumPy para su procesamiento eficiente.
-
-% \subsubsection{Uso del Dataset}
-% Este conjunto de datos se ha empleado como benchmark para evaluar modelos de clasificación de imágenes, especialmente
-% en arquitecturas convolucionales.
-
-% \subsubsection{Licencia y uso}
-% El dataset MNIST se distribuye bajo una licencia de dominio público.
-% Fue creado a partir de los datos originales del NIST y está disponible en diversas plataformas, incluyendo la página
-% oficial de Yann LeCun.
-
-
 \subsection{Comparación entre datasets}\label{subsec:comparacion-entre-datasets}
-%La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de
-%complejidad.
 A continuación, se muestra una tabla resumen con las características más relevantes de los datasets utilizados.
 Esta comparación permite entender mejor la complejidad relativa de cada conjunto y cómo pueden influir en el comportamiento de los algoritmos:
 
-% \begin{table}[H]
-%     \centering
-%     \begin{tabular}{|l|c|c|c|c|}
-%         \hline
-%         \textbf{Dataset}      & \textbf{Nº Imágenes} & \textbf{Nº Clases} & \textbf{Formato} & \textbf{Tamaño Imagen} \\
-%         \hline
-%         Rock, Paper, Scissors & \textasciitilde2.500 & 3                  & JPG              & 300$*$300 px           \\
-%         PAINTING              & \textasciitilde9.000 & 5                  & JPG              & Variable               \\
-% MNIST                 & 70.000               & 10 & IDX/PNG & 28×28 px (grayscale) \\
-%         \hline
-%     \end{tabular}
-%     \caption{Resumen comparativo de los datasets utilizados}
-%     \label{tab:resumen-datasets}
-% \end{table}
 \begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{
@@ -275,6 +237,7 @@ Esta comparación permite entender mejor la complejidad relativa de cada conjunt
     \label{tab:resumen-datasets}
 \end{table}
 
+La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de complejidad.
 El dataset \textbf{Rock, Paper, Scissors} se utilizó en las primeras fases del proyecto como punto de partida,
 ya que ofrecía un entorno sencillo y controlado, con un número reducido de clases y una estructura equilibrada.
 Esto permitió desarrollar las bases del sistema y probar las primeras versiones de los algoritmos de manera más ágil y con menor complejidad computacional.
@@ -292,7 +255,7 @@ Los experimentos se repitieron utilizando diferentes porcentajes iniciales de da
 para estudiar cómo afecta la cantidad de datos seleccionados al rendimiento del modelo.
 
 Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplicaron las medidas de control de reproducibilidad
-descritas en el \hyperref[sec:consideraciones-de-optimizacion]{apartado~\ref*{sec:consideraciones-de-optimizacion}}.
+descritas en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}}.
 Esto permitió comparar algoritmos en condiciones homogéneas, evitando variaciones indeseadas causadas por componentes aleatorios del entorno de ejecución.
 
 En cada prueba, se realizaron 5 ejecuciones en paralelo, cada una utilizando una semilla distinta.
@@ -302,16 +265,14 @@ Los apartados siguientes explican con mayor detalle el procedimiento adoptado pa
 
 
 \section{Procedimiento de Ejecución y Evaluación}\label{sec:procedimiento-de-ejecucion-y-evaluacion}
-
 Para garantizar la consistencia y objetividad en la comparación entre algoritmos, se diseñó un procedimiento experimental sistemático y replicable.
 Cada ejecución se realizó bajo las mismas condiciones computacionales y utilizando los mismos parámetros base,
 salvo en aquellos casos en que se deseaba estudiar una variación concreta, como los distintos porcentajes iniciales o el uso de metaheurísticas con porcentajes libres.
 
-
 \subsection{Métricas de Evaluación}\label{sec:metricas-de-evaluacion}
 Para evaluar el rendimiento de los modelos se utilizaron métricas estándar como \textbf{accuracy}, \textbf{precisión}, \textbf{recall} y \textbf{F1-score},
 calculadas sobre el conjunto de validación tras cada evaluación.
-Para una definición formal de estas métricas, véase el \hyperref[sec:metricas-evaluacion]{apartado~\ref*{sec:metricas-evaluacion}}.
+Para una definición formal de estas métricas, véase el \hyperref[sec:metricas-evaluacion]{Apartado~\ref*{sec:metricas-evaluacion}}.
 
 Estas métricas fueron calculadas utilizando las funciones de \texttt{scikit-learn}, a partir de las predicciones del modelo y las etiquetas
 reales correspondientes a los subconjuntos de imágenes seleccionados por cada algoritmo.
@@ -325,7 +286,7 @@ Cada evaluación consistía en generar un subconjunto de datos, entrenar el mode
 y calcular su \textit{fitness} de acuerdo con las métricas mencionadas.
 
 El número de evaluaciones sin mejora también fue monitorizado para aplicar criterios de parada anticipada,
-explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{apartado~\ref*{sec:consideraciones-de-optimizacion}},
+explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}},
 reduciendo así el tiempo computacional en caso de estancamiento.
 
 \subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
@@ -334,11 +295,10 @@ cada configuración experimental fue ejecutada 5 veces, utilizando 5 semillas di
 Los resultados presentados en las tablas y gráficos corresponden a la media de esas ejecuciones,
 junto con medidas de dispersión cuando procede, como los boxplots.
 
-Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración, 
-se optó por incluir todos los valores individuales obtenidos con las distintas semillas. 
-Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo, 
+Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración,
+se optó por incluir todos los valores individuales obtenidos con las distintas semillas.
+Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo,
 resaltando mejor la mediana, así como los valores máximos y mínimos alcanzados durante las ejecuciones.
-
 
 \subsection{Tiempos de Ejecución}\label{sec:tiempos-de-ejecucion}
 Cada evaluación implicaba entrenar un modelo desde cero, por lo que los tiempos de ejecución fueron considerables.
@@ -349,13 +309,57 @@ Los algoritmos más complejos, como el memético o las versiones con reinicio po
 requerían un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
 
 
-\section{Evaluación con modelos base}\label{sec:evaluacion-con-modelos-base}
-Los primeros experimentos se realizaron con los algoritmos aleatorios, tanto en ResNet50 como en MobileNet, como línea base comparativa.
-En ambos modelos, se observó una mejora gradual de las métricas al aumentar el porcentaje de datos utilizados.
-Como era de esperar, ResNet50 ofreció mejores resultados en cuanto a precisión, pero a costa de un mayor tiempo de entrenamiento.
-MobileNet, en cambio, ofreció una alternativa más rápida y eficiente, aunque con una leve pérdida de rendimiento.
+\section{Evaluación con el conjunto completo}\label{sec:evaluacion-con-el-conjunto-completo}
+Como punto de partida, se evaluó el rendimiento de los modelos convolucionales entrenados con el 100\% del conjunto de datos.
+Esta prueba sirve como referencia para contrastar los resultados obtenidos mediante las técnicas de reducción aplicadas posteriormente.
+Se utilizó tanto ResNet50 como MobileNetV2, y se midieron métricas como accuracy, precisión, recall y F1-score sobre el conjunto de validación.
 
 \begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+            \toprule
+            \textbf{Porcentaje Inicial} & \textbf{Duración}     & \textbf{Accuracy (Avg)} &
+            \textbf{Precision (Avg)}    & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} &
+            \textbf{Evaluaciones Realizadas}                                                                                \\
+            \midrule
+            100                         & 00:02:42              & 87,90\%                 & 88,96\% & 87,90\% & 87,81\% & 1 \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de ResNet50 entrenado con el 100\% del conjunto de datos.}
+    \label{tab:resultados-100-resnet50}
+\end{table}
+
+Los resultados en la tabla~\ref{tab:resultados-100-resnet50} obtenidos representan el rendimiento máximo alcanzable en condiciones ideales,
+sin reducción de datos, lo que permite establecer un techo de rendimiento frente al cual comparar las demás técnicas.
+
+
+\section{Evaluación del enfoque aleatorio}\label{sec:evaluacion-enfoque-aleatorio}
+El segundo experimento consistió en aplicar una selección aleatoria de ejemplos para distintos porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%).
+Este enfoque, descrito en el \hyperref[sec:algoritmo-aleatorio]{Apartado~\ref*{sec:algoritmo-aleatorio}}, sirvió como línea base para evaluar la eficacia de los enfoques metaheurísticos.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-generacion-inicial}
+    \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo de los iniciales.}
+    \label{fig:resnet-boxplot-generacion-inicial}
+\end{figure}
+
+\colorbox{yellow}{Falta modificar la tabla~\ref{fig:resnet-boxplot-generacion-inicial} para que compare el 100\% con el aleatorio de resnet y ajustar analisis si es necesario.}
+\colorbox{yellow}{Falta añadir tabla comparando resultados por porcentajes iniciales.}
+
+Tal como se observa en el boxplot generado (\hyperref[fig:resnet-boxplot-generacion-inicial]{Figura~\ref*{fig:resnet-boxplot-generacion-inicial}}),
+como era de esperar, presenta una alta dispersión, pero el rendimiento es mejor que el resultado con el 100\% del dataset.
+Ademas, en esta otra tabla [tabla comparando resultados por porcentajes iniciales] los resultados mejoran de forma proporcional al incremento del porcentaje de imágenes seleccionadas.
+Este comportamiento se justifica por la ausencia de una estrategia que guíe la selección de datos, lo que da lugar a conjuntos de entrenamiento inconsistentes y
+resalta la necesidad de aplicar técnicas más sofisticadas para obtener resultados consistentes con menores volúmenes de datos.
+
+
+\section{Comparación entre modelos convolucionales}\label{sec:comparacion-modelos-convolucionales}
+Antes de analizar los algoritmos de reducción, se comparó el comportamiento de los modelos \textbf{ResNet50} y \textbf{MobileNetV2} bajo las mismas condiciones de entrenamiento y subconjuntos aleatorios.
+
+\begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{
         \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
@@ -373,204 +377,135 @@ MobileNet, en cambio, ofreció una alternativa más rápida y eficiente, aunque 
             \midrule
             \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                  \\
             \midrule
-            aleatorio                & 10                          & 00:29:29                & 72,31\%                 & 76,40\% & 72,31\% & 69,62\% & 100 \\
-            aleatorio                & 20                          & 00:50:36                & 76,48\%                 & 78,82\% & 76,48\% & 75,58\% & 100 \\
-            aleatorio                & 50                          & 01:54:09                & 75,56\%                 & 79,72\% & 75,56\% & 74,67\% & 100 \\
-            aleatorio                & 100                         & 00:02:12                & 76,08\%                 & 79,97\% & 76,08\% & 75,61\% & 1   \\
+            aleatorio                & 10\%                        & 00:29:29                & 72,31\%                 & 76,40\% & 72,31\% & 69,62\% & 100 \\
+            aleatorio                & 20\%                        & 00:50:36                & 76,48\%                 & 78,82\% & 76,48\% & 75,58\% & 100 \\
+            aleatorio                & 50\%                        & 01:54:09                & 75,56\%                 & 79,72\% & 75,56\% & 74,67\% & 100 \\
+            -                        & 100\%                       & 00:03:16                & 78,60\%                 & 81,55\% & 78,60\% & 77,68\% & 1   \\
             \bottomrule
         \end{tabular}
     }
     \caption{Comparativa de resultados de la generación inicial utilizando el algoritmo \textbf{aleatorio} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
-    \label{tab:initial-generation-comparison}
+    \label{tab:resnet50-vs-mobilenet}
 \end{table}
 
+Los resultados de la tabla~\ref{tab:resnet50-vs-mobilenet} muestran que ResNet50 mostró consistentemente mejores métricas,
+aunque a costa de mayores tiempos de entrenamiento.
+Por su parte, MobileNetV2 demostró ser más eficiente, resultando útil para entornos con restricciones computacionales.
 
-En las Tabla~\ref{tab:initial-generation-comparison} se muestran los resultados obtenidos para diferentes porcentajes iniciales de datos con ambos modelos.
-Además, en la Figura X se incluye un boxplot donde se comparan los valores de accuracy por porcentaje de datos y por algoritmo.
+Esta comparación justificó la elección de MobileNet como modelo principal en el resto de los experimentos,
+dada su superior eficiencia en términos de tiempo y recursos, posibilitando la facilidad de realizar múltiples pruebas en un tiempo razonable.
 
-\section{Comparativa entre Algoritmos}\label{sec:comparativa-entre-algoritmos}
-A lo largo del desarrollo del proyecto, se diseñaron y ajustaron diversas versiones de algoritmos evolutivos y meméticos para seleccionar subconjuntos representativos de imágenes. Esta sección presenta una comparativa entre ellos, no solo desde una perspectiva cuantitativa (accuracy, precisión, etc.), sino también cualitativa, incorporando los aprendizajes progresivos que guiaron su evolución.
 
-\subsection{Iteración inicial: comparación base}\label{sec:iteracion-inicial-comparacion-base}
-La primera comparativa se centró en tres enfoques principales:
+\section{Estudio de la búsqueda local}\label{sec:estudio-busqueda-local}
+Como se describió en el apartado correspondiente (ver \hyperref[sec:algoritmo-busqueda-local]{Sección~\ref*{sec:algoritmo-busqueda-local}}),
+la búsqueda local permite mejorar progresivamente una solución inicial mediante pequeñas modificaciones guiadas por el rendimiento.
+En este apartado se evalúa su efectividad como alternativa más estructurada frente al enfoque aleatorio, pero sin llegar a la complejidad de los algoritmos evolutivos.
+Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada puede generar subconjuntos de datos más representativos y consistentes.
 
-\begin{itemize}
-    \item \textbf{Algoritmo aleatorio}, como línea base sin criterio de selección.
-    \item \textbf{Búsqueda local}, ajustando iterativamente el conjunto seleccionado.
-    \item \textbf{Algoritmo genético (v1)}, combinando subconjuntos mediante operadores clásicos de cruce y mutación.
-    \item \textbf{Algoritmo memético}, que combinaba el genético con un proceso de mejora local adicional.
-\end{itemize}
-
-\begin{figure}[!h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-generacion-inicial}
-    \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo de los iniciales.}
-    \label{fig:boxplot-generacion-inicial}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-bl}
+    \caption{Boxplot comparando el algoritmo aleatorio con la búsqueda local usando \textit{accuracy}.}
+    \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
 
-El gráfico de la Figura~\ref{fig:boxplot-generacion-inicial} ofrece una visión comparativa del rendimiento de los algoritmos evaluados en la etapa inicial del proyecto.
-Se observa que el algoritmo aleatorio, como era de esperar, presenta una alta dispersión y una mediana de accuracy relativamente baja.
-Este comportamiento se justifica por la ausencia de una estrategia que guíe la selección de datos, lo que da lugar a conjuntos de entrenamiento inconsistentes.
+En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
+la distribución completa de valores obtenidos en las distintas ejecuciones.
+
+Se puede apreciar que el algoritmo de búsqueda local mejora claramente la mediana del accuracy respecto al enfoque aleatorio.
+Mientras que el enfoque aleatorio se sitúa en torno a una mediana de 0.787, la búsqueda local alcanza una mediana superior, próxima a 0.818.
+Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
+
+Además, los valores máximos alcanzados por ambos algoritmos son similares (en torno a 0.858-0.860),
+pero la búsqueda local muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
+En cambio, el algoritmo aleatorio presenta una mayor dispersión hacia valores bajos y una mayor sensibilidad a la aleatoriedad de las selecciones,
+como se evidencia en su menor valor mínimo (0.769 frente a 0.785 en búsqueda local).
+
+Esto pone de manifiesto que, aunque el algoritmo aleatorio puede ocasionalmente alcanzar buenos resultados,
+la búsqueda local ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
 
 
-Por su parte, la búsqueda local mejora notablemente la mediana de accuracy, manteniendo una menor variabilidad que el enfoque aleatorio.
-Esto indica que, pese a su simplicidad, la exploración guiada del espacio de soluciones permite alcanzar resultados más estables y competitivos.
+\section{Estudiando la mejora metaheurística}\label{sec:estudio-mejora-metaheuristica}
+Con el objetivo de superar las limitaciones observadas (como el riesgo de estancamiento o la exploración poco estructurada del espacio de soluciones)
+se incorporó un enfoque evolutivo más completo: el algoritmo genético, descrito en la Sección~\ref{sec:genetico-v1}, el cual sirvió como punto de partida para explorar la
+aplicación de estrategias metaheurísticas en la selección de subconjuntos representativos de imágenes.
+Su estructura evolutiva, basada en selección por torneo, cruce e incorporación de mutación,
+ofrecía ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la búsqueda local.
 
-
-El algoritmo genético (v1) representa un salto adicional en rendimiento.
-La combinación de operadores evolutivos como la selección, el cruce y la mutación genera soluciones más refinadas,
-lo que se traduce en una mediana superior y en una mayor compactación de los valores en torno a ella.
-
-
-Finalmente, el algoritmo memético destaca como el más eficiente dentro de esta primera iteración.
-Al incorporar una fase de mejora local sobre la evolución genética, logra afinar aún más las soluciones obtenidas.
-Este enfoque híbrido permite reducir la dispersión y minimizar la probabilidad de obtener soluciones poco efectivas.
-
-
-\subsection{Mejoras progresivas: evolución del algoritmo genético}\label{sec:mejoras-progresivas-evolucion-algoritmo-genetico}
-Aunque el algoritmo memético alcanzó el mejor resultado puntual en la comparativa inicial, se decidió continuar el desarrollo
-sobre el algoritmo genético por varias razones estratégicas.
-
-
-En primer lugar, el análisis detallado mostró que el genético también presentaba una mediana de accuracy más alta,
-lo que sugiere un rendimiento más consistente.
-Además, incluso en sus ejecuciones menos favorables, el genético mostró mejores valores mínimos que el memético,
-lo cual evidencia una mayor robustez frente a escenarios menos óptimos.
-
-
-A nivel práctico, el algoritmo genético ofrecía una estructura más simple y modular, lo que facilitó la introducción progresiva de mejoras específicas.
-Esta simplicidad también implicaba una menor carga computacional al prescindir de la búsqueda local en cada iteración,
-permitiendo realizar pruebas más rápidas y escalables.
-Por estos motivos, se consideró que centrar los esfuerzos en afinar el genético aportaría beneficios significativos
-tanto en eficiencia como en estabilidad, sin renunciar a un rendimiento competitivo.
-
-
-Por lo tanto, se optó por implementar varias versiones del algoritmo genético, cada una con mejoras específicas:
-
-
-\begin{itemize}
-    \item \textbf{Versión 2 (Genético v2)}: se introdujo un cruce ponderado que daba más peso al progenitor con mejor fitness,
-          y se seleccionaba únicamente el mejor de los dos hijos generado.
-          Esto evitaba la propagación de soluciones poco efectivas y mejoraba la velocidad de convergencia.
-    \item \textbf{Versión 3 (Genético v3)}: se añadió una lógica de reinicio poblacional. Si después de varias generaciones
-          no se observaba mejora, se mantenía el mejor individuo y se regeneraban aleatoriamente los demás.
-          Esta estrategia ayudó a salir de óptimos locales sin reiniciar todo el proceso.
-          % \item \textbf{Versión 4 (Genético v4)} [prototipo]: se exploró la posibilidad de conservar un histórico de las mejores
-          %       soluciones y reutilizarlas en futuras generaciones como una forma de memoria evolutiva.
-\end{itemize}
-
-Estas versiones se probaron bajo las mismas condiciones que los algoritmos iniciales, lo que permitió compararlos en igualdad de condiciones.
-
-
-Durante el desarrollo de la Versión 2, se evaluaron distintas estrategias para el operador de mutación.
-Inicialmente, se aplicaba una regla fija que realizaba un 10\% de permutaciones sobre el subconjunto seleccionado:
-\[
-    \mathrm{num\_swaps} = \max\left(1,\ \mathrm{length} \times 0.1\right)
-\]
-Sin embargo, esta estrategia podía resultar demasiado conservadora o agresiva, según el tamaño de la solución.
-En la versión final se adoptó una fórmula más flexible que adapta la magnitud de la mutación en función tanto del subconjunto mutado como del original:
-\[
-    \mathrm{num\_swaps} = \min\left(\mathrm{length} \times 0.15,\ \mathrm{length} \times 0.8\right)
-\]
-Esta modificación permite un equilibrio más eficaz entre exploración y preservación de estructura, limitando las perturbaciones excesivas sin eliminar la capacidad de escape de óptimos locales.
-
-\colorbox{yellow}{Debe de comprobarse cómo funciona la fórmula con el ratio añadido:}
-\[
-    \mathrm{num\_swaps} = \min\left(\mathrm{length} \times 0.15,\ \mathrm{length} \times \mathrm{ratio} \times 0.8\right)
-\]
-
-
-\subsection{Evaluación de resultados}\label{sec:evaluacion-de-resultados}
-A continuación, se presentan dos gráficos en forma de boxplot que comparan el rendimiento de los algoritmos con base en la métrica de \textit{accuracy}.
-Estas visualizaciones permiten analizar la distribución de resultados, la variabilidad y la consistencia de cada enfoque:
-
-\begin{figure}[!h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-accuracy-porcentaje}
-    \caption{Boxplot del \textit{accuracy} alcanzado por los algoritmos en función del porcentaje inicial de imágenes seleccionadas.}
-    \label{fig:boxplot-accuracy-porcentaje}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_bl-gen_v1}
+    \caption{Boxplot comparando la búsqueda local con el algoritmo genético v1 usando \textit{accuracy}.}
+    \label{fig:bl-vs-gen-v1}
 \end{figure}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-accuracy-algoritmo}
-    \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo, agrupando los resultados según la estrategia utilizada.}
-    \label{fig:boxplot-accuracy-algoritmo}
-\end{figure}
+Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético consigue una mediana de \textbf{accuracy} más alta que la búsqueda local,
+reflejando un rendimiento medio más consistente.
+Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo que evidencia su mayor potencial para encontrar soluciones de alta calidad.
 
-\subsubsection{Análisis de los resultados}\label{sec:analisis-de-los-resultados}
+No obstante, también se aprecia una ligera mayor dispersión en los resultados del algoritmo genético, particularmente hacia los valores bajos.
+Esto indica que, pese a su capacidad exploratoria, el genético puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
+De hecho, su valor mínimo (\textbf{0.796}) es superior al de la búsqueda local en esta comparativa, pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
-El primer boxplot (Figura~\ref{fig:boxplot-accuracy-porcentaje}) muestra que, como era esperable,
-el \textit{accuracy} mejora progresivamente al incrementar el porcentaje de datos usados.
-Sin embargo, también se observa que algunos algoritmos, como los genéticos mejorados, obtienen valores muy competitivos
-incluso con bajos porcentajes iniciales, lo que refuerza su utilidad como técnica de reducción.
+\colorbox{yellow}{¿Sobra el siguiente apartado?}
+La búsqueda local, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
+Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
+Estos resultados sirvieron como evidencia empírica para continuar desarrollando nuevas versiones del algoritmo genético,
+incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
-En el segundo boxplot (Figura~\ref{fig:boxplot-accuracy-algoritmo}), permite comparar directamente el impacto de cada estrategia.
-Las versiones mejoradas del algoritmo genético (v2 y v3), así como el algoritmo memético,
-no solo alcanzan medianas de accuracy más altas, sino que también muestran menor variabilidad.
-Esta menor dispersión indica una mayor estabilidad entre ejecuciones, lo cual es deseable en procesos
-de optimización con componentes estocásticos.
+\section{Modificando el operador de cruce}\label{sec:incorporacion-cruce}
+La primera mejora introducida fue en el operador de cruce.
+En lugar del cruce aleatorio clásico, se implementó un cruce ponderado que tiene en cuenta el fitness de los progenitores para asignar más peso a las contribuciones del mejor.
+Esta mejora se aplicó en la Versión 2 del algoritmo (ver \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}}).
+Además, se introdujo un criterio selectivo adicional: de los dos hijos generados, solo se conservaba el mejor.
+Esta modificación redujo la dispersión de los resultados y aceleró la convergencia del algoritmo, permitiendo heredar más eficazmente características prometedoras y evitando que soluciones débiles dominaran el proceso evolutivo.
 
+\section{Modificación del operador de mutación}\label{sec:modificacion-mutacion}
+En paralelo a la mejora del cruce, también se revisó la estrategia de mutación.
+La versión original usaba una tasa fija del 10\% sobre el subconjunto de imágenes seleccionadas:
+$$
+    num_swaps=max(1,lengthx0.1)
+$$
+Sin embargo, esta regla podía resultar demasiado agresiva o demasiado limitada dependiendo del tamaño del subconjunto.
+Por ello, se adoptó una nueva fórmula más adaptativa:
 
-Además, se observa una clara reducción en los valores atípicos negativos en los algoritmos mejorados, lo que sugiere una menor
-probabilidad de obtener resultados significativamente bajos.
-Esto es especialmente relevante en contextos donde se busca fiabilidad en entornos con recursos limitados.
+$$
+    num_swaps=min(lengthx0.15,lengthx0.8)
+$$
+...
+$$
+    num_swaps=min(lengthx0.15,lengthxratiox0.8)
+$$
+Esta versión ajusta automáticamente el número de intercambios en función del tamaño relativo del subconjunto mutado, favoreciendo un equilibrio más eficaz entre exploración y estabilidad.
 
+\section{Incorporación del reinicio poblacional}\label{sec:incorporacion-reinicio-poblacional}
+En la Versión 3 del algoritmo (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}}) se incorporó una lógica de reinicio poblacional.
+El algoritmo monitoriza el comportamiento del segundo mejor individuo, y si este no mejora en dos generaciones consecutivas, se reinicia parcialmente la población manteniendo solo el mejor individuo.
+Esta estrategia resultó muy útil para escapar de óptimos locales, introduciendo diversidad controlada sin perder el conocimiento acumulado.
+El reinicio ayudó a reactivar la evolución en ejecuciones que de otro modo quedaban estancadas, mejorando tanto los resultados máximos como la estabilidad entre ejecuciones.
 
-En conjunto, los resultados evidencian que las mejoras introducidas, como el cruce ponderado, la lógica de reinicio poblacional
-o la combinación con búsqueda local, aportan beneficios sustanciales en términos de rendimiento y robustez.
-Estos algoritmos superan sistemáticamente a las estrategias más simples (aleatorio y búsqueda local), tanto en
-precisión como en consistencia, confirmando su idoneidad para tareas de selección de subconjuntos de datos en aprendizaje profundo.
+\section{Incorporación de versiones libres}\label{sec:incorporacion-versiones-libres}
+Finalmente, se exploraron variantes "libres" del algoritmo, permitiendo que el número de imágenes seleccionadas evolucionara dinámicamente.
+Al activar el parámetro adjust\_size, el operador de cruce genera subconjuntos cuyo tamaño varía entre el 50\% y el 150\% del tamaño base.
+Esta flexibilidad estructural permite al algoritmo ajustar de forma estocástica la escala de las soluciones, adaptándose mejor a la complejidad del problema.
+Las versiones libres demostraron una mejora en diversidad poblacional y una mayor capacidad de ajuste, especialmente en casos donde no se conoce a priori el tamaño óptimo del subconjunto de entrenamiento.
 
+\section{Evaluación del algoritmo memético}\label{sec:evaluacion-algoritmo-memetico}
+Finalmente, se evaluó el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}) el cual combina la evolución genética con una búsqueda local probabilística.
+Esta técnica híbrida fue capaz de generar subconjuntos altamente representativos, superando a las versiones iniciales del genético tanto en precisión como en robustez de los resultados.
 
-Estas observaciones permiten concluir que las modificaciones introducidas en el algoritmo genético no solo mejoran la media de rendimiento,
-sino que también aportan consistencia y robustez frente a la aleatoriedad inherente a este tipo de procesos evolutivos.
+Se incluyó también una variante libre del algoritmo (\hyperref[subsec:memetico-libre]{Apartado~\ref*{subsec:memetico-libre}}) que introdujo flexibilidad adicional en el tamaño de las soluciones y en la exploración local.
+Aunque con un coste computacional algo mayor, estas versiones ofrecieron una de las mejores combinaciones entre rendimiento y estabilidad.
 
+\section{Comparación final entre enfoques}\label{sec:comparacion-final-enfoques}
+En esta sección se realiza una comparación conjunta entre todos los algoritmos implementados.
+Se presentan boxplots y gráficos de barras que muestran la evolución del accuracy, el porcentaje de datos utilizados y el equilibrio entre clases.
 
-\section{Análisis del balance de clases}\label{sec:analisis-del-balance-de-clases}
-Adicionalmente, se realizó un análisis del balance de clases en las soluciones finales generadas por cada algoritmo.
-El objetivo era comprobar si los subconjuntos seleccionados mantenían una representación equilibrada entre las
-distintas clases del dataset (Paper, Rock y Scissors), o si ciertos algoritmos tendían a favorecer algunas clases frente a otras.
+Los algoritmos meméticos y genéticos v2/v3 (especialmente en sus versiones libres) destacan como los más eficaces, consiguiendo una reducción significativa del conjunto de entrenamiento sin penalizar la precisión.
+Además, se observa una menor varianza en sus resultados, lo que indica una mayor consistencia entre ejecuciones.
 
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/mobilenet-BARPLOT-balance-de-clases-por-algoritmo}
-    \caption{Distribución del porcentaje de imágenes por clase en las soluciones generadas por cada algoritmo.}
-    \label{fig:balance-de-clases-por-algoritmo}
-\end{figure}
-
-Tal como se observa en la Figura~\ref{fig:balance-de-clases-por-algoritmo}, los algoritmos más simples como el aleatorio o la búsqueda local presentan ligeras desviaciones, mientras que las versiones más avanzadas, en especial los algoritmos genéticos mejorados y el memético, logran mantener una distribución más homogénea entre clases.
-Este equilibrio es clave para evitar sesgos en el modelo entrenado y mejorar métricas como el F1-score.
-
-
-Aunque si podemos observar una leve tendencia a que los algoritmos necesitan unos pocos datos más de la clase \textit{Paper}, a la vez que reduce el porcentaje de la clase \textit{Rock}.
-
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/mobilenet-BARPLOT-porcentaje-inical-vs-final-por-algoritmo}
-    \caption{Comparación entre porcentaje inicial y final de imágenes seleccionadas por algoritmo.
-    }
-    \label{fig:comparation-initial-final}
-\end{figure}
-
-Por otro lado, se analizó cómo varía el porcentaje de datos seleccionados desde el inicio hasta el final del proceso en cada algoritmo.
-Este análisis, reflejado en la Figura~\ref{fig:comparation-initial-final}, permite observar si los algoritmos tienden a mantener,
-reducir o incluso aumentar la cantidad de imágenes utilizadas durante su evolución.
-
-
-Se puede apreciar que los algoritmos con un porcentaje fijo mantienen estable la cantidad de datos seleccionados, como era de esperar debido a su implementación.
-Sin embargo, en los algoritmos con comportamiento “libre”, como \textit{búsqueda local (libre)} o \textit{genético2 (libre)}, si se observa su variabilidad,
-en particular, ambos algoritmos tienden a aumentar el porcentaje de imágenes seleccionadas respecto al inicial,
-lo que vuelve a confirmar la tendencia de necesitar más imágenes para mejorar el rendimiento del modelo.
-
-
-\section{Validación con el dataset PAINTING}\label{sec:validacion-con-el-dataset-painting}
-Para comprobar la generalización de los resultados, se repitieron los experimentos con el dataset PAINTING, de mayor tamaño y complejidad.
-% En este caso, los mejores resultados también se obtuvieron con las versiones mejoradas de los algoritmos genéticos, seguidos muy de cerca por el memético.
-% En todos los casos, se logró mantener o incluso mejorar el rendimiento del modelo en comparación con el uso del 100\% de los datos, empleando únicamente
-% un subconjunto optimizado.
-
-\colorbox{yellow}{Falta añadir el análisis detallado de los resultados obtenidos con el dataset PAINTING.}
+\section{Validación con el dataset PAINTING}\label{sec:validacion-con-painting}
+Para comprobar la generalización de los algoritmos, se repitieron los experimentos con el dataset PAINTING.
+Este conjunto presenta mayor complejidad tanto en número de clases como en diversidad visual.
+A pesar de ello, los algoritmos avanzados lograron mantener un rendimiento competitivo, confirmando su aplicabilidad en contextos más exigentes.
