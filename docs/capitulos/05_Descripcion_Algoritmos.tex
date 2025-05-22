@@ -288,6 +288,78 @@ o que resulta en una reducción más precisa y estable del conjunto de entrenami
       \item Requiere una evaluación adicional por cada pareja de padres (evaluar dos hijos).
 \end{itemize}
 
+
+\section{Algoritmo Genético con Mutación Adaptativa}\label{sec:genetico-mutacion}
+\subsection{Descripción}
+Esta versión introduce una mejora centrada en el operador de mutación.
+En lugar de aplicar un número fijo de modificaciones, se implementa una \textbf{mutación adaptativa} que ajusta
+dinámicamente el número de intercambios en función del tamaño del subconjunto seleccionado.
+
+Esta estrategia permite una exploración más equilibrada del espacio de soluciones, adaptándose mejor a las características de cada individuo.
+De este modo, se evita tanto una mutación excesiva que degrade soluciones prometedoras como una mutación insuficiente que impida escapar de óptimos locales.
+
+El resto de componentes del algoritmo se mantienen: selección por torneo, cruce ponderado, elitismo y evaluación del mejor hijo generado.
+La mutación adaptativa se aplica tras el cruce y antes de la evaluación.
+
+\subsection{Componentes del Algoritmo}
+\subsubsection{Mutación adaptativa}
+El operador de mutación ajusta el número de intercambios según el tamaño relativo del subconjunto.
+Esto se calcula usando la siguiente fórmula:
+
+$$
+      \texttt{numswaps} = \min\left(\texttt{longitud} \times 0.15,\ \texttt{longitud} \times \texttt{ratio} \times 0.8\right)
+$$
+
+donde \texttt{longitud} representa el número de imágenes disponibles y \texttt{ratio} el porcentaje seleccionado.
+Así, se consigue una mutación proporcional y contextual.
+
+\subsubsection{Preservación de la estructura}
+A pesar de la variabilidad introducida, se conserva la estructura binaria de selección,
+evitando cambios abruptos que rompan la proporción de clases o introduzcan ruido excesivo.
+
+\subsection{Pseudocódigo}
+\begin{algorithm}[htp]
+      \caption{Algoritmo Genético con Mutación Adaptativa}
+      \label{alg:genetico-mutacion}
+      \begin{algorithmic}[1]
+            \State Inicializar población y evaluar
+            \While{no se alcance el máximo de evaluaciones}
+            \State Conservar el mejor individuo (elitismo)
+            \While{población incompleta}
+            \State Seleccionar padres por torneo
+            \State Aplicar cruce ponderado
+            \State Aplicar \textbf{Mutación Adaptativa} a los hijos
+            \State Evaluar ambos hijos
+            \State Conservar solo el mejor hijo
+            \EndWhile
+            \State Reemplazar población
+            \State Actualizar mejor si mejora
+            \EndWhile
+            \State \Return mejor individuo encontrado
+      \end{algorithmic}
+\end{algorithm}
+
+Para facilitar su lectura o replicación, se ha detallado el pseudocódigo del \hyperref[alg:genetico-mutacion]{\textbf{Algorithm~\ref*{alg:genetico-mutacion}} Algoritmo Genético con Mutación Adaptativa}.
+
+\subsection{Aplicación en la Reducción de Datos}
+La mutación adaptativa mejora la capacidad del algoritmo para explorar el espacio de soluciones sin comprometer la calidad de los individuos.
+Esta versión demostró un mejor equilibrio entre exploración y explotación, especialmente en subconjuntos de tamaño variable o intermedio.
+
+\subsection{Ventajas y Limitaciones}
+\textbf{Ventajas:}
+\begin{itemize}
+      \item Introduce una mutación más flexible y ajustada al contexto de cada individuo.
+      \item Mejora la estabilidad de las soluciones frente a mutaciones agresivas.
+      \item Favorece la diversidad genética sin perder precisión.
+\end{itemize}
+
+\textbf{Limitaciones:}
+\begin{itemize}
+      \item Puede requerir calibración del rango de mutación para casos extremos.
+      \item En subconjuntos muy pequeños, la variabilidad puede verse limitada.
+\end{itemize}
+
+
 \section{Algoritmo Genético con Reinicio Poblacional}\label{sec:genetico-v3}
 \subsection{Descripción}\label{subsec:descripcion-genetico-v3}
 Esta versión del algoritmo genético introduce una estrategia para evitar el estancamiento evolutivo mediante reinicios poblacionales.
@@ -332,7 +404,7 @@ Esto permite realizar un análisis completo del proceso evolutivo una vez finali
             \State Aplicar elitismo
             \While{población incompleta}
             \State Seleccionar padres por torneo
-            \State Aplicar cruce ponderado y mutación
+            \State Aplicar cruce ponderado y mutación adaptativa
             \State Evaluar hijos y conservar el mejor
             \EndWhile
             \If{segundo mejor no mejora en 2 generaciones}
@@ -448,7 +520,7 @@ Esta propiedad resulta útil cuando no se conoce a priori la proporción óptima
 La versión libre del \hyperref[sec:genetico-v2]{Algoritmo Genético con Cruce Ponderado} incorpora un operador de
 cruce flexible que ajusta automáticamente el tamaño de los subconjuntos generados.
 Al activar el parámetro \texttt{adjust\_size}, el número de imágenes seleccionadas en cada hijo se calcula aleatoriamente
-dentro de un rango proporcional al tamaño de los padres, en este caso, entre el 50\,\% y el 150\,\% del tamaño base.
+dentro de un rango proporcional al tamaño de los padres, en este caso, entre el 50\% y el 150\% del tamaño base.
 
 Esto permite al algoritmo explorar configuraciones más amplias o más compactas en busca del subconjunto óptimo.
 Además, el operador de mutación también se adapta para permitir fluctuaciones en la cantidad total de imágenes activas,
