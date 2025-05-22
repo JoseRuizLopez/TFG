@@ -39,14 +39,14 @@ if __name__ == "__main__":
     porcentajes = [25, 50]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = False
+    add_100 = True
     algoritmos = [
-        # AlgorithmList.ALEATORIO,
+        AlgorithmList.ALEATORIO,
         # AlgorithmList.BUSQUEDA_LOCAL,
         # AlgorithmList.FREE_BUSQUEDA_LOCAL,
         # AlgorithmList.GENETICO,
-        AlgorithmList.MEMETICO,
-        AlgorithmList.FREE_MEMETICO,
+        # AlgorithmList.MEMETICO,
+        # AlgorithmList.FREE_MEMETICO,
         # AlgorithmList.GENETICO2,
         # AlgorithmList.FREE_GENETICO2,
         # AlgorithmList.GENETICO3,
