@@ -31,6 +31,14 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{subcaption}
+\usepackage{forest}
+\usepackage{tabularx}
+\usepackage{amsmath}
 
 \PassOptionsToPackage{hyphens}{url}
 
@@ -128,3 +136,29 @@
   \fi}
 
 \newdateformat{mesanyo}{\monthnamecaps{\THEMONTH} de \THEYEAR}
+
+\forestset{
+  mydirstyle/.style={
+      for tree={
+          font=\ttfamily,
+          grow'=0,
+          child anchor=west,
+          parent anchor=south,
+          anchor=west,
+          calign=first,
+          inner sep=1pt,
+          l sep=15pt,
+          edge path={
+              \noexpand\path [draw, \forestoption{edge}]
+              (!u.south west) +(5pt,0) -- ++(5pt,0) |- (.child anchor)\forestoption{edge label};
+            },
+          before typesetting nodes={
+              if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+          fit=band,
+          before computing xy={l=10pt},
+        }
+    }
+}

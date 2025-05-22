@@ -90,8 +90,8 @@ def comparar_algoritmos_por_modelo(carpetas_algoritmos, carpeta_salida, modelo_f
         plt.close()
 
 
-def comparar_dos_versiones(OUT, modelo, carpetas_elegidas):
-    carpeta_salida_img = f"img/finales/{OUT}"
+def comparar_dos_versiones(output_path, modelo, carpetas_elegidas):
+    carpeta_salida_img = f"img/finales/{output_path}"
     os.makedirs(carpeta_salida_img, exist_ok=True)
 
     comparar_algoritmos_por_modelo(
@@ -101,9 +101,9 @@ def comparar_dos_versiones(OUT, modelo, carpetas_elegidas):
     )
 
 
-def graficos_una_version(OUT, modelo, carpetas_elegidas, print_mode):
-    carpeta_salida_img = f"img/finales/{OUT}"
-    base_csv_path = "results/csvs/finales_2"
+def graficos_una_version(input_path, output_path, modelo, carpetas_elegidas, print_mode):
+    carpeta_salida_img = f"img/finales/{output_path}"
+    base_csv_path = f"results/csvs/{input_path}"
     os.makedirs(carpeta_salida_img, exist_ok=True)
 
     csvs_con_origen = recolectar_csvs_de_carpetas(base_csv_path, carpetas_elegidas, origen="version_2")
@@ -123,22 +123,23 @@ def graficos_una_version(OUT, modelo, carpetas_elegidas, print_mode):
     )
 
 
-def main(out, modelo, carpetas_elegidas, modo, modo_print):
+def main(input_path, output_path, modelo, carpetas_elegidas, modo, modo_print):
     try:
         print_mode = PrintMode(modo_print.lower())
     except Exception as e:
         raise ValueError("El parámetro 'modo' debe ser 'libres', 'no_libres', 'ambos' o 'juntos'.")
     
     if modo == "comparar":
-        comparar_dos_versiones(out, modelo, carpetas_elegidas)
+        comparar_dos_versiones(output_path, modelo, carpetas_elegidas)
     elif modo == "individual":
-        graficos_una_version(out, modelo, carpetas_elegidas, print_mode)
+        graficos_una_version(input_path, output_path, modelo, carpetas_elegidas, print_mode)
     else:
         print(f"[ERROR] Modo '{modo}' no reconocido. Usa 'comparar' o 'individual'.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generar gráficos de algoritmos con o sin comparación de versiones")
+    parser.add_argument("--IN", type=str, required=True, help="Nombre para la carpeta de entrada (ej: finales_2)")
     parser.add_argument("--OUT", type=str, required=True, help="Nombre para la carpeta de salida (ej: fecha)")
     parser.add_argument("--MODELO", type=str, required=False, help="Nombre del modelo (opcional)")
     parser.add_argument("--CARPETAS", nargs='+', required=True, help="Carpetas a combinar (ej: gen_v1 gen_v2 mem)")
@@ -146,4 +147,4 @@ if __name__ == "__main__":
     parser.add_argument("--MODO_PRINT", type=str, required=True, choices=["libres", "no_libres", "ambos", "juntos"], help="Modo de mostrar los gráficos")
 
     args = parser.parse_args()
-    main(out=args.OUT, modelo=args.MODELO, carpetas_elegidas=args.CARPETAS, modo=args.MODO, modo_print=args.MODO_PRINT)
+    main(input_path=args.IN, output_path=args.OUT, modelo=args.MODELO, carpetas_elegidas=args.CARPETAS, modo=args.MODO, modo_print=args.MODO_PRINT)

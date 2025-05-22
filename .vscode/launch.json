@@ -54,19 +54,20 @@
       "program": "${workspaceFolder}/src/generar_plots_finales.py",
       "console": "integratedTerminal",
       "args": [
+        "--IN",
+        "finales",
         "--OUT",
-        "comparacion_memetico-libre",
+        "comparacion_bl-gen_v1",
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
-        "gen_v2-2",
-        "gen_v2-libre",
-        "memetico",
-        "memetico-libre",
+        "-",
+        "bl",
+        "gen_v1",
         "--MODO",
         "individual",
         "--MODO_PRINT",
-        "libres"
+        "juntos"
       ]
     }
   ]

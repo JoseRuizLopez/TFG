@@ -56,8 +56,10 @@ Explicar bien todo el procedimiento usado para las ejecuciones:
 * Como dividir el desarrollo experimental:
     Primero el 100%
     Despues el aleatorio
+    Despues comparacion entre modelo resnet y mobilenet
     Despues el busquela local
-    Memetico al final
+    Despues geneticos
+    Despues el Memetico
 
 * Mencionar las versiones de los algoritmos del apartado anterior en vez de volver a explicarlos tanto.
 
@@ -69,4 +71,4 @@ Explicar bien todo el procedimiento usado para las ejecuciones:
 5. Incorporacion del libres
 4. Incorporando la busqueda local (memetico)
 6. Comparación final
-99. Extendiendo del Dataset
+99. Extendiendo del Dataset (preuba con PAINTING)

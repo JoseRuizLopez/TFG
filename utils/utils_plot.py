@@ -297,7 +297,7 @@ def plot_porcentajes_por_porcentaje_inicial(
             value_vars=["Porcentaje Inicial", "Porcentaje Final"],
             var_name="Tipo", value_name="Porcentaje"
         )
-        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: int(x))
+        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
 
         plt.figure(figsize=(10, 6))
         sns.barplot(
@@ -356,7 +356,7 @@ def plot_porcentajes_por_porcentaje_inicial(
             value_vars=["Porcentaje Inicial", "Porcentaje Final"],
             var_name="Tipo", value_name="Porcentaje"
         )
-        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: int(x))
+        orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
 
         plt.figure(figsize=(10, 6))
         sns.barplot(

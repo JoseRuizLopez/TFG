@@ -25,38 +25,29 @@
 \noindent{\textbf{Resumen}}\\
 
 Los \textbf{modelos de Aprendizaje Profundo} (Deep Learning) han supuesto un verdadero hito en la
-\textbf{Inteligencia Artificial}, ya que son capaces de procesar grandes volúmenes de datos\ldots\ y, además, reconocer
+\textbf{Inteligencia Artificial}, ya que son capaces de procesar grandes volúmenes de datos, además de reconocer
 patrones sumamente complejos.
 Dentro de estos, los \textbf{modelos convolucionales} se han destacado como particularmente efectivos a la hora de
 identificar objetos y características en imágenes —una capacidad esencial para muchas aplicaciones modernas—.
 Sin embargo, a diferencia de los seres humanos, estos modelos requieren una gran cantidad de datos de
 entrenamiento para cada categoría que deben aprender.
 Esto implica un proceso de entrenamiento más largo y, muchas veces, la recolección de los datos necesarios puede ser
-problemática, según el tipo de información que se necesite. \\[6pt]
+problemática, según el tipo de información que se necesite.
 
-Además de la dificultad en la obtención de datos, la reciente \textbf{legislación europea sobre IA}
-(IA Act)~\cite{ReglamentoIA2024} establece la necesidad de auditar no solo los modelos, sino también los datos
+Además de la dificultad en la obtención de datos,  las nuevas normativas europeas en torno a la inteligencia artificial
+establecen la necesidad de auditar no solo los modelos, sino también los datos
 utilizados para entrenarlos, especialmente cuando se trata de aplicaciones de IA que manejan datos sensibles.
 Estas auditorías, por su propia naturaleza, se volverán más complejas conforme aumente el tamaño del conjunto de
 entrenamiento.
 Por lo tanto, se vuelve completamente necesario desarrollar estrategias que permitan
-\textbf{reducir el tamaño de los conjuntos de datos de entrenamiento}\ldots\ sin comprometer la calidad del modelo.
-\\[6pt]
+\textbf{reducir el tamaño de los conjuntos de datos de entrenamiento} intentado comprometer la calidad del modelo lo mínimo posible.
 
-Ya se ha demostrado que aumentar el número de imágenes de entrenamiento puede, en ciertos casos, mejorar el proceso;
-sin embargo, esto solo sucede cuando las imágenes adicionales realmente contribuyen al aprendizaje.
-De hecho, las \textbf{técnicas de aumento de datos} (Data Augmentation) permiten reducir la necesidad de muchas
-imágenes similares, ya que estas pueden generarse de manera automática a partir de las ya existentes\ldots\ lo que además
-evita problemas legales asociados a la autoría de los datos. \\[6pt]
-
-En este trabajo, proponemos el uso de \textbf{algoritmos meméticos} combinados con
-\textbf{métricas de similitud entre imágenes} para establecer un proceso de reducción del conjunto de
-\textbf{entrenamiento} —lo que se conoce como \textbf{selección de instancias}—.
+En este trabajo, proponemos el uso de \textbf{algoritmos meméticos} para establecer un proceso de reducción del conjunto de
+\textbf{entrenamiento}, lo que se conoce como \textbf{selección de instancias}.
 La idea es seleccionar un conjunto reducido de imágenes representativas que, junto con las técnicas de aumento de
 datos, sean suficientes para entrenar modelos convolucionales de manera óptima.
 De este modo, se podría reducir significativamente el tamaño del conjunto de entrenamiento, manteniendo la calidad
 del aprendizaje y, a su vez, facilitando tanto el proceso de auditoría como la eficiencia computacional del sistema.
-\\[6pt]
 
 
 \cleardoublepage
@@ -78,34 +69,26 @@ del aprendizaje y, a su vez, facilitando tanto el proceso de auditoría como la 
 \vspace{0.7cm}
 \noindent{\textbf{Abstract}}\\
 
-\textbf{Deep Learning models} have marked a true milestone in \textbf{Artificial Intelligence}, as they are capable of
-processing large volumes of data\ldots\ and, moreover, recognizing highly complex patterns.
-Among these, \textbf{convolutional models} have proven to be particularly effective in identifying objects and
-characteristics in images — an essential capability for many modern applications.
-However, unlike humans, these models require an extremely high number of training data for each category they need to
-learn.
-This implies a longer training process, and often, the collection of the necessary data can be problematic, depending
-on the type of information required. \\[6pt]
+\textbf{Deep Learning models} have marked a true milestone in the field of \textbf{Artificial Intelligence}, as they are capable of 
+processing large volumes of data and recognizing highly complex patterns.
+Among these, \textbf{convolutional models} have stood out as particularly effective in identifying objects and
+features in images—an essential capability for many modern applications.
+However, unlike humans, these models require a large amount of training data for each category they need to learn.
+This implies a longer training process, and in many cases, collecting the necessary data can be problematic depending
+on the type of information required.
 
-In addition to the difficulty of obtaining data, the recent \textbf{European AI legislation}
-(IA Act)~\cite{ReglamentoIA2024} establishes the need to audit not only the models but also the data used to train
-them, especially when dealing with AI applications that handle sensitive data.
-These audits, by their very nature, will become more complex as the size of the training set increases.
-Therefore, it becomes completely necessary to develop strategies that allow for
-\textbf{reducing the size of training datasets}\ldots\ without compromising the quality of the model. \\[6pt]
+In addition to the difficulty of obtaining data, new European regulations on artificial intelligence establish the need to 
+audit not only the models but also the data used to train them, especially in AI applications that handle sensitive data.
+These audits, by their very nature, will become increasingly complex as the size of the training set grows.
+Therefore, it becomes essential to develop strategies that allow for \textbf{reducing the size of training datasets}, 
+while minimizing any compromise in model quality.
 
-It has already been demonstrated that increasing the number of training images can, in certain cases, improve the
-process; however, this only happens when the additional images actually contribute to learning.
-In fact, \textbf{Data Augmentation techniques} help reduce the need for many similar images, as these can be
-automatically generated from existing ones\ldots\ which also avoids legal issues related to data authorship. \\[6pt]
-
-In this work, we propose the use of \textbf{memetic algorithms}, combined with \textbf{image similarity metrics}, to
-establish a process of \textbf{training dataset reduction} — known as \textbf{instance selection}.
-The idea is to select a reduced set of representative images that, along with data augmentation techniques, are
-sufficient to train convolutional models with optimal quality.
-In this way, the size of the training dataset could be significantly reduced, while maintaining the quality of
-learning and, at the same time, facilitating both the auditing process and the computational efficiency of the system.
-\\[6pt]
+In this work, we propose the use of \textbf{memetic algorithms} to implement a \textbf{training data reduction process}, 
+also known as \textbf{instance selection}.
+The idea is to select a small set of representative images that, along with data augmentation techniques, 
+are sufficient to optimally train convolutional models.
+In this way, it would be possible to significantly reduce the size of the training set while maintaining learning quality and, 
+at the same time, facilitating both the auditing process and the system's computational efficiency.
 
 \chapter*{}
 \thispagestyle{empty}
@@ -142,10 +125,8 @@ Artificial de la Universidad de Granada.
 
 \vspace{0.5cm}
 
-Que el presente trabajo, titulado \textit{\textbf{Algoritmos meméticos para reducir datos de entrenamiento en modelos
-              de aprendizaje profundo convolucionales}},
-ha sido realizado bajo su supervisión por \textbf{José Ruiz López (alumno)}, y autorizamos la defensa de dicho trabajo
-ante el tribunal que corresponda.
+Que el presente trabajo, titulado \textit{\textbf{Algoritmos meméticos para reducir datos de entrenamiento en modelos de aprendizaje profundo convolucionales}},
+ha sido realizado bajo su supervisión por \textbf{José Ruiz López (alumno)}, y autorizamos la defensa de dicho trabajo  ante el tribunal que corresponda.
 
 \vspace{0.5cm}
 
@@ -165,5 +146,21 @@ Y para que conste, expiden y firman el presente informe en Granada a \today.
 \vspace{1cm}
 
 
-Poner aquí agradecimientos...
+Quiero expresar mi más sincero agradecimiento a todas las personas que han hecho posible la realización de este Trabajo de Fin de Grado.
 
+En primer lugar, me gustaría agradecer al profesor Daniel Molina Cabrera, mi tutor, por su valiosa guía, por su apoyo continuo durante 
+todo el proceso y por brindarme acceso a los recursos necesarios para llevar a cabo esta investigación.
+Su experiencia y disponibilidad han sido fundamentales para que este proyecto pudiera desarrollarse de forma rigurosa y enriquecedora.
+
+También quiero destacar lo desafiante que ha sido compaginar este trabajo académico con mis responsabilidades laborales.
+Ha requerido un esfuerzo constante y una gran capacidad de organización, pero también me ha permitido valorar aún más el proceso y el aprendizaje adquirido.
+
+Agradezco de corazón a mis padres y amigos por su comprensión, paciencia y apoyo emocional durante los momentos más exigentes del camino.
+Y, sobre todo, a mi pareja, sin ella no habría sido posible superar el reto que supone realizar un trabajo como este. 
+Su apoyo incondicional, su confianza en mí y la calma que me ha transmitido en los momentos más difíciles han sido clave para llegar hasta el final.
+
+Asimismo, extiendo mi gratitud a todas las personas y compañeros que, directa o indirectamente, han contribuido con sus comentarios, sugerencias y tiempo.
+Gracias a ellos, este trabajo ha podido alcanzar una mayor profundidad y claridad.
+
+Por último, quiero agradecer a todas aquellas comunidades de código abierto y herramientas libres que han permitido que este proyecto se 
+desarrollara sin barreras tecnológicas, facilitando el aprendizaje y la innovación.
