@@ -539,49 +539,172 @@ En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el eq
 
 
 \section{Incorporación del reinicio poblacional}\label{sec:incorporacion-reinicio-poblacional}
-La Versión3 del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}}) 
+La Versión3 del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
 introduce una lógica de reinicio poblacional diseñada para evitar estancamientos evolutivos.
-El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas, 
+El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas,
 se aplica un reinicio parcial que conserva únicamente al mejor individuo de la población.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
-\caption{Comparación de \textit{accuracy} entre el algoritmo genético con mutación adaptativa (genetico2\_2) y con reinicio poblacional (genetico3).}
-\label{fig:reinicio_poblacional}
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo genético con mutación adaptativa (genetico2\_2) y con reinicio poblacional (genetico3).}
+    \label{fig:reinicio_poblacional}
 \end{figure}
 
 Tal como se observa en la Figura~\ref{fig:reinicio_poblacional}, los resultados muestran que la incorporación del reinicio no se tradujo en una mejora tangible del rendimiento.
-La mediana de \texttt{genetico3} permanece prácticamente inalterada respecto a \texttt{genetico2\_2} (incluso ligeramente inferior), 
+La mediana de \texttt{genetico3} permanece prácticamente inalterada respecto a \texttt{genetico2\_2} (incluso ligeramente inferior),
 y aunque el valor mínimo es inferior (\textbf{0.766} frente a \textbf{0.798}), no se aprecia un incremento en el valor máximo ni una reducción clara en la dispersión.
 
-Esto sugiere que, al menos en este contexto experimental, el mecanismo de reinicio no logra mejorar la exploración del espacio de soluciones ni mitigar el estancamiento de forma eficaz.
+Esto sugiere que, al menos en este contexto experimental, el mecanismo de reinicio no logra mejorar la exploración del espacio de soluciones 
+ni mitigar el estancamiento de forma eficaz.
 En algunos casos, incluso puede introducir una pérdida prematura de diversidad, al regenerar de forma aleatoria parte de la población sin garantizar mejoras sustanciales.
 
 \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales, 
+En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
 su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
 Estos resultados invitan a reconsiderar su activación por defecto, o bien a explorar variantes más refinadas del mecanismo de reinicio.
 
+
 \section{Incorporación de versiones libres}\label{sec:incorporacion-versiones-libres}
-Finalmente, se exploraron variantes "libres" del algoritmo, permitiendo que el número de imágenes seleccionadas evolucionara dinámicamente.
-Al activar el parámetro adjust\_size, el operador de cruce genera subconjuntos cuyo tamaño varía entre el 50\% y el 150\% del tamaño base.
-Esta flexibilidad estructural permite al algoritmo ajustar de forma estocástica la escala de las soluciones, adaptándose mejor a la complejidad del problema.
-Las versiones libres demostraron una mejora en diversidad poblacional y una mayor capacidad de ajuste, especialmente en casos donde no se conoce a priori el tamaño óptimo del subconjunto de entrenamiento.
+Como parte de la evolución de los algoritmos desarrollados, se propusieron versiones libres,
+en las que el tamaño del subconjunto seleccionado no permanece fijo durante la ejecución, sino que puede ajustarse de forma dinámica.
+
+Para evaluar esta flexibilidad, se generaron versiones libres de la búsqueda local y del algoritmo genético con cruce ponderado y mutación adaptativa, 
+como modificación adicional, se introdujo un mecanismo al algoritmo de búsqueda local
+en el que se seleccionaba de forma aletarioa el porcentaje inicial de imágenes a partir del cual se comenzaba a trabajar.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/comparacion_bl}
+    \caption{Comparación de \textit{accuracy} entre la búsqueda local estándar y su versión libre.}
+    \label{fig:bl_libre}
+\end{figure}
+
+En la Figura~\ref{fig:bl_libre} se observa que la versión libre de la búsqueda local mejora tanto la mediana 
+como el valor máximo de \textit{accuracy} respecto a su versión original.
+Presenta, además, una menor dispersión en los valores bajos y una mayor concentración de ejecuciones en torno al cuartil superior, 
+lo que sugiere una mejora en la estabilidad del algoritmo.
+Este comportamiento refleja que introducir flexibilidad en el tamaño del subconjunto aporta capacidad de adaptación sin comprometer la consistencia del rendimiento.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/comparacion_gen_v2}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo genético v2-2 (cruce ponderado + mutación adaptativa) y su versión libre.}
+    \label{fig:gen_v2_libre}
+\end{figure}
+
+En el caso del genético con cruce ponderado y mutación adaptativa (Figura~\ref{fig:gen_v2_libre}), 
+los resultados son algo más matizados: la versión libre mantiene un rendimiento muy similar al de la versión rígida, 
+con una leve mejora en los valores altos y un mínimo más elevado.
+Esto sugiere que, aunque no siempre se observe una mejora significativa en mediana, 
+la capacidad adaptativa aporta robustez adicional y mayor protección frente a ejecuciones fallidas.
+
+
+\colorbox{yellow}{Falta añadir boxplot que compare el accuracy separado por cada porcentaije inicail del algoritmo genetico 2 libre.}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/distribucion-clases}
+\caption{Distribución de clases en los subconjuntos generados por los algoritmos estándar y libres.}
+\label{fig:distribucion_libres}
+\end{figure}
+
+La Figura~\ref{fig:distribucion_libres} muestra que tanto los algoritmos estándar como sus variantes libres 
+mantienen una distribución equilibrada entre las tres clases del conjunto \texttt{RPS}.
+Las proporciones de \texttt{Rock}, \texttt{Paper} y \texttt{Scissors} se reproducen de forma muy similar en todos los casos, 
+con únicamente pequeñas variaciones que no resultan significativas como para suponer un desbalance.
+
+Este resultado es especialmente relevante para la validez de los experimentos, ya que confirma que los mecanismos evolutivos 
+y las estrategias de ajuste del tamaño del subconjunto no introducen sesgos de clase.
+La representatividad estructural del conjunto se conserva, lo cual es fundamental para garantizar una evaluación justa y equilibrada en tareas de clasificación multiclase.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inical-vs-final-por-algoritmo}
+\caption{Comparación entre porcentaje inicial y final en los algoritmos libres.}
+\label{fig:porcentaje_libres_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_gev_v2.png}
+    \vspace{1em}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_bl.png}
+    \caption{Porcentaje final alcanzado en función del porcentaje inicial.
+        Arriba: genético libre.
+        Abajo: búsqueda local libre.
+    }
+    \label{fig:porcentaje_libres_2}
+\end{figure}
+
+Las Figuras~\ref{fig:porcentaje_libres_1} y~\ref{fig:porcentaje_libres_2} permiten analizar con mayor detalle cómo se comportan 
+los algoritmos libres en términos de tamaño del subconjunto seleccionado.
+En la comparación directa por algoritmo (Figura~\ref{fig:porcentaje_libres_1}), se observa que el porcentaje final tiene un leve incremento respecto al inicial.
+
+Sin embargo, al desglosar el análisis por valores específicos del porcentaje inicial (Figura~\ref{fig:porcentaje_libres_2}), 
+se aprecia un patrón más claro: cuanto mayor es el punto de partida, mayor tiende a ser también el porcentaje final alcanzado.
+Esta tendencia es especialmente marcada en el caso de la búsqueda local libre, que muestra una progresión prácticamente lineal.
+El algoritmo genético, en cambio, presenta un crecimiento más escalonado, pero igualmente adaptativo.
+
+Este comportamiento sugiere que los algoritmos libres no solo adaptan la composición del subconjunto, sino también su escala, 
+ajustando dinámicamente la cantidad de datos seleccionados según el entorno de búsqueda.
+En general, estas versiones demuestran ser una opción más versátil y controlada, especialmente útil cuando no se conoce de antemano el tamaño óptimo del conjunto de entrenamiento.
+
 
 \section{Evaluación del algoritmo memético}\label{sec:evaluacion-algoritmo-memetico}
-Finalmente, se evaluó el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}) el cual combina la evolución genética con una búsqueda local probabilística.
-Esta técnica híbrida fue capaz de generar subconjuntos altamente representativos, superando a las versiones iniciales del genético tanto en precisión como en robustez de los resultados.
+Finalmente, se evaluó el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}), 
+el cual combina la evolución genética con una búsqueda local aplicada de forma probabilística sobre ciertos individuos seleccionados.
+Este enfoque híbrido busca equilibrar la exploración del espacio de soluciones con una intensificación localizada, 
+ofreciendo mejoras tanto en precisión como en estabilidad.
 
-Se incluyó también una variante libre del algoritmo (\hyperref[subsec:memetico-libre]{Apartado~\ref*{subsec:memetico-libre}}) que introdujo flexibilidad adicional en el tamaño de las soluciones y en la exploración local.
-Aunque con un coste computacional algo mayor, estas versiones ofrecieron una de las mejores combinaciones entre rendimiento y estabilidad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-memetico}
+\caption{Comparación de \textit{accuracy} entre el algoritmo memético estándar y su versión libre.}
+\label{fig:memetico_comparacion}
+\end{figure}
+
+Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético supera claramente al mejor de los enfoques genéticos 
+(el Genetico Libre con Cruce Ponderado y Mutación Adaptativa), alcanzando una mediana más elevada y un valor máximo de \textit{accuracy} de hasta \textbf{0.903}.
+Su distribución es más compacta, con menor dispersión hacia los valores bajos, lo que refleja una mayor consistencia entre ejecuciones.
+
+La versión libre del memético, que incorpora también un ajuste dinámico del tamaño del subconjunto 
+(ver \hyperref[subsec:memetico-libre]{Apartado~\ref*{subsec:memetico-libre}}), muestra un rendimiento muy similar al estándar, 
+con una ligera reducción en el valor máximo pero una estabilidad comparable.
+Esto sugiere que el componente adaptativo no penaliza la calidad de las soluciones y puede incluso aportar mayor flexibilidad en entornos más inciertos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_memetico-libre}
+\caption{Porcentaje final alcanzado por el algoritmo memético libre en función del porcentaje inicial.}
+\label{fig:memetico_porcentaje}
+\end{figure}
+
+En la Figura~\ref{fig:memetico_porcentaje} se observa cómo el memético libre tiende a incrementar el tamaño del subconjunto conforme aumenta el porcentaje inicial.
+La curva es progresiva y cercana a la linealidad, lo que indica un comportamiento estructuralmente coherente: 
+el algoritmo detecta cuándo puede beneficiarse de incluir más ejemplos y adapta su escala en consecuencia.
+Este ajuste dinámico refuerza su capacidad para equilibrar rendimiento y tamaño, maximizando la eficiencia de la selección sin depender de una configuración fija.
+
+\colorbox{yellow}{¿Añadir el párrafo de resumen?}
+En resumen, tanto el memético estándar como su variante libre se consolidan como las estrategias más eficaces del estudio.
+Su combinación de precisión elevada, estabilidad entre ejecuciones y capacidad adaptativa los convierte en soluciones 
+especialmente robustas para tareas donde se requiere seleccionar subconjuntos representativos sin comprometer el rendimiento del modelo entrenado.
+
 
 \section{Comparación final entre enfoques}\label{sec:comparacion-final-enfoques}
 En esta sección se realiza una comparación conjunta entre todos los algoritmos implementados.
 Se presentan boxplots y gráficos de barras que muestran la evolución del \textit{accuracy}, el porcentaje de datos utilizados y el equilibrio entre clases.
 
-Los algoritmos meméticos y genéticos v2/v3 (especialmente en sus versiones libres) destacan como los más eficaces, consiguiendo una reducción significativa del conjunto de entrenamiento sin penalizar la precisión.
-Además, se observa una menor varianza en sus resultados, lo que indica una mayor consistencia entre ejecuciones.
+% Los algoritmos meméticos y genéticos v2/v3 (especialmente en sus versiones libres) destacan como los más eficaces, consiguiendo una reducción significativa del conjunto de entrenamiento sin penalizar la precisión.
+% Además, se observa una menor varianza en sus resultados, lo que indica una mayor consistencia entre ejecuciones.
+
+\colorbox{yellow}{Falta realizar la comparación final.}
+
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
 Para comprobar la robustez de los algoritmos desarrollados, se validaron los experimentos con el dataset \texttt{PAINTING},
@@ -615,7 +738,8 @@ El algoritmo memético estándar también muestra una precisión elevada, con un
 Sin embargo, su varianza es ligeramente mayor, lo que sugiere que la falta de ajuste dinámico del tamaño del subconjunto puede limitar su adaptabilidad en ciertas ejecuciones.
 
 Por otro lado, la selección aleatoria, aunque muestra valores aceptables, vuelve a confirmar su principal debilidad: la alta dispersión.
-Con un mínimo de \textbf{0.916} y una mediana prácticamente idéntica a la obtenida con el uso completo del dataset, su comportamiento se sitúa como una referencia básica pero poco fiable.
+Con un mínimo de \textbf{0.916} y una mediana prácticamente idéntica a la obtenida con el uso completo del dataset, 
+su comportamiento se sitúa como una referencia básica pero poco fiable.
 Puede alcanzar buenos resultados, pero lo hace de forma inconsistente y sin mecanismos que garanticen estabilidad.
 
 La ejecución con el \textbf{100\%} de los datos, utilizada como referencia absoluta, queda por debajo de las soluciones obtenidas por los algoritmos meméticos.
@@ -646,7 +770,8 @@ lo cual indica una mayor variabilidad entre ejecuciones y una menor estabilidad 
 
 Por otro lado, el uso del 25\% inicial también demuestra un rendimiento sorprendentemente competitivo,
 alcanzando un máximo de \textbf{0.925}.
-Sin embargo, su rango intercuartílico más estrecho (menor dispersión de los resultados) y su menor valor mínimo (\textbf{0.917}) evidencian una cierta fragilidad ante la reducción excesiva:
+Sin embargo, su rango intercuartílico más estrecho (menor dispersión de los resultados) y su menor valor mínimo 
+(\textbf{0.917}) evidencian una cierta fragilidad ante la reducción excesiva:
 puede funcionar bien si la selección es óptima, pero el margen de error es menor.
 
 Este comportamiento ilustra un fenómeno interesante en la reducción de datos: no existe una relación lineal entre cantidad de datos y precisión,
@@ -684,7 +809,8 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/porcentaje-inicial-vs-final-por-pi}
     \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres.
         Arriba: comparación por algoritmo.
-        Abajo: evolución según el porcentaje inicial.}
+        Abajo: evolución según el porcentaje inicial.
+    }
     \label{fig:evolucion_porcentaje_libre}
 \end{figure}
 
