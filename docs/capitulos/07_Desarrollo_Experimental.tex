@@ -507,9 +507,9 @@ Esto se tradujo en un comportamiento más robusto, menos propenso a resultados e
 
 
 \section{Modificación del operador de mutación}\label{sec:modificacion-mutacion}
-A partir del algoritmo con cruce ponderado, se evaluó una nueva versión en la que se introdujo una mutación adaptativa
+A partir de los resultados obtenidos con el algoritmo con cruce ponderado, se evaluó una nueva versión en la que se introdujo una mutación adaptativa
 (ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
-A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado, 
+A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado,
 lo que permite una mayor flexibilidad en escenarios de diferente escala.
 
 \begin{figure}[H]
@@ -519,26 +519,49 @@ lo que permite una mayor flexibilidad en escenarios de diferente escala.
     \label{fig:mutacion-adaptativa}
 \end{figure}
 
-Como se observa en la Figura~\ref{fig:mutacion-adaptativa}, ambos algoritmos alcanzan un rendimiento similar en términos de mediana y valores extremos, 
+Como se observa en la Figura~\ref{fig:mutacion-adaptativa}, ambos algoritmos alcanzan un rendimiento similar en términos de mediana y valores extremos,
 con una ligera ventaja de la versión original (\texttt{genetico2}) en el valor máximo de \textit{accuracy} (\textbf{0.887} frente a \textbf{0.876}).
-Sin embargo, la versión con mutación adaptativa (\texttt{genetico2\_2}) muestra una distribución más compacta en la parte central, 
-con menos dispersión hacia valores bajos, lo que sugiere una mejora en la consistencia entre ejecuciones.
+Sin embargo, la versión con mutación adaptativa (\texttt{genetico2\_2}) muestra una distribución más compacta en la parte central,
+con menos dispersión hacia valores bajos del IQR, lo que sugiere una mejora en la consistencia entre ejecuciones.
+
+Además, la versión con mutación adaptativa presenta un Q4 más elevado, es decir, su \textit{bigote superior} abarca valores superiores a los de la versión original.
+Esto indica que, aparte de que la mediana sea un poco superior, un mayor número de ejecuciones alcanzan rendimientos más altos de forma consistente,
+reforzando la idea de que esta variante promueve una evolución más estable y con mayor concentración de soluciones de calidad en el tramo alto del rendimiento.
 
 Este resultado refleja que, aunque la mutación adaptativa no produce una mejora radical en precisión media,
- sí contribuye a una evolución más controlada y robusta, reduciendo la probabilidad de degradaciones abruptas.
-Además, su comportamiento flexible la hace más adecuada en contextos donde el tamaño del subconjunto varía, 
+sí contribuye a una evolución más controlada y robusta, reduciendo la probabilidad de degradaciones abruptas.
+Además, su comportamiento flexible la hace más adecuada en contextos donde el tamaño del subconjunto varía,
 evitando configuraciones subóptimas impuestas por una tasa fija.
 
-Aunque el valor máximo de \textit{accuracy} se mantiene en niveles similares, la ganancia está en la consistencia y la eficiencia exploratoria, 
+Aunque el valor máximo de \textit{accuracy} se mantiene en niveles similares, la ganancia está en la consistencia y la eficiencia exploratoria,
 ya que se adapta automáticamente al contexto sin requerir ajustes manuales para diferentes tamaños de subconjuntos.
 En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo.
 
 
 \section{Incorporación del reinicio poblacional}\label{sec:incorporacion-reinicio-poblacional}
-En la Versión 3 del algoritmo (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}}) se incorporó una lógica de reinicio poblacional.
-El algoritmo monitoriza el comportamiento del segundo mejor individuo, y si este no mejora en dos generaciones consecutivas, se reinicia parcialmente la población manteniendo solo el mejor individuo.
-Esta estrategia resultó muy útil para escapar de óptimos locales, introduciendo diversidad controlada sin perder el conocimiento acumulado.
-El reinicio ayudó a reactivar la evolución en ejecuciones que de otro modo quedaban estancadas, mejorando tanto los resultados máximos como la estabilidad entre ejecuciones.
+La Versión3 del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}}) 
+introduce una lógica de reinicio poblacional diseñada para evitar estancamientos evolutivos.
+El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas, 
+se aplica un reinicio parcial que conserva únicamente al mejor individuo de la población.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
+\caption{Comparación de \textit{accuracy} entre el algoritmo genético con mutación adaptativa (genetico2\_2) y con reinicio poblacional (genetico3).}
+\label{fig:reinicio_poblacional}
+\end{figure}
+
+Tal como se observa en la Figura~\ref{fig:reinicio_poblacional}, los resultados muestran que la incorporación del reinicio no se tradujo en una mejora tangible del rendimiento.
+La mediana de \texttt{genetico3} permanece prácticamente inalterada respecto a \texttt{genetico2\_2} (incluso ligeramente inferior), 
+y aunque el valor mínimo es inferior (\textbf{0.766} frente a \textbf{0.798}), no se aprecia un incremento en el valor máximo ni una reducción clara en la dispersión.
+
+Esto sugiere que, al menos en este contexto experimental, el mecanismo de reinicio no logra mejorar la exploración del espacio de soluciones ni mitigar el estancamiento de forma eficaz.
+En algunos casos, incluso puede introducir una pérdida prematura de diversidad, al regenerar de forma aleatoria parte de la población sin garantizar mejoras sustanciales.
+
+\colorbox{yellow}{¿Añadir el párrafo de resumen?}
+En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales, 
+su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
+Estos resultados invitan a reconsiderar su activación por defecto, o bien a explorar variantes más refinadas del mecanismo de reinicio.
 
 \section{Incorporación de versiones libres}\label{sec:incorporacion-versiones-libres}
 Finalmente, se exploraron variantes "libres" del algoritmo, permitiendo que el número de imágenes seleccionadas evolucionara dinámicamente.

@@ -85,7 +85,7 @@ def comparar_algoritmos_por_modelo(carpetas_algoritmos, carpeta_salida, modelo_f
             title=f"Comparación de Accuracy - {alias}",
             eje_x="Origen"
         )
-        print(f"[OK] Guardado: {output_file}")
+        print(f"Guardado: {output_file}")
 
 
 def comparar_dos_versiones(output_path, modelo, carpetas_elegidas):
@@ -111,7 +111,7 @@ def graficos_una_version(input_path, output_path, modelo, carpetas_elegidas, pri
         print("[ERROR] No se encontraron archivos CSV para las carpetas seleccionadas.")
         return
 
-    print(f"[INFO] Generando gráficos combinados para: {', '.join(carpetas_elegidas)}")
+    print(f"Generando gráficos combinados para: {', '.join(carpetas_elegidas)}")
     generate_plots_from_csvs(
         archivos_csv=todos_los_csvs,
         carpeta_img=carpeta_salida_img,

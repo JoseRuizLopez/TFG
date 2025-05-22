@@ -55,17 +55,17 @@
       "console": "integratedTerminal",
       "args": [
         "--IN",
-        "finales",
+        "finales_2",
         "--OUT",
-        "nueva_formula_mutation",
+        "comparacion_reinicio_poblacional",
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
         "-",
-        "gen_v1",
         "gen_v2-2",
+        "gen_v3",
         "--MODO",
-        "comparar",
+        "individual",
         "--MODO_PRINT",
         "juntos"
       ]
