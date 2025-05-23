@@ -53,7 +53,7 @@ if __name__ == "__main__":
     ]
 
     metric: MetricList = MetricList.ACCURACY
-    dataset_choosen: DatasetList = DatasetList.PAINTING
+    dataset_choosen: DatasetList = DatasetList.RPS
 
     resultados = []
 
