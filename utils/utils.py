@@ -9,8 +9,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import random_split
-from torchvision import models
-from torchvision.datasets import ImageFolder
+from torchvision import models, transforms
+from torchvision.datasets import ImageFolder, CIFAR10
 from torch.utils.data import DataLoader, Subset
 from torchvision.models import MobileNet_V2_Weights
 from torchvision.models import ResNet50_Weights
@@ -63,49 +63,71 @@ def generate_datasets(dataset_path, weights, dict_selection=None, batch_size=32,
     Returns:
         dict: Diccionario con los DataLoaders de train, valid y test.
     """
+    config = ConfiguracionGlobal()
+    is_cifar10 = config.dataset_name.upper() == "CIFAR10"
 
-    # Cargar el dataset completo desde la carpeta de entrenamiento
-    full_train_dataset = ImageFolder(
-        root=os.path.join(dataset_path, "train"),
-        transform=weights.transforms(),
-        is_valid_file=is_valid_image  # Filtra archivos no válidos
-    )
-    classes = full_train_dataset.classes  # Obtener las clases del dataset
+    if is_cifar10:
+        print("Cargando CIFAR-10...")
 
-    # Aplicar filtro basado en `dict_selection`
-    if dict_selection:
-        indices = [i for i, (path, _) in enumerate(full_train_dataset.samples)
-                   if dict_selection.get(os.path.relpath(path, os.path.join(dataset_path, "train")), 0) == 1]
-        filtered_train_dataset = Subset(full_train_dataset, indices)
-    else:
-        filtered_train_dataset = full_train_dataset  # Si no hay filtro, usar dataset completo
+        transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=weights.meta["mean"], std=weights.meta["std"]),
+        ])
 
-    # Comprobar si la carpeta de validación existe
-    valid_path = os.path.join(dataset_path, "valid")
+        full_train_dataset = CIFAR10(root=dataset_path, train=True, download=True, transform=transform)
+        test_dataset = CIFAR10(root=dataset_path, train=False, download=True, transform=transform)
 
-    if not os.path.exists(valid_path):
-        print("No se encontró la carpeta de validación. Creando valid set desde train...")
+        if dict_selection:
+            indices = [i for i in range(len(full_train_dataset)) if dict_selection.get(i, 0) == 1]
+            filtered_train_dataset = Subset(full_train_dataset, indices)
+        else:
+            filtered_train_dataset = full_train_dataset
 
-        train_size = int(train_split * len(filtered_train_dataset))  # 80% train
-        valid_size = len(filtered_train_dataset) - train_size  # 20% valid
-
+        train_size = int(train_split * len(filtered_train_dataset))
+        valid_size = len(filtered_train_dataset) - train_size
         train_dataset, valid_dataset = random_split(filtered_train_dataset, [train_size, valid_size])
+
+        classes = full_train_dataset.classes
+
     else:
-        print("Carpeta de validación encontrada. Cargando valid dataset...")
-
-        train_dataset = filtered_train_dataset  # Train se mantiene con el filtro aplicado
-        valid_dataset = ImageFolder(
-            root=valid_path,
+        # Dataset tradicional tipo ImageFolder
+        full_train_dataset = ImageFolder(
+            root=os.path.join(dataset_path, "train"),
             transform=weights.transforms(),
-            is_valid_file=is_valid_image  # Filtra archivos no válidos
+            is_valid_file=is_valid_image
         )
+        classes = full_train_dataset.classes
 
-    # Cargar el test dataset
-    test_dataset = ImageFolder(
-        root=os.path.join(dataset_path, "test"),
-        transform=weights.transforms(),
-        is_valid_file=is_valid_image  # Filtra archivos no válidos
-    )
+        if dict_selection:
+            indices = [i for i, (path, _) in enumerate(full_train_dataset.samples)
+                       if dict_selection.get(os.path.relpath(path, os.path.join(dataset_path, "train")), 0) == 1]
+            filtered_train_dataset = Subset(full_train_dataset, indices)
+        else:
+            filtered_train_dataset = full_train_dataset
+
+        valid_path = os.path.join(dataset_path, "valid")
+        if not os.path.exists(valid_path):
+            print("No se encontró la carpeta de validación. Creando valid set desde train...")
+
+            train_size = int(train_split * len(filtered_train_dataset))
+            valid_size = len(filtered_train_dataset) - train_size
+            train_dataset, valid_dataset = random_split(filtered_train_dataset, [train_size, valid_size])
+        else:
+            print("Carpeta de validación encontrada. Cargando valid dataset...")
+
+            train_dataset = filtered_train_dataset
+            valid_dataset = ImageFolder(
+                root=valid_path,
+                transform=weights.transforms(),
+                is_valid_file=is_valid_image
+            )
+
+        test_dataset = ImageFolder(
+            root=os.path.join(dataset_path, "test"),
+            transform=weights.transforms(),
+            is_valid_file=is_valid_image
+        )
 
     # Crear DataLoaders
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -113,7 +135,6 @@ def generate_datasets(dataset_path, weights, dict_selection=None, batch_size=32,
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
     print("Datasets cargados correctamente.")
-
     return {
         "train_loader": train_loader,
         "valid_loader": valid_loader,
@@ -326,6 +347,20 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
 
 
 def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):
+    config = ConfiguracionGlobal()
+
+    if config.dataset_name.upper() == "CIFAR10":
+        dataset = CIFAR10(root=data_dir, train=True, download=False)
+        total = len(dataset)
+
+        indices = list(range(total))
+        random.shuffle(indices)
+
+        n_select = int(total * (porcentaje_uso / 100))
+        seleccionados = set(indices[:n_select])
+
+        return {i: 1 if i in seleccionados else 0 for i in range(total)}
+
     dict_dir = {}
     archivos = []
 
@@ -392,21 +427,38 @@ def mutation(individual: dict, mutation_rate: float = 0.1) -> dict:
 
 
 def calculate_percentage_classes(selection: dict) -> dict[str, float]:
-    num_images = len(selection)  # Contar solo imágenes
-    images_selected = {key: value for key, value in selection.items() if value == 1}
+    config = ConfiguracionGlobal()
+    is_cifar10 = config.dataset_name.upper() == "CIFAR10"
 
-    if not images_selected:
-        return {"Porcentaje Final": 0.0}  # Evita división por cero
+    total_items = len(selection)
+    selected_keys = [k for k, v in selection.items() if v == 1]
 
-    percentages = {"Porcentaje Final": len(images_selected) / num_images}
-    class_counts = defaultdict(int)
+    if not selected_keys:
+        return {"Porcentaje Final": 0.0}
 
-    for key in images_selected:
-        key_path = Path(key)
-        class_name = key_path.parent.name  # Obtener la carpeta (clase) donde está la imagen
-        class_counts[class_name] += 1
+    percentages = {"Porcentaje Final": len(selected_keys) / total_items}
 
-    for class_name, count in class_counts.items():
-        percentages[f"Porcentaje {class_name.capitalize()}"] = count / len(images_selected)
+    if is_cifar10:
+        # Cargar dataset CIFAR-10 solo si hace falta
+        dataset = CIFAR10(root=config.dataset, train=True, download=False)
+        class_counts = defaultdict(int)
+
+        for idx in selected_keys:
+            _, label = dataset[idx]
+            class_name = dataset.classes[label]
+            class_counts[class_name] += 1
+
+        for class_name, count in class_counts.items():
+            percentages[f"Porcentaje {class_name.capitalize()}"] = count / len(selected_keys)
+
+    else:
+        class_counts = defaultdict(int)
+
+        for key in selected_keys:
+            class_name = Path(key).parent.name
+            class_counts[class_name] += 1
+
+        for class_name, count in class_counts.items():
+            percentages[f"Porcentaje {class_name.capitalize()}"] = count / len(selected_keys)
 
     return percentages
