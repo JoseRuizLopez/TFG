@@ -174,3 +174,5 @@ docs/out/
 .idea
 docs/capitulos/*_old.tex
 resultados_algoritmos_horizontal_con_fitness_unificado.xlsx
+data/CIFAR10/cifar-10-python.tar.gz
+data/CIFAR10/train/cifar-10-python.tar.gz
