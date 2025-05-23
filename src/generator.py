@@ -53,7 +53,11 @@ if __name__ == "__main__":
     ]
 
     metric: MetricList = MetricList.ACCURACY
+<<<<<<< HEAD
+    dataset_choosen: DatasetList = DatasetList.RPS
+=======
     dataset_choosen: DatasetList = DatasetList.CIFAR10
+>>>>>>> 02a58438d9be903241c5f595fd00550a21c8fd20
 
     resultados = []
 
