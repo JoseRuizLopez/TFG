@@ -36,10 +36,10 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [25, 50]
+    porcentajes = [10]
     evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = True
+    add_100 = False
     algoritmos = [
         AlgorithmList.ALEATORIO,
         # AlgorithmList.BUSQUEDA_LOCAL,
@@ -53,7 +53,11 @@ if __name__ == "__main__":
     ]
 
     metric: MetricList = MetricList.ACCURACY
+<<<<<<< HEAD
     dataset_choosen: DatasetList = DatasetList.RPS
+=======
+    dataset_choosen: DatasetList = DatasetList.CIFAR10
+>>>>>>> 02a58438d9be903241c5f595fd00550a21c8fd20
 
     resultados = []
 

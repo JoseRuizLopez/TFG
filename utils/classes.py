@@ -26,6 +26,7 @@ class ModelList(Enum):
 class DatasetList(Enum):
     RPS = "RPS"
     PAINTING = "PAINTING"
+    CIFAR10 = "CIFAR10"
 
 
 class PrintMode(Enum):
