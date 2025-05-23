@@ -68,11 +68,18 @@ def generate_datasets(dataset_path, weights, dict_selection=None, batch_size=32,
 
     if is_cifar10:
         print("Cargando CIFAR-10...")
+        
+        if "mean" in weights.meta and "std" in weights.meta:
+            normalize = transforms.Normalize(mean=weights.meta["mean"], std=weights.meta["std"])
+        else:
+            # Usa valores estándar para CIFAR-10 o ImageNet
+            normalize = transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
+
 
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
-            transforms.Normalize(mean=weights.meta["mean"], std=weights.meta["std"]),
+            normalize,
         ])
 
         full_train_dataset = CIFAR10(root=dataset_path, train=True, download=True, transform=transform)
@@ -350,7 +357,7 @@ def crear_dict_imagenes(data_dir: str, porcentaje_uso: int = 50):
     config = ConfiguracionGlobal()
 
     if config.dataset_name.upper() == "CIFAR10":
-        dataset = CIFAR10(root=data_dir, train=True, download=False)
+        dataset = CIFAR10(root=data_dir, train=True, download=True)
         total = len(dataset)
 
         indices = list(range(total))
