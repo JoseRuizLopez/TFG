@@ -2,15 +2,15 @@ from enum import Enum
 
 
 class AlgorithmList(Enum):
-    ALEATORIO = "aleatorio"
-    BUSQUEDA_LOCAL = "busqueda local"
-    FREE_BUSQUEDA_LOCAL = "busqueda local (libre)"
-    GENETICO = "genetico"
-    MEMETICO = "memetico"
-    FREE_MEMETICO = "memetico (libre)"
-    GENETICO2 = "genetico2"
-    FREE_GENETICO2 = "genetico2 (libre)"
-    GENETICO3 = "genetico3"
+    ALEATORIO = "RS"
+    BUSQUEDA_LOCAL = "LR"
+    FREE_BUSQUEDA_LOCAL = "LR-F"
+    GENETICO = "GEN"
+    MEMETICO = "MEM"
+    FREE_MEMETICO = "MEM-F"
+    GENETICO2 = "WC"
+    FREE_GENETICO2 = "WC-F"
+    GENETICO3 = "PR"
 
 
 class MetricList(Enum):

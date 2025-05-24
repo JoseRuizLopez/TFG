@@ -44,14 +44,14 @@ if __name__ == "__main__":
     add_100 = False
     algoritmos = [
         AlgorithmList.ALEATORIO,
-        # AlgorithmList.BUSQUEDA_LOCAL,
-        # AlgorithmList.FREE_BUSQUEDA_LOCAL,
-        # AlgorithmList.GENETICO,
-        # AlgorithmList.MEMETICO,
-        # AlgorithmList.FREE_MEMETICO,
-        # AlgorithmList.GENETICO2,
-        # AlgorithmList.FREE_GENETICO2,
-        # AlgorithmList.GENETICO3,
+        AlgorithmList.BUSQUEDA_LOCAL,
+        AlgorithmList.FREE_BUSQUEDA_LOCAL,
+        AlgorithmList.GENETICO,
+        AlgorithmList.MEMETICO,
+        AlgorithmList.FREE_MEMETICO,
+        AlgorithmList.GENETICO2,
+        AlgorithmList.FREE_GENETICO2,
+        AlgorithmList.GENETICO3,
     ]
 
     metric: MetricList = MetricList.ACCURACY
@@ -67,7 +67,7 @@ if __name__ == "__main__":
             initial_percentage=100,
             max_evaluations=1,
             max_evaluations_without_improvement=1,
-            algoritmo=AlgorithmList.ALEATORIO.value,
+            algoritmo=AlgorithmList.ALEATORIO,
             metric=metric.value,
             model_name=modelo.value
         )
@@ -86,7 +86,7 @@ if __name__ == "__main__":
                     initial_percentage=ptg,
                     max_evaluations=evaluaciones_maximas,
                     max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-                    algoritmo=alg.value,
+                    algoritmo=alg,
                     metric=metric.value,
                     model_name=modelo.value,
                     adjust_size='(libre)' in alg.value,
@@ -105,7 +105,7 @@ if __name__ == "__main__":
                     initial_percentage=random.randint(1, 100),
                     max_evaluations=evaluaciones_maximas,
                     max_evaluations_without_improvement=evaluaciones_maximas_sin_mejora,
-                    algoritmo=alg.value,
+                    algoritmo=alg,
                     metric=metric.value,
                     model_name=modelo.value,
                     adjust_size='(libre)' in alg.value,

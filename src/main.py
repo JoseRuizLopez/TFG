@@ -51,7 +51,7 @@ def main(
     initial_percentage: int = 10,
     max_evaluations: int = 10,
     max_evaluations_without_improvement: int = 10,
-    algoritmo: str = "memetico",
+    algoritmo: AlgorithmList = AlgorithmList.MEMETICO,
     metric: str = "accuracy",
     model_name: str = "resnet",
     adjust_size: bool = False
@@ -70,13 +70,13 @@ def main(
     os.makedirs(f"logs/{config.date}", exist_ok=True)
     with open(f"logs/{config.date}/evaluations_log_{config.task_id}.txt", "a") as file:
         file.write(f"\n\n---------------------------------------"
-                   f"{config.dataset_name}  {model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
+                   f"{config.dataset_name}  {model_name}  {algoritmo.name.upper()}  {str(initial_percentage)}%-------"
                    f"---------------------------------------\n\n"
                    f"Start time: {str(start)} " + "UTC\n" if os.getenv("SERVER") is not None else "\n")
         file.flush()  # Forzar la escritura inmediata al disco
 
     print(f"\n\n--------------------------------------"
-          f"{config.dataset_name}  {model_name}  {algoritmo.upper()}  {str(initial_percentage)}%-------"
+          f"{config.dataset_name}  {model_name}  {algoritmo.name.upper()}  {str(initial_percentage)}%-------"
           f"------------------------------------------")
     print("Start time: " + str(start))
 
@@ -86,7 +86,7 @@ def main(
     best_fitness_history = []
     evaluations_done = 0
     train_path = os.path.join(dataset, 'train')
-    if algoritmo == AlgorithmList.ALEATORIO.value:
+    if algoritmo == AlgorithmList.ALEATORIO:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = random_search(
             data_dir=train_path,
             initial_percentage=initial_percentage,
@@ -96,7 +96,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.BUSQUEDA_LOCAL.value or algoritmo == AlgorithmList.FREE_BUSQUEDA_LOCAL.value:
+    elif algoritmo == AlgorithmList.BUSQUEDA_LOCAL or algoritmo == AlgorithmList.FREE_BUSQUEDA_LOCAL:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = local_search(
             data_dir=train_path,
             initial_percentage=initial_percentage,
@@ -107,7 +107,7 @@ def main(
             model_name=model_name,
             adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.GENETICO.value:
+    elif algoritmo == AlgorithmList.GENETICO:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm(
             data_dir=train_path,
             population_size=10,
@@ -120,7 +120,7 @@ def main(
             model_name=model_name,
             # adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.MEMETICO.value or algoritmo == AlgorithmList.FREE_MEMETICO.value:
+    elif algoritmo == AlgorithmList.MEMETICO or algoritmo == AlgorithmList.FREE_MEMETICO:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = memetic_algorithm(
             data_dir=train_path,
             population_size=10,
@@ -136,7 +136,7 @@ def main(
             model_name=model_name,
             adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.GENETICO2.value or algoritmo == AlgorithmList.FREE_GENETICO2.value:
+    elif algoritmo == AlgorithmList.GENETICO2 or algoritmo == AlgorithmList.FREE_GENETICO2:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = genetic_algorithm2(
             data_dir=train_path,
             population_size=10,
@@ -149,7 +149,7 @@ def main(
             model_name=model_name,
             adjust_size=adjust_size
         )
-    elif algoritmo == AlgorithmList.GENETICO3.value:
+    elif algoritmo == AlgorithmList.GENETICO3:
         best_selection, best_fitness, fitness_history, best_fitness_history, evaluations_done = (
             genetic_algorithm_with_restart(
                 data_dir=train_path,
@@ -182,17 +182,17 @@ def main(
         plot_fitness_evolution(
             fitness_history=best_fitness_history if max_evaluations != 1 else best_fitness_history * 50,
             initial_percentage=initial_percentage,
-            algorithm_name=algoritmo,
+            algorithm_name=algoritmo.value,
             metric=metric,
             model=model_name,
             carpeta=carpeta
         )
-        if algoritmo == "genetico3":
+        if algoritmo == AlgorithmList.GENETICO3:
             plot_fitness_evolution(
                 fitness_history=[fit[metric.title()] for fit in fitness_history] if max_evaluations != 1
                 else [fit[metric.title()] for fit in fitness_history] * 50,
                 initial_percentage=initial_percentage,
-                algorithm_name=algoritmo,
+                algorithm_name=algoritmo.value,
                 metric=metric,
                 model=model_name,
                 carpeta=carpeta
@@ -273,7 +273,7 @@ if __name__ == "__main__":
         porcentaje_inicial,
         evaluaciones_maximas,
         evaluaciones_maximas_sin_mejora,
-        algoritmo.value,
+        algoritmo,
         metric.value,
         modelo.value
     )
