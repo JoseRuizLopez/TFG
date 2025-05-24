@@ -1,0 +1,8 @@
+Task ID recibido: 2
+GPU: True
+
+
+--------------------------------------CIFAR10  mobilenet  ALEATORIO  10%-------------------------------------------------
+Start time: 2025-05-23 13:32:13.605625
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to data/CIFAR10/train/cifar-10-python.tar.gz
+Extracting data/CIFAR10/train/cifar-10-python.tar.gz to data/CIFAR10/train
