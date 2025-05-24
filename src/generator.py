@@ -38,20 +38,20 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10]
-    evaluaciones_maximas = 2
+    porcentajes = [10, 25, 50, 75]
+    evaluaciones_maximas = 100
     evaluaciones_maximas_sin_mejora = 100
-    add_100 = False
+    add_100 = True
     algoritmos = [
-        AlgorithmList.ALEATORIO,
-        AlgorithmList.BUSQUEDA_LOCAL,
-        AlgorithmList.FREE_BUSQUEDA_LOCAL,
-        AlgorithmList.GENETICO,
+        # AlgorithmList.ALEATORIO,
+        # AlgorithmList.BUSQUEDA_LOCAL,
+        # AlgorithmList.FREE_BUSQUEDA_LOCAL,
+        # AlgorithmList.GENETICO,
         AlgorithmList.MEMETICO,
         AlgorithmList.FREE_MEMETICO,
         AlgorithmList.GENETICO2,
         AlgorithmList.FREE_GENETICO2,
-        AlgorithmList.GENETICO3,
+        # AlgorithmList.GENETICO3,
     ]
 
     metric: MetricList = MetricList.ACCURACY
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         resultados.append(
             result | {
                 "Porcentaje Inicial": 1,
-                "Algoritmo": '-'
+                "Algoritmo": '100%'
             }
         )
 
