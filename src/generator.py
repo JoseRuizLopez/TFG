@@ -6,6 +6,8 @@ import torch
 import polars as pl
 import argparse
 
+from torchvision.datasets import CIFAR10
+
 from src.main import main
 from utils.classes import AlgorithmList
 from utils.classes import DatasetList
@@ -37,7 +39,7 @@ if __name__ == "__main__":
 
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10]
-    evaluaciones_maximas = 100
+    evaluaciones_maximas = 2
     evaluaciones_maximas_sin_mejora = 100
     add_100 = False
     algoritmos = [
@@ -126,11 +128,17 @@ if __name__ == "__main__":
         "F1-score": pl.Float64,
         "Evaluaciones Realizadas": pl.Int32,
         "Porcentaje Final": pl.Float64,  # len(images_selected) / num_images
-    } | {
-        "Porcentaje " + name.capitalize(): pl.Float64
-        for name in os.listdir(config.dataset + '/train')
-        if os.path.isdir(os.path.join(config.dataset + '/train', name))
     }
+
+    if config.dataset_name.upper() == "CIFAR10":
+        cifar_classes = CIFAR10(root=config.dataset, train=True, download=False).classes
+        schema |= {"Porcentaje " + name.capitalize(): pl.Float64 for name in cifar_classes}
+    else:
+        schema |= {
+            "Porcentaje " + name.capitalize(): pl.Float64
+            for name in os.listdir(config.dataset + '/train')
+            if os.path.isdir(os.path.join(config.dataset + '/train', name))
+        }
 
     df = pl.DataFrame(resultados, schema=schema).with_columns(
         pl.col(pl.Float64).round(4)
