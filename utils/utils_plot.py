@@ -11,6 +11,10 @@ import polars as pl
 from utils.classes import PrintMode
 
 
+
+ORDEN_ALGORITMOS = ["RS", "LR", "LR-F", "GEN", "WC", "WC-F", "PR", "MEM", "MEM-F"]
+
+
 def plot_fitness_evolution(
     fitness_history: List[float],
     initial_percentage: int,
@@ -129,9 +133,9 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     categorias = df[eje_x].dropna().unique()
     try:
         # Si se pueden convertir a int, orden numérico
-        orden_x = sorted(categorias, key=lambda x: int(x))
+        orden_x = sorted(categorias, key=lambda x: float(x))
     except ValueError:
-        orden_x = sorted(categorias)
+        orden_x = [alg for alg in ORDEN_ALGORITMOS if alg in categorias]
 
     plt.figure(figsize=(12, 6))
     ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
@@ -208,7 +212,7 @@ def plot_porcentajes_por_algoritmo(
             return
 
         df_melt, hue_col, titulo = preparar(subset_df)
-        orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+        orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
         plt.figure(figsize=(10, 6))
         sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
@@ -231,7 +235,7 @@ def plot_porcentajes_por_algoritmo(
                 continue
 
             df_melt, hue_col, titulo = preparar(subset_df)
-            orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+            orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
             sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
                         order=orden_algoritmos, errorbar=None, ax=ax)
@@ -245,7 +249,7 @@ def plot_porcentajes_por_algoritmo(
 
     elif modo == PrintMode.JUNTOS:
         df_melt, hue_col, titulo = preparar(df)
-        orden_algoritmos = sorted(df_melt["Algoritmo"].unique(), key=sort_natural)
+        orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
         plt.figure(figsize=(10, 6))
         sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
