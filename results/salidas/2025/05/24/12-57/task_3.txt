@@ -1,0 +1,530 @@
+Task ID recibido: 3
+GPU: True
+
+
+--------------------------------------CIFAR10  mobilenet  ALEATORIO  10%-------------------------------------------------
+Start time: 2025-05-24 10:58:05.508373
+Files already downloaded and verified
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.00 MB
+Cargando CIFAR-10...
+Files already downloaded and verified
+Files already downloaded and verified
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/125, Loss: 2.1459
+Epoch 1/10, Batch 20/125, Loss: 1.9473
+Epoch 1/10, Batch 30/125, Loss: 1.8421
+Epoch 1/10, Batch 40/125, Loss: 1.7119
+Epoch 1/10, Batch 50/125, Loss: 1.6440
+Epoch 1/10, Batch 60/125, Loss: 1.3977
+Epoch 1/10, Batch 70/125, Loss: 1.3404
+Epoch 1/10, Batch 80/125, Loss: 1.4454
+Epoch 1/10, Batch 90/125, Loss: 1.3123
+Epoch 1/10, Batch 100/125, Loss: 1.3277
+Epoch 1/10, Batch 110/125, Loss: 1.1978
+Epoch 1/10, Batch 120/125, Loss: 1.3118
+Epoch 1/10, Train Loss: 1.5862, Valid Loss: 1.1559
+Model saved!
+Epoch 2/10, Batch 10/125, Loss: 0.8644
+Epoch 2/10, Batch 20/125, Loss: 1.0302
+Epoch 2/10, Batch 30/125, Loss: 1.0908
+Epoch 2/10, Batch 40/125, Loss: 1.0888
+Epoch 2/10, Batch 50/125, Loss: 1.0939
+Epoch 2/10, Batch 60/125, Loss: 1.0037
+Epoch 2/10, Batch 70/125, Loss: 1.1962
+Epoch 2/10, Batch 80/125, Loss: 0.8922
+Epoch 2/10, Batch 90/125, Loss: 0.9495
+Epoch 2/10, Batch 100/125, Loss: 1.0666
+Epoch 2/10, Batch 110/125, Loss: 1.0564
+Epoch 2/10, Batch 120/125, Loss: 0.9607
+Epoch 2/10, Train Loss: 1.0524, Valid Loss: 0.9708
+Model saved!
+Epoch 3/10, Batch 10/125, Loss: 0.9881
+Epoch 3/10, Batch 20/125, Loss: 0.8579
+Epoch 3/10, Batch 30/125, Loss: 0.9092
+Epoch 3/10, Batch 40/125, Loss: 0.9093
+Epoch 3/10, Batch 50/125, Loss: 0.9655
+Epoch 3/10, Batch 60/125, Loss: 0.7873
+Epoch 3/10, Batch 70/125, Loss: 0.8969
+Epoch 3/10, Batch 80/125, Loss: 1.0745
+Epoch 3/10, Batch 90/125, Loss: 0.6634
+Epoch 3/10, Batch 100/125, Loss: 0.6677
+Epoch 3/10, Batch 110/125, Loss: 0.7025
+Epoch 3/10, Batch 120/125, Loss: 0.7674
+Epoch 3/10, Train Loss: 0.9103, Valid Loss: 0.8730
+Model saved!
+Epoch 4/10, Batch 10/125, Loss: 0.8066
+Epoch 4/10, Batch 20/125, Loss: 1.1443
+Epoch 4/10, Batch 30/125, Loss: 1.0029
+Epoch 4/10, Batch 40/125, Loss: 0.7729
+Epoch 4/10, Batch 50/125, Loss: 0.8926
+Epoch 4/10, Batch 60/125, Loss: 0.7573
+Epoch 4/10, Batch 70/125, Loss: 0.7227
+Epoch 4/10, Batch 80/125, Loss: 0.3966
+Epoch 4/10, Batch 90/125, Loss: 1.0260
+Epoch 4/10, Batch 100/125, Loss: 0.9543
+Epoch 4/10, Batch 110/125, Loss: 0.9479
+Epoch 4/10, Batch 120/125, Loss: 0.7542
+Epoch 4/10, Train Loss: 0.8324, Valid Loss: 0.8307
+Model saved!
+Epoch 5/10, Batch 10/125, Loss: 0.7677
+Epoch 5/10, Batch 20/125, Loss: 0.5435
+Epoch 5/10, Batch 30/125, Loss: 0.9901
+Epoch 5/10, Batch 40/125, Loss: 0.8678
+Epoch 5/10, Batch 50/125, Loss: 0.7392
+Epoch 5/10, Batch 60/125, Loss: 0.7455
+Epoch 5/10, Batch 70/125, Loss: 0.9290
+Epoch 5/10, Batch 80/125, Loss: 0.5057
+Epoch 5/10, Batch 90/125, Loss: 0.6077
+Epoch 5/10, Batch 100/125, Loss: 0.8608
+Epoch 5/10, Batch 110/125, Loss: 0.8192
+Epoch 5/10, Batch 120/125, Loss: 0.7331
+Epoch 5/10, Train Loss: 0.7846, Valid Loss: 0.8222
+Model saved!
+Epoch 6/10, Batch 10/125, Loss: 0.7249
+Epoch 6/10, Batch 20/125, Loss: 0.3926
+Epoch 6/10, Batch 30/125, Loss: 0.7070
+Epoch 6/10, Batch 40/125, Loss: 0.4537
+Epoch 6/10, Batch 50/125, Loss: 0.8271
+Epoch 6/10, Batch 60/125, Loss: 0.7580
+Epoch 6/10, Batch 70/125, Loss: 0.7016
+Epoch 6/10, Batch 80/125, Loss: 0.7899
+Epoch 6/10, Batch 90/125, Loss: 0.7604
+Epoch 6/10, Batch 100/125, Loss: 0.6511
+Epoch 6/10, Batch 110/125, Loss: 0.9039
+Epoch 6/10, Batch 120/125, Loss: 0.6537
+Epoch 6/10, Train Loss: 0.7456, Valid Loss: 0.8025
+Model saved!
+Epoch 7/10, Batch 10/125, Loss: 0.5445
+Epoch 7/10, Batch 20/125, Loss: 0.6316
+Epoch 7/10, Batch 30/125, Loss: 0.6372
+Epoch 7/10, Batch 40/125, Loss: 0.6444
+Epoch 7/10, Batch 50/125, Loss: 0.6294
+Epoch 7/10, Batch 60/125, Loss: 0.7826
+Epoch 7/10, Batch 70/125, Loss: 0.7806
+Epoch 7/10, Batch 80/125, Loss: 0.8252
+Epoch 7/10, Batch 90/125, Loss: 0.9357
+Epoch 7/10, Batch 100/125, Loss: 0.5780
+Epoch 7/10, Batch 110/125, Loss: 0.6658
+Epoch 7/10, Batch 120/125, Loss: 0.9530
+Epoch 7/10, Train Loss: 0.7070, Valid Loss: 0.7745
+Model saved!
+Epoch 8/10, Batch 10/125, Loss: 0.5744
+Epoch 8/10, Batch 20/125, Loss: 0.6209
+Epoch 8/10, Batch 30/125, Loss: 0.9109
+Epoch 8/10, Batch 40/125, Loss: 0.5811
+Epoch 8/10, Batch 50/125, Loss: 0.4832
+Epoch 8/10, Batch 60/125, Loss: 0.9508
+Epoch 8/10, Batch 70/125, Loss: 0.7682
+Epoch 8/10, Batch 80/125, Loss: 0.5014
+Epoch 8/10, Batch 90/125, Loss: 0.6992
+Epoch 8/10, Batch 100/125, Loss: 0.7217
+Epoch 8/10, Batch 110/125, Loss: 0.6405
+Epoch 8/10, Batch 120/125, Loss: 0.7469
+Epoch 8/10, Train Loss: 0.6750, Valid Loss: 0.7627
+Model saved!
+Epoch 9/10, Batch 10/125, Loss: 0.6638
+Epoch 9/10, Batch 20/125, Loss: 0.6411
+Epoch 9/10, Batch 30/125, Loss: 0.4673
+Epoch 9/10, Batch 40/125, Loss: 0.6033
+Epoch 9/10, Batch 50/125, Loss: 0.7110
+Epoch 9/10, Batch 60/125, Loss: 0.4332
+Epoch 9/10, Batch 70/125, Loss: 0.4720
+Epoch 9/10, Batch 80/125, Loss: 0.6396
+Epoch 9/10, Batch 90/125, Loss: 0.4577
+Epoch 9/10, Batch 100/125, Loss: 0.4926
+Epoch 9/10, Batch 110/125, Loss: 0.6522
+Epoch 9/10, Batch 120/125, Loss: 0.6652
+Epoch 9/10, Train Loss: 0.6663, Valid Loss: 0.7546
+Model saved!
+Epoch 10/10, Batch 10/125, Loss: 0.9005
+Epoch 10/10, Batch 20/125, Loss: 0.5648
+Epoch 10/10, Batch 30/125, Loss: 0.5716
+Epoch 10/10, Batch 40/125, Loss: 0.5825
+Epoch 10/10, Batch 50/125, Loss: 0.7080
+Epoch 10/10, Batch 60/125, Loss: 0.9619
+Epoch 10/10, Batch 70/125, Loss: 0.6420
+Epoch 10/10, Batch 80/125, Loss: 0.6491
+Epoch 10/10, Batch 90/125, Loss: 0.7425
+Epoch 10/10, Batch 100/125, Loss: 0.4006
+Epoch 10/10, Batch 110/125, Loss: 0.7080
+Epoch 10/10, Batch 120/125, Loss: 0.4855
+Epoch 10/10, Train Loss: 0.6591, Valid Loss: 0.7711
+Accuracy: 0.7342
+Precision: 0.7359
+Recall: 0.7342
+F1-score: 0.7337
+Porcentaje Final: 0.1000
+Porcentaje Truck: 0.0986
+Porcentaje Deer: 0.1114
+Porcentaje Frog: 0.1012
+Porcentaje Cat: 0.1004
+Porcentaje Automobile: 0.0982
+Porcentaje Dog: 0.0970
+Porcentaje Ship: 0.0974
+Porcentaje Airplane: 0.1056
+Porcentaje Horse: 0.0970
+Porcentaje Bird: 0.0932
+Memory Allocated after cleanup: 17.88 MB
+Nueva mejor solución encontrada en evaluación 1. Fitness: 0.7342
+Files already downloaded and verified
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Cargando CIFAR-10...
+Files already downloaded and verified
+Files already downloaded and verified
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/125, Loss: 2.1692
+Epoch 1/10, Batch 20/125, Loss: 1.9884
+Epoch 1/10, Batch 30/125, Loss: 1.7467
+Epoch 1/10, Batch 40/125, Loss: 1.8680
+Epoch 1/10, Batch 50/125, Loss: 1.5432
+Epoch 1/10, Batch 60/125, Loss: 1.6868
+Epoch 1/10, Batch 70/125, Loss: 1.5787
+Epoch 1/10, Batch 80/125, Loss: 1.3598
+Epoch 1/10, Batch 90/125, Loss: 1.2170
+Epoch 1/10, Batch 100/125, Loss: 1.3122
+Epoch 1/10, Batch 110/125, Loss: 1.2735
+Epoch 1/10, Batch 120/125, Loss: 1.3525
+Epoch 1/10, Train Loss: 1.6071, Valid Loss: 1.1351
+Model saved!
+Epoch 2/10, Batch 10/125, Loss: 1.1845
+Epoch 2/10, Batch 20/125, Loss: 1.2117
+Epoch 2/10, Batch 30/125, Loss: 0.9588
+Epoch 2/10, Batch 40/125, Loss: 1.0293
+Epoch 2/10, Batch 50/125, Loss: 1.2798
+Epoch 2/10, Batch 60/125, Loss: 1.0468
+Epoch 2/10, Batch 70/125, Loss: 1.0129
+Epoch 2/10, Batch 80/125, Loss: 0.9841
+Epoch 2/10, Batch 90/125, Loss: 1.0983
+Epoch 2/10, Batch 100/125, Loss: 0.9869
+Epoch 2/10, Batch 110/125, Loss: 1.1841
+Epoch 2/10, Batch 120/125, Loss: 1.0685
+Epoch 2/10, Train Loss: 1.0712, Valid Loss: 0.9366
+Model saved!
+Epoch 3/10, Batch 10/125, Loss: 0.9549
+Epoch 3/10, Batch 20/125, Loss: 0.9697
+Epoch 3/10, Batch 30/125, Loss: 0.8575
+Epoch 3/10, Batch 40/125, Loss: 0.7322
+Epoch 3/10, Batch 50/125, Loss: 0.8580
+Epoch 3/10, Batch 60/125, Loss: 0.7101
+Epoch 3/10, Batch 70/125, Loss: 0.8830
+Epoch 3/10, Batch 80/125, Loss: 1.0149
+Epoch 3/10, Batch 90/125, Loss: 0.8684
+Epoch 3/10, Batch 100/125, Loss: 1.0137
+Epoch 3/10, Batch 110/125, Loss: 0.8785
+Epoch 3/10, Batch 120/125, Loss: 0.6923
+Epoch 3/10, Train Loss: 0.9077, Valid Loss: 0.8740
+Model saved!
+Epoch 4/10, Batch 10/125, Loss: 0.9073
+Epoch 4/10, Batch 20/125, Loss: 0.7125
+Epoch 4/10, Batch 30/125, Loss: 1.0906
+Epoch 4/10, Batch 40/125, Loss: 0.9264
+Epoch 4/10, Batch 50/125, Loss: 1.0397
+Epoch 4/10, Batch 60/125, Loss: 0.7465
+Epoch 4/10, Batch 70/125, Loss: 0.8125
+Epoch 4/10, Batch 80/125, Loss: 0.9872
+Epoch 4/10, Batch 90/125, Loss: 0.7206
+Epoch 4/10, Batch 100/125, Loss: 0.7686
+Epoch 4/10, Batch 110/125, Loss: 0.8553
+Epoch 4/10, Batch 120/125, Loss: 0.7451
+Epoch 4/10, Train Loss: 0.8497, Valid Loss: 0.8312
+Model saved!
+Epoch 5/10, Batch 10/125, Loss: 0.6960
+Epoch 5/10, Batch 20/125, Loss: 0.7992
+Epoch 5/10, Batch 30/125, Loss: 0.8171
+Epoch 5/10, Batch 40/125, Loss: 0.8233
+Epoch 5/10, Batch 50/125, Loss: 0.9068
+Epoch 5/10, Batch 60/125, Loss: 0.9354
+Epoch 5/10, Batch 70/125, Loss: 0.8483
+Epoch 5/10, Batch 80/125, Loss: 0.7784
+Epoch 5/10, Batch 90/125, Loss: 0.9165
+Epoch 5/10, Batch 100/125, Loss: 1.0137
+Epoch 5/10, Batch 110/125, Loss: 0.8400
+Epoch 5/10, Batch 120/125, Loss: 0.8058
+Epoch 5/10, Train Loss: 0.7932, Valid Loss: 0.8128
+Model saved!
+Epoch 6/10, Batch 10/125, Loss: 0.7379
+Epoch 6/10, Batch 20/125, Loss: 0.6002
+Epoch 6/10, Batch 30/125, Loss: 0.9761
+Epoch 6/10, Batch 40/125, Loss: 0.7171
+Epoch 6/10, Batch 50/125, Loss: 0.7560
+Epoch 6/10, Batch 60/125, Loss: 0.8886
+Epoch 6/10, Batch 70/125, Loss: 0.7126
+Epoch 6/10, Batch 80/125, Loss: 0.6878
+Epoch 6/10, Batch 90/125, Loss: 0.9477
+Epoch 6/10, Batch 100/125, Loss: 0.6749
+Epoch 6/10, Batch 110/125, Loss: 0.8901
+Epoch 6/10, Batch 120/125, Loss: 0.9325
+Epoch 6/10, Train Loss: 0.7401, Valid Loss: 0.7947
+Model saved!
+Epoch 7/10, Batch 10/125, Loss: 0.8604
+Epoch 7/10, Batch 20/125, Loss: 0.5005
+Epoch 7/10, Batch 30/125, Loss: 0.7576
+Epoch 7/10, Batch 40/125, Loss: 1.0314
+Epoch 7/10, Batch 50/125, Loss: 0.6019
+Epoch 7/10, Batch 60/125, Loss: 0.6020
+Epoch 7/10, Batch 70/125, Loss: 0.4373
+Epoch 7/10, Batch 80/125, Loss: 0.6335
+Epoch 7/10, Batch 90/125, Loss: 0.7232
+Epoch 7/10, Batch 100/125, Loss: 0.6628
+Epoch 7/10, Batch 110/125, Loss: 0.4801
+Epoch 7/10, Batch 120/125, Loss: 0.4904
+Epoch 7/10, Train Loss: 0.7138, Valid Loss: 0.7886
+Model saved!
+Epoch 8/10, Batch 10/125, Loss: 0.7258
+Epoch 8/10, Batch 20/125, Loss: 0.5578
+Epoch 8/10, Batch 30/125, Loss: 0.5463
+Epoch 8/10, Batch 40/125, Loss: 0.5437
+Epoch 8/10, Batch 50/125, Loss: 0.5487
+Epoch 8/10, Batch 60/125, Loss: 0.7427
+Epoch 8/10, Batch 70/125, Loss: 0.8442
+Epoch 8/10, Batch 80/125, Loss: 0.8103
+Epoch 8/10, Batch 90/125, Loss: 0.6827
+Epoch 8/10, Batch 100/125, Loss: 0.6435
+Epoch 8/10, Batch 110/125, Loss: 0.5163
+Epoch 8/10, Batch 120/125, Loss: 0.4734
+Epoch 8/10, Train Loss: 0.6887, Valid Loss: 0.7770
+Model saved!
+Epoch 9/10, Batch 10/125, Loss: 0.5341
+Epoch 9/10, Batch 20/125, Loss: 0.8018
+Epoch 9/10, Batch 30/125, Loss: 0.5677
+Epoch 9/10, Batch 40/125, Loss: 0.7017
+Epoch 9/10, Batch 50/125, Loss: 0.8033
+Epoch 9/10, Batch 60/125, Loss: 0.5371
+Epoch 9/10, Batch 70/125, Loss: 0.5846
+Epoch 9/10, Batch 80/125, Loss: 0.7677
+Epoch 9/10, Batch 90/125, Loss: 0.4101
+Epoch 9/10, Batch 100/125, Loss: 0.6468
+Epoch 9/10, Batch 110/125, Loss: 0.8660
+Epoch 9/10, Batch 120/125, Loss: 0.7102
+Epoch 9/10, Train Loss: 0.6846, Valid Loss: 0.7687
+Model saved!
+Epoch 10/10, Batch 10/125, Loss: 0.5186
+Epoch 10/10, Batch 20/125, Loss: 0.7225
+Epoch 10/10, Batch 30/125, Loss: 0.7017
+Epoch 10/10, Batch 40/125, Loss: 0.8049
+Epoch 10/10, Batch 50/125, Loss: 0.9239
+Epoch 10/10, Batch 60/125, Loss: 0.5279
+Epoch 10/10, Batch 70/125, Loss: 0.5312
+Epoch 10/10, Batch 80/125, Loss: 0.5128
+Epoch 10/10, Batch 90/125, Loss: 0.5477
+Epoch 10/10, Batch 100/125, Loss: 0.6540
+Epoch 10/10, Batch 110/125, Loss: 0.5310
+Epoch 10/10, Batch 120/125, Loss: 1.0312
+Epoch 10/10, Train Loss: 0.6513, Valid Loss: 0.7682
+Model saved!
+Accuracy: 0.7298
+Precision: 0.7305
+Recall: 0.7298
+F1-score: 0.7285
+Porcentaje Final: 0.1000
+Porcentaje Automobile: 0.1036
+Porcentaje Truck: 0.1040
+Porcentaje Cat: 0.0942
+Porcentaje Horse: 0.0970
+Porcentaje Airplane: 0.1060
+Porcentaje Dog: 0.0990
+Porcentaje Ship: 0.0964
+Porcentaje Frog: 0.1088
+Porcentaje Deer: 0.0966
+Porcentaje Bird: 0.0944
+Memory Allocated after cleanup: 17.88 MB
+End time: 2025-05-24 11:04:06.157186
+Duration: 0:06:00
+
+
+Mejor accuracy al acabar el algoritmo: 0.7342
+
+
+Fitness check:
+
+Using device: cuda
+GPU: NVIDIA TITAN X (Pascal)
+Memory Allocated: 0.25 MB
+Cargando CIFAR-10...
+Files already downloaded and verified
+Files already downloaded and verified
+Datasets cargados correctamente.
+Using device: cuda
+Epoch 1/10, Batch 10/125, Loss: 2.1459
+Epoch 1/10, Batch 20/125, Loss: 1.9473
+Epoch 1/10, Batch 30/125, Loss: 1.8421
+Epoch 1/10, Batch 40/125, Loss: 1.7119
+Epoch 1/10, Batch 50/125, Loss: 1.6440
+Epoch 1/10, Batch 60/125, Loss: 1.3977
+Epoch 1/10, Batch 70/125, Loss: 1.3404
+Epoch 1/10, Batch 80/125, Loss: 1.4454
+Epoch 1/10, Batch 90/125, Loss: 1.3123
+Epoch 1/10, Batch 100/125, Loss: 1.3277
+Epoch 1/10, Batch 110/125, Loss: 1.1978
+Epoch 1/10, Batch 120/125, Loss: 1.3118
+Epoch 1/10, Train Loss: 1.5862, Valid Loss: 1.1559
+Model saved!
+Epoch 2/10, Batch 10/125, Loss: 0.8644
+Epoch 2/10, Batch 20/125, Loss: 1.0302
+Epoch 2/10, Batch 30/125, Loss: 1.0908
+Epoch 2/10, Batch 40/125, Loss: 1.0888
+Epoch 2/10, Batch 50/125, Loss: 1.0939
+Epoch 2/10, Batch 60/125, Loss: 1.0037
+Epoch 2/10, Batch 70/125, Loss: 1.1962
+Epoch 2/10, Batch 80/125, Loss: 0.8922
+Epoch 2/10, Batch 90/125, Loss: 0.9495
+Epoch 2/10, Batch 100/125, Loss: 1.0666
+Epoch 2/10, Batch 110/125, Loss: 1.0564
+Epoch 2/10, Batch 120/125, Loss: 0.9607
+Epoch 2/10, Train Loss: 1.0524, Valid Loss: 0.9708
+Model saved!
+Epoch 3/10, Batch 10/125, Loss: 0.9881
+Epoch 3/10, Batch 20/125, Loss: 0.8579
+Epoch 3/10, Batch 30/125, Loss: 0.9092
+Epoch 3/10, Batch 40/125, Loss: 0.9093
+Epoch 3/10, Batch 50/125, Loss: 0.9655
+Epoch 3/10, Batch 60/125, Loss: 0.7873
+Epoch 3/10, Batch 70/125, Loss: 0.8969
+Epoch 3/10, Batch 80/125, Loss: 1.0745
+Epoch 3/10, Batch 90/125, Loss: 0.6634
+Epoch 3/10, Batch 100/125, Loss: 0.6677
+Epoch 3/10, Batch 110/125, Loss: 0.7025
+Epoch 3/10, Batch 120/125, Loss: 0.7674
+Epoch 3/10, Train Loss: 0.9103, Valid Loss: 0.8730
+Model saved!
+Epoch 4/10, Batch 10/125, Loss: 0.8066
+Epoch 4/10, Batch 20/125, Loss: 1.1443
+Epoch 4/10, Batch 30/125, Loss: 1.0029
+Epoch 4/10, Batch 40/125, Loss: 0.7729
+Epoch 4/10, Batch 50/125, Loss: 0.8926
+Epoch 4/10, Batch 60/125, Loss: 0.7573
+Epoch 4/10, Batch 70/125, Loss: 0.7227
+Epoch 4/10, Batch 80/125, Loss: 0.3966
+Epoch 4/10, Batch 90/125, Loss: 1.0260
+Epoch 4/10, Batch 100/125, Loss: 0.9543
+Epoch 4/10, Batch 110/125, Loss: 0.9479
+Epoch 4/10, Batch 120/125, Loss: 0.7542
+Epoch 4/10, Train Loss: 0.8324, Valid Loss: 0.8307
+Model saved!
+Epoch 5/10, Batch 10/125, Loss: 0.7677
+Epoch 5/10, Batch 20/125, Loss: 0.5435
+Epoch 5/10, Batch 30/125, Loss: 0.9901
+Epoch 5/10, Batch 40/125, Loss: 0.8678
+Epoch 5/10, Batch 50/125, Loss: 0.7392
+Epoch 5/10, Batch 60/125, Loss: 0.7455
+Epoch 5/10, Batch 70/125, Loss: 0.9290
+Epoch 5/10, Batch 80/125, Loss: 0.5057
+Epoch 5/10, Batch 90/125, Loss: 0.6077
+Epoch 5/10, Batch 100/125, Loss: 0.8608
+Epoch 5/10, Batch 110/125, Loss: 0.8192
+Epoch 5/10, Batch 120/125, Loss: 0.7331
+Epoch 5/10, Train Loss: 0.7846, Valid Loss: 0.8222
+Model saved!
+Epoch 6/10, Batch 10/125, Loss: 0.7249
+Epoch 6/10, Batch 20/125, Loss: 0.3926
+Epoch 6/10, Batch 30/125, Loss: 0.7070
+Epoch 6/10, Batch 40/125, Loss: 0.4537
+Epoch 6/10, Batch 50/125, Loss: 0.8271
+Epoch 6/10, Batch 60/125, Loss: 0.7580
+Epoch 6/10, Batch 70/125, Loss: 0.7016
+Epoch 6/10, Batch 80/125, Loss: 0.7899
+Epoch 6/10, Batch 90/125, Loss: 0.7604
+Epoch 6/10, Batch 100/125, Loss: 0.6511
+Epoch 6/10, Batch 110/125, Loss: 0.9039
+Epoch 6/10, Batch 120/125, Loss: 0.6537
+Epoch 6/10, Train Loss: 0.7456, Valid Loss: 0.8025
+Model saved!
+Epoch 7/10, Batch 10/125, Loss: 0.5445
+Epoch 7/10, Batch 20/125, Loss: 0.6316
+Epoch 7/10, Batch 30/125, Loss: 0.6372
+Epoch 7/10, Batch 40/125, Loss: 0.6444
+Epoch 7/10, Batch 50/125, Loss: 0.6294
+Epoch 7/10, Batch 60/125, Loss: 0.7826
+Epoch 7/10, Batch 70/125, Loss: 0.7806
+Epoch 7/10, Batch 80/125, Loss: 0.8252
+Epoch 7/10, Batch 90/125, Loss: 0.9357
+Epoch 7/10, Batch 100/125, Loss: 0.5780
+Epoch 7/10, Batch 110/125, Loss: 0.6658
+Epoch 7/10, Batch 120/125, Loss: 0.9530
+Epoch 7/10, Train Loss: 0.7070, Valid Loss: 0.7745
+Model saved!
+Epoch 8/10, Batch 10/125, Loss: 0.5744
+Epoch 8/10, Batch 20/125, Loss: 0.6209
+Epoch 8/10, Batch 30/125, Loss: 0.9109
+Epoch 8/10, Batch 40/125, Loss: 0.5811
+Epoch 8/10, Batch 50/125, Loss: 0.4832
+Epoch 8/10, Batch 60/125, Loss: 0.9508
+Epoch 8/10, Batch 70/125, Loss: 0.7682
+Epoch 8/10, Batch 80/125, Loss: 0.5014
+Epoch 8/10, Batch 90/125, Loss: 0.6992
+Epoch 8/10, Batch 100/125, Loss: 0.7217
+Epoch 8/10, Batch 110/125, Loss: 0.6405
+Epoch 8/10, Batch 120/125, Loss: 0.7469
+Epoch 8/10, Train Loss: 0.6750, Valid Loss: 0.7627
+Model saved!
+Epoch 9/10, Batch 10/125, Loss: 0.6638
+Epoch 9/10, Batch 20/125, Loss: 0.6411
+Epoch 9/10, Batch 30/125, Loss: 0.4673
+Epoch 9/10, Batch 40/125, Loss: 0.6033
+Epoch 9/10, Batch 50/125, Loss: 0.7110
+Epoch 9/10, Batch 60/125, Loss: 0.4332
+Epoch 9/10, Batch 70/125, Loss: 0.4720
+Epoch 9/10, Batch 80/125, Loss: 0.6396
+Epoch 9/10, Batch 90/125, Loss: 0.4577
+Epoch 9/10, Batch 100/125, Loss: 0.4926
+Epoch 9/10, Batch 110/125, Loss: 0.6522
+Epoch 9/10, Batch 120/125, Loss: 0.6652
+Epoch 9/10, Train Loss: 0.6663, Valid Loss: 0.7546
+Model saved!
+Epoch 10/10, Batch 10/125, Loss: 0.9005
+Epoch 10/10, Batch 20/125, Loss: 0.5648
+Epoch 10/10, Batch 30/125, Loss: 0.5716
+Epoch 10/10, Batch 40/125, Loss: 0.5825
+Epoch 10/10, Batch 50/125, Loss: 0.7080
+Epoch 10/10, Batch 60/125, Loss: 0.9619
+Epoch 10/10, Batch 70/125, Loss: 0.6420
+Epoch 10/10, Batch 80/125, Loss: 0.6491
+Epoch 10/10, Batch 90/125, Loss: 0.7425
+Epoch 10/10, Batch 100/125, Loss: 0.4006
+Epoch 10/10, Batch 110/125, Loss: 0.7080
+Epoch 10/10, Batch 120/125, Loss: 0.4855
+Epoch 10/10, Train Loss: 0.6591, Valid Loss: 0.7711
+Accuracy: 0.7342
+Precision: 0.7359
+Recall: 0.7342
+F1-score: 0.7337
+Porcentaje Final: 0.1000
+Porcentaje Truck: 0.0986
+Porcentaje Deer: 0.1114
+Porcentaje Frog: 0.1012
+Porcentaje Cat: 0.1004
+Porcentaje Automobile: 0.0982
+Porcentaje Dog: 0.0970
+Porcentaje Ship: 0.0974
+Porcentaje Airplane: 0.1056
+Porcentaje Horse: 0.0970
+Porcentaje Bird: 0.0932
+Memory Allocated after cleanup: 17.88 MB
+
+
+Mejor accuracy encontrado: 0.7342
+Los resultados obtenidos son: 
+Accuracy: 0.7342
+Precision: 0.7359
+Recall: 0.7342
+F1-score: 0.7337
+Duracion: 0:06:00
+Evaluaciones Realizadas: 2.0000
+Porcentaje Final: 0.1000
+Porcentaje Truck: 0.0986
+Porcentaje Deer: 0.1114
+Porcentaje Frog: 0.1012
+Porcentaje Cat: 0.1004
+Porcentaje Automobile: 0.0982
+Porcentaje Dog: 0.0970
+Porcentaje Ship: 0.0974
+Porcentaje Airplane: 0.1056
+Porcentaje Horse: 0.0970
+Porcentaje Bird: 0.0932
+Se ha generado el CSV con los resultados correctamente.
