@@ -1,9 +1,9 @@
 % !TeX root = ../proyecto.tex
 
 \chapter{Entorno de Pruebas}\label{ch:entorno_de_pruebas}
-En este capítiulo se describe el entorno de pruebas utilizado para evaluar las pruebas realizadas.
-Además, se detallan los datasets empleados, el diseño de los experimentos y el procedimiento de ejecución y evaluación,
-junto a como se expresan y muestran los resultados obtenidos.
+En este capítulo se describe el entorno experimental empleado para evaluar los algoritmos propuestos.
+Se detallan los conjuntos de datos utilizados, el diseño de los experimentos, el procedimiento de ejecución y las métricas de evaluación.
+Asimismo, se explica cómo se presentan y visualizan los resultados obtenidos.
 
 
 \section{Datasets utilizados}\label{sec:datasets}
@@ -111,7 +111,7 @@ propósitos.
 \subsubsection{Licencia y uso}
 Este conjunto de datos se distribuye bajo la licencia
 \textbf{Creative Commons Attribution 4.0 International (CC BY 4.0)}, lo que permite su uso, modificación y distribución
-con la condición de otorgar el crédito adecuado a los creadores originales~\cite{moroneyLaurenceMoroneyAI}.
+con la condición de otorgar el crédito adecuado a los creadores originales.
 
 
 \subsection{\texttt{PAINTING} (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
@@ -328,3 +328,35 @@ dependiendo del algoritmo y del modelo utilizado.
 
 Los algoritmos más complejos, como el memético o las versiones con reinicio poblacional,
 requerían un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
+
+
+\section{Nomenclatura simplificada de los algoritmos}
+Para facilitar la lectura de las tablas y gráficos presentados a lo largo de este trabajo, 
+se ha optado por utilizar abreviaciones consistentes para referirse a los algoritmos implementados.
+Estas abreviaciones permiten condensar la información visualmente sin perder la claridad en la interpretación de los resultados.
+
+La correspondencia entre el nombre completo de cada algoritmo y su abreviatura se muestra en la Tabla~\ref{tab:nombres-algoritmos}.
+
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Nombre Completo del Algoritmo}                 & \textbf{Abreviatura} \\
+        \midrule
+        Aleatorio (Random Search)                              & RS                   \\
+        Búsqueda Local (Local Search)                          & LR                   \\
+        Búsqueda Local Libre                                   & LR-F                 \\
+        Algoritmo Genético                                     & GEN                  \\
+        Genético con Cruce Ponderado (Weighted Crossover)      & WC                   \\
+        Genético con Cruce Ponderado Libre                     & WC-F                 \\
+        Genético con Reinicio Poblacional (Population Restart) & PR                   \\
+        Algoritmo Memético                                     & MEM                  \\
+        Algoritmo Memético Libre                               & MEM-F                \\
+        \bottomrule
+    \end{tabular}
+    \caption{Nomenclatura simplificada de los algoritmos.}
+    \label{tab:nombres-algoritmos}
+\end{table}
+
+A partir de este punto, todas las tablas y gráficos del documento utilizarán estas abreviaturas para referirse a los algoritmos, 
+mejorando la legibilidad de los resultados y facilitando la interpretación de las comparativas entre métodos.

@@ -6,7 +6,7 @@ El objetivo principal fue analizar el rendimiento de los modelos entrenados con 
 seleccionados mediante algoritmos meméticos y evolutivos.
 
 
-\section{Evaluación con el conjunto completo}\label{sec:evaluacion-con-el-conjunto-completo}
+\section{Resultados con el conjunto completo}\label{sec:resultados-conjunto-completo}
 Como punto de partida, se evaluó el rendimiento de los modelos convolucionales entrenados con el 100\% del conjunto de datos.
 Esta prueba sirve como referencia para contrastar los resultados obtenidos mediante las técnicas de reducción aplicadas posteriormente.
 Se utilizó tanto ResNet50 como MobileNetV2, y se midieron métricas como accuracy, precisión, recall y F1-score sobre el conjunto de validación.
@@ -32,11 +32,44 @@ Los resultados en la tabla~\ref{tab:resultados-100-resnet50} obtenidos represent
 sin reducción de datos, lo que permite establecer un techo de rendimiento frente al cual comparar las demás técnicas.
 
 
-\section{Evaluación del enfoque aleatorio}\label{sec:evaluacion-enfoque-aleatorio}
-El segundo experimento consistió en aplicar una selección aleatoria de ejemplos para distintos porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%).
-Este enfoque, descrito en el \hyperref[sec:algoritmo-aleatorio]{Apartado~\ref*{sec:algoritmo-aleatorio}}, sirvió como línea base para evaluar la eficacia de los enfoques metaheurísticos.
+\section{Comparativa inicial de modelos}\label{sec:comparativa-inicial-modelos}
+Antes de aplicar los algoritmos propuestos de reducción de datos, se consideró fundamental realizar una comparativa inicial entre distintos modelos de redes neuronales convolucionales para determinar cuál de ellos era el más adecuado para los experimentos.
+Esta comparación permitiría identificar la arquitectura que ofrecía un mejor equilibrio entre rendimiento y eficiencia computacional, estableciendo una base sólida sobre la que construir los siguientes análisis.
 
-\begin{figure}[!h]
+Para llevar a cabo esta comparativa, se utilizó el \textbf{enfoque aleatorio} como estrategia de referencia.
+Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtenía una línea base que permitía evaluar el comportamiento de cada modelo en condiciones controladas.
+Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas avanzadas de reducción de datos, sirviendo como punto de partida para comparar las mejoras introducidas por los algoritmos posteriores.
+
+
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
+            \toprule
+            \textbf{Porcentaje Inicial} & \textbf{Evaluaciones Realizadas} & \textbf{Duración Total} & \textbf{Duración Inferencia} &
+            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}         & \textbf{Recall (Avg)}   & \textbf{F1-score (Avg)}                                              \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                                    \\
+            \midrule
+            10\%                        & 100                              & 00:45:08                & 00:00:27                     & 76,55\% & 81,80\% & 76,55\% & 76,25\% \\
+            20\%                        & 100                              & 01:10:27                & 00:00:42                     & 81,77\% & 84,70\% & 81,77\% & 81,59\% \\
+            50\%                        & 100                              & 02:24:49                & 00:01:26                     & 87,14\% & 88,09\% & 87,14\% & 86,97\% \\
+            100\%                       & 1                                & -                       & 00:02:42                     & 87,90\% & 88,96\% & 87,90\% & 87,81\% \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                                   \\
+            \midrule
+            10\%                        & 100                              & 00:29:29                & 00:00:18                     & 72,31\% & 76,40\% & 72,31\% & 69,62\% \\
+            20\%                        & 100                              & 00:50:36                & 00:00:30                     & 76,48\% & 78,82\% & 76,48\% & 75,58\% \\
+            50\%                        & 100                              & 01:54:09                & 00:01:08                     & 75,56\% & 79,72\% & 75,56\% & 74,67\% \\
+            100\%                       & 1                                & -                       & 00:03:16                     & 78,60\% & 81,55\% & 78,60\% & 77,68\% \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Comparativa de resultados de la generación inicial utilizando el algoritmo \textbf{aleatorio} y el \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
+    \label{tab:resnet50-vs-mobilenet}
+\end{table}
+
+\begin{figure}[htp]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-generacion-inicial}
     \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo de los iniciales.}
@@ -46,54 +79,19 @@ Este enfoque, descrito en el \hyperref[sec:algoritmo-aleatorio]{Apartado~\ref*{s
 \colorbox{yellow}{Falta modificar la tabla~\ref{fig:resnet-boxplot-generacion-inicial} para que compare el 100\% con el aleatorio de resnet y ajustar analisis si es necesario.}
 \colorbox{yellow}{Falta añadir tabla comparando resultados por porcentajes iniciales.}
 
-Tal como se observa en el boxplot generado (\hyperref[fig:resnet-boxplot-generacion-inicial]{Figura~\ref*{fig:resnet-boxplot-generacion-inicial}}),
-como era de esperar, presenta una alta dispersión, pero el rendimiento es mejor que el resultado con el 100\% del dataset.
-Ademas, en esta otra tabla [tabla comparando resultados por porcentajes iniciales] los resultados mejoran de forma proporcional al incremento del porcentaje de imágenes seleccionadas.
-Este comportamiento se justifica por la ausencia de una estrategia que guíe la selección de datos, lo que da lugar a conjuntos de entrenamiento inconsistentes y
-resalta la necesidad de aplicar técnicas más sofisticadas para obtener resultados consistentes con menores volúmenes de datos.
+Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto ResNet50 como MobileNetV2.
+Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo, y en la Figura~\ref{fig:resnet-boxplot-generacion-inicial}, que muestra la distribución de los valores de \textit{accuracy} mediante boxplots.
+
+Los resultados muestran que ResNet50 logra un mejor rendimiento en términos de \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score}.
+Sin embargo, este mejor rendimiento viene acompañado de un tiempo de entrenamiento considerablemente mayor.
+Por su parte, MobileNetV2 ofrece una solución más eficiente en cuanto a tiempos de ejecución, a costa de una ligera pérdida de precisión, lo que la convierte en una opción atractiva para entornos con recursos computacionales limitados.
+
+En conjunto, esta comparativa inicial permitió elegir MobileNetV2 como modelo principal para el resto de experimentos.
+Aunque ResNet50 ofrecía una precisión ligeramente superior, su elevado coste computacional no justificaba su uso en las pruebas de reducción de datos, donde la eficiencia es un factor clave.
+Además, el uso del enfoque aleatorio como referencia permitió establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
 
 
-\section{Comparación entre modelos convolucionales}\label{sec:comparacion-modelos-convolucionales}
-Antes de analizar los algoritmos de reducción, se comparó el comportamiento de los modelos \textbf{ResNet50} y \textbf{MobileNetV2} bajo las mismas condiciones de entrenamiento y subconjuntos aleatorios.
-
-\begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
-            \toprule
-            \textbf{Algoritmo}       & \textbf{Porcentaje Inicial} & \textbf{Duración}       & \textbf{Accuracy (Avg)} &
-            \textbf{Precision (Avg)} & \textbf{Recall (Avg)}       & \textbf{F1-score (Avg)} &
-            \textbf{Evaluaciones Realizadas}                                                                                                               \\
-            \midrule
-            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                   \\
-            \midrule
-            aleatorio                & 10                          & 00:45:08                & 76,55\%                 & 81,80\% & 76,55\% & 76,25\% & 100 \\
-            aleatorio                & 20                          & 01:10:27                & 81,77\%                 & 84,70\% & 81,77\% & 81,59\% & 100 \\
-            aleatorio                & 50                          & 02:24:49                & 87,14\%                 & 88,09\% & 87,14\% & 86,97\% & 100 \\
-            aleatorio                & 100                         & 00:02:42                & 87,90\%                 & 88,96\% & 87,90\% & 87,81\% & 1   \\
-            \midrule
-            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                  \\
-            \midrule
-            aleatorio                & 10\%                        & 00:29:29                & 72,31\%                 & 76,40\% & 72,31\% & 69,62\% & 100 \\
-            aleatorio                & 20\%                        & 00:50:36                & 76,48\%                 & 78,82\% & 76,48\% & 75,58\% & 100 \\
-            aleatorio                & 50\%                        & 01:54:09                & 75,56\%                 & 79,72\% & 75,56\% & 74,67\% & 100 \\
-            -                        & 100\%                       & 00:03:16                & 78,60\%                 & 81,55\% & 78,60\% & 77,68\% & 1   \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Comparativa de resultados de la generación inicial utilizando el algoritmo \textbf{aleatorio} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
-    \label{tab:resnet50-vs-mobilenet}
-\end{table}
-
-Los resultados de la tabla~\ref{tab:resnet50-vs-mobilenet} muestran que ResNet50 mostró consistentemente mejores métricas,
-aunque a costa de mayores tiempos de entrenamiento.
-Por su parte, MobileNetV2 demostró ser más eficiente, resultando útil para entornos con restricciones computacionales.
-
-Esta comparación justificó la elección de MobileNet como modelo principal en el resto de los experimentos,
-dada su superior eficiencia en términos de tiempo y recursos, posibilitando la facilidad de realizar múltiples pruebas en un tiempo razonable.
-
-
-\section{Estudio de la búsqueda local}\label{sec:estudio-busqueda-local}
+\section{Resultados de la búsqueda local}\label{sec:resultados-busqueda-local}
 Como se describió en el apartado correspondiente (ver \hyperref[sec:algoritmo-busqueda-local]{Sección~\ref*{sec:algoritmo-busqueda-local}}),
 la búsqueda local permite mejorar progresivamente una solución inicial mediante pequeñas modificaciones guiadas por el rendimiento.
 En este apartado se evalúa su efectividad como alternativa más estructurada frente al enfoque aleatorio, pero sin llegar a la complejidad de los algoritmos evolutivos.
@@ -113,7 +111,7 @@ Se puede apreciar que el algoritmo de búsqueda local mejora claramente la media
 Mientras que el enfoque aleatorio se sitúa en torno a una mediana de 0.787, la búsqueda local alcanza una mediana superior, próxima a 0.818.
 Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
 
-Además, los valores máximos alcanzados por ambos algoritmos son similares (en torno a 0.858-0.860),
+Además, los valores máximos que alcanzan ambos algoritmos son similares (en torno a 0.858-0.860),
 pero la búsqueda local muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
 En cambio, el algoritmo aleatorio presenta una mayor dispersión hacia valores bajos y una mayor sensibilidad a la aleatoriedad de las selecciones,
 como se evidencia en su menor valor mínimo (0.769 frente a 0.785 en búsqueda local).
@@ -122,7 +120,7 @@ Esto pone de manifiesto que, aunque el algoritmo aleatorio puede ocasionalmente 
 la búsqueda local ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
 
 
-\section{Estudiando la mejora metaheurística}\label{sec:estudio-mejora-metaheuristica}
+\section{Resultados del Algoritmo Genético}\label{sec:resultados-algoritmo-genetico}
 Con el objetivo de superar las limitaciones observadas (como el riesgo de estancamiento o la exploración poco estructurada del espacio de soluciones)
 se incorporó un enfoque evolutivo más completo: el algoritmo genético, descrito en la Sección~\ref{sec:genetico-v1}, el cual sirvió como punto de partida para explorar la
 aplicación de estrategias metaheurísticas en la selección de subconjuntos representativos de imágenes.
@@ -144,14 +142,14 @@ No obstante, también se aprecia una ligera mayor dispersión en los resultados 
 Esto indica que, pese a su capacidad exploratoria, el genético puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
 De hecho, su valor mínimo (\textbf{0.796}) es superior al de la búsqueda local en esta comparativa, pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
-\colorbox{yellow}{¿Sobra el siguiente apartado?}
+% \colorbox{yellow}{¿Sobra el siguiente apartado?}
 La búsqueda local, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
 Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
 Estos resultados sirvieron como evidencia empírica para continuar desarrollando nuevas versiones del algoritmo genético,
 incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
-\section{Modificando el operador de cruce}\label{sec:incorporacion-cruce}
+\section{Mejorando el operador de cruce}\label{sec:incorporacion-cruce}
 La primera mejora introducida al algoritmo genético consistió en reemplazar el cruce aleatorio por un cruce ponderado,
 donde se prioriza la contribución del progenitor con mayor \textit{fitness}.
 Además, se incorporó una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
@@ -180,7 +178,7 @@ sino que también incrementó la presión selectiva sobre la calidad de las solu
 Esto se tradujo en un comportamiento más robusto, menos propenso a resultados erráticos y con una mayor capacidad de exploración dirigida del espacio de soluciones.
 
 
-\section{Modificación del operador de mutación}\label{sec:modificacion-mutacion}
+\section{Mejorando el operador de mutación}\label{sec:mejorando-mutacion}
 A partir de los resultados obtenidos con el algoritmo con cruce ponderado, se evaluó una nueva versión en la que se introdujo una mutación adaptativa
 (ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
 A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado,
@@ -212,7 +210,7 @@ ya que se adapta automáticamente al contexto sin requerir ajustes manuales para
 En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo.
 
 
-\section{Incorporación del reinicio poblacional}\label{sec:incorporacion-reinicio-poblacional}
+\section{Resultados del reinicio poblacional}\label{sec:resultados-reinicio-poblacional}
 La Versión3 del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
 introduce una lógica de reinicio poblacional diseñada para evitar estancamientos evolutivos.
 El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas,
@@ -240,7 +238,7 @@ En algunos casos, incluso puede introducir una pérdida prematura de diversidad,
 En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
 su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
 
-\section{Incorporación de versiones libres}\label{sec:incorporacion-versiones-libres}
+\section{Resultados con versiones libres}\label{sec:resultados-versiones-libres}
 Como parte de la evolución de los algoritmos desarrollados, se propusieron versiones libres,
 en las que el tamaño del subconjunto seleccionado no permanece fijo durante la ejecución, sino que puede ajustarse de forma dinámica.
 
@@ -330,7 +328,7 @@ ajustando dinámicamente la cantidad de datos seleccionados según el entorno de
 En general, estas versiones demuestran ser una opción más versátil y controlada, especialmente útil cuando no se conoce de antemano el tamaño óptimo del conjunto de entrenamiento.
 
 
-\section{Evaluación del algoritmo memético}\label{sec:evaluacion-algoritmo-memetico}
+\section{Resultados del algoritmo memético}\label{sec:resultados-algoritmo-memetico}
 Finalmente, se evaluó el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
 el cual combina la evolución genética con una búsqueda local aplicada de forma probabilística sobre ciertos individuos seleccionados.
 Este enfoque híbrido busca equilibrar la exploración del espacio de soluciones con una intensificación localizada,
@@ -371,7 +369,7 @@ De esta forma, tanto el memético estándar como su variante libre se consolidan
 % especialmente robustas para tareas donde se requiere seleccionar subconjuntos representativos sin comprometer el rendimiento del modelo entrenado.
 
 
-\section{Comparación final entre enfoques}\label{sec:comparacion-final-enfoques}
+\section{Resultados finales entre enfoques}\label{sec:comparacion-final-enfoques}
 En esta sección se realiza una comparación conjunta entre todos los algoritmos implementados.
 Se presentan boxplots y gráficos de barras que muestran la evolución del \textit{accuracy}, el porcentaje de datos utilizados y el equilibrio entre clases.
 
