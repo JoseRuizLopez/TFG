@@ -69,17 +69,10 @@ def generate_datasets(dataset_path, weights, dict_selection=None, batch_size=32,
     if is_cifar10:
         print("Cargando CIFAR-10...")
         
-        if "mean" in weights.meta and "std" in weights.meta:
-            normalize = transforms.Normalize(mean=weights.meta["mean"], std=weights.meta["std"])
-        else:
-            # Usa valores estándar para CIFAR-10 o ImageNet
-            normalize = transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
-
-
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
-            normalize,
+            transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),        # Usa valores estándar para CIFAR-10, debido a que no hay weights predefinidos.
         ])
 
         full_train_dataset = CIFAR10(root=dataset_path, train=True, download=True, transform=transform)
@@ -269,9 +262,6 @@ def fitness(dict_selection: dict, model_name: str = "resnet", evaluations: int |
     else:
         weights = MobileNet_V2_Weights.DEFAULT
         model = models.mobilenet_v2(weights=weights)
-
-    # He renombrado el dataset PAINTING para que concidan los nonmbres
-    # He renombrado el dataset RPS, cambiando el test por test y el test por test
 
     # Crear data loaders
     loaders, classes = generate_datasets(

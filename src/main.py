@@ -143,8 +143,8 @@ def main(
             initial_percentage=initial_percentage,
             max_evaluations=max_evaluations,
             max_evaluations_without_improvement=max_evaluations_without_improvement,
-            tournament_size=4,
-            mutation_rate=0.05,
+            tournament_size=3,
+            mutation_rate=0.1,
             metric=metric,
             model_name=model_name,
             adjust_size=adjust_size
@@ -157,8 +157,8 @@ def main(
                 initial_percentage=initial_percentage,
                 max_evaluations=max_evaluations,
                 max_evaluations_without_improvement=max_evaluations_without_improvement,
-                tournament_size=4,
-                mutation_rate=0.05,
+                tournament_size=3,
+                mutation_rate=0.1,
                 metric=metric,
                 model_name=model_name,
                 # adjust_size=adjust_size

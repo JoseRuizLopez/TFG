@@ -124,7 +124,75 @@ Los pasos de la función principal de \texttt{main.py} es:
 \end{enumerate}
 
 
-Adicionalmente, los scripts \texttt{generator.py} y \texttt{generator\_initial.py} permiten automatizar experimentos masivos combinando distintos algoritmos, porcentajes iniciales y modelos de red neuronal.
+Adicionalmente, los scripts \texttt{generator.py} y \texttt{generator\_initial.py} permiten automatizar experimentos masivos
+combinando distintos algoritmos, porcentajes iniciales y modelos de red neuronal.
+
+\subsubsection{Configuración de Modelos Preentrenados}\label{subsec:modelos-preentrenados}
+En este trabajo, se han utilizado modelos convolucionales preentrenados como base para la tarea de clasificación de imágenes.
+Concretamente, se han empleado las arquitecturas \textbf{ResNet50} y \textbf{MobileNetV2},
+cargadas con pesos preentrenados sobre \texttt{ImageNet} o \texttt{CIFAR10}, según el dataset utilizado en cada experimento.
+
+Para adaptar estos modelos a la tarea específica de clasificación de subconjuntos de datos,
+se ha seguido una estrategia de \textit{transfer learning} que permite reducir significativamente el coste computacional del entrenamiento.
+Esta estrategia consiste en congelar todas las capas del modelo, excepto la última,
+de manera que las representaciones aprendidas en la etapa preentrenada puedan ser reutilizadas como extractores de características generales.
+
+Específicamente, la \textbf{última capa} de cada modelo preentrenado (la capa densa o \textit{fully connected})
+ha sido reemplazada por una nueva capa completamente conectada (\texttt{Linear}) adaptada al número de clases del dataset en uso.
+Esta capa es la única que se entrena durante la fase de evaluación de cada subconjunto generado por los algoritmos,
+permitiendo obtener métricas como \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score} de forma eficiente.
+
+El uso de pesos preentrenados y la congelación de capas proporcionan varias ventajas:
+\begin{itemize}
+      \item Reducción del tiempo de entrenamiento en cada evaluación.
+      \item Aprovechamiento de representaciones genéricas previamente aprendidas, lo que mejora la generalización.
+      \item Adaptabilidad de los modelos a distintos datasets y tareas, modificando únicamente la capa final.
+\end{itemize}
+
+Este enfoque se implementa mediante las herramientas de PyTorch,
+congelando explícitamente los gradientes de todas las capas del modelo y definiendo la nueva capa final con el número adecuado de salidas para cada problema de clasificación.
+
+
+\subsubsection{Esquema General de Funcionamiento de los Algoritmos}\label{subsec:esquema-algoritmos}
+El funcionamiento general de los algoritmos desarrollados en este trabajo se organiza en una estructura modular que permite la ejecución flexible de distintos enfoques de selección de instancias. A continuación, se presenta un esquema visual del flujo principal:
+
+\begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[node distance=1.8cm, every node/.style={fill=white, font=\sffamily}, align=center]
+            % Nodes
+            \node (start) [rectangle, draw, rounded corners, fill=blue!20, minimum width=4cm] {Inicio del experimento (generator.py)};
+            \node (config) [rectangle, draw, below of=start, fill=blue!10, minimum width=4cm] {Definición de parámetros: \\ Algoritmo, Modelo, Dataset, etc.};
+            \node (main) [rectangle, draw, below of=config, fill=blue!10, minimum width=4cm] {Llamada a main.py};
+            \node (alg) [diamond, draw, below of=main, fill=blue!10, minimum width=5cm, aspect=2] {Selección del algoritmo};
+            \node (train) [rectangle, draw, right=4cm of alg, fill=blue!10, minimum width=4cm] {Evaluación de subconjunto \\ Entrenamiento del modelo \\ (capa final) \\ Cálculo de métricas};
+            \node (fitness) [rectangle, draw, below of=alg, fill=blue!10, minimum width=4cm] {Cálculo del fitness};
+            \node (update) [rectangle, draw, below of=fitness, fill=blue!10, minimum width=4cm] {Actualización de mejor solución};
+            \node (stop) [rectangle, draw, below of=update, fill=blue!10, minimum width=4cm] {Criterio de parada};
+            \node (result) [rectangle, draw, below of=stop, fill=blue!20, minimum width=4cm] {Generación de resultados: CSVs, gráficos};
+
+            % Arrows
+            \draw[->] (start) -- (config);
+            \draw[->] (config) -- (main);
+            \draw[->] (main) -- (alg);
+            \draw[->] (alg) -- (fitness);
+            \draw[->] (fitness) -- (update);
+            \draw[->] (update) -- (stop);
+            \draw[->] (stop) -- (result);
+            \draw[->] (alg.east) -- (train.west);
+
+      \end{tikzpicture}
+      \caption{Esquema general del flujo de ejecución de los algoritmos.}
+\end{figure}
+
+Este esquema resume el flujo de ejecución:
+\begin{itemize}
+      \item El proceso comienza con la configuración de parámetros en \texttt{generator.py}, incluyendo el algoritmo, el modelo y el dataset.
+      \item A continuación, se invoca el script \texttt{main.py}, que organiza la ejecución.
+      \item Según el algoritmo seleccionado, se genera y evalúa un subconjunto de datos. Este proceso incluye la congelación de capas del modelo preentrenado, la sustitución de la última capa por una \texttt{fully connected}, y la evaluación mediante métricas de \texttt{accuracy}, \texttt{precision}, \texttt{recall} y \texttt{F1-score}.
+      \item Los resultados se almacenan y se generan gráficos para el análisis posterior.
+\end{itemize}
+
+
 
 \subsection{Módulo de Utilidades}\label{subsec:modulo-de-utilidades}
 La carpeta \texttt{utils/} contiene funciones auxiliares:
@@ -195,7 +263,8 @@ A continuación se describen y formalizan cada una de estas métricas:
                   \mathrm{Accuracy} = \frac{\text{Número de predicciones correctas}}{\text{Total de predicciones}}
             $$
 
-      \item \textbf{Precisión}: mide cuántas de las instancias clasificadas como positivas fueron realmente positivas. En el caso multiclase (macro), se calcula como:
+      \item \textbf{Precisión}: mide cuántas de las instancias clasificadas como positivas fueron realmente positivas.
+            En el caso multiclase (macro), se calcula como:
             $$
                   \text{Precisión}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{TP_i}{TP_i + FP_i}
             $$

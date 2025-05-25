@@ -20,8 +20,8 @@
 
 * DESARROLLO Experimental
     - ✅ Creación de 2 capitulos para dividir la preparacion con el analisis.
-    - Entorno Experimental.
-        + Añadir los parametros de los algoritmos.
+    - ✅ Entorno Experimental.
+        + ✅ Añadir los parametros de los algoritmos.
         + ✅ Crear una tabla donde nombre los algoritmos con sus seudonimos.
 
     - Resultados y Analisis.
@@ -36,7 +36,7 @@
             · ✅ Añadir la tabla Duración Total y Duracion Inferencia.
             · Arreglar los portencajes inicales (Usar siempre 10%, 25%, 50% y 75%). 
         + Quital La duracion total de las tablas en los 100% de PI.
-        + Cambiar el verbo en pasado al presente.
+        + ✅ Cambiar el verbo en pasado al presente.
         + Cambiar los algoritmos por su seudonimos.
         + Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
             para poder comparar dentro los distintos modelos.

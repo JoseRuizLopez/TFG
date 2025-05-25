@@ -361,3 +361,68 @@ La correspondencia entre el nombre completo de cada algoritmo y su abreviatura s
 
 A partir de este punto, todas las tablas y gráficos del documento utilizarán estas abreviaturas para referirse a los algoritmos,
 mejorando la legibilidad de los resultados y facilitando la interpretación de las comparativas entre métodos.
+
+
+\section{Parámetros de los Algoritmos y del Entrenamiento}\label{subsec:parametros-algoritmos}
+En este apartado se describen los principales parámetros utilizados en el desarrollo de los algoritmos de 
+selección de instancias y en el proceso de entrenamiento de los modelos de clasificación.
+La correcta configuración de estos parámetros es fundamental para asegurar un equilibrio entre la calidad de los resultados y la eficiencia computacional.
+
+\subsection{Parámetros Generales de los Algoritmos}
+\begin{itemize}
+    \item \textbf{Porcentaje inicial de selección} (\texttt{initial\_percentage}): Define el porcentaje inicial de datos seleccionados para cada ejecución.
+          Se han evaluado valores como 10\%, 25\%, 50\% y 75\%.
+    \item \textbf{Número máximo de evaluaciones} (\texttt{max\_evaluations}): Límite de iteraciones para cada algoritmo, generalmente fijado en 100.
+    \item \textbf{Número máximo de evaluaciones sin mejora} \\(\texttt{max\_evaluations\_without\_improvement}): 
+    Controla la parada anticipada si no se mejora el mejor resultado durante un número consecutivo de iteraciones.
+    \item \textbf{Métrica de optimización} (\texttt{metric}): Métrica utilizada para calcular el fitness, 
+    siendo \texttt{accuracy} la más habitual, aunque también se soportan \texttt{f1-score} y otras métricas.
+    \item \textbf{Modelo de red neuronal} (\texttt{model\_name}): Arquitectura utilizada para la clasificación, como \texttt{ResNet50} o \texttt{MobileNetV2}.
+\end{itemize}
+
+\subsection{Parámetros del Entrenamiento de Modelos}
+
+\begin{itemize}
+    \item \textbf{Tamaño del batch} (\texttt{batch\_size}): Número de imágenes procesadas simultáneamente durante el entrenamiento.
+          Se fija en 32 para equilibrar tiempo y estabilidad.
+    \item \textbf{Número de épocas} (\texttt{num\_epochs}): Número de veces que el modelo se entrena sobre el subconjunto seleccionado.
+          Se utiliza 10 para cada evaluación.
+    \item \textbf{Tasa de aprendizaje} (\texttt{learning\_rate}): Controla la magnitud de los ajustes de pesos durante el entrenamiento.
+          Se establece en 0.001 para la capa final, manteniendo el resto de la red congelada.
+    \item \textbf{Dispositivo de ejecución} (\texttt{device}): Determina si el entrenamiento se realiza en CPU o GPU.
+          Se prioriza el uso de GPU cuando está disponible.
+\end{itemize}
+
+\subsection{Parámetros Específicos por Algoritmo}
+
+\textbf{Random Search:}
+\begin{itemize}
+    \item No utiliza parámetros adicionales, ya que la selección de instancias es completamente aleatoria.
+\end{itemize}
+
+\textbf{Búsqueda Local:}
+\begin{itemize}
+    \item \textbf{Tamaño del vecindario} (\texttt{neighbor\_size}): Número de imágenes modificadas en cada generación de vecino, fijado en 10.
+    \item \textbf{Ajuste dinámico del tamaño del subconjunto} (\texttt{adjust\_size}): Permite variar el tamaño total de las soluciones en las versiones libres.
+\end{itemize}
+
+\textbf{Algoritmos Genéticos:}
+\begin{itemize}
+    \item \textbf{Tamaño de la población} (\texttt{population\_size}): Número de individuos en cada generación, generalmente 10.
+    \item \textbf{Tamaño del torneo} (\texttt{tournament\_size}): Número de soluciones evaluadas para seleccionar padres en el cruce, fijado en 3.
+    \item \textbf{Tasa de mutación} (\texttt{mutation\_rate}): Probabilidad de modificar aleatoriamente las soluciones, fijado en 0.1.
+    \item \textbf{Ajuste dinámico del tamaño del subconjunto} (\texttt{adjust\_size}): Permite modificar el tamaño del subconjunto durante la ejecución.
+\end{itemize}
+
+\textbf{Algoritmo Memético:}
+\begin{itemize}
+    \item \textbf{Probabilidad de búsqueda local} (\texttt{local\_search\_probability}): Probabilidad de aplicar una búsqueda local a un individuo, fijada en 0.2.
+    \item \textbf{Número de evaluaciones de búsqueda local} \\(\texttt{local\_search\_evaluations}): Máximo de evaluaciones locales por individuo, fijado en 10.
+    \item \textbf{Tamaño del vecindario en búsqueda local} \\(\texttt{local\_search\_neighbor\_size}): Número de cambios permitidos en cada iteración de búsqueda local.
+          Fijado en 5.
+    \item \textbf{Ajuste dinámico del tamaño del subconjunto} (\texttt{adjust\_size}): Permite modificar el tamaño del subconjunto durante la ejecución.
+\end{itemize}
+
+\subsection*{}
+La combinación de estos parámetros permite un control detallado del proceso de selección de instancias y del entrenamiento de los modelos, 
+asegurando resultados reproducibles, eficientes y de calidad.
