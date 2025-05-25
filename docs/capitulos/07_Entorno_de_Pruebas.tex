@@ -208,7 +208,7 @@ valid.
 \subsubsection{Acceso al Dataset}
 Inicialmente, el dataset se descargó desde Kaggle~\cite{OriginalArtImages}
 
-Sin embargo, debido a la presencia de archivos innecesarios y algunas imágenes corruptas, se optó por una versión
+Sin embargo, debido a la presencia de archivos innecesarios y algunas imágenes corruptas, se opta por una versión
 limpia disponible en Kaggle~\cite{CleanedArtImages}.
 
 \subsubsection{Licencia y Uso}
@@ -238,32 +238,32 @@ permite entender mejor la complejidad relativa de cada conjunto y cómo pueden i
 La selección de estos dos datasets responde a la necesidad de evaluar los algoritmos meméticos en distintos niveles de complejidad.
 El dataset \textbf{Rock, Paper, Scissors} se utilizó en las primeras fases del proyecto como punto de partida,
 ya que ofrecía un entorno sencillo y controlado, con un número reducido de clases y una estructura equilibrada.
-Esto permitió desarrollar las bases del sistema y probar las primeras versiones de los algoritmos de manera más ágil y con menor complejidad computacional.
+Esto permite desarrollar las bases del sistema y probar las primeras versiones de los algoritmos de manera más ágil y con menor complejidad computacional.
 
 Por su parte, el dataset \textbf{PAINTING} se empleó posteriormente para validar el comportamiento de los algoritmos en un entorno más exigente.
 Al incluir cinco categorías de arte con distintos estilos visuales, este conjunto introdujo una mayor variabilidad tanto semántica como estructural,
-lo que permitió evaluar la robustez y capacidad de generalización de las soluciones desarrolladas.
+lo que permite evaluar la robustez y capacidad de generalización de las soluciones desarrolladas.
 
 
 \section{Diseño de los experimentos}\label{sec:diseño-de-los-experimentos}
-La fase experimental se organizó en varias etapas.
-Inicialmente se optó por un dataset simple (\textit{Rock, Paper, Scissors}) para validar el funcionamiento general del sistema.
-Posteriormente, se realizaron pruebas con datasets más exigentes.
-Los experimentos se repitieron utilizando diferentes porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%)
+La fase experimental se organiza en varias etapas.
+Inicialmente se opta por un dataset simple (\textit{Rock, Paper, Scissors}) para validar el funcionamiento general del sistema.
+Posteriormente, se realizan pruebas con datasets más exigentes.
+Los experimentos se repiten utilizando diferentes porcentajes iniciales de datos (10\%, 25\%, 50\% y 75\%)
 para estudiar cómo afecta la cantidad de datos seleccionados al rendimiento del modelo.
 
-Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplicaron las medidas de control de reproducibilidad
+Con el fin de asegurar la consistencia entre ejecuciones experimentales, se aplican las medidas de control de reproducibilidad
 descritas en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}}.
-Esto permitió comparar algoritmos en condiciones homogéneas, evitando variaciones indeseadas causadas por componentes aleatorios del entorno de ejecución.
+Esto permite comparar algoritmos en condiciones homogéneas, evitando variaciones indeseadas causadas por componentes aleatorios del entorno de ejecución.
 
-En cada prueba, se realizaron 5 ejecuciones en paralelo, cada una utilizando una semilla distinta.
-Esta estrategia permitió obtener resultados promedio más robustos frente a la aleatoriedad del proceso evolutivo, asegurando una mayor fiabilidad estadística.
+En cada prueba, se realizan 5 ejecuciones en paralelo, cada una utilizando una semilla distinta.
+Esta estrategia permite obtener resultados promedio más robustos frente a la aleatoriedad del proceso evolutivo, asegurando una mayor fiabilidad estadística.
 
 Los apartados siguientes explican con mayor detalle el procedimiento adoptado para llevar a cabo dichas ejecuciones.
 
 
 \section{Procedimiento de Ejecución y Evaluación}\label{sec:procedimiento-de-ejecucion-y-evaluacion}
-Para garantizar la consistencia y objetividad en la comparación entre algoritmos, se diseñó un procedimiento experimental sistemático y replicable.
+Para garantizar la consistencia y objetividad en la comparación entre algoritmos, se diseñan un procedimiento experimental sistemático y replicable.
 Cada ejecución se realizó bajo las mismas condiciones computacionales y utilizando los mismos parámetros base,
 salvo en aquellos casos en que se deseaba estudiar una variación concreta, como los distintos porcentajes iniciales o el uso de metaheurísticas con porcentajes libres.
 
@@ -272,23 +272,24 @@ Para evaluar el rendimiento de los modelos se utilizaron métricas estándar com
 calculadas sobre el conjunto de validación tras cada evaluación.
 Para una definición formal de estas métricas, véase el \hyperref[sec:metricas-evaluacion]{Apartado~\ref*{sec:metricas-evaluacion}}.
 
-Estas métricas fueron calculadas utilizando las funciones de \texttt{scikit-learn}, a partir de las predicciones del modelo y las etiquetas
+Estas métricas se calcularon utilizando las funciones de \texttt{scikit-learn}, a partir de las predicciones del modelo y las etiquetas
 reales correspondientes a los subconjuntos de imágenes seleccionados por cada algoritmo.
 
 \subsection{Evaluaciones por Ejecución}\label{sec:evaluaciones-por-ejecucion}
 Se buscó un equilibrio entre la cantidad de evaluaciones y el tiempo de ejecución, permitiendo una exploración suficiente del espacio de soluciones sin comprometer la eficiencia computacional.
-Por ello, cada algoritmo fue configurado para realizar un máximo de 100 evaluaciones por ejecución,
+Por ello, cada algoritmo se configura para realizar un máximo de 100 evaluaciones por ejecución,
 independientemente del tipo de algoritmo utilizado, con el fin de mantener la equidad comparativa.
 
-Cada evaluación consistía en generar un subconjunto de datos, entrenar el modelo correspondiente (ResNet50 o MobileNetV2),
+Cada evaluación consiste en generar un subconjunto de datos, entrenar el modelo correspondiente (ResNet50 o MobileNetV2),
 y calcular su \textit{fitness} de acuerdo con las métricas mencionadas.
 
-El número de evaluaciones sin mejora también fue monitorizado para aplicar criterios de parada anticipada,
+El número de evaluaciones sin mejora también se monitoriza para aplicar criterios de parada anticipada,
 explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}},
 reduciendo así el tiempo computacional en caso de estancamiento.
 
 \subsubsection{Visualización de resultados}\label{subsec:visualizacion-de-resultados}
-Para facilitar la comparación entre algoritmos, a lo largo de este capítulo se incluyen representaciones gráficas de los resultados obtenidos mediante \textbf{boxplots} y \textbf{barplots}.
+Para facilitar la comparación entre algoritmos, a lo largo de este capítulo se incluyen representaciones gráficas de los
+resultados obtenidos mediante \textbf{boxplots} y \textbf{barplots}.
 Ambos tipos de gráficos permiten visualizar el comportamiento global de cada algoritmo a partir de múltiples ejecuciones con distintas semillas.
 
 \textbf{Los boxplots} (diagramas de caja) muestran la distribución estadística de los valores obtenidos.
@@ -312,27 +313,27 @@ y son útiles para observar cómo varía una métrica concreta entre distintos a
 
 \subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
 Con el objetivo de obtener resultados estadísticamente significativos y reducir el efecto de la aleatoriedad,
-cada configuración experimental fue ejecutada 5 veces, utilizando 5 semillas distintas.
+cada configuración experimental se ejecuta 5 veces, utilizando 5 semillas distintas.
 Los resultados presentados en las tablas y gráficos corresponden a la media de esas ejecuciones,
 junto con medidas de dispersión cuando procede, como los boxplots.
 
 Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración,
-se optó por incluir todos los valores individuales obtenidos con las distintas semillas.
+se opta por incluir todos los valores individuales obtenidos con las distintas semillas.
 Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo,
 resaltando mejor la mediana, así como los valores máximos y mínimos alcanzados durante las ejecuciones.
 
 \subsection{Tiempos de Ejecución}\label{sec:tiempos-de-ejecucion}
-Cada evaluación implicaba entrenar un modelo desde cero, por lo que los tiempos de ejecución fueron considerables.
-Por ejemplo, una ejecución completa con 100 evaluaciones podía tardar entre 30 minutos y 2 horas,
+Cada evaluación implica entrenar un modelo desde cero, por lo que los tiempos de ejecución son considerables.
+Por ejemplo, una ejecución completa con 100 evaluaciones puede tardar entre 30 minutos y 2 horas,
 dependiendo del algoritmo y del modelo utilizado.
 
 Los algoritmos más complejos, como el memético o las versiones con reinicio poblacional,
-requerían un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
+requieren un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
 
 
 \section{Nomenclatura simplificada de los algoritmos}
-Para facilitar la lectura de las tablas y gráficos presentados a lo largo de este trabajo, 
-se ha optado por utilizar abreviaciones consistentes para referirse a los algoritmos implementados.
+Para facilitar la lectura de las tablas y gráficos presentados a lo largo de este trabajo,
+se opta por utilizar abreviaciones consistentes para referirse a los algoritmos implementados.
 Estas abreviaciones permiten condensar la información visualmente sin perder la claridad en la interpretación de los resultados.
 
 La correspondencia entre el nombre completo de cada algoritmo y su abreviatura se muestra en la Tabla~\ref{tab:nombres-algoritmos}.
@@ -358,5 +359,5 @@ La correspondencia entre el nombre completo de cada algoritmo y su abreviatura s
     \label{tab:nombres-algoritmos}
 \end{table}
 
-A partir de este punto, todas las tablas y gráficos del documento utilizarán estas abreviaturas para referirse a los algoritmos, 
+A partir de este punto, todas las tablas y gráficos del documento utilizarán estas abreviaturas para referirse a los algoritmos,
 mejorando la legibilidad de los resultados y facilitando la interpretación de las comparativas entre métodos.

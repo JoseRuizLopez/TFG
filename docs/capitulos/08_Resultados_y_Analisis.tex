@@ -7,9 +7,9 @@ seleccionados mediante algoritmos meméticos y evolutivos.
 
 
 \section{Resultados con el conjunto completo}\label{sec:resultados-conjunto-completo}
-Como punto de partida, se evaluó el rendimiento de los modelos convolucionales entrenados con el 100\% del conjunto de datos.
+Como punto de partida, se evalua el rendimiento de los modelos convolucionales entrenados con el 100\% del conjunto de datos.
 Esta prueba sirve como referencia para contrastar los resultados obtenidos mediante las técnicas de reducción aplicadas posteriormente.
-Se utilizó tanto ResNet50 como MobileNetV2, y se midieron métricas como accuracy, precisión, recall y F1-score sobre el conjunto de validación.
+Se utilizan tanto ResNet50 como MobileNetV2, y se miden métricas como accuracy, precisión, recall y F1-score sobre el conjunto de validación.
 
 \begin{table}[htp]
     \centering
@@ -33,12 +33,16 @@ sin reducción de datos, lo que permite establecer un techo de rendimiento frent
 
 
 \section{Comparativa inicial de modelos}\label{sec:comparativa-inicial-modelos}
-Antes de aplicar los algoritmos propuestos de reducción de datos, se consideró fundamental realizar una comparativa inicial entre distintos modelos de redes neuronales convolucionales para determinar cuál de ellos era el más adecuado para los experimentos.
-Esta comparación permitiría identificar la arquitectura que ofrecía un mejor equilibrio entre rendimiento y eficiencia computacional, estableciendo una base sólida sobre la que construir los siguientes análisis.
+Antes de aplicar los algoritmos propuestos de reducción de datos, se considera fundamental realizar una comparativa inicial entre distintos
+modelos de redes neuronales convolucionales para determinar cuál de ellos es el más adecuado para los experimentos.
+Esta comparación permite identificar la arquitectura que ofrece un mejor equilibrio entre rendimiento y eficiencia computacional,
+estableciendo una base sólida sobre la que construir los siguientes análisis.
 
-Para llevar a cabo esta comparativa, se utilizó el \textbf{enfoque aleatorio} como estrategia de referencia.
-Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtenía una línea base que permitía evaluar el comportamiento de cada modelo en condiciones controladas.
-Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas avanzadas de reducción de datos, sirviendo como punto de partida para comparar las mejoras introducidas por los algoritmos posteriores.
+Para llevar a cabo esta comparativa, se utiliza el \textbf{enfoque aleatorio} como estrategia de referencia.
+Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtiene una línea base que permiteº evaluar el
+comportamiento de cada modelo en condiciones controladas.
+Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas
+avanzadas de reducción de datos, sirviendo como punto de partida para comparar las mejoras introducidas por los algoritmos posteriores.
 
 
 \begin{table}[htp]
@@ -80,19 +84,22 @@ Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realist
 \colorbox{yellow}{Falta añadir tabla comparando resultados por porcentajes iniciales.}
 
 Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto ResNet50 como MobileNetV2.
-Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo, y en la Figura~\ref{fig:resnet-boxplot-generacion-inicial}, que muestra la distribución de los valores de \textit{accuracy} mediante boxplots.
+Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo,
+y en la Figura~\ref{fig:resnet-boxplot-generacion-inicial}, que muestra la distribución de los valores de \textit{accuracy} mediante boxplots.
 
 Los resultados muestran que ResNet50 logra un mejor rendimiento en términos de \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score}.
 Sin embargo, este mejor rendimiento viene acompañado de un tiempo de entrenamiento considerablemente mayor.
-Por su parte, MobileNetV2 ofrece una solución más eficiente en cuanto a tiempos de ejecución, a costa de una ligera pérdida de precisión, lo que la convierte en una opción atractiva para entornos con recursos computacionales limitados.
+Por su parte, MobileNetV2 ofrece una solución más eficiente en cuanto a tiempos de ejecución, a costa de una ligera pérdida de precisión,
+lo que la convierte en una opción atractiva para entornos con recursos computacionales limitados.
 
-En conjunto, esta comparativa inicial permitió elegir MobileNetV2 como modelo principal para el resto de experimentos.
-Aunque ResNet50 ofrecía una precisión ligeramente superior, su elevado coste computacional no justificaba su uso en las pruebas de reducción de datos, donde la eficiencia es un factor clave.
-Además, el uso del enfoque aleatorio como referencia permitió establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
+En conjunto, esta comparativa inicial permite elegir MobileNetV2 como modelo principal para el resto de experimentos.
+Aunque ResNet50 ofrece una precisión ligeramente superior, su elevado coste computacional no justifica su uso en las pruebas de reducción de datos,
+donde la eficiencia es un factor clave.
+Además, el uso del enfoque aleatorio como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
 
 
 \section{Resultados de la búsqueda local}\label{sec:resultados-busqueda-local}
-Como se describió en el apartado correspondiente (ver \hyperref[sec:algoritmo-busqueda-local]{Sección~\ref*{sec:algoritmo-busqueda-local}}),
+Como se describe en el apartado correspondiente (ver \hyperref[sec:algoritmo-busqueda-local]{Sección~\ref*{sec:algoritmo-busqueda-local}}),
 la búsqueda local permite mejorar progresivamente una solución inicial mediante pequeñas modificaciones guiadas por el rendimiento.
 En este apartado se evalúa su efectividad como alternativa más estructurada frente al enfoque aleatorio, pero sin llegar a la complejidad de los algoritmos evolutivos.
 Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada puede generar subconjuntos de datos más representativos y consistentes.
@@ -122,10 +129,10 @@ la búsqueda local ofrece una mejor consistencia y fiabilidad, con menos varianz
 
 \section{Resultados del Algoritmo Genético}\label{sec:resultados-algoritmo-genetico}
 Con el objetivo de superar las limitaciones observadas (como el riesgo de estancamiento o la exploración poco estructurada del espacio de soluciones)
-se incorporó un enfoque evolutivo más completo: el algoritmo genético, descrito en la Sección~\ref{sec:genetico-v1}, el cual sirvió como punto de partida para explorar la
+se incorpora un enfoque evolutivo más completo: el algoritmo genético, descrito en la Sección~\ref{sec:genetico-v1}, el cual sirve como punto de partida para explorar la
 aplicación de estrategias metaheurísticas en la selección de subconjuntos representativos de imágenes.
 Su estructura evolutiva, basada en selección por torneo, cruce e incorporación de mutación,
-ofrecía ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la búsqueda local.
+ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la búsqueda local.
 
 \begin{figure}[htp]
     \centering
@@ -140,19 +147,20 @@ Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo q
 
 No obstante, también se aprecia una ligera mayor dispersión en los resultados del algoritmo genético, particularmente hacia los valores bajos.
 Esto indica que, pese a su capacidad exploratoria, el genético puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
-De hecho, su valor mínimo (\textbf{0.796}) es superior al de la búsqueda local en esta comparativa, pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
+De hecho, su valor mínimo (\textbf{0.796}) es superior al de la búsqueda local en esta comparativa,
+pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
 % \colorbox{yellow}{¿Sobra el siguiente apartado?}
 La búsqueda local, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
 Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
-Estos resultados sirvieron como evidencia empírica para continuar desarrollando nuevas versiones del algoritmo genético,
+Estos resultados sirven como evidencia empírica para continuar desarrollando nuevas versiones del algoritmo genético,
 incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
 \section{Mejorando el operador de cruce}\label{sec:incorporacion-cruce}
-La primera mejora introducida al algoritmo genético consistió en reemplazar el cruce aleatorio por un cruce ponderado,
+La primera mejora introducida al algoritmo genético consiste en reemplazar el cruce aleatorio por un cruce ponderado,
 donde se prioriza la contribución del progenitor con mayor \textit{fitness}.
-Además, se incorporó una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
+Además, se incorpora una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
 Ambos cambios, explicados en detalle en la \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}},
 buscan aumentar la presión evolutiva y acelerar la convergencia hacia soluciones de mayor calidad,
 evitando así que soluciones mediocres se propaguen innecesariamente en la población.
@@ -164,7 +172,7 @@ evitando así que soluciones mediocres se propaguen innecesariamente en la pobla
     \label{fig:cruce_ponderado}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produjo una mejora clara en la calidad y estabilidad de los resultados.
+Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produce una mejora clara en la calidad y estabilidad de los resultados.
 La versión con cruce ponderado (etiquetada como \texttt{genetico2}) alcanza un valor máximo atípico superior (\textbf{0.887}),
 aunque presenta una mediana más baja que la versión básica.
 
@@ -173,13 +181,13 @@ con un mínimo de \textbf{0.798} frente al \textbf{0.796} en la versión anterio
 Aunque el IQR (\hyperref[subsec:visualizacion-de-resultados]{Rango Intercuartílico}) sigue siendo amplio,
 la acumulación de valores más cercanos al rango superior refleja una convergencia evolutiva más enfocada y menos dependiente del azar.
 
-En conjunto, esta mejora en el cruce no solo permitió una transferencia más eficiente de características ventajosas,
-sino que también incrementó la presión selectiva sobre la calidad de las soluciones.
-Esto se tradujo en un comportamiento más robusto, menos propenso a resultados erráticos y con una mayor capacidad de exploración dirigida del espacio de soluciones.
+En conjunto, esta mejora en el cruce no solo permite una transferencia más eficiente de características ventajosas,
+sino que también incrementa la presión selectiva sobre la calidad de las soluciones.
+Esto se traduce en un comportamiento más robusto, menos propenso a resultados erráticos y con una mayor capacidad de exploración dirigida del espacio de soluciones.
 
 
 \section{Mejorando el operador de mutación}\label{sec:mejorando-mutacion}
-A partir de los resultados obtenidos con el algoritmo con cruce ponderado, se evaluó una nueva versión en la que se introdujo una mutación adaptativa
+A partir de los resultados obtenidos con el algoritmo con cruce ponderado, se evalua una nueva versión en la que se introdujo una mutación adaptativa
 (ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
 A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado,
 lo que permite una mayor flexibilidad en escenarios de diferente escala.
@@ -223,7 +231,7 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
     \label{fig:reinicio_poblacional}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:reinicio_poblacional}, los resultados muestran que la incorporación del reinicio no se tradujo en una mejora tangible del rendimiento.
+Tal como se observa en la Figura~\ref{fig:reinicio_poblacional}, los resultados muestran que la incorporación del reinicio no se traduce en una mejora tangible del rendimiento.
 La mediana de \texttt{genetico3} permanece prácticamente inalterada respecto a \texttt{genetico2\_2} (incluso ligeramente inferior),
 y aunque el valor mínimo es inferior (\textbf{0.766} frente a \textbf{0.798}), no se aprecia un incremento en el valor máximo ni una reducción clara en la dispersión.
 
@@ -236,15 +244,15 @@ En algunos casos, incluso puede introducir una pérdida prematura de diversidad,
 % su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
 % Estos resultados invitan a reconsiderar su activación por defecto, o bien a explorar variantes más refinadas del mecanismo de reinicio.
 En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
-su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
+su implementación en esta versión no logra aportar beneficios consistentes en términos de rendimiento.
 
 \section{Resultados con versiones libres}\label{sec:resultados-versiones-libres}
-Como parte de la evolución de los algoritmos desarrollados, se propusieron versiones libres,
+Como parte de la evolución de los algoritmos desarrollados, se proponen versiones libres,
 en las que el tamaño del subconjunto seleccionado no permanece fijo durante la ejecución, sino que puede ajustarse de forma dinámica.
 
-Para evaluar esta flexibilidad, se generaron versiones libres de la búsqueda local y del algoritmo genético con cruce ponderado y mutación adaptativa,
-como modificación adicional, se introdujo un mecanismo al algoritmo de búsqueda local
-en el que se seleccionaba de forma aletarioa el porcentaje inicial de imágenes a partir del cual se comenzaba a trabajar.
+Para evaluar esta flexibilidad, se generan versiones libres de la búsqueda local y del algoritmo genético con cruce ponderado y mutación adaptativa,
+como modificación adicional, se introduce un mecanismo al algoritmo de búsqueda local
+en el que se selecciona de forma aletarioa el porcentaje inicial de imágenes a partir del cual se comienza a trabajar.
 
 
 \begin{figure}[htp]
@@ -329,7 +337,7 @@ En general, estas versiones demuestran ser una opción más versátil y controla
 
 
 \section{Resultados del algoritmo memético}\label{sec:resultados-algoritmo-memetico}
-Finalmente, se evaluó el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
+Finalmente, se evalua el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
 el cual combina la evolución genética con una búsqueda local aplicada de forma probabilística sobre ciertos individuos seleccionados.
 Este enfoque híbrido busca equilibrar la exploración del espacio de soluciones con una intensificación localizada,
 ofreciendo mejoras tanto en precisión como en estabilidad.
@@ -380,14 +388,14 @@ Se presentan boxplots y gráficos de barras que muestran la evolución del \text
 
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
-Para comprobar la robustez de los algoritmos desarrollados, se validaron los experimentos con el dataset \texttt{PAINTING},
+Para comprobar la robustez de los algoritmos desarrollados, se validan los experimentos con el dataset \texttt{PAINTING},
 caracterizado por una mayor complejidad visual y un número superior de clases respecto al conjunto \texttt{RPS}.
-Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitaron los experimentos a los porcentajes iniciales del 25\% y 50\%,
+Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitan los experimentos a los porcentajes iniciales del 25\% y 50\%,
 evaluando únicamente los algoritmos más representativos.
 
-En particular, se seleccionó el algoritmo memético, junto con su versión libre, ya que ambos habían demostrado ser los más eficaces en las pruebas anteriores.
-Para establecer una referencia clara, se incluyó también los resultados obtenidos usando el 100\% del conjunto de datos, y para la compración de
-\textit{accuracy} entre algoritmos también se añadió el resultado del algoritmo aleatorio.
+En particular, se selecciona el algoritmo memético, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
+Para establecer una referencia clara, se incluyen también los resultados obtenidos usando el 100\% del conjunto de datos, y para la comparación de
+\textit{accuracy} entre algoritmos también se añade el resultado del algoritmo aleatorio.
 
 \subsection{Comparación de \textit{accuracy} entre algoritmos}
 \begin{figure}[htp]
@@ -491,7 +499,7 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
     \label{fig:evolucion_porcentaje_libre}
 \end{figure}
 
-En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evolucionó el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
+En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
 Se observa que el algoritmo memético libre tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
 
 Este comportamiento adaptativo pone de manifiesto la capacidad del algoritmo para ajustar dinámicamente la escala de la solución en función de la complejidad del problema.
@@ -512,9 +520,9 @@ sino que lo hace optimizando también el volumen de datos utilizados.
 Los resultados obtenidos con el dataset \texttt{PAINTING} confirman la solidez y capacidad de generalización de los algoritmos desarrollados.
 Tanto el enfoque memético estándar como, especialmente, su versión libre, lograron mantener un rendimiento competitivo en un entorno más complejo y con mayor número de clases.
 
-Se evidenció que es posible superar el rendimiento del conjunto completo de entrenamiento utilizando únicamente un subconjunto bien seleccionado,
+Se evidencia que es posible superar el rendimiento del conjunto completo de entrenamiento utilizando únicamente un subconjunto bien seleccionado,
 reduciendo significativamente el volumen de datos sin comprometer la precisión.
-Además, los algoritmos meméticos demostraron preservar el equilibrio entre clases y adaptarse dinámicamente al tamaño del subconjunto,
+Además, los algoritmos meméticos demuestra preservar el equilibrio entre clases y adaptarse dinámicamente al tamaño del subconjunto,
 lo que constituye una ventaja clave en tareas reales donde no siempre se dispone de datasets perfectamente balanceados ni completos.
 
 En conjunto, esta validación externa no solo refuerza las conclusiones obtenidas con \texttt{RPS},
