@@ -98,36 +98,7 @@ mantener la integridad del código y el rendimiento de las aplicaciones.
 \section{Arquitectura de la Implementación}\label{sec:arquitectura-de-la-implementacion}
 La arquitectura de la implementación se organiza en varios módulos, que a continuación se describen en detalle:
 
-\subsection{Módulo de Algoritmos}\label{subsec:modulo-de-algoritmos}
-Ubicado en \texttt{src/algorithms/} este módulo contiene las implementaciones principales de los
-algoritmos desarrollados en el proyecto.
-
-Este módulo utiliza la arquitectura GPU para maximizar la velocidad de ejecución y está diseñado para ser escalable,
-permitiendo la inclusión de nuevos operadores meméticos si es necesario.
-
-\subsection{Núcleo de Ejecución}\label{subsec:nucleo-de-ejecucion}
-El módulo \texttt{main.py} centraliza la ejecución de un experimento individual, inicializando configuraciones,
-entrenando el modelo y generando gráficos.
-
-
-Los pasos de la función principal de \texttt{main.py} es:
-\begin{enumerate}
-      \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
-      \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
-            la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
-      \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
-            métrica final en un archivo.
-      \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
-            largo del proceso.
-      \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
-            Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
-\end{enumerate}
-
-
-Adicionalmente, los scripts \texttt{generator.py} y \texttt{generator\_initial.py} permiten automatizar experimentos masivos
-combinando distintos algoritmos, porcentajes iniciales y modelos de red neuronal.
-
-\subsubsection{Configuración de Modelos Preentrenados}\label{subsec:modelos-preentrenados}
+\subsection{Configuración de Modelos Preentrenados}\label{subsec:configuracion-modelos-preentrenados}
 En este trabajo, se han utilizado modelos convolucionales preentrenados como base para la tarea de clasificación de imágenes.
 Concretamente, se han empleado las arquitecturas \textbf{ResNet50} y \textbf{MobileNetV2},
 cargadas con pesos preentrenados sobre \texttt{ImageNet} o \texttt{CIFAR10}, según el dataset utilizado en cada experimento.
@@ -153,46 +124,55 @@ Este enfoque se implementa mediante las herramientas de PyTorch,
 congelando explícitamente los gradientes de todas las capas del modelo y definiendo la nueva capa final con el número adecuado de salidas para cada problema de clasificación.
 
 
-\subsubsection{Esquema General de Funcionamiento de los Algoritmos}\label{subsec:esquema-algoritmos}
-El funcionamiento general de los algoritmos desarrollados en este trabajo se organiza en una estructura modular que permite la ejecución flexible de distintos enfoques de selección de instancias. A continuación, se presenta un esquema visual del flujo principal:
+\subsection{Esquema General de Funcionamiento de los Algoritmos}\label{subsec:esquema-algoritmos}
+El funcionamiento general de los algoritmos implementados en este trabajo sigue un flujo estructurado y modular que permite una ejecución ordenada de todas las etapas del proceso.
+La Figura~\ref{fig:esquema-flujo-algoritmos} muestra el esquema general de funcionamiento, desde la configuración inicial hasta la evaluación final de resultados.
 
-\begin{figure}[H]
+\begin{figure}[htp]
       \centering
-      \begin{tikzpicture}[node distance=1.8cm, every node/.style={fill=white, font=\sffamily}, align=center]
-            % Nodes
-            \node (start) [rectangle, draw, rounded corners, fill=blue!20, minimum width=4cm] {Inicio del experimento (generator.py)};
-            \node (config) [rectangle, draw, below of=start, fill=blue!10, minimum width=4cm] {Definición de parámetros: \\ Algoritmo, Modelo, Dataset, etc.};
-            \node (main) [rectangle, draw, below of=config, fill=blue!10, minimum width=4cm] {Llamada a main.py};
-            \node (alg) [diamond, draw, below of=main, fill=blue!10, minimum width=5cm, aspect=2] {Selección del algoritmo};
-            \node (train) [rectangle, draw, right=4cm of alg, fill=blue!10, minimum width=4cm] {Evaluación de subconjunto \\ Entrenamiento del modelo \\ (capa final) \\ Cálculo de métricas};
-            \node (fitness) [rectangle, draw, below of=alg, fill=blue!10, minimum width=4cm] {Cálculo del fitness};
-            \node (update) [rectangle, draw, below of=fitness, fill=blue!10, minimum width=4cm] {Actualización de mejor solución};
-            \node (stop) [rectangle, draw, below of=update, fill=blue!10, minimum width=4cm] {Criterio de parada};
-            \node (result) [rectangle, draw, below of=stop, fill=blue!20, minimum width=4cm] {Generación de resultados: CSVs, gráficos};
-
-            % Arrows
-            \draw[->] (start) -- (config);
-            \draw[->] (config) -- (main);
-            \draw[->] (main) -- (alg);
-            \draw[->] (alg) -- (fitness);
-            \draw[->] (fitness) -- (update);
-            \draw[->] (update) -- (stop);
-            \draw[->] (stop) -- (result);
-            \draw[->] (alg.east) -- (train.west);
-
-      \end{tikzpicture}
-      \caption{Esquema general del flujo de ejecución de los algoritmos.}
+      \includegraphics[width=0.95\textwidth]{imagenes/flujo2.drawio}
+      \caption{Esquema general del flujo de ejecución de los algoritmos y evaluación de subconjuntos.}
+      \label{fig:esquema-flujo-algoritmos}
 \end{figure}
 
-Este esquema resume el flujo de ejecución:
-\begin{itemize}
-      \item El proceso comienza con la configuración de parámetros en \texttt{generator.py}, incluyendo el algoritmo, el modelo y el dataset.
-      \item A continuación, se invoca el script \texttt{main.py}, que organiza la ejecución.
-      \item Según el algoritmo seleccionado, se genera y evalúa un subconjunto de datos. Este proceso incluye la congelación de capas del modelo preentrenado, la sustitución de la última capa por una \texttt{fully connected}, y la evaluación mediante métricas de \texttt{accuracy}, \texttt{precision}, \texttt{recall} y \texttt{F1-score}.
-      \item Los resultados se almacenan y se generan gráficos para el análisis posterior.
-\end{itemize}
+El proceso se organiza en los siguientes pasos principales:
 
+\begin{enumerate}
+      \item \textbf{Ejecución del script de paralelización:} Se inicia el script que permite ejecutar múltiples experimentos de manera paralela,
+            facilitando la obteción de resultados de diferentes semillas.
+      \item \textbf{Configuración inicial:} Se define el algoritmo, el modelo y el dataset a utilizar, a través de los parámetros en \texttt{generator.py}.
+      \item \textbf{Ejecución del núcleo principal:} El script \texttt{main.py} se encarga de orquestar la ejecución,
+            llamando a las funciones específicas según el algoritmo seleccionado.
+      \item \textbf{Generación y evaluación de subconjuntos:} Cada algoritmo genera subconjuntos de datos de entrenamiento a partir del conjunto original.
+      \item \textbf{Entrenamiento del modelo:} Se realiza el entrenamiento del modelo utilizando los subconjuntos generados,
+            aplicando técnicas de \textit{transfer learning} con modelos preentrenados.
+      \item \textbf{Almacenamiento de resultados:} Cada evaluación almacena los resultados obtenidos (métricas y composición del subconjunto) y,
+            tras finalizar la ejecución, se generan gráficos como boxplots y visualizaciones que permiten analizar el rendimiento de cada enfoque.
+\end{enumerate}
 
+\subsection{Módulo de Algoritmos}\label{subsec:modulo-de-algoritmos}
+Ubicado en \texttt{src/algorithms/} este módulo contiene las implementaciones principales de los
+algoritmos desarrollados en el proyecto.
+
+Este módulo utiliza la arquitectura GPU para maximizar la velocidad de ejecución y está diseñado para ser escalable,
+permitiendo la inclusión de nuevos operadores meméticos si es necesario.
+
+\subsection{Núcleo de Ejecución}\label{subsec:nucleo-de-ejecucion}
+El módulo \texttt{main.py} centraliza la ejecución de un experimento individual, inicializando configuraciones,
+entrenando el modelo y generando gráficos.
+
+Los pasos de la función principal de \texttt{main.py} es:
+\begin{enumerate}
+      \item \textbf{Establece Configuración Inicial}: Configura una semilla, elige el dataset y prepara un archivo de log.
+      \item \textbf{Inicia el Proceso del Algoritmo}: Según el nombre del algoritmo (algoritmo) especificado, se llama a
+            la función correspondiente (por ejemplo, genetic\_algorithm, memetic\_algorithm, etc.).
+      \item \textbf{Almacena Resultados}: Una vez que el algoritmo termina, registra la duración, los resultados y la
+            métrica final en un archivo.
+      \item \textbf{Visualiza Resultados}: Si hay datos de fitness, genera una gráfica de la evolución del fitness a lo
+            largo del proceso.
+      \item \textbf{Genera un Resumen}: Calcula estadísticas adicionales (como porcentaje de clases seleccionadas en
+            Paper, Rock y Scissors), y devuelve estos resultados junto con el historial de fitness.
+\end{enumerate}
 
 \subsection{Módulo de Utilidades}\label{subsec:modulo-de-utilidades}
 La carpeta \texttt{utils/} contiene funciones auxiliares:

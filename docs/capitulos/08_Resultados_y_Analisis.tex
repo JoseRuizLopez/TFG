@@ -14,18 +14,22 @@ Se utilizan tanto ResNet50 como MobileNetV2, y se miden métricas como accuracy,
 \begin{table}[htp]
     \centering
     \resizebox{\textwidth}{!}{
-        \begin{tabular}{lp{2cm}lp{2cm}p{2cm}p{2cm}p{2cm}p{2.2cm}}
+        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
             \toprule
-            \textbf{Porcentaje Inicial} & \textbf{Duración}     & \textbf{Accuracy (Avg)} &
-            \textbf{Precision (Avg)}    & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} &
-            \textbf{Evaluaciones Realizadas}                                                                                \\
+            \textbf{Duración Inferencia} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
             \midrule
-            100                         & 00:02:42              & 87,90\%                 & 88,96\% & 87,90\% & 87,81\% & 1 \\
+            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                        \\
+            \midrule
+            00:02:42                     & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                       \\
+            \midrule
+            00:03:16                     & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de ResNet50 entrenado con el 100\% del conjunto de datos.}
-    \label{tab:resultados-100-resnet50}
+    \caption{Comparativa de resultados del \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
+    \label{tab:resultados-100-resnet50-mobilenet}
 \end{table}
 
 Los resultados en la tabla~\ref{tab:resultados-100-resnet50} obtenidos representan el rendimiento máximo alcanzable en condiciones ideales,
