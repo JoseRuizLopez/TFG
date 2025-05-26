@@ -55,13 +55,13 @@
       "console": "integratedTerminal",
       "args": [
         "--IN",
-        "finales_2",
+        "finales",
         "--OUT",
-        "comparacion_modelos",
+        "nueva_formula_mutation",
         "--MODELO",
-        "resnet",
+        "mobilenet",
         "--CARPETAS",
-        "-",
+        "gen_v2-2",
         "--MODO",
         "comparar",
         "--MODO_PRINT",
@@ -79,14 +79,38 @@
       "console": "integratedTerminal",
       "args": [
         "--CARPETAS",
-        "results/csvs/finales_RESNET/-",
-        "results/csvs/finales_2/-",
+        "results/csvs/comparaciones/nueva_formula_mutation/WC",
+        "results/csvs/comparaciones/nueva_formula_mutation/AM",
         "--NOMBRES",
-        "RESNET",
-        "MOBILENET",
+        "WC",
+        "AM",
         "--SALIDA",
-        "img/finales/comparacion_modelos"
+        "img/finales/nueva_formula_mutation"
       ]
+    },
+    {
+      "name": "Comparar versiones de algoritmos",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "program": "${workspaceFolder}/src/generar_comparar_versiones.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--OUT",
+        "nueva_formula_mutation",
+        "--CARPETAS",
+        "comparaciones/nueva_formula_mutation/WC",
+        "comparaciones/nueva_formula_mutation/AM",
+        "--NOMBRES",
+        "WC",
+        "AM",
+        "--METRICAS",
+        "Accuracy",
+        "--TITULO",
+        "Comparación de accuracy al mejorar el operador de mutación"
+      ],
     }
   ]
 }

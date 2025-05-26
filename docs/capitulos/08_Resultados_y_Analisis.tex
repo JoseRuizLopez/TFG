@@ -17,15 +17,15 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
             \toprule
-            \textbf{Duración Inferencia} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
+            \textbf{Duración por Eva.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
             \midrule
-            \multicolumn{5}{l}{\textbf{Modelo ResNet50}}                                                                                        \\
+            \multicolumn{5}{l}{\textbf{Modelo ResNet50}}                                                                                      \\
             \midrule
-            00:02:42                     & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
+            00:02:42                   & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
             \midrule
-            \multicolumn{5}{l}{\textbf{Modelo MobileNet}}                                                                                       \\
+            \multicolumn{5}{l}{\textbf{Modelo MobileNet}}                                                                                     \\
             \midrule
-            00:03:16                     & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
+            00:03:16                   & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
             \bottomrule
         \end{tabular}
     }
@@ -40,7 +40,7 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
     \label{fig:comparacion_modelos_100}
 \end{figure}
 
-Los resultados presentados en la tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la figura~\ref{fig:comparacion_modelos_100}, 
+Los resultados presentados en la tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la figura~\ref{fig:comparacion_modelos_100},
 representan el rendimiento máximo alcanzable en condiciones ideales,
 es decir, utilizando la totalidad del conjunto de datos sin aplicar técnicas de reducción.
 Este escenario establece un techo de rendimiento que se utiliza como referencia para evaluar la eficacia de
@@ -48,7 +48,7 @@ los algoritmos de reducción de datos implementados en el resto del estudio.
 
 En particular, se observa que \textbf{ResNet50} obtiene mejores resultados en todas las métricas evaluadas,
 destacando especialmente en \textit{accuracy} y \textit{precision}, donde supera por más de 9 puntos porcentuales a \textbf{MobileNetV2}.
-Esta superioridad en el rendimiento viene acompañada de un tiempo de inferencia ligeramente menor (00:02:42 frente a 00:03:16),
+Esta superioridad en el rendimiento viene acompañada de un tiempo por evaluación ligeramente menor (00:02:42 frente a 00:03:16),
 lo que indica una mayor eficiencia en la etapa de predicción.
 Sin embargo, es importante tener en cuenta que el entrenamiento de ResNet50 implica un mayor coste computacional debido a su arquitectura más compleja,
 mientras que MobileNetV2 se mantiene como una opción más ligera y adecuada para dispositivos con recursos limitados, a costa de una leve pérdida de precisión.
@@ -75,24 +75,24 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
             \toprule
-            \textbf{Porcentaje Inicial} & \textbf{Evaluaciones Realizadas} & \textbf{Duración Total} & \textbf{Duración Inferencia} &
-            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}         & \textbf{Recall (Avg)}   & \textbf{F1-score (Avg)}                                              \\
+            \textbf{Porcentaje Inicial} & \textbf{Evaluaciones Realizadas} & \textbf{Duración Total} & \textbf{Duración por Eva.} &
+            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}         & \textbf{Recall (Avg)}   & \textbf{F1-score (Avg)}                                            \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                                    \\
+            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                                  \\
             \midrule
-            10\%                        & 100                              & 01:21:37                & 00:00:48                     & 85,16\% & 86,30\% & 85,16\% & 85,02\% \\
-            25\%                        & 100                              & 01:28:14                & 00:00:52                     & 87,26\% & 88,13\% & 87,26\% & 87,02\% \\
-            50\%                        & 100                              & 02:27:17                & 00:01:28                     & 88,49\% & 89,51\% & 88,49\% & 88,30\% \\
-            75\%                        & 100                              & 03:52:41                & 00:02:19                     & 89,89\% & 90,53\% & 89,89\% & 89,70\% \\
-            100\%                       & 1                                & -                       & 00:02:55                     & 87,42\% & 88,73\% & 87,42\% & 87,18\% \\
+            10\%                        & 100                              & 01:21:37                & 00:00:48                   & 85,16\% & 86,30\% & 85,16\% & 85,02\% \\
+            25\%                        & 100                              & 01:28:14                & 00:00:52                   & 87,26\% & 88,13\% & 87,26\% & 87,02\% \\
+            50\%                        & 100                              & 02:27:17                & 00:01:28                   & 88,49\% & 89,51\% & 88,49\% & 88,30\% \\
+            75\%                        & 100                              & 03:52:41                & 00:02:19                   & 89,89\% & 90,53\% & 89,89\% & 89,70\% \\
+            100\%                       & 1                                & -                       & 00:02:55                   & 87,42\% & 88,73\% & 87,42\% & 87,18\% \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                                   \\
+            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                                 \\
             \midrule
-            10\%                        & 100                              & 00:38:16                & 00:00:22                     & 81,34\% & 82,46\% & 81,34\% & 80,52\% \\
-            25\%                        & 100                              & 01:18:22                & 00:00:47                     & 80,70\% & 81,90\% & 80,70\% & 79,90\% \\
-            50\%                        & 100                              & 02:26:40                & 00:01:28                     & 80,86\% & 82,65\% & 80,86\% & 80,22\% \\
-            75\%                        & 100                              & 03:05:48                & 00:01:51                     & 82,26\% & 84,16\% & 82,26\% & 81,67\% \\
-            100\%                       & 1                                & -                       & 00:03:16                     & 78,60\% & 81,55\% & 78,60\% & 77,68\% \\
+            10\%                        & 100                              & 00:38:16                & 00:00:22                   & 81,34\% & 82,46\% & 81,34\% & 80,52\% \\
+            25\%                        & 100                              & 01:18:22                & 00:00:47                   & 80,70\% & 81,90\% & 80,70\% & 79,90\% \\
+            50\%                        & 100                              & 02:26:40                & 00:01:28                   & 80,86\% & 82,65\% & 80,86\% & 80,22\% \\
+            75\%                        & 100                              & 03:05:48                & 00:01:51                   & 82,26\% & 84,16\% & 82,26\% & 81,67\% \\
+            100\%                       & 1                                & -                       & 00:03:16                   & 78,60\% & 81,55\% & 78,60\% & 77,68\% \\
             \bottomrule
         \end{tabular}
     }
@@ -162,11 +162,11 @@ ofrece ya desde sus primeras versiones una capacidad superior para generalizar, 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_bl-gen_v1}
-    \caption{Boxplot comparando la búsqueda local con el algoritmo genético v1 usando \textit{accuracy}.}
+    \caption{Boxplot comparando BL con GEN usando \textit{accuracy}.}
     \label{fig:bl-vs-gen-v1}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local,
+Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético (GEN) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (BL),
 reflejando un rendimiento medio más consistente.
 Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo que evidencia su mayor potencial para encontrar soluciones de alta calidad.
 
@@ -193,13 +193,13 @@ evitando así que soluciones mediocres se propaguen innecesariamente en la pobla
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce}
-    \caption{Boxplot de \textit{accuracy} para el genético, versión con cruce ponderado y dataset completo.}
+    \caption{Boxplot de \textit{accuracy} comparando el GEN y el WC.}
     \label{fig:cruce_ponderado}
 \end{figure}
 
 Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produce una mejora clara en la calidad y estabilidad de los resultados.
-La versión con cruce ponderado (etiquetada como \texttt{genetico2}) alcanza un valor máximo atípico superior (\textbf{0.887}),
-aunque presenta una mediana más baja que la versión básica.
+La versión con cruce ponderado (WC) alcanza un valor máximo atípico superior (\textbf{0.887}),
+aunque presenta una mediana más baja que la versión básica (GEN).
 
 Pero por otra parte, se aprecia una ligera reducción en la dispersión de los valores inferiores,
 con un mínimo de \textbf{0.798} frente al \textbf{0.796} en la versión anterior, lo que sugiere una mayor consistencia.
@@ -220,31 +220,43 @@ lo que permite una mayor flexibilidad en escenarios de diferente escala.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo con cruce ponderado (\textit{genetico2}) y su versión con mutación adaptativa (\textit{genetico2\_2}).}
+    \caption{Comparación de \textit{accuracy} entre el WC y el AM.}
     \label{fig:mutacion-adaptativa}
 \end{figure}
 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje}
+    \caption{Diagrama de comparación usando el \textit{accuracy} entre el WC Y el AM, separados por porcentaje inicial.}
+    \label{fig:mutacion-adaptativa-porcentaje}
+\end{figure}
+
 Como se observa en la Figura~\ref{fig:mutacion-adaptativa}, ambos algoritmos alcanzan un rendimiento similar en términos de mediana y valores extremos,
-con una ligera ventaja de la versión original (\texttt{genetico2}) en el valor máximo de \textit{accuracy} (\textbf{0.887} frente a \textbf{0.876}).
-Sin embargo, la versión con mutación adaptativa (\texttt{genetico2\_2}) muestra una distribución más compacta en la parte central,
+con una ligera ventaja de la versión original (WC) en el valor máximo de \textit{accuracy} (\textbf{0.887} frente a \textbf{0.876}).
+Sin embargo, su versión con mutación adaptativa (AM) muestra una distribución más compacta en la parte central,
 con menos dispersión hacia valores bajos del IQR, lo que sugiere una mejora en la consistencia entre ejecuciones.
 
 Además, la versión con mutación adaptativa presenta un Q4 más elevado, es decir, su \textit{bigote superior} abarca valores superiores a los de la versión original.
 Esto indica que, aparte de que la mediana sea un poco superior, un mayor número de ejecuciones alcanzan rendimientos más altos de forma consistente,
 reforzando la idea de que esta variante promueve una evolución más estable y con mayor concentración de soluciones de calidad en el tramo alto del rendimiento.
 
+Al analizar los resultados desglosados por porcentaje inicial (ver Figura~\ref{fig:mutacion-adaptativa-porcentaje}),
+se observa que la estabilidad de la versión con mutación adaptativa se mantiene de forma más robusta a lo largo de los distintos escenarios.
+Aunque las diferencias en precisión media no son significativas,
+la compacidad de los resultados y la reducción de valores atípicos en las ejecuciones justifican la preferencia por la versión AM,
+especialmente en contextos donde la estabilidad y la consistencia son prioritarias.
+
 Este resultado refleja que, aunque la mutación adaptativa no produce una mejora radical en precisión media,
 sí contribuye a una evolución más controlada y robusta, reduciendo la probabilidad de degradaciones abruptas.
 Además, su comportamiento flexible la hace más adecuada en contextos donde el tamaño del subconjunto varía,
 evitando configuraciones subóptimas impuestas por una tasa fija.
 
-Aunque el valor máximo de \textit{accuracy} se mantiene en niveles similares, la ganancia está en la consistencia y la eficiencia exploratoria,
-ya que se adapta automáticamente al contexto sin requerir ajustes manuales para diferentes tamaños de subconjuntos.
-En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo.
+En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo,
+consolidando su utilidad como una opción más estable para la reducción de datos en aprendizaje profundo.
 
 
 \section{Resultados del reinicio poblacional}\label{sec:resultados-reinicio-poblacional}
-La Versión3 del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
+La última mejora realizada del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
 introduce una lógica de reinicio poblacional diseñada para evitar estancamientos evolutivos.
 El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas,
 se aplica un reinicio parcial que conserva únicamente al mejor individuo de la población.
@@ -252,7 +264,7 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo genético con mutación adaptativa (genetico2\_2) y con reinicio poblacional (genetico3).}
+    \caption{Comparación de \textit{accuracy} entre el AM y con PR.}
     \label{fig:reinicio_poblacional}
 \end{figure}
 
@@ -297,7 +309,7 @@ Este comportamiento refleja que introducir flexibilidad en el tamaño del subcon
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/comparacion_gen_v2}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo genético v2-2 (cruce ponderado + mutación adaptativa) y su versión libre.}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo genético con cruce ponderado + mutación adaptativa, con su versión libre.}
     \label{fig:gen_v2_libre}
 \end{figure}
 

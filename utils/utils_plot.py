@@ -12,7 +12,7 @@ from utils.classes import PrintMode
 
 
 
-ORDEN_ALGORITMOS = ["100%", "RS", "LR", "LR-F", "GEN", "WC", "WC-F", "PR", "MEM", "MEM-F"]
+ORDEN_ALGORITMOS = ["100%", "RS", "LR", "LR-F", "GEN", "WC", "WC-F", "AM", "AM-F", "PR", "MEM", "MEM-F"]
 
 
 def plot_fitness_evolution(

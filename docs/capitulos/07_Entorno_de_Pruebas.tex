@@ -114,7 +114,7 @@ Este conjunto de datos se distribuye bajo la licencia
 con la condición de otorgar el crédito adecuado a los creadores originales.
 
 
-\subsection{\texttt{PAINTING} (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
+\subsection{PAINTING (Art Images: Drawing/Painting/Sculptures/Engravings)}\label{subsec:painting}
 El dataset \textbf{Art Images: Drawing/Painting/Sculptures/Engravings} es una colección de aproximadamente 9,000
 imágenes organizadas en cinco categorías de arte: dibujos, pinturas, esculturas, grabados y arte iconográfico.
 
@@ -287,8 +287,28 @@ El número de evaluaciones sin mejora también se monitoriza para aplicar criter
 explicados previamente en el \hyperref[sec:consideraciones-de-optimizacion]{Apartado~\ref*{sec:consideraciones-de-optimizacion}},
 reduciendo así el tiempo computacional en caso de estancamiento.
 
-\subsubsection{Visualización de resultados}\label{subsec:visualizacion-de-resultados}
-Para facilitar la comparación entre algoritmos, a lo largo de este capítulo se incluyen representaciones gráficas de los
+\subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
+Con el objetivo de obtener resultados estadísticamente significativos y reducir el efecto de la aleatoriedad,
+cada configuración experimental se ejecuta 5 veces, utilizando 5 semillas distintas.
+Los resultados presentados en las tablas y gráficos corresponden a la media de esas ejecuciones,
+junto con medidas de dispersión cuando procede, como los boxplots.
+
+Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración,
+se opta por incluir todos los valores individuales obtenidos con las distintas semillas.
+Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo,
+resaltando mejor la mediana, así como los valores máximos y mínimos alcanzados durante las ejecuciones.
+
+\subsection{Tiempos de Ejecución}\label{sec:tiempos-de-ejecucion}
+Cada evaluación implica entrenar un modelo desde cero, por lo que los tiempos de ejecución son considerables.
+Por ejemplo, una ejecución completa con 100 evaluaciones puede tardar entre 30 minutos y 2 horas,
+dependiendo del algoritmo y del modelo utilizado.
+
+Los algoritmos más complejos, como el memético o las versiones con reinicio poblacional,
+requieren un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
+
+
+\section{Visualización de resultados}\label{subsec:visualizacion-de-resultados}
+Para facilitar la comparación entre algoritmos, en el resto del trabajo se incluyen representaciones gráficas de los
 resultados obtenidos mediante \textbf{boxplots} y \textbf{barplots}.
 Ambos tipos de gráficos permiten visualizar el comportamiento global de cada algoritmo a partir de múltiples ejecuciones con distintas semillas.
 
@@ -311,27 +331,8 @@ Esta representación es especialmente útil para comparar la tendencia central, 
 \textbf{Los barplots} (gráficos de barras), por su parte, se emplean para representar valores agregados como medias o proporciones,
 y son útiles para observar cómo varía una métrica concreta entre distintos algoritmos, modelos o configuraciones.
 
-\subsection{Repeticiones y Semillas}\label{sec:repeticiones-y-semillas}
-Con el objetivo de obtener resultados estadísticamente significativos y reducir el efecto de la aleatoriedad,
-cada configuración experimental se ejecuta 5 veces, utilizando 5 semillas distintas.
-Los resultados presentados en las tablas y gráficos corresponden a la media de esas ejecuciones,
-junto con medidas de dispersión cuando procede, como los boxplots.
 
-Cabe destacar que, en el caso de los boxplots, en lugar de representar la media de las 5 ejecuciones por configuración,
-se opta por incluir todos los valores individuales obtenidos con las distintas semillas.
-Esta decisión permite visualizar una distribución más realista del comportamiento de cada algoritmo,
-resaltando mejor la mediana, así como los valores máximos y mínimos alcanzados durante las ejecuciones.
-
-\subsection{Tiempos de Ejecución}\label{sec:tiempos-de-ejecucion}
-Cada evaluación implica entrenar un modelo desde cero, por lo que los tiempos de ejecución son considerables.
-Por ejemplo, una ejecución completa con 100 evaluaciones puede tardar entre 30 minutos y 2 horas,
-dependiendo del algoritmo y del modelo utilizado.
-
-Los algoritmos más complejos, como el memético o las versiones con reinicio poblacional,
-requieren un mayor tiempo de ejecución debido a las operaciones adicionales de mejora local o regeneración de población.
-
-
-\section{Nomenclatura simplificada de los algoritmos}
+\section{Nomenclatura simplificada de los algoritmos}\label{subsec:nomenclatura-algoritmos}
 Para facilitar la lectura de las tablas y gráficos presentados a lo largo de este trabajo,
 se opta por utilizar abreviaciones consistentes para referirse a los algoritmos implementados.
 Estas abreviaciones permiten condensar la información visualmente sin perder la claridad en la interpretación de los resultados.
@@ -364,12 +365,46 @@ A partir de este punto, todas las tablas y gráficos del documento utilizarán e
 mejorando la legibilidad de los resultados y facilitando la interpretación de las comparativas entre métodos.
 
 
+\section{Estructura de las Tablas de Resultados}\label{subsec:estructura-tablas}
+En los siguientes capítulos, algunos resultados obtenidos a partir de los experimentos se presentan de forma tabulada para facilitar la
+comprensión y el análisis comparativo entre algoritmos, modelos y configuraciones.
+Estas tablas recogen las métricas de rendimiento clave obtenidas a lo largo de las distintas ejecuciones.
+
+Las columnas principales que pueden aparecer en las tablas son las siguientes:
+\begin{itemize}
+    \item \textbf{Porcentaje Inicial}: Indica el porcentaje inicial de datos seleccionados por el algoritmo para cada ejecución.
+          Este valor permite analizar cómo varía el rendimiento del modelo en función de la cantidad de datos utilizados.
+    \item \textbf{Evaluaciones Realizadas}: Número total de evaluaciones efectuadas por el algoritmo en cada configuración.
+          Generalmente, este valor se fija en 100, salvo en casos concretos como la evaluación con el 100\% del conjunto de datos.
+    \item \textbf{Duración Total}: Tiempo total requerido para completar todas las evaluaciones de una configuración, expresado en formato \textit{horas:minutos:segundos}.
+          Este campo ayuda a comparar la eficiencia computacional de los algoritmos.
+          Se obtiene a partir de las distintas ejecuciones del algoritmo con diferentes semillas.
+    \item \textbf{Duración por Evaluación}: Tiempo necesario para realizar un único entrenamiento, permitiendo evaluar la rapidez de cada modelo de forma precisa.
+          Este valor se calcula dividiendo la duración total entre el número de evaluaciones realizadas.
+    \item \textbf{Accuracy (Avg)}: Precisión media alcanzada, expresada en porcentaje, calculada sobre el conjunto de validación.
+          Se obtiene a partir de las distintas ejecuciones del algoritmo con diferentes semillas.
+    \item \textbf{Precision (Avg)}: Media de la precisión por clase (macro promedio), que refleja la proporción de verdaderos positivos entre todas las predicciones positivas para cada clase.
+    \item \textbf{Recall (Avg)}: Media del \emph{recall} por clase, que indica la proporción de verdaderos positivos entre todas las instancias reales de cada clase.
+    \item \textbf{F1-score (Avg)}: Media armónica entre precisión y \emph{recall}, calculada por clase y luego promediada (macro promedio).
+          Es una métrica clave para problemas multiclase.
+\end{itemize}
+
+En algunas tablas, los resultados se agrupan por \textbf{modelo de red neuronal} o por \textbf{porcentaje inicial},
+permitiendo comparar directamente su rendimiento bajo las mismas condiciones experimentales y facilitando el análisis del impacto de la cantidad de datos seleccionados.
+
+Por último, aclarar que las abreviaturas de los algoritmos empleadas en las tablas corresponden a las definidas en la Tabla~\ref{subsec:nomenclatura-algoritmos},
+para mejorar la legibilidad de los resultados y simplificar las comparaciones.
+
+Las tablas están diseñadas para ofrecer una visión clara, precisa y estructurada del impacto de cada configuración experimental en el rendimiento final de los modelos.
+Esta información es fundamental para evaluar la eficacia de las estrategias de reducción de datos implementadas en este trabajo.
+
+
 \section{Parámetros de los Algoritmos y del Entrenamiento}\label{subsec:parametros-algoritmos}
 En este apartado se describen los principales parámetros utilizados en el desarrollo de los algoritmos de
 selección de instancias y en el proceso de entrenamiento de los modelos de clasificación.
 La correcta configuración de estos parámetros es fundamental para asegurar un equilibrio entre la calidad de los resultados y la eficiencia computacional.
 
-\subsection{Parámetros Generales de los Algoritmos}
+\subsection{Parámetros Generales de los Algoritmos}\label{subsec:parametros-generales-algoritmos}
 \begin{itemize}
     \item \textbf{Porcentaje inicial de selección} (\texttt{initial\_percentage}): Define el porcentaje inicial de datos seleccionados para cada ejecución.
           Se han evaluado valores como 10\%, 25\%, 50\% y 75\%.
@@ -381,7 +416,7 @@ La correcta configuración de estos parámetros es fundamental para asegurar un 
     \item \textbf{Modelo de red neuronal} (\texttt{model\_name}): Arquitectura utilizada para la clasificación, como \texttt{ResNet50} o \texttt{MobileNetV2}.
 \end{itemize}
 
-\subsection{Parámetros del Entrenamiento de Modelos}
+\subsection{Parámetros del Entrenamiento de Modelos}\label{subsec:parametros-entrenamiento-modelos}
 
 \begin{itemize}
     \item \textbf{Tamaño del batch} (\texttt{batch\_size}): Número de imágenes procesadas simultáneamente durante el entrenamiento.
@@ -394,7 +429,7 @@ La correcta configuración de estos parámetros es fundamental para asegurar un 
           Se prioriza el uso de GPU cuando está disponible.
 \end{itemize}
 
-\subsection{Parámetros Específicos por Algoritmo}
+\subsection{Parámetros Específicos por Algoritmo}\label{subsec:parametros-especificos-algoritmos}
 
 \textbf{Random Search:}
 \begin{itemize}

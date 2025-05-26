@@ -25,7 +25,7 @@
         + ✅ Crear una tabla donde nombre los algoritmos con sus seudonimos.
 
     - Resultados y Analisis.
-        + Explicar tambien como van a ser las tablas.
+        + ✅ Explicar tambien como van a ser las tablas.
         + ✅ En los enunciados, no poner evaluación, poner directamente resultados 100%.
         + ✅ En el titulo, cambiar por el "Modificando el operador" de crure por "Mejorando el operador".
         + ✅ Cambiar el nombre de mejora metaheurística por Algoritmo Genético.
@@ -35,9 +35,9 @@
             · ✅ Quitar la columna algoritmo.
             · ✅ Añadir la tabla Duración Total y Duracion Inferencia.
             · ✅ Arreglar los portencajes inicales (Usar siempre 10%, 25%, 50% y 75%). 
-        + Quitar La duracion total de las tablas en los 100% de PI.
+        + ✅ Quitar La duracion total de las tablas en los 100% de PI.
         + ✅ Cambiar el verbo en pasado al presente.
-        + Cambiar los algoritmos por su seudonimos.
+        + 🏗️ Cambiar los algoritmos por su seudonimos. (voy por el reinicio poblacional)
         + Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
             para poder comparar dentro los distintos modelos.
         + ✅ Reducir los párrafo resumen en una frase. Los largos dejarlos para las conclusiones.
