@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+RS,0.25,1:25:29,0.8737,0.884,0.8737,0.8735,100,0.25,0.346,0.3302,0.3238
+RS,0.5,2:18:44,0.8763,0.886,0.8763,0.8739,100,0.5,0.3421,0.3246,0.3333
+RS,0.1,1:32:11,0.8522,0.8669,0.8522,0.8501,100,0.1,0.3571,0.3413,0.3016
+RS,0.75,4:12:21,0.9059,0.9128,0.9059,0.9045,100,0.75,0.3354,0.3254,0.3392

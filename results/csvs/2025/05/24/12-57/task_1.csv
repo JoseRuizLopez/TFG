@@ -1,2 +1,2 @@
 Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Airplane,Porcentaje Automobile,Porcentaje Bird,Porcentaje Cat,Porcentaje Deer,Porcentaje Dog,Porcentaje Frog,Porcentaje Horse,Porcentaje Ship,Porcentaje Truck
-aleatorio,0.1,0:06:00,0.7424,0.7411,0.7424,0.7412,2,0.1,0.0976,0.0982,0.103,0.0944,0.1032,0.0914,0.1042,0.1044,0.1048,0.0988
+RS,0.1,0:06:00,0.7424,0.7411,0.7424,0.7412,2,0.1,0.0976,0.0982,0.103,0.0944,0.1032,0.0914,0.1042,0.1044,0.1048,0.0988
