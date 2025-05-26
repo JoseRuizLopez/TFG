@@ -96,33 +96,11 @@ Esto facilita la reproducibilidad del proyecto y minimiza posibles conflictos de
 mantener la integridad del código y el rendimiento de las aplicaciones.
 
 \section{Arquitectura de la Implementación}\label{sec:arquitectura-de-la-implementacion}
-La arquitectura de la implementación se organiza en varios módulos, que a continuación se describen en detalle:
-
-\subsection{Configuración de Modelos Preentrenados}\label{subsec:configuracion-modelos-preentrenados}
-En este trabajo, se han utilizado modelos convolucionales preentrenados como base para la tarea de clasificación de imágenes.
-Concretamente, se han empleado las arquitecturas \textbf{ResNet50} y \textbf{MobileNetV2},
-cargadas con pesos preentrenados sobre \texttt{ImageNet} o \texttt{CIFAR10}, según el dataset utilizado en cada experimento.
-
-Para adaptar estos modelos a la tarea específica de clasificación de subconjuntos de datos,
-se ha seguido una estrategia de \textit{transfer learning} que permite reducir significativamente el coste computacional del entrenamiento.
-Esta estrategia consiste en congelar todas las capas del modelo, excepto la última,
-de manera que las representaciones aprendidas en la etapa preentrenada puedan ser reutilizadas como extractores de características generales.
-
-Específicamente, la \textbf{última capa} de cada modelo preentrenado (la capa densa o \textit{fully connected})
-ha sido reemplazada por una nueva capa completamente conectada (\texttt{Linear}) adaptada al número de clases del dataset en uso.
-Esta capa es la única que se entrena durante la fase de evaluación de cada subconjunto generado por los algoritmos,
-permitiendo obtener métricas como \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score} de forma eficiente.
-
-El uso de pesos preentrenados y la congelación de capas proporcionan varias ventajas:
-\begin{itemize}
-      \item Reducción del tiempo de entrenamiento en cada evaluación.
-      \item Aprovechamiento de representaciones genéricas previamente aprendidas, lo que mejora la generalización.
-      \item Adaptabilidad de los modelos a distintos datasets y tareas, modificando únicamente la capa final.
-\end{itemize}
-
-Este enfoque se implementa mediante las herramientas de PyTorch,
-congelando explícitamente los gradientes de todas las capas del modelo y definiendo la nueva capa final con el número adecuado de salidas para cada problema de clasificación.
-
+La arquitectura de la implementación desarrollada para este trabajo está diseñada con un enfoque modular y escalable, 
+que permite gestionar de forma eficiente las distintas fases del proceso de selección de instancias y evaluación de modelos.
+El sistema se compone de varios módulos interrelacionados que se encargan de la generación de subconjuntos, 
+la ejecución de los algoritmos evolutivos y meméticos, la evaluación de las soluciones mediante modelos preentrenados, y la visualización y almacenamiento de resultados.
+Esta estructura facilita la incorporación de nuevos algoritmos o mejoras en los ya existentes, garantizando una mayor flexibilidad y mantenimiento del código.
 
 \subsection{Esquema General de Funcionamiento de los Algoritmos}\label{subsec:esquema-algoritmos}
 El funcionamiento general de los algoritmos implementados en este trabajo sigue un flujo estructurado y modular que permite una ejecución ordenada de todas las etapas del proceso.
@@ -149,6 +127,31 @@ El proceso se organiza en los siguientes pasos principales:
       \item \textbf{Almacenamiento de resultados:} Cada evaluación almacena los resultados obtenidos (métricas y composición del subconjunto) y,
             tras finalizar la ejecución, se generan gráficos como boxplots y visualizaciones que permiten analizar el rendimiento de cada enfoque.
 \end{enumerate}
+
+\subsection{Configuración de Modelos Preentrenados}\label{subsec:configuracion-modelos-preentrenados}
+En este trabajo, se han utilizado modelos convolucionales preentrenados como base para la tarea de clasificación de imágenes.
+Concretamente, se han empleado las arquitecturas \textbf{ResNet50} y \textbf{MobileNetV2},
+cargadas con pesos preentrenados sobre \texttt{ImageNet} o \texttt{CIFAR10}, según el dataset utilizado en cada experimento.
+
+Para adaptar estos modelos a la tarea específica de clasificación de subconjuntos de datos,
+se ha seguido una estrategia de \textit{transfer learning} que permite reducir significativamente el coste computacional del entrenamiento.
+Esta estrategia consiste en congelar todas las capas del modelo, excepto la última,
+de manera que las representaciones aprendidas en la etapa preentrenada puedan ser reutilizadas como extractores de características generales.
+
+Específicamente, la \textbf{última capa} de cada modelo preentrenado (la capa densa o \textit{fully connected})
+ha sido reemplazada por una nueva capa completamente conectada (\texttt{Linear}) adaptada al número de clases del dataset en uso.
+Esta capa es la única que se entrena durante la fase de evaluación de cada subconjunto generado por los algoritmos,
+permitiendo obtener métricas como \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score} de forma eficiente.
+
+El uso de pesos preentrenados y la congelación de capas proporcionan varias ventajas:
+\begin{itemize}
+      \item Reducción del tiempo de entrenamiento en cada evaluación.
+      \item Aprovechamiento de representaciones genéricas previamente aprendidas, lo que mejora la generalización.
+      \item Adaptabilidad de los modelos a distintos datasets y tareas, modificando únicamente la capa final.
+\end{itemize}
+
+Este enfoque se implementa mediante las herramientas de PyTorch,
+congelando explícitamente los gradientes de todas las capas del modelo y definiendo la nueva capa final con el número adecuado de salidas para cada problema de clasificación.
 
 \subsection{Módulo de Algoritmos}\label{subsec:modulo-de-algoritmos}
 Ubicado en \texttt{src/algorithms/} este módulo contiene las implementaciones principales de los
@@ -249,7 +252,7 @@ A continuación se describen y formalizan cada una de estas métricas:
                   \text{Precisión}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{TP_i}{TP_i + FP_i}
             $$
 
-      \item \textbf{Recall} (exhaustividad): indica cuántas de las instancias realmente positivas fueron correctamente identificadas por el modelo:
+      \item \textbf{Recall}: indica cuántas de las instancias realmente positivas fueron correctamente identificadas por el modelo:
             $$
                   \mathrm{Recall}_{\text{macro}} = \frac{1}{C} \sum_{i=1}^{C} \frac{TP_i}{TP_i + FN_i}
             $$

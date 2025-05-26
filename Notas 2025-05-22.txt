@@ -1,8 +1,8 @@
 * Poner etiqueta del 100% en los boxplot en vez del -.
 * ✅ Añadir la aclaracion de que los porcentajes mostrados son usados con el Data de Validación.
-* Añadir un esquema general para los algoritmos, donde se explica en lineas generales el funcionamiento del código.
+* ✅ Añadir un esquema general para los algoritmos, donde se explica en lineas generales el funcionamiento del código.
 * ✅ Poner la citacion y dejar a Latex ponerlo donde quiera, poner [htp].
-* Añadir tablas con 2 columnas, donde el eje Y es una metrica,
+* Añadir diagramas de barras con 2 columnas, donde el eje Y es una metrica,
     y donde se compara cada porcentaje incial con sus 2 algoritmos fijo y libre.
 
 * Probar un nuevo DATASET: CIFAR-10:
@@ -29,13 +29,13 @@
         + ✅ En los enunciados, no poner evaluación, poner directamente resultados 100%.
         + ✅ En el titulo, cambiar por el "Modificando el operador" de crure por "Mejorando el operador".
         + ✅ Cambiar el nombre de mejora metaheurística por Algoritmo Genético.
-        + Añadir al 7.5 los resultados tambien del MobileNet
+        + ✅ Añadir al 7.5 los resultados tambien del MobileNet
         + ✅ Unificar el 7.5 y 7.6.
         + En la tabla 7.3: 
             · ✅ Quitar la columna algoritmo.
             · ✅ Añadir la tabla Duración Total y Duracion Inferencia.
-            · Arreglar los portencajes inicales (Usar siempre 10%, 25%, 50% y 75%). 
-        + Quital La duracion total de las tablas en los 100% de PI.
+            · ✅ Arreglar los portencajes inicales (Usar siempre 10%, 25%, 50% y 75%). 
+        + Quitar La duracion total de las tablas en los 100% de PI.
         + ✅ Cambiar el verbo en pasado al presente.
         + Cambiar los algoritmos por su seudonimos.
         + Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical

@@ -57,15 +57,35 @@
         "--IN",
         "finales_2",
         "--OUT",
-        "comparacion_memetico",
+        "comparacion_modelos",
         "--MODELO",
-        "mobilenet",
+        "resnet",
         "--CARPETAS",
-        "memetico-libre",
+        "-",
         "--MODO",
-        "individual",
+        "comparar",
         "--MODO_PRINT",
         "juntos"
+      ]
+    },
+    {
+      "name": "Run Diagrama Comparativo",
+      "type": "debugpy",
+      "request": "launch",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "program": "${workspaceFolder}/src/generar_diagrama_comparativo.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--CARPETAS",
+        "results/csvs/finales_RESNET/-",
+        "results/csvs/finales_2/-",
+        "--NOMBRES",
+        "RESNET",
+        "MOBILENET",
+        "--SALIDA",
+        "img/finales/comparacion_modelos"
       ]
     }
   ]

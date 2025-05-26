@@ -12,7 +12,7 @@ from utils.classes import PrintMode
 
 
 
-ORDEN_ALGORITMOS = ["RS", "LR", "LR-F", "GEN", "WC", "WC-F", "PR", "MEM", "MEM-F"]
+ORDEN_ALGORITMOS = ["100%", "RS", "LR", "LR-F", "GEN", "WC", "WC-F", "PR", "MEM", "MEM-F"]
 
 
 def plot_fitness_evolution(
@@ -140,7 +140,6 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     plt.figure(figsize=(12, 6))
     ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
 
-    plt.xticks(rotation=30, ha="right")
     plt.title(title)
     plt.xlabel(eje_x)
     plt.ylabel(metric.title())
@@ -220,7 +219,6 @@ def plot_porcentajes_por_algoritmo(
         plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.title(f"{titulo} - Algoritmos {modo.value.replace('_', ' ').title()}")
         plt.ylabel("Porcentaje (%)")
-        plt.xticks(rotation=45)
         plt.tight_layout()
 
     elif modo == PrintMode.AMBOS:
@@ -257,7 +255,6 @@ def plot_porcentajes_por_algoritmo(
         plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.title(f"{titulo} - Todos los algoritmos juntos")
         plt.ylabel("Porcentaje (%)")
-        plt.xticks(rotation=45)
         plt.tight_layout()
 
     if filename:
@@ -314,8 +311,7 @@ def plot_porcentajes_por_porcentaje_inicial(
         )
         plt.title(f"Porcentaje Inicial vs Final - Algoritmos {modo.value.replace('_', ' ').title()}")
         plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje (%)")
-        plt.xticks(rotation=45)
+        plt.ylabel("Porcentaje Final")
         plt.tight_layout()
 
     elif modo == PrintMode.AMBOS:
@@ -373,8 +369,7 @@ def plot_porcentajes_por_porcentaje_inicial(
         )
         plt.title("Porcentaje Inicial vs Final - Todos los algoritmos juntos")
         plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje (%)")
-        plt.xticks(rotation=45)
+        plt.ylabel("Porcentaje Final")
         plt.tight_layout()
 
     if filename:

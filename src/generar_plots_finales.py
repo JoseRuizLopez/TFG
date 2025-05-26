@@ -97,7 +97,7 @@ def comparar_dos_versiones(output_path, modelo, carpetas_elegidas):
         carpeta_salida=carpeta_salida_img,
         modelo_filtro=modelo
     )
-
+    
 
 def graficos_una_version(input_path, output_path, modelo, carpetas_elegidas, print_mode):
     carpeta_salida_img = f"img/finales/{output_path}"

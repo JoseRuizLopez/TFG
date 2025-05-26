@@ -349,7 +349,8 @@ La correspondencia entre el nombre completo de cada algoritmo y su abreviatura s
         Búsqueda Local Libre                                   & LR-F                 \\
         Algoritmo Genético                                     & GEN                  \\
         Genético con Cruce Ponderado (Weighted Crossover)      & WC                   \\
-        Genético con Cruce Ponderado Libre                     & WC-F                 \\
+        Genético con Mutación Adaptativa (Adaptive Mutation)   & AM                   \\
+        Genético con Cruce Ponderado Libre                     & AM-F                 \\
         Genético con Reinicio Poblacional (Population Restart) & PR                   \\
         Algoritmo Memético                                     & MEM                  \\
         Algoritmo Memético Libre                               & MEM-F                \\
@@ -364,7 +365,7 @@ mejorando la legibilidad de los resultados y facilitando la interpretación de l
 
 
 \section{Parámetros de los Algoritmos y del Entrenamiento}\label{subsec:parametros-algoritmos}
-En este apartado se describen los principales parámetros utilizados en el desarrollo de los algoritmos de 
+En este apartado se describen los principales parámetros utilizados en el desarrollo de los algoritmos de
 selección de instancias y en el proceso de entrenamiento de los modelos de clasificación.
 La correcta configuración de estos parámetros es fundamental para asegurar un equilibrio entre la calidad de los resultados y la eficiencia computacional.
 
@@ -373,10 +374,10 @@ La correcta configuración de estos parámetros es fundamental para asegurar un 
     \item \textbf{Porcentaje inicial de selección} (\texttt{initial\_percentage}): Define el porcentaje inicial de datos seleccionados para cada ejecución.
           Se han evaluado valores como 10\%, 25\%, 50\% y 75\%.
     \item \textbf{Número máximo de evaluaciones} (\texttt{max\_evaluations}): Límite de iteraciones para cada algoritmo, generalmente fijado en 100.
-    \item \textbf{Número máximo de evaluaciones sin mejora} \\(\texttt{max\_evaluations\_without\_improvement}): 
-    Controla la parada anticipada si no se mejora el mejor resultado durante un número consecutivo de iteraciones.
-    \item \textbf{Métrica de optimización} (\texttt{metric}): Métrica utilizada para calcular el fitness, 
-    siendo \texttt{accuracy} la más habitual, aunque también se soportan \texttt{f1-score} y otras métricas.
+    \item \textbf{Número máximo de evaluaciones sin mejora} \\(\texttt{max\_evaluations\_without\_improvement}):
+          Controla la parada anticipada si no se mejora el mejor resultado durante un número consecutivo de iteraciones.
+    \item \textbf{Métrica de optimización} (\texttt{metric}): Métrica utilizada para calcular el fitness,
+          siendo \texttt{accuracy} la más habitual, aunque también se soportan \texttt{f1-score} y otras métricas.
     \item \textbf{Modelo de red neuronal} (\texttt{model\_name}): Arquitectura utilizada para la clasificación, como \texttt{ResNet50} o \texttt{MobileNetV2}.
 \end{itemize}
 
@@ -424,5 +425,5 @@ La correcta configuración de estos parámetros es fundamental para asegurar un 
 \end{itemize}
 
 \subsection*{}
-La combinación de estos parámetros permite un control detallado del proceso de selección de instancias y del entrenamiento de los modelos, 
+La combinación de estos parámetros permite un control detallado del proceso de selección de instancias y del entrenamiento de los modelos,
 asegurando resultados reproducibles, eficientes y de calidad.

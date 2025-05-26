@@ -7,22 +7,23 @@ seleccionados mediante algoritmos meméticos y evolutivos.
 
 
 \section{Resultados con el conjunto completo}\label{sec:resultados-conjunto-completo}
-Como punto de partida, se evalua el rendimiento de los modelos convolucionales entrenados con el 100\% del conjunto de datos.
+Como punto de partida, se evalúa el rendimiento de los modelos convolucionales entrenados con el \textbf{100\%} del conjunto de datos.
 Esta prueba sirve como referencia para contrastar los resultados obtenidos mediante las técnicas de reducción aplicadas posteriormente.
-Se utilizan tanto ResNet50 como MobileNetV2, y se miden métricas como accuracy, precisión, recall y F1-score sobre el conjunto de validación.
+Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las métricas de \textit{accuracy},
+\textit{precision}, \textit{recall} y \textit{F1-score} sobre el conjunto de validación.
 
 \begin{table}[htp]
     \centering
     \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
+        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
             \toprule
             \textbf{Duración Inferencia} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                        \\
+            \multicolumn{5}{l}{\textbf{Modelo ResNet50}}                                                                                        \\
             \midrule
             00:02:42                     & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                       \\
+            \multicolumn{5}{l}{\textbf{Modelo MobileNet}}                                                                                       \\
             \midrule
             00:03:16                     & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
             \bottomrule
@@ -32,8 +33,28 @@ Se utilizan tanto ResNet50 como MobileNetV2, y se miden métricas como accuracy,
     \label{tab:resultados-100-resnet50-mobilenet}
 \end{table}
 
-Los resultados en la tabla~\ref{tab:resultados-100-resnet50} obtenidos representan el rendimiento máximo alcanzable en condiciones ideales,
-sin reducción de datos, lo que permite establecer un techo de rendimiento frente al cual comparar las demás técnicas.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100}
+    \caption{Comparación de \textit{accuracy} de los modelos ResNet50 y MobileNetV2 usando el 100\% del conjunto de datos.}
+    \label{fig:comparacion_modelos_100}
+\end{figure}
+
+Los resultados presentados en la tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la figura~\ref{fig:comparacion_modelos_100}, 
+representan el rendimiento máximo alcanzable en condiciones ideales,
+es decir, utilizando la totalidad del conjunto de datos sin aplicar técnicas de reducción.
+Este escenario establece un techo de rendimiento que se utiliza como referencia para evaluar la eficacia de
+los algoritmos de reducción de datos implementados en el resto del estudio.
+
+En particular, se observa que \textbf{ResNet50} obtiene mejores resultados en todas las métricas evaluadas,
+destacando especialmente en \textit{accuracy} y \textit{precision}, donde supera por más de 9 puntos porcentuales a \textbf{MobileNetV2}.
+Esta superioridad en el rendimiento viene acompañada de un tiempo de inferencia ligeramente menor (00:02:42 frente a 00:03:16),
+lo que indica una mayor eficiencia en la etapa de predicción.
+Sin embargo, es importante tener en cuenta que el entrenamiento de ResNet50 implica un mayor coste computacional debido a su arquitectura más compleja,
+mientras que MobileNetV2 se mantiene como una opción más ligera y adecuada para dispositivos con recursos limitados, a costa de una leve pérdida de precisión.
+
+Esta comparativa inicial permite establecer las bases para el análisis de los resultados obtenidos mediante las técnicas de reducción de datos,
+sirviendo como referencia para valorar el impacto de las estrategias aplicadas en las secciones posteriores.
 
 
 \section{Comparativa inicial de modelos}\label{sec:comparativa-inicial-modelos}
@@ -43,7 +64,7 @@ Esta comparación permite identificar la arquitectura que ofrece un mejor equili
 estableciendo una base sólida sobre la que construir los siguientes análisis.
 
 Para llevar a cabo esta comparativa, se utiliza el \textbf{enfoque aleatorio} como estrategia de referencia.
-Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtiene una línea base que permiteº evaluar el
+Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtiene una línea base que permiteevaluar el
 comportamiento de cada modelo en condiciones controladas.
 Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas
 avanzadas de reducción de datos, sirviendo como punto de partida para comparar las mejoras introducidas por los algoritmos posteriores.
@@ -59,16 +80,18 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
             \midrule
             \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                                    \\
             \midrule
-            10\%                        & 100                              & 00:45:08                & 00:00:27                     & 76,55\% & 81,80\% & 76,55\% & 76,25\% \\
-            20\%                        & 100                              & 01:10:27                & 00:00:42                     & 81,77\% & 84,70\% & 81,77\% & 81,59\% \\
-            50\%                        & 100                              & 02:24:49                & 00:01:26                     & 87,14\% & 88,09\% & 87,14\% & 86,97\% \\
-            100\%                       & 1                                & -                       & 00:02:42                     & 87,90\% & 88,96\% & 87,90\% & 87,81\% \\
+            10\%                        & 100                              & 01:21:37                & 00:00:48                     & 85,16\% & 86,30\% & 85,16\% & 85,02\% \\
+            25\%                        & 100                              & 01:28:14                & 00:00:52                     & 87,26\% & 88,13\% & 87,26\% & 87,02\% \\
+            50\%                        & 100                              & 02:27:17                & 00:01:28                     & 88,49\% & 89,51\% & 88,49\% & 88,30\% \\
+            75\%                        & 100                              & 03:52:41                & 00:02:19                     & 89,89\% & 90,53\% & 89,89\% & 89,70\% \\
+            100\%                       & 1                                & -                       & 00:02:55                     & 87,42\% & 88,73\% & 87,42\% & 87,18\% \\
             \midrule
             \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                                   \\
             \midrule
-            10\%                        & 100                              & 00:29:29                & 00:00:18                     & 72,31\% & 76,40\% & 72,31\% & 69,62\% \\
-            20\%                        & 100                              & 00:50:36                & 00:00:30                     & 76,48\% & 78,82\% & 76,48\% & 75,58\% \\
-            50\%                        & 100                              & 01:54:09                & 00:01:08                     & 75,56\% & 79,72\% & 75,56\% & 74,67\% \\
+            10\%                        & 100                              & 00:38:16                & 00:00:22                     & 81,34\% & 82,46\% & 81,34\% & 80,52\% \\
+            25\%                        & 100                              & 01:18:22                & 00:00:47                     & 80,70\% & 81,90\% & 80,70\% & 79,90\% \\
+            50\%                        & 100                              & 02:26:40                & 00:01:28                     & 80,86\% & 82,65\% & 80,86\% & 80,22\% \\
+            75\%                        & 100                              & 03:05:48                & 00:01:51                     & 82,26\% & 84,16\% & 82,26\% & 81,67\% \\
             100\%                       & 1                                & -                       & 00:03:16                     & 78,60\% & 81,55\% & 78,60\% & 77,68\% \\
             \bottomrule
         \end{tabular}
@@ -79,17 +102,15 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/mobilenet-BOXPLOT-generacion-inicial}
-    \caption{Boxplot comparando el \textit{accuracy} alcanzado por cada algoritmo de los iniciales.}
-    \label{fig:resnet-boxplot-generacion-inicial}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos}
+    \caption{Diagrama de barras para comparar los modelos usando el \textit{accuracy} alcanzado por cada porcentaje inicial.}
+    \label{fig:comparacion_modelos}
 \end{figure}
 
-\colorbox{yellow}{Falta modificar la tabla~\ref{fig:resnet-boxplot-generacion-inicial} para que compare el 100\% con el aleatorio de resnet y ajustar analisis si es necesario.}
-\colorbox{yellow}{Falta añadir tabla comparando resultados por porcentajes iniciales.}
-
+\colorbox{yellow}{Volver a ejecutar los resultados para comprobar tiempos.}
 Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto ResNet50 como MobileNetV2.
 Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo,
-y en la Figura~\ref{fig:resnet-boxplot-generacion-inicial}, que muestra la distribución de los valores de \textit{accuracy} mediante boxplots.
+y en la Figura~\ref{fig:comparacion_modelos}, que muestra la comparación de los valores de \textit{accuracy} mediantes barras separados por los porcentajes iniciales.
 
 Los resultados muestran que ResNet50 logra un mejor rendimiento en términos de \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score}.
 Sin embargo, este mejor rendimiento viene acompañado de un tiempo de entrenamiento considerablemente mayor.
