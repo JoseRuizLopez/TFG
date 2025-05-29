@@ -45,7 +45,7 @@
       ]
     },
     {
-      "name": "Run Final BoxPlot",
+      "name": "Run BOXPLOT finales",
       "type": "debugpy",
       "request": "launch",
       "env": {
@@ -57,19 +57,19 @@
         "--IN",
         "finales",
         "--OUT",
-        "nueva_formula_mutation",
+        "comparacion_operador_de_cruce",
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
+        "-",
+        "gen_v1",
         "gen_v2-2",
-        "--MODO",
-        "comparar",
         "--MODO_PRINT",
         "juntos"
       ]
     },
     {
-      "name": "Run Diagrama Comparativo",
+      "name": "Run BARPLOT Comparativo",
       "type": "debugpy",
       "request": "launch",
       "env": {
@@ -79,17 +79,17 @@
       "console": "integratedTerminal",
       "args": [
         "--CARPETAS",
-        "results/csvs/comparaciones/nueva_formula_mutation/WC",
-        "results/csvs/comparaciones/nueva_formula_mutation/AM",
+        "results/csvs/finales_RESNET/aleatorio",
+        "results/csvs/finales/aleatorio",
         "--NOMBRES",
-        "WC",
-        "AM",
+        "RESNET",
+        "MOBILENET",
         "--SALIDA",
-        "img/finales/nueva_formula_mutation"
+        "img/finales/finales_RESNET"
       ]
     },
     {
-      "name": "Comparar versiones de algoritmos",
+      "name": "BOXPLOT 2 versiones de algoritmos",
       "type": "debugpy",
       "request": "launch",
       "env": {

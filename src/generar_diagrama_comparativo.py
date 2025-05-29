@@ -51,11 +51,13 @@ def comparar_algoritmos_por_porcentaje_version(carpetas_csv, nombres_versiones, 
         errorbar="sd",
         palette="Set2"
     )
-    plt.title("Comparativa de Accuracy por Porcentaje Inicial y Versión")
-    plt.ylabel("Accuracy")
-    plt.xlabel("Porcentaje Inicial (%)")
+    plt.title("Comparativa de Accuracy por Porcentaje Inicial y Versión", fontsize=13)
+    plt.ylabel("Accuracy", fontsize=11.5)
+    plt.xlabel("Porcentaje Inicial (%)", fontsize=11.5)
     plt.legend(title="Versión")
     plt.tight_layout()
+    plt.xticks(fontsize=11.5, fontweight='bold')
+    plt.yticks(fontsize=11.5, fontweight='bold')
 
     os.makedirs(carpeta_salida, exist_ok=True)
     output_path = os.path.join(carpeta_salida, "comparacion_por_porcentaje.png")

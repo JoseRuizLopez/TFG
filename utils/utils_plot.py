@@ -110,8 +110,8 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
             xpos = positions[cat]
             ax.hlines(min_val, xpos - 0.2, xpos + 0.2, color='red', lw=2)
             ax.hlines(max_val, xpos - 0.2, xpos + 0.2, color='blue', lw=2)
-            ax.text(xpos, min_val, f'{min_val:.3f}', ha='center', va='top', fontsize=9, color='red')
-            ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=9, color='blue')
+            ax.text(xpos, min_val - 0.0008, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
+            ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=11, color='blue')
 
 
 def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
@@ -140,9 +140,16 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
     plt.figure(figsize=(12, 6))
     ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
 
-    plt.title(title)
-    plt.xlabel(eje_x)
-    plt.ylabel(metric.title())
+    plt.title(title,  fontsize=13)
+    plt.xlabel(eje_x, fontsize=11.5)
+    plt.ylabel(metric.title(), fontsize=11.5)
+
+    plt.tick_params(axis='x', labelsize=11.5)
+    plt.tick_params(axis='y', labelsize=11.5)
+    for label in ax.get_xticklabels():
+        label.set_fontweight('bold')
+    for label in ax.get_yticklabels():
+        label.set_fontweight('bold')
 
     if hue and hue in df.columns:
         plt.legend(title=hue, bbox_to_anchor=(1.05, 1), loc='best')

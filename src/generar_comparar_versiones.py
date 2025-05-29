@@ -10,7 +10,7 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
     os.makedirs(carpeta_salida_img, exist_ok=True)
 
     if len(carpetas_versiones) != len(nombres_versiones):
-        print("[ERROR] El número de rutas debe coincidir con el número de nombres de versiones.")
+        print("El número de rutas debe coincidir con el número de nombres de versiones.")
         return
 
     dfs = []
@@ -18,27 +18,22 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
     for carpeta_relativa, nombre_version in zip(carpetas_versiones, nombres_versiones):
         ruta_carpeta = os.path.join("results/csvs", carpeta_relativa)
         if not os.path.isdir(ruta_carpeta):
-            print(f"[AVISO] Carpeta no encontrada: {ruta_carpeta}")
+            print(f"Carpeta no encontrada: {ruta_carpeta}")
             continue
 
         for archivo in os.listdir(ruta_carpeta):
             if archivo.endswith(".csv"):
                 df = pd.read_csv(os.path.join(ruta_carpeta, archivo))
-                df["Versión"] = nombre_version
+                df["Algoritmo"] = nombre_version
                 if modelo and "Modelo" in df.columns:
                     df = df[df["Modelo"] == modelo]
                 dfs.append(df)
 
     if not dfs:
-        print("[AVISO] No se encontraron datos en las carpetas especificadas.")
+        print("No se encontraron datos en las carpetas especificadas.")
         return
     
     df_total = pd.concat(dfs, ignore_index=True)
-
-    # Depuración
-    print("Resumen de datos cargados:")
-    print(df_total[["Versión", "Algoritmo", "Accuracy"]].groupby("Versión").count())
-
 
     metricas_a_graficar = metricas or ["Accuracy"]
     for metrica in metricas_a_graficar:
@@ -50,7 +45,7 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
             filename=output_file,
             hue=None,
             title=titulo,
-            eje_x="Versión"
+            eje_x="Algoritmo"
         )
         print(f"Guardado: {output_file}")
 
