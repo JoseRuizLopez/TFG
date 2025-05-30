@@ -114,7 +114,7 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
             ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=11, color='blue')
 
 
-def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str):
+def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str | None, title: str, eje_x: str, max_min=True):
     """
     Genera un boxplot personalizado con orden automático de categorías y min/max destacados.
 
@@ -138,7 +138,10 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
         orden_x = [alg for alg in ORDEN_ALGORITMOS if alg in categorias]
 
     plt.figure(figsize=(12, 6))
-    ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
+    if hue and hue in df.columns:
+        ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), hue=hue, order=orden_x)
+    else:
+        ax = sns.boxplot(data=df, x=eje_x, y=metric.title(), order=orden_x)
 
     plt.title(title,  fontsize=13)
     plt.xlabel(eje_x, fontsize=11.5)
@@ -152,18 +155,108 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
         label.set_fontweight('bold')
 
     if hue and hue in df.columns:
-        plt.legend(title=hue, bbox_to_anchor=(1.05, 1), loc='best')
+        legend = plt.legend(
+            title=hue,
+            bbox_to_anchor=(1.05, 1),
+            loc='best',
+            fontsize=12,            # Tamaño de la fuente de las etiquetas
+            title_fontsize=13,      # Tamaño del título de la leyenda
+            markerscale=1.5         # Tamaño de los iconos de color
+        )
 
-    plot_min_max_lines(df, metric.title(), eje_x, ax)
+    if max_min:
+        plot_min_max_lines(df, metric.title(), eje_x, ax)
 
     plt.grid(True)
     plt.tight_layout()
     if filename:
         plt.savefig(filename)
 
-    
+
+def plot_barplot(
+    df: pd.DataFrame,
+    x: str,
+    y: str,
+    hue: str | None = None,
+    order: list | None = None,
+    palette: str = "Set2",
+    errorbar: str | None = "sd",
+    title: str = "",
+    xlabel: str | None = None,
+    ylabel: str | None = None,
+    filename: str | None = None,
+    figsize: tuple = (12, 6)
+):
+    """
+    Genera un barplot personalizado usando seaborn.barplot, con orden opcional y guardado.
+
+    Args:
+        df: DataFrame con los datos.
+        x: Columna para eje X.
+        y: Columna para eje Y.
+        hue: Columna para hue.
+        order: Lista con orden de categorías en el eje X.
+        palette: Paleta de colores.
+        errorbar: Tipo de error (ej. 'sd', None).
+        title: Título del gráfico.
+        xlabel: Etiqueta del eje X.
+        ylabel: Etiqueta del eje Y.
+        filename: Ruta de archivo para guardado.
+        figsize: Tamaño de la figura.
+    """
+    # Validación de columnas
+    if x not in df.columns or y not in df.columns:
+        raise ValueError(f"Columnas faltantes: '{x}' o '{y}'.")
+
+    # Determinar orden si no se proporciona
+    if order is None:
+        categorias = df[x].dropna().unique()
+        try:
+            order = sorted(categorias, key=lambda v: float(v))
+        except (ValueError, TypeError):
+            order = list(categorias)
+
+    # Crear figura
+    plt.figure(figsize=figsize)
+
+    # Dibujar barplot
+    if hue and hue in df.columns:
+        ax = sns.barplot(
+            data=df,
+            x=x,
+            y=y,
+            hue=hue,
+            order=order,
+            palette=palette,
+            errorbar=errorbar
+        )
+    else:
+        ax = sns.barplot(
+            data=df,
+            x=x,
+            y=y,
+            order=order,
+            palette=palette,
+            errorbar=errorbar
+        )
+
+    # Personalización
+    if title:
+        plt.title(title, fontsize=13)
+    plt.xlabel(xlabel or x, fontsize=11.5)
+    plt.ylabel(ylabel or y, fontsize=11.5)
+    plt.xticks(fontsize=11.5, fontweight='bold')
+    plt.yticks(fontsize=11.5, fontweight='bold')
+    plt.tight_layout()
+
+    # Guardar archivo si se indica
+    if filename:
+        plt.savefig(filename)
+    plt.close()
+
 def sort_natural(s):
     return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
+
 
 
 def plot_porcentajes_por_algoritmo(
@@ -220,53 +313,56 @@ def plot_porcentajes_por_algoritmo(
         df_melt, hue_col, titulo = preparar(subset_df)
         orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
-        plt.figure(figsize=(10, 6))
-        sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
-                    order=orden_algoritmos, errorbar=None)
-        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.title(f"{titulo} - Algoritmos {modo.value.replace('_', ' ').title()}")
-        plt.ylabel("Porcentaje (%)")
-        plt.tight_layout()
+        plot_barplot(
+            df=df_melt,
+            x="Algoritmo",
+            y="Porcentaje",
+            hue=hue_col,
+            order=orden_algoritmos,
+            title=f"{titulo} - Algoritmos {modo.value.replace('_', ' ').title()}",
+            xlabel="Algoritmo",
+            ylabel="Porcentaje (%)",
+            filename=filename
+        )
 
     elif modo == PrintMode.AMBOS:
-        fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
-
-        for subset_df, title, ax in [
-            (df_libres, "Algoritmos Libres", axs[0]),
-            (df_no_libres, "Algoritmos No Libres", axs[1])
+        for subset_df, title in [
+            (df_libres, "Algoritmos Libres"),
+            (df_no_libres, "Algoritmos No Libres")
         ]:
             if subset_df.empty:
-                ax.set_visible(False)
                 continue
 
             df_melt, hue_col, titulo = preparar(subset_df)
             orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
-            sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
-                        order=orden_algoritmos, errorbar=None, ax=ax)
-            ax.set_title(f"{titulo} - {title}")
-            ax.set_xlabel("Algoritmo")
-            ax.set_ylabel("Porcentaje (%)")
-            ax.tick_params(axis='x', rotation=45)
-            ax.legend(loc='upper right')
-
-        plt.tight_layout()
+            plot_barplot(
+                df=df_melt,
+                x="Algoritmo",
+                y="Porcentaje",
+                hue=hue_col,
+                order=orden_algoritmos,
+                title=f"{titulo} - {title}",
+                xlabel="Algoritmo",
+                ylabel="Porcentaje (%)",
+                filename=None
+            )
 
     elif modo == PrintMode.JUNTOS:
         df_melt, hue_col, titulo = preparar(df)
         orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_melt["Algoritmo"].unique()]
 
-        plt.figure(figsize=(10, 6))
-        sns.barplot(data=df_melt, x="Algoritmo", y="Porcentaje", hue=hue_col,
-                    order=orden_algoritmos, errorbar=None)
-        plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.title(f"{titulo} - Todos los algoritmos juntos")
-        plt.ylabel("Porcentaje (%)")
-        plt.tight_layout()
-
-    if filename:
-        plt.savefig(filename)
-        print(f"Gráfico guardado en {filename}.")
+        plot_barplot(
+            df=df_melt,
+            x="Algoritmo",
+            y="Porcentaje",
+            hue=hue_col,
+            order=orden_algoritmos,
+            title=f"{titulo} - Todos los algoritmos juntos",
+            xlabel="Algoritmo",
+            ylabel="Porcentaje (%)",
+            filename=filename
+        )
 
 
 def plot_porcentajes_por_porcentaje_inicial(
@@ -307,29 +403,24 @@ def plot_porcentajes_por_porcentaje_inicial(
         )
         orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
 
-        plt.figure(figsize=(10, 6))
-        sns.barplot(
-            data=df_melt,
+        plot_barplot(
+            df=df_melt,
             x="Porcentaje Inicial",
             y="Porcentaje",
             hue="Tipo",
             order=orden_x,
-            errorbar=None
+            title=f"Porcentaje Inicial vs Final - Algoritmos {modo.value.replace('_', ' ').title()}",
+            xlabel="Porcentaje Inicial",
+            ylabel="Porcentaje Final",
+            filename=filename
         )
-        plt.title(f"Porcentaje Inicial vs Final - Algoritmos {modo.value.replace('_', ' ').title()}")
-        plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje Final")
-        plt.tight_layout()
 
     elif modo == PrintMode.AMBOS:
-        fig, axs = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
-
-        for subset_df, title, ax in [
-            (df_libres, "Algoritmos Libres", axs[0]),
-            (df_no_libres, "Algoritmos No Libres", axs[1])
+        for subset_df, title in [
+            (df_libres, "Algoritmos Libres"),
+            (df_no_libres, "Algoritmos No Libres")
         ]:
             if subset_df.empty:
-                ax.set_visible(False)
                 continue
 
             df_melt = subset_df.melt(
@@ -339,23 +430,17 @@ def plot_porcentajes_por_porcentaje_inicial(
             )
             orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
 
-
-            sns.barplot(
-                data=df_melt,
+            plot_barplot(
+                df=df_melt,
                 x="Porcentaje Inicial",
                 y="Porcentaje",
                 hue="Tipo",
                 order=orden_x,
-                errorbar=None,
-                ax=ax
+                title=f"Porcentaje Inicial vs Final - {title}",
+                xlabel="Porcentaje Inicial",
+                ylabel="Porcentaje Final",
+                filename=None
             )
-            ax.set_title(title)
-            ax.set_xlabel("Porcentaje Inicial")
-            ax.set_ylabel("Porcentaje (%)")
-            ax.tick_params(axis='x', rotation=45)
-            ax.legend(loc='upper right')
-
-        plt.tight_layout()
 
     elif modo == PrintMode.JUNTOS:
         df_melt = df.melt(
@@ -365,23 +450,17 @@ def plot_porcentajes_por_porcentaje_inicial(
         )
         orden_x = sorted(df_melt["Porcentaje Inicial"].unique(), key=lambda x: float(x))
 
-        plt.figure(figsize=(10, 6))
-        sns.barplot(
-            data=df_melt,
+        plot_barplot(
+            df=df_melt,
             x="Porcentaje Inicial",
             y="Porcentaje",
             hue="Tipo",
             order=orden_x,
-            errorbar=None
+            title="Porcentaje Inicial vs Final - Todos los algoritmos juntos",
+            xlabel="Porcentaje Inicial",
+            ylabel="Porcentaje Final",
+            filename=filename
         )
-        plt.title("Porcentaje Inicial vs Final - Todos los algoritmos juntos")
-        plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje Final")
-        plt.tight_layout()
-
-    if filename:
-        plt.savefig(filename)
-        print(f"Gráfico guardado en {filename}.")
 
 
 def generate_plots_from_csvs(

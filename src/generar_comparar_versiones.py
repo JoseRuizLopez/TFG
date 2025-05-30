@@ -5,17 +5,17 @@ import pandas as pd
 from utils.utils_plot import plot_boxplot
 
 
-def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, modelo=None, metricas=None, titulo_base=None):
+def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, nombres_algoritmos, modelo=None, metricas=None, titulo_base=None):
     carpeta_salida_img = os.path.join("img/finales", output_path)
     os.makedirs(carpeta_salida_img, exist_ok=True)
 
-    if len(carpetas_versiones) != len(nombres_versiones):
-        print("El número de rutas debe coincidir con el número de nombres de versiones.")
+    if not (len(carpetas_versiones) == len(nombres_versiones) == len(nombres_algoritmos)):
+        print("El número de rutas, nombres de versiones y nombres de algoritmos debe coincidir.")
         return
 
     dfs = []
 
-    for carpeta_relativa, nombre_version in zip(carpetas_versiones, nombres_versiones):
+    for carpeta_relativa, nombre_version, nombre_algoritmo in zip(carpetas_versiones, nombres_versiones, nombres_algoritmos):
         ruta_carpeta = os.path.join("results/csvs", carpeta_relativa)
         if not os.path.isdir(ruta_carpeta):
             print(f"Carpeta no encontrada: {ruta_carpeta}")
@@ -24,7 +24,9 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
         for archivo in os.listdir(ruta_carpeta):
             if archivo.endswith(".csv"):
                 df = pd.read_csv(os.path.join(ruta_carpeta, archivo))
-                df["Algoritmo"] = nombre_version
+                # Forzar el nombre del algoritmo según el argumento
+                df["Algoritmo"] = nombre_algoritmo
+                df["Version"] = nombre_version
                 if modelo and "Modelo" in df.columns:
                     df = df[df["Modelo"] == modelo]
                 dfs.append(df)
@@ -32,7 +34,7 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
     if not dfs:
         print("No se encontraron datos en las carpetas especificadas.")
         return
-    
+
     df_total = pd.concat(dfs, ignore_index=True)
 
     metricas_a_graficar = metricas or ["Accuracy"]
@@ -43,18 +45,20 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, model
             df=df_total,
             metric=metrica,
             filename=output_file,
-            hue=None,
+            hue="Version",
             title=titulo,
-            eje_x="Algoritmo"
+            eje_x="Algoritmo",
+            max_min=False
         )
         print(f"Guardado: {output_file}")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Comparar versiones de resultados en carpetas directas")
+    parser = argparse.ArgumentParser(description="Comparar versiones y algoritmos de resultados en carpetas directas")
     parser.add_argument("--OUT", type=str, required=True, help="Nombre de la carpeta de salida (ej: fecha)")
     parser.add_argument("--CARPETAS", nargs='+', required=True, help="Rutas de carpetas de versiones (ej: comparaciones/AM comparaciones/WC)")
-    parser.add_argument("--NOMBRES", nargs='+', required=True, help="Nombres que aparecerán en el gráfico (ej: AM WC)")
+    parser.add_argument("--NOMBRES_VERSIONES", nargs='+', required=True, help="Nombres de las versiones (ej: FIJA LIBRE)")
+    parser.add_argument("--NOMBRES_ALGORITMOS", nargs='+', required=True, help="Nombres de los algoritmos (ej: LR PR)")
     parser.add_argument("--MODELO", type=str, required=False, help="Filtrar por modelo (opcional)")
     parser.add_argument("--METRICAS", nargs='*', help="Lista de métricas a comparar (ej: Accuracy Precision Recall)")
     parser.add_argument("--TITULO", type=str, required=False, help="Título base para los gráficos (opcional)")
@@ -64,7 +68,8 @@ if __name__ == "__main__":
     comparar_versiones(
         output_path=args.OUT,
         carpetas_versiones=args.CARPETAS,
-        nombres_versiones=args.NOMBRES,
+        nombres_versiones=args.NOMBRES_VERSIONES,
+        nombres_algoritmos=args.NOMBRES_ALGORITMOS,
         modelo=args.MODELO,
         metricas=args.METRICAS,
         titulo_base=args.TITULO

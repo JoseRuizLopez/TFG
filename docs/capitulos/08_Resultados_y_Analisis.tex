@@ -294,12 +294,12 @@ en el que se selecciona de forma aletarioa el porcentaje inicial de imágenes a 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/comparacion_bl}
-    \caption{Comparación de \textit{accuracy} entre la búsqueda local estándar y su versión libre.}
-    \label{fig:bl_libre}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo}
+    \caption{Comparación de \textit{accuracy} entre el LR, AM y sus versiones Libres en formato BARPLOT.}
+    \label{fig:barplot_por_algoritmo-libres}
 \end{figure}
 
-En la Figura~\ref{fig:bl_libre} se observa que la versión libre de la búsqueda local mejora tanto la mediana
+En la Figura~\ref{fig:barplot_por_algoritmo-libres} se observa que la versión libre de la búsqueda local mejora tanto la mediana
 como el valor máximo de \textit{accuracy} respecto a su versión original.
 Presenta, además, una menor dispersión en los valores bajos y una mayor concentración de ejecuciones en torno al cuartil superior,
 lo que sugiere una mejora en la estabilidad del algoritmo.
@@ -308,19 +308,24 @@ Este comportamiento refleja que introducir flexibilidad en el tamaño del subcon
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/comparacion_gen_v2}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo genético con cruce ponderado + mutación adaptativa, con su versión libre.}
-    \label{fig:gen_v2_libre}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo}
+    \caption{Comparación de \textit{accuracy} entre el LR, AM y sus versiones Libres en formato BOXPLOT.}
+    \label{fig:boxplot_por_algoritmo-libres}
 \end{figure}
 
-En el caso del genético con cruce ponderado y mutación adaptativa (Figura~\ref{fig:gen_v2_libre}),
+En el caso del genético con cruce ponderado y mutación adaptativa (Figura~\ref{fig:boxplot_por_algoritmo-libres}),
 los resultados son algo más matizados: la versión libre mantiene un rendimiento muy similar al de la versión rígida,
 con una leve mejora en los valores altos y un mínimo más elevado.
 Esto sugiere que, aunque no siempre se observe una mejora significativa en mediana,
 la capacidad adaptativa aporta robustez adicional y mayor protección frente a ejecuciones fallidas.
 
 
-\colorbox{yellow}{Falta añadir boxplot que compare el accuracy separado por cada porcentaije inicail del algoritmo genetico 2 libre.}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi}
+    \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo AM.}
+    \label{fig:am_por_pi}
+\end{figure}
 
 
 \begin{figure}[htp]
@@ -329,6 +334,8 @@ la capacidad adaptativa aporta robustez adicional y mayor protección frente a e
     \caption{Distribución de clases en los subconjuntos generados por los algoritmos estándar y libres.}
     \label{fig:distribucion_libres}
 \end{figure}
+
+\colorbox{yellow}{Falta modificar la distribucion por clases.}
 
 La Figura~\ref{fig:distribucion_libres} muestra que tanto los algoritmos estándar como sus variantes libres
 mantienen una distribución equilibrada entre las tres clases del conjunto \texttt{RPS}.
