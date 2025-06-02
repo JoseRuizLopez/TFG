@@ -344,27 +344,21 @@ Este resultado es especialmente relevante para la validez de los experimentos, y
 y las estrategias de ajuste del tamaño del subconjunto no introducen sesgos de clase.
 La representatividad estructural del conjunto se conserva, lo cual es fundamental para garantizar una evaluación justa y equilibrada en tareas de clasificación multiclase.
 
-
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inical-vs-final-por-algoritmo}
-    \caption{Comparación entre porcentaje inicial y final en los algoritmos libres.}
-    \label{fig:porcentaje_libres_1}
+\centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_bl-f}
+    \caption{Diagrama de dispersión (\textit{scatter plot}) que muestra la relación entre el \textit{accuracy} y el porcentaje final de datos seleccionados por el BL-F.}
+    \label{fig:scatter_bl_f}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_gev_v2.png}
-    \vspace{1em}
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_bl.png}
-    \caption{Porcentaje final alcanzado en función del porcentaje inicial.
-        Arriba: genético libre.
-        Abajo: búsqueda local libre.
-    }
-    \label{fig:porcentaje_libres_2}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_gen_v2}
+    \caption{Diagrama de dispersión (\textit{scatter plot}) que muestra la relación entre el \textit{accuracy} y el porcentaje final de datos seleccionados por el AM-F.}
+    \label{fig:scatter_gen_v2}
 \end{figure}
 
-Las Figuras~\ref{fig:porcentaje_libres_1} y~\ref{fig:porcentaje_libres_2} permiten analizar con mayor detalle cómo se comportan
+Las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2} permiten analizar con mayor detalle cómo se comportan
 los algoritmos libres en términos de tamaño del subconjunto seleccionado.
 En la comparación directa por algoritmo (Figura~\ref{fig:porcentaje_libres_1}), se observa que el porcentaje final tiene un leve incremento respecto al inicial.
 
@@ -401,12 +395,6 @@ La versión libre del memético, que incorpora también un ajuste dinámico del 
 con una ligera reducción en el valor máximo pero una estabilidad comparable.
 Esto sugiere que el componente adaptativo no penaliza la calidad de las soluciones y puede incluso aportar mayor flexibilidad en entornos más inciertos.
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/porcentaje-inicial-vs-final-por-pi_memetico-libre}
-    \caption{Porcentaje final alcanzado por el algoritmo memético libre en función del porcentaje inicial.}
-    \label{fig:memetico_porcentaje}
-\end{figure}
 
 En la Figura~\ref{fig:memetico_porcentaje} se observa cómo el memético libre tiende a incrementar el tamaño del subconjunto conforme aumenta el porcentaje inicial.
 La curva es progresiva y cercana a la linealidad, lo que indica un comportamiento estructuralmente coherente:

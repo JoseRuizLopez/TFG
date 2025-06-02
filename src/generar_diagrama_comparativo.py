@@ -120,7 +120,7 @@ def comparar_algoritmos_por_algoritmo(carpetas_csv, nombres_versiones, nombres_a
     plt.title("Comparativa de Accuracy por Algoritmo y Versión", fontsize=13)
     plt.ylabel("Accuracy", fontsize=11.5)
     plt.xlabel("Algoritmo", fontsize=11.5)
-    plt.xticks(fontsize=11.5, fontweight='bold', rotation=45)
+    plt.xticks(fontsize=11.5, fontweight='bold')
     plt.yticks(fontsize=11.5, fontweight='bold')
     plt.legend(title="Versión", bbox_to_anchor=(1.05, 1), loc='upper left')
 

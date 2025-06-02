@@ -110,7 +110,7 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
             xpos = positions[cat]
             ax.hlines(min_val, xpos - 0.2, xpos + 0.2, color='red', lw=2)
             ax.hlines(max_val, xpos - 0.2, xpos + 0.2, color='blue', lw=2)
-            ax.text(xpos, min_val - 0.0008, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
+            ax.text(xpos, min_val - 0.0003, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
             ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=11, color='blue')
 
 
@@ -155,7 +155,7 @@ def plot_boxplot(df: pd.DataFrame, metric: str, filename: str | None, hue: str |
         label.set_fontweight('bold')
 
     if hue and hue in df.columns:
-        legend = plt.legend(
+        plt.legend(
             title=hue,
             bbox_to_anchor=(1.05, 1),
             loc='best',
@@ -254,9 +254,95 @@ def plot_barplot(
         plt.savefig(filename)
     plt.close()
 
+
+def plot_scatter_inicial_final(
+    df: pd.DataFrame,
+    filename: str | None = None,
+    title: str = "Porcentaje Inicial vs Final, con líneas guía y coloreado por Accuracy",
+    xlabel: str = "Porcentaje Inicial",
+    ylabel: str = "Porcentaje Final",
+    xticks_list: list = [0.1, 0.25, 0.5, 0.75],
+    yticks_list: list = [0.1, 0.25, 0.5, 0.75],
+    xlim_range: tuple = (0, 0.8),
+    ylim_range: tuple = (0, 0.8)
+):
+    """
+    Genera un scatterplot personalizado entre Porcentaje Inicial y Porcentaje Final, con líneas guía y colores por Accuracy.
+
+    Args:
+        df: DataFrame con las columnas 'Porcentaje Inicial', 'Porcentaje Final' y 'Accuracy'.
+        filename: Ruta del archivo para guardar el gráfico (opcional).
+        title: Título del gráfico.
+        xlabel: Etiqueta del eje X.
+        ylabel: Etiqueta del eje Y.
+        xticks_list: Lista personalizada de ticks para el eje X.
+        yticks_list: Lista personalizada de ticks para el eje Y.
+        xlim_range: Rango de límites del eje X.
+        ylim_range: Rango de límites del eje Y.
+    """
+    if not {"Porcentaje Inicial", "Porcentaje Final", "Accuracy"}.issubset(df.columns):
+        raise ValueError("El DataFrame debe contener las columnas 'Porcentaje Inicial', 'Porcentaje Final' y 'Accuracy'.")
+
+    # Crear figura
+    plt.figure(figsize=(10,6))
+    ax = sns.scatterplot(
+        data=df,
+        x="Porcentaje Inicial",
+        y="Porcentaje Final",
+        size="Accuracy",
+        hue="Accuracy",
+        sizes=(50, 300),
+        palette="coolwarm",
+        alpha=0.8,
+        edgecolor="black",
+        linewidth=0.5
+    )
+
+    # Líneas guía por cada punto
+    for _, row in df.iterrows():
+        plt.vlines(
+            x=row["Porcentaje Inicial"],
+            ymin=0,
+            ymax=row["Porcentaje Final"],
+            color="dimgray",
+            alpha=0.8,
+            linestyle="--",
+            linewidth=1.5
+        )
+        plt.hlines(
+            y=row["Porcentaje Final"],
+            xmin=0,
+            xmax=row["Porcentaje Inicial"],
+            color="dimgray",
+            alpha=0.8,
+            linestyle="--",
+            linewidth=1.5
+        )
+
+    # Personalización ejes
+    plt.xticks(xticks_list, fontsize=11.5, fontweight='bold')
+    plt.yticks(yticks_list, fontsize=11.5, fontweight='bold')
+    plt.xlim(*xlim_range)
+    plt.ylim(*ylim_range)
+
+    # Títulos y etiquetas
+    plt.title(title, fontsize=13)
+    plt.xlabel(xlabel, fontsize=11.5)
+    plt.ylabel(ylabel, fontsize=11.5)
+
+    # Layout
+    plt.tight_layout()
+
+    # Guardar si es necesario
+    if filename:
+        plt.savefig(filename)
+        print(f"Scatter Plot guardado en: {filename}")
+
+    plt.close()
+
+
 def sort_natural(s):
     return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
-
 
 
 def plot_porcentajes_por_algoritmo(
@@ -560,46 +646,10 @@ def generate_plots_from_csvs(
         
         print("Se han generado los diagramas de barras.")
 
-        # Gráficos adicionales: Scatter, Lineplot y Scatter coloreado por Accuracy
-        # Scatter Plot
-        plt.figure(figsize=(10,6))
-        ax = sns.scatterplot(
-            data=df,
-            x="Porcentaje Inicial",
-            y="Porcentaje Final",
-            size="Accuracy",
-            hue="Accuracy",
-            sizes=(50, 300),
-            palette="coolwarm",
-            alpha=0.8
+        plot_scatter_inicial_final(
+            df=df,
+            filename=filename5.replace("BARPLOT", "SCATTER")
         )
-
-        # Dibujar líneas guía
-        for _, row in df.iterrows():
-            plt.vlines(x=row["Porcentaje Inicial"], ymin=0, ymax=row["Porcentaje Final"], color="gray", alpha=0.3, linestyle="--", linewidth=1)
-            plt.hlines(y=row["Porcentaje Final"], xmin=0, xmax=row["Porcentaje Inicial"], color="gray", alpha=0.3, linestyle="--", linewidth=1)
-
-        # Ticks personalizados
-        plt.xticks([0.1, 0.25, 0.5, 0.75])
-        plt.yticks([0.1, 0.25, 0.5, 0.75])
-        plt.xlim(0, 0.8)
-        plt.ylim(0, 0.8)
-
-        # Desactivar el grid general
-        plt.grid(False)
-
-        plt.title("Porcentaje Inicial vs Final, con líneas guía y coloreado por Accuracy")
-        plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje Final")
-        plt.tight_layout()
-
-
-        if filename5:
-            scatter_file = filename5.replace(".png", "_scatter.png")
-            plt.savefig(scatter_file)
-            print(f"Scatter Plot guardado en: {scatter_file}")
-        plt.close()
-
 
         # Line Plot
         plt.figure(figsize=(10,6))
@@ -611,24 +661,7 @@ def generate_plots_from_csvs(
         plt.grid(True, which='both', axis='x')
         plt.tight_layout()
         if filename5:
-            lineplot_file = filename5.replace(".png", "_lineplot.png")
+            lineplot_file = filename5.replace("BARPLOT", "LINEPLOT")
             plt.savefig(lineplot_file)
             print(f"Line Plot guardado en: {lineplot_file}")
         plt.close()
-
-        # Scatter con color/tamaño por Accuracy (si existe)
-        if "Accuracy" in df.columns:
-            plt.figure(figsize=(10,6))
-            sns.scatterplot(data=df, x="Porcentaje Inicial", y="Porcentaje Final", size="Accuracy", hue="Accuracy", sizes=(50, 300), palette="coolwarm", alpha=0.8)
-            plt.title("Porcentaje Inicial vs Final, coloreado por Accuracy")
-            plt.xlabel("Porcentaje Inicial")
-            plt.ylabel("Porcentaje Final")
-            plt.xticks([0.1, 0.25, 0.5, 0.75])
-            plt.grid(True, which='both', axis='x')
-            plt.tight_layout()
-            if filename5:
-                scatter_acc_file = filename5.replace(".png", "_scatter_accuracy.png")
-                plt.savefig(scatter_acc_file)
-                print(f"Scatter Plot con Accuracy guardado en: {scatter_acc_file}")
-            plt.close()
-
