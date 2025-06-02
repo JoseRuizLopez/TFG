@@ -300,8 +300,8 @@ def plot_porcentajes_por_algoritmo(
         raise ValueError("El parámetro 'tipo' debe ser 'inicial_final' o 'clases'.")
 
     # Separación por modo
-    df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
-    df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
+    df_libres = df[df["Algoritmo"].str.contains(r"(?:libre|-f)$", case=False, regex=True)]
+    df_no_libres = df[~df["Algoritmo"].str.contains(r"(?:libre|-f)$", case=False, regex=True)]
 
     if modo == PrintMode.LIBRES or modo == PrintMode.NO_LIBRES:
         subset_df = df_libres if modo == PrintMode.LIBRES else df_no_libres
@@ -386,8 +386,8 @@ def plot_porcentajes_por_porcentaje_inicial(
 
     df["Porcentaje Inicial"] = df["Porcentaje Inicial"].astype(str)
 
-    df_libres = df[df["Algoritmo"].str.contains("libre", case=False)]
-    df_no_libres = df[~df["Algoritmo"].str.contains("libre", case=False)]
+    df_libres = df[df["Algoritmo"].str.contains(r"(?:libre|-f)$", case=False, regex=True)]
+    df_no_libres = df[~df["Algoritmo"].str.contains(r"(?:libre|-f)$", case=False, regex=True)]
 
     if modo == PrintMode.LIBRES or modo == PrintMode.NO_LIBRES:
         subset_df = df_libres if modo == PrintMode.LIBRES else df_no_libres
@@ -559,3 +559,76 @@ def generate_plots_from_csvs(
 
         
         print("Se han generado los diagramas de barras.")
+
+        # Gráficos adicionales: Scatter, Lineplot y Scatter coloreado por Accuracy
+        # Scatter Plot
+        plt.figure(figsize=(10,6))
+        ax = sns.scatterplot(
+            data=df,
+            x="Porcentaje Inicial",
+            y="Porcentaje Final",
+            size="Accuracy",
+            hue="Accuracy",
+            sizes=(50, 300),
+            palette="coolwarm",
+            alpha=0.8
+        )
+
+        # Dibujar líneas guía
+        for _, row in df.iterrows():
+            plt.vlines(x=row["Porcentaje Inicial"], ymin=0, ymax=row["Porcentaje Final"], color="gray", alpha=0.3, linestyle="--", linewidth=1)
+            plt.hlines(y=row["Porcentaje Final"], xmin=0, xmax=row["Porcentaje Inicial"], color="gray", alpha=0.3, linestyle="--", linewidth=1)
+
+        # Ticks personalizados
+        plt.xticks([0.1, 0.25, 0.5, 0.75])
+        plt.yticks([0.1, 0.25, 0.5, 0.75])
+        plt.xlim(0, 0.8)
+        plt.ylim(0, 0.8)
+
+        # Desactivar el grid general
+        plt.grid(False)
+
+        plt.title("Porcentaje Inicial vs Final, con líneas guía y coloreado por Accuracy")
+        plt.xlabel("Porcentaje Inicial")
+        plt.ylabel("Porcentaje Final")
+        plt.tight_layout()
+
+
+        if filename5:
+            scatter_file = filename5.replace(".png", "_scatter.png")
+            plt.savefig(scatter_file)
+            print(f"Scatter Plot guardado en: {scatter_file}")
+        plt.close()
+
+
+        # Line Plot
+        plt.figure(figsize=(10,6))
+        sns.lineplot(data=df, x="Porcentaje Inicial", y="Porcentaje Final", hue="Algoritmo", errorbar="sd", marker="o")
+        plt.title("Porcentaje Final por Porcentaje Inicial - Tendencias por Algoritmo")
+        plt.xlabel("Porcentaje Inicial")
+        plt.ylabel("Porcentaje Final")
+        plt.xticks([0.1, 0.25, 0.5, 0.75])
+        plt.grid(True, which='both', axis='x')
+        plt.tight_layout()
+        if filename5:
+            lineplot_file = filename5.replace(".png", "_lineplot.png")
+            plt.savefig(lineplot_file)
+            print(f"Line Plot guardado en: {lineplot_file}")
+        plt.close()
+
+        # Scatter con color/tamaño por Accuracy (si existe)
+        if "Accuracy" in df.columns:
+            plt.figure(figsize=(10,6))
+            sns.scatterplot(data=df, x="Porcentaje Inicial", y="Porcentaje Final", size="Accuracy", hue="Accuracy", sizes=(50, 300), palette="coolwarm", alpha=0.8)
+            plt.title("Porcentaje Inicial vs Final, coloreado por Accuracy")
+            plt.xlabel("Porcentaje Inicial")
+            plt.ylabel("Porcentaje Final")
+            plt.xticks([0.1, 0.25, 0.5, 0.75])
+            plt.grid(True, which='both', axis='x')
+            plt.tight_layout()
+            if filename5:
+                scatter_acc_file = filename5.replace(".png", "_scatter_accuracy.png")
+                plt.savefig(scatter_acc_file)
+                print(f"Scatter Plot con Accuracy guardado en: {scatter_acc_file}")
+            plt.close()
+

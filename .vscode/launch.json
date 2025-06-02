@@ -61,12 +61,12 @@
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
-        "bl",
-        "bl-libre",
-        "gen_v2-2",
+        // "bl",
+        // "bl-libre",
+        // "gen_v2-2",
         "gen_v2-libre",
         "--MODO_PRINT",
-        "juntos"
+        "libres"
       ]
     },
     {
