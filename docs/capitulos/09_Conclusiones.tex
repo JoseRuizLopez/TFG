@@ -1,11 +1,68 @@
 % !TeX root = ../proyecto.tex
 
 \chapter{Conclusiones}\label{ch:conclusiones}
+\section{Resumen general del trabajo}\label{sec:resumen-general}
 
-\subsection{Reflexión sobre el ajuste progresivo}\label{sec:reflexion-sobre-el-ajuste-progresivo}
-El desarrollo iterativo de estas versiones no solo mejora los resultados, sino que permite experimentar con distintos enfoques de convergencia,
-diversidad poblacional y equilibrio entre exploración y explotación.
+Este Trabajo de Fin de Grado aborda el problema de la reducción de conjuntos de datos en el contexto del aprendizaje profundo,
+proponiendo el uso de algoritmos meméticos como técnica de selección de instancias.
+A lo largo del desarrollo se diseñan, implementan y evalúan diferentes enfoques evolutivos (genéticos y meméticos),
+con el objetivo de identificar subconjuntos representativos de imágenes que permitan entrenar modelos convolucionales de forma eficiente y sin pérdida significativa de rendimiento.
 
-En definitiva, el algoritmo memético y las versiones v2 y v3 del algoritmo genético se consolidan como los más robustos para este problema,
-logrando reducciones significativas del conjunto de entrenamiento sin sacrificar precisión, y con tiempos de entrenamiento razonables gracias
-a su capacidad de selección eficiente.
+El estudio se centra en evaluar cómo diferentes variantes algorítmicas impactan sobre la precisión, la estabilidad y el tamaño final del conjunto de entrenamiento.
+Para ello, se utilizan dos modelos de referencia ampliamente extendidos (ResNet50 y MobileNetV2) y dos conjuntos de datos con distintos niveles de complejidad: Rock, Paper, Scissors y PAINTING.
+
+\section{Principales contribuciones}\label{sec:contribuciones}
+
+Los resultados experimentales permiten extraer varias conclusiones clave:
+
+\begin{itemize}
+    \item El uso de algoritmos evolutivos mejora notablemente la calidad de los subconjuntos generados en comparación con estrategias aleatorias o deterministas.
+          Incluso las versiones básicas, como el algoritmo genético clásico, superan con claridad al enfoque aleatorio.
+
+    \item Las mejoras introducidas en los operadores de cruce y mutación (ponderación basada en fitness y mutación adaptativa)
+          incrementan la estabilidad y precisión de los resultados, especialmente en escenarios con porcentajes bajos de datos iniciales.
+
+    \item La inclusión del reinicio poblacional ofrece cierto beneficio en términos de diversidad,
+          aunque no aporta mejoras significativas respecto a las versiones mejoradas del genético en cuanto a precisión media.
+
+    \item Las versiones \textit{libres} de los algoritmos, donde el tamaño del subconjunto se ajusta dinámicamente,
+          permiten alcanzar un equilibrio más eficaz entre precisión y tamaño final.
+          Este enfoque demuestra ser especialmente útil cuando no se conoce a priori la fracción óptima de datos para entrenar.
+
+    \item El algoritmo memético, y en particular su versión libre (MEM-F), alcanza los mejores resultados globales.
+          Este enfoque logra una elevada precisión, una notable reducción del conjunto de datos y una gran estabilidad entre ejecuciones,
+          consolidándose como la solución más eficaz del estudio.
+\end{itemize}
+
+
+\section{Validación y generalización}\label{sec:validacion-generalizacion}
+La validación con un segundo conjunto de datos (PAINTING), más complejo y con mayor número de clases, permite comprobar la capacidad de generalización de los enfoques propuestos.
+El algoritmo memético libre no solo mantiene su rendimiento, sino que en algunos casos supera a la precisión obtenida con el 100\,\% del conjunto completo.
+Además, se confirma que las soluciones generadas preservan una distribución equilibrada de clases y ajustan el tamaño del subconjunto según la dificultad del problema.
+
+
+\section{Implicaciones y aplicaciones futuras}\label{sec:implicaciones-aplicaciones}
+Los resultados obtenidos demuestran que es posible reducir de forma significativa los conjuntos de datos para entrenar modelos convolucionales sin comprometer el rendimiento,
+iempre que se utilicen estrategias de selección guiadas y adaptativas.
+Esto tiene implicaciones relevantes en escenarios donde los recursos computacionales son limitados o donde la auditoría y trazabilidad de los datos es una exigencia normativa.
+
+Como líneas futuras, se plantea:
+\begin{itemize}
+    \item Extender el estudio a otros modelos de visión por computador más recientes y especializados.
+    \item Aplicar las técnicas propuestas en tareas más complejas, como segmentación semántica o clasificación multietiqueta.
+    \item Investigar la incorporación de criterios adicionales en la función de fitness, como el tiempo de entrenamiento o el consumo energético.
+    \item Explorar la integración de los algoritmos meméticos con otras técnicas de reducción de datos como distilación de conocimiento o poda de redes.
+\end{itemize}
+
+
+\section{Reflexión final}\label{sec:reflexion-final}
+Este trabajo demuestra que la combinación de técnicas evolutivas y búsqueda local, aplicada de forma flexible y adaptativa,
+constituye una herramienta poderosa para optimizar el entrenamiento de modelos de aprendizaje profundo.
+Más allá de la mejora en precisión o eficiencia, esta línea de investigación apunta hacia un aprendizaje más sostenible, trazable y accesible,
+en línea con las necesidades actuales de la inteligencia artificial moderna.
+
+Desde un punto de vista personal, este proyecto ha representado un desafío enriquecedor tanto a nivel técnico como organizativo.
+La implementación completa de los algoritmos, la gestión eficiente del entorno experimental y
+la interpretación rigurosa de los resultados me han permitido consolidar conocimientos clave en aprendizaje automático y optimización.
+Asimismo, la dificultad de compaginar este trabajo con responsabilidades laborales ha reforzado mi compromiso con el rigor y la constancia,
+valores que considero fundamentales en mi futuro profesional.

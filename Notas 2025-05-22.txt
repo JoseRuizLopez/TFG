@@ -1,4 +1,4 @@
-* Poner etiqueta del 100% en los boxplot en vez del -.
+* ✅ Poner etiqueta del 100% en los boxplot en vez del -.
 * ✅ Añadir la aclaracion de que los porcentajes mostrados son usados con el Data de Validación.
 * ✅ Añadir un esquema general para los algoritmos, donde se explica en lineas generales el funcionamiento del código.
 * ✅ Poner la citacion y dejar a Latex ponerlo donde quiera, poner [htp].
