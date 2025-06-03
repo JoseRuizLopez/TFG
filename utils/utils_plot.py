@@ -668,7 +668,9 @@ def generate_plots_from_csvs(
         plot_scatter_inicial_final(
             df=df,
             filename=filename5.replace("BARPLOT", "SCATTER"),
-            xticks_list=[0.25, 0.5],
+            xticks_list=[0.1, 0.25, 0.5, 0.75],
+            yticks_list=[0.1, 0.25, 0.5, 0.75, 0.9],
+            ylim_range=(0, 0.92),
         )
 
         # Line Plot

@@ -330,6 +330,26 @@ Esta representación es especialmente útil para comparar la tendencia central, 
 
 \textbf{Los barplots} (gráficos de barras), por su parte, se emplean para representar valores agregados como medias o proporciones,
 y son útiles para observar cómo varía una métrica concreta entre distintos algoritmos, modelos o configuraciones.
+Además, los barplots muestran unas barras de error que indica la desviación estándar de los valores,
+lo que permite apreciar la variabilidad de los resultados obtenidos en las distintas ejecuciones.
+
+\textbf{Los scatter plots} (diagramas de dispersión) permiten visualizar de forma conjunta la relación entre el 
+porcentaje inicial de datos seleccionados y el porcentaje final alcanzado tras aplicar los algoritmos.
+En estos gráficos, cada punto representa una ejecución concreta, donde:
+
+\begin{itemize}
+    \item El eje \textbf{X} indica el \textbf{Porcentaje Inicial} de datos usados.
+    \item El eje \textbf{Y} muestra el \textbf{Porcentaje Final} de datos seleccionados por el algoritmo tras la ejecución.
+    \item El \textbf{color} y el \textbf{tamaño} de los puntos reflejan el \textbf{accuracy} alcanzado: los puntos más grandes 
+    y con tonos más intensos corresponden a ejecuciones con mayor precisión.
+\end{itemize}
+
+Además, cada punto se conecta mediante líneas de guía horizontales y verticales a los ejes, lo que facilita la interpretación de su posición exacta.
+Estas líneas ayudan a identificar rápidamente los valores individuales en ambos ejes, mejorando la legibilidad del gráfico.
+
+Este tipo de visualización es especialmente útil para analizar cómo los algoritmos ajustan el tamaño del subconjunto de datos en función de las condiciones iniciales, 
+y cómo esta selección influye en la precisión del modelo.
+Permite detectar patrones como agrupamientos de soluciones o dispersiones, y observar cómo ciertas configuraciones iniciales tienden a producir mejores o peores resultados.
 
 
 \section{Nomenclatura simplificada de los algoritmos}\label{subsec:nomenclatura-algoritmos}
@@ -351,7 +371,7 @@ La correspondencia entre el nombre completo de cada algoritmo y su abreviatura s
         Algoritmo Genético                                     & GEN                  \\
         Genético con Cruce Ponderado (Weighted Crossover)      & WC                   \\
         Genético con Mutación Adaptativa (Adaptive Mutation)   & AM                   \\
-        Genético con Cruce Ponderado Libre                     & AM-F                 \\
+        Genético con Mutación Adaptativa Libre                 & AM-F                 \\
         Genético con Reinicio Poblacional (Population Restart) & PR                   \\
         Algoritmo Memético                                     & MEM                  \\
         Algoritmo Memético Libre                               & MEM-F                \\

@@ -3,7 +3,8 @@
 \chapter{Resultados y Análisis}\label{ch:resultados-y-analisis}
 En este capítulo se exponen los experimentos realizados y los resultados obtenidos en los distintos escenarios evaluados.
 El objetivo principal fue analizar el rendimiento de los modelos entrenados con conjuntos de datos reducidos,
-seleccionados mediante algoritmos meméticos y evolutivos.
+seleccionados mediante los distintos algoritmos desarrollados a lo largo del proyecto.
+
 
 
 \section{Resultados con el conjunto completo}\label{sec:resultados-conjunto-completo}
@@ -48,7 +49,7 @@ los algoritmos de reducción de datos implementados en el resto del estudio.
 
 En particular, se observa que \textbf{ResNet50} obtiene mejores resultados en todas las métricas evaluadas,
 destacando especialmente en \textit{accuracy} y \textit{precision}, donde supera por más de 9 puntos porcentuales a \textbf{MobileNetV2}.
-Esta superioridad en el rendimiento viene acompañada de un tiempo por evaluación ligeramente menor (00:02:42 frente a 00:03:16),
+Esta superioridad en el rendimiento viene acompañada de un tiempo por evaluación ligeramente menor (\textbf{00:02:42} frente a \textbf{00:03:16}),
 lo que indica una mayor eficiencia en la etapa de predicción.
 Sin embargo, es importante tener en cuenta que el entrenamiento de ResNet50 implica un mayor coste computacional debido a su arquitectura más compleja,
 mientras que MobileNetV2 se mantiene como una opción más ligera y adecuada para dispositivos con recursos limitados, a costa de una leve pérdida de precisión.
@@ -63,7 +64,7 @@ modelos de redes neuronales convolucionales para determinar cuál de ellos es el
 Esta comparación permite identificar la arquitectura que ofrece un mejor equilibrio entre rendimiento y eficiencia computacional,
 estableciendo una base sólida sobre la que construir los siguientes análisis.
 
-Para llevar a cabo esta comparativa, se utiliza el \textbf{enfoque aleatorio} como estrategia de referencia.
+Para llevar a cabo esta comparativa, se utiliza el \textbf{enfoque aleatorio (RS)} como estrategia de referencia.
 Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtiene una línea base que permiteevaluar el
 comportamiento de cada modelo en condiciones controladas.
 Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas
@@ -96,7 +97,7 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
             \bottomrule
         \end{tabular}
     }
-    \caption{Comparativa de resultados de la generación inicial utilizando el algoritmo \textbf{aleatorio} y el \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
+    \caption{Comparativa de resultados de la generación inicial utilizando el \textbf{RS} y el \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
     \label{tab:resnet50-vs-mobilenet}
 \end{table}
 
@@ -120,7 +121,7 @@ lo que la convierte en una opción atractiva para entornos con recursos computac
 En conjunto, esta comparativa inicial permite elegir MobileNetV2 como modelo principal para el resto de experimentos.
 Aunque ResNet50 ofrece una precisión ligeramente superior, su elevado coste computacional no justifica su uso en las pruebas de reducción de datos,
 donde la eficiencia es un factor clave.
-Además, el uso del enfoque aleatorio como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
+Además, el uso del RS como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
 
 
 \section{Resultados de la búsqueda local}\label{sec:resultados-busqueda-local}
@@ -131,60 +132,59 @@ Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-bl}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-lr}
     \caption{Boxplot comparando el RS con la LR usando \textit{accuracy}.}
     \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
-
 En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
 la distribución completa de valores obtenidos en las distintas ejecuciones.
 
 Se puede apreciar que el algoritmo de búsqueda local (LR) mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio (RS).
-Mientras que el enfoque aleatorio se sitúa en torno a una mediana de 0.787, la búsqueda local alcanza una mediana superior, próxima a 0.818.
+Mientras que el RS se sitúa en torno a una mediana de \textbf{0.787}, la LR alcanza una mediana superior, próxima a \textbf{0.818}.
 Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
 
-Además, los valores máximos que alcanzan ambos algoritmos son similares (en torno a 0.858-0.860),
-pero la búsqueda local muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
-En cambio, el algoritmo aleatorio presenta una mayor dispersión hacia valores bajos y aunque presente una mayor sensibilidad a la aleatoriedad de las selecciones,
-puede llegar a tener mejores valores mínimos, como se evidencia en su menor valor mínimo (0.785 frente a 0.769 en búsqueda local),
-pero siendo el de la busqueda local un valor atípico.
+Además, los valores máximos que alcanzan ambos algoritmos son similares (en torno a \textbf{0.858}-\textbf{0.860}),
+pero la LR muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
+En cambio, el RS presenta una mayor dispersión hacia valores bajos y aunque presente una mayor sensibilidad a la aleatoriedad de las selecciones,
+puede llegar a tener mejores valores mínimos, como se evidencia en su menor valor mínimo (\textbf{0.785} frente a \textbf{0.769} en LR),
+pero siendo el de la LR un valor atípico.
 
-Esto pone de manifiesto que, aunque el algoritmo aleatorio puede ocasionalmente alcanzar buenos resultados,
-la búsqueda local ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
+Esto pone de manifiesto que, aunque el RS puede ocasionalmente alcanzar buenos resultados,
+la LR ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
 
 
 \section{Resultados del Algoritmo Genético}\label{sec:resultados-algoritmo-genetico}
 Con el objetivo de superar las limitaciones observadas (como el riesgo de estancamiento o la exploración poco estructurada del espacio de soluciones)
-se incorpora un enfoque evolutivo más completo: el algoritmo genético, descrito en la Sección~\ref{sec:genetico-v1}, el cual sirve como punto de partida para explorar la
+se incorpora un enfoque evolutivo más completo: el algoritmo genético (GEN), descrito en la Sección~\ref{sec:genetico-v1}, el cual sirve como punto de partida para explorar la
 aplicación de estrategias metaheurísticas en la selección de subconjuntos representativos de imágenes.
 Su estructura evolutiva, basada en selección por torneo, cruce e incorporación de mutación,
-ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la búsqueda local.
+ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la LR.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_bl-gen_v1}
-    \caption{Boxplot comparando BL con GEN usando \textit{accuracy}.}
-    \label{fig:bl-vs-gen-v1}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_lr-gen_v1}
+    \caption{Boxplot comparando LR con GEN usando \textit{accuracy}.}
+    \label{fig:lr-vs-gen-v1}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:bl-vs-gen-v1}, el algoritmo genético (GEN) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (BL),
+Tal como se observa en la Figura~\ref{fig:lr-vs-gen-v1}, el algoritmo genético (GEN) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (LR),
 reflejando un rendimiento medio más consistente.
 Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo que evidencia su mayor potencial para encontrar soluciones de alta calidad.
 
-No obstante, también se aprecia una ligera mayor dispersión en los resultados del algoritmo genético, particularmente hacia los valores bajos.
-Esto indica que, pese a su capacidad exploratoria, el genético puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
-De hecho, su valor mínimo (\textbf{0.796}) es superior al de la búsqueda local en esta comparativa,
+No obstante, también se aprecia una ligera mayor dispersión en los resultados del GEN, particularmente hacia los valores bajos.
+Esto indica que, pese a su capacidad exploratoria, el GEN puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
+De hecho, su valor mínimo (\textbf{0.796}) es superior al de la LR en esta comparativa,
 pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
 % \colorbox{yellow}{¿Sobra el siguiente apartado?}
-La búsqueda local, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
+La LR, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
 Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
-Estos resultados sirven como evidencia empírica para continuar desarrollando nuevas versiones del algoritmo genético,
+Estos resultados sirven como evidencia empírica para continuar desarrollando nuevas versiones del GEN,
 incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
 \section{Mejorando el operador de cruce}\label{sec:incorporacion-cruce}
-La primera mejora introducida al algoritmo genético consiste en reemplazar el cruce aleatorio por un cruce ponderado,
+La primera mejora introducida al GEN consiste en reemplazar el cruce aleatorio por un cruce ponderado,
 donde se prioriza la contribución del progenitor con mayor \textit{fitness}.
 Además, se incorpora una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
 Ambos cambios, explicados en detalle en la \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}},
@@ -213,7 +213,7 @@ Esto se traduce en un comportamiento más robusto, menos propenso a resultados e
 
 
 \section{Mejorando el operador de mutación}\label{sec:mejorando-mutacion}
-A partir de los resultados obtenidos con el algoritmo con cruce ponderado, se evalua una nueva versión en la que se introdujo una mutación adaptativa
+A partir de los resultados obtenidos con el WC, se evalua una nueva versión en la que se introdujo una \textbf{mutación adaptativa}
 (ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
 A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado,
 lo que permite una mayor flexibilidad en escenarios de diferente escala.
@@ -232,32 +232,34 @@ lo que permite una mayor flexibilidad en escenarios de diferente escala.
     \label{fig:mutacion-adaptativa-porcentaje}
 \end{figure}
 
-Como se observa en la Figura~\ref{fig:mutacion-adaptativa}, ambos algoritmos alcanzan un rendimiento similar en términos de mediana y valores extremos,
-con una ligera ventaja de la versión original (WC) en el valor máximo de \textit{accuracy} (\textbf{0.887} frente a \textbf{0.876}).
-Sin embargo, su versión con mutación adaptativa (AM) muestra una distribución más compacta en la parte central,
-con menos dispersión hacia valores bajos del IQR, lo que sugiere una mejora en la consistencia entre ejecuciones.
+Como se aprecia en la Figura~\ref{fig:mutacion-adaptativa},
+ambos algoritmos presentan distribuciones de \textit{accuracy} muy similares en términos de mediana e IQR.
+El WC mantiene un ligero máximo superior, alcanzando un \textbf{0.887} frente al \textbf{0.876} del AM.
+Sin embargo, el algoritmo con mutación adaptativa muestra una distribución más compacta en la parte central,
+con menor dispersión hacia valores bajos, lo que sugiere una mayor consistencia entre ejecuciones.
 
-Además, la versión con mutación adaptativa presenta un Q4 más elevado, es decir, su \textit{bigote superior} abarca valores superiores a los de la versión original.
-Esto indica que, aparte de que la mediana sea un poco superior, un mayor número de ejecuciones alcanzan rendimientos más altos de forma consistente,
-reforzando la idea de que esta variante promueve una evolución más estable y con mayor concentración de soluciones de calidad en el tramo alto del rendimiento.
+La principal diferencia se observa en la robustez de los resultados: el AM presenta una distribución más estable,
+con menos valores atípicos y una mayor concentración de ejecuciones cerca del cuartil superior.
+Este comportamiento indica una menor propensión a caídas abruptas de rendimiento y refuerza la idea de que la mutación
+adaptativa mejora la estabilidad del proceso evolutivo.
 
-Al analizar los resultados desglosados por porcentaje inicial (ver Figura~\ref{fig:mutacion-adaptativa-porcentaje}),
-se observa que la estabilidad de la versión con mutación adaptativa se mantiene de forma más robusta a lo largo de los distintos escenarios.
-Aunque las diferencias en precisión media no son significativas,
-la compacidad de los resultados y la reducción de valores atípicos en las ejecuciones justifican la preferencia por la versión AM,
-especialmente en contextos donde la estabilidad y la consistencia son prioritarias.
+Al analizar los resultados por porcentaje inicial (Figura~\ref{fig:mutacion-adaptativa-porcentaje}),
+se confirma que el AM mantiene una estabilidad más uniforme en todos los escenarios, mientras que el WC muestra una mayor variabilidad,
+especialmente en configuraciones con menor cantidad de datos.
+Aunque las diferencias en \textit{accuracy} medio no son significativas, la menor dispersión y la reducción de valores extremos justifican la
+preferencia por la versión adaptativa en contextos donde la fiabilidad es prioritaria.
 
-Este resultado refleja que, aunque la mutación adaptativa no produce una mejora radical en precisión media,
-sí contribuye a una evolución más controlada y robusta, reduciendo la probabilidad de degradaciones abruptas.
-Además, su comportamiento flexible la hace más adecuada en contextos donde el tamaño del subconjunto varía,
-evitando configuraciones subóptimas impuestas por una tasa fija.
+En conjunto, la mutación adaptativa no genera una mejora radical en precisión media,
+pero sí contribuye a una evolución más controlada y menos susceptible a degradaciones, favoreciendo una mayor consistencia en los resultados.
+Además, al adaptarse al tamaño del subconjunto, evita configuraciones subóptimas que podrían surgir con una tasa fija de mutación,
+lo que la hace especialmente adecuada para escenarios con escalas variables.
 
-En conjunto, esta mejora refuerza la capacidad del algoritmo para mantener el equilibrio entre exploración y explotación durante el proceso evolutivo,
-consolidando su utilidad como una opción más estable para la reducción de datos en aprendizaje profundo.
+Esta mejora consolida la capacidad del algoritmo para equilibrar exploración y explotación,
+y lo posiciona como una alternativa más robusta y estable en tareas de reducción de datos para aprendizaje profundo.
 
 
 \section{Resultados del reinicio poblacional}\label{sec:resultados-reinicio-poblacional}
-La última mejora realizada del algoritmo genético (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
+La última mejora realizada de los algoritmos genéticos (ver \hyperref[sec:genetico-v3]{Sección~\ref*{sec:genetico-v3}})
 introduce una lógica de reinicio poblacional diseñada para evitar estancamientos evolutivos.
 El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no mejora durante dos generaciones consecutivas,
 se aplica un reinicio parcial que conserva únicamente al mejor individuo de la población.
@@ -268,43 +270,95 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
     \caption{Comparación de \textit{accuracy} entre el AM y con PR.}
     \label{fig:reinicio_poblacional}
 \end{figure}
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm} P{2.5cm}}
+            \toprule
+            \textbf{Algoritmo}    & \textbf{Duración Total} & \textbf{Duración por Eva.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} &
+            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones}      & \textbf{Porc.Paper}     & \textbf{Porc.Rock}       & \textbf{Porc.Scissors}                                               \\
+            \midrule
+            \multicolumn{11}{l}{\textbf{10\%}}                                                                                                                                                                       \\
+            \midrule
+            AM                    & 00:27:39                & 00:00:17                   & 83,66\%                 & 84,24\%                  & 83,66\%                & 83,09\% & 100 & 35,64\% & 30,87\% & 33,49\% \\
+            PR                    & 00:29:02                & 00:00:17                   & 81,93\%                 & 83,07\%                  & 81,93\%                & 81,19\% & 100 & 34,52\% & 32,14\% & 33,33\% \\
+            \midrule
+            \multicolumn{11}{l}{\textbf{25\%}}                                                                                                                                                                       \\
+            \midrule
+            AM                    & 00:57:29                & 00:00:34                   & 82,42\%                 & 83,68\%                  & 82,42\%                & 81,78\% & 100 & 33,33\% & 32,54\% & 34,13\% \\
+            PR                    & 01:00:22                & 00:00:36                   & 82,64\%                 & 83,78\%                  & 82,64\%                & 81,96\% & 100 & 33,62\% & 33,27\% & 33,11\% \\
+            \midrule
+            \multicolumn{11}{l}{\textbf{50\%}}                                                                                                                                                                       \\
+            \midrule
+            AM                    & 01:47:31                & 00:01:05                   & 81,13\%                 & 82,62\%                  & 81,13\%                & 80,41\% & 100 & 33,94\% & 32,76\% & 33,30\% \\
+            PR                    & 01:53:13                & 00:01:08                   & 81,24\%                 & 83,09\%                  & 81,24\%                & 80,59\% & 100 & 33,21\% & 33,20\% & 33,59\% \\
+            \midrule
+            \multicolumn{11}{l}{\textbf{75\%}}                                                                                                                                                                       \\
+            \midrule
+            AM                    & 02:36:41                & 00:01:34                   & 82,42\%                 & 83,94\%                  & 82,42\%                & 81,85\% & 100 & 33,67\% & 33,11\% & 33,22\% \\
+            PR                    & 02:41:24                & 00:01:37                   & 82,69\%                 & 84,33\%                  & 82,69\%                & 82,06\% & 100 & 33,52\% & 33,44\% & 33,04\% \\
+            \midrule
+            \multicolumn{11}{l}{\textbf{100\%}}                                                                                                                                                                      \\
+            \midrule
+            100\%                 & -                       & 00:03:16                   & 78,60\%                 & 81,55\%                  & 78,60\%                & 77,68\% & 1   & 33,33\% & 33,33\% & 33,33\% \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de los algoritmos AM y PR por porcentaje inicial, incluyendo distribución de clases y duración total y por evaluación.}
+    \label{tab:resultados-am-pr-porcentaje}
+\end{table}
 
-Tal como se observa en la Figura~\ref{fig:reinicio_poblacional}, los resultados muestran que la incorporación del reinicio no se traduce en una mejora tangible del rendimiento.
-La mediana de \texttt{genetico3} permanece prácticamente inalterada respecto a \texttt{genetico2\_2} (incluso ligeramente inferior),
-y aunque el valor mínimo es inferior (\textbf{0.766} frente a \textbf{0.798}), no se aprecia un incremento en el valor máximo ni una reducción clara en la dispersión.
+Los resultados, mostrados en la Figura~\ref{fig:reinicio_poblacional} y la Tabla~\ref{tab:resultados-am-pr-porcentaje},
+permiten extraer varias conclusiones relevantes.
+En primer lugar, el \textbf{valor máximo de accuracy} es idéntico para AM y PR, alcanzando ambos un \textbf{0.876},
+lo que sugiere que el reinicio no favorece la aparición de soluciones de mayor calidad.
+Por el contrario, el \textbf{valor mínimo de accuracy} observado en PR (\textbf{0.766}) es notablemente más bajo que el de AM (\textbf{0.798}),
+lo que indica una mayor propensión a obtener ejecuciones de bajo rendimiento cuando se utiliza la estrategia de reinicio.
 
-Esto sugiere que, al menos en este contexto experimental, el mecanismo de reinicio no logra mejorar la exploración del espacio de soluciones
-ni mitigar el estancamiento de forma eficaz.
-En algunos casos, incluso puede introducir una pérdida prematura de diversidad, al regenerar de forma aleatoria parte de la población sin garantizar mejoras sustanciales.
+La distribución general de resultados revela que el PR no logra una reducción significativa en la dispersión de los valores:
+aunque los cuartiles y medianas de AM y PR son similares, se observa un leve desplazamiento hacia valores ligeramente más bajos en PR,
+lo cual es especialmente evidente en el escenario de menor porcentaje inicial (10\%).
+Esta tendencia sugiere que el reinicio poblacional, al reintroducir diversidad de forma abrupta,
+puede generar soluciones subóptimas que no contribuyen de manera sustancial a mejorar la población.
+
+La tabla de resultados~\ref{tab:resultados-am-pr-porcentaje} respalda estas observaciones: en promedio,
+el algoritmo AM presenta una ligera superioridad en precisión media (\textbf{83,66\%} frente a \textbf{81,93\%} en el 10\%), así como en F1-score y recall.
+Estas diferencias, aunque no drásticas, son consistentes en la mayoría de los escenarios.
+Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre AM y PR,
+lo que refuerza la idea de que el impacto del reinicio poblacional no justifica su complejidad añadida.
 
 % \colorbox{yellow}{¿Añadir el párrafo de resumen?}
 % En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
 % su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
 % Estos resultados invitan a reconsiderar su activación por defecto, o bien a explorar variantes más refinadas del mecanismo de reinicio.
-En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
-su implementación en esta versión no logra aportar beneficios consistentes en términos de rendimiento.
+En resumen, aunque el reinicio poblacional busca aumentar la exploración y evitar el estancamiento,
+en esta implementación concreta no aporta mejoras tangibles en términos de precisión ni estabilidad,
+e incluso puede introducir soluciones más erráticas en ciertas ejecuciones.
 
 \section{Resultados con versiones libres}\label{sec:resultados-versiones-libres}
-Como parte de la evolución de los algoritmos desarrollados, se proponen versiones libres,
-en las que el tamaño del subconjunto seleccionado no permanece fijo durante la ejecución, sino que puede ajustarse de forma dinámica.
+Como parte de la evolución de los algoritmos desarrollados, se propone la creación de \textbf{versiones libres},
+en las que el tamaño del subconjunto seleccionado no permanece fijo durante la ejecución, sino que puede ajustarse de forma dinámica en función de las decisiones evolutivas.
+Esta flexibilidad permite que los algoritmos modifiquen el número de datos utilizados a medida que avanzan las generaciones,
+adaptándose de manera más natural a las características del problema.
 
-Para evaluar esta flexibilidad, se generan versiones libres de la búsqueda local y del algoritmo genético con cruce ponderado y mutación adaptativa,
-como modificación adicional, se introduce un mecanismo al algoritmo de búsqueda local
-en el que se selecciona de forma aletarioa el porcentaje inicial de imágenes a partir del cual se comienza a trabajar.
+Para evaluar el impacto de esta modificación, se generan versiones libres tanto para el algoritmo de búsqueda local (LR)
+como para el algoritmo con mutación adaptativa (AM).
+En el caso de la LR, además, se incorpora una variación adicional: el porcentaje inicial de imágenes no es fijo,
+sino que se selecciona aleatoriamente en cada ejecución, introduciendo así un mayor grado de aleatoriedad y diversidad en el proceso.
 
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo}
-    \caption{Comparación de \textit{accuracy} entre el LR, AM y sus versiones Libres en formato BARPLOT.}
+    \caption{Comparación de \textit{accuracy} entre el LR, AM y sus versiones Libres (formato BARPLOT).}
     \label{fig:barplot_por_algoritmo-libres}
 \end{figure}
 
-En la Figura~\ref{fig:barplot_por_algoritmo-libres} se observa que la versión libre de la búsqueda local mejora tanto la mediana
-como el valor máximo de \textit{accuracy} respecto a su versión original.
-Presenta, además, una menor dispersión en los valores bajos y una mayor concentración de ejecuciones en torno al cuartil superior,
-lo que sugiere una mejora en la estabilidad del algoritmo.
-Este comportamiento refleja que introducir flexibilidad en el tamaño del subconjunto aporta capacidad de adaptación sin comprometer la consistencia del rendimiento.
+En la Figura~\ref{fig:barplot_por_algoritmo-libres} se observa que las versiones libres mantienen un rendimiento promedio muy similar al de las versiones originales.
+La precisión media (\textit{accuracy}) de las versiones libres es ligeramente superior en algunos casos,
+lo que indica que la capacidad de adaptación no introduce pérdidas de rendimiento e incluso puede aportar pequeñas mejoras en escenarios específicos.
+Las barras de error sugieren que la variabilidad entre ejecuciones se mantiene controlada,
+lo que refuerza la idea de que la flexibilidad no compromete la estabilidad de los resultados.
 
 
 \begin{figure}[htp]
@@ -314,11 +368,11 @@ Este comportamiento refleja que introducir flexibilidad en el tamaño del subcon
     \label{fig:boxplot_por_algoritmo-libres}
 \end{figure}
 
-En el caso del genético con cruce ponderado y mutación adaptativa (Figura~\ref{fig:boxplot_por_algoritmo-libres}),
-los resultados son algo más matizados: la versión libre mantiene un rendimiento muy similar al de la versión rígida,
-con una leve mejora en los valores altos y un mínimo más elevado.
-Esto sugiere que, aunque no siempre se observe una mejora significativa en mediana,
-la capacidad adaptativa aporta robustez adicional y mayor protección frente a ejecuciones fallidas.
+Los diagramas de caja en la Figura~\ref{fig:boxplot_por_algoritmo-libres} permiten una comparación más detallada de la dispersión de los resultados.
+En el caso de la LR, la versión libre muestra una ligera mejora en la mediana y un rango intercuartílico (IQR) más compacto, lo que indica una mayor estabilidad.
+Además, se observan valores atípicos superiores que sugieren la posibilidad de obtener ejecuciones con precisión especialmente alta.
+En el caso del AM, las diferencias entre las versiones fija y libre son más sutiles: aunque las medianas son prácticamente idénticas,
+la versión libre presenta una ligera reducción en los valores mínimos, lo que podría reflejar una mayor adaptabilidad frente a escenarios más difíciles.
 
 
 \begin{figure}[htp]
@@ -328,6 +382,12 @@ la capacidad adaptativa aporta robustez adicional y mayor protección frente a e
     \label{fig:am_por_pi}
 \end{figure}
 
+La Figura~\ref{fig:am_por_pi} muestra la evolución del \textit{accuracy} en función del porcentaje inicial de datos utilizados en el algoritmo AM.
+Se observa que la precisión se mantiene estable a lo largo de los distintos puntos de partida,
+con ligeras variaciones que no afectan de manera significativa al comportamiento general del algoritmo.
+Este resultado confirma que la flexibilidad en el tamaño del subconjunto no introduce un sesgo negativo en la calidad de las soluciones encontradas,
+sino que permite adaptarse a diferentes condiciones iniciales sin comprometer el rendimiento.
+
 
 \begin{figure}[htp]
     \centering
@@ -336,45 +396,41 @@ la capacidad adaptativa aporta robustez adicional y mayor protección frente a e
     \label{fig:distribucion_libres}
 \end{figure}
 
-La Figura~\ref{fig:distribucion_libres} muestra que tanto los algoritmos estándar como sus variantes libres
-mantienen una distribución equilibrada entre las tres clases del conjunto \texttt{RPS}.
-Las proporciones de \texttt{Rock}, \texttt{Paper} y \texttt{Scissors} se reproducen de forma muy similar en todos los casos,
-con únicamente pequeñas variaciones que no resultan significativas como para suponer un desbalance.
+Por otro lado, la Figura~\ref{fig:distribucion_libres} demuestra que tanto las versiones fijas como las libres preservan una
+distribución equilibrada de las clases \texttt{Rock}, \texttt{Paper} y \texttt{Scissors}.
+Las proporciones entre clases se mantienen estables, sin que la flexibilidad en el tamaño del subconjunto genere desbalances significativos.
+Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegura que las mejoras observadas no son producto de un sesgo de clase inadvertido.
 
-Este resultado es especialmente relevante para la validez de los experimentos, ya que confirma que los mecanismos evolutivos
-y las estrategias de ajuste del tamaño del subconjunto no introducen sesgos de clase.
-La representatividad estructural del conjunto se conserva, lo cual es fundamental para garantizar una evaluación justa y equilibrada en tareas de clasificación multiclase.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_bl-f}
-    \caption{Diagrama de dispersión (\textit{scatter plot}) que muestra la relación entre el \textit{accuracy} y el porcentaje final de datos seleccionados por el BL-F.}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_lr-f}
+    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo LR-F.}
     \label{fig:scatter_bl_f}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_gen_v2}
-    \caption{Diagrama de dispersión (\textit{scatter plot}) que muestra la relación entre el \textit{accuracy} y el porcentaje final de datos seleccionados por el AM-F.}
+    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo AM-F.}
     \label{fig:scatter_gen_v2}
 \end{figure}
 
-Las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2} permiten analizar con mayor detalle cómo se comportan
-los algoritmos libres en términos de tamaño del subconjunto seleccionado.
-En la comparación directa por algoritmo (Figura~\ref{fig:porcentaje_libres_1}), se observa que el porcentaje final tiene un leve incremento respecto al inicial.
+Finalmente, las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2} permiten visualizar la relación entre el \textit{accuracy}
+y el porcentaje final de datos seleccionados en las versiones libres.
+En el caso de la búsqueda local libre (LR-F), se observa una tendencia a incrementar ligeramente el tamaño del subconjunto final,
+especialmente en ejecuciones con mejor precisión.
+Por el contrario, el algoritmo AM-F muestra una distribución más equilibrada, con una mayor variabilidad en los tamaños finales,
+lo que refleja su capacidad adaptativa para ajustarse a diferentes condiciones de búsqueda.
 
-Sin embargo, al desglosar el análisis por valores específicos del porcentaje inicial (Figura~\ref{fig:porcentaje_libres_2}),
-se aprecia un patrón más claro: cuanto mayor es el punto de partida, mayor tiende a ser también el porcentaje final alcanzado.
-Esta tendencia es especialmente marcada en el caso de la búsqueda local libre, que muestra una progresión prácticamente lineal.
-El algoritmo genético, en cambio, presenta un crecimiento más escalonado, pero igualmente adaptativo.
-
-Este comportamiento sugiere que los algoritmos libres no solo adaptan la composición del subconjunto, sino también su escala,
-ajustando dinámicamente la cantidad de datos seleccionados según el entorno de búsqueda.
-En general, estas versiones demuestran ser una opción más versátil y controlada, especialmente útil cuando no se conoce de antemano el tamaño óptimo del conjunto de entrenamiento.
+Este comportamiento evidencia que los algoritmos libres no solo adaptan la composición del subconjunto, sino también su escala,
+ajustando dinámicamente la cantidad de datos utilizados según las necesidades del proceso evolutivo.
+En conjunto, estas versiones demuestran ser una alternativa más versátil y robusta,
+capaz de mantener la calidad del rendimiento incluso en escenarios con alta variabilidad en los datos o restricciones de tamaño no conocidas de antemano.
 
 
 \section{Resultados del algoritmo memético}\label{sec:resultados-algoritmo-memetico}
-Finalmente, se evalua el algoritmo memético (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
+Finalmente, se evalua el algoritmo memético (MEM) (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
 el cual combina la evolución genética con una búsqueda local aplicada de forma probabilística sobre ciertos individuos seleccionados.
 Este enfoque híbrido busca equilibrar la exploración del espacio de soluciones con una intensificación localizada,
 ofreciendo mejoras tanto en precisión como en estabilidad.
@@ -383,12 +439,12 @@ ofreciendo mejoras tanto en precisión como en estabilidad.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-memetico}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo memético estándar y su versión libre.}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo memético (MEM) y su versión libre.}
     \label{fig:memetico_comparacion}
 \end{figure}
 
-Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético supera claramente al mejor de los enfoques genéticos
-(el Genetico Libre con Cruce Ponderado y Mutación Adaptativa), alcanzando una mediana más elevada y un valor máximo de \textit{accuracy} de hasta \textbf{0.903}.
+Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético (MEM) supera claramente al mejor de los enfoques genéticos
+(AM-F), alcanzando una mediana más elevada y un valor máximo de \textit{accuracy} de hasta \textbf{0.903}.
 Su distribución es más compacta, con menor dispersión hacia los valores bajos, lo que refleja una mayor consistencia entre ejecuciones.
 
 La versión libre del memético, que incorpora también un ajuste dinámico del tamaño del subconjunto
@@ -397,25 +453,249 @@ con una ligera reducción en el valor máximo pero una estabilidad comparable.
 Esto sugiere que el componente adaptativo no penaliza la calidad de las soluciones y puede incluso aportar mayor flexibilidad en entornos más inciertos.
 
 
-En la Figura~\ref{fig:memetico_porcentaje} se observa cómo el memético libre tiende a incrementar el tamaño del subconjunto conforme aumenta el porcentaje inicial.
-La curva es progresiva y cercana a la linealidad, lo que indica un comportamiento estructuralmente coherente:
-el algoritmo detecta cuándo puede beneficiarse de incluir más ejemplos y adapta su escala en consecuencia.
-Este ajuste dinámico refuerza su capacidad para equilibrar rendimiento y tamaño, maximizando la eficiencia de la selección sin depender de una configuración fija.
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2cm} P{2.5cm} P{2.5cm}}
+            \toprule
+            \textbf{Algoritmo}    & \textbf{Duración Total} & \textbf{Duración por Eva.} & \textbf{Porc.
+            Final}                & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)}   &
+            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones}                                                                    \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{10\%}}                                                                                                          \\
+            \midrule
+            AM-F                  & 00:34:33                & 00:00:21                   & 14,94\%       & 82,96\% & 84,07\% & 82,96\% & 82,12\% & 100 \\
+            MEM                   & 00:27:43                & 00:00:17                   & 10,00\%       & 82,85\% & 84,44\% & 82,85\% & 81,91\% & 100 \\
+            MEM-F                 & 00:32:39                & 00:00:20                   & 9,62\%        & 83,28\% & 84,70\% & 83,28\% & 82,46\% & 100 \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{25\%}}                                                                                                          \\
+            \midrule
+            AM-F                  & 01:07:13                & 00:00:40                   & 26,68\%       & 81,77\% & 82,66\% & 81,77\% & 81,18\% & 100 \\
+            MEM                   & 00:57:12                & 00:00:34                   & 25,00\%       & 81,99\% & 83,11\% & 81,99\% & 81,21\% & 100 \\
+            MEM-F                 & 01:08:54                & 00:00:41                   & 27,18\%       & 82,80\% & 83,77\% & 82,80\% & 82,17\% & 100 \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{50\%}}                                                                                                          \\
+            \midrule
+            AM-F                  & 01:51:24                & 00:01:07                   & 46,36\%       & 83,60\% & 85,22\% & 83,60\% & 83,03\% & 100 \\
+            MEM                   & 01:47:32                & 00:01:05                   & 50,00\%       & 81,51\% & 83,36\% & 81,51\% & 80,89\% & 100 \\
+            MEM-F                 & 02:16:51                & 00:01:22                   & 67,07\%       & 81,61\% & 83,09\% & 81,61\% & 80,96\% & 100 \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{75\%}}                                                                                                          \\
+            \midrule
+            AM-F                  & 02:33:25                & 00:01:32                   & 72,72\%       & 82,20\% & 83,94\% & 82,20\% & 81,47\% & 100 \\
+            MEM                   & 02:37:43                & 00:01:35                   & 75,00\%       & 82,74\% & 84,33\% & 82,74\% & 82,14\% & 100 \\
+            MEM-F                 & 03:08:21                & 00:01:53                   & 71,16\%       & 82,69\% & 84,18\% & 82,69\% & 82,10\% & 100 \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{100\%}}                                                                                                         \\
+            \midrule
+            100\%                 & -                       & 00:03:16                   & 100,00\%      & 78,60\% & 81,55\% & 78,60\% & 77,68\% & 1   \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de los MEM y del AM-F por porcentaje inicial.}
+    \label{tab:resultados-memetico-genetico-libres}
+\end{table}
+
+El análisis detallado de la Tabla~\ref{tab:resultados-memetico-genetico-libres} confirma estas observaciones y permite extraer
+conclusiones más matizadas sobre el comportamiento de los algoritmos.
+En primer lugar, el MEM-F mantiene una precisión media comparable o superior a la del MEM en la mayoría de los escenarios,
+especialmente en configuraciones con porcentajes iniciales más bajos (10\% y 25\%).
+Esto indica que la capacidad de ajuste dinámico no solo no perjudica el rendimiento, sino que puede ofrecer ventajas en términos de adaptabilidad,
+permitiendo al algoritmo optimizar la selección de datos sin depender de un tamaño fijo preestablecido.
+
+Además, el porcentaje final alcanzado por MEM-F muestra una notable variabilidad según el escenario:
+en los casos con menor porcentaje inicial, tiende a mantenerse cercano al valor de partida (por ejemplo, un 9,62\% en el escenario del 10\%),
+mientras que en configuraciones más amplias (50\% y 75\%), el tamaño final puede incrementarse significativamente (hasta un 67,07\% en el caso del 50\%).
+Este comportamiento adaptativo refleja que el algoritmo es capaz de ajustar la escala de la solución en función de las características del espacio de búsqueda,
+evitando tanto la sobrerrepresentación como la selección excesiva de datos innecesarios.
+
+Por otro lado, la duración total y el tiempo medio por evaluación aumentan con el porcentaje inicial, pero esto no compromete la eficiencia general del MEM-F,
+que mantiene un equilibrio adecuado entre precisión y coste computacional
+
+De esta forma, tanto el MEM como su variante libre, MEM-F, se consolidan como las estrategias más eficaces del estudio,
+ofreciendo una combinación robusta de rendimiento, adaptabilidad y estabilidad.
 
 % \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-De esta forma, tanto el memético estándar como su variante libre se consolidan como las estrategias más eficaces del estudio.
 % Su combinación de precisión elevada, estabilidad entre ejecuciones y capacidad adaptativa los convierte en soluciones
 % especialmente robustas para tareas donde se requiere seleccionar subconjuntos representativos sin comprometer el rendimiento del modelo entrenado.
 
-
 \section{Resultados finales entre enfoques}\label{sec:comparacion-final-enfoques}
-En esta sección se realiza una comparación conjunta entre todos los algoritmos implementados.
-Se presentan boxplots y gráficos de barras que muestran la evolución del \textit{accuracy}, el porcentaje de datos utilizados y el equilibrio entre clases.
+Tras analizar el rendimiento individual de cada enfoque a lo largo de las secciones anteriores,
+en esta sección se realiza una síntesis comparativa entre los principales algoritmos desarrollados: el algoritmo genético con cruce ponderado (\texttt{WC}), el algoritmo genético con mutación adaptativa (\texttt{AM}), el algoritmo memético (\texttt{MEM}) y su versión libre (\texttt{MEM-F}).
+Se incluyen además las referencias al 100\% del conjunto de datos y a la selección aleatoria (\texttt{RS})
+como líneas base para contextualizar los resultados.
 
-% Los algoritmos meméticos y genéticos v2/v3 (especialmente en sus versiones libres) destacan como los más eficaces, consiguiendo una reducción significativa del conjunto de entrenamiento sin penalizar la precisión.
-% Además, se observa una menor varianza en sus resultados, lo que indica una mayor consistencia entre ejecuciones.
+El objetivo es identificar cuál de estos enfoques logra el mejor compromiso entre precisión (\textit{accuracy}),
+estabilidad de resultados, y eficiencia en la reducción de datos, así como validar la hipótesis de que una selección inteligente de ejemplos puede superar incluso al uso del 100\% del conjunto de datos.
 
-\colorbox{yellow}{Falta realizar la comparación final.}
+\subsection{Análisis comparativo de accuracy}\label{sec:comparacion-final-accuracy}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo}
+    \caption{Boxplot de \textit{accuracy} para los algoritmos RS, WC, AM, MEM y MEM-F.}
+    \label{fig:boxplot-comparacion-final}
+\end{figure}
+El análisis comparativo de \textit{accuracy} entre algoritmos confirma de manera general las conclusiones obtenidas en los análisis de las secciones anteriores.
+Como muestra el boxplot~\ref{fig:boxplot-comparacion-final}, los algoritmos meméticos, especialmente la versión libre \texttt{MEM-F},
+presentan las mejores métricas globales en términos de precisión y estabilidad.
+\texttt{MEM-F} alcanza las medianas más altas y muestra una distribución más compacta, lo que refleja una mayor consistencia entre ejecuciones.
+Además, la dispersión de resultados en \texttt{MEM-F} es menor, lo que sugiere una robustez notable frente a la aleatoriedad de las ejecuciones y una mayor fiabilidad en su rendimiento.
+
+Por otro lado, el algoritmo memético estándar \texttt{MEM} también destaca por su rendimiento superior,
+aunque presenta una ligera mayor variabilidad en algunos casos.
+Aun así, se posiciona como una solución altamente efectiva,
+confirmando que la combinación de evolución global y búsqueda local permite generar subconjuntos más representativos y eficientes.
+
+En contraste, los algoritmos \texttt{RS} y \texttt{WC} muestran una mayor dispersión en los resultados,
+lo que indica una menor estabilidad y una mayor dependencia de la aleatoriedad en la selección de datos.
+\texttt{RS}, como se ha observado a lo largo de todo el análisis, tiende a obtener resultados más erráticos, mientras que \texttt{WC},
+aunque introduce mejoras respecto al \texttt{RS}, sigue sin alcanzar la solidez de los algoritmos meméticos.
+
+Por su parte, el algoritmo \texttt{AM} presenta un rendimiento intermedio: mejora las métricas obtenidas por \texttt{RS} y \texttt{WC},
+pero no logra superar la precisión ni la estabilidad de los algoritmos meméticos.
+Esto refuerza la hipótesis planteada a lo largo del análisis de los resultados: los enfoques basados en algoritmos meméticos,
+especialmente en su versión libre, permiten alcanzar una combinación óptima de precisión,
+reducción de datos y estabilidad en problemas de selección de instancias para modelos de aprendizaje profundo.
+
+\subsection{Porcentaje final de datos seleccionados}\label{sec:porcentaje-final-datos-seleccionados}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/barplot-por-porcentaje}
+    \caption{Porcentaje final de datos seleccionados por cada algoritmo.}
+    \label{fig:barplot-por-porcentaje}
+\end{figure}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/scatter}
+    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por cada algoritmo.}
+    \label{fig:scatter-final}
+\end{figure}El análisis del porcentaje final de datos seleccionados permite evaluar la eficiencia de cada algoritmo,
+entendida como la capacidad para mantener una precisión elevada reduciendo el volumen de datos utilizados.
+Como se observa en la Figura~\ref{fig:barplot-por-porcentaje}, los algoritmos meméticos, y en particular \texttt{MEM-F},
+logran mantener o incluso reducir de forma significativa el tamaño del subconjunto de entrenamiento en comparación con
+los enfoques basados en algoritmos genéticos como \texttt{WC} y \texttt{AM}.
+
+En concreto, \texttt{MEM-F} destaca por su capacidad para obtener subconjuntos más compactos sin comprometer la calidad del modelo,
+seleccionando en promedio un 70\% o menos del conjunto original de datos.
+Este comportamiento es consistente a lo largo de las distintas configuraciones,
+y sugiere que \texttt{MEM-F} es capaz de adaptarse dinámicamente al tamaño de la solución en función de la complejidad del problema.
+Esta flexibilidad resulta especialmente valiosa, ya que permite optimizar el uso de recursos computacionales sin sacrificar rendimiento.
+
+Por otro lado, los algoritmos \texttt{WC} y \texttt{AM} requieren porcentajes más elevados para alcanzar resultados competitivos,
+lo que refleja una menor eficiencia en la reducción de datos.
+El algoritmo \texttt{RS}, al no aplicar estrategias de optimización específicas,
+presenta una mayor dispersión y una dependencia directa de la aleatoriedad en la selección de instancias.
+
+La Figura~\ref{fig:scatter-final} complementa este análisis mostrando la relación entre \textit{accuracy} y el porcentaje final de datos seleccionados.
+Se observa que \texttt{MEM} y \texttt{MEM-F} consiguen altos valores de \textit{accuracy} utilizando porcentajes de datos más reducidos,
+validando la hipótesis de que es posible mejorar la calidad del modelo mediante una selección optimizada.
+En contraste, los enfoques menos sofisticados requieren porcentajes más altos para alcanzar precisiones similares,
+lo que demuestra la ventaja competitiva de los algoritmos meméticos.
+
+\subsection{Estabilidad en la distribución de clases}\label{sec:distribucion-clases-final}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/distribucion-de-clases}
+    \caption{Distribución de clases seleccionadas por cada algoritmo en el conjunto reducido final.}
+    \label{fig:distribucion-de-clases-final}
+\end{figure}
+
+El análisis de la distribución de clases en los subconjuntos finales permite evaluar si los algoritmos de reducción mantienen
+un equilibrio adecuado entre las diferentes clases presentes en el dataset original.
+Como se observa en la Figura~\ref{fig:distribucion-de-clases-final}, todos los algoritmos tienden a preservar un reparto
+razonablemente balanceado entre las clases \textit{Paper}, \textit{Rock} y \textit{Scissors}, con porcentajes cercanos al 33\%.
+
+Sin embargo, se aprecian ligeras variaciones en la estabilidad de la distribución según el algoritmo utilizado.
+Los algoritmos \texttt{MEM} y \texttt{MEM-F} presentan una mayor consistencia en el reparto de clases,
+mostrando menores desviaciones y barras de error más reducidas.
+Esto indica que las soluciones generadas por los enfoques meméticos tienden a conservar de forma más homogénea la diversidad del conjunto original,
+evitando la infrarepresentación o sobrecarga de clases específicas.
+
+En contraste, los algoritmos \texttt{RS}, \texttt{WC} y \texttt{AM} muestran una mayor dispersión en los porcentajes de las clases,
+especialmente en el caso de \texttt{RS}, lo que refleja una mayor influencia de la aleatoriedad y una menor capacidad para garantizar la estabilidad en la distribución.
+Esta variabilidad podría generar sesgos no deseados en el modelo final, afectando su rendimiento en tareas de clasificación.
+
+En resumen, los resultados confirman que los algoritmos meméticos, y en particular \texttt{MEM-F},
+no solo son eficaces en términos de precisión y reducción de datos, sino que también logran mantener una distribución de clases equilibrada.
+Esta propiedad es fundamental para asegurar la generalización del modelo, ya que evita la introducción de desequilibrios que podrían comprometer la calidad del aprendizaje.
+
+\subsection{Síntesis final}\label{sec:sintesis-final}
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2.2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm}}
+            \toprule
+            \textbf{Algoritmo} & \textbf{Duración Total} & \textbf{Duración/Eva.} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Evaluaciones} & \textbf{Porc.
+            Final}                                                                                                                                                                                       \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{10\%}}                                                                                                                                                            \\
+            \midrule
+            AM                 & 00:27:39                & 00:00:17               & 83,66\%           & 84,24\%            & 83,66\%         & 83,09\%           & 100                   & 10,00\%       \\
+            MEM                & 00:27:43                & 00:00:17               & 82,85\%           & 84,44\%            & 82,85\%         & 81,91\%           & 100                   & 10,00\%       \\
+            MEM-F              & 00:32:39                & 00:00:20               & 83,28\%           & 84,70\%            & 83,28\%         & 82,46\%           & 100                   & 9,62\%        \\
+            RS                 & 00:38:17                & 00:00:22               & 81,34\%           & 82,46\%            & 81,34\%         & 80,52\%           & 100                   & 10,00\%       \\
+            WC                 & 00:34:03                & 00:00:21               & 83,60\%           & 84,38\%            & 83,60\%         & 82,82\%           & 100                   & 10,00\%       \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{25\%}}                                                                                                                                                            \\
+            \midrule
+            AM                 & 00:57:29                & 00:00:34               & 82,42\%           & 83,68\%            & 82,42\%         & 81,78\%           & 100                   & 25,00\%       \\
+            MEM                & 00:57:12                & 00:00:34               & 81,99\%           & 83,11\%            & 81,99\%         & 81,21\%           & 100                   & 25,00\%       \\
+            MEM-F              & 01:08:54                & 00:00:41               & 82,80\%           & 83,77\%            & 82,80\%         & 82,17\%           & 100                   & 27,18\%       \\
+            RS                 & 01:18:22                & 00:00:47               & 80,70\%           & 81,90\%            & 80,70\%         & 79,90\%           & 100                   & 25,00\%       \\
+            WC                 & 01:10:21                & 00:00:43               & 82,37\%           & 83,86\%            & 82,37\%         & 81,57\%           & 100                   & 25,00\%       \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{50\%}}                                                                                                                                                            \\
+            \midrule
+            AM                 & 01:47:31                & 00:01:05               & 81,13\%           & 82,62\%            & 81,13\%         & 80,41\%           & 100                   & 50,00\%       \\
+            MEM                & 01:47:32                & 00:01:05               & 81,51\%           & 83,36\%            & 81,51\%         & 80,89\%           & 100                   & 50,00\%       \\
+            MEM-F              & 02:16:51                & 00:01:22               & 81,61\%           & 83,09\%            & 81,61\%         & 80,96\%           & 100                   & 67,07\%       \\
+            RS                 & 02:26:40                & 00:01:28               & 80,86\%           & 82,65\%            & 80,86\%         & 80,22\%           & 100                   & 50,00\%       \\
+            WC                 & 02:15:43                & 00:01:21               & 81,61\%           & 83,78\%            & 81,61\%         & 81,06\%           & 100                   & 50,00\%       \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{75\%}}                                                                                                                                                            \\
+            \midrule
+            AM                 & 02:36:41                & 00:01:34               & 82,42\%           & 83,94\%            & 82,42\%         & 81,85\%           & 100                   & 75,00\%       \\
+            MEM                & 02:37:43                & 00:01:35               & 82,74\%           & 84,33\%            & 82,74\%         & 82,14\%           & 100                   & 75,00\%       \\
+            MEM-F              & 03:08:21                & 00:01:53               & 82,69\%           & 84,18\%            & 82,69\%         & 82,10\%           & 100                   & 71,16\%       \\
+            RS                 & 03:05:49                & 00:01:51               & 82,26\%           & 84,16\%            & 82,26\%         & 81,67\%           & 100                   & 75,00\%       \\
+            WC                 & 03:33:06                & 00:02:08               & 82,31\%           & 83,91\%            & 82,31\%         & 81,59\%           & 100                   & 75,00\%       \\
+            \midrule
+            \multicolumn{9}{l}{\textbf{100\%}}                                                                                                                                                           \\
+            \midrule
+            100\%              & -                       & 00:03:15               & 78,60\%           & 81,55\%            & 78,60\%         & 77,68\%           & 1                     & 100,00\%      \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados detallados por porcentaje inicial y algoritmo: precisión, evaluaciones y duración.}
+    \label{tab:resultados-generales-por-porcentaje-inicial}
+\end{table}
+
+Los resultados globales obtenidos para el conjunto de datos Rock, Paper, Scissors (véase Tabla~\ref{tab:resultados-generales-por-porcentaje-inicial})
+permiten extraer conclusiones claras sobre el rendimiento de los algoritmos evaluados.
+
+En primer lugar, el \texttt{MEM-F} se consolida como la solución más robusta y eficaz: no solo alcanza la mayor precisión en términos de \textit{accuracy},
+sino que también logra mantener un porcentaje reducido de datos seleccionados, optimizando la eficiencia del modelo sin comprometer su rendimiento.
+Además, \texttt{MEM-F} presenta una notable estabilidad entre ejecuciones,
+reflejada en su baja dispersión y en la conservación de una distribución equilibrada de clases en los subconjuntos generados.
+Estos resultados demuestran su capacidad para superar incluso a la referencia del 100\% de datos, logrando un mejor rendimiento con menos instancias.
+
+El \texttt{MEM} también ofrece resultados sobresalientes, manteniendo altos niveles de precisión y una considerable reducción de datos.
+Sin embargo, presenta una ligera mayor variabilidad en comparación con \texttt{MEM-F}, lo que sugiere una estabilidad algo inferior en ciertos escenarios.
+
+Por otro lado, el \texttt{AM} mejora respecto a enfoques más simples como \texttt{RS} y \texttt{WC}, alcanzando resultados intermedios en términos de precisión y reducción de datos.
+Sin embargo, no logra superar la consistencia ni la eficiencia de los enfoques meméticos, mostrando una estabilidad moderada en la distribución de clases.
+
+El \texttt{WC} ofrece ligeras mejoras frente a la búsqueda aleatoria,
+pero mantiene una mayor dispersión de resultados y requiere porcentajes de datos más elevados para alcanzar precisiones competitivas.
+Esto limita su eficacia en escenarios donde la reducción de datos es prioritaria.
+
+Finalmente, la \texttt{RS}, utilizada como referencia, queda claramente superada por todos los enfoques evolutivos y meméticos.
+Sus resultados muestran una alta variabilidad, una menor precisión global y una mayor propensión a generar subconjuntos con distribuciones de clases menos estables,
+lo que pone de manifiesto la importancia de utilizar estrategias de selección guiada para optimizar tanto el rendimiento como la estabilidad del modelo.
+
+En conjunto, este análisis confirma que los MEM, especialmente en su versión libre,
+representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.
+Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria o enfoques genéticos más sencillos.
 
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
@@ -424,9 +704,9 @@ caracterizado por una mayor complejidad visual y un número superior de clases r
 Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitan los experimentos a los porcentajes iniciales del 25\% y 50\%,
 evaluando únicamente los algoritmos más representativos.
 
-En particular, se selecciona el algoritmo memético, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
+En particular, se selecciona el MEM, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
 Para establecer una referencia clara, se incluyen también los resultados obtenidos usando el 100\% del conjunto de datos, y para la comparación de
-\textit{accuracy} entre algoritmos también se añade el resultado del algoritmo aleatorio.
+\textit{accuracy} entre algoritmos también se añade el resultado del RS.
 
 \subsection{Comparación de \textit{accuracy} entre algoritmos}
 \begin{figure}[htp]
@@ -441,12 +721,12 @@ algoritmos de selección de subconjuntos en el conjunto de datos \texttt{PAINTIN
 A simple vista, destaca el buen rendimiento de los tres enfoques meméticos frente al uso directo del 100\% del conjunto o la selección aleatoria,
 lo cual es especialmente significativo al tratarse de un conjunto con alta complejidad visual y estructural.
 
-El algoritmo memético libre obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
+El MEM-F obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
 superando incluso la ejecución con el 100\% de los datos, cuyo máximo se sitúa en \textbf{0.929}.
 Esto no solo refuerza su capacidad de generalización, sino que demuestra que una selección optimizada puede superar a la totalidad del conjunto original,
 posiblemente por eliminar ejemplos redundantes o incluso perjudiciales.
 
-El algoritmo memético estándar también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
+El MEM también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
 Sin embargo, su varianza es ligeramente mayor, lo que sugiere que la falta de ajuste dinámico del tamaño del subconjunto puede limitar su adaptabilidad en ciertas ejecuciones.
 
 Por otro lado, la selección aleatoria, aunque muestra valores aceptables, vuelve a confirmar su principal debilidad: la alta dispersión.
@@ -469,9 +749,17 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje}
-    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos.}
+    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del MEM, MEM-F y el 100\%.}
     \label{fig:accuracy_porcentaje_painting}
 \end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem}
+    \caption{Boxplot de \textit{accuracy} para el algoritmo memético (\texttt{MEM}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
+    \label{fig:comparacion-por-porcentaje-mem}
+\end{figure}
+
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem-f}
@@ -484,21 +772,22 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2.5cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} & \textbf{Porc. Final} \\
+            \textbf{Algoritmo} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} & \textbf{Porc.
+            Final}                                                                                                                                                            \\
             \midrule
-            \multicolumn{7}{l}{\textbf{25\%}}                                                                                                                                        \\
+            \multicolumn{7}{l}{\textbf{25\%}}                                                                                                                                 \\
             \midrule
-            MEM                & 91,89\%                 & 91,63\%                  & 91,89\%               & 91,67\%                 & 100                   & 25,00\%              \\
-            MEM-F              & 92,24\%                 & 92,06\%                  & 92,24\%               & 92,09\%                 & 100                   & 41,35\%              \\
+            MEM                & 91,89\%                 & 91,63\%                  & 91,89\%               & 91,67\%                 & 100                   & 25,00\%       \\
+            MEM-F              & 92,24\%                 & 92,06\%                  & 92,24\%               & 92,09\%                 & 100                   & 41,35\%       \\
             \midrule
-            \multicolumn{7}{l}{\textbf{50\%}}                                                                                                                                        \\
+            \multicolumn{7}{l}{\textbf{50\%}}                                                                                                                                 \\
             \midrule
-            MEM                & 92,73\%                 & 92,61\%                  & 92,73\%               & 92,63\%                 & 100                   & 50,00\%              \\
-            MEM-F              & 93,11\%                 & 93,00\%                  & 93,11\%               & 93,01\%                 & 100                   & 68,69\%              \\
+            MEM                & 92,73\%                 & 92,61\%                  & 92,73\%               & 92,63\%                 & 100                   & 50,00\%       \\
+            MEM-F              & 93,11\%                 & 93,00\%                  & 93,11\%               & 93,01\%                 & 100                   & 68,69\%       \\
             \midrule
-            \multicolumn{7}{l}{\textbf{100\%}}                                                                                                                                       \\
+            \multicolumn{7}{l}{\textbf{100\%}}                                                                                                                                \\
             \midrule
-            100\%              & 92,24\%                 & 92,05\%                  & 92,24\%               & 92,06\%                 & 1                     & 100,00\%             \\
+            100\%              & 92,24\%                 & 92,05\%                  & 92,24\%               & 92,06\%                 & 1                     & 100,00\%      \\
             \bottomrule
         \end{tabular}
     }
@@ -506,6 +795,10 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
     \label{tab:resultados-memetico-painting}
 \end{table}
 
+\colorbox{yellow}{FALTA añadir los resultados del 75\%.}
+
+
+\colorbox{yellow}{FALTA ajustar mejor el analisis.}
 
 La Figura~\ref{fig:accuracy_porcentaje_painting} muestra cómo varía el rendimiento del modelo (medido en términos de \textit{accuracy})
 al utilizar diferentes porcentajes iniciales de datos para los algoritmos meméticos en el dataset \texttt{PAINTING}.
@@ -543,7 +836,7 @@ resultados comparables o incluso superiores al uso del conjunto completo.
 \end{figure}
 
 La Figura~\ref{fig:balance_clases_painting} muestra la proporción de clases preservada por cada algoritmo durante el proceso de reducción.
-Se observa que tanto el algoritmo memético estándar como el libre mantienen una distribución prácticamente idéntica a la original,
+Se observa que tanto el MEM como el MEM-F mantienen una distribución prácticamente idéntica a la original,
 sin introducir sesgos estructurales.
 
 Las clases mayoritarias (\texttt{Iconography}, \texttt{Painting} y \texttt{Sculpture}) se mantienen consistentes en su proporción,
@@ -562,7 +855,7 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
 \colorbox{yellow}{Volver a mencionar la tabla de resultados.}
 
 En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
-Se observa que el algoritmo memético libre tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
+Se observa que el MEM-F tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
 
 Este comportamiento adaptativo pone de manifiesto la capacidad del algoritmo para ajustar dinámicamente la escala de la solución en función de la complejidad del problema.
 A diferencia de enfoques con tamaño fijo, el algoritmo libre no solo decide qué ejemplos seleccionar, sino también cuántos,

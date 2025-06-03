@@ -2,7 +2,7 @@
 * ✅ Añadir la aclaracion de que los porcentajes mostrados son usados con el Data de Validación.
 * ✅ Añadir un esquema general para los algoritmos, donde se explica en lineas generales el funcionamiento del código.
 * ✅ Poner la citacion y dejar a Latex ponerlo donde quiera, poner [htp].
-* Añadir diagramas de barras con 2 columnas, donde el eje Y es una metrica,
+* ✅ Añadir diagramas de barras con 2 columnas, donde el eje Y es una metrica,
     y donde se compara cada porcentaje incial con sus 2 algoritmos fijo y libre.
 
 * Probar un nuevo DATASET: CIFAR-10:
@@ -38,8 +38,9 @@
         + ✅ Quitar La duracion total de las tablas en los 100% de PI.
         + ✅ Cambiar el verbo en pasado al presente.
         + ✅ Cambiar los algoritmos por su seudonimos.
-        + Modificar los textos donde se ha cambiado la imagen o añadio tabla.
-        + 🏗️ Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
+        + ✅ Modificar los textos donde se ha cambiado la imagen o añadio tabla.
+        + ✅ Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
             para poder comparar dentro los distintos modelos.
         + ✅ Reducir los párrafo resumen en una frase. Los largos dejarlos para las conclusiones.
-        + En comparación final, partir en varias tablas por PI.
+        + ✅ En comparación final, partir en varias tablas por PI. 
+            (No lo he visto necesario porque he metido menos algoritmos)
