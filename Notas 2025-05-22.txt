@@ -14,7 +14,7 @@
 
 
 * MEMETICO PAINTING:
-    - Poner algunas tablas con las medias.
+    - ✅ Poner algunas tablas con las medias.
     - Añadir boxplot con el memetico fijo.
     - Añadir el porcentaje inicial de 75% al memetico.
 
@@ -37,8 +37,9 @@
             · ✅ Arreglar los portencajes inicales (Usar siempre 10%, 25%, 50% y 75%). 
         + ✅ Quitar La duracion total de las tablas en los 100% de PI.
         + ✅ Cambiar el verbo en pasado al presente.
-        + 🏗️ Cambiar los algoritmos por su seudonimos. (voy por el reinicio poblacional)
-        + Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
+        + ✅ Cambiar los algoritmos por su seudonimos.
+        + Modificar los textos donde se ha cambiado la imagen o añadio tabla.
+        + 🏗️ Añadir una tabla como la de los Modelos pero separando por Porcentaje Inical
             para poder comparar dentro los distintos modelos.
         + ✅ Reducir los párrafo resumen en una frase. Los largos dejarlos para las conclusiones.
         + En comparación final, partir en varias tablas por PI.

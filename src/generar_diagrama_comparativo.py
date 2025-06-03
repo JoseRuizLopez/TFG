@@ -4,7 +4,7 @@ import seaborn as sns
 import os
 import argparse
 
-from utils.utils_plot import ORDEN_ALGORITMOS, plot_min_max_lines
+from utils.utils_plot import ORDEN_ALGORITMOS, guardar_dataframe
 
 
 def comparar_algoritmos_por_porcentaje_version(carpetas_csv, nombres_versiones, carpeta_salida):
@@ -23,7 +23,7 @@ def comparar_algoritmos_por_porcentaje_version(carpetas_csv, nombres_versiones, 
 
     for carpeta, nombre_version in zip(carpetas_csv, nombres_versiones):
         if not os.path.isdir(carpeta):
-            print(f"[AVISO] Carpeta no encontrada: {carpeta}")
+            print(f"Carpeta no encontrada: {carpeta}")
             continue
 
         archivos = [f for f in os.listdir(carpeta) if f.endswith(".csv")]
@@ -38,6 +38,8 @@ def comparar_algoritmos_por_porcentaje_version(carpetas_csv, nombres_versiones, 
         return
 
     df_comb = pd.concat(dfs, ignore_index=True)
+    
+    guardar_dataframe(df_comb, "tmp")
 
     if not {"Porcentaje Inicial", "Accuracy", "Version"}.issubset(df_comb.columns):
         print("Faltan columnas necesarias en los CSVs.")
@@ -85,7 +87,7 @@ def comparar_algoritmos_por_algoritmo(carpetas_csv, nombres_versiones, nombres_a
     dfs = []
     for carpeta, nombre_version, nombre_algoritmo in zip(carpetas_csv, nombres_versiones, nombres_algoritmos):
         if not os.path.isdir(carpeta):
-            print(f"[AVISO] Carpeta no encontrada: {carpeta}")
+            print(f"Carpeta no encontrada: {carpeta}")
             continue
         archivos = [f for f in os.listdir(carpeta) if f.endswith(".csv")]
         for archivo in archivos:
@@ -100,6 +102,8 @@ def comparar_algoritmos_por_algoritmo(carpetas_csv, nombres_versiones, nombres_a
         return
 
     df_comb = pd.concat(dfs, ignore_index=True)
+    
+    guardar_dataframe(df_comb, "tmp")
 
     if not {"Algoritmo", "Accuracy", "Version"}.issubset(df_comb.columns):
         print("Faltan columnas necesarias en los CSVs.")

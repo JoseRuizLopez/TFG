@@ -2,7 +2,7 @@ import argparse
 import os
 import pandas as pd
 
-from utils.utils_plot import plot_boxplot
+from utils.utils_plot import guardar_dataframe, plot_boxplot
 
 
 def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, nombres_algoritmos, modelo=None, metricas=None, titulo_base=None):
@@ -36,6 +36,8 @@ def comparar_versiones(output_path, carpetas_versiones, nombres_versiones, nombr
         return
 
     df_total = pd.concat(dfs, ignore_index=True)
+    
+    guardar_dataframe(df_total, "tmp")
 
     metricas_a_graficar = metricas or ["Accuracy"]
     for metrica in metricas_a_graficar:

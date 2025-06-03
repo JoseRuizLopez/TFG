@@ -45,7 +45,7 @@
       ]
     },
     {
-      "name": "Run BOXPLOT finales",
+      "name": "Run PLOTS finales",
       "type": "debugpy",
       "request": "launch",
       "env": {
@@ -61,12 +61,9 @@
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
-        "-",
-        "aleatorio",
-        "memetico",
         "memetico-libre",
         "--MODO_PRINT",
-        "libres"
+        "juntos"
       ]
     },
     {
@@ -80,16 +77,16 @@
       "console": "integratedTerminal",
       "args": [
         "--CARPETAS",
-        "results/csvs/finales_PAINTING/memetico",
-        "results/csvs/finales_PAINTING/memetico-libre",
+        "results/csvs/finales_RESNET/aleatorio",
+        "results/csvs/finales/aleatorio",
         "--NOMBRES_VERSIONES",
-        "FIJA",
-        "LIBRE",
+        "RESNET",
+        "MOBILENET",
         "--NOMBRES_ALGORITMOS",
-        "MEM",
-        "MEM",
+        "RESNET",
+        "MOBILENET",
         "--SALIDA",
-        "img/finales/PAINTING",
+        "img/finales/resnet",
         "--MODO",
         "porcentaje"
       ]
@@ -105,22 +102,19 @@
       "console": "integratedTerminal",
       "args": [
         "--OUT",
-        "bl-libre",
+        "PAINTING",
         "--CARPETAS",
-        "finales_2/bl",
-        "finales_2/bl-libre",
-        "finales_2/gen_v2-2",
-        "finales_2/gen_v2-libre",
+        "finales_PAINTING/-",
+        "finales_PAINTING/memetico",
+        "finales_PAINTING/memetico-libre",
         "--NOMBRES_VERSIONES",
         "FIJA",
-        "LIBRE",
         "FIJA",
         "LIBRE",
         "--NOMBRES_ALGORITMOS",
-        "LR",
-        "LR",
-        "AM",
-        "AM",
+        "100%",
+        "MEM",
+        "MEM",
         "--METRICAS",
         "Accuracy",
         "--TITULO",

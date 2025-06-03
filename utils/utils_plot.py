@@ -549,6 +549,42 @@ def plot_porcentajes_por_porcentaje_inicial(
         )
 
 
+def guardar_dataframe(
+    df_concatenado: pd.DataFrame,
+    path_csvs: str
+):
+    """
+    Guarda el DataFrame en un archivo CSV y genera archivos de resumen.
+    Args:
+        df_concatenado: DataFrame a guardar.
+        path_csvs: Ruta donde se guardarán los archivos CSV.
+    """
+    df_concatenado.to_csv(f'{path_csvs}/concatenado.csv', index=True)
+    
+    # Convertir Duracion a segundos para incluirla en el promedio
+    # Asegurarse de que 'Duracion' sea de tipo timedelta
+    df_modified = df_concatenado.copy()
+    if not pd.api.types.is_timedelta64_dtype(df_modified["Duracion"]):
+        df_modified["Duracion"] = pd.to_timedelta(df_modified["Duracion"], errors='coerce')
+
+    # Convertir Duracion a segundos para incluirla en el promedio
+    df_modified["Duracion_segundos"] = df_modified["Duracion"].dt.total_seconds()
+
+    # Agrupar y calcular media incluyendo la duración
+    agrupado_media = df_modified.groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).mean(numeric_only=True)
+
+    # Convertir duración promedio de nuevo a formato timedelta
+    agrupado_media["Duracion"] = pd.to_timedelta(agrupado_media["Duracion_segundos"], unit='s')
+    agrupado_media.drop(columns=["Duracion_segundos"], inplace=True)
+
+    agrupado_media.to_csv(f"{path_csvs}/media.csv", index=False)
+
+    agrupado_mejor = df_concatenado.sort_values(by="Accuracy", ascending=False).groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).first()
+    agrupado_mejor.to_csv(f"{path_csvs}/mejor.csv", index=False)
+    
+    return agrupado_media
+
+
 def generate_plots_from_csvs(
     archivos_csv=[
         "results/csvs/resultados_2025-02-23_17-06_task_-1.csv"
@@ -576,25 +612,8 @@ def generate_plots_from_csvs(
     os.makedirs(path_csvs, exist_ok=True)
     
     df_concatenado = pd.concat(dataframes)
-    df_concatenado.to_csv(f'{path_csvs}/concatenado.csv', index=True)
     
-
-    # Convertir Duracion a segundos para incluirla en el promedio
-    df_modified = df_concatenado.copy()
-    df_modified["Duracion_segundos"] = df_modified["Duracion"].dt.total_seconds()
-
-    # Agrupar y calcular media incluyendo la duración
-    agrupado_media = df_modified.groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).mean(numeric_only=True)
-
-    # Convertir duración promedio de nuevo a formato timedelta
-    agrupado_media["Duracion"] = pd.to_timedelta(agrupado_media["Duracion_segundos"], unit='s')
-    agrupado_media.drop(columns=["Duracion_segundos"], inplace=True)
-
-    agrupado_media.to_csv(f"{path_csvs}/media.csv", index=False)
-
-    agrupado_mejor = df_concatenado.sort_values(by="Accuracy", ascending=False).groupby(["Algoritmo", "Porcentaje Inicial"], as_index=False).first()
-    agrupado_mejor.to_csv(f"{path_csvs}/mejor.csv", index=False)
-
+    agrupado_media = guardar_dataframe(df_concatenado, path_csvs)
 
     df = pd.read_csv(f'{path_csvs}/concatenado.csv')
 
@@ -648,7 +667,8 @@ def generate_plots_from_csvs(
 
         plot_scatter_inicial_final(
             df=df,
-            filename=filename5.replace("BARPLOT", "SCATTER")
+            filename=filename5.replace("BARPLOT", "SCATTER"),
+            xticks_list=[0.25, 0.5],
         )
 
         # Line Plot

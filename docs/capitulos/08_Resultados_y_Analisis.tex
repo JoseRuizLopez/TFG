@@ -132,21 +132,22 @@ Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-bl}
-    \caption{Boxplot comparando el algoritmo aleatorio con la búsqueda local usando \textit{accuracy}.}
+    \caption{Boxplot comparando el RS con la LR usando \textit{accuracy}.}
     \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
 
 En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
 la distribución completa de valores obtenidos en las distintas ejecuciones.
 
-Se puede apreciar que el algoritmo de búsqueda local mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio.
+Se puede apreciar que el algoritmo de búsqueda local (LR) mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio (RS).
 Mientras que el enfoque aleatorio se sitúa en torno a una mediana de 0.787, la búsqueda local alcanza una mediana superior, próxima a 0.818.
 Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
 
 Además, los valores máximos que alcanzan ambos algoritmos son similares (en torno a 0.858-0.860),
 pero la búsqueda local muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
-En cambio, el algoritmo aleatorio presenta una mayor dispersión hacia valores bajos y una mayor sensibilidad a la aleatoriedad de las selecciones,
-como se evidencia en su menor valor mínimo (0.769 frente a 0.785 en búsqueda local).
+En cambio, el algoritmo aleatorio presenta una mayor dispersión hacia valores bajos y aunque presente una mayor sensibilidad a la aleatoriedad de las selecciones,
+puede llegar a tener mejores valores mínimos, como se evidencia en su menor valor mínimo (0.785 frente a 0.769 en búsqueda local),
+pero siendo el de la busqueda local un valor atípico.
 
 Esto pone de manifiesto que, aunque el algoritmo aleatorio puede ocasionalmente alcanzar buenos resultados,
 la búsqueda local ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
@@ -345,7 +346,7 @@ y las estrategias de ajuste del tamaño del subconjunto no introducen sesgos de 
 La representatividad estructural del conjunto se conserva, lo cual es fundamental para garantizar una evaluación justa y equilibrada en tareas de clasificación multiclase.
 
 \begin{figure}[htp]
-\centering
+    \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_bl-f}
     \caption{Diagrama de dispersión (\textit{scatter plot}) que muestra la relación entre el \textit{accuracy} y el porcentaje final de datos seleccionados por el BL-F.}
     \label{fig:scatter_bl_f}
@@ -468,9 +469,43 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje}
-    \caption{Boxplot de \textit{accuracy} según el porcentaje inicial de datos.}
+    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos.}
     \label{fig:accuracy_porcentaje_painting}
 \end{figure}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem-f}
+    \caption{Boxplot de \textit{accuracy} para el algoritmo memético libre (\texttt{MEM-F}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
+    \label{fig:comparacion-por-porcentaje-mem-f}
+\end{figure}
+
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2.5cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
+            \toprule
+            \textbf{Algoritmo} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} & \textbf{Porc. Final} \\
+            \midrule
+            \multicolumn{7}{l}{\textbf{25\%}}                                                                                                                                        \\
+            \midrule
+            MEM                & 91,89\%                 & 91,63\%                  & 91,89\%               & 91,67\%                 & 100                   & 25,00\%              \\
+            MEM-F              & 92,24\%                 & 92,06\%                  & 92,24\%               & 92,09\%                 & 100                   & 41,35\%              \\
+            \midrule
+            \multicolumn{7}{l}{\textbf{50\%}}                                                                                                                                        \\
+            \midrule
+            MEM                & 92,73\%                 & 92,61\%                  & 92,73\%               & 92,63\%                 & 100                   & 50,00\%              \\
+            MEM-F              & 93,11\%                 & 93,00\%                  & 93,11\%               & 93,01\%                 & 100                   & 68,69\%              \\
+            \midrule
+            \multicolumn{7}{l}{\textbf{100\%}}                                                                                                                                       \\
+            \midrule
+            100\%              & 92,24\%                 & 92,05\%                  & 92,24\%               & 92,06\%                 & 1                     & 100,00\%             \\
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Resultados de los algoritmos meméticos y uso del 100\% en el dataset \texttt{PAINTING}.}
+    \label{tab:resultados-memetico-painting}
+\end{table}
+
 
 La Figura~\ref{fig:accuracy_porcentaje_painting} muestra cómo varía el rendimiento del modelo (medido en términos de \textit{accuracy})
 al utilizar diferentes porcentajes iniciales de datos para los algoritmos meméticos en el dataset \texttt{PAINTING}.
@@ -519,15 +554,12 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
 \subsection{Evolución del tamaño del subconjunto}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/porcentaje-inical-vs-final-por-algoritmo}
-    \vspace{1em}
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/porcentaje-inicial-vs-final-por-pi}
-    \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres.
-        Arriba: comparación por algoritmo.
-        Abajo: evolución según el porcentaje inicial.
-    }
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje}
+    \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres según el porcentaje inicial.}
     \label{fig:evolucion_porcentaje_libre}
 \end{figure}
+
+\colorbox{yellow}{Volver a mencionar la tabla de resultados.}
 
 En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
 Se observa que el algoritmo memético libre tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
@@ -537,7 +569,7 @@ A diferencia de enfoques con tamaño fijo, el algoritmo libre no solo decide qu�
 ampliando el conjunto cuando detecta que puede mejorar el rendimiento sin incurrir en sobreajuste.
 
 Además, se observa que al partir del 25\% inicial, el algoritmo tiende a aumentar el tamaño del subconjunto hasta un 16,35\% adicional,
-en cambio, al partir del 50\% inicial, el crecimiento es mayor, alcanzando un 18,69\% adicional~\footnote{Porcentajes exactos sacados de la tabla de resultados.}.
+en cambio, al partir del 50\% inicial, el crecimiento es mayor, alcanzando un 18,69\% adicional.
 Este hecho puede sugerir una cierta prudencia evolutiva: el algoritmo no se expande indiscriminadamente,
 sino que responde a señales de mejora en el proceso de evaluación.
 Este mecanismo emergente refuerza la versatilidad del enfoque libre, que no solo busca soluciones de alta calidad,
