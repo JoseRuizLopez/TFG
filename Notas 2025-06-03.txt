@@ -1,0 +1,57 @@
+cAMBIAR nombre de Entorno de Pruebas por Entorno Experimental
+
+- Tabla 2.1 y 2.3 alinear los numeros a la derecha.
+- Quitare el Total de la Tabla 2.3
+- Poner el tamaño de los datasets exactos.
+
+- Cambiar Duracion por Eva. por Eval.
+
+- Borrar: "Sin embargo, es importante
+tener en cuenta que el entrenamiento de ResNet50 implica un mayor coste
+computacional debido a su arquitectura más compleja, mientras que Mobile-
+NetV2 se mantiene como una opción más ligera y adecuada para dispositivos
+con recursos limitados, a costa de una leve pérdida de precisión."
+- Volver a ejecutar los resultados para comprobar tiempos de los 2 modelos
+
+- Cambiar LR por LS (local search)
+
+- Poner GEN por GA 
+- WC por GA-WC
+- Cambiar GA-AM
+- Cambiar por MA
+- Añadir tablas en las versiones libres
+- Añadir el AM-F en los Resultados finales entre enfoqures
+- Ordenar la tabla en el orden de los algoritmos.
+- Quitar el solapamiento del Duracion/Evaluacion de la tabla 8.5
+- Hacer un barplots de la tabla 8.5:
+Eje X Algoritmos
+Eje Y 
+Manteniendo el PI, viendo como mejora.
+Hacer una grafica para cada porcentaje.
+Viene bien para la Presentación.
+
+
+En el PAINTING:
+100%, RS, AM, MEM, MEM-F
+- Intentar resumir un poco esta sección
+
+Quitar secciones de la conclusiones.
+
+Cambiar distilación por Destilacion.
+Quitar el extrendel el estudio a otros modelos...
+
+DIAGRAMA:
+Seleccion de instancia
+
+MH es Metaheuristica
+
+ML(EfficentNet)
+
+Devuelvo el modelo entrenado para pasarle el test
+
+
+El box ML(EfficentNet) Entrenado
+
+Coordinador: Javier Medina
+
+- Incluir mi Github en el apartado de implementación y en la organizacion de tareas
