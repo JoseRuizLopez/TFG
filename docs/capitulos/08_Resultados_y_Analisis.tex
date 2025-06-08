@@ -62,7 +62,7 @@ modelos de redes neuronales convolucionales para determinar cuál de ellos es el
 Esta comparación permite identificar la arquitectura que ofrece un mejor equilibrio entre rendimiento y eficiencia computacional,
 estableciendo una base sólida sobre la que construir los siguientes análisis.
 
-Para llevar a cabo esta comparativa, se utiliza el \textbf{enfoque aleatorio (RS)} como estrategia de referencia.
+Para llevar a cabo esta comparativa, se utiliza el enfoque aleatorio (\texttt{RS}) como estrategia de referencia.
 Al seleccionar subconjuntos de datos de manera aleatoria, sin ninguna optimización, se obtiene una línea base que permiteevaluar el
 comportamiento de cada modelo en condiciones controladas.
 Esta línea base es especialmente valiosa, ya que ofrece una perspectiva realista del rendimiento mínimo esperable sin aplicar técnicas
@@ -95,7 +95,7 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
             \bottomrule
         \end{tabular}
     }
-    \caption{Comparativa de resultados de la generación inicial utilizando el \textbf{RS} y el \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
+    \caption{Comparativa de resultados de la generación inicial utilizando el \texttt{RS} y el \texttt{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
     \label{tab:resnet50-vs-mobilenet}
 \end{table}
 
@@ -119,7 +119,7 @@ lo que la convierte en una opción atractiva para entornos con recursos computac
 En conjunto, esta comparativa inicial permite elegir MobileNetV2 como modelo principal para el resto de experimentos.
 Aunque ResNet50 ofrece una precisión ligeramente superior, su elevado coste computacional no justifica su uso en las pruebas de reducción de datos,
 donde la eficiencia es un factor clave.
-Además, el uso del RS como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
+Además, el uso del \texttt{RS} como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
 
 
 \section{Resultados de la búsqueda local}\label{sec:resultados-busqueda-local}
@@ -131,58 +131,58 @@ Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-lr}
-    \caption{Boxplot comparando el RS con la LS usando \textit{accuracy}.}
+    \caption{Boxplot comparando el \texttt{RS} con la \texttt{LS} usando \textit{accuracy}.}
     \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
 En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
 la distribución completa de valores obtenidos en las distintas ejecuciones.
 
-Se puede apreciar que el algoritmo de búsqueda local (LS) mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio (RS).
-Mientras que el RS se sitúa en torno a una mediana de \textbf{0.787}, la LS alcanza una mediana superior, próxima a \textbf{0.818}.
+Se puede apreciar que el algoritmo de búsqueda local (\texttt{LS}) mejora claramente la mediana del \textit{accuracy} respecto al enfoque aleatorio (\texttt{RS}).
+Mientras que el \texttt{RS} se sitúa en torno a una mediana de \textbf{0.787}, la \texttt{LS} alcanza una mediana superior, próxima a \textbf{0.818}.
 Esta diferencia refleja una mayor capacidad del algoritmo local para generar subconjuntos más representativos y eficaces.
 
 Además, los valores máximos que alcanzan ambos algoritmos son similares (en torno a \textbf{0.858}-\textbf{0.860}),
-pero la LS muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
-En cambio, el RS presenta una mayor dispersión hacia valores bajos y aunque presente una mayor sensibilidad a la aleatoriedad de las selecciones,
-puede llegar a tener mejores valores mínimos, como se evidencia en su menor valor mínimo (\textbf{0.785} frente a \textbf{0.769} en LS),
-pero siendo el de la LS un valor atípico.
+pero la \texttt{LS} muestra una dispersión más acotada hacia valores altos, lo que sugiere mayor estabilidad en sus resultados.
+En cambio, el \texttt{RS} presenta una mayor dispersión hacia valores bajos y aunque presente una mayor sensibilidad a la aleatoriedad de las selecciones,
+puede llegar a tener mejores valores mínimos, como se evidencia en su menor valor mínimo (\textbf{0.785} frente a \textbf{0.769} en \texttt{LS}),
+pero siendo el de la \texttt{LS} un valor atípico.
 
-Esto pone de manifiesto que, aunque el RS puede ocasionalmente alcanzar buenos resultados,
-la LS ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
+Esto pone de manifiesto que, aunque el \texttt{RS} puede ocasionalmente alcanzar buenos resultados,
+la \texttt{LS} ofrece una mejor consistencia y fiabilidad, con menos varianza entre ejecuciones y una tendencia general a obtener subconjuntos de entrenamiento más efectivos.
 
 
 \section{Resultados del Algoritmo Genético}\label{sec:resultados-algoritmo-genetico}
 Con el objetivo de superar las limitaciones observadas (como el riesgo de estancamiento o la exploración poco estructurada del espacio de soluciones)
-se incorpora un enfoque evolutivo más completo: el algoritmo genético (GA), descrito en la Sección~\ref{sec:genetico-v1}, el cual sirve como punto de partida para explorar la
+se incorpora un enfoque evolutivo más completo: el algoritmo genético (\texttt{GA}), descrito en la Sección~\ref{sec:genetico-v1}, el cual sirve como punto de partida para explorar la
 aplicación de estrategias metaheurísticas en la selección de subconjuntos representativos de imágenes.
 Su estructura evolutiva, basada en selección por torneo, cruce e incorporación de mutación,
-ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la LS.
+ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la \texttt{LS}.
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_lr-gen_v1}
-    \caption{Boxplot comparando LS con GA usando \textit{accuracy}.}
+    \caption{Boxplot comparando \texttt{LS} con \texttt{GA} usando \textit{accuracy}.}
     \label{fig:lr-vs-gen-v1}
 \end{figure}
 
-Tal como se observa en la Figura~\ref{fig:lr-vs-gen-v1}, el algoritmo genético (GA) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (LS),
+Tal como se observa en la Figura~\ref{fig:lr-vs-gen-v1}, el algoritmo genético (\texttt{GA}) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (\texttt{LS}),
 reflejando un rendimiento medio más consistente.
 Además, presenta un valor máximo superior (alcanza hasta \textbf{0.876}), lo que evidencia su mayor potencial para encontrar soluciones de alta calidad.
 
-No obstante, también se aprecia una ligera mayor dispersión en los resultados del GA, particularmente hacia los valores bajos.
-Esto indica que, pese a su capacidad exploratoria, el GA puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
-De hecho, su valor mínimo (\textbf{0.796}) es superior al de la LS en esta comparativa,
+No obstante, también se aprecia una ligera mayor dispersión en los resultados del \texttt{GA}, particularmente hacia los valores bajos.
+Esto indica que, pese a su capacidad exploratoria, el \texttt{GA} puede generar soluciones poco efectivas si no se controlan adecuadamente ciertos operadores como el cruce o la mutación.
+De hecho, su valor mínimo (\textbf{0.796}) es superior al de la \texttt{LS} en esta comparativa,
 pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
 % \colorbox{yellow}{¿Sobra el siguiente apartado?}
-La LS, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
+La \texttt{LS}, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
 Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
-Estos resultados sirven como evidencia empírica para continuar desarrollando nuevas versiones del GA,
+Estos resultados sirven como evidencia empírica para continuar desarrollando nuevas versiones del \texttt{GA},
 incorporando mejoras específicas en sus operadores con el fin de aprovechar su capacidad exploratoria y, al mismo tiempo, mitigar sus limitaciones.
 
 \section{Mejorando el operador de cruce}\label{sec:incorporacion-cruce}
-La primera mejora introducida al GA consiste en reemplazar el cruce aleatorio por un cruce ponderado,
+La primera mejora introducida al \texttt{GA} consiste en reemplazar el cruce aleatorio por un cruce ponderado,
 donde se prioriza la contribución del progenitor con mayor \textit{fitness}.
 Además, se incorpora una estrategia selectiva que conserva únicamente el mejor de los dos hijos generados en cada cruce.
 Ambos cambios, explicados en detalle en la \hyperref[sec:genetico-v2]{Sección~\ref*{sec:genetico-v2}},
@@ -192,13 +192,13 @@ evitando así que soluciones mediocres se propaguen innecesariamente en la pobla
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce}
-    \caption{Boxplot de \textit{accuracy} comparando el GA y el GA-WC.}
+    \caption{Boxplot de \textit{accuracy} comparando el \texttt{GA} y el \texttt{GA-WC}.}
     \label{fig:cruce_ponderado}
 \end{figure}
 
 Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produce una mejora clara en la calidad y estabilidad de los resultados.
-La versión con cruce ponderado (GA-WC) alcanza un valor máximo atípico superior (\textbf{0.887}),
-aunque presenta una mediana más baja que la versión básica (GA).
+La versión con cruce ponderado (\texttt{GA-WC}) alcanza un valor máximo atípico superior (\textbf{0.887}),
+aunque presenta una mediana más baja que la versión básica (\texttt{GA}).
 
 Pero por otra parte, se aprecia una ligera reducción en la dispersión de los valores inferiores,
 con un mínimo de \textbf{0.798} frente al \textbf{0.796} en la versión anterior, lo que sugiere una mayor consistencia.
@@ -211,7 +211,7 @@ Esto se traduce en un comportamiento más robusto, menos propenso a resultados e
 
 
 \section{Mejorando el operador de mutación}\label{sec:mejorando-mutacion}
-A partir de los resultados obtenidos con el GA-WC, se evalua una nueva versión en la que se introdujo una \textbf{mutación adaptativa}
+A partir de los resultados obtenidos con el \texttt{GA-WC}, se evalua una nueva versión en la que se introdujo una \textbf{mutación adaptativa}
 (ver \hyperref[sec:genetico-mutacion]{Sección~\ref*{sec:genetico-mutacion}}).
 A diferencia de la versión original con tasa fija, esta estrategia ajusta el número de intercambios en función del tamaño del subconjunto mutado,
 lo que permite una mayor flexibilidad en escenarios de diferente escala.
@@ -219,30 +219,30 @@ lo que permite una mayor flexibilidad en escenarios de diferente escala.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa}
-    \caption{Comparación de \textit{accuracy} entre el GA-WC y el GA-AM.}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-WC} y el \texttt{GA-AM}.}
     \label{fig:mutacion-adaptativa}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje}
-    \caption{Diagrama de comparación usando el \textit{accuracy} entre el GA-WC Y el GA-AM, separados por porcentaje inicial.}
+    \caption{Diagrama de comparación usando el \textit{accuracy} entre el \texttt{GA-WC} Y el \texttt{GA-AM}, separados por porcentaje inicial.}
     \label{fig:mutacion-adaptativa-porcentaje}
 \end{figure}
 
 Como se aprecia en la Figura~\ref{fig:mutacion-adaptativa},
 ambos algoritmos presentan distribuciones de \textit{accuracy} muy similares en términos de mediana e IQR.
-El GA-WC mantiene un ligero máximo superior, alcanzando un \textbf{0.887} frente al \textbf{0.876} del GA-AM.
+El \texttt{GA-WC} mantiene un ligero máximo superior, alcanzando un \textbf{0.887} frente al \textbf{0.876} del \texttt{GA-AM}.
 Sin embargo, el algoritmo con mutación adaptativa muestra una distribución más compacta en la parte central,
 con menor dispersión hacia valores bajos, lo que sugiere una mayor consistencia entre ejecuciones.
 
-La principal diferencia se observa en la robustez de los resultados: el GA-AM presenta una distribución más estable,
+La principal diferencia se observa en la robustez de los resultados: el \texttt{GA-AM} presenta una distribución más estable,
 con menos valores atípicos y una mayor concentración de ejecuciones cerca del cuartil superior.
 Este comportamiento indica una menor propensión a caídas abruptas de rendimiento y refuerza la idea de que la mutación
 adaptativa mejora la estabilidad del proceso evolutivo.
 
 Al analizar los resultados por porcentaje inicial (Figura~\ref{fig:mutacion-adaptativa-porcentaje}),
-se confirma que el GA-AM mantiene una estabilidad más uniforme en todos los escenarios, mientras que el GA-WC muestra una mayor variabilidad,
+se confirma que el \texttt{GA-AM} mantiene una estabilidad más uniforme en todos los escenarios, mientras que el \texttt{GA-WC} muestra una mayor variabilidad,
 especialmente en configuraciones con menor cantidad de datos.
 Aunque las diferencias en \textit{accuracy} medio no son significativas, la menor dispersión y la reducción de valores extremos justifican la
 preferencia por la versión adaptativa en contextos donde la fiabilidad es prioritaria.
@@ -265,7 +265,7 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
-    \caption{Comparación de \textit{accuracy} entre el GA-AM y con PR.}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-AM} y con \texttt{PR}.}
     \label{fig:reinicio_poblacional}
 \end{figure}
 \begin{table}[htp]
@@ -302,27 +302,27 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de los algoritmos GA-AM y PR por porcentaje inicial, incluyendo distribución de clases y duración total y por evaluación.}
+    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{PR} por porcentaje inicial, incluyendo distribución de clases y duración total y por evaluación.}
     \label{tab:resultados-am-pr-porcentaje}
 \end{table}
 
 Los resultados, mostrados en la Figura~\ref{fig:reinicio_poblacional} y la Tabla~\ref{tab:resultados-am-pr-porcentaje},
 permiten extraer varias conclusiones relevantes.
-En primer lugar, el \textbf{valor máximo de accuracy} es idéntico para GA-AM y PR, alcanzando ambos un \textbf{0.876},
+En primer lugar, el \textbf{valor máximo de accuracy} es idéntico para \texttt{GA-AM} y \texttt{PR}, alcanzando ambos un \textbf{0.876},
 lo que sugiere que el reinicio no favorece la aparición de soluciones de mayor calidad.
-Por el contrario, el \textbf{valor mínimo de accuracy} observado en PR (\textbf{0.766}) es notablemente más bajo que el de GA-AM (\textbf{0.798}),
+Por el contrario, el \textbf{valor mínimo de accuracy} observado en \texttt{PR} (\textbf{0.766}) es notablemente más bajo que el de \texttt{GA-AM} (\textbf{0.798}),
 lo que indica una mayor propensión a obtener ejecuciones de bajo rendimiento cuando se utiliza la estrategia de reinicio.
 
-La distribución general de resultados revela que el PR no logra una reducción significativa en la dispersión de los valores:
-aunque los cuartiles y medianas de GA-AM y PR son similares, se observa un leve desplazamiento hacia valores ligeramente más bajos en PR,
+La distribución general de resultados revela que el \texttt{PR} no logra una reducción significativa en la dispersión de los valores:
+aunque los cuartiles y medianas de \texttt{GA-AM} y \texttt{PR} son similares, se observa un leve desplazamiento hacia valores ligeramente más bajos en PR,
 lo cual es especialmente evidente en el escenario de menor porcentaje inicial (10\%).
 Esta tendencia sugiere que el reinicio poblacional, al reintroducir diversidad de forma abrupta,
 puede generar soluciones subóptimas que no contribuyen de manera sustancial a mejorar la población.
 
 La tabla de resultados~\ref{tab:resultados-am-pr-porcentaje} respalda estas observaciones: en promedio,
-el algoritmo GA-AM presenta una ligera superioridad en precisión media (\textbf{83,66\%} frente a \textbf{81,93\%} en el 10\%), así como en F1-score y recall.
+el algoritmo \texttt{GA-AM} presenta una ligera superioridad en precisión media (\textbf{83,66\%} frente a \textbf{81,93\%} en el 10\%), así como en F1-score y recall.
 Estas diferencias, aunque no drásticas, son consistentes en la mayoría de los escenarios.
-Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre GA-AM y PR,
+Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre \texttt{GA-AM} y \texttt{PR},
 lo que refuerza la idea de que el impacto del reinicio poblacional no justifica su complejidad añadida.
 
 % \colorbox{yellow}{¿Añadir el párrafo de resumen?}
@@ -339,16 +339,16 @@ en las que el tamaño del subconjunto seleccionado no permanece fijo durante la 
 Esta flexibilidad permite que los algoritmos modifiquen el número de datos utilizados a medida que avanzan las generaciones,
 adaptándose de manera más natural a las características del problema.
 
-Para evaluar el impacto de esta modificación, se generan versiones libres tanto para el algoritmo de búsqueda local (LS)
-como para el algoritmo con mutación adaptativa (GA-AM).
-En el caso de la LS, además, se incorpora una variación adicional: el porcentaje inicial de imágenes no es fijo,
+Para evaluar el impacto de esta modificación, se generan versiones libres tanto para el algoritmo de búsqueda local (\texttt{LS})
+como para el algoritmo con mutación adaptativa (\texttt{GA-AM}).
+En el caso de la \texttt{LS}, además, se incorpora una variación adicional: el porcentaje inicial de imágenes no es fijo,
 sino que se selecciona aleatoriamente en cada ejecución, introduciendo así un mayor grado de aleatoriedad y diversidad en el proceso.
 
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo}
-    \caption{Comparación de \textit{accuracy} entre el LS, GA-AM y sus versiones Libres (formato BARPLOT).}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BARPLOT).}
     \label{fig:barplot_por_algoritmo-libres}
 \end{figure}
 
@@ -362,25 +362,25 @@ lo que refuerza la idea de que la flexibilidad no compromete la estabilidad de l
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo}
-    \caption{Comparación de \textit{accuracy} entre el LS, GA-AM y sus versiones Libres en formato BOXPLOT.}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres en formato BOXPLOT.}
     \label{fig:boxplot_por_algoritmo-libres}
 \end{figure}
 
 Los diagramas de caja en la Figura~\ref{fig:boxplot_por_algoritmo-libres} permiten una comparación más detallada de la dispersión de los resultados.
-En el caso de la LS, la versión libre muestra una ligera mejora en la mediana y un rango intercuartílico (IQR) más compacto, lo que indica una mayor estabilidad.
+En el caso de la \texttt{LS}, la versión libre muestra una ligera mejora en la mediana y un rango intercuartílico (IQR) más compacto, lo que indica una mayor estabilidad.
 Además, se observan valores atípicos superiores que sugieren la posibilidad de obtener ejecuciones con precisión especialmente alta.
-En el caso del GA-AM, las diferencias entre las versiones fija y libre son más sutiles: aunque las medianas son prácticamente idénticas,
+En el caso del \texttt{GA-AM}, las diferencias entre las versiones fija y libre son más sutiles: aunque las medianas son prácticamente idénticas,
 la versión libre presenta una ligera reducción en los valores mínimos, lo que podría reflejar una mayor adaptabilidad frente a escenarios más difíciles.
 
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi}
-    \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo GA-AM.}
+    \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo \texttt{GA-AM}.}
     \label{fig:am_por_pi}
 \end{figure}
 
-La Figura~\ref{fig:am_por_pi} muestra la evolución del \textit{accuracy} en función del porcentaje inicial de datos utilizados en el algoritmo GA-AM.
+La Figura~\ref{fig:am_por_pi} muestra la evolución del \textit{accuracy} en función del porcentaje inicial de datos utilizados en el algoritmo \texttt{GA-AM}.
 Se observa que la precisión se mantiene estable a lo largo de los distintos puntos de partida,
 con ligeras variaciones que no afectan de manera significativa al comportamiento general del algoritmo.
 Este resultado confirma que la flexibilidad en el tamaño del subconjunto no introduce un sesgo negativo en la calidad de las soluciones encontradas,
@@ -403,22 +403,22 @@ Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegu
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_lr-f}
-    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo LS-F.}
+    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{LS-F}.}
     \label{fig:scatter_bl_f}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_gen_v2}
-    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo GA-AM-F.}
+    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{GA-AM-F}.}
     \label{fig:scatter_gen_v2}
 \end{figure}
 
 Finalmente, las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2} permiten visualizar la relación entre el \textit{accuracy}
 y el porcentaje final de datos seleccionados en las versiones libres.
-En el caso de la búsqueda local libre (LS-F), se observa una tendencia a incrementar ligeramente el tamaño del subconjunto final,
+En el caso de la búsqueda local libre (\texttt{LS-F}), se observa una tendencia a incrementar ligeramente el tamaño del subconjunto final,
 especialmente en ejecuciones con mejor precisión.
-Por el contrario, el algoritmo GA-AM-F muestra una distribución más equilibrada, con una mayor variabilidad en los tamaños finales,
+Por el contrario, el algoritmo \texttt{GA-AM-F} muestra una distribución más equilibrada, con una mayor variabilidad en los tamaños finales,
 lo que refleja su capacidad adaptativa para ajustarse a diferentes condiciones de búsqueda.
 
 Este comportamiento evidencia que los algoritmos libres no solo adaptan la composición del subconjunto, sino también su escala,
@@ -428,7 +428,7 @@ capaz de mantener la calidad del rendimiento incluso en escenarios con alta vari
 
 
 \section{Resultados del algoritmo memético}\label{sec:resultados-algoritmo-memetico}
-Finalmente, se evalua el algoritmo memético (MA) (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
+Finalmente, se evalua el algoritmo memético (\texttt{MA}) (ver \hyperref[sec:algoritmo-memetico]{Sección~\ref*{sec:algoritmo-memetico}}),
 el cual combina la evolución genética con una búsqueda local aplicada de forma probabilística sobre ciertos individuos seleccionados.
 Este enfoque híbrido busca equilibrar la exploración del espacio de soluciones con una intensificación localizada,
 ofreciendo mejoras tanto en precisión como en estabilidad.
@@ -437,12 +437,12 @@ ofreciendo mejoras tanto en precisión como en estabilidad.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-memetico}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo memético (MA) y su versión libre.}
+    \caption{Comparación de \textit{accuracy} entre el algoritmo memético (\texttt{MA}) y su versión libre.}
     \label{fig:memetico_comparacion}
 \end{figure}
 
-Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético (MA) supera claramente al mejor de los enfoques genéticos
-(GA-AM-F), alcanzando una mediana más elevada y un valor máximo de \textit{accuracy} de hasta \textbf{0.903}.
+Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético (\texttt{MA}) supera claramente al mejor de los enfoques genéticos
+(\texttt{GA-AM}), alcanzando una mediana más elevada y un valor máximo de \textit{accuracy} de hasta \textbf{0.903}.
 Su distribución es más compacta, con menor dispersión hacia los valores bajos, lo que refleja una mayor consistencia entre ejecuciones.
 
 La versión libre del memético, que incorpora también un ajuste dinámico del tamaño del subconjunto
@@ -490,27 +490,27 @@ Esto sugiere que el componente adaptativo no penaliza la calidad de las solucion
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de los MA y del GA-AM-F por porcentaje inicial.}
+    \caption{Resultados de los \texttt{MA} y del \texttt{GA-AM} por porcentaje inicial.}
     \label{tab:resultados-memetico-genetico-libres}
 \end{table}
 
 El análisis detallado de la Tabla~\ref{tab:resultados-memetico-genetico-libres} confirma estas observaciones y permite extraer
 conclusiones más matizadas sobre el comportamiento de los algoritmos.
-En primer lugar, el MA-F mantiene una precisión media comparable o superior a la del MA en la mayoría de los escenarios,
+En primer lugar, el \texttt{MA-F} mantiene una precisión media comparable o superior a la del \texttt{MA} en la mayoría de los escenarios,
 especialmente en configuraciones con porcentajes iniciales más bajos (10\% y 25\%).
 Esto indica que la capacidad de ajuste dinámico no solo no perjudica el rendimiento, sino que puede ofrecer ventajas en términos de adaptabilidad,
 permitiendo al algoritmo optimizar la selección de datos sin depender de un tamaño fijo preestablecido.
 
-Además, el porcentaje final alcanzado por MA-F muestra una notable variabilidad según el escenario:
+Además, el porcentaje final alcanzado por \texttt{MA-F} muestra una notable variabilidad según el escenario:
 en los casos con menor porcentaje inicial, tiende a mantenerse cercano al valor de partida (por ejemplo, un 9,62\% en el escenario del 10\%),
 mientras que en configuraciones más amplias (50\% y 75\%), el tamaño final puede incrementarse significativamente (hasta un 67,07\% en el caso del 50\%).
 Este comportamiento adaptativo refleja que el algoritmo es capaz de ajustar la escala de la solución en función de las características del espacio de búsqueda,
 evitando tanto la sobrerrepresentación como la selección excesiva de datos innecesarios.
 
-Por otro lado, la duración total y el tiempo medio por evaluación aumentan con el porcentaje inicial, pero esto no compromete la eficiencia general del MA-F,
+Por otro lado, la duración total y el tiempo medio por evaluación aumentan con el porcentaje inicial, pero esto no compromete la eficiencia general del \texttt{MA-F},
 que mantiene un equilibrio adecuado entre precisión y coste computacional
 
-De esta forma, tanto el MA como su variante libre, MA-F, se consolidan como las estrategias más eficaces del estudio,
+De esta forma, tanto el \texttt{MA} como su variante libre, \texttt{MA-F}, se consolidan como las estrategias más eficaces del estudio,
 ofreciendo una combinación robusta de rendimiento, adaptabilidad y estabilidad.
 
 % \colorbox{yellow}{¿Añadir el párrafo de resumen?}
@@ -530,7 +530,7 @@ estabilidad de resultados, y eficiencia en la reducción de datos, así como val
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo}
-    \caption{Boxplot de \textit{accuracy} para los algoritmos RS, GA-WC, GA-AM, MA y MA-F.}
+    \caption{Boxplot de \textit{accuracy} para los algoritmos \texttt{RS}, \texttt{GA-WC}, \texttt{GA-AM}, \texttt{MA} y \texttt{MA-F}.}
     \label{fig:boxplot-comparacion-final}
 \end{figure}
 El análisis comparativo de \textit{accuracy} entre algoritmos confirma de manera general las conclusiones obtenidas en los análisis de las secciones anteriores.
@@ -691,7 +691,7 @@ Finalmente, la \texttt{RS}, utilizada como referencia, queda claramente superada
 Sus resultados muestran una alta variabilidad, una menor precisión global y una mayor propensión a generar subconjuntos con distribuciones de clases menos estables,
 lo que pone de manifiesto la importancia de utilizar estrategias de selección guiada para optimizar tanto el rendimiento como la estabilidad del modelo.
 
-En conjunto, este análisis confirma que los MA, especialmente en su versión libre,
+En conjunto, este análisis confirma que los \texttt{MA}, especialmente en su versión libre,
 representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.
 Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria o enfoques genéticos más sencillos.
 
@@ -702,9 +702,9 @@ caracterizado por una mayor complejidad visual y un número superior de clases r
 Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitan los experimentos a los porcentajes iniciales del 25\% y 50\%,
 evaluando únicamente los algoritmos más representativos.
 
-En particular, se selecciona el MA, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
+En particular, se selecciona el \texttt{MA}, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
 Para establecer una referencia clara, se incluyen también los resultados obtenidos usando el 100\% del conjunto de datos, y para la comparación de
-\textit{accuracy} entre algoritmos también se añade el resultado del RS.
+\textit{accuracy} entre algoritmos también se añade el resultado del \texttt{RS}.
 
 \subsection{Comparación de \textit{accuracy} entre algoritmos}
 \begin{figure}[htp]
@@ -719,12 +719,12 @@ algoritmos de selección de subconjuntos en el conjunto de datos \texttt{PAINTIN
 A simple vista, destaca el buen rendimiento de los tres enfoques meméticos frente al uso directo del 100\% del conjunto o la selección aleatoria,
 lo cual es especialmente significativo al tratarse de un conjunto con alta complejidad visual y estructural.
 
-El MA-F obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
+El \texttt{MA-F} obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
 superando incluso la ejecución con el 100\% de los datos, cuyo máximo se sitúa en \textbf{0.929}.
 Esto no solo refuerza su capacidad de generalización, sino que demuestra que una selección optimizada puede superar a la totalidad del conjunto original,
 posiblemente por eliminar ejemplos redundantes o incluso perjudiciales.
 
-El MA también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
+El \texttt{MA} también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
 Sin embargo, su varianza es ligeramente mayor, lo que sugiere que la falta de ajuste dinámico del tamaño del subconjunto puede limitar su adaptabilidad en ciertas ejecuciones.
 
 Por otro lado, la selección aleatoria, aunque muestra valores aceptables, vuelve a confirmar su principal debilidad: la alta dispersión.
@@ -747,7 +747,7 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje}
-    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del MA, MA-F y el 100\%.}
+    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
     \label{fig:accuracy_porcentaje_painting}
 \end{figure}
 
@@ -834,7 +834,7 @@ resultados comparables o incluso superiores al uso del conjunto completo.
 \end{figure}
 
 La Figura~\ref{fig:balance_clases_painting} muestra la proporción de clases preservada por cada algoritmo durante el proceso de reducción.
-Se observa que tanto el MA como el MA-F mantienen una distribución prácticamente idéntica a la original,
+Se observa que tanto el \texttt{MA} como el \texttt{MA-F} mantienen una distribución prácticamente idéntica a la original,
 sin introducir sesgos estructurales.
 
 Las clases mayoritarias (\texttt{Iconography}, \texttt{Painting} y \texttt{Sculpture}) se mantienen consistentes en su proporción,
@@ -853,7 +853,7 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
 \colorbox{yellow}{Volver a mencionar la tabla de resultados.}
 
 En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
-Se observa que el MA-F tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
+Se observa que el \texttt{MA-F} tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
 
 Este comportamiento adaptativo pone de manifiesto la capacidad del algoritmo para ajustar dinámicamente la escala de la solución en función de la complejidad del problema.
 A diferencia de enfoques con tamaño fijo, el algoritmo libre no solo decide qué ejemplos seleccionar, sino también cuántos,

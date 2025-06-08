@@ -1,8 +1,5 @@
 import argparse
 import os
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 from utils.classes import PrintMode
 from utils.utils_plot import generate_plots_from_csvs

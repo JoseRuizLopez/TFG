@@ -52,11 +52,11 @@ se encuentra disponible en el repositorio público de GitHub: \url{https://githu
 El desarrollo del proyecto se ha llevado a cabo utilizando \textbf{Python 3.10}~\cite{vanderplasPythonDataScience2016} como
 lenguaje principal, debido a su versatilidad y amplia adopción en el campo del \textbf{aprendizaje profundo} y la
 \textbf{manipulación de datos}.
-Python es conocido por su facilidad de uso, extensibilidad y la gran cantidad de bibliotecas disponibles para el
+Python es conocido por su facilidad de uso, extensibilidad y la gran cantidad de librerías disponibles para el
 procesamiento de datos y la implementación de modelos de \textbf{machine learning}.
 
 
-Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
+Las principales librerías empleadas durante el desarrollo son las siguientes:
 \begin{itemize}
       \item \textbf{PyTorch 2.3.1}~\cite{ketkarIntroductionPyTorch2021, TorchcudaPyTorch24}: Para la construcción,
             entrenamiento y optimización de modelos de aprendizaje profundo.
@@ -66,38 +66,38 @@ Las principales bibliotecas empleadas durante el desarrollo son las siguientes:
             Su API permite una integración fluida con PyTorch y otros módulos.
       \item \textbf{Numpy 2.0.0}~\cite{NumPyV20Manual}: Para operaciones matemáticas y manipulación de matrices,
             siendo una herramienta esencial en el procesamiento de datos.
-      \item \textbf{Polars 1.9.0}~\cite{PolarsPythonAPI}: Biblioteca para manejar DataFrames de gran tamaño,
+      \item \textbf{Polars 1.9.0}~\cite{PolarsPythonAPI}: Librería para manejar DataFrames de gran tamaño,
             elegida por su rendimiento superior en comparación con Pandas.
-      \item \textbf{Matplotlib 3.9.2}~\cite{Matplotlib393Documentation}: Biblioteca utilizada para la generación y
+      \item \textbf{Pandas 2.2.3}~\cite{Pandas223Documentation}: Librería utilizada como apoyo para la generación de los gráficos,
+            debido a las incompatibilidades detectadas con \texttt{polars}.
+      \item \textbf{Matplotlib 3.9.2}~\cite{Matplotlib393Documentation}: Librería utilizada para la generación y
             visualización de gráficas.
-      \item \textbf{Seaborn 0.13.2}~\cite{Seaborn0132Documentation}: Estilización avanzada de gráficos estadísticos.
-      \item \textbf{Openpyxl 3.1.5}~\cite{Openpyxl313Documentation}: Generación automática de archivos Excel a partir de resultados experimentales.
+      \item \textbf{Seaborn 0.13.2}~\cite{Seaborn0132Documentation}: Librería para la generación avanzada de gráficos estadísticos.
+      \item \textbf{Openpyxl 3.1.5}~\cite{Openpyxl313Documentation}: Librería para la generación automática de archivos Excel a partir de resultados experimentales.
 \end{itemize}
 
 Cada una de estas herramientas fue seleccionada por su robustez y su idoneidad para cumplir con los requisitos
 específicos del proyecto, facilitando tanto la implementación de los algoritmos meméticos como la reducción y el
 análisis de los datos utilizados en los modelos de aprendizaje profundo.
 
-\section{Gestión de Dependencias}\label{sec:gestion-de-dependencias}
-Para garantizar que el proyecto se ejecute correctamente y todas las bibliotecas necesarias estén disponibles, se ha
-utilizado un archivo \texttt{requirements.txt}.
-Este archivo contiene una lista de todas las bibliotecas y sus versiones específicas que el proyecto requiere.
 
+\section{Gestión de Dependencias}\label{sec:gestion-de-dependencias}
+Para garantizar que el proyecto se ejecute correctamente y todas las librerías necesarias estén disponibles,
+se ha utilizado un archivo \texttt{requirements.txt}.
+Este archivo contiene una lista de todas las librerías y sus versiones específicas que el proyecto requiere.
 
 Para el \textbf{desarrollo local}, se ha optado por crear un entorno virtual utilizando
 \texttt{venv}~\cite{CreationVirtualEnvironments}.
 Esta práctica permite aislar las dependencias del proyecto de otros proyectos en la máquina, evitando conflictos entre
-versiones de bibliotecas.
-
+versiones de librerías.
 
 Para la \textbf{implementación en el servidor}, se ha utilizado \texttt{conda}~\cite{CondaDocumentation} como gestor
 de paquetes y entornos.
-Conda facilita la gestión de entornos y la instalación de bibliotecas, especialmente en configuraciones más complejas.
-
-
+Conda facilita la gestión de entornos y la instalación de librerías, especialmente en configuraciones más complejas.
 
 Esto facilita la reproducibilidad del proyecto y minimiza posibles conflictos de versión, lo que es fundamental para
 mantener la integridad del código y el rendimiento de las aplicaciones.
+
 
 \section{Arquitectura de la Implementación}\label{sec:arquitectura-de-la-implementacion}
 La arquitectura de la implementación desarrollada para este trabajo está diseñada con un enfoque modular y escalable,
@@ -205,6 +205,7 @@ maximizar la eficiencia en el entrenamiento y la evaluación de modelos.
 Estos scripts están diseñados para ser ejecutados en un entorno de servidor, reduciendo los tiempos de prueba en el
 entorno local y permitiendo un análisis iterativo más rápido.
 
+
 \section{Consideraciones de Optimización}\label{sec:consideraciones-de-optimizacion}
 Durante el desarrollo, se optimizaron varios aspectos para mejorar el rendimiento del sistema:
 
@@ -228,11 +229,10 @@ un número determinado de evaluaciones consecutivas.
 Aunque no se utiliza una pérdida de validación explícita como en enfoques tradicionales, este enfoque funcionalmente cumple el mismo propósito:
 detener el algoritmo cuando se detecta estancamiento, reduciendo así el coste computacional innecesario~\cite{EarlyStoppingDiscussion2024}.
 
-
 Gracias a estas optimizaciones, el sistema permite explorar un amplio abanico de configuraciones de manera eficiente, manteniendo la robustez y estabilidad de los resultados.
 
-\section{Métricas de Evaluación}\label{sec:metricas-evaluacion}
 
+\section{Métricas de Evaluación}\label{sec:metricas-evaluacion}
 Para evaluar el rendimiento de los modelos de clasificación utilizados en los experimentos,
 se han empleado cuatro métricas estándar en el ámbito del aprendizaje automático: \textbf{accuracy}, \textbf{precisión}, \textbf{recall} y \textbf{F1-score}.
 Dado que se trata de un problema multiclase, estas métricas se han calculado utilizando el promedio \textit{macro},

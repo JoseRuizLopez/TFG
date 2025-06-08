@@ -1,12 +1,10 @@
 import os
 import re
-from pathlib import Path
 from typing import List
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import polars as pl
 
 from utils.classes import PrintMode
 
@@ -188,7 +186,7 @@ def plot_barplot(
     figsize: tuple = (12, 6)
 ):
     """
-    Genera un barplot personalizado usando seaborn.barplot, con orden opcional y guardado.
+    Genera un barplot personalizado con orden opcional y guardado.
 
     Args:
         df: DataFrame con los datos.
@@ -356,11 +354,11 @@ def plot_porcentajes_por_algoritmo(
     Genera un gráfico de barras comparando porcentajes agrupados por algoritmo.
 
     Args:
-        df: DataFrame con los datos.
-        tipo: "inicial_final" o "clases".
-        columnas_clase: Columnas de clases (solo para tipo="clases").
-        filename: Ruta del archivo a guardar (opcional).
-        modo: "libres", "no_libres", "ambos", "juntos"
+        df (pd.DataFrame): DataFrame con los datos.
+        tipo (str): Tipo de gráfico a generar. Puede ser "inicial_final" o "clases".
+        columnas_clase (list | None): Columnas de clases (solo para tipo="clases"). Si es None, se usa las columnas de clases por defecto.
+        filename (str | None): Ruta del archivo a guardar. Si es None, no se guarda.
+        modo (PrintMode): Modo de visualización de los gráficos. Puede ser LIBRES, NO_LIBRES, AMBOS o JUNTOS (por defecto).
     """
     if "Algoritmo" not in df.columns:
         raise ValueError("El DataFrame debe contener la columna 'Algoritmo'.")
@@ -461,9 +459,9 @@ def plot_porcentajes_por_porcentaje_inicial(
     agrupado por Porcentaje Inicial. Puede separarse por tipo de algoritmo o mostrarse todo junto.
 
     Args:
-        df: DataFrame con los datos.
-        filename: Nombre del archivo de salida (opcional).
-        modo: "libres", "no_libres", "ambos" o "juntos".
+        df (pd.DataFrame): DataFrame con los datos.
+        filename (str | None): Nombre donde se guardará el gráfico. Si es None, no se guarda.
+        modo (PrintMode): Modo de visualización de los gráficos. Puede ser LIBRES, NO_LIBRES, AMBOS (por defecto) o JUNTOS.
     """
     required_columns = {"Porcentaje Inicial", "Porcentaje Final", "Algoritmo"}
     if not required_columns.issubset(df.columns):
@@ -594,6 +592,21 @@ def generate_plots_from_csvs(
     carpeta_csv: str | None = None,
     modo: PrintMode = PrintMode.AMBOS
 ):
+    """
+    Genera automáticamente una serie de gráficos a partir de uno o varios archivos CSV con resultados experimentales.
+
+    Esta función concatena los CSV proporcionados, convierte columnas clave a formato numérico, guarda un CSV
+    combinado y crea representaciones gráficas (boxplots, barplots, scatter y lineplots) para analizar métricas
+    como Accuracy y distribución de clases en función del porcentaje inicial y el algoritmo utilizado.
+
+    Args:
+        archivos_csv (list[str]): Lista de rutas a archivos CSV que contienen los resultados experimentales. 
+            Por defecto incluye un único archivo de prueba.
+        carpeta_img (str | None): Carpeta donde se guardarán los gráficos generados. Si es None, los gráficos no se guardan.
+        modelo_name (str | None): Nombre del modelo (usado como prefijo en los nombres de los archivos de imagen).
+        carpeta_csv (str | None): Carpeta donde se guardará el CSV combinado y los archivos auxiliares. Si es None, se usa la ruta del primer CSV.
+        modo (PrintMode): Modo de visualización de los gráficos. Puede ser LIBRES, NO_LIBRES, AMBOS (por defecto) o JUNTOS.
+    """
     path_csvs = os.path.dirname(archivos_csv[0]) if carpeta_csv is None else carpeta_csv
     dataframes = []
 
