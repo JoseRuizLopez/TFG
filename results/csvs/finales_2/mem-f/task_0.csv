@@ -1,5 +1,0 @@
-Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-MEM-F,0.1,0:23:08,0.8118,0.836,0.8118,0.796,100,0.0623,0.3312,0.3503,0.3185
-MEM-F,0.25,1:08:25,0.828,0.8345,0.828,0.8226,100,0.3563,0.3274,0.3274,0.3452
-MEM-F,0.5,1:45:54,0.8091,0.8245,0.8091,0.8017,100,0.5778,0.3324,0.3283,0.3393
-MEM-F,0.75,2:58:46,0.8226,0.8373,0.8226,0.818,100,0.627,0.3481,0.3399,0.312

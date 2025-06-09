@@ -1,5 +1,0 @@
-Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-GEN,0.1,0:33:04,0.8763,0.88,0.8763,0.8734,100,0.1,0.369,0.3492,0.2817
-GEN,0.25,1:10:30,0.8575,0.8751,0.8575,0.8482,100,0.25,0.354,0.3317,0.3143
-GEN,0.5,2:11:26,0.8306,0.8503,0.8306,0.823,100,0.5,0.3357,0.323,0.3413
-GEN,0.75,3:11:03,0.8253,0.8323,0.8253,0.8215,100,0.75,0.3466,0.3339,0.3196

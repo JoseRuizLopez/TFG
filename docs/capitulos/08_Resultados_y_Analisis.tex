@@ -36,7 +36,7 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100.png}
     \caption{Comparación de \textit{accuracy} de los modelos ResNet50 y MobileNetV2 usando el 100\% del conjunto de datos.}
     \label{fig:comparacion_modelos_100}
 \end{figure}
@@ -100,8 +100,8 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
 \end{table}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos}
+    \centeringñ
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos.png}
     \caption{Diagrama de barras para comparar los modelos usando el \textit{accuracy} alcanzado por cada porcentaje inicial.}
     \label{fig:comparacion_modelos}
 \end{figure}
@@ -130,7 +130,7 @@ Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_aleatorio-lr}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_rs-ls.png}
     \caption{Boxplot comparando el \texttt{RS} con la \texttt{LS} usando \textit{accuracy}.}
     \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
@@ -160,7 +160,7 @@ ofrece ya desde sus primeras versiones una capacidad superior para generalizar, 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_lr-gen_v1}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_ls-ga.png}
     \caption{Boxplot comparando \texttt{LS} con \texttt{GA} usando \textit{accuracy}.}
     \label{fig:lr-vs-gen-v1}
 \end{figure}
@@ -174,7 +174,6 @@ Esto indica que, pese a su capacidad exploratoria, el \texttt{GA} puede generar 
 De hecho, su valor mínimo (\textbf{0.796}) es superior al de la \texttt{LS} en esta comparativa,
 pero deja margen para mejoras en la presión selectiva o en mecanismos que eviten estancamientos.
 
-% \colorbox{yellow}{¿Sobra el siguiente apartado?}
 La \texttt{LS}, por su parte, mantiene un comportamiento más estable, aunque con una mediana ligeramente inferior.
 Su distribución es más concentrada y limitada en el extremo superior, lo que evidencia su carácter más explotador pero con menor capacidad para alcanzar soluciones óptimas globales.
 
@@ -191,7 +190,7 @@ evitando así que soluciones mediocres se propaguen innecesariamente en la pobla
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce.png}
     \caption{Boxplot de \textit{accuracy} comparando el \texttt{GA} y el \texttt{GA-WC}.}
     \label{fig:cruce_ponderado}
 \end{figure}
@@ -218,14 +217,14 @@ lo que permite una mayor flexibilidad en escenarios de diferente escala.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa.png}
     \caption{Comparación de \textit{accuracy} entre el \texttt{GA-WC} y el \texttt{GA-AM}.}
     \label{fig:mutacion-adaptativa}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje.png}
     \caption{Diagrama de comparación usando el \textit{accuracy} entre el \texttt{GA-WC} Y el \texttt{GA-AM}, separados por porcentaje inicial.}
     \label{fig:mutacion-adaptativa-porcentaje}
 \end{figure}
@@ -264,8 +263,8 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-AM} y con \texttt{PR}.}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional.png}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-AM} y con \texttt{GA-PR}.}
     \label{fig:reinicio_poblacional}
 \end{figure}
 \begin{table}[htp]
@@ -279,42 +278,42 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
             \multicolumn{11}{l}{\textbf{10\%}}                                                                                                                                                                        \\
             \midrule
             GA-AM                 & 00:27:39                & 00:00:17                    & 83,66\%                 & 84,24\%                  & 83,66\%                & 83,09\% & 100 & 35,64\% & 30,87\% & 33,49\% \\
-            PR                    & 00:29:02                & 00:00:17                    & 81,93\%                 & 83,07\%                  & 81,93\%                & 81,19\% & 100 & 34,52\% & 32,14\% & 33,33\% \\
+            GA-PR                 & 00:29:02                & 00:00:17                    & 81,93\%                 & 83,07\%                  & 81,93\%                & 81,19\% & 100 & 34,52\% & 32,14\% & 33,33\% \\
             \midrule
             \multicolumn{11}{l}{\textbf{25\%}}                                                                                                                                                                        \\
             \midrule
             GA-AM                 & 00:57:29                & 00:00:34                    & 82,42\%                 & 83,68\%                  & 82,42\%                & 81,78\% & 100 & 33,33\% & 32,54\% & 34,13\% \\
-            PR                    & 01:00:22                & 00:00:36                    & 82,64\%                 & 83,78\%                  & 82,64\%                & 81,96\% & 100 & 33,62\% & 33,27\% & 33,11\% \\
+            GA-PR                 & 01:00:22                & 00:00:36                    & 82,64\%                 & 83,78\%                  & 82,64\%                & 81,96\% & 100 & 33,62\% & 33,27\% & 33,11\% \\
             \midrule
             \multicolumn{11}{l}{\textbf{50\%}}                                                                                                                                                                        \\
             \midrule
             GA-AM                 & 01:47:31                & 00:01:05                    & 81,13\%                 & 82,62\%                  & 81,13\%                & 80,41\% & 100 & 33,94\% & 32,76\% & 33,30\% \\
-            PR                    & 01:53:13                & 00:01:08                    & 81,24\%                 & 83,09\%                  & 81,24\%                & 80,59\% & 100 & 33,21\% & 33,20\% & 33,59\% \\
+            GA-PR                 & 01:53:13                & 00:01:08                    & 81,24\%                 & 83,09\%                  & 81,24\%                & 80,59\% & 100 & 33,21\% & 33,20\% & 33,59\% \\
             \midrule
             \multicolumn{11}{l}{\textbf{75\%}}                                                                                                                                                                        \\
             \midrule
             GA-AM                 & 02:36:41                & 00:01:34                    & 82,42\%                 & 83,94\%                  & 82,42\%                & 81,85\% & 100 & 33,67\% & 33,11\% & 33,22\% \\
-            PR                    & 02:41:24                & 00:01:37                    & 82,69\%                 & 84,33\%                  & 82,69\%                & 82,06\% & 100 & 33,52\% & 33,44\% & 33,04\% \\
+            GA-PR                 & 02:41:24                & 00:01:37                    & 82,69\%                 & 84,33\%                  & 82,69\%                & 82,06\% & 100 & 33,52\% & 33,44\% & 33,04\% \\
             \midrule
             \multicolumn{11}{l}{\textbf{100\%}}                                                                                                                                                                       \\
             \midrule
-            100\%                 & -                       & 00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%                & 77,68\% & 1   & 33,33\% & 33,33\% & 33,33\% \\
+            100\%                 & --                      & 00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%                & 77,68\% & 1   & 33,33\% & 33,33\% & 33,33\% \\
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{PR} por porcentaje inicial, incluyendo distribución de clases y duración total y por evaluación.}
+    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-PR} por porcentaje inicial.}
     \label{tab:resultados-am-pr-porcentaje}
 \end{table}
 
 Los resultados, mostrados en la Figura~\ref{fig:reinicio_poblacional} y la Tabla~\ref{tab:resultados-am-pr-porcentaje},
 permiten extraer varias conclusiones relevantes.
-En primer lugar, el \textbf{valor máximo de accuracy} es idéntico para \texttt{GA-AM} y \texttt{PR}, alcanzando ambos un \textbf{0.876},
+En primer lugar, el \textbf{valor máximo de accuracy} es idéntico para \texttt{GA-AM} y \texttt{GA-PR}, alcanzando ambos un \textbf{0.876},
 lo que sugiere que el reinicio no favorece la aparición de soluciones de mayor calidad.
-Por el contrario, el \textbf{valor mínimo de accuracy} observado en \texttt{PR} (\textbf{0.766}) es notablemente más bajo que el de \texttt{GA-AM} (\textbf{0.798}),
+Por el contrario, el \textbf{valor mínimo de accuracy} observado en \texttt{GA-PR} (\textbf{0.766}) es notablemente más bajo que el de \texttt{GA-AM} (\textbf{0.798}),
 lo que indica una mayor propensión a obtener ejecuciones de bajo rendimiento cuando se utiliza la estrategia de reinicio.
 
-La distribución general de resultados revela que el \texttt{PR} no logra una reducción significativa en la dispersión de los valores:
-aunque los cuartiles y medianas de \texttt{GA-AM} y \texttt{PR} son similares, se observa un leve desplazamiento hacia valores ligeramente más bajos en PR,
+La distribución general de resultados revela que el \texttt{GA-PR} no logra una reducción significativa en la dispersión de los valores:
+aunque los cuartiles y medianas de \texttt{GA-AM} y \texttt{GA-PR} son similares, se observa un leve desplazamiento hacia valores ligeramente más bajos en \texttt{GA-PR},
 lo cual es especialmente evidente en el escenario de menor porcentaje inicial (10\%).
 Esta tendencia sugiere que el reinicio poblacional, al reintroducir diversidad de forma abrupta,
 puede generar soluciones subóptimas que no contribuyen de manera sustancial a mejorar la población.
@@ -322,13 +321,9 @@ puede generar soluciones subóptimas que no contribuyen de manera sustancial a m
 La tabla de resultados~\ref{tab:resultados-am-pr-porcentaje} respalda estas observaciones: en promedio,
 el algoritmo \texttt{GA-AM} presenta una ligera superioridad en precisión media (\textbf{83,66\%} frente a \textbf{81,93\%} en el 10\%), así como en F1-score y recall.
 Estas diferencias, aunque no drásticas, son consistentes en la mayoría de los escenarios.
-Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre \texttt{GA-AM} y \texttt{PR},
+Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre \texttt{GA-AM} y \texttt{GA-PR},
 lo que refuerza la idea de que el impacto del reinicio poblacional no justifica su complejidad añadida.
 
-% \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-% En resumen, aunque el reinicio poblacional es una estrategia teóricamente útil para escapar de óptimos locales,
-% su implementación en esta versión no logró aportar beneficios consistentes en términos de rendimiento.
-% Estos resultados invitan a reconsiderar su activación por defecto, o bien a explorar variantes más refinadas del mecanismo de reinicio.
 En resumen, aunque el reinicio poblacional busca aumentar la exploración y evitar el estancamiento,
 en esta implementación concreta no aporta mejoras tangibles en términos de precisión ni estabilidad,
 e incluso puede introducir soluciones más erráticas en ciertas ejecuciones.
@@ -347,7 +342,7 @@ sino que se selecciona aleatoriamente en cada ejecución, introduciendo así un 
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo.png}
     \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BARPLOT).}
     \label{fig:barplot_por_algoritmo-libres}
 \end{figure}
@@ -361,8 +356,8 @@ lo que refuerza la idea de que la flexibilidad no compromete la estabilidad de l
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres en formato BOXPLOT.}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo.png}
+    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BOXPLOT).}
     \label{fig:boxplot_por_algoritmo-libres}
 \end{figure}
 
@@ -375,7 +370,7 @@ la versión libre presenta una ligera reducción en los valores mínimos, lo que
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi.png}
     \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo \texttt{GA-AM}.}
     \label{fig:am_por_pi}
 \end{figure}
@@ -389,7 +384,7 @@ sino que permite adaptarse a diferentes condiciones iniciales sin comprometer el
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/distribucion-clases}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/distribucion-clases.png}
     \caption{Distribución de clases en los subconjuntos generados por los algoritmos estándar y libres.}
     \label{fig:distribucion_libres}
 \end{figure}
@@ -402,29 +397,125 @@ Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegu
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_lr-f}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_lr-f.png}
     \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{LS-F}.}
     \label{fig:scatter_bl_f}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_gen_v2}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_gen_v2.png}
     \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{GA-AM-F}.}
     \label{fig:scatter_gen_v2}
 \end{figure}
 
-Finalmente, las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2} permiten visualizar la relación entre el \textit{accuracy}
-y el porcentaje final de datos seleccionados en las versiones libres.
-En el caso de la búsqueda local libre (\texttt{LS-F}), se observa una tendencia a incrementar ligeramente el tamaño del subconjunto final,
-especialmente en ejecuciones con mejor precisión.
-Por el contrario, el algoritmo \texttt{GA-AM-F} muestra una distribución más equilibrada, con una mayor variabilidad en los tamaños finales,
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm}}
+            \toprule
+            \textbf{Algoritmo} & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{10\%}}                                                                                                                                                                         \\
+            \midrule
+            GA-AM              & 00:27:39                & 00:00:16                    & 83.66\%                 & 84.24\%                  & 83.66\%               & 83.09\%                 & 100                   \\
+            GA-AM-F            & 00:34:32                & 00:00:20                    & 82.96\%                 & 84.07\%                  & 82.96\%               & 82.12\%                 & 100                   \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{25\%}}                                                                                                                                                                         \\
+            \midrule
+            GA-AM              & 00:57:28                & 00:00:34                    & 82.42\%                 & 83.68\%                  & 82.42\%               & 81.78\%                 & 100                   \\
+            GA-AM-F            & 01:07:13                & 00:00:40                    & 81.77\%                 & 82.66\%                  & 81.77\%               & 81.18\%                 & 100                   \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{50\%}}                                                                                                                                                                         \\
+            \midrule
+            GA-AM              & 01:47:31                & 00:01:04                    & 81.13\%                 & 82.62\%                  & 81.13\%               & 80.41\%                 & 100                   \\
+            GA-AM-F            & 01:51:24                & 00:01:06                    & 83.60\%                 & 85.22\%                  & 83.60\%               & 83.03\%                 & 100                   \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{75\%}}                                                                                                                                                                         \\
+            \midrule
+            GA-AM              & 02:36:40                & 00:01:34                    & 82.42\%                 & 83.94\%                  & 82.42\%               & 81.85\%                 & 100                   \\
+            GA-AM-F            & 02:33:25                & 00:01:32                    & 82.20\%                 & 83.94\%                  & 82.20\%               & 81.47\%                 & 100                   \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{100\%}}                                                                                                                                                                        \\
+            \midrule
+            100\%              & --                      & 00:03:15                    & 78.60\%                 & 81.55\%                  & 78.6\%                & 77.68\%                 & 1                     \\
+            \bottomrule
+        \end{tabular}}
+    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-AM-F} por porcentaje inicial.}
+    \label{tab:resultados-am-f-porcentaje}
+\end{table}
+
+\begin{table}[htp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{P{2cm} P{1.8cm} P{2cm} P{2.3cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm}}
+            \toprule
+            \textbf{Algoritmo} & \textbf{Porc. Inicial} & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$10\%}}                                                                                                                                                 \\
+            \midrule
+            LS                 & 10\%                   & 00:33                   & 00:00                       & 81.24\%                 & 81.81\%                  & 81.24\%               & 80.61\%                 \\
+            LS-F               & 6\%                    & 00:38                   & 00:00                       & 83.23\%                 & 83.7\%                   & 83.23\%               & 82.71\%                 \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$25\%}}                                                                                                                                                 \\
+            \midrule
+            LS                 & 25\%                   & 01:07                   & 00:00                       & 82.47\%                 & 83.95\%                  & 82.47\%               & 81.76\%                 \\
+            LS-F               & 12\%                   & 01:00                   & 00:00                       & 80.91\%                 & 82.73\%                  & 80.91\%               & 79.82\%                 \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$50\%}}                                                                                                                                                 \\
+            \midrule
+            LS                 & 50\%                   & 02:08                   & 00:01                       & 80.76\%                 & 82.77\%                  & 80.76\%               & 80.09\%                 \\
+            LS-F               & 35\%                   & 01:36                   & 00:00                       & 80.91\%                 & 83.12\%                  & 80.91\%               & 79.76\%                 \\
+            LS-F               & 37\%                   & 01:57                   & 00:01                       & 83.6\%                  & 83.96\%                  & 83.6\%                & 83.19\%                 \\
+            LS-F               & 40\%                   & 02:20                   & 00:01                       & 82.12\%                 & 83.3\%                   & 82.12\%               & 81.34\%                 \\
+            LS-F               & 50\%                   & 03:13                   & 00:01                       & 81.45\%                 & 82.6\%                   & 81.45\%               & 80.61\%                 \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$75\%}}                                                                                                                                                 \\
+            \midrule
+            LS                 & 75\%                   & 03:06                   & 00:01                       & 82.37\%                 & 83.97\%                  & 82.37\%               & 81.67\%                 \\
+            LS-F               & 57\%                   & 03:54                   & 00:02                       & 82.53\%                 & 83.72\%                  & 82.53\%               & 81.77\%                 \\
+            LS-F               & 58\%                   & 04:02                   & 00:02                       & 81.45\%                 & 82.37\%                  & 81.45\%               & 80.76\%                 \\
+            LS-F               & 61\%                   & 04:12                   & 00:02                       & 81.72\%                 & 83.3\%                   & 81.72\%               & 81.29\%                 \\
+            LS-F               & 63\%                   & 02:36                   & 00:01                       & 83.6\%                  & 84.43\%                  & 83.6\%                & 82.77\%                 \\
+            LS-F               & 67\%                   & 03:02                   & 00:01                       & 83.87\%                 & 84.59\%                  & 83.87\%               & 83.4\%                  \\
+            LS-F               & 71\%                   & 03:18                   & 00:01                       & 83.06\%                 & 84.93\%                  & 83.06\%               & 82.42\%                 \\
+            \midrule
+            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$100\%}}                                                                                                                                                \\
+            \midrule
+            LS-F               & 85\%                   & 03:49                   & 00:02                       & 81.99\%                 & 83.71\%                  & 81.99\%               & 81.56\%                 \\
+            LS-F               & 87\%                   & 04:32                   & 00:02                       & 82.26\%                 & 84.22\%                  & 82.26\%               & 81.76\%                 \\
+            100\%              & 100\%                  & --                      & 00:03                       & 78.6\%                  & 81.55\%                  & 78.6\%                & 77.68\%                 \\
+            \bottomrule
+        \end{tabular}}
+    \caption{Resultados de los algoritmos \texttt{LS} y \texttt{LS-F} agrupados por franjas de porcentaje inicial.}
+    \label{tab:resultados-ls-franjas-porcentaje}
+\end{table}
+
+
+Finalmente, las Figuras~\ref{fig:scatter_bl_f} y~\ref{fig:scatter_gen_v2},
+junto con las Tablas~\ref{tab:resultados-am-f-porcentaje} y~\ref{tab:resultados-ls-franjas-porcentaje},
+permiten visualizar y comparar con mayor profundidad la relación entre el \textit{accuracy},
+el porcentaje final de datos seleccionados y otros aspectos clave como la duración y estabilidad en las versiones libres.
+
+En el caso de la \texttt{LS-F},
+la Figura~\ref{fig:scatter_bl_f} muestra una tendencia a incrementar ligeramente el tamaño del subconjunto final en las ejecuciones con mayor precisión,
+lo que sugiere una adaptación flexible en función del rendimiento alcanzado.
+Esta observación se refuerza al revisar los datos de la Tabla~\ref{tab:resultados-ls-franjas-porcentaje},
+donde se evidencia que \texttt{LS-F} mantiene una precisión elevada incluso con porcentajes iniciales relativamente bajos,
+y logra hacerlo con duraciones contenidas por evaluación, especialmente en las franjas hasta el 50\%.
+
+Por su parte, el \texttt{GA-AM-F} muestra en la Figura~\ref{fig:scatter_gen_v2} una mayor dispersión en los tamaños finales seleccionados,
 lo que refleja su capacidad adaptativa para ajustarse a diferentes condiciones de búsqueda.
+Esta flexibilidad también se ve reflejada en la Tabla~\ref{tab:resultados-am-f-porcentaje},
+donde se observa que \texttt{GA-AM-F} alcanza una precisión superior a la versión fija \texttt{GA-AM}, especialmente en porcentajes iniciales del 50\%,
+manteniendo una duración por evaluación razonable.
 
 Este comportamiento evidencia que los algoritmos libres no solo adaptan la composición del subconjunto, sino también su escala,
 ajustando dinámicamente la cantidad de datos utilizados según las necesidades del proceso evolutivo.
-En conjunto, estas versiones demuestran ser una alternativa más versátil y robusta,
+En general, estas versiones demuestran ser una alternativa más versátil y robusta,
 capaz de mantener la calidad del rendimiento incluso en escenarios con alta variabilidad en los datos o restricciones de tamaño no conocidas de antemano.
+Además, las tablas permiten apreciar esta versatilidad en detalle, al mostrar cómo se comportan métricas clave como \textit{Precision},
+\textit{Recall} y \textit{F1-score} a lo largo de las distintas franjas de porcentaje inicial.
 
 
 \section{Resultados del algoritmo memético}\label{sec:resultados-algoritmo-memetico}
@@ -436,7 +527,7 @@ ofreciendo mejoras tanto en precisión como en estabilidad.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-memetico}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-ma.png}
     \caption{Comparación de \textit{accuracy} entre el algoritmo memético (\texttt{MA}) y su versión libre.}
     \label{fig:memetico_comparacion}
 \end{figure}
@@ -486,11 +577,11 @@ Esto sugiere que el componente adaptativo no penaliza la calidad de las solucion
             \midrule
             \multicolumn{9}{l}{\textbf{100\%}}                                                                                                          \\
             \midrule
-            100\%                 & -                       & 00:03:16                    & 100,00\%      & 78,60\% & 81,55\% & 78,60\% & 77,68\% & 1   \\
+            100\%                 & --                      & 00:03:16                    & 100,00\%      & 78,60\% & 81,55\% & 78,60\% & 77,68\% & 1   \\
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de los \texttt{MA} y del \texttt{GA-AM} por porcentaje inicial.}
+    \caption{Resultados de los \texttt{MA} y del \texttt{GA-AM-F} por porcentaje inicial.}
     \label{tab:resultados-memetico-genetico-libres}
 \end{table}
 
@@ -513,9 +604,6 @@ que mantiene un equilibrio adecuado entre precisión y coste computacional
 De esta forma, tanto el \texttt{MA} como su variante libre, \texttt{MA-F}, se consolidan como las estrategias más eficaces del estudio,
 ofreciendo una combinación robusta de rendimiento, adaptabilidad y estabilidad.
 
-% \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-% Su combinación de precisión elevada, estabilidad entre ejecuciones y capacidad adaptativa los convierte en soluciones
-% especialmente robustas para tareas donde se requiere seleccionar subconjuntos representativos sin comprometer el rendimiento del modelo entrenado.
 
 \section{Resultados finales entre enfoques}\label{sec:comparacion-final-enfoques}
 Tras analizar el rendimiento individual de cada enfoque a lo largo de las secciones anteriores,
@@ -529,8 +617,8 @@ estabilidad de resultados, y eficiencia en la reducción de datos, así como val
 \subsection{Análisis comparativo de accuracy}\label{sec:comparacion-final-accuracy}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo}
-    \caption{Boxplot de \textit{accuracy} para los algoritmos \texttt{RS}, \texttt{GA-WC}, \texttt{GA-AM}, \texttt{MA} y \texttt{MA-F}.}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo.png}
+    \caption{Boxplot de \textit{accuracy} para los algoritmos \texttt{RS}, \texttt{GA-WC}, \texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA} y \texttt{MA-F}.}
     \label{fig:boxplot-comparacion-final}
 \end{figure}
 El análisis comparativo de \textit{accuracy} entre algoritmos confirma de manera general las conclusiones obtenidas en los análisis de las secciones anteriores.
@@ -558,13 +646,13 @@ reducción de datos y estabilidad en problemas de selección de instancias para 
 \subsection{Porcentaje final de datos seleccionados}\label{sec:porcentaje-final-datos-seleccionados}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/barplot-por-porcentaje}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/barplot-por-porcentaje.png}
     \caption{Porcentaje final de datos seleccionados por cada algoritmo.}
     \label{fig:barplot-por-porcentaje}
 \end{figure}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/scatter}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/scatter.png}
     \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por cada algoritmo.}
     \label{fig:scatter-final}
 \end{figure}El análisis del porcentaje final de datos seleccionados permite evaluar la eficiencia de cada algoritmo,
@@ -593,7 +681,7 @@ lo que demuestra la ventaja competitiva de los algoritmos meméticos.
 \subsection{Estabilidad en la distribución de clases}\label{sec:distribucion-clases-final}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/distribucion-de-clases}
+    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/distribucion-de-clases.png}
     \caption{Distribución de clases seleccionadas por cada algoritmo en el conjunto reducido final.}
     \label{fig:distribucion-de-clases-final}
 \end{figure}
@@ -631,6 +719,7 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
             RS                 & 00:38:17                & 00:00:22                    & 81,34\%                 & 82,46\%                  & 81,34\%               & 80,52\%                 & 100                   & 10,00\%       \\
             GA-WC              & 00:34:03                & 00:00:21                    & 83,60\%                 & 84,38\%                  & 83,60\%               & 82,82\%                 & 100                   & 10,00\%       \\
             GA-AM              & 00:27:39                & 00:00:17                    & 83,66\%                 & 84,24\%                  & 83,66\%               & 83,09\%                 & 100                   & 10,00\%       \\
+            GA-AM-F            & 00:34:32                & 00:00:21                    & 82,96\%                 & 84,07\%                  & 82,96\%               & 82,12\%                 & 100                   & 14,94\%       \\
             MA                 & 00:27:43                & 00:00:17                    & 82,85\%                 & 84,44\%                  & 82,85\%               & 81,91\%                 & 100                   & 10,00\%       \\
             MA-F               & 00:32:39                & 00:00:20                    & 83,28\%                 & 84,70\%                  & 83,28\%               & 82,46\%                 & 100                   & 9,62\%        \\
             \midrule
@@ -639,6 +728,7 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
             RS                 & 01:18:22                & 00:00:47                    & 80,70\%                 & 81,90\%                  & 80,70\%               & 79,90\%                 & 100                   & 25,00\%       \\
             GA-WC              & 01:10:21                & 00:00:43                    & 82,37\%                 & 83,86\%                  & 82,37\%               & 81,57\%                 & 100                   & 25,00\%       \\
             GA-AM              & 00:57:29                & 00:00:34                    & 82,42\%                 & 83,68\%                  & 82,42\%               & 81,78\%                 & 100                   & 25,00\%       \\
+            GA-AM-F            & 01:07:13                & 00:00:40                    & 81,77\%                 & 82,66\%                  & 81,77\%               & 81,18\%                 & 100                   & 26,68\%       \\
             MA                 & 00:57:12                & 00:00:34                    & 81,99\%                 & 83,11\%                  & 81,99\%               & 81,21\%                 & 100                   & 25,00\%       \\
             MA-F               & 01:08:54                & 00:00:41                    & 82,80\%                 & 83,77\%                  & 82,80\%               & 82,17\%                 & 100                   & 27,18\%       \\
             \midrule
@@ -647,6 +737,7 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
             RS                 & 02:26:40                & 00:01:28                    & 80,86\%                 & 82,65\%                  & 80,86\%               & 80,22\%                 & 100                   & 50,00\%       \\
             GA-WC              & 02:15:43                & 00:01:21                    & 81,61\%                 & 83,78\%                  & 81,61\%               & 81,06\%                 & 100                   & 50,00\%       \\
             GA-AM              & 01:47:31                & 00:01:05                    & 81,13\%                 & 82,62\%                  & 81,13\%               & 80,41\%                 & 100                   & 50,00\%       \\
+            GA-AM-F            & 01:51:24                & 00:01:07                    & 83,60\%                 & 85,22\%                  & 83,60\%               & 83,03\%                 & 100                   & 46,36\%       \\
             MA                 & 01:47:32                & 00:01:05                    & 81,51\%                 & 83,36\%                  & 81,51\%               & 80,89\%                 & 100                   & 50,00\%       \\
             MA-F               & 02:16:51                & 00:01:22                    & 81,61\%                 & 83,09\%                  & 81,61\%               & 80,96\%                 & 100                   & 67,07\%       \\
             \midrule
@@ -655,43 +746,85 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
             RS                 & 03:05:49                & 00:01:51                    & 82,26\%                 & 84,16\%                  & 82,26\%               & 81,67\%                 & 100                   & 75,00\%       \\
             GA-WC              & 03:33:06                & 00:02:08                    & 82,31\%                 & 83,91\%                  & 82,31\%               & 81,59\%                 & 100                   & 75,00\%       \\
             GA-AM              & 02:36:41                & 00:01:34                    & 82,42\%                 & 83,94\%                  & 82,42\%               & 81,85\%                 & 100                   & 75,00\%       \\
+            GA-AM-F            & 02:33:25                & 00:01:32                    & 82,20\%                 & 83,94\%                  & 82,20\%               & 81,47\%                 & 100                   & 72,72\%       \\
             MA                 & 02:37:43                & 00:01:35                    & 82,74\%                 & 84,33\%                  & 82,74\%               & 82,14\%                 & 100                   & 75,00\%       \\
             MA-F               & 03:08:21                & 00:01:53                    & 82,69\%                 & 84,18\%                  & 82,69\%               & 82,10\%                 & 100                   & 71,16\%       \\
             \midrule
             \multicolumn{9}{l}{\textbf{100\%}}                                                                                                                                                                                        \\
             \midrule
-            100\%              & -                       & 00:03:15                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 & 1                     & 100,00\%      \\
+            100\%              & --                      & 00:03:15                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 & 1                     & 100,00\%      \\
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados detallados por porcentaje inicial y algoritmo: precisión, evaluaciones y duración.}
+    \caption{Resultados detallados por porcentaje inicial.}
     \label{tab:resultados-generales-por-porcentaje-inicial}
 \end{table}
 
 Los resultados globales obtenidos para el conjunto de datos Rock, Paper, Scissors (véase Tabla~\ref{tab:resultados-generales-por-porcentaje-inicial})
 permiten extraer conclusiones claras sobre el rendimiento de los algoritmos evaluados.
 
-En primer lugar, el \texttt{MA-F} se consolida como la solución más robusta y eficaz: no solo alcanza la mayor precisión en términos de \textit{accuracy},
-sino que también logra mantener un porcentaje reducido de datos seleccionados, optimizando la eficiencia del modelo sin comprometer su rendimiento.
+En primer lugar, el \texttt{MA-F} se consolida como la solución más robusta y eficaz: no solo alcanza la mayor precisión media en múltiples porcentajes iniciales,
+sino que también logra mantener un porcentaje reducido de datos seleccionados, optimizando la eficiencia sin comprometer el rendimiento.
 Además, \texttt{MA-F} presenta una notable estabilidad entre ejecuciones,
 reflejada en su baja dispersión y en la conservación de una distribución equilibrada de clases en los subconjuntos generados.
 Estos resultados demuestran su capacidad para superar incluso a la referencia del 100\% de datos, logrando un mejor rendimiento con menos instancias.
 
-El \texttt{MA} también ofrece resultados sobresalientes, manteniendo altos niveles de precisión y una considerable reducción de datos.
+El algoritmo \texttt{GA-AM-F}, incorporado como mejora del genético adaptativo, muestra una evolución destacable.
+Aunque en algunos escenarios no supera completamente al enfoque memético, sí logra mejores precisiones que otros algoritmos genéticos,
+manteniendo además un porcentaje de datos intermedio, lo cual refuerza su potencial como alternativa más estable y eficaz dentro del grupo genético.
+
+El enfoque \texttt{MA} también ofrece resultados sobresalientes, manteniendo altos niveles de precisión y una considerable reducción de datos.
 Sin embargo, presenta una ligera mayor variabilidad en comparación con \texttt{MA-F}, lo que sugiere una estabilidad algo inferior en ciertos escenarios.
 
-Por otro lado, el \texttt{GA-AM} mejora respecto a enfoques más simples como \texttt{RS} y \texttt{GA-WC}, alcanzando resultados intermedios en términos de precisión y reducción de datos.
-Sin embargo, no logra superar la consistencia ni la eficiencia de los enfoques meméticos, mostrando una estabilidad moderada en la distribución de clases.
+En cuanto a \texttt{GA-AM}, aunque mejora claramente respecto a \texttt{RS} y \texttt{GA-WC}, no alcanza los niveles de rendimiento ni estabilidad de los enfoques meméticos.
+El algoritmo \texttt{GA-WC}, por su parte, obtiene ligeras mejoras frente a la selección aleatoria,
+pero requiere un mayor porcentaje de datos para lograr precisión competitiva, y sufre mayor dispersión entre ejecuciones.
 
-El \texttt{GA-WC} ofrece ligeras mejoras frente a la búsqueda aleatoria,
-pero mantiene una mayor dispersión de resultados y requiere porcentajes de datos más elevados para alcanzar precisiones competitivas.
-Esto limita su eficacia en escenarios donde la reducción de datos es prioritaria.
+Finalmente, la referencia aleatoria \texttt{RS} queda superada por todos los enfoques evolutivos y meméticos.
+Sus resultados muestran una alta variabilidad, menor precisión global y una propensión a generar subconjuntos con distribuciones de clases desbalanceadas,
+evidenciando la importancia de emplear estrategias de selección informadas.
 
-Finalmente, la \texttt{RS}, utilizada como referencia, queda claramente superada por todos los enfoques evolutivos y meméticos.
-Sus resultados muestran una alta variabilidad, una menor precisión global y una mayor propensión a generar subconjuntos con distribuciones de clases menos estables,
-lo que pone de manifiesto la importancia de utilizar estrategias de selección guiada para optimizar tanto el rendimiento como la estabilidad del modelo.
+Además de los análisis cuantitativos, las Figuras~\ref{fig:barplot-por-pi-10},~\ref{fig:barplot-por-pi-25},~\ref{fig:barplot-por-pi-50},~\ref{fig:barplot-por-pi-75} y~\ref{fig:barplot-por-pi-100} 
+refuerzan visualmente estas conclusiones mediante barplots comparativos para cada porcentaje inicial.
+Estos gráficos permiten observar cómo varía el rendimiento de cada algoritmo manteniendo fijo el punto de partida,
+destacando especialmente la superioridad de los enfoques meméticos (\texttt{MA}, \texttt{MA-F}) y la mejora progresiva introducida por \texttt{GA-AM-F}.
 
-En conjunto, este análisis confirma que los \texttt{MA}, especialmente en su versión libre,
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-10.png}
+    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{10\%}.}
+    \label{fig:barplot-por-pi-10}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-25.png}
+    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{25\%}.}
+    \label{fig:barplot-por-pi-25}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-50.png}
+    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{50\%}.}
+    \label{fig:barplot-por-pi-50}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-75.png}
+    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{75\%}.}
+    \label{fig:barplot-por-pi-75}
+\end{figure}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-100.png}
+    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{100\%}.}
+    \label{fig:barplot-por-pi-100}
+\end{figure}
+
+En conjunto, este análisis confirma que los algoritmos meméticos, especialmente en su versión libre (\texttt{MA-F}),
 representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.
 Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria o enfoques genéticos más sencillos.
 
@@ -709,7 +842,7 @@ Para establecer una referencia clara, se incluyen también los resultados obteni
 \subsection{Comparación de \textit{accuracy} entre algoritmos}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo.png}
     \caption{Boxplot comparando resultados con el dataset \texttt{PAINTING} usando \textit{accuracy}.}
     \label{fig:comparacion-por-algoritmo}
 \end{figure}
@@ -735,32 +868,27 @@ Puede alcanzar buenos resultados, pero lo hace de forma inconsistente y sin meca
 La ejecución con el \textbf{100\%} de los datos, utilizada como referencia absoluta, queda por debajo de las soluciones obtenidas por los algoritmos meméticos.
 Esto valida empíricamente que no es la cantidad de datos, sino su calidad y representatividad, lo que determina la eficacia del entrenamiento en entornos complejos.
 
-% \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-% En conjunto, esta comparación deja clara la superioridad de las estrategias meméticas, especialmente en su versión libre,
-% tanto por su rendimiento medio como por su estabilidad.
-% Esto refuerza la hipótesis de que los algoritmos de selección basados en evolución y búsqueda local son capaces de generar
-% subconjuntos más eficientes y fiables que los enfoques ingenuos o el uso total de los datos.
 En resumen, los algoritmos meméticos, especialmente en su versión libre, muestran el mejor rendimiento en términos de precisión y estabilidad,
 superando al uso del 100\% de los datos y al enfoque aleatorio.
 
 \subsection{Impacto del porcentaje inicial}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje.png}
     \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
     \label{fig:accuracy_porcentaje_painting}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem.png}
     \caption{Boxplot de \textit{accuracy} para el algoritmo memético (\texttt{MA}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
     \label{fig:comparacion-por-porcentaje-mem}
 \end{figure}
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem-f}
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem-f.png}
     \caption{Boxplot de \textit{accuracy} para el algoritmo memético libre (\texttt{MA-F}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
     \label{fig:comparacion-por-porcentaje-mem-f}
 \end{figure}
@@ -818,17 +946,13 @@ sino que el valor está en la calidad y representatividad del subconjunto.
 El resultado más robusto refuerza la hipótesis de que existe un punto de saturación
 a partir del cual la adición de ejemplos tiene un efecto marginal o incluso contraproducente en modelos convolucionales.
 
-% \colorbox{yellow}{¿Añadir el párrafo de resumen?}
-% En conjunto, los resultados de este apartado respaldan la viabilidad de aplicar técnicas de reducción de datos en entornos reales,
-% sugiriendo que con solo la mitad de los datos cuidadosamente seleccionados se puede no solo igualar,
-% sino superar el rendimiento de un entrenamiento exhaustivo con todo el dataset.
 En resumen, los resultados respaldan la viabilidad de utilizar una fracción cuidadosamente seleccionada de datos para obtener
 resultados comparables o incluso superiores al uso del conjunto completo.
 
 \subsection{Equilibrio en la distribución de clases}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo.png}
     \caption{Distribución de clases seleccionadas por cada algoritmo.}
     \label{fig:balance_clases_painting}
 \end{figure}
@@ -845,7 +969,7 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
 \subsection{Evolución del tamaño del subconjunto}
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje}
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
     \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres según el porcentaje inicial.}
     \label{fig:evolucion_porcentaje_libre}
 \end{figure}

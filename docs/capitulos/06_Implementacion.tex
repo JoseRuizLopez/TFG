@@ -108,28 +108,41 @@ Esta estructura facilita la incorporación de nuevos algoritmos o mejoras en los
 
 \subsection{Esquema General de Funcionamiento de los Algoritmos}\label{subsec:esquema-algoritmos}
 El funcionamiento general de los algoritmos implementados en este trabajo sigue un flujo estructurado y modular que permite una ejecución ordenada de todas las etapas del proceso.
-La Figura~\ref{fig:esquema-flujo-algoritmos} muestra el esquema general de funcionamiento, desde la configuración inicial hasta la evaluación final de resultados.
+La Figura~\ref{fig:esquema-flujo-algoritmos} representa este flujo, destacando especialmente el ciclo interno de optimización mediante metaheurísticas.
 
-\begin{figure}[htp]
+\begin{figure}[ht]
       \centering
-      \includegraphics[width=0.95\textwidth]{imagenes/flujo2.drawio}
-      \caption{Esquema general del flujo de ejecución de los algoritmos y evaluación de subconjuntos.}
+      \includegraphics[width=0.95\textwidth]{imagenes/TFG.drawio.png}
+      \caption{Esquema general del flujo de ejecución.}
       \label{fig:esquema-flujo-algoritmos}
 \end{figure}
 
-El proceso se organiza en los siguientes pasos principales:
+Como se observa en el diagrama, el sistema parte de un conjunto de datos que se divide en entrenamiento y prueba.
+El núcleo del proceso está constituido por un ciclo de optimización en el que una metaheurística genera subconjuntos candidatos del conjunto de entrenamiento.
+Cada subconjunto es evaluado mediante un modelo de aprendizaje automático (\textit{ML}),
+que es entrenado brevemente para obtener métricas como la \textit{accuracy}, utilizadas como valor de fitness para guiar la búsqueda.
+
+Este ciclo se repite hasta alcanzar un número máximo de evaluaciones o convergencia.
+Una vez identificado el mejor subconjunto, se entrena un modelo final con este conjunto reducido,
+el cual se evalúa con el conjunto de test para obtener las métricas definitivas.
+Finalmente, se generan los resultados y se almacenan para su análisis posterior.
+
+De forma complementaria, el proceso se organiza en los siguientes pasos principales:
 
 \begin{enumerate}
-      \item \textbf{Ejecución del script de paralelización:} Se inicia el script que permite ejecutar múltiples experimentos de manera paralela,
-            facilitando la obteción de resultados de diferentes semillas.
-      \item \textbf{Configuración inicial:} Se define el algoritmo, el modelo y el dataset a utilizar, a través de los parámetros en \texttt{generator.py}.
-      \item \textbf{Ejecución del núcleo principal:} El script \texttt{main.py} se encarga de orquestar la ejecución,
-            llamando a las funciones específicas según el algoritmo seleccionado.
-      \item \textbf{Generación y evaluación de subconjuntos:} Cada algoritmo genera subconjuntos de datos de entrenamiento a partir del conjunto original.
-      \item \textbf{Entrenamiento del modelo:} Se realiza el entrenamiento del modelo utilizando los subconjuntos generados,
-            aplicando técnicas de \textit{transfer learning} con modelos preentrenados.
-      \item \textbf{Almacenamiento de resultados:} Cada evaluación almacena los resultados obtenidos (métricas y composición del subconjunto) y,
-            tras finalizar la ejecución, se generan gráficos como boxplots y visualizaciones que permiten analizar el rendimiento de cada enfoque.
+      \item \textbf{Ejecución del script de paralelización:} Se lanza el script principal que permite ejecutar múltiples tareas en paralelo,
+            facilitando la obtención de resultados para diferentes configuraciones y semillas aleatorias.
+      \item \textbf{Configuración inicial:} Se definen el algoritmo metaheurístico, el modelo de red neuronal y el conjunto de datos,
+            configurados mediante los parámetros del script \texttt{generator.py}.
+      \item \textbf{Inicio del ciclo de optimización:} El script \texttt{main.py} organiza el flujo de ejecución e inicia el ciclo de optimización,
+            en el que la metaheurística genera subconjuntos de entrenamiento candidatos.
+      \item \textbf{Evaluación de subconjuntos:} Cada subconjunto generado es evaluado mediante un modelo de \textit{deep learning},
+            que se entrena brevemente para obtener métricas de rendimiento (como la \textit{accuracy}),
+            utilizadas como función de fitness por la metaheurística.
+      \item \textbf{Entrenamiento del modelo final:} Una vez seleccionado el mejor subconjunto, se entrena un modelo final
+            usando dicho subconjunto, empleando \textit{transfer learning} con pesos preentrenados.
+      \item \textbf{Evaluación final y almacenamiento de resultados:} El modelo final se evalúa con el conjunto de test,
+            y se almacenan las métricas obtenidas, así como gráficos y tablas que permiten analizar el rendimiento del sistema.
 \end{enumerate}
 
 \subsection{Configuración de Modelos Preentrenados}\label{subsec:configuracion-modelos-preentrenados}

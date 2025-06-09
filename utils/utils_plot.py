@@ -1,6 +1,7 @@
 import os
 import re
 from typing import List
+from pathlib import Path
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,7 +11,7 @@ from utils.classes import PrintMode
 
 
 
-ORDEN_ALGORITMOS = ["100%", "RS", "LR", "LR-F", "GEN", "WC", "WC-F", "AM", "AM-F", "PR", "MEM", "MEM-F"]
+ORDEN_ALGORITMOS = ["100%", "RS", "LS", "LS-F", "GA", "GA-WC", "GA-WC-F", "GA-AM", "GA-AM-F", "GA-PR", "MA", "MA-F"]
 
 
 def plot_fitness_evolution(
@@ -108,7 +109,7 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
             xpos = positions[cat]
             ax.hlines(min_val, xpos - 0.2, xpos + 0.2, color='red', lw=2)
             ax.hlines(max_val, xpos - 0.2, xpos + 0.2, color='blue', lw=2)
-            ax.text(xpos, min_val - 0.0003, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
+            ax.text(xpos, min_val - 0.0008, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
             ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=11, color='blue')
 
 
@@ -183,7 +184,8 @@ def plot_barplot(
     xlabel: str | None = None,
     ylabel: str | None = None,
     filename: str | None = None,
-    figsize: tuple = (12, 6)
+    figsize: tuple = (12, 6),
+    mostrar_valores: bool = False
 ):
     """
     Genera un barplot personalizado con orden opcional y guardado.
@@ -201,6 +203,7 @@ def plot_barplot(
         ylabel: Etiqueta del eje Y.
         filename: Ruta de archivo para guardado.
         figsize: Tamaño de la figura.
+        mostrar_valores: Si True, se muestran los valores encima de las barras.
     """
     # Validación de columnas
     if x not in df.columns or y not in df.columns:
@@ -238,7 +241,10 @@ def plot_barplot(
             errorbar=errorbar
         )
 
-    # Personalización
+    if mostrar_valores:
+        for container in ax.containers:
+            ax.bar_label(container, fmt="%.3f", fontsize=10, label_type="edge", padding=2)
+
     if title:
         plt.title(title, fontsize=13)
     plt.xlabel(xlabel or x, fontsize=11.5)
@@ -583,6 +589,49 @@ def guardar_dataframe(
     return agrupado_media
 
 
+def plot_metric_vs_algorithms_por_pi(
+    df: pd.DataFrame,
+    metric: str,
+    carpeta_salida: str | None = None,
+    titulo: str = "Comparación por Algoritmo para cada Porcentaje Inicial"
+):
+    """
+    Genera un barplot para cada valor de 'Porcentaje Inicial', comparando los algoritmos según una métrica.
+
+    Args:
+        df (pd.DataFrame): DataFrame con las columnas 'Porcentaje Inicial', 'Algoritmo' y la métrica.
+        metric (str): Métrica a mostrar (ej: 'Accuracy').
+        carpeta_salida (str | None): Carpeta donde guardar los gráficos. Si es None, no se guardan.
+        titulo (str): Título base para los gráficos.
+    """
+    if not {"Porcentaje Inicial", "Algoritmo", metric}.issubset(df.columns):
+        raise ValueError(f"El DataFrame debe contener las columnas necesarias: 'Porcentaje Inicial', 'Algoritmo', '{metric}'.")
+
+    valores_pi = sorted(df["Porcentaje Inicial"].unique())
+
+    for pi in valores_pi:
+        df_filtrado = df[df["Porcentaje Inicial"] == pi]
+        orden_algoritmos = [alg for alg in ORDEN_ALGORITMOS if alg in df_filtrado["Algoritmo"].unique()]
+        
+        filename = None
+        if carpeta_salida:
+            Path(carpeta_salida).mkdir(parents=True, exist_ok=True)
+            filename = f"{carpeta_salida}/BARPLOT-{metric}-algoritmos-PI-{pi}.png"
+
+        plot_barplot(
+            df=df_filtrado,
+            x="Algoritmo",
+            y=metric,
+            order=orden_algoritmos,
+            title=f"{titulo} (PI={pi})",
+            xlabel="Algoritmo",
+            ylabel=metric,
+            filename=filename,
+            mostrar_valores=True
+        )
+        print("Barplot por PI guardado en: " + filename)
+
+
 def generate_plots_from_csvs(
     archivos_csv=[
         "results/csvs/resultados_2025-02-23_17-06_task_-1.csv"
@@ -666,7 +715,8 @@ def generate_plots_from_csvs(
 
     if filename1 and filename2:
         print(f"Los Boxplot se han guardado en {filename1} y {filename2}.")
-        
+
+    plot_metric_vs_algorithms_por_pi(agrupado_media, metric="Accuracy", carpeta_salida=carpeta_img)
 
     columnas_clase = [col for col in df.columns if col.startswith("Porcentaje ") and col not in ["Porcentaje Inicial", "Porcentaje Final"]]
     

@@ -1,5 +1,0 @@
-Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
-WC-F,0.1,0:28:48,0.8978,0.8976,0.8978,0.8964,100,0.0853,0.3907,0.3302,0.2791
-WC-F,0.25,1:00:23,0.8763,0.8784,0.8763,0.8722,100,0.1488,0.3627,0.3227,0.3147
-WC-F,0.5,2:08:27,0.8306,0.8364,0.8306,0.8266,100,0.4937,0.3505,0.3223,0.3272
-WC-F,0.75,2:56:44,0.8306,0.8425,0.8306,0.8235,100,0.9627,0.3364,0.3318,0.3318

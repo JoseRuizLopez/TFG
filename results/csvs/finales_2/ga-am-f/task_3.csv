@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Paper,Porcentaje Rock,Porcentaje Scissors
+GA-AM-F,0.1,0:31:32,0.8145,0.8295,0.8145,0.8039,100,0.0782,0.3655,0.3147,0.3198
+GA-AM-F,0.25,1:03:27,0.8226,0.8258,0.8226,0.8158,100,0.198,0.3627,0.2766,0.3607
+GA-AM-F,0.5,2:10:26,0.828,0.848,0.828,0.8192,100,0.4151,0.3317,0.327,0.3413
+GA-AM-F,0.75,2:24:02,0.8172,0.8356,0.8172,0.8107,100,0.75,0.3333,0.3328,0.3339

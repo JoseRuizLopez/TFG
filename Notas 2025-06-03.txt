@@ -14,11 +14,11 @@
   - AM  ->  GA-AM
   - MEM ->  MA
 * Cambiar el nombre de los algoritmos en las gráficas.
-* Añadir tablas en las versiones libres
-* Añadir el AM-F en los Resultados finales entre enfoques
+* ✅ Añadir tablas en las versiones libres
+* ✅ Añadir el AM-F en los Resultados finales entre enfoques
 * ✅ Ordenar la tabla en el orden de los algoritmos.
 * ✅ Quitar el solapamiento del Duracion/Evaluacion de la tabla 8.5
-* Hacer un barplots de la tabla 8.5:
+* Hacer un barplots de la tabla 8.5 (Resultados detallados por porcentaje inicial de la Sintesis final):
   - Eje X Algoritmos
   - Eje Y 
   - Manteniendo el PI, viendo como mejora.
@@ -26,14 +26,14 @@
   - Viene bien para la Presentación.
 
 * En el PAINTING:
-  - Poner los algoritmos 100%, RS, AM, MEM, MEM-F.
+  - Poner los algoritmos 100%, RS, GA-AM, MA, MEM-F.
   - Intentar resumir un poco esta sección
 
 * ✅ Quitar secciones de la conclusiones.
 * ✅ Cambiar distilación por Destilacion.
 * ✅ Quitar el punto de extender el estudio a otros modelos de visión...
 
-* DIAGRAMA:
+* ✅ DIAGRAMA:
   - Seleccion de instancia
   - MH es Metaheuristica
   - ML(EfficentNet)
