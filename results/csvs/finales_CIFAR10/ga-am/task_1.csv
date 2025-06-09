@@ -1,0 +1,5 @@
+Algoritmo,Porcentaje Inicial,Duracion,Accuracy,Precision,Recall,F1-score,Evaluaciones Realizadas,Porcentaje Final,Porcentaje Airplane,Porcentaje Automobile,Porcentaje Bird,Porcentaje Cat,Porcentaje Deer,Porcentaje Dog,Porcentaje Frog,Porcentaje Horse,Porcentaje Ship,Porcentaje Truck
+GA-AM,0.1,3:16:55,0.7438,0.7479,0.7438,0.7445,100,0.1,0.101,0.0968,0.1026,0.0962,0.1008,0.0946,0.1048,0.1038,0.1018,0.0976
+GA-AM,0.25,7:15:38,0.7631,0.7644,0.7631,0.763,100,0.25,0.0986,0.0992,0.1048,0.0967,0.0964,0.1022,0.1014,0.0998,0.101,0.0998
+GA-AM,0.5,13:56:20,0.7756,0.7751,0.7756,0.775,100,0.5,0.0984,0.1024,0.1024,0.0998,0.0987,0.0982,0.0991,0.1,0.1013,0.0999
+GA-AM,0.75,20:34:17,0.7791,0.7785,0.7791,0.7781,100,0.75,0.1018,0.0998,0.0998,0.1001,0.0991,0.0998,0.1022,0.0984,0.0996,0.0995

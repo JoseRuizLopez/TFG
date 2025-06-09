@@ -39,17 +39,17 @@ if __name__ == "__main__":
 
     print(f"GPU: {torch.cuda.is_available()}")
     porcentajes = [10, 25, 50, 75]
-    evaluaciones_maximas = 100
-    evaluaciones_maximas_sin_mejora = 100
-    add_100 = True
+    evaluaciones_maximas = 5
+    evaluaciones_maximas_sin_mejora = 5
+    add_100 = False
     algoritmos = [
         # AlgorithmList.ALEATORIO,
         # AlgorithmList.BUSQUEDA_LOCAL,
         # AlgorithmList.FREE_BUSQUEDA_LOCAL,
         # AlgorithmList.GENETICO,
-        AlgorithmList.MEMETICO,
+        # AlgorithmList.MEMETICO,
         AlgorithmList.FREE_MEMETICO,
-        AlgorithmList.GENETICO2,
+        # AlgorithmList.GENETICO2,
         AlgorithmList.FREE_GENETICO2,
         # AlgorithmList.GENETICO3,
     ]
@@ -89,7 +89,7 @@ if __name__ == "__main__":
                     algoritmo=alg,
                     metric=metric.value,
                     model_name=modelo.value,
-                    adjust_size='(libre)' in alg.value,
+                    adjust_size=alg.value.endswith('-F')
                 )
 
                 resultados.append(
@@ -108,7 +108,7 @@ if __name__ == "__main__":
                     algoritmo=alg,
                     metric=metric.value,
                     model_name=modelo.value,
-                    adjust_size='(libre)' in alg.value,
+                    adjust_size=alg.value.endswith('-F')
                 )
 
                 resultados.append(
