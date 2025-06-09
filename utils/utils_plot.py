@@ -109,7 +109,7 @@ def plot_min_max_lines(df: pd.DataFrame, y_col: str, x_col: str, ax: plt.Axes):
             xpos = positions[cat]
             ax.hlines(min_val, xpos - 0.2, xpos + 0.2, color='red', lw=2)
             ax.hlines(max_val, xpos - 0.2, xpos + 0.2, color='blue', lw=2)
-            ax.text(xpos, min_val - 0.0008, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
+            ax.text(xpos, min_val - 0.0003, f'{min_val:.3f}', ha='center', va='top', fontsize=11, color='red')
             ax.text(xpos, max_val, f'{max_val:.3f}', ha='center', va='bottom', fontsize=11, color='blue')
 
 
@@ -243,7 +243,7 @@ def plot_barplot(
 
     if mostrar_valores:
         for container in ax.containers:
-            ax.bar_label(container, fmt="%.3f", fontsize=10, label_type="edge", padding=2)
+            ax.bar_label(container, fmt="%.3f", fontsize=11.5, fontweight='bold', label_type="edge", padding=2)
 
     if title:
         plt.title(title, fontsize=13)

@@ -13,12 +13,12 @@
   - WC  ->  GA-WC
   - AM  ->  GA-AM
   - MEM ->  MA
-* Cambiar el nombre de los algoritmos en las gráficas.
+* ✅ Cambiar el nombre de los algoritmos en las gráficas.
 * ✅ Añadir tablas en las versiones libres
 * ✅ Añadir el AM-F en los Resultados finales entre enfoques
 * ✅ Ordenar la tabla en el orden de los algoritmos.
 * ✅ Quitar el solapamiento del Duracion/Evaluacion de la tabla 8.5
-* Hacer un barplots de la tabla 8.5 (Resultados detallados por porcentaje inicial de la Sintesis final):
+* ✅ Hacer un barplots de la tabla 8.5 (Resultados detallados por porcentaje inicial de la Sintesis final):
   - Eje X Algoritmos
   - Eje Y 
   - Manteniendo el PI, viendo como mejora.
@@ -27,7 +27,9 @@
 
 * En el PAINTING:
   - Poner los algoritmos 100%, RS, GA-AM, MA, MEM-F.
-  - Intentar resumir un poco esta sección
+  - Intentar resumir un poco esta sección y ajustar mejor el analisis.
+  - Añadir los resultados del 75\%.
+
 
 * ✅ Quitar secciones de la conclusiones.
 * ✅ Cambiar distilación por Destilacion.
