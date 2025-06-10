@@ -1005,3 +1005,74 @@ lo que constituye una ventaja clave en tareas reales donde no siempre se dispone
 En conjunto, esta validación externa no solo refuerza las conclusiones obtenidas con \texttt{RPS},
 sino que demuestra que el uso de técnicas evolutivas, y en particular las variantes libres, puede ser una alternativa eficaz,
 escalable y controlable frente a la selección masiva o aleatoria de datos en procesos de entrenamiento profundo.
+
+
+\section{Validación con el dataset \texttt{CIFAR10}}
+Esta sección tiene como objetivo comprobar si las conclusiones obtenidas en los apartados anteriores, especialmente sobre el comportamiento de los algoritmos meméticos y las versiones libres, se mantienen en un entorno más desafiante como \texttt{CIFAR10}. A diferencia de los datasets anteriores, este conjunto presenta una mayor complejidad visual, baja resolución y una fuerte variabilidad intraclase, lo que lo convierte en un entorno ideal para validar la generalización y robustez de las soluciones propuestas. Asimismo, se busca identificar posibles contradicciones o limitaciones que pudieran no haber sido evidentes en entornos más simples.
+
+Para ello, se evalúan los algoritmos que han mostrado mejor rendimiento hasta ahora (\texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA}, \texttt{MA-F}) y se incluye como referencia el modelo entrenado con el \texttt{100\%} del conjunto de datos.
+
+\subsection{Evaluación general del rendimiento}
+
+La Figura~\ref{fig:cifar10_boxplot} presenta la distribución de precisión obtenida por cada algoritmo. Las cuatro variantes superan la mediana del modelo de referencia (\textbf{0.778}), confirmando que una selección informada puede ser más eficaz que el uso completo e indiscriminado de datos. Destacan \texttt{GA-AM-F} y \texttt{MA-F}, que alcanzan máximos de \textbf{0.805} y \textbf{0.808}, respectivamente.
+
+Más allá de la precisión máxima, se observa que las versiones libres reducen la dispersión entre ejecuciones, reforzando su estabilidad en condiciones más adversas. Este comportamiento respalda lo ya observado en los datasets \texttt{RPS} y \texttt{PAINTING}.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-por-algoritmo.png}
+    \caption{Distribución de \texttt{accuracy} obtenida para cada algoritmo sobre \texttt{CIFAR10}.}
+    \label{fig:cifar10_boxplot}
+\end{figure}
+
+\subsection{Comparativa con las versiones libres}
+
+La Figura~\ref{fig:cifar10_fija_vs_libre} compara directamente las versiones \texttt{FIJA} y \texttt{LIBRE} para los algoritmos \texttt{GA-AM} y \texttt{MA}. Al igual que en datasets anteriores, las versiones libres muestran una ligera mejora en precisión media y una reducción de la varianza.
+
+No obstante, en este entorno más exigente, la diferencia entre versiones fijas y libres se reduce, lo que sugiere que la ventaja del ajuste dinámico del tamaño del subconjunto puede verse atenuada por la complejidad del conjunto de datos. Aun así, las versiones libres mantienen una ligera superioridad, lo que valida su utilidad incluso en escenarios de mayor dificultad.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-libres.png}
+    \caption{Comparativa de precisión entre versiones fijas y libres para los algoritmos evolutivos.}
+    \label{fig:cifar10_fija_vs_libre}
+\end{figure}
+
+\subsection{Consistencia frente al porcentaje inicial}
+
+La Figura~\ref{fig:cifar10_porcentaje} muestra cómo evoluciona la precisión en función del porcentaje de datos iniciales. Se confirma que, a partir del \texttt{25\%}, los algoritmos son capaces de alcanzar precisiones cercanas o incluso superiores al entrenamiento completo.
+
+Este resultado valida de nuevo la capacidad de los algoritmos para realizar una optimización eficiente con recursos limitados. Además, evidencia que las conclusiones obtenidas en \texttt{PAINTING} —donde el \texttt{50\%} superaba al \texttt{100\%}— no eran un caso aislado.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/comparacion_por_porcentaje.png}
+    \caption{Precisión media alcanzada según el porcentaje inicial de datos. Las barras representan intervalos de confianza.}
+    \label{fig:cifar10_porcentaje}
+\end{figure}
+
+\subsection{Distribución de clases}
+
+La Figura~\ref{fig:cifar10_balance} presenta la distribución de clases en los subconjuntos generados por los algoritmos. Todos mantienen una proporción equilibrada, lo que garantiza que las mejoras de rendimiento no provienen de sesgos estructurales, sino de un proceso evolutivo eficaz.
+
+Este equilibrio ya fue observado en \texttt{RPS} y \texttt{PAINTING}, lo que refuerza la consistencia de los algoritmos propuestos en distintos contextos.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/balance-de-clases.png}
+    \caption{Porcentaje de instancias por clase tras aplicar cada algoritmo. La distribución permanece prácticamente uniforme.}
+    \label{fig:cifar10_balance}
+\end{figure}
+
+\subsection{Conclusiones}
+
+Los resultados obtenidos con \texttt{CIFAR10} permiten validar las principales conclusiones extraídas en las fases anteriores del estudio:
+
+\begin{itemize}
+    \item Todos los algoritmos evaluados superan el rendimiento del modelo entrenado con el 100\% del dataset, confirmando que una selección óptima puede ser más eficaz que el uso de datos sin filtrar.
+    \item Las variantes libres (\texttt{-F}) mantienen su superioridad frente a las versiones fijas, aunque en este caso la ventaja es más moderada.
+    \item A partir del 25\% de datos, los algoritmos alcanzan rendimientos muy competitivos, lo que confirma su utilidad en contextos de alta restricción de recursos.
+    \item La distribución de clases permanece estable en todos los casos, descartando que las mejoras observadas se deban a sesgos de clase.
+\end{itemize}
+
+En resumen, \texttt{MA-F} vuelve a consolidarse como la opción más prometedora, combinando precisión elevada, baja varianza y adaptabilidad ante diferentes porcentajes iniciales. Además, esta validación refuerza que las conclusiones alcanzadas en entornos más simples son extrapolables a escenarios de mayor dificultad, demostrando la solidez general del enfoque propuesto.
