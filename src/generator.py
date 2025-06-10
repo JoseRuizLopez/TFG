@@ -38,19 +38,19 @@ if __name__ == "__main__":
     print(f"Task ID recibido: {task_id}")
 
     print(f"GPU: {torch.cuda.is_available()}")
-    porcentajes = [10, 25, 50, 75]
-    evaluaciones_maximas = 5
-    evaluaciones_maximas_sin_mejora = 5
+    porcentajes = [75]
+    evaluaciones_maximas = 100
+    evaluaciones_maximas_sin_mejora = 100
     add_100 = False
     algoritmos = [
-        # AlgorithmList.ALEATORIO,
+        AlgorithmList.ALEATORIO,
         # AlgorithmList.BUSQUEDA_LOCAL,
         # AlgorithmList.FREE_BUSQUEDA_LOCAL,
         # AlgorithmList.GENETICO,
-        # AlgorithmList.MEMETICO,
+        AlgorithmList.MEMETICO,
         AlgorithmList.FREE_MEMETICO,
         # AlgorithmList.GENETICO2,
-        AlgorithmList.FREE_GENETICO2,
+        # AlgorithmList.FREE_GENETICO2,
         # AlgorithmList.GENETICO3,
     ]
 
