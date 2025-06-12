@@ -117,7 +117,7 @@ if __name__ == "__main__":
                         "Algoritmo": alg.value
                     }
                 )
-                
+
     schema = {
         "Algoritmo": pl.Utf8,
         "Porcentaje Inicial": pl.Float64,
