@@ -1,7 +1,7 @@
 * ✅ Cambiar el nombre de Entorno de Pruebas por Entorno Experimental
 * ✅ Cambiar "estilizacion" por una mejor definición.
 * ✅ Tabla 2.1 y 2.3 alinear los numeros a la derecha.
-* ✅ Quitare el Total de la Tabla 2.3
+* ✅ Quitar el Total de la Tabla 2.3
 * ✅ Poner el tamaño de los datasets exactos.
 * ✅ Cambiar Duracion por Eva. por Eval.
 * ✅ Incluir mi Github en el apartado de implementación y en la organizacion de tareas
@@ -40,5 +40,7 @@
   - ML(EfficentNet)
   - Devuelvo el modelo entrenado para pasarle el test
   - El box ML(EfficentNet) Entrenado
+
+* ✅ Corregir los comentarios realizados en el PDF.
 
 Coordinador: Javier Medina

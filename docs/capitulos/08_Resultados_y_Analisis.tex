@@ -106,7 +106,6 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
     \label{fig:comparacion_modelos}
 \end{figure}
 
-\colorbox{yellow}{Volver a ejecutar los resultados para comprobar tiempos.}
 Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto \texttt{ResNet50} como \texttt{MobileNetV2}.
 Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo,
 y en la Figura~\ref{fig:comparacion_modelos}, que muestra la comparación de los valores de \textit{accuracy} mediantes barras separados por los porcentajes iniciales.
@@ -117,16 +116,16 @@ Por su parte, \texttt{MobileNetV2} ofrece una solución más eficiente en cuanto
 lo que la convierte en una opción atractiva para entornos con recursos computacionales limitados.
 
 Aunque \texttt{ResNet50} alcanza la mayor precisión con el 100\% de los datos, su huella computacional (aproximádamente 25M parámetros) encarece la ejecución de los cientos de entrenamientos requeridos en los experimentos de reducción.
-\texttt{MobileNetV2}, con solo 3,5 M parámetros, reduce entre un 45\% y un 60\% el tiempo total de entrenamiento y 
+\texttt{MobileNetV2}, con solo 3,5 M parámetros, reduce entre un 45\% y un 60\% el tiempo total de entrenamiento y
 permite reproducir el estudio en hardware modesto sin sacrificar más de 5-6 puntos porcentuales de precisión en los subconjuntos evaluados.
 Por tanto, se adopta \texttt{MobileNetV2} como modelo principal, priorizando la eficiencia sobre la ligera ventaja de \texttt{ResNet50}.
 El \texttt{RS} queda como línea base para cuantificar las mejoras aportadas por los algoritmos de reducción propuestos
 
-Aunque \texttt{ResNet50} obtiene los mejores resultados cuando se utiliza 100\% de los datos, 
+Aunque \texttt{ResNet50} obtiene los mejores resultados cuando se utiliza 100\% de los datos,
 su elevado coste computacional hace que no sea práctico para este trabajo.
-Dado que los experimentos requieren entrenar el modelo cientos de veces con diferentes subconjuntos, 
+Dado que los experimentos requieren entrenar el modelo cientos de veces con diferentes subconjuntos,
 usar una red tan pesada como \texttt{ResNet50} resultaría demasiado costoso en tiempo y recursos.
-En cambio, \texttt{MobileNetV2} ofrece una alternativa mucho más ligera, 
+En cambio, \texttt{MobileNetV2} ofrece una alternativa mucho más ligera,
 reduciendo notablemente los tiempos de entrenamiento y permitiendo realizar todos los experimentos incluso en equipos con menos capacidad.
 Además, la pérdida de precisión respecto a \texttt{ResNet50} es moderada y aceptable para los objetivos del estudio.
 Por ello, se elige \texttt{MobileNetV2} como modelo principal, priorizando la eficiencia.
@@ -843,7 +842,7 @@ Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superan
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
 Para validar la robustez de los algoritmos propuestos, se emplea el dataset \texttt{PAINTING},
 caracterizado por una elevada complejidad visual y un número superior de clases respecto al conjunto \texttt{RPS}.
-Los experimentos se limitan a los porcentajes iniciales del 25\% y 50\%, utilizando los algoritmos \texttt{MA} y \texttt{MA-F}, identificados previamente como los más efectivos.
+Los experimentos se realizan con los porcentajes iniciales del 25\%, 50\% y 75\%, utilizando los algoritmos \texttt{MA} y \texttt{MA-F}, identificados previamente como los más efectivos.
 Como referencia comparativa, se incluyen también resultados con el 100\% del dataset y la \texttt{RS}.
 
 \subsection{Comparación entre algoritmos}
@@ -855,13 +854,27 @@ Como referencia comparativa, se incluyen también resultados con el 100\% del da
     \label{fig:comparacion-por-algoritmo}
 \end{figure}
 
-En la Figura~\ref{fig:comparacion-por-algoritmo} se muestran los valores de \textit{accuracy} obtenidos por cada algoritmo en el dataset \texttt{PAINTING}.
-El algoritmo \texttt{MA-F} destaca particularmente, alcanzando una mediana de \textbf{0.927} y superando al modelo entrenado con el 100\% de datos (mediana \textbf{0.924}).
-El algoritmo \texttt{MA} también obtiene resultados sólidos, aunque con mayor dispersión.
+En la Figura~\ref{fig:comparacion-por-algoritmo} se muestran los valores de \textit{accuracy} obtenidos por cada algoritmo.
+El algoritmo \texttt{MA-F} sigue destacando, alcanzando una mediana de \textbf{0.933} cuando se parte del 50\% de los datos,
+superando al modelo entrenado con el 100\% del conjunto (mediana \textbf{0.924}).
+El algoritmo \texttt{MA} obtiene también resultados sólidos, especialmente con el 75\%.
 
-Por otro lado, siguiendo con la línea observada previamente en \texttt{RPS}, la \texttt{RS} presenta una alta variabilidad,
-con resultados menos consistentes y mediana similar al entrenamiento completo.
-Estos hallazgos confirman nuevamente que la calidad y la representatividad de los datos tienen más relevancia que su cantidad absoluta.
+La \texttt{RS} presenta de nuevo mayor variabilidad, y aunque alcanza un valor máximo competitivo, su rendimiento es menos estable.
+Estos resultados refuerzan que la representatividad del subconjunto es un factor más relevante que su tamaño absoluto.
+
+\subsection{Evolución del tamaño del subconjunto}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
+    \caption{Comparacion del tamaño del subconjunto seleccionado por los \texttt{MA} y \texttt{RS} según el porcentaje inicial y mostrando \texttt{accuracy}.}
+    \label{fig:scatter-painting}
+\end{figure}
+
+La Figura~\ref{fig:scatter-painting} muestra cómo evoluciona dinámicamente el tamaño final de los subconjuntos generados por \texttt{MA-F}.
+El algoritmo incrementa el número de instancias cuando detecta beneficios significativos en la precisión, siendo más agresivo con puntos de partida bajos.
+Por ejemplo, al iniciar con el 25\% y 50\%, el tamaño final aumenta hasta un 41,35\% y 68,69\% respectivamente.
+En cambio, con un 75\% inicial, el incremento es más moderado, alcanzando un 78,29\%.
 
 \subsection{Impacto del porcentaje inicial}
 
@@ -875,13 +888,21 @@ Estos hallazgos confirman nuevamente que la calidad y la representatividad de lo
             \midrule
             \multicolumn{7}{l}{\textbf{25\%}}                                                                                                                                 \\
             \midrule
+            RS                 & 91,80\%                 & 91,49\%                  & 91,80\%               & 91,57\%                 & 100                   & 25,00\%       \\
             MA                 & 91,89\%                 & 91,63\%                  & 91,89\%               & 91,67\%                 & 100                   & 25,00\%       \\
             MA-F               & 92,24\%                 & 92,06\%                  & 92,24\%               & 92,09\%                 & 100                   & 41,35\%       \\
             \midrule
             \multicolumn{7}{l}{\textbf{50\%}}                                                                                                                                 \\
             \midrule
+            RS                 & 92,69\%                 & 92,52\%                  & 92,69\%               & 92,55\%                 & 100                   & 50,00\%       \\
             MA                 & 92,73\%                 & 92,61\%                  & 92,73\%               & 92,63\%                 & 100                   & 50,00\%       \\
             MA-F               & 93,11\%                 & 93,00\%                  & 93,11\%               & 93,01\%                 & 100                   & 68,69\%       \\
+            \midrule
+            \multicolumn{7}{l}{\textbf{75\%}}                                                                                                                                 \\
+            \midrule
+            RS                 & 93,14\%                 & 92,97\%                  & 93,14\%               & 93,01\%                 & 100                   & 75,00\%       \\
+            MA                 & 93,11\%                 & 92,93\%                  & 93,11\%               & 92,99\%                 & 100                   & 75,29\%       \\
+            MA-F               & 93,02\%                 & 92,88\%                  & 93,02\%               & 92,92\%                 & 100                   & 78,29\%       \\
             \midrule
             \multicolumn{7}{l}{\textbf{100\%}}                                                                                                                                \\
             \midrule
@@ -889,13 +910,9 @@ Estos hallazgos confirman nuevamente que la calidad y la representatividad de lo
             \bottomrule
         \end{tabular}
     }
-    \caption{Resultados de los algoritmos meméticos y uso del 100\% en el dataset \texttt{PAINTING}.}
+    \caption{Resultados de los algoritmos meméticos, aleatorio y uso del 100\% en el dataset \texttt{PAINTING}.}
     \label{tab:resultados-memetico-painting}
 \end{table}
-
-
-\colorbox{yellow}{FALTA añadir los resultados del 75\%.}
-
 
 \begin{figure}[htp]
     \centering
@@ -904,10 +921,13 @@ Estos hallazgos confirman nuevamente que la calidad y la representatividad de lo
     \label{fig:accuracy_porcentaje_painting}
 \end{figure}
 
-Los resultados de la Figura~\ref{fig:accuracy_porcentaje_painting} y la Tabla~\ref{tab:resultados-memetico-painting} refuerzan lo ya observado en otros datasets:
-no siempre es necesario usar todo el conjunto de entrenamiento para alcanzar el máximo rendimiento.
-El 50\% inicial ofrece los mejores resultados, superando al 100\% del dataset en estabilidad y precisión máxima (\textbf{0.933}).
-El uso del 25\% inicial, aunque presenta buenos resultados, muestra cierta fragilidad en términos de estabilidad, evidenciada por un menor valor mínimo (\textbf{0.917}).
+Los resultados de las Figuras~\ref{fig:accuracy_porcentaje_painting} y~\ref{fig:scatter-painting}, junto con la Tabla~\ref{tab:resultados-memetico-painting},
+refuerzan la conclusión de que no es necesario utilizar el 100\% del conjunto para lograr rendimientos óptimos.
+Los porcentajes iniciales del 50\% y 75\% muestran una excelente capacidad para generalizar,
+superando al conjunto completo en estabilidad y máxima precisión alcanzada (\textbf{0.933}).
+El 25\% inicial, si bien logra resultados competitivos, evidencia una mayor sensibilidad a la variabilidad del subconjunto,
+una tendencia que también se manifestó en los resultados del dataset \texttt{RPS} cuando se empleaban subconjuntos muy reducidos.
+
 
 \subsection{Distribución y equilibrio de clases}
 
@@ -922,19 +942,6 @@ La Figura~\ref{fig:balance_clases_painting} muestra cómo se preserva la proporc
 un aspecto que también se respetó en experimentos anteriores.
 La capacidad de mantener esta diversidad es clave para evitar sesgos de entrenamiento,
 como se discutió al comparar los métodos evolutivos frente a selección aleatoria.
-
-\subsection{Evolución del tamaño del subconjunto}
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
-    \caption{Evolución del tamaño del subconjunto seleccionado por los algoritmos libres según el porcentaje inicial.}
-    \label{fig:evolucion_porcentaje_libre}
-\end{figure}
-
-En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona dinámicamente el tamaño del subconjunto seleccionado por \texttt{MA-F}.
-El algoritmo incrementa de forma adaptativa el tamaño inicial cuando detecta oportunidades de mejora en precisión.
-Este comportamiento se refleja claramente en los resultados finales, particularmente al iniciar con el 25\% y 50\%, incrementándose en un 16,35\% y 18,69\% respectivamente.
 
 \subsection{Síntesis final}
 La validación con el dataset \texttt{PAINTING} confirma la efectividad y generalización de los algoritmos meméticos, especialmente la variante libre.
