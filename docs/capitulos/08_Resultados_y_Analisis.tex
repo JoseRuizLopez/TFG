@@ -30,18 +30,18 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
             \bottomrule
         \end{tabular}
     }
-    \caption{Comparativa de resultados del \textbf{100\%} con los modelos \textbf{ResNet50} y \textbf{MobileNet}.}
+    \caption{Comparativa de resultados del \textbf{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
     \label{tab:resultados-100-resnet50-mobilenet}
 \end{table}
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100.png}
-    \caption{Comparación de \textit{accuracy} de los modelos ResNet50 y MobileNetV2 usando el 100\% del conjunto de datos.}
+    \caption{Comparación de \textit{accuracy} de los modelos \texttt{ResNet50} y \texttt{MobileNet} usando el 100\% del conjunto de datos.}
     \label{fig:comparacion_modelos_100}
 \end{figure}
 
-Los resultados presentados en la tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la figura~\ref{fig:comparacion_modelos_100},
+Los resultados presentados en la Tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la Figura~\ref{fig:comparacion_modelos_100},
 representan el rendimiento máximo alcanzable en condiciones ideales,
 es decir, utilizando la totalidad del conjunto de datos sin aplicar técnicas de reducción.
 Este escenario establece un techo de rendimiento que se utiliza como referencia para evaluar la eficacia de
@@ -100,26 +100,37 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
 \end{table}
 
 \begin{figure}[htp]
-    \centeringñ
+    \centering
     \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos.png}
     \caption{Diagrama de barras para comparar los modelos usando el \textit{accuracy} alcanzado por cada porcentaje inicial.}
     \label{fig:comparacion_modelos}
 \end{figure}
 
 \colorbox{yellow}{Volver a ejecutar los resultados para comprobar tiempos.}
-Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto ResNet50 como MobileNetV2.
+Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto \texttt{ResNet50} como \texttt{MobileNetV2}.
 Los resultados obtenidos se presentan en la Tabla~\ref{tab:resnet50-vs-mobilenet}, que resume las métricas alcanzadas por cada modelo,
 y en la Figura~\ref{fig:comparacion_modelos}, que muestra la comparación de los valores de \textit{accuracy} mediantes barras separados por los porcentajes iniciales.
 
-Los resultados muestran que ResNet50 logra un mejor rendimiento en términos de \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score}.
+Los resultados muestran que \texttt{ResNet50} logra un mejor rendimiento en términos de \textit{accuracy}, \textit{precision}, \textit{recall} y \textit{F1-score}.
 Sin embargo, este mejor rendimiento viene acompañado de un tiempo de entrenamiento considerablemente mayor.
-Por su parte, MobileNetV2 ofrece una solución más eficiente en cuanto a tiempos de ejecución, a costa de una ligera pérdida de precisión,
+Por su parte, \texttt{MobileNetV2} ofrece una solución más eficiente en cuanto a tiempos de ejecución, a costa de una ligera pérdida de precisión,
 lo que la convierte en una opción atractiva para entornos con recursos computacionales limitados.
 
-En conjunto, esta comparativa inicial permite elegir MobileNetV2 como modelo principal para el resto de experimentos.
-Aunque ResNet50 ofrece una precisión ligeramente superior, su elevado coste computacional no justifica su uso en las pruebas de reducción de datos,
-donde la eficiencia es un factor clave.
-Además, el uso del \texttt{RS} como referencia permite establecer un punto de comparación para evaluar las mejoras que los algoritmos propuestos aportarían sobre esta línea base.
+Aunque \texttt{ResNet50} alcanza la mayor precisión con el 100\% de los datos, su huella computacional (aproximádamente 25M parámetros) encarece la ejecución de los cientos de entrenamientos requeridos en los experimentos de reducción.
+\texttt{MobileNetV2}, con solo 3,5 M parámetros, reduce entre un 45\% y un 60\% el tiempo total de entrenamiento y 
+permite reproducir el estudio en hardware modesto sin sacrificar más de 5-6 puntos porcentuales de precisión en los subconjuntos evaluados.
+Por tanto, se adopta \texttt{MobileNetV2} como modelo principal, priorizando la eficiencia sobre la ligera ventaja de \texttt{ResNet50}.
+El \texttt{RS} queda como línea base para cuantificar las mejoras aportadas por los algoritmos de reducción propuestos
+
+Aunque \texttt{ResNet50} obtiene los mejores resultados cuando se utiliza 100\% de los datos, 
+su elevado coste computacional hace que no sea práctico para este trabajo.
+Dado que los experimentos requieren entrenar el modelo cientos de veces con diferentes subconjuntos, 
+usar una red tan pesada como \texttt{ResNet50} resultaría demasiado costoso en tiempo y recursos.
+En cambio, \texttt{MobileNetV2} ofrece una alternativa mucho más ligera, 
+reduciendo notablemente los tiempos de entrenamiento y permitiendo realizar todos los experimentos incluso en equipos con menos capacidad.
+Además, la pérdida de precisión respecto a \texttt{ResNet50} es moderada y aceptable para los objetivos del estudio.
+Por ello, se elige \texttt{MobileNetV2} como modelo principal, priorizando la eficiencia.
+Así, el \texttt{RS} se utiliza como punto de referencia para evaluar el impacto de las estrategias de reducción de datos.
 
 
 \section{Resultados de la búsqueda local}\label{sec:resultados-busqueda-local}
@@ -318,7 +329,7 @@ lo cual es especialmente evidente en el escenario de menor porcentaje inicial (1
 Esta tendencia sugiere que el reinicio poblacional, al reintroducir diversidad de forma abrupta,
 puede generar soluciones subóptimas que no contribuyen de manera sustancial a mejorar la población.
 
-La tabla de resultados~\ref{tab:resultados-am-pr-porcentaje} respalda estas observaciones: en promedio,
+La Tabla de resultados~\ref{tab:resultados-am-pr-porcentaje} respalda estas observaciones: en promedio,
 el algoritmo \texttt{GA-AM} presenta una ligera superioridad en precisión media (\textbf{83,66\%} frente a \textbf{81,93\%} en el 10\%), así como en F1-score y recall.
 Estas diferencias, aunque no drásticas, son consistentes en la mayoría de los escenarios.
 Además, las métricas de distribución de clases y las duraciones de ejecución son prácticamente equivalentes entre \texttt{GA-AM} y \texttt{GA-PR},
@@ -830,16 +841,13 @@ Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superan
 
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
-Para comprobar la robustez de los algoritmos desarrollados, se validan los experimentos con el dataset \texttt{PAINTING},
-caracterizado por una mayor complejidad visual y un número superior de clases respecto al conjunto \texttt{RPS}.
-Con el fin de mantener un equilibrio entre complejidad y coste computacional, se limitan los experimentos a los porcentajes iniciales del 25\% y 50\%,
-evaluando únicamente los algoritmos más representativos.
+Para validar la robustez de los algoritmos propuestos, se emplea el dataset \texttt{PAINTING},
+caracterizado por una elevada complejidad visual y un número superior de clases respecto al conjunto \texttt{RPS}.
+Los experimentos se limitan a los porcentajes iniciales del 25\% y 50\%, utilizando los algoritmos \texttt{MA} y \texttt{MA-F}, identificados previamente como los más efectivos.
+Como referencia comparativa, se incluyen también resultados con el 100\% del dataset y la \texttt{RS}.
 
-En particular, se selecciona el \texttt{MA}, junto con su versión libre, ya que ambos han demostrado ser los más eficaces en las pruebas anteriores.
-Para establecer una referencia clara, se incluyen también los resultados obtenidos usando el 100\% del conjunto de datos, y para la comparación de
-\textit{accuracy} entre algoritmos también se añade el resultado del \texttt{RS}.
+\subsection{Comparación entre algoritmos}
 
-\subsection{Comparación de \textit{accuracy} entre algoritmos}
 \begin{figure}[htp]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo.png}
@@ -847,51 +855,15 @@ Para establecer una referencia clara, se incluyen también los resultados obteni
     \label{fig:comparacion-por-algoritmo}
 \end{figure}
 
-En la Figura~\ref{fig:comparacion-por-algoritmo} se comparan los valores de \textit{accuracy} obtenidos al aplicar distintos
-algoritmos de selección de subconjuntos en el conjunto de datos \texttt{PAINTING}.
-A simple vista, destaca el buen rendimiento de los tres enfoques meméticos frente al uso directo del 100\% del conjunto o la selección aleatoria,
-lo cual es especialmente significativo al tratarse de un conjunto con alta complejidad visual y estructural.
+En la Figura~\ref{fig:comparacion-por-algoritmo} se muestran los valores de \textit{accuracy} obtenidos por cada algoritmo en el dataset \texttt{PAINTING}.
+El algoritmo \texttt{MA-F} destaca particularmente, alcanzando una mediana de \textbf{0.927} y superando al modelo entrenado con el 100\% de datos (mediana \textbf{0.924}).
+El algoritmo \texttt{MA} también obtiene resultados sólidos, aunque con mayor dispersión.
 
-El \texttt{MA-F} obtiene el mejor rendimiento general, con una mediana que ronda el \textbf{0.927} y un valor máximo de \textbf{0.933},
-superando incluso la ejecución con el 100\% de los datos, cuyo máximo se sitúa en \textbf{0.929}.
-Esto no solo refuerza su capacidad de generalización, sino que demuestra que una selección optimizada puede superar a la totalidad del conjunto original,
-posiblemente por eliminar ejemplos redundantes o incluso perjudiciales.
-
-El \texttt{MA} también muestra una precisión elevada, con una mediana apenas inferior al libre, y un máximo de \textbf{0.931}.
-Sin embargo, su varianza es ligeramente mayor, lo que sugiere que la falta de ajuste dinámico del tamaño del subconjunto puede limitar su adaptabilidad en ciertas ejecuciones.
-
-Por otro lado, la selección aleatoria, aunque muestra valores aceptables, vuelve a confirmar su principal debilidad: la alta dispersión.
-Con un mínimo de \textbf{0.916} y una mediana prácticamente idéntica a la obtenida con el uso completo del dataset,
-su comportamiento se sitúa como una referencia básica pero poco fiable.
-Puede alcanzar buenos resultados, pero lo hace de forma inconsistente y sin mecanismos que garanticen estabilidad.
-
-La ejecución con el \textbf{100\%} de los datos, utilizada como referencia absoluta, queda por debajo de las soluciones obtenidas por los algoritmos meméticos.
-Esto valida empíricamente que no es la cantidad de datos, sino su calidad y representatividad, lo que determina la eficacia del entrenamiento en entornos complejos.
-
-En resumen, los algoritmos meméticos, especialmente en su versión libre, muestran el mejor rendimiento en términos de precisión y estabilidad,
-superando al uso del 100\% de los datos y al enfoque aleatorio.
+Por otro lado, siguiendo con la línea observada previamente en \texttt{RPS}, la \texttt{RS} presenta una alta variabilidad,
+con resultados menos consistentes y mediana similar al entrenamiento completo.
+Estos hallazgos confirman nuevamente que la calidad y la representatividad de los datos tienen más relevancia que su cantidad absoluta.
 
 \subsection{Impacto del porcentaje inicial}
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje.png}
-    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
-    \label{fig:accuracy_porcentaje_painting}
-\end{figure}
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem.png}
-    \caption{Boxplot de \textit{accuracy} para el algoritmo memético (\texttt{MA}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
-    \label{fig:comparacion-por-porcentaje-mem}
-\end{figure}
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje-mem-f.png}
-    \caption{Boxplot de \textit{accuracy} para el algoritmo memético libre (\texttt{MA-F}) según el porcentaje inicial de datos en el dataset \texttt{PAINTING}.}
-    \label{fig:comparacion-por-porcentaje-mem-f}
-\end{figure}
 
 \begin{table}[htp]
     \centering
@@ -921,35 +893,24 @@ superando al uso del 100\% de los datos y al enfoque aleatorio.
     \label{tab:resultados-memetico-painting}
 \end{table}
 
+
 \colorbox{yellow}{FALTA añadir los resultados del 75\%.}
 
 
-\colorbox{yellow}{FALTA ajustar mejor el analisis.}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje.png}
+    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
+    \label{fig:accuracy_porcentaje_painting}
+\end{figure}
 
-La Figura~\ref{fig:accuracy_porcentaje_painting} muestra cómo varía el rendimiento del modelo (medido en términos de \textit{accuracy})
-al utilizar diferentes porcentajes iniciales de datos para los algoritmos meméticos en el dataset \texttt{PAINTING}.
-Lo primero que destaca es que el uso del 50\% del conjunto original no solo logra un rendimiento equiparable, sino incluso superior al uso del 100\%.
-Con una mediana cercana a \textbf{0.930} y un máximo de \textbf{0.933}, este porcentaje logra un equilibrio ideal entre compresión de datos y preservación de información relevante.
+Los resultados de la Figura~\ref{fig:accuracy_porcentaje_painting} y la Tabla~\ref{tab:resultados-memetico-painting} refuerzan lo ya observado en otros datasets:
+no siempre es necesario usar todo el conjunto de entrenamiento para alcanzar el máximo rendimiento.
+El 50\% inicial ofrece los mejores resultados, superando al 100\% del dataset en estabilidad y precisión máxima (\textbf{0.933}).
+El uso del 25\% inicial, aunque presenta buenos resultados, muestra cierta fragilidad en términos de estabilidad, evidenciada por un menor valor mínimo (\textbf{0.917}).
 
-Este resultado sugiere que, a partir de cierto umbral, añadir más datos no solo deja de aportar valor, sino que puede introducir ruido o redundancia.
-En este caso, el entrenamiento con el 100\% de los datos exhibe mayor dispersión y un mínimo significativamente más bajo (\textbf{0.912}),
-lo cual indica una mayor variabilidad entre ejecuciones y una menor estabilidad general.
+\subsection{Distribución y equilibrio de clases}
 
-Por otro lado, el uso del 25\% inicial también demuestra un rendimiento sorprendentemente competitivo,
-alcanzando un máximo de \textbf{0.925}.
-Sin embargo, su rango intercuartílico más estrecho (menor dispersión de los resultados) y su menor valor mínimo
-(\textbf{0.917}) evidencian una cierta fragilidad ante la reducción excesiva:
-puede funcionar bien si la selección es óptima, pero el margen de error es menor.
-
-Este comportamiento ilustra un fenómeno interesante en la reducción de datos: no existe una relación lineal entre cantidad de datos y precisión,
-sino que el valor está en la calidad y representatividad del subconjunto.
-El resultado más robusto refuerza la hipótesis de que existe un punto de saturación
-a partir del cual la adición de ejemplos tiene un efecto marginal o incluso contraproducente en modelos convolucionales.
-
-En resumen, los resultados respaldan la viabilidad de utilizar una fracción cuidadosamente seleccionada de datos para obtener
-resultados comparables o incluso superiores al uso del conjunto completo.
-
-\subsection{Equilibrio en la distribución de clases}
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo.png}
@@ -957,16 +918,13 @@ resultados comparables o incluso superiores al uso del conjunto completo.
     \label{fig:balance_clases_painting}
 \end{figure}
 
-La Figura~\ref{fig:balance_clases_painting} muestra la proporción de clases preservada por cada algoritmo durante el proceso de reducción.
-Se observa que tanto el \texttt{MA} como el \texttt{MA-F} mantienen una distribución prácticamente idéntica a la original,
-sin introducir sesgos estructurales.
-
-Las clases mayoritarias (\texttt{Iconography}, \texttt{Painting} y \texttt{Sculpture}) se mantienen consistentes en su proporción,
-al igual que las clases minoritarias (\texttt{Drawings} y \texttt{Engraving}).
-Esta conservación sugiere que el proceso de selección no actúa de forma aleatoria ni ciega,
-sino que incorpora implícitamente una presión hacia la diversidad, lo cual es clave en problemas multiclase.
+La Figura~\ref{fig:balance_clases_painting} muestra cómo se preserva la proporción entre clases,
+un aspecto que también se respetó en experimentos anteriores.
+La capacidad de mantener esta diversidad es clave para evitar sesgos de entrenamiento,
+como se discutió al comparar los métodos evolutivos frente a selección aleatoria.
 
 \subsection{Evolución del tamaño del subconjunto}
+
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
@@ -974,49 +932,39 @@ sino que incorpora implícitamente una presión hacia la diversidad, lo cual es 
     \label{fig:evolucion_porcentaje_libre}
 \end{figure}
 
-\colorbox{yellow}{Volver a mencionar la tabla de resultados.}
+En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona dinámicamente el tamaño del subconjunto seleccionado por \texttt{MA-F}.
+El algoritmo incrementa de forma adaptativa el tamaño inicial cuando detecta oportunidades de mejora en precisión.
+Este comportamiento se refleja claramente en los resultados finales, particularmente al iniciar con el 25\% y 50\%, incrementándose en un 16,35\% y 18,69\% respectivamente.
 
-En la Figura~\ref{fig:evolucion_porcentaje_libre} se analiza cómo evoluciona el tamaño de los subconjuntos seleccionados por los algoritmos libres respecto al valor inicial.
-Se observa que el \texttt{MA-F} tiende a incrementar el porcentaje de imágenes seleccionadas durante el proceso evolutivo.
+\subsection{Síntesis final}
+La validación con el dataset \texttt{PAINTING} confirma la efectividad y generalización de los algoritmos meméticos, especialmente la variante libre.
+Los resultados subrayan que seleccionar datos representativos es más beneficioso que usar el conjunto completo, ofreciendo precisión elevada con menor coste computacional.
 
-Este comportamiento adaptativo pone de manifiesto la capacidad del algoritmo para ajustar dinámicamente la escala de la solución en función de la complejidad del problema.
-A diferencia de enfoques con tamaño fijo, el algoritmo libre no solo decide qué ejemplos seleccionar, sino también cuántos,
-ampliando el conjunto cuando detecta que puede mejorar el rendimiento sin incurrir en sobreajuste.
-
-Además, se observa que al partir del 25\% inicial, el algoritmo tiende a aumentar el tamaño del subconjunto hasta un 16,35\% adicional,
-en cambio, al partir del 50\% inicial, el crecimiento es mayor, alcanzando un 18,69\% adicional.
-Este hecho puede sugerir una cierta prudencia evolutiva: el algoritmo no se expande indiscriminadamente,
-sino que responde a señales de mejora en el proceso de evaluación.
-Este mecanismo emergente refuerza la versatilidad del enfoque libre, que no solo busca soluciones de alta calidad,
-sino que lo hace optimizando también el volumen de datos utilizados.
-
-
-\bigskip
-
-\subsection*{Síntesis final de la validación con \texttt{PAINTING}}
-Los resultados obtenidos con el dataset \texttt{PAINTING} confirman la solidez y capacidad de generalización de los algoritmos desarrollados.
-Tanto el enfoque memético estándar como, especialmente, su versión libre, lograron mantener un rendimiento competitivo en un entorno más complejo y con mayor número de clases.
-
-Se evidencia que es posible superar el rendimiento del conjunto completo de entrenamiento utilizando únicamente un subconjunto bien seleccionado,
-reduciendo significativamente el volumen de datos sin comprometer la precisión.
-Además, los algoritmos meméticos demuestra preservar el equilibrio entre clases y adaptarse dinámicamente al tamaño del subconjunto,
-lo que constituye una ventaja clave en tareas reales donde no siempre se dispone de datasets perfectamente balanceados ni completos.
-
-En conjunto, esta validación externa no solo refuerza las conclusiones obtenidas con \texttt{RPS},
-sino que demuestra que el uso de técnicas evolutivas, y en particular las variantes libres, puede ser una alternativa eficaz,
-escalable y controlable frente a la selección masiva o aleatoria de datos en procesos de entrenamiento profundo.
+Este análisis complementa y confirma las conclusiones obtenidas con \texttt{RPS}, incluso en un entorno más complejo y multiclase,
+demuestra que el enfoque evolutivo no solo es eficaz, sino también robusto y transferible,
+reforzando el valor práctico de los enfoques evolutivos propuestos.
 
 
 \section{Validación con el dataset \texttt{CIFAR10}}
-Esta sección tiene como objetivo comprobar si las conclusiones obtenidas en los apartados anteriores, especialmente sobre el comportamiento de los algoritmos meméticos y las versiones libres, se mantienen en un entorno más desafiante como \texttt{CIFAR10}. A diferencia de los datasets anteriores, este conjunto presenta una mayor complejidad visual, baja resolución y una fuerte variabilidad intraclase, lo que lo convierte en un entorno ideal para validar la generalización y robustez de las soluciones propuestas. Asimismo, se busca identificar posibles contradicciones o limitaciones que pudieran no haber sido evidentes en entornos más simples.
+Esta sección tiene como objetivo comprobar si las conclusiones obtenidas en los apartados anteriores,
+especialmente sobre el comportamiento de los algoritmos meméticos y las versiones libres, se mantienen en un entorno más desafiante como \texttt{CIFAR10}.
+A diferencia de los datasets anteriores, este conjunto presenta una mayor complejidad visual,
+baja resolución y una fuerte variabilidad intraclase, lo que lo convierte en un entorno ideal para validar la generalización y robustez de las soluciones propuestas.
+Asimismo, se busca identificar posibles contradicciones o limitaciones que pudieran no haber sido evidentes en entornos más simples.
 
-Para ello, se evalúan los algoritmos que han mostrado mejor rendimiento hasta ahora (\texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA}, \texttt{MA-F}) y se incluye como referencia el modelo entrenado con el \texttt{100\%} del conjunto de datos.
+Para ello, se evalúan los algoritmos que han mostrado mejor rendimiento hasta ahora (\texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA}, \texttt{MA-F})
+y se incluye como referencia el modelo entrenado con el \texttt{100\%} del conjunto de datos.
+
+En este caso, se han realizado únicamente 4 ejecuciones por configuración en lugar de las 5 habituales en el resto del proyecto,
+debido a una nueva limitación impuesta en el servidor utilizado, su elevada saturación y la falta de tiempo disponible para completar todas las evaluaciones con un dataset de este tamaño.
 
 \subsection{Evaluación general del rendimiento}
+La Figura~\ref{fig:cifar10_boxplot} presenta la distribución de precisión obtenida por cada algoritmo.
+Las cuatro variantes superan la mediana del modelo de referencia (\textbf{0.778}), confirmando que una selección informada puede ser más eficaz que el uso completo e indiscriminado de datos.
+Destacan \texttt{GA-AM-F} y \texttt{MA-F}, que alcanzan máximos de \textbf{0.805} y \textbf{0.808}, respectivamente.
 
-La Figura~\ref{fig:cifar10_boxplot} presenta la distribución de precisión obtenida por cada algoritmo. Las cuatro variantes superan la mediana del modelo de referencia (\textbf{0.778}), confirmando que una selección informada puede ser más eficaz que el uso completo e indiscriminado de datos. Destacan \texttt{GA-AM-F} y \texttt{MA-F}, que alcanzan máximos de \textbf{0.805} y \textbf{0.808}, respectivamente.
-
-Más allá de la precisión máxima, se observa que las versiones libres reducen la dispersión entre ejecuciones, reforzando su estabilidad en condiciones más adversas. Este comportamiento respalda lo ya observado en los datasets \texttt{RPS} y \texttt{PAINTING}.
+Más allá de la precisión máxima, se observa que las versiones libres reducen la dispersión entre ejecuciones, reforzando su estabilidad en condiciones más adversas.
+Este comportamiento respalda lo ya observado en los datasets \texttt{RPS} y \texttt{PAINTING}.
 
 \begin{figure}[htp]
     \centering
@@ -1026,10 +974,12 @@ Más allá de la precisión máxima, se observa que las versiones libres reducen
 \end{figure}
 
 \subsection{Comparativa con las versiones libres}
+La Figura~\ref{fig:cifar10_fija_vs_libre} compara directamente las versiones \texttt{FIJA} y \texttt{LIBRE} para los algoritmos \texttt{GA-AM} y \texttt{MA}.
+Al igual que en datasets anteriores, las versiones libres muestran una ligera mejora en precisión media y una reducción de la varianza.
 
-La Figura~\ref{fig:cifar10_fija_vs_libre} compara directamente las versiones \texttt{FIJA} y \texttt{LIBRE} para los algoritmos \texttt{GA-AM} y \texttt{MA}. Al igual que en datasets anteriores, las versiones libres muestran una ligera mejora en precisión media y una reducción de la varianza.
-
-No obstante, en este entorno más exigente, la diferencia entre versiones fijas y libres se reduce, lo que sugiere que la ventaja del ajuste dinámico del tamaño del subconjunto puede verse atenuada por la complejidad del conjunto de datos. Aun así, las versiones libres mantienen una ligera superioridad, lo que valida su utilidad incluso en escenarios de mayor dificultad.
+No obstante, en este entorno más exigente, la diferencia entre versiones fijas y libres se reduce,
+lo que sugiere que la ventaja del ajuste dinámico del tamaño del subconjunto puede verse atenuada por la complejidad del conjunto de datos.
+Aun así, las versiones libres mantienen una ligera superioridad, lo que valida su utilidad incluso en escenarios de mayor dificultad.
 
 \begin{figure}[htp]
     \centering
@@ -1039,40 +989,78 @@ No obstante, en este entorno más exigente, la diferencia entre versiones fijas 
 \end{figure}
 
 \subsection{Consistencia frente al porcentaje inicial}
-
-La Figura~\ref{fig:cifar10_porcentaje} muestra cómo evoluciona la precisión en función del porcentaje de datos iniciales. Se confirma que, a partir del \texttt{25\%}, los algoritmos son capaces de alcanzar precisiones cercanas o incluso superiores al entrenamiento completo.
-
-Este resultado valida de nuevo la capacidad de los algoritmos para realizar una optimización eficiente con recursos limitados. Además, evidencia que las conclusiones obtenidas en \texttt{PAINTING} —donde el \texttt{50\%} superaba al \texttt{100\%}— no eran un caso aislado.
+La Figura~\ref{fig:cifar10_porcentaje} muestra cómo evoluciona la precisión media en función del porcentaje de datos iniciales.
+Se observa que los valores iniciales del 50\% y 75\% destacan de forma consistente, logrando precisiones iguales o superiores al entrenamiento completo.
+Este comportamiento reafirma la validez de los resultados obtenidos en \texttt{PAINTING}, donde el 50\% superaba al 100\%,
+y sugiere que estos porcentajes representan puntos de partida especialmente eficientes para la selección de subconjuntos informativos.
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/comparacion_por_porcentaje.png}
-    \caption{Precisión media alcanzada según el porcentaje inicial de datos. Las barras representan intervalos de confianza.}
+    \caption{Precisión media alcanzada según el porcentaje inicial de datos.}
     \label{fig:cifar10_porcentaje}
 \end{figure}
 
-\subsection{Distribución de clases}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/evaluaciones/cifar10/scatter.png}
+    \caption{Porcentaje inicial vs porcentaje final de datos seleccionados.}
+    \label{fig:cifar10_scatter}
+\end{figure}
 
-La Figura~\ref{fig:cifar10_balance} presenta la distribución de clases en los subconjuntos generados por los algoritmos. Todos mantienen una proporción equilibrada, lo que garantiza que las mejoras de rendimiento no provienen de sesgos estructurales, sino de un proceso evolutivo eficaz.
+Para comprender mejor el comportamiento de los algoritmos, se muestra la Figura~\ref{fig:cifar10_scatter}.
+A partir de esta visualización, se pueden extraer varios patrones relevantes:
+
+\begin{enumerate}
+    \item \textbf{Trayectorias eficientes desde valores intermedios.} Los puntos de partida del 50\% y el 75\% no solo conducen a altas precisiones,
+          sino que lo hacen manteniendo tamaños de subconjuntos finales relativamente estables, lo que sugiere que permiten al algoritmo trabajar con confianza desde etapas tempranas.
+    \item \textbf{Zona de alta precisión estabilizada.} Existe una franja de subconjuntos finales, en torno al 60--80\%,
+          donde se concentra la mayor parte de las ejecuciones con mejor precisión.
+          Esto sugiere que este rango podría representar un punto de equilibrio entre información útil y redundancia.
+    \item \textbf{Tendencia a expandir el subconjunto de datos.} A diferencia de experimentos anteriores,
+          donde algunos algoritmos reducían el número de ejemplos seleccionados respecto al conjunto inicial,
+          en este caso se observa una inclinación general a ampliar el tamaño del subconjunto final.
+          Esta conducta sugiere una estrategia orientada a reforzar la representatividad del conjunto,
+          priorizando una cobertura más amplia cuando la información inicial es limitada.
+    \item \textbf{Baja rentabilidad en extremos.} Las ejecuciones que parten de 10\% o 100\% (teniendo el contexto de las otras figuras)
+          rara vez conducen a los mejores resultados: en el primer caso, la falta de diversidad inicial limita la exploración efectiva; en el segundo,
+          la inclusión de datos redundantes parece perjudicar la optimización.
+\end{enumerate}
+
+En conjunto, los resultados demuestran que los algoritmos son capaces de ajustar dinámicamente el tamaño de los subconjuntos, maximizando la precisión con una fracción moderada de datos.
+Especialmente, los arranques desde el 50\% y 75\% ofrecen un equilibrio favorable entre diversidad y eficiencia,
+lo que los convierte en opciones recomendables en escenarios de selección activa de datos.
+
+\subsection{Distribución de clases}
+La Figura~\ref{fig:cifar10_balance} presenta la distribución de clases en los subconjuntos generados por los algoritmos.
+Todos mantienen una proporción equilibrada, lo que garantiza que las mejoras de rendimiento no provienen de sesgos estructurales, sino de un proceso evolutivo eficaz.
 
 Este equilibrio ya fue observado en \texttt{RPS} y \texttt{PAINTING}, lo que refuerza la consistencia de los algoritmos propuestos en distintos contextos.
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/balance-de-clases.png}
-    \caption{Porcentaje de instancias por clase tras aplicar cada algoritmo. La distribución permanece prácticamente uniforme.}
+    \caption{
+        Porcentaje de instancias por clase tras aplicar cada algoritmo.
+        La distribución permanece prácticamente uniforme.
+    }
     \label{fig:cifar10_balance}
 \end{figure}
 
-\subsection{Conclusiones}
-
+\subsection{Síntesis final de la validación con \texttt{CIFAR10}}
 Los resultados obtenidos con \texttt{CIFAR10} permiten validar las principales conclusiones extraídas en las fases anteriores del estudio:
 
 \begin{itemize}
-    \item Todos los algoritmos evaluados superan el rendimiento del modelo entrenado con el 100\% del dataset, confirmando que una selección óptima puede ser más eficaz que el uso de datos sin filtrar.
+    \item Todos los algoritmos evaluados superan el rendimiento del modelo entrenado con el 100\% del dataset,
+          confirmando que una selección óptima puede ser más eficaz que el uso de datos sin filtrar.
     \item Las variantes libres (\texttt{-F}) mantienen su superioridad frente a las versiones fijas, aunque en este caso la ventaja es más moderada.
-    \item A partir del 25\% de datos, los algoritmos alcanzan rendimientos muy competitivos, lo que confirma su utilidad en contextos de alta restricción de recursos.
+    \item A partir del 50\% de datos, los algoritmos alcanzan rendimientos muy competitivos, llegando incluso a superar bastante al entrenamiento completo.
     \item La distribución de clases permanece estable en todos los casos, descartando que las mejoras observadas se deban a sesgos de clase.
+    \item En contraste con datasets anteriores, en \texttt{CIFAR10} los algoritmos tienden a expandir los subconjuntos seleccionados,
+          lo que sugiere una adaptación activa frente a la mayor complejidad visual del entorno.
 \end{itemize}
 
-En resumen, \texttt{MA-F} vuelve a consolidarse como la opción más prometedora, combinando precisión elevada, baja varianza y adaptabilidad ante diferentes porcentajes iniciales. Además, esta validación refuerza que las conclusiones alcanzadas en entornos más simples son extrapolables a escenarios de mayor dificultad, demostrando la solidez general del enfoque propuesto.
+En resumen, \texttt{MA-F} vuelve a consolidarse como la opción más prometedora, combinando precisión elevada,
+baja varianza y adaptabilidad ante diferentes porcentajes iniciales.
+Además, esta validación refuerza que las conclusiones alcanzadas en entornos más simples son extrapolables a escenarios de mayor dificultad,
+demostrando la solidez general del enfoque propuesto.

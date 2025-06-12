@@ -42,7 +42,7 @@ que se utiliza para la clasificación de imágenes de manos representando los ge
     \label{fig:ejemplos-rps}
 \end{figure}
 
-En la figura~\ref{fig:ejemplos-rps} se han mostrado una imagen de cada una de las clases del dataset Rock, Paper, Scissors,
+En la Figura~\ref{fig:ejemplos-rps} se han mostrado una imagen de cada una de las clases del dataset Rock, Paper, Scissors,
 para que se pueda observar la similitud entre las distintas clases.
 
 \subsubsection{Estructura del Dataset}
@@ -149,7 +149,7 @@ imágenes organizadas en cinco categorías de arte: dibujos, pinturas, escultura
     \label{fig:ejemplos-painting}
 \end{figure}
 
-En la figura~\ref{fig:ejemplos-painting} se han mostrado una imagen de cada una de las clases del dataset \texttt{PAINTING},
+En la Figura~\ref{fig:ejemplos-painting} se han mostrado una imagen de cada una de las clases del dataset \texttt{PAINTING},
 para que se pueda observar la variabilidad de las imágenes.
 
 \subsubsection{Estructura del Dataset}
@@ -227,13 +227,14 @@ Consta de 60\,000 imágenes en color, divididas en 10 clases equilibradas
     \label{fig:ejemplos-cifar10}
 \end{figure}
 
-En la figura~\ref{fig:ejemplos-cifar10} se han mostrado diez imágenes de cada una de las clases del dataset \texttt{CIFAR-10},
+En la Figura~\ref{fig:ejemplos-cifar10} se han mostrado diez imágenes de cada una de las clases del dataset \texttt{CIFAR-10},
 para que se pueda observar la variabilidad de las imágenes.
 
 \subsubsection{Estructura del Dataset}
 CIFAR-10 se distribuye en dos particiones predeterminadas:
 \textbf{50.000} imágenes de entrenamiento (cinco lotes de 10.000) y \textbf{10.000} imágenes de prueba (un lote).
 Al usar \texttt{torchvision.datasets.CIFAR10}~\cite{Cifar10PyTorch}, la descarga y la partición quedan gestionadas automáticamente.
+
 
 \begin{figure}[ht]
     \centering
@@ -246,6 +247,11 @@ Al usar \texttt{torchvision.datasets.CIFAR10}~\cite{Cifar10PyTorch}, la descarga
     \caption{Estructura lógica del dataset CIFAR-10}
     \label{fig:estructura-cifar10}
 \end{figure}
+
+Como se puede observar en la Figura~\ref{fig:estructura-cifar10},
+las imágenes se distribuyen en dos particiones predeterminadas:
+\textbf{50.000} imágenes de entrenamiento (cinco lotes de 10.000) y \textbf{10.000} imágenes de prueba (un lote).
+Al usar \texttt{torchvision.datasets.CIFAR10}, la descarga y la partición quedan gestionadas automáticamente.
 
 \subsubsection{Formato de los Datos}
 Las imágenes se almacenan comprimidas en ficheros \texttt{.bin}.
@@ -270,7 +276,7 @@ Se descarga automáticamente al ejecutar el código, sin necesidad de registro a
 
 
 \subsection{Comparación entre datasets}\label{subsec:comparacion-entre-datasets}
-Gracias a la tabla~\ref{tab:resumen-datasets} que con las características más relevantes de los datasets utilizados,
+Gracias a la Tabla~\ref{tab:resumen-datasets} que con las características más relevantes de los datasets utilizados,
 permite entender mejor la complejidad relativa de cada conjunto y cómo pueden influir en el comportamiento de los algoritmos:
 
 \begin{table}[htp]

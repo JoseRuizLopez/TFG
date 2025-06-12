@@ -6,7 +6,6 @@
 * ✅ Cambiar Duracion por Eva. por Eval.
 * ✅ Incluir mi Github en el apartado de implementación y en la organizacion de tareas
 * ✅ Borrar: "Sin embargo, es importante tener en cuenta que el entrenamiento de ResNet50 implica un mayor coste computacional debido a su arquitectura más compleja, mientras que Mobile-NetV2 se mantiene como una opción más ligera y adecuada para dispositivos con recursos limitados, a costa de una leve pérdida de precisión."
-* Volver a ejecutar los resultados para comprobar tiempos de los 2 modelos
 * ✅ Cambiar nombres de algoritmos:
   - LR  ->  LS (local search)
   - GEN ->  GA 
@@ -25,7 +24,7 @@
   - Hacer una grafica para cada porcentaje.
   - Viene bien para la Presentación.
 
-* En el PAINTING:
+* ✅ En el PAINTING:
   - Poner los algoritmos 100%, RS, GA-AM, MA, MEM-F.
   - Intentar resumir un poco esta sección y ajustar mejor el analisis.
   - Añadir los resultados del 75\%.
