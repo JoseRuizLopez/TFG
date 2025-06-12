@@ -55,7 +55,7 @@ if __name__ == "__main__":
     ]
 
     metric: MetricList = MetricList.ACCURACY
-    dataset_choosen: DatasetList = DatasetList.CIFAR10
+    dataset_choosen: DatasetList = DatasetList.PAINTING
 
     resultados = []
 
