@@ -20,11 +20,10 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
             \toprule
             \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
             \midrule
-            \multicolumn{5}{l}{\textbf{Modelo ResNet50}}                                                                                       \\
-            \midrule
+            \multicolumn{5}{c}{\textbf{Modelo ResNet50}}                                                                                       \\           \midrule
             00:02:42                    & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
             \midrule
-            \multicolumn{5}{l}{\textbf{Modelo MobileNet}}                                                                                      \\
+            \multicolumn{5}{c}{\textbf{Modelo MobileNet}}                                                                                      \\
             \midrule
             00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
             \bottomrule
@@ -74,24 +73,24 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
             \toprule
-            \textbf{Porcentaje Inicial} & \textbf{Evaluaciones Realizadas} & \textbf{Duración Total} & \textbf{Duración por Eval.} &
-            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}         & \textbf{Recall (Avg)}   & \textbf{F1-score (Avg)}                                             \\
+            \textbf{Porcentaje Inicial} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               &
+            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                   \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo ResNet50}}                                                                                                                   \\
+            \multicolumn{7}{c}{\textbf{Modelo ResNet50}}                                                                                                                                                                                                                                                    \\
             \midrule
-            10\%                        & 100                              & 01:21:37                & 00:00:48                    & 85,16\% & 86,30\% & 85,16\% & 85,02\% \\
-            25\%                        & 100                              & 01:28:14                & 00:00:52                    & 87,26\% & 88,13\% & 87,26\% & 87,02\% \\
-            50\%                        & 100                              & 02:27:17                & 00:01:28                    & 88,49\% & 89,51\% & 88,49\% & 88,30\% \\
-            75\%                        & 100                              & 03:52:41                & 00:02:19                    & 89,89\% & 90,53\% & 89,89\% & 89,70\% \\
-            100\%                       & 1                                & -                       & 00:02:55                    & 87,42\% & 88,73\% & 87,42\% & 87,18\% \\
+            10\%                        & \textcolor{azuloscuro}{\textbf{01:21:37}} & \textcolor{azuloscuro}{\textbf{00:00:48}} & 85,16\%                                  & 86,30\%                                  & 85,16\%                                  & 85,02\%                                  \\
+            25\%                        & 01:28:14                                  & 00:00:52                                  & 87,26\%                                  & 88,13\%                                  & 87,26\%                                  & 87,02\%                                  \\
+            50\%                        & 02:27:17                                  & 00:01:28                                  & 88,49\%                                  & 89,51\%                                  & 88,49\%                                  & 88,30\%                                  \\
+            75\%                        & 03:52:41                                  & 00:02:19                                  & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{90,53\%}} & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{89,70\%}} \\
+            100\%                       & -                                         & 00:02:55                                  & 87,42\%                                  & 88,73\%                                  & 87,42\%                                  & 87,18\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Modelo MobileNet}}                                                                                                                  \\
+            \multicolumn{7}{c}{\textbf{Modelo MobileNet}}                                                                                                                                                                                                                                                   \\
             \midrule
-            10\%                        & 100                              & 00:38:16                & 00:00:22                    & 81,34\% & 82,46\% & 81,34\% & 80,52\% \\
-            25\%                        & 100                              & 01:18:22                & 00:00:47                    & 80,70\% & 81,90\% & 80,70\% & 79,90\% \\
-            50\%                        & 100                              & 02:26:40                & 00:01:28                    & 80,86\% & 82,65\% & 80,86\% & 80,22\% \\
-            75\%                        & 100                              & 03:05:48                & 00:01:51                    & 82,26\% & 84,16\% & 82,26\% & 81,67\% \\
-            100\%                       & 1                                & -                       & 00:03:16                    & 78,60\% & 81,55\% & 78,60\% & 77,68\% \\
+            10\%                        & \textcolor{azuloscuro}{\textbf{00:38:16}} & \textcolor{azuloscuro}{\textbf{00:00:22}} & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  \\
+            25\%                        & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  \\
+            50\%                        & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  \\
+            75\%                        & 03:05:48                                  & 00:01:51                                  & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{84,16\%}} & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{81,67\%}} \\
+            100\%                       & -                                         & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
             \bottomrule
         \end{tabular}
     }
@@ -282,32 +281,32 @@ se aplica un reinicio parcial que conserva únicamente al mejor individuo de la 
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm} P{2.5cm}}
             \toprule
-            \textbf{Algoritmo}    & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} &
-            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones}       & \textbf{Porc.Paper}     & \textbf{Porc.Rock}       & \textbf{Porc.Scissors}                                               \\
+            \textbf{Algoritmo}    & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 &
+            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)}                   & \textbf{Porc.Paper}                       & \textbf{Porc.Rock}                       & \textbf{Porc.Scissors}                                                                                                                                       \\
             \midrule
-            \multicolumn{11}{l}{\textbf{10\%}}                                                                                                                                                                        \\
+            \multicolumn{10}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM                 & 00:27:39                & 00:00:17                    & 83,66\%                 & 84,24\%                  & 83,66\%                & 83,09\% & 100 & 35,64\% & 30,87\% & 33,49\% \\
-            GA-PR                 & 00:29:02                & 00:00:17                    & 81,93\%                 & 83,07\%                  & 81,93\%                & 81,19\% & 100 & 34,52\% & 32,14\% & 33,33\% \\
+            GA-AM                 & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{84,24\%}} & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 35,64\% & 30,87\% & 33,49\% \\
+            GA-PR                 & 00:29:02                                  & 00:00:17                                  & 81,93\%                                  & 83,07\%                                  & 81,93\%                                  & 81,19\%                                  & 34,52\% & 32,14\% & 33,33\% \\
             \midrule
-            \multicolumn{11}{l}{\textbf{25\%}}                                                                                                                                                                        \\
+            \multicolumn{10}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM                 & 00:57:29                & 00:00:34                    & 82,42\%                 & 83,68\%                  & 82,42\%                & 81,78\% & 100 & 33,33\% & 32,54\% & 34,13\% \\
-            GA-PR                 & 01:00:22                & 00:00:36                    & 82,64\%                 & 83,78\%                  & 82,64\%                & 81,96\% & 100 & 33,62\% & 33,27\% & 33,11\% \\
+            GA-AM                 & \textcolor{azuloscuro}{\textbf{00:57:29}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 33,33\% & 32,54\% & 34,13\% \\
+            GA-PR                 & 01:00:22                                  & 00:00:36                                  & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{83,78\%}} & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{81,96\%}} & 33,62\% & 33,27\% & 33,11\% \\
             \midrule
-            \multicolumn{11}{l}{\textbf{50\%}}                                                                                                                                                                        \\
+            \multicolumn{10}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM                 & 01:47:31                & 00:01:05                    & 81,13\%                 & 82,62\%                  & 81,13\%                & 80,41\% & 100 & 33,94\% & 32,76\% & 33,30\% \\
-            GA-PR                 & 01:53:13                & 00:01:08                    & 81,24\%                 & 83,09\%                  & 81,24\%                & 80,59\% & 100 & 33,21\% & 33,20\% & 33,59\% \\
+            GA-AM                 & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 33,94\% & 32,76\% & 33,30\% \\
+            GA-PR                 & 01:53:13                                  & 00:01:08                                  & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{80,59\%}} & 33,21\% & 33,20\% & 33,59\% \\
             \midrule
-            \multicolumn{11}{l}{\textbf{75\%}}                                                                                                                                                                        \\
+            \multicolumn{10}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM                 & 02:36:41                & 00:01:34                    & 82,42\%                 & 83,94\%                  & 82,42\%                & 81,85\% & 100 & 33,67\% & 33,11\% & 33,22\% \\
-            GA-PR                 & 02:41:24                & 00:01:37                    & 82,69\%                 & 84,33\%                  & 82,69\%                & 82,06\% & 100 & 33,52\% & 33,44\% & 33,04\% \\
+            GA-AM                 & \textcolor{azuloscuro}{\textbf{02:36:41}} & \textcolor{azuloscuro}{\textbf{00:01:34}} & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 33,67\% & 33,11\% & 33,22\% \\
+            GA-PR                 & 02:41:24                                  & 00:01:37                                  & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{82,06\%}} & 33,52\% & 33,44\% & 33,04\% \\
             \midrule
-            \multicolumn{11}{l}{\textbf{100\%}}                                                                                                                                                                       \\
+            \multicolumn{10}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                     \\
             \midrule
-            100\%                 & --                      & 00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%                & 77,68\% & 1   & 33,33\% & 33,33\% & 33,33\% \\
+            100\%                 & --                                        & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 33,33\% & 33,33\% & 33,33\% \\
             \bottomrule
         \end{tabular}
     }
@@ -422,33 +421,33 @@ Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegu
 \begin{table}[htp]
     \centering
     \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm}}
+        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} \\
+            \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{10\%}}                                                                                                                                                                         \\
+            \multicolumn{7}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM              & 00:27:39                & 00:00:16                    & 83.66\%                 & 84.24\%                  & 83.66\%               & 83.09\%                 & 100                   \\
-            GA-AM-F            & 00:34:32                & 00:00:20                    & 82.96\%                 & 84.07\%                  & 82.96\%               & 82.12\%                 & 100                   \\
+            GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & \textcolor{azuloscuro}{\textbf{00:00:16}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{84.24\%}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{83.09\%}} \\
+            GA-AM-F            & 00:34:32                                  & 00:00:20                                  & 82.96\%                                  & 84.07\%                                  & 82.96\%                                  & 82.12\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{25\%}}                                                                                                                                                                         \\
+            \multicolumn{7}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM              & 00:57:28                & 00:00:34                    & 82.42\%                 & 83.68\%                  & 82.42\%               & 81.78\%                 & 100                   \\
-            GA-AM-F            & 01:07:13                & 00:00:40                    & 81.77\%                 & 82.66\%                  & 81.77\%               & 81.18\%                 & 100                   \\
+            GA-AM              & \textcolor{azuloscuro}{\textbf{00:57:28}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{83.68\%}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.78\%}} \\
+            GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81.77\%                                  & 82.66\%                                  & 81.77\%                                  & 81.18\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{50\%}}                                                                                                                                                                         \\
+            \multicolumn{7}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM              & 01:47:31                & 00:01:04                    & 81.13\%                 & 82.62\%                  & 81.13\%               & 80.41\%                 & 100                   \\
-            GA-AM-F            & 01:51:24                & 00:01:06                    & 83.60\%                 & 85.22\%                  & 83.60\%               & 83.03\%                 & 100                   \\
+            GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:04}} & 81.13\%                                  & 82.62\%                                  & 81.13\%                                  & 80.41\%                                  \\
+            GA-AM-F            & 01:51:24                                  & 00:01:06                                  & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{85.22\%}} & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{83.03\%}} \\
             \midrule
-            \multicolumn{8}{l}{\textbf{75\%}}                                                                                                                                                                         \\
+            \multicolumn{7}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM              & 02:36:40                & 00:01:34                    & 82.42\%                 & 83.94\%                  & 82.42\%               & 81.85\%                 & 100                   \\
-            GA-AM-F            & 02:33:25                & 00:01:32                    & 82.20\%                 & 83.94\%                  & 82.20\%               & 81.47\%                 & 100                   \\
+            GA-AM              & 02:36:40                                  & 00:01:34                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & 83.94\%                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.85\%}} \\
+            GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82.20\%                                  & 83.94\%                                  & 82.20\%                                  & 81.47\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{100\%}}                                                                                                                                                                        \\
+            \multicolumn{7}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                     \\
             \midrule
-            100\%              & --                      & 00:03:15                    & 78.60\%                 & 81.55\%                  & 78.6\%                & 77.68\%                 & 1                     \\
+            100\%              & --                                        & 00:03:15                                  & 78.60\%                                  & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
             \bottomrule
         \end{tabular}}
     \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-AM-F} por porcentaje inicial.}
@@ -460,41 +459,41 @@ Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegu
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2cm} P{1.8cm} P{2cm} P{2.3cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Porc. Inicial} & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
+            \textbf{Algoritmo} & \textbf{Porc. Inicial} & \textbf{Duración Total}                & \textbf{Duración por Eval.}            & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$10\%}}                                                                                                                                                 \\
+            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$10\%}}                                                                                                                                                                                                                                                \\
             \midrule
-            LS                 & 10\%                   & 00:33                   & 00:00                       & 81.24\%                 & 81.81\%                  & 81.24\%               & 80.61\%                 \\
-            LS-F               & 6\%                    & 00:38                   & 00:00                       & 83.23\%                 & 83.7\%                   & 83.23\%               & 82.71\%                 \\
+            LS                 & 10\%                   & \textcolor{azuloscuro}{\textbf{00:33}} & 00:00                                  & 81.24\%                                  & 81.81\%                                  & 81.24\%                                  & 80.61\%                                  \\
+            LS-F               & 6\%                    & 00:38                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{83.7\%}}  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{82.71\%}} \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$25\%}}                                                                                                                                                 \\
+            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$25\%}}                                                                                                                                                                                                                                                \\
             \midrule
-            LS                 & 25\%                   & 01:07                   & 00:00                       & 82.47\%                 & 83.95\%                  & 82.47\%               & 81.76\%                 \\
-            LS-F               & 12\%                   & 01:00                   & 00:00                       & 80.91\%                 & 82.73\%                  & 80.91\%               & 79.82\%                 \\
+            LS                 & 25\%                   & 01:07                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{83.95\%}} & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
+            LS-F               & 12\%                   & \textcolor{azuloscuro}{\textbf{01:00}} & 00:00                                  & 80.91\%                                  & 82.73\%                                  & 80.91\%                                  & 79.82\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$50\%}}                                                                                                                                                 \\
+            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$50\%}}                                                                                                                                                                                                                                                \\
             \midrule
-            LS                 & 50\%                   & 02:08                   & 00:01                       & 80.76\%                 & 82.77\%                  & 80.76\%               & 80.09\%                 \\
-            LS-F               & 35\%                   & 01:36                   & 00:00                       & 80.91\%                 & 83.12\%                  & 80.91\%               & 79.76\%                 \\
-            LS-F               & 37\%                   & 01:57                   & 00:01                       & 83.6\%                  & 83.96\%                  & 83.6\%                & 83.19\%                 \\
-            LS-F               & 40\%                   & 02:20                   & 00:01                       & 82.12\%                 & 83.3\%                   & 82.12\%               & 81.34\%                 \\
-            LS-F               & 50\%                   & 03:13                   & 00:01                       & 81.45\%                 & 82.6\%                   & 81.45\%               & 80.61\%                 \\
+            LS                 & 50\%                   & 02:08                                  & 00:01                                  & 80.76\%                                  & 82.77\%                                  & 80.76\%                                  & 80.09\%                                  \\
+            LS-F               & 35\%                   & \textcolor{azuloscuro}{\textbf{01:36}} & \textcolor{azuloscuro}{\textbf{00:00}} & 80.91\%                                  & 83.12\%                                  & 80.91\%                                  & 79.76\%                                  \\
+            LS-F               & 37\%                   & 01:57                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.96\%}} & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.19\%}} \\
+            LS-F               & 40\%                   & 02:20                                  & 00:01                                  & 82.12\%                                  & 83.3\%                                   & 82.12\%                                  & 81.34\%                                  \\
+            LS-F               & 50\%                   & 03:13                                  & 00:01                                  & 81.45\%                                  & 82.6\%                                   & 81.45\%                                  & 80.61\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$75\%}}                                                                                                                                                 \\
+            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$75\%}}                                                                                                                                                                                                                                                \\
             \midrule
-            LS                 & 75\%                   & 03:06                   & 00:01                       & 82.37\%                 & 83.97\%                  & 82.37\%               & 81.67\%                 \\
-            LS-F               & 57\%                   & 03:54                   & 00:02                       & 82.53\%                 & 83.72\%                  & 82.53\%               & 81.77\%                 \\
-            LS-F               & 58\%                   & 04:02                   & 00:02                       & 81.45\%                 & 82.37\%                  & 81.45\%               & 80.76\%                 \\
-            LS-F               & 61\%                   & 04:12                   & 00:02                       & 81.72\%                 & 83.3\%                   & 81.72\%               & 81.29\%                 \\
-            LS-F               & 63\%                   & 02:36                   & 00:01                       & 83.6\%                  & 84.43\%                  & 83.6\%                & 82.77\%                 \\
-            LS-F               & 67\%                   & 03:02                   & 00:01                       & 83.87\%                 & 84.59\%                  & 83.87\%               & 83.4\%                  \\
-            LS-F               & 71\%                   & 03:18                   & 00:01                       & 83.06\%                 & 84.93\%                  & 83.06\%               & 82.42\%                 \\
+            LS                 & 75\%                   & 03:06                                  & 00:01                                  & 82.37\%                                  & 83.97\%                                  & 82.37\%                                  & 81.67\%                                  \\
+            LS-F               & 57\%                   & 03:54                                  & 00:02                                  & 82.53\%                                  & 83.72\%                                  & 82.53\%                                  & 81.77\%                                  \\
+            LS-F               & 58\%                   & 04:02                                  & 00:02                                  & 81.45\%                                  & 82.37\%                                  & 81.45\%                                  & 80.76\%                                  \\
+            LS-F               & 61\%                   & 04:12                                  & 00:02                                  & 81.72\%                                  & 83.3\%                                   & 81.72\%                                  & 81.29\%                                  \\
+            LS-F               & 63\%                   & \textcolor{azuloscuro}{\textbf{02:36}} & 00:01                                  & 83.6\%                                   & 84.43\%                                  & 83.6\%                                   & 82.77\%                                  \\
+            LS-F               & 67\%                   & 03:02                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & 84.59\%                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & \textcolor{azuloscuro}{\textbf{83.4\%}}  \\
+            LS-F               & 71\%                   & 03:18                                  & 00:01                                  & 83.06\%                                  & \textcolor{azuloscuro}{\textbf{84.93\%}} & 83.06\%                                  & 82.42\%                                  \\
             \midrule
-            \multicolumn{8}{l}{\textbf{Porcentaje inicial $\leq$100\%}}                                                                                                                                                \\
+            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$100\%}}                                                                                                                                                                                                                                               \\
             \midrule
-            LS-F               & 85\%                   & 03:49                   & 00:02                       & 81.99\%                 & 83.71\%                  & 81.99\%               & 81.56\%                 \\
-            LS-F               & 87\%                   & 04:32                   & 00:02                       & 82.26\%                 & 84.22\%                  & 82.26\%               & 81.76\%                 \\
-            100\%              & 100\%                  & --                      & 00:03                       & 78.6\%                  & 81.55\%                  & 78.6\%                & 77.68\%                 \\
+            LS-F               & 85\%                   & \textcolor{azuloscuro}{\textbf{03:49}} & 00:02                                  & 81.99\%                                  & 83.71\%                                  & 81.99\%                                  & 81.56\%                                  \\
+            LS-F               & 87\%                   & 04:32                                  & 00:02                                  & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{84.22\%}} & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
+            100\%              & 100\%                  & --                                     & 00:03                                  & 78.6\%                                   & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
             \bottomrule
         \end{tabular}}
     \caption{Resultados de los algoritmos \texttt{LS} y \texttt{LS-F} agrupados por franjas de porcentaje inicial.}
@@ -557,37 +556,36 @@ Esto sugiere que el componente adaptativo no penaliza la calidad de las solucion
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2cm} P{2.5cm} P{2.5cm}}
             \toprule
-            \textbf{Algoritmo}    & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Porc.
-            Final}                & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)}    &
-            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones}                                                                     \\
+            \textbf{Algoritmo}      & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Porc.Final}                      &
+            \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                                                              \\
             \midrule
-            \multicolumn{9}{l}{\textbf{10\%}}                                                                                                           \\
+            \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM-F               & 00:34:33                & 00:00:21                    & 14,94\%       & 82,96\% & 84,07\% & 82,96\% & 82,12\% & 100 \\
-            MA                    & 00:27:43                & 00:00:17                    & 10,00\%       & 82,85\% & 84,44\% & 82,85\% & 81,91\% & 100 \\
-            MA-F                  & 00:32:39                & 00:00:20                    & 9,62\%        & 83,28\% & 84,70\% & 83,28\% & 82,46\% & 100 \\
+            GA-AM-F                 & 00:34:33                                  & 00:00:21                                  & \textcolor{azuloscuro}{\textbf{14,94\%}} & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  \\
+            MA                      & \textcolor{azuloscuro}{\textbf{00:27:43}} & \textcolor{azuloscuro}{\textbf{00:00:17}} & 10,00\%                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  \\
+            MA-F                    & 00:32:39                                  & 00:00:20                                  & 9,62\%                                   & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{84,70\%}} & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{82,46\%}} \\
             \midrule
-            \multicolumn{9}{l}{\textbf{25\%}}                                                                                                           \\
+            \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM-F               & 01:07:13                & 00:00:40                    & 26,68\%       & 81,77\% & 82,66\% & 81,77\% & 81,18\% & 100 \\
-            MA                    & 00:57:12                & 00:00:34                    & 25,00\%       & 81,99\% & 83,11\% & 81,99\% & 81,21\% & 100 \\
-            MA-F                  & 01:08:54                & 00:00:41                    & 27,18\%       & 82,80\% & 83,77\% & 82,80\% & 82,17\% & 100 \\
+            GA-AM-F                 & 01:07:13                                  & 00:00:40                                  & 26,68\%                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  \\
+            MA                      & \textcolor{azuloscuro}{\textbf{00:57:12}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 25,00\%                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  \\
+            MA-F                    & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{27,18\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{83,77\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} \\
             \midrule
-            \multicolumn{9}{l}{\textbf{50\%}}                                                                                                           \\
+            \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM-F               & 01:51:24                & 00:01:07                    & 46,36\%       & 83,60\% & 85,22\% & 83,60\% & 83,03\% & 100 \\
-            MA                    & 01:47:32                & 00:01:05                    & 50,00\%       & 81,51\% & 83,36\% & 81,51\% & 80,89\% & 100 \\
-            MA-F                  & 02:16:51                & 00:01:22                    & 67,07\%       & 81,61\% & 83,09\% & 81,61\% & 80,96\% & 100 \\
+            GA-AM-F                 & 01:51:24                                  & 00:01:07                                  & 46,36\%                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} \\
+            MA                      & \textcolor{azuloscuro}{\textbf{01:47:32}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 50,00\%                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  \\
+            MA-F                    & 02:16:51                                  & 00:01:22                                  & \textcolor{azuloscuro}{\textbf{67,07\%}} & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  \\
             \midrule
-            \multicolumn{9}{l}{\textbf{75\%}}                                                                                                           \\
+            \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                                      \\
             \midrule
-            GA-AM-F               & 02:33:25                & 00:01:32                    & 72,72\%       & 82,20\% & 83,94\% & 82,20\% & 81,47\% & 100 \\
-            MA                    & 02:37:43                & 00:01:35                    & 75,00\%       & 82,74\% & 84,33\% & 82,74\% & 82,14\% & 100 \\
-            MA-F                  & 03:08:21                & 00:01:53                    & 71,16\%       & 82,69\% & 84,18\% & 82,69\% & 82,10\% & 100 \\
+            GA-AM-F                 & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 72,72\%                                  & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  \\
+            MA                      & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{75,00\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} \\
+            MA-F                    & 03:08:21                                  & 00:01:53                                  & 71,16\%                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  \\
             \midrule
-            \multicolumn{9}{l}{\textbf{100\%}}                                                                                                          \\
+            \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                                     \\
             \midrule
-            100\%                 & --                      & 00:03:16                    & 100,00\%      & 78,60\% & 81,55\% & 78,60\% & 77,68\% & 1   \\
+            100\%                   & --                                        & 00:03:16                                  & 100,00\%                                 & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
             \bottomrule
         \end{tabular}
     }
@@ -721,48 +719,47 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2.2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Duración Total} & \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} & \textbf{Porc.
-            Final}                                                                                                                                                                                                                    \\
+            \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
             \midrule
-            \multicolumn{9}{l}{\textbf{10\%}}                                                                                                                                                                                         \\
+            \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                             \\
             \midrule
-            RS                 & 00:38:17                & 00:00:22                    & 81,34\%                 & 82,46\%                  & 81,34\%               & 80,52\%                 & 100                   & 10,00\%       \\
-            GA-WC              & 00:34:03                & 00:00:21                    & 83,60\%                 & 84,38\%                  & 83,60\%               & 82,82\%                 & 100                   & 10,00\%       \\
-            GA-AM              & 00:27:39                & 00:00:17                    & 83,66\%                 & 84,24\%                  & 83,66\%               & 83,09\%                 & 100                   & 10,00\%       \\
-            GA-AM-F            & 00:34:32                & 00:00:21                    & 82,96\%                 & 84,07\%                  & 82,96\%               & 82,12\%                 & 100                   & 14,94\%       \\
-            MA                 & 00:27:43                & 00:00:17                    & 82,85\%                 & 84,44\%                  & 82,85\%               & 81,91\%                 & 100                   & 10,00\%       \\
-            MA-F               & 00:32:39                & 00:00:20                    & 83,28\%                 & 84,70\%                  & 83,28\%               & 82,46\%                 & 100                   & 9,62\%        \\
+            RS                 & 00:38:17                                  & 00:00:22                                  & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  & 10,00\%              \\
+            GA-WC              & 00:34:03                                  & 00:00:21                                  & 83,60\%                                  & 84,38\%                                  & 83,60\%                                  & 82,82\%                                  & 10,00\%              \\
+            GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & 84,24\%                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 10,00\%              \\
+            GA-AM-F            & 00:34:32                                  & 00:00:21                                  & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  & 14,94\%              \\
+            MA                 & 00:27:43                                  & 00:00:17                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  & 10,00\%              \\
+            MA-F               & 00:32:39                                  & 00:00:20                                  & 83,28\%                                  & \textcolor{azuloscuro}{\textbf{84,70\%}} & 83,28\%                                  & 82,46\%                                  & 9,62\%               \\
             \midrule
-            \multicolumn{9}{l}{\textbf{25\%}}                                                                                                                                                                                         \\
+            \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                             \\
             \midrule
-            RS                 & 01:18:22                & 00:00:47                    & 80,70\%                 & 81,90\%                  & 80,70\%               & 79,90\%                 & 100                   & 25,00\%       \\
-            GA-WC              & 01:10:21                & 00:00:43                    & 82,37\%                 & 83,86\%                  & 82,37\%               & 81,57\%                 & 100                   & 25,00\%       \\
-            GA-AM              & 00:57:29                & 00:00:34                    & 82,42\%                 & 83,68\%                  & 82,42\%               & 81,78\%                 & 100                   & 25,00\%       \\
-            GA-AM-F            & 01:07:13                & 00:00:40                    & 81,77\%                 & 82,66\%                  & 81,77\%               & 81,18\%                 & 100                   & 26,68\%       \\
-            MA                 & 00:57:12                & 00:00:34                    & 81,99\%                 & 83,11\%                  & 81,99\%               & 81,21\%                 & 100                   & 25,00\%       \\
-            MA-F               & 01:08:54                & 00:00:41                    & 82,80\%                 & 83,77\%                  & 82,80\%               & 82,17\%                 & 100                   & 27,18\%       \\
+            RS                 & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  & 25,00\%              \\
+            GA-WC              & 01:10:21                                  & 00:00:43                                  & 82,37\%                                  & \textcolor{azuloscuro}{\textbf{83,86\%}} & 82,37\%                                  & 81,57\%                                  & 25,00\%              \\
+            GA-AM              & 00:57:29                                  & 00:00:34                                  & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 25,00\%              \\
+            GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  & 26,68\%              \\
+            MA                 & \textcolor{azuloscuro}{\textbf{00:57:12}} & 00:00:34                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  & 25,00\%              \\
+            MA-F               & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & 83,77\%                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} & 27,18\%              \\
             \midrule
-            \multicolumn{9}{l}{\textbf{50\%}}                                                                                                                                                                                         \\
+            \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                             \\
             \midrule
-            RS                 & 02:26:40                & 00:01:28                    & 80,86\%                 & 82,65\%                  & 80,86\%               & 80,22\%                 & 100                   & 50,00\%       \\
-            GA-WC              & 02:15:43                & 00:01:21                    & 81,61\%                 & 83,78\%                  & 81,61\%               & 81,06\%                 & 100                   & 50,00\%       \\
-            GA-AM              & 01:47:31                & 00:01:05                    & 81,13\%                 & 82,62\%                  & 81,13\%               & 80,41\%                 & 100                   & 50,00\%       \\
-            GA-AM-F            & 01:51:24                & 00:01:07                    & 83,60\%                 & 85,22\%                  & 83,60\%               & 83,03\%                 & 100                   & 46,36\%       \\
-            MA                 & 01:47:32                & 00:01:05                    & 81,51\%                 & 83,36\%                  & 81,51\%               & 80,89\%                 & 100                   & 50,00\%       \\
-            MA-F               & 02:16:51                & 00:01:22                    & 81,61\%                 & 83,09\%                  & 81,61\%               & 80,96\%                 & 100                   & 67,07\%       \\
+            RS                 & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  & 50,00\%              \\
+            GA-WC              & 02:15:43                                  & 00:01:21                                  & 81,61\%                                  & 83,78\%                                  & 81,61\%                                  & 81,06\%                                  & 50,00\%              \\
+            GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & 00:01:05                                  & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 50,00\%              \\
+            GA-AM-F            & 01:51:24                                  & 00:01:07                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} & 46,36\%              \\
+            MA                 & 01:47:32                                  & 00:01:05                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  & 50,00\%              \\
+            MA-F               & 02:16:51                                  & 00:01:22                                  & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  & 67,07\%              \\
             \midrule
-            \multicolumn{9}{l}{\textbf{75\%}}                                                                                                                                                                                         \\
+            \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                             \\
             \midrule
-            RS                 & 03:05:49                & 00:01:51                    & 82,26\%                 & 84,16\%                  & 82,26\%               & 81,67\%                 & 100                   & 75,00\%       \\
-            GA-WC              & 03:33:06                & 00:02:08                    & 82,31\%                 & 83,91\%                  & 82,31\%               & 81,59\%                 & 100                   & 75,00\%       \\
-            GA-AM              & 02:36:41                & 00:01:34                    & 82,42\%                 & 83,94\%                  & 82,42\%               & 81,85\%                 & 100                   & 75,00\%       \\
-            GA-AM-F            & 02:33:25                & 00:01:32                    & 82,20\%                 & 83,94\%                  & 82,20\%               & 81,47\%                 & 100                   & 72,72\%       \\
-            MA                 & 02:37:43                & 00:01:35                    & 82,74\%                 & 84,33\%                  & 82,74\%               & 82,14\%                 & 100                   & 75,00\%       \\
-            MA-F               & 03:08:21                & 00:01:53                    & 82,69\%                 & 84,18\%                  & 82,69\%               & 82,10\%                 & 100                   & 71,16\%       \\
+            RS                 & 03:05:49                                  & 00:01:51                                  & 82,26\%                                  & 84,16\%                                  & 82,26\%                                  & 81,67\%                                  & 75,00\%              \\
+            GA-WC              & 03:33:06                                  & 00:02:08                                  & 82,31\%                                  & 83,91\%                                  & 82,31\%                                  & 81,59\%                                  & 75,00\%              \\
+            GA-AM              & 02:36:41                                  & 00:01:34                                  & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 75,00\%              \\
+            GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  & 72,72\%              \\
+            MA                 & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} & 75,00\%              \\
+            MA-F               & 03:08:21                                  & 00:01:53                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  & 71,16\%              \\
             \midrule
-            \multicolumn{9}{l}{\textbf{100\%}}                                                                                                                                                                                        \\
+            \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                            \\
             \midrule
-            100\%              & --                      & 00:03:15                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 & 1                     & 100,00\%      \\
+            100\%              & --                                        & 00:03:15                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 100,00\%             \\
             \bottomrule
         \end{tabular}
     }
@@ -794,7 +791,7 @@ Finalmente, la referencia aleatoria \texttt{RS} queda superada por todos los enf
 Sus resultados muestran una alta variabilidad, menor precisión global y una propensión a generar subconjuntos con distribuciones de clases desbalanceadas,
 evidenciando la importancia de emplear estrategias de selección informadas.
 
-Además de los análisis cuantitativos, las Figuras~\ref{fig:barplot-por-pi-10},~\ref{fig:barplot-por-pi-25},~\ref{fig:barplot-por-pi-50},~\ref{fig:barplot-por-pi-75} y~\ref{fig:barplot-por-pi-100}
+Además de los análisis cuantitativos, las Figuras~\ref{fig:barplot-por-pi-10},~\ref{fig:barplot-por-pi-25},~\ref{fig:barplot-por-pi-50} y~\ref{fig:barplot-por-pi-75}
 refuerzan visualmente estas conclusiones mediante barplots comparativos para cada porcentaje inicial.
 Estos gráficos permiten observar cómo varía el rendimiento de cada algoritmo manteniendo fijo el punto de partida,
 destacando especialmente la superioridad de los enfoques meméticos (\texttt{MA}, \texttt{MA-F}) y la mejora progresiva introducida por \texttt{GA-AM-F}.
@@ -827,16 +824,15 @@ destacando especialmente la superioridad de los enfoques meméticos (\texttt{MA}
     \label{fig:barplot-por-pi-75}
 \end{figure}
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-100.png}
-    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{100\%}.}
-    \label{fig:barplot-por-pi-100}
-\end{figure}
-
 En conjunto, este análisis confirma que los algoritmos meméticos, especialmente en su versión libre (\texttt{MA-F}),
 representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.
 Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria o enfoques genéticos más sencillos.
+
+En lo que respecta a los tiempos de entrenamiento, no se observan diferencias drásticas entre algoritmos dentro de cada porcentaje inicial, 
+pero sí resulta destacable el impacto positivo que puede tener la selección de instancias en la reducción del tiempo total e incluso en el de inferencia por evaluación.
+Cabe señalar que el algoritmo \texttt{GA-AM-F} se posiciona como el más eficiente con un 50\% de datos, no solo por lograr la mayor precisión en ese grupo, 
+sino también por mantener tiempos de ejecución moderados y una menor inestabilidad respecto a otros porcentajes iniciales.
+Esto refuerza su utilidad práctica como una opción competitiva cuando se busca un buen balance entre rendimiento y estabilidad.
 
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
@@ -883,30 +879,29 @@ En cambio, con un 75\% inicial, el incremento es más moderado, alcanzando un 78
     \resizebox{\textwidth}{!}{
         \begin{tabular}{P{2.5cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
             \toprule
-            \textbf{Algoritmo} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} & \textbf{Evaluaciones} & \textbf{Porc.
-            Final}                                                                                                                                                            \\
+            \textbf{Algoritmo} & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
             \midrule
-            \multicolumn{7}{l}{\textbf{25\%}}                                                                                                                                 \\
+            \multicolumn{6}{c}{\textbf{25\%}}                                                                                                                                                                                     \\
             \midrule
-            RS                 & 91,80\%                 & 91,49\%                  & 91,80\%               & 91,57\%                 & 100                   & 25,00\%       \\
-            MA                 & 91,89\%                 & 91,63\%                  & 91,89\%               & 91,67\%                 & 100                   & 25,00\%       \\
-            MA-F               & 92,24\%                 & 92,06\%                  & 92,24\%               & 92,09\%                 & 100                   & 41,35\%       \\
+            RS                 & 91,80\%                                  & 91,49\%                                  & 91,80\%                                  & 91,57\%                                  & 25,00\%              \\
+            MA                 & 91,89\%                                  & 91,63\%                                  & 91,89\%                                  & 91,67\%                                  & 25,00\%              \\
+            MA-F               & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,06\%}} & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,09\%}} & 41,35\%              \\
             \midrule
-            \multicolumn{7}{l}{\textbf{50\%}}                                                                                                                                 \\
+            \multicolumn{6}{c}{\textbf{50\%}}                                                                                                                                                                                     \\
             \midrule
-            RS                 & 92,69\%                 & 92,52\%                  & 92,69\%               & 92,55\%                 & 100                   & 50,00\%       \\
-            MA                 & 92,73\%                 & 92,61\%                  & 92,73\%               & 92,63\%                 & 100                   & 50,00\%       \\
-            MA-F               & 93,11\%                 & 93,00\%                  & 93,11\%               & 93,01\%                 & 100                   & 68,69\%       \\
+            RS                 & 92,69\%                                  & 92,52\%                                  & 92,69\%                                  & 92,55\%                                  & 50,00\%              \\
+            MA                 & 92,73\%                                  & 92,61\%                                  & 92,73\%                                  & 92,63\%                                  & 50,00\%              \\
+            MA-F               & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,00\%}} & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 68,69\%              \\
             \midrule
-            \multicolumn{7}{l}{\textbf{75\%}}                                                                                                                                 \\
+            \multicolumn{6}{c}{\textbf{75\%}}                                                                                                                                                                                     \\
             \midrule
-            RS                 & 93,14\%                 & 92,97\%                  & 93,14\%               & 93,01\%                 & 100                   & 75,00\%       \\
-            MA                 & 93,11\%                 & 92,93\%                  & 93,11\%               & 92,99\%                 & 100                   & 75,29\%       \\
-            MA-F               & 93,02\%                 & 92,88\%                  & 93,02\%               & 92,92\%                 & 100                   & 78,29\%       \\
+            RS                 & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{92,97\%}} & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 75,00\%              \\
+            MA                 & 93,11\%                                  & 92,93\%                                  & 93,11\%                                  & 92,99\%                                  & 75,29\%              \\
+            MA-F               & 93,02\%                                  & 92,88\%                                  & 93,02\%                                  & 92,92\%                                  & 78,29\%              \\
             \midrule
-            \multicolumn{7}{l}{\textbf{100\%}}                                                                                                                                \\
+            \multicolumn{6}{c}{\textbf{100\%}}                                                                                                                                                                                    \\
             \midrule
-            100\%              & 92,24\%                 & 92,05\%                  & 92,24\%               & 92,06\%                 & 1                     & 100,00\%      \\
+            100\%              & 92,24\%                                  & 92,05\%                                  & 92,24\%                                  & 92,06\%                                  & 100,00\%             \\
             \bottomrule
         \end{tabular}
     }

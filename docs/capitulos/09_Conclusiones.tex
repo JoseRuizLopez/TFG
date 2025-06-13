@@ -7,7 +7,7 @@ A lo largo del desarrollo se diseñan, implementan y evalúan diferentes enfoque
 con el objetivo de identificar subconjuntos representativos de imágenes que permitan entrenar modelos convolucionales de forma eficiente y sin pérdida significativa de rendimiento.
 
 El estudio se centra en evaluar cómo diferentes variantes algorítmicas impactan sobre la precisión, la estabilidad y el tamaño final del conjunto de entrenamiento.
-Para ello, se utilizan dos modelos de referencia ampliamente extendidos (ResNet50 y MobileNetV2) y dos conjuntos de datos con distintos niveles de complejidad: Rock, Paper, Scissors y PAINTING.
+Para ello, se utilizan dos modelos de referencia ampliamente extendidos (\texttt{ResNet50} y \texttt{MobileNetV2}) y tres conjuntos de datos con distintos niveles de complejidad: `\texttt{Rock, Paper, Scissors}', `\texttt{PAINTING}' y `\texttt{CIFAR-10}'.
 
 Los resultados experimentales permiten extraer varias conclusiones clave:
 
@@ -23,7 +23,7 @@ Los resultados experimentales permiten extraer varias conclusiones clave:
 
       \item Las versiones \textit{libres} de los algoritmos, donde el tamaño del subconjunto se ajusta dinámicamente,
             permiten alcanzar un equilibrio más eficaz entre precisión y tamaño final.
-            Este enfoque demuestra ser especialmente útil cuando no se conoce a priori la fracción óptima de datos para entrenar.
+            Este enfoque demuestra ser especialmente útil cuando no se conoce a priori la porcentaje óptima de datos para entrenar.
 
       \item El algoritmo memético, y en particular su versión libre (MA-F), alcanza los mejores resultados globales.
             Este enfoque logra una elevada precisión, una notable reducción del conjunto de datos y una gran estabilidad entre ejecuciones,
@@ -31,21 +31,29 @@ Los resultados experimentales permiten extraer varias conclusiones clave:
 \end{itemize}
 
 
-La validación con un segundo conjunto de datos (PAINTING), más complejo y con mayor número de clases, permite comprobar la capacidad de generalización de los enfoques propuestos.
-El algoritmo memético libre no solo mantiene su rendimiento, sino que en algunos casos supera a la precisión obtenida con el 100\,\% del conjunto completo.
+La validación con un segundo conjunto de datos (`\texttt{PAINTING}'), más complejo y con mayor número de clases, y con un tercer conjunto (`\texttt{CIFAR-10}'),
+considerablemente más exigente por su variabilidad intraclase y baja resolución, permite comprobar la capacidad de generalización de los enfoques propuestos.
+El algoritmo memético libre no solo mantiene su rendimiento, sino que en algunos casos supera a la precisión obtenida con el 100\% del conjunto completo.
 Además, se confirma que las soluciones generadas preservan una distribución equilibrada de clases y ajustan el tamaño del subconjunto según la dificultad del problema.
 
 
 Los resultados obtenidos tienen implicaciones prácticas significativas.
 Queda demostrado que es posible reducir de forma significativa los conjuntos de datos para entrenar modelos convolucionales sin comprometer el rendimiento,
 siempre que se utilicen estrategias de selección guiadas y adaptativas.
-Esto tiene implicaciones relevantes en escenarios donde los recursos computacionales son limitados o donde la auditoría y trazabilidad de los datos es una exigencia normativa.
+Aunque la selección de instancias conlleva un coste computacional adicional durante su ejecución, 
+este esfuerzo inicial se justifica al permitir una notable reducción en el tiempo de entrenamiento e inferencia de los modelos explorados.
+Además, facilita la auditoría y trazabilidad de los datos, aspectos fundamentales en entornos donde estas exigencias normativas son prioritarias.
+A medio plazo, el uso de subconjuntos optimizados puede reducir el coste global cuando se entrenan múltiples modelos o configuraciones diferentes.
 
 Como líneas futuras, se plantea:
 \begin{itemize}
-      \item Aplicar las técnicas propuestas en tareas más complejas, como segmentación semántica o clasificación multietiqueta.
-      \item Investigar la incorporación de criterios adicionales en la función de fitness, como el tiempo de entrenamiento o el consumo energético.
-      \item Explorar la integración de los algoritmos meméticos con otras técnicas de reducción de datos como destilación de conocimiento o poda de redes.
+      \item Aplicar las técnicas propuestas en tareas más complejas, como la segmentación semántica o la clasificación multietiqueta,
+            donde la reducción del conjunto de datos puede tener un impacto aún más relevante.
+      \item Incorporar múltiples objetivos en el proceso de selección, convirtiéndolo en un problema de optimización multiobjetivo.
+            Por ejemplo, se podría considerar aspectos como el tiempo de entrenamiento, el coste computacional total o la eficiencia en la fase de inferencia,
+            además de las métricas clásicas de rendimiento.
+      \item Explorar la integración de los algoritmos meméticos con otras estrategias de reducción de datos, como la destilación de conocimiento o la poda de redes neuronales,
+            con el objetivo de combinar distintas aproximaciones complementarias.
 \end{itemize}
 
 En resumen, los hallazgos de este estudio ponen de manifiesto el potencial de los algoritmos meméticos en la reducción eficiente de conjuntos de datos para aprendizaje profundo.

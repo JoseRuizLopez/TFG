@@ -1,0 +1,16 @@
+- ✅ Enseñar tablas 2.1 y 2.3. ¿Estan bien alineadas?
+- ✅ Enseñar los GitHub.
+- ✅ Enseñar tabla de versiones libres.
+- ✅ Enseñar barplots de las versiones libres por PI.
+- ✅ Enseñar el nuevo PAINTING.
+- ✅ Enseñar el CIFAR10 en el Entorno de Desarrollo y en los resultados.
+- ✅ Enseñar el nuevo Diagrama.
+- ✅ Preguntar si esta bien el Repaso Bibliografico.
+- ✅ Enseñar nuevo estilo enlaces, preguntar por el Rosa de las citas.
+- ✅ Enseñar nueva Introduccion
+- ✅ Enseñar nuevas referencias del 4.4 Aplicaciones y Desafíos de los Algoritmos Meméticos.
+- ✅ Pregutar si ahora si ve mejor la tabla 2.1
+- ✅ Revisar conclusiones
+
+- Preguntar por el MASTER
+Coordinador del master: Alberto Fernandez
