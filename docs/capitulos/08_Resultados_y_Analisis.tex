@@ -14,30 +14,30 @@ Se emplean los modelos \textbf{ResNet50} y \textbf{MobileNetV2}, y se miden las 
 \textit{precision}, \textit{recall} y \textit{F1-score} sobre el conjunto de validación.
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
-            \toprule
-            \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
-            \midrule
-            \multicolumn{5}{c}{\textbf{Modelo ResNet50}}                                                                                       \\           \midrule
-            00:02:42                    & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
-            \midrule
-            \multicolumn{5}{c}{\textbf{Modelo MobileNet}}                                                                                      \\
-            \midrule
-            00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Comparativa de resultados del \textbf{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
-    \label{tab:resultados-100-resnet50-mobilenet}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
+      \toprule
+      \textbf{Duración por Eval.} & \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)} & \textbf{Recall (Avg)} & \textbf{F1-score (Avg)} \\
+      \midrule
+      \multicolumn{5}{c}{\textbf{Modelo ResNet50}}                                                                                       \\           \midrule
+      00:02:42                    & 87,90\%                 & 88,96\%                  & 87,90\%               & 87,81\%                 \\
+      \midrule
+      \multicolumn{5}{c}{\textbf{Modelo MobileNet}}                                                                                      \\
+      \midrule
+      00:03:16                    & 78,60\%                 & 81,55\%                  & 78,60\%               & 77,68\%                 \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Comparativa de resultados del \textbf{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
+  \label{tab:resultados-100-resnet50-mobilenet}
 \end{table}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100.png}
-    \caption{Comparación de \textit{accuracy} de los modelos \texttt{ResNet50} y \texttt{MobileNet} usando el 100\% del conjunto de datos.}
-    \label{fig:comparacion_modelos_100}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos_100.png}
+  \caption{Comparación de \textit{accuracy} de los modelos \texttt{ResNet50} y \texttt{MobileNet} usando el 100\% del conjunto de datos.}
+  \label{fig:comparacion_modelos_100}
 \end{figure}
 
 Los resultados presentados en la Tabla~\ref{tab:resultados-100-resnet50-mobilenet}, y visualizados en la Figura~\ref{fig:comparacion_modelos_100},
@@ -69,40 +69,40 @@ avanzadas de reducción de datos, sirviendo como punto de partida para comparar 
 
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
-            \toprule
-            \textbf{Porcentaje Inicial} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               &
-            \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                   \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{Modelo ResNet50}}                                                                                                                                                                                                                                                    \\
-            \midrule
-            10\%                        & \textcolor{azuloscuro}{\textbf{01:21:37}} & \textcolor{azuloscuro}{\textbf{00:00:48}} & 85,16\%                                  & 86,30\%                                  & 85,16\%                                  & 85,02\%                                  \\
-            25\%                        & 01:28:14                                  & 00:00:52                                  & 87,26\%                                  & 88,13\%                                  & 87,26\%                                  & 87,02\%                                  \\
-            50\%                        & 02:27:17                                  & 00:01:28                                  & 88,49\%                                  & 89,51\%                                  & 88,49\%                                  & 88,30\%                                  \\
-            75\%                        & 03:52:41                                  & 00:02:19                                  & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{90,53\%}} & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{89,70\%}} \\
-            100\%                       & -                                         & 00:02:55                                  & 87,42\%                                  & 88,73\%                                  & 87,42\%                                  & 87,18\%                                  \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{Modelo MobileNet}}                                                                                                                                                                                                                                                   \\
-            \midrule
-            10\%                        & \textcolor{azuloscuro}{\textbf{00:38:16}} & \textcolor{azuloscuro}{\textbf{00:00:22}} & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  \\
-            25\%                        & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  \\
-            50\%                        & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  \\
-            75\%                        & 03:05:48                                  & 00:01:51                                  & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{84,16\%}} & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{81,67\%}} \\
-            100\%                       & -                                         & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Comparativa de resultados de la generación inicial utilizando el \texttt{RS} y el \texttt{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
-    \label{tab:resnet50-vs-mobilenet}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm}}
+      \toprule
+      \textbf{Porcentaje Inicial} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               &
+      \textbf{Accuracy (Avg)}     & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                   \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{Modelo ResNet50}}                                                                                                                                                                                                                                                    \\
+      \midrule
+      10\%                        & \textcolor{azuloscuro}{\textbf{01:21:37}} & \textcolor{azuloscuro}{\textbf{00:00:48}} & 85,16\%                                  & 86,30\%                                  & 85,16\%                                  & 85,02\%                                  \\
+      25\%                        & 01:28:14                                  & 00:00:52                                  & 87,26\%                                  & 88,13\%                                  & 87,26\%                                  & 87,02\%                                  \\
+      50\%                        & 02:27:17                                  & 00:01:28                                  & 88,49\%                                  & 89,51\%                                  & 88,49\%                                  & 88,30\%                                  \\
+      75\%                        & 03:52:41                                  & 00:02:19                                  & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{90,53\%}} & \textcolor{azuloscuro}{\textbf{89,89\%}} & \textcolor{azuloscuro}{\textbf{89,70\%}} \\
+      100\%                       & -                                         & 00:02:55                                  & 87,42\%                                  & 88,73\%                                  & 87,42\%                                  & 87,18\%                                  \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{Modelo MobileNet}}                                                                                                                                                                                                                                                   \\
+      \midrule
+      10\%                        & \textcolor{azuloscuro}{\textbf{00:38:16}} & \textcolor{azuloscuro}{\textbf{00:00:22}} & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  \\
+      25\%                        & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  \\
+      50\%                        & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  \\
+      75\%                        & 03:05:48                                  & 00:01:51                                  & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{84,16\%}} & \textcolor{azuloscuro}{\textbf{82,26\%}} & \textcolor{azuloscuro}{\textbf{81,67\%}} \\
+      100\%                       & -                                         & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Comparativa de resultados de la generación inicial utilizando el \texttt{RS} y el \texttt{100\%} con los modelos \texttt{ResNet50} y \texttt{MobileNet}.}
+  \label{tab:resnet50-vs-mobilenet}
 \end{table}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos.png}
-    \caption{Diagrama de barras para comparar los modelos usando el \textit{accuracy} alcanzado por cada porcentaje inicial.}
-    \label{fig:comparacion_modelos}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/comparacion_modelos.png}
+  \caption{Diagrama de barras para comparar los modelos usando el \textit{accuracy} alcanzado por cada porcentaje inicial.}
+  \label{fig:comparacion_modelos}
 \end{figure}
 
 Se realizan pruebas con distintos porcentajes iniciales de datos seleccionados aleatoriamente (10\%, 25\%, 50\%, 75\% y 100\%), utilizando tanto \texttt{ResNet50} como \texttt{MobileNetV2}.
@@ -138,10 +138,10 @@ En este apartado se evalúa su efectividad como alternativa más estructurada fr
 Su inclusión busca analizar hasta qué punto una estrategia simple pero guiada puede generar subconjuntos de datos más representativos y consistentes.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_rs-ls.png}
-    \caption{Boxplot comparando el \texttt{RS} con la \texttt{LS} usando \textit{accuracy}.}
-    \label{fig:aleatorio-vs-busqueda-local}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_rs-ls.png}
+  \caption{Boxplot comparando el \texttt{RS} con la \texttt{LS} usando \textit{accuracy}.}
+  \label{fig:aleatorio-vs-busqueda-local}
 \end{figure}
 En la Figura~\ref{fig:aleatorio-vs-busqueda-local} se muestran los resultados mediante un boxplot que permite observar
 la distribución completa de valores obtenidos en las distintas ejecuciones.
@@ -168,10 +168,10 @@ Su estructura evolutiva, basada en selección por torneo, cruce e incorporación
 ofrece ya desde sus primeras versiones una capacidad superior para generalizar, en comparación con métodos más simples como la \texttt{LS}.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_ls-ga.png}
-    \caption{Boxplot comparando \texttt{LS} con \texttt{GA} usando \textit{accuracy}.}
-    \label{fig:lr-vs-gen-v1}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/comparacion_ls-ga.png}
+  \caption{Boxplot comparando \texttt{LS} con \texttt{GA} usando \textit{accuracy}.}
+  \label{fig:lr-vs-gen-v1}
 \end{figure}
 
 Tal como se observa en la Figura~\ref{fig:lr-vs-gen-v1}, el algoritmo genético (\texttt{GA}) consigue una \textbf{mediana de \textit{accuracy}} más alta que la búsqueda local (\texttt{LS}),
@@ -198,10 +198,10 @@ buscan aumentar la presión evolutiva y acelerar la convergencia hacia solucione
 evitando así que soluciones mediocres se propaguen innecesariamente en la población.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce.png}
-    \caption{Boxplot de \textit{accuracy} comparando el \texttt{GA} y el \texttt{GA-WC}.}
-    \label{fig:cruce_ponderado}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/operador-de-cruce.png}
+  \caption{Boxplot de \textit{accuracy} comparando el \texttt{GA} y el \texttt{GA-WC}.}
+  \label{fig:cruce_ponderado}
 \end{figure}
 
 Tal como se observa en la Figura~\ref{fig:cruce_ponderado}, esta modificación produce una mejora clara en la calidad y estabilidad de los resultados.
@@ -225,17 +225,17 @@ A diferencia de la versión original con tasa fija, esta estrategia ajusta el n�
 lo que permite una mayor flexibilidad en escenarios de diferente escala.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa.png}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-WC} y el \texttt{GA-AM}.}
-    \label{fig:mutacion-adaptativa}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa.png}
+  \caption{Comparación de \textit{accuracy} entre el \texttt{GA-WC} y el \texttt{GA-AM}.}
+  \label{fig:mutacion-adaptativa}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje.png}
-    \caption{Diagrama de comparación usando el \textit{accuracy} entre el \texttt{GA-WC} Y el \texttt{GA-AM}, separados por porcentaje inicial.}
-    \label{fig:mutacion-adaptativa-porcentaje}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/mutacion-adaptativa_por_porcentaje.png}
+  \caption{Diagrama de comparación usando el \textit{accuracy} entre el \texttt{GA-WC} Y el \texttt{GA-AM}, separados por porcentaje inicial.}
+  \label{fig:mutacion-adaptativa-porcentaje}
 \end{figure}
 
 Como se aprecia en la Figura~\ref{fig:mutacion-adaptativa},
@@ -271,47 +271,47 @@ El algoritmo monitoriza el rendimiento del segundo mejor individuo, y si este no
 se aplica un reinicio parcial que conserva únicamente al mejor individuo de la población.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional.png}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{GA-AM} y con \texttt{GA-PR}.}
-    \label{fig:reinicio_poblacional}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/reinicio-poblacional.png}
+  \caption{Comparación de \textit{accuracy} entre el \texttt{GA-AM} y con \texttt{GA-PR}.}
+  \label{fig:reinicio_poblacional}
 \end{figure}
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm} P{2.5cm}}
-            \toprule
-            \textbf{Algoritmo}    & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 &
-            \textbf{Recall (Avg)} & \textbf{F1-score (Avg)}                   & \textbf{Porc.Paper}                       & \textbf{Porc.Rock}                       & \textbf{Porc.Scissors}                                                                                                                                       \\
-            \midrule
-            \multicolumn{10}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM                 & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{84,24\%}} & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 35,64\% & 30,87\% & 33,49\% \\
-            GA-PR                 & 00:29:02                                  & 00:00:17                                  & 81,93\%                                  & 83,07\%                                  & 81,93\%                                  & 81,19\%                                  & 34,52\% & 32,14\% & 33,33\% \\
-            \midrule
-            \multicolumn{10}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM                 & \textcolor{azuloscuro}{\textbf{00:57:29}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 33,33\% & 32,54\% & 34,13\% \\
-            GA-PR                 & 01:00:22                                  & 00:00:36                                  & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{83,78\%}} & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{81,96\%}} & 33,62\% & 33,27\% & 33,11\% \\
-            \midrule
-            \multicolumn{10}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM                 & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 33,94\% & 32,76\% & 33,30\% \\
-            GA-PR                 & 01:53:13                                  & 00:01:08                                  & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{80,59\%}} & 33,21\% & 33,20\% & 33,59\% \\
-            \midrule
-            \multicolumn{10}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM                 & \textcolor{azuloscuro}{\textbf{02:36:41}} & \textcolor{azuloscuro}{\textbf{00:01:34}} & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 33,67\% & 33,11\% & 33,22\% \\
-            GA-PR                 & 02:41:24                                  & 00:01:37                                  & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{82,06\%}} & 33,52\% & 33,44\% & 33,04\% \\
-            \midrule
-            \multicolumn{10}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                     \\
-            \midrule
-            100\%                 & --                                        & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 33,33\% & 33,33\% & 33,33\% \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-PR} por porcentaje inicial.}
-    \label{tab:resultados-am-pr-porcentaje}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm} P{2.5cm}}
+      \toprule
+      \textbf{Algoritmo}    & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 &
+      \textbf{Recall (Avg)} & \textbf{F1-score (Avg)}                   & \textbf{Porc.Paper}                       & \textbf{Porc.Rock}                       & \textbf{Porc.Scissors}                                                                                                                                       \\
+      \midrule
+      \multicolumn{10}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM                 & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{84,24\%}} & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 35,64\% & 30,87\% & 33,49\% \\
+      GA-PR                 & 00:29:02                                  & 00:00:17                                  & 81,93\%                                  & 83,07\%                                  & 81,93\%                                  & 81,19\%                                  & 34,52\% & 32,14\% & 33,33\% \\
+      \midrule
+      \multicolumn{10}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM                 & \textcolor{azuloscuro}{\textbf{00:57:29}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 33,33\% & 32,54\% & 34,13\% \\
+      GA-PR                 & 01:00:22                                  & 00:00:36                                  & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{83,78\%}} & \textcolor{azuloscuro}{\textbf{82,64\%}} & \textcolor{azuloscuro}{\textbf{81,96\%}} & 33,62\% & 33,27\% & 33,11\% \\
+      \midrule
+      \multicolumn{10}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM                 & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 33,94\% & 32,76\% & 33,30\% \\
+      GA-PR                 & 01:53:13                                  & 00:01:08                                  & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & \textcolor{azuloscuro}{\textbf{81,24\%}} & \textcolor{azuloscuro}{\textbf{80,59\%}} & 33,21\% & 33,20\% & 33,59\% \\
+      \midrule
+      \multicolumn{10}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM                 & \textcolor{azuloscuro}{\textbf{02:36:41}} & \textcolor{azuloscuro}{\textbf{00:01:34}} & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 33,67\% & 33,11\% & 33,22\% \\
+      GA-PR                 & 02:41:24                                  & 00:01:37                                  & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,69\%}} & \textcolor{azuloscuro}{\textbf{82,06\%}} & 33,52\% & 33,44\% & 33,04\% \\
+      \midrule
+      \multicolumn{10}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                     \\
+      \midrule
+      100\%                 & --                                        & 00:03:16                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 33,33\% & 33,33\% & 33,33\% \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-PR} por porcentaje inicial.}
+  \label{tab:resultados-am-pr-porcentaje}
 \end{table}
 
 Los resultados, mostrados en la Figura~\ref{fig:reinicio_poblacional} y la Tabla~\ref{tab:resultados-am-pr-porcentaje},
@@ -350,10 +350,10 @@ sino que se selecciona aleatoriamente en cada ejecución, introduciendo así un 
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo.png}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BARPLOT).}
-    \label{fig:barplot_por_algoritmo-libres}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/barplot_por_algoritmo.png}
+  \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BARPLOT).}
+  \label{fig:barplot_por_algoritmo-libres}
 \end{figure}
 
 En la Figura~\ref{fig:barplot_por_algoritmo-libres} se observa que las versiones libres mantienen un rendimiento promedio muy similar al de las versiones originales.
@@ -364,10 +364,10 @@ lo que refuerza la idea de que la flexibilidad no compromete la estabilidad de l
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo.png}
-    \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BOXPLOT).}
-    \label{fig:boxplot_por_algoritmo-libres}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/boxplot_por_algoritmo.png}
+  \caption{Comparación de \textit{accuracy} entre el \texttt{LS}, \texttt{GA-AM} y sus versiones Libres (formato BOXPLOT).}
+  \label{fig:boxplot_por_algoritmo-libres}
 \end{figure}
 
 Los diagramas de caja en la Figura~\ref{fig:boxplot_por_algoritmo-libres} permiten una comparación más detallada de la dispersión de los resultados.
@@ -378,10 +378,10 @@ la versión libre presenta una ligera reducción en los valores mínimos, lo que
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi.png}
-    \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo \texttt{GA-AM}.}
-    \label{fig:am_por_pi}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/am_por_pi.png}
+  \caption{Comparación de \textit{accuracy} en función del porcentaje inicial para el algoritmo \texttt{GA-AM}.}
+  \label{fig:am_por_pi}
 \end{figure}
 
 La Figura~\ref{fig:am_por_pi} muestra la evolución del \textit{accuracy} en función del porcentaje inicial de datos utilizados en el algoritmo \texttt{GA-AM}.
@@ -392,10 +392,10 @@ sino que permite adaptarse a diferentes condiciones iniciales sin comprometer el
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/distribucion-clases.png}
-    \caption{Distribución de clases en los subconjuntos generados por los algoritmos estándar y libres.}
-    \label{fig:distribucion_libres}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/distribucion-clases.png}
+  \caption{Distribución de clases en los subconjuntos generados por los algoritmos estándar y libres.}
+  \label{fig:distribucion_libres}
 \end{figure}
 
 Por otro lado, la Figura~\ref{fig:distribucion_libres} demuestra que tanto las versiones fijas como las libres preservan una
@@ -405,99 +405,99 @@ Este aspecto es crucial, ya que garantiza la validez de los experimentos y asegu
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_ls-f.png}
-    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{LS-F}.}
-    \label{fig:scatter_bl_f}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_ls-f.png}
+  \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{LS-F}.}
+  \label{fig:scatter_bl_f}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_ga-am-f.png}
-    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{GA-AM-F}.}
-    \label{fig:scatter_gen_v2}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/libres/scatter_ga-am-f.png}
+  \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por el algoritmo \texttt{GA-AM-F}.}
+  \label{fig:scatter_gen_v2}
 \end{figure}
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm}}
-            \toprule
-            \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & \textcolor{azuloscuro}{\textbf{00:00:16}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{84.24\%}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{83.09\%}} \\
-            GA-AM-F            & 00:34:32                                  & 00:00:20                                  & 82.96\%                                  & 84.07\%                                  & 82.96\%                                  & 82.12\%                                  \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM              & \textcolor{azuloscuro}{\textbf{00:57:28}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{83.68\%}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.78\%}} \\
-            GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81.77\%                                  & 82.66\%                                  & 81.77\%                                  & 81.18\%                                  \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:04}} & 81.13\%                                  & 82.62\%                                  & 81.13\%                                  & 80.41\%                                  \\
-            GA-AM-F            & 01:51:24                                  & 00:01:06                                  & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{85.22\%}} & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{83.03\%}} \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM              & 02:36:40                                  & 00:01:34                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & 83.94\%                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.85\%}} \\
-            GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82.20\%                                  & 83.94\%                                  & 82.20\%                                  & 81.47\%                                  \\
-            \midrule
-            \multicolumn{7}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                     \\
-            \midrule
-            100\%              & --                                        & 00:03:15                                  & 78.60\%                                  & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
-            \bottomrule
-        \end{tabular}}
-    \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-AM-F} por porcentaje inicial.}
-    \label{tab:resultados-am-f-porcentaje}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm} P{2cm}}
+      \toprule
+      \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & \textcolor{azuloscuro}{\textbf{00:00:16}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{84.24\%}} & \textcolor{azuloscuro}{\textbf{83.66\%}} & \textcolor{azuloscuro}{\textbf{83.09\%}} \\
+      GA-AM-F            & 00:34:32                                  & 00:00:20                                  & 82.96\%                                  & 84.07\%                                  & 82.96\%                                  & 82.12\%                                  \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM              & \textcolor{azuloscuro}{\textbf{00:57:28}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{83.68\%}} & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.78\%}} \\
+      GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81.77\%                                  & 82.66\%                                  & 81.77\%                                  & 81.18\%                                  \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & \textcolor{azuloscuro}{\textbf{00:01:04}} & 81.13\%                                  & 82.62\%                                  & 81.13\%                                  & 80.41\%                                  \\
+      GA-AM-F            & 01:51:24                                  & 00:01:06                                  & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{85.22\%}} & \textcolor{azuloscuro}{\textbf{83.60\%}} & \textcolor{azuloscuro}{\textbf{83.03\%}} \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM              & 02:36:40                                  & 00:01:34                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & 83.94\%                                  & \textcolor{azuloscuro}{\textbf{82.42\%}} & \textcolor{azuloscuro}{\textbf{81.85\%}} \\
+      GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82.20\%                                  & 83.94\%                                  & 82.20\%                                  & 81.47\%                                  \\
+      \midrule
+      \multicolumn{7}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                     \\
+      \midrule
+      100\%              & --                                        & 00:03:15                                  & 78.60\%                                  & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
+      \bottomrule
+    \end{tabular}}
+  \caption{Resultados de los algoritmos \texttt{GA-AM} y \texttt{GA-AM-F} por porcentaje inicial.}
+  \label{tab:resultados-am-f-porcentaje}
 \end{table}
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2cm} P{1.8cm} P{2cm} P{2.3cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm}}
-            \toprule
-            \textbf{Algoritmo} & \textbf{Porc. Inicial} & \textbf{Duración Total}                & \textbf{Duración por Eval.}            & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$10\%}}                                                                                                                                                                                                                                                \\
-            \midrule
-            LS                 & 10\%                   & \textcolor{azuloscuro}{\textbf{00:33}} & 00:00                                  & 81.24\%                                  & 81.81\%                                  & 81.24\%                                  & 80.61\%                                  \\
-            LS-F               & 6\%                    & 00:38                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{83.7\%}}  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{82.71\%}} \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$25\%}}                                                                                                                                                                                                                                                \\
-            \midrule
-            LS                 & 25\%                   & 01:07                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{83.95\%}} & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
-            LS-F               & 12\%                   & \textcolor{azuloscuro}{\textbf{01:00}} & 00:00                                  & 80.91\%                                  & 82.73\%                                  & 80.91\%                                  & 79.82\%                                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$50\%}}                                                                                                                                                                                                                                                \\
-            \midrule
-            LS                 & 50\%                   & 02:08                                  & 00:01                                  & 80.76\%                                  & 82.77\%                                  & 80.76\%                                  & 80.09\%                                  \\
-            LS-F               & 35\%                   & \textcolor{azuloscuro}{\textbf{01:36}} & \textcolor{azuloscuro}{\textbf{00:00}} & 80.91\%                                  & 83.12\%                                  & 80.91\%                                  & 79.76\%                                  \\
-            LS-F               & 37\%                   & 01:57                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.96\%}} & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.19\%}} \\
-            LS-F               & 40\%                   & 02:20                                  & 00:01                                  & 82.12\%                                  & 83.3\%                                   & 82.12\%                                  & 81.34\%                                  \\
-            LS-F               & 50\%                   & 03:13                                  & 00:01                                  & 81.45\%                                  & 82.6\%                                   & 81.45\%                                  & 80.61\%                                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$75\%}}                                                                                                                                                                                                                                                \\
-            \midrule
-            LS                 & 75\%                   & 03:06                                  & 00:01                                  & 82.37\%                                  & 83.97\%                                  & 82.37\%                                  & 81.67\%                                  \\
-            LS-F               & 57\%                   & 03:54                                  & 00:02                                  & 82.53\%                                  & 83.72\%                                  & 82.53\%                                  & 81.77\%                                  \\
-            LS-F               & 58\%                   & 04:02                                  & 00:02                                  & 81.45\%                                  & 82.37\%                                  & 81.45\%                                  & 80.76\%                                  \\
-            LS-F               & 61\%                   & 04:12                                  & 00:02                                  & 81.72\%                                  & 83.3\%                                   & 81.72\%                                  & 81.29\%                                  \\
-            LS-F               & 63\%                   & \textcolor{azuloscuro}{\textbf{02:36}} & 00:01                                  & 83.6\%                                   & 84.43\%                                  & 83.6\%                                   & 82.77\%                                  \\
-            LS-F               & 67\%                   & 03:02                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & 84.59\%                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & \textcolor{azuloscuro}{\textbf{83.4\%}}  \\
-            LS-F               & 71\%                   & 03:18                                  & 00:01                                  & 83.06\%                                  & \textcolor{azuloscuro}{\textbf{84.93\%}} & 83.06\%                                  & 82.42\%                                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$100\%}}                                                                                                                                                                                                                                               \\
-            \midrule
-            LS-F               & 85\%                   & \textcolor{azuloscuro}{\textbf{03:49}} & 00:02                                  & 81.99\%                                  & 83.71\%                                  & 81.99\%                                  & 81.56\%                                  \\
-            LS-F               & 87\%                   & 04:32                                  & 00:02                                  & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{84.22\%}} & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
-            100\%              & 100\%                  & --                                     & 00:03                                  & 78.6\%                                   & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
-            \bottomrule
-        \end{tabular}}
-    \caption{Resultados de los algoritmos \texttt{LS} y \texttt{LS-F} agrupados por franjas de porcentaje inicial.}
-    \label{tab:resultados-ls-franjas-porcentaje}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2cm} P{1.8cm} P{2cm} P{2.3cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm}}
+      \toprule
+      \textbf{Algoritmo} & \textbf{Porc. Inicial} & \textbf{Duración Total}                & \textbf{Duración por Eval.}            & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$10\%}}                                                                                                                                                                                                                                                \\
+      \midrule
+      LS                 & 10\%                   & \textcolor{azuloscuro}{\textbf{00:33}} & 00:00                                  & 81.24\%                                  & 81.81\%                                  & 81.24\%                                  & 80.61\%                                  \\
+      LS-F               & 6\%                    & 00:38                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{83.7\%}}  & \textcolor{azuloscuro}{\textbf{83.23\%}} & \textcolor{azuloscuro}{\textbf{82.71\%}} \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$25\%}}                                                                                                                                                                                                                                                \\
+      \midrule
+      LS                 & 25\%                   & 01:07                                  & 00:00                                  & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{83.95\%}} & \textcolor{azuloscuro}{\textbf{82.47\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
+      LS-F               & 12\%                   & \textcolor{azuloscuro}{\textbf{01:00}} & 00:00                                  & 80.91\%                                  & 82.73\%                                  & 80.91\%                                  & 79.82\%                                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$50\%}}                                                                                                                                                                                                                                                \\
+      \midrule
+      LS                 & 50\%                   & 02:08                                  & 00:01                                  & 80.76\%                                  & 82.77\%                                  & 80.76\%                                  & 80.09\%                                  \\
+      LS-F               & 35\%                   & \textcolor{azuloscuro}{\textbf{01:36}} & \textcolor{azuloscuro}{\textbf{00:00}} & 80.91\%                                  & 83.12\%                                  & 80.91\%                                  & 79.76\%                                  \\
+      LS-F               & 37\%                   & 01:57                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.96\%}} & \textcolor{azuloscuro}{\textbf{83.6\%}}  & \textcolor{azuloscuro}{\textbf{83.19\%}} \\
+      LS-F               & 40\%                   & 02:20                                  & 00:01                                  & 82.12\%                                  & 83.3\%                                   & 82.12\%                                  & 81.34\%                                  \\
+      LS-F               & 50\%                   & 03:13                                  & 00:01                                  & 81.45\%                                  & 82.6\%                                   & 81.45\%                                  & 80.61\%                                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$75\%}}                                                                                                                                                                                                                                                \\
+      \midrule
+      LS                 & 75\%                   & 03:06                                  & 00:01                                  & 82.37\%                                  & 83.97\%                                  & 82.37\%                                  & 81.67\%                                  \\
+      LS-F               & 57\%                   & 03:54                                  & 00:02                                  & 82.53\%                                  & 83.72\%                                  & 82.53\%                                  & 81.77\%                                  \\
+      LS-F               & 58\%                   & 04:02                                  & 00:02                                  & 81.45\%                                  & 82.37\%                                  & 81.45\%                                  & 80.76\%                                  \\
+      LS-F               & 61\%                   & 04:12                                  & 00:02                                  & 81.72\%                                  & 83.3\%                                   & 81.72\%                                  & 81.29\%                                  \\
+      LS-F               & 63\%                   & \textcolor{azuloscuro}{\textbf{02:36}} & 00:01                                  & 83.6\%                                   & 84.43\%                                  & 83.6\%                                   & 82.77\%                                  \\
+      LS-F               & 67\%                   & 03:02                                  & 00:01                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & 84.59\%                                  & \textcolor{azuloscuro}{\textbf{83.87\%}} & \textcolor{azuloscuro}{\textbf{83.4\%}}  \\
+      LS-F               & 71\%                   & 03:18                                  & 00:01                                  & 83.06\%                                  & \textcolor{azuloscuro}{\textbf{84.93\%}} & 83.06\%                                  & 82.42\%                                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{Porcentaje inicial $\leq$100\%}}                                                                                                                                                                                                                                               \\
+      \midrule
+      LS-F               & 85\%                   & \textcolor{azuloscuro}{\textbf{03:49}} & 00:02                                  & 81.99\%                                  & 83.71\%                                  & 81.99\%                                  & 81.56\%                                  \\
+      LS-F               & 87\%                   & 04:32                                  & 00:02                                  & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{84.22\%}} & \textcolor{azuloscuro}{\textbf{82.26\%}} & \textcolor{azuloscuro}{\textbf{81.76\%}} \\
+      100\%              & 100\%                  & --                                     & 00:03                                  & 78.6\%                                   & 81.55\%                                  & 78.6\%                                   & 77.68\%                                  \\
+      \bottomrule
+    \end{tabular}}
+  \caption{Resultados de los algoritmos \texttt{LS} y \texttt{LS-F} agrupados por franjas de porcentaje inicial.}
+  \label{tab:resultados-ls-franjas-porcentaje}
 \end{table}
 
 
@@ -535,10 +535,10 @@ ofreciendo mejoras tanto en precisión como en estabilidad.
 
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-ma.png}
-    \caption{Comparación de \textit{accuracy} entre el algoritmo memético (\texttt{MA}) y su versión libre.}
-    \label{fig:memetico_comparacion}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/comparacion-ma.png}
+  \caption{Comparación de \textit{accuracy} entre el algoritmo memético (\texttt{MA}) y su versión libre.}
+  \label{fig:memetico_comparacion}
 \end{figure}
 
 Tal como se aprecia en la Figura~\ref{fig:memetico_comparacion}, el algoritmo memético (\texttt{MA}) supera claramente al mejor de los enfoques genéticos
@@ -552,45 +552,45 @@ Esto sugiere que el componente adaptativo no penaliza la calidad de las solucion
 
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2cm} P{2.5cm} P{2.5cm}}
-            \toprule
-            \textbf{Algoritmo}      & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Porc.Final}                      &
-            \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                                                              \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM-F                 & 00:34:33                                  & 00:00:21                                  & \textcolor{azuloscuro}{\textbf{14,94\%}} & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  \\
-            MA                      & \textcolor{azuloscuro}{\textbf{00:27:43}} & \textcolor{azuloscuro}{\textbf{00:00:17}} & 10,00\%                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  \\
-            MA-F                    & 00:32:39                                  & 00:00:20                                  & 9,62\%                                   & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{84,70\%}} & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{82,46\%}} \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM-F                 & 01:07:13                                  & 00:00:40                                  & 26,68\%                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  \\
-            MA                      & \textcolor{azuloscuro}{\textbf{00:57:12}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 25,00\%                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  \\
-            MA-F                    & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{27,18\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{83,77\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM-F                 & 01:51:24                                  & 00:01:07                                  & 46,36\%                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} \\
-            MA                      & \textcolor{azuloscuro}{\textbf{01:47:32}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 50,00\%                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  \\
-            MA-F                    & 02:16:51                                  & 00:01:22                                  & \textcolor{azuloscuro}{\textbf{67,07\%}} & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                                      \\
-            \midrule
-            GA-AM-F                 & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 72,72\%                                  & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  \\
-            MA                      & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{75,00\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} \\
-            MA-F                    & 03:08:21                                  & 00:01:53                                  & 71,16\%                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                                     \\
-            \midrule
-            100\%                   & --                                        & 00:03:16                                  & 100,00\%                                 & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Resultados de los \texttt{MA} y del \texttt{GA-AM-F} por porcentaje inicial.}
-    \label{tab:resultados-memetico-genetico-libres}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2.2cm} P{2cm} P{2.5cm} P{2.5cm}}
+      \toprule
+      \textbf{Algoritmo}      & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Porc.Final}                      &
+      \textbf{Accuracy (Avg)} & \textbf{Precision (Avg)}                  & \textbf{Recall (Avg)}                     & \textbf{F1-score (Avg)}                                                                                                                                                                                              \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM-F                 & 00:34:33                                  & 00:00:21                                  & \textcolor{azuloscuro}{\textbf{14,94\%}} & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  \\
+      MA                      & \textcolor{azuloscuro}{\textbf{00:27:43}} & \textcolor{azuloscuro}{\textbf{00:00:17}} & 10,00\%                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  \\
+      MA-F                    & 00:32:39                                  & 00:00:20                                  & 9,62\%                                   & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{84,70\%}} & \textcolor{azuloscuro}{\textbf{83,28\%}} & \textcolor{azuloscuro}{\textbf{82,46\%}} \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM-F                 & 01:07:13                                  & 00:00:40                                  & 26,68\%                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  \\
+      MA                      & \textcolor{azuloscuro}{\textbf{00:57:12}} & \textcolor{azuloscuro}{\textbf{00:00:34}} & 25,00\%                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  \\
+      MA-F                    & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{27,18\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{83,77\%}} & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM-F                 & 01:51:24                                  & 00:01:07                                  & 46,36\%                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} \\
+      MA                      & \textcolor{azuloscuro}{\textbf{01:47:32}} & \textcolor{azuloscuro}{\textbf{00:01:05}} & 50,00\%                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  \\
+      MA-F                    & 02:16:51                                  & 00:01:22                                  & \textcolor{azuloscuro}{\textbf{67,07\%}} & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                                                      \\
+      \midrule
+      GA-AM-F                 & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 72,72\%                                  & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  \\
+      MA                      & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{75,00\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} \\
+      MA-F                    & 03:08:21                                  & 00:01:53                                  & 71,16\%                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                                                     \\
+      \midrule
+      100\%                   & --                                        & 00:03:16                                  & 100,00\%                                 & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Resultados de los \texttt{MA} y del \texttt{GA-AM-F} por porcentaje inicial.}
+  \label{tab:resultados-memetico-genetico-libres}
 \end{table}
 
 El análisis detallado de la Tabla~\ref{tab:resultados-memetico-genetico-libres} confirma estas observaciones y permite extraer
@@ -624,10 +624,10 @@ estabilidad de resultados, y eficiencia en la reducción de datos, así como val
 
 \subsection{Análisis comparativo de accuracy}\label{sec:comparacion-final-accuracy}
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo.png}
-    \caption{Boxplot de \textit{accuracy} para los algoritmos \texttt{RS}, \texttt{GA-WC}, \texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA} y \texttt{MA-F}.}
-    \label{fig:boxplot-comparacion-final}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/boxplot-por-algoritmo.png}
+  \caption{Boxplot de \textit{accuracy} para los algoritmos \texttt{RS}, \texttt{GA-WC}, \texttt{GA-AM}, \texttt{GA-AM-F}, \texttt{MA} y \texttt{MA-F}.}
+  \label{fig:boxplot-comparacion-final}
 \end{figure}
 El análisis comparativo de \textit{accuracy} entre algoritmos confirma de manera general las conclusiones obtenidas en los análisis de las secciones anteriores.
 Como muestra el boxplot~\ref{fig:boxplot-comparacion-final}, los algoritmos meméticos, especialmente la versión libre \texttt{MA-F},
@@ -653,16 +653,16 @@ reducción de datos y estabilidad en problemas de selección de instancias para 
 
 \subsection{Porcentaje final de datos seleccionados}\label{sec:porcentaje-final-datos-seleccionados}
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/barplot-por-porcentaje.png}
-    \caption{Porcentaje final de datos seleccionados por cada algoritmo.}
-    \label{fig:barplot-por-porcentaje}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/barplot-por-porcentaje.png}
+  \caption{Porcentaje final de datos seleccionados por cada algoritmo.}
+  \label{fig:barplot-por-porcentaje}
 \end{figure}
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/scatter.png}
-    \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por cada algoritmo.}
-    \label{fig:scatter-final}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/scatter.png}
+  \caption{Relación entre \textit{accuracy} y porcentaje final de datos seleccionados por cada algoritmo.}
+  \label{fig:scatter-final}
 \end{figure}El análisis del porcentaje final de datos seleccionados permite evaluar la eficiencia de cada algoritmo,
 entendida como la capacidad para mantener una precisión elevada reduciendo el volumen de datos utilizados.
 Como se observa en la Figura~\ref{fig:barplot-por-porcentaje}, los algoritmos meméticos, y en particular \texttt{MA-F},
@@ -688,10 +688,10 @@ lo que demuestra la ventaja competitiva de los algoritmos meméticos.
 
 \subsection{Estabilidad en la distribución de clases}\label{sec:distribucion-clases-final}
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/distribucion-de-clases.png}
-    \caption{Distribución de clases seleccionadas por cada algoritmo en el conjunto reducido final.}
-    \label{fig:distribucion-de-clases-final}
+  \centering
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/distribucion-de-clases.png}
+  \caption{Distribución de clases seleccionadas por cada algoritmo en el conjunto reducido final.}
+  \label{fig:distribucion-de-clases-final}
 \end{figure}
 
 El análisis de la distribución de clases en los subconjuntos finales permite evaluar si los algoritmos de reducción mantienen
@@ -715,56 +715,56 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
 
 \subsection{Síntesis final}\label{sec:sintesis-final}
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2.2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm}}
-            \toprule
-            \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                             \\
-            \midrule
-            RS                 & 00:38:17                                  & 00:00:22                                  & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  & 10,00\%              \\
-            GA-WC              & 00:34:03                                  & 00:00:21                                  & 83,60\%                                  & 84,38\%                                  & 83,60\%                                  & 82,82\%                                  & 10,00\%              \\
-            GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & 84,24\%                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 10,00\%              \\
-            GA-AM-F            & 00:34:32                                  & 00:00:21                                  & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  & 14,94\%              \\
-            MA                 & 00:27:43                                  & 00:00:17                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  & 10,00\%              \\
-            MA-F               & 00:32:39                                  & 00:00:20                                  & 83,28\%                                  & \textcolor{azuloscuro}{\textbf{84,70\%}} & 83,28\%                                  & 82,46\%                                  & 9,62\%               \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                             \\
-            \midrule
-            RS                 & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  & 25,00\%              \\
-            GA-WC              & 01:10:21                                  & 00:00:43                                  & 82,37\%                                  & \textcolor{azuloscuro}{\textbf{83,86\%}} & 82,37\%                                  & 81,57\%                                  & 25,00\%              \\
-            GA-AM              & 00:57:29                                  & 00:00:34                                  & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 25,00\%              \\
-            GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  & 26,68\%              \\
-            MA                 & \textcolor{azuloscuro}{\textbf{00:57:12}} & 00:00:34                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  & 25,00\%              \\
-            MA-F               & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & 83,77\%                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} & 27,18\%              \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                             \\
-            \midrule
-            RS                 & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  & 50,00\%              \\
-            GA-WC              & 02:15:43                                  & 00:01:21                                  & 81,61\%                                  & 83,78\%                                  & 81,61\%                                  & 81,06\%                                  & 50,00\%              \\
-            GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & 00:01:05                                  & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 50,00\%              \\
-            GA-AM-F            & 01:51:24                                  & 00:01:07                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} & 46,36\%              \\
-            MA                 & 01:47:32                                  & 00:01:05                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  & 50,00\%              \\
-            MA-F               & 02:16:51                                  & 00:01:22                                  & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  & 67,07\%              \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                             \\
-            \midrule
-            RS                 & 03:05:49                                  & 00:01:51                                  & 82,26\%                                  & 84,16\%                                  & 82,26\%                                  & 81,67\%                                  & 75,00\%              \\
-            GA-WC              & 03:33:06                                  & 00:02:08                                  & 82,31\%                                  & 83,91\%                                  & 82,31\%                                  & 81,59\%                                  & 75,00\%              \\
-            GA-AM              & 02:36:41                                  & 00:01:34                                  & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 75,00\%              \\
-            GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  & 72,72\%              \\
-            MA                 & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} & 75,00\%              \\
-            MA-F               & 03:08:21                                  & 00:01:53                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  & 71,16\%              \\
-            \midrule
-            \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                            \\
-            \midrule
-            100\%              & --                                        & 00:03:15                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 100,00\%             \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Resultados detallados por porcentaje inicial.}
-    \label{tab:resultados-generales-por-porcentaje-inicial}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2.2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2cm} P{2.5cm}}
+      \toprule
+      \textbf{Algoritmo} & \textbf{Duración Total}                   & \textbf{Duración por Eval.}               & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{10\%}}                                                                                                                                                                                                                                                                             \\
+      \midrule
+      RS                 & 00:38:17                                  & 00:00:22                                  & 81,34\%                                  & 82,46\%                                  & 81,34\%                                  & 80,52\%                                  & 10,00\%              \\
+      GA-WC              & 00:34:03                                  & 00:00:21                                  & 83,60\%                                  & 84,38\%                                  & 83,60\%                                  & 82,82\%                                  & 10,00\%              \\
+      GA-AM              & \textcolor{azuloscuro}{\textbf{00:27:39}} & 00:00:17                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & 84,24\%                                  & \textcolor{azuloscuro}{\textbf{83,66\%}} & \textcolor{azuloscuro}{\textbf{83,09\%}} & 10,00\%              \\
+      GA-AM-F            & 00:34:32                                  & 00:00:21                                  & 82,96\%                                  & 84,07\%                                  & 82,96\%                                  & 82,12\%                                  & 14,94\%              \\
+      MA                 & 00:27:43                                  & 00:00:17                                  & 82,85\%                                  & 84,44\%                                  & 82,85\%                                  & 81,91\%                                  & 10,00\%              \\
+      MA-F               & 00:32:39                                  & 00:00:20                                  & 83,28\%                                  & \textcolor{azuloscuro}{\textbf{84,70\%}} & 83,28\%                                  & 82,46\%                                  & 9,62\%               \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{25\%}}                                                                                                                                                                                                                                                                             \\
+      \midrule
+      RS                 & 01:18:22                                  & 00:00:47                                  & 80,70\%                                  & 81,90\%                                  & 80,70\%                                  & 79,90\%                                  & 25,00\%              \\
+      GA-WC              & 01:10:21                                  & 00:00:43                                  & 82,37\%                                  & \textcolor{azuloscuro}{\textbf{83,86\%}} & 82,37\%                                  & 81,57\%                                  & 25,00\%              \\
+      GA-AM              & 00:57:29                                  & 00:00:34                                  & 82,42\%                                  & 83,68\%                                  & 82,42\%                                  & 81,78\%                                  & 25,00\%              \\
+      GA-AM-F            & 01:07:13                                  & 00:00:40                                  & 81,77\%                                  & 82,66\%                                  & 81,77\%                                  & 81,18\%                                  & 26,68\%              \\
+      MA                 & \textcolor{azuloscuro}{\textbf{00:57:12}} & 00:00:34                                  & 81,99\%                                  & 83,11\%                                  & 81,99\%                                  & 81,21\%                                  & 25,00\%              \\
+      MA-F               & 01:08:54                                  & 00:00:41                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & 83,77\%                                  & \textcolor{azuloscuro}{\textbf{82,80\%}} & \textcolor{azuloscuro}{\textbf{82,17\%}} & 27,18\%              \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{50\%}}                                                                                                                                                                                                                                                                             \\
+      \midrule
+      RS                 & 02:26:40                                  & 00:01:28                                  & 80,86\%                                  & 82,65\%                                  & 80,86\%                                  & 80,22\%                                  & 50,00\%              \\
+      GA-WC              & 02:15:43                                  & 00:01:21                                  & 81,61\%                                  & 83,78\%                                  & 81,61\%                                  & 81,06\%                                  & 50,00\%              \\
+      GA-AM              & \textcolor{azuloscuro}{\textbf{01:47:31}} & 00:01:05                                  & 81,13\%                                  & 82,62\%                                  & 81,13\%                                  & 80,41\%                                  & 50,00\%              \\
+      GA-AM-F            & 01:51:24                                  & 00:01:07                                  & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{85,22\%}} & \textcolor{azuloscuro}{\textbf{83,60\%}} & \textcolor{azuloscuro}{\textbf{83,03\%}} & 46,36\%              \\
+      MA                 & 01:47:32                                  & 00:01:05                                  & 81,51\%                                  & 83,36\%                                  & 81,51\%                                  & 80,89\%                                  & 50,00\%              \\
+      MA-F               & 02:16:51                                  & 00:01:22                                  & 81,61\%                                  & 83,09\%                                  & 81,61\%                                  & 80,96\%                                  & 67,07\%              \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{75\%}}                                                                                                                                                                                                                                                                             \\
+      \midrule
+      RS                 & 03:05:49                                  & 00:01:51                                  & 82,26\%                                  & 84,16\%                                  & 82,26\%                                  & 81,67\%                                  & 75,00\%              \\
+      GA-WC              & 03:33:06                                  & 00:02:08                                  & 82,31\%                                  & 83,91\%                                  & 82,31\%                                  & 81,59\%                                  & 75,00\%              \\
+      GA-AM              & 02:36:41                                  & 00:01:34                                  & 82,42\%                                  & 83,94\%                                  & 82,42\%                                  & 81,85\%                                  & 75,00\%              \\
+      GA-AM-F            & \textcolor{azuloscuro}{\textbf{02:33:25}} & \textcolor{azuloscuro}{\textbf{00:01:32}} & 82,20\%                                  & 83,94\%                                  & 82,20\%                                  & 81,47\%                                  & 72,72\%              \\
+      MA                 & 02:37:43                                  & 00:01:35                                  & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{84,33\%}} & \textcolor{azuloscuro}{\textbf{82,74\%}} & \textcolor{azuloscuro}{\textbf{82,14\%}} & 75,00\%              \\
+      MA-F               & 03:08:21                                  & 00:01:53                                  & 82,69\%                                  & 84,18\%                                  & 82,69\%                                  & 82,10\%                                  & 71,16\%              \\
+      \midrule
+      \multicolumn{8}{c}{\textbf{100\%}}                                                                                                                                                                                                                                                                            \\
+      \midrule
+      100\%              & --                                        & 00:03:15                                  & 78,60\%                                  & 81,55\%                                  & 78,60\%                                  & 77,68\%                                  & 100,00\%             \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Resultados detallados por porcentaje inicial.}
+  \label{tab:resultados-generales-por-porcentaje-inicial}
 \end{table}
 
 Los resultados globales obtenidos para el conjunto de datos Rock, Paper, Scissors (véase Tabla~\ref{tab:resultados-generales-por-porcentaje-inicial})
@@ -797,42 +797,48 @@ Estos gráficos permiten observar cómo varía el rendimiento de cada algoritmo 
 destacando especialmente la superioridad de los enfoques meméticos (\texttt{MA}, \texttt{MA-F}) y la mejora progresiva introducida por \texttt{GA-AM-F}.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-10.png}
-    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{10\%}.}
-    \label{fig:barplot-por-pi-10}
+  \centering
+  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-10.png}
+  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{10\%}.}
+  \label{fig:barplot-por-pi-10}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-25.png}
-    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{25\%}.}
-    \label{fig:barplot-por-pi-25}
+  \centering
+  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-25.png}
+  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{25\%}.}
+  \label{fig:barplot-por-pi-25}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-50.png}
-    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{50\%}.}
-    \label{fig:barplot-por-pi-50}
+  \centering
+  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-50.png}
+  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{50\%}.}
+  \label{fig:barplot-por-pi-50}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-75.png}
-    \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{75\%}.}
-    \label{fig:barplot-por-pi-75}
+  \centering
+  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-75.png}
+  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{75\%}.}
+  \label{fig:barplot-por-pi-75}
 \end{figure}
 
 En conjunto, este análisis confirma que los algoritmos meméticos, especialmente en su versión libre (\texttt{MA-F}),
 representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.
-Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria o enfoques genéticos más sencillos.
+Logran un equilibrio óptimo entre precisión, eficiencia y estabilidad, superando ampliamente a las técnicas basadas en selección aleatoria y a los otros enfoques genéticos.
+Los resultados medios obtenidos a lo largo de todos los porcentajes iniciales refuerzan esta conclusión, situando a \texttt{MA-F} como el algoritmo más robusto en términos globales.
 
-En lo que respecta a los tiempos de entrenamiento, no se observan diferencias drásticas entre algoritmos dentro de cada porcentaje inicial, 
-pero sí resulta destacable el impacto positivo que puede tener la selección de instancias en la reducción del tiempo total e incluso en el de inferencia por evaluación.
-Cabe señalar que el algoritmo \texttt{GA-AM-F} se posiciona como el más eficiente con un 50\% de datos, no solo por lograr la mayor precisión en ese grupo, 
-sino también por mantener tiempos de ejecución moderados y una menor inestabilidad respecto a otros porcentajes iniciales.
-Esto refuerza su utilidad práctica como una opción competitiva cuando se busca un buen balance entre rendimiento y estabilidad.
+No obstante, al analizar los tiempos de entrenamiento, 
+se observa que algunos algoritmos genéticos mejorados también ofrecen ventajas competitivas en contextos específicos.
+Aunque no existen diferencias drásticas entre algoritmos dentro de cada porcentaje inicial, 
+la selección de instancias puede reducir significativamente el tiempo total y el de inferencia por evaluación.
+Esta eficiencia es especialmente relevante en escenarios donde el tiempo de respuesta o los recursos computacionales son críticos.
+En particular, resulta destacable que con porcentajes iniciales tan reducidos como el 10\% o 25\%, 
+algunos algoritmos alcanzan rendimientos comparables o superiores a los obtenidos con el 100\% de los datos, y lo hacen en una fracción del tiempo.
+En este sentido, \texttt{GA-AM-F} se posiciona como la alternativa más eficiente con un 50\% de datos: 
+logra la mayor precisión dentro de ese grupo, mantiene tiempos de ejecución moderados y presenta una menor inestabilidad respecto a otros porcentajes iniciales.
+Esto lo convierte en una opción especialmente atractiva cuando se prioriza la relación entre rendimiento, estabilidad y coste computacional.
 
 
 \section{Validación con el dataset \texttt{PAINTING}}\label{sec:validacion-con-painting}
@@ -844,10 +850,10 @@ Como referencia comparativa, se incluyen también resultados con el 100\% del da
 \subsection{Comparación entre algoritmos}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo.png}
-    \caption{Boxplot comparando resultados con el dataset \texttt{PAINTING} usando \textit{accuracy}.}
-    \label{fig:comparacion-por-algoritmo}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-algoritmo.png}
+  \caption{Boxplot comparando resultados con el dataset \texttt{PAINTING} usando \textit{accuracy}.}
+  \label{fig:comparacion-por-algoritmo}
 \end{figure}
 
 En la Figura~\ref{fig:comparacion-por-algoritmo} se muestran los valores de \textit{accuracy} obtenidos por cada algoritmo.
@@ -861,10 +867,10 @@ Estos resultados refuerzan que la representatividad del subconjunto es un factor
 \subsection{Evolución del tamaño del subconjunto}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
-    \caption{Comparacion del tamaño del subconjunto seleccionado por los \texttt{MA} y \texttt{RS} según el porcentaje inicial y mostrando \texttt{accuracy}.}
-    \label{fig:scatter-painting}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/scatter-por-porcentaje.png}
+  \caption{Comparacion del tamaño del subconjunto seleccionado por los \texttt{MA} y \texttt{RS} según el porcentaje inicial y mostrando \texttt{accuracy}.}
+  \label{fig:scatter-painting}
 \end{figure}
 
 La Figura~\ref{fig:scatter-painting} muestra cómo evoluciona dinámicamente el tamaño final de los subconjuntos generados por \texttt{MA-F}.
@@ -875,45 +881,45 @@ En cambio, con un 75\% inicial, el incremento es más moderado, alcanzando un 78
 \subsection{Impacto del porcentaje inicial}
 
 \begin{table}[htp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{P{2.5cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
-            \toprule
-            \textbf{Algoritmo} & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
-            \midrule
-            \multicolumn{6}{c}{\textbf{25\%}}                                                                                                                                                                                     \\
-            \midrule
-            RS                 & 91,80\%                                  & 91,49\%                                  & 91,80\%                                  & 91,57\%                                  & 25,00\%              \\
-            MA                 & 91,89\%                                  & 91,63\%                                  & 91,89\%                                  & 91,67\%                                  & 25,00\%              \\
-            MA-F               & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,06\%}} & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,09\%}} & 41,35\%              \\
-            \midrule
-            \multicolumn{6}{c}{\textbf{50\%}}                                                                                                                                                                                     \\
-            \midrule
-            RS                 & 92,69\%                                  & 92,52\%                                  & 92,69\%                                  & 92,55\%                                  & 50,00\%              \\
-            MA                 & 92,73\%                                  & 92,61\%                                  & 92,73\%                                  & 92,63\%                                  & 50,00\%              \\
-            MA-F               & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,00\%}} & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 68,69\%              \\
-            \midrule
-            \multicolumn{6}{c}{\textbf{75\%}}                                                                                                                                                                                     \\
-            \midrule
-            RS                 & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{92,97\%}} & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 75,00\%              \\
-            MA                 & 93,11\%                                  & 92,93\%                                  & 93,11\%                                  & 92,99\%                                  & 75,29\%              \\
-            MA-F               & 93,02\%                                  & 92,88\%                                  & 93,02\%                                  & 92,92\%                                  & 78,29\%              \\
-            \midrule
-            \multicolumn{6}{c}{\textbf{100\%}}                                                                                                                                                                                    \\
-            \midrule
-            100\%              & 92,24\%                                  & 92,05\%                                  & 92,24\%                                  & 92,06\%                                  & 100,00\%             \\
-            \bottomrule
-        \end{tabular}
-    }
-    \caption{Resultados de los algoritmos meméticos, aleatorio y uso del 100\% en el dataset \texttt{PAINTING}.}
-    \label{tab:resultados-memetico-painting}
+  \centering
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{P{2.5cm} P{2cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2.5cm} P{2cm}}
+      \toprule
+      \textbf{Algoritmo} & \textbf{Accuracy (Avg)}                  & \textbf{Precision (Avg)}                 & \textbf{Recall (Avg)}                    & \textbf{F1-score (Avg)}                  & \textbf{Porc. Final} \\
+      \midrule
+      \multicolumn{6}{c}{\textbf{25\%}}                                                                                                                                                                                     \\
+      \midrule
+      RS                 & 91,80\%                                  & 91,49\%                                  & 91,80\%                                  & 91,57\%                                  & 25,00\%              \\
+      MA                 & 91,89\%                                  & 91,63\%                                  & 91,89\%                                  & 91,67\%                                  & 25,00\%              \\
+      MA-F               & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,06\%}} & \textcolor{azuloscuro}{\textbf{92,24\%}} & \textcolor{azuloscuro}{\textbf{92,09\%}} & 41,35\%              \\
+      \midrule
+      \multicolumn{6}{c}{\textbf{50\%}}                                                                                                                                                                                     \\
+      \midrule
+      RS                 & 92,69\%                                  & 92,52\%                                  & 92,69\%                                  & 92,55\%                                  & 50,00\%              \\
+      MA                 & 92,73\%                                  & 92,61\%                                  & 92,73\%                                  & 92,63\%                                  & 50,00\%              \\
+      MA-F               & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,00\%}} & \textcolor{azuloscuro}{\textbf{93,11\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 68,69\%              \\
+      \midrule
+      \multicolumn{6}{c}{\textbf{75\%}}                                                                                                                                                                                     \\
+      \midrule
+      RS                 & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{92,97\%}} & \textcolor{azuloscuro}{\textbf{93,14\%}} & \textcolor{azuloscuro}{\textbf{93,01\%}} & 75,00\%              \\
+      MA                 & 93,11\%                                  & 92,93\%                                  & 93,11\%                                  & 92,99\%                                  & 75,29\%              \\
+      MA-F               & 93,02\%                                  & 92,88\%                                  & 93,02\%                                  & 92,92\%                                  & 78,29\%              \\
+      \midrule
+      \multicolumn{6}{c}{\textbf{100\%}}                                                                                                                                                                                    \\
+      \midrule
+      100\%              & 92,24\%                                  & 92,05\%                                  & 92,24\%                                  & 92,06\%                                  & 100,00\%             \\
+      \bottomrule
+    \end{tabular}
+  }
+  \caption{Resultados de los algoritmos meméticos, aleatorio y uso del 100\% en el dataset \texttt{PAINTING}.}
+  \label{tab:resultados-memetico-painting}
 \end{table}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje.png}
-    \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
-    \label{fig:accuracy_porcentaje_painting}
+  \centering
+  \includegraphics[width=1\textwidth]{imagenes/evaluaciones/painting/comparacion-por-porcentaje.png}
+  \caption{Diagrama de barras de \textit{accuracy} según el porcentaje inicial de datos del \texttt{MA}, \texttt{MA-F} y el 100\%.}
+  \label{fig:accuracy_porcentaje_painting}
 \end{figure}
 
 Los resultados de las Figuras~\ref{fig:accuracy_porcentaje_painting} y~\ref{fig:scatter-painting}, junto con la Tabla~\ref{tab:resultados-memetico-painting},
@@ -927,10 +933,10 @@ una tendencia que también se manifestó en los resultados del dataset \texttt{R
 \subsection{Distribución y equilibrio de clases}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo.png}
-    \caption{Distribución de clases seleccionadas por cada algoritmo.}
-    \label{fig:balance_clases_painting}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/painting/balance-de-clases-por-algoritmo.png}
+  \caption{Distribución de clases seleccionadas por cada algoritmo.}
+  \label{fig:balance_clases_painting}
 \end{figure}
 
 La Figura~\ref{fig:balance_clases_painting} muestra cómo se preserva la proporción entre clases,
@@ -969,10 +975,10 @@ Más allá de la precisión máxima, se observa que las versiones libres reducen
 Este comportamiento respalda lo ya observado en los datasets \texttt{RPS} y \texttt{PAINTING}.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-por-algoritmo.png}
-    \caption{Distribución de \texttt{accuracy} obtenida para cada algoritmo sobre \texttt{CIFAR10}.}
-    \label{fig:cifar10_boxplot}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-por-algoritmo.png}
+  \caption{Distribución de \texttt{accuracy} obtenida para cada algoritmo sobre \texttt{CIFAR10}.}
+  \label{fig:cifar10_boxplot}
 \end{figure}
 
 \subsection{Comparativa con las versiones libres}
@@ -984,10 +990,10 @@ lo que sugiere que la ventaja del ajuste dinámico del tamaño del subconjunto p
 Aun así, las versiones libres mantienen una ligera superioridad, lo que valida su utilidad incluso en escenarios de mayor dificultad.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-libres.png}
-    \caption{Comparativa de precisión entre versiones fijas y libres para los algoritmos evolutivos.}
-    \label{fig:cifar10_fija_vs_libre}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/boxplot-libres.png}
+  \caption{Comparativa de precisión entre versiones fijas y libres para los algoritmos evolutivos.}
+  \label{fig:cifar10_fija_vs_libre}
 \end{figure}
 
 \subsection{Consistencia frente al porcentaje inicial}
@@ -997,36 +1003,36 @@ Este comportamiento reafirma la validez de los resultados obtenidos en \texttt{P
 y sugiere que estos porcentajes representan puntos de partida especialmente eficientes para la selección de subconjuntos informativos.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/comparacion_por_porcentaje.png}
-    \caption{Precisión media alcanzada según el porcentaje inicial de datos.}
-    \label{fig:cifar10_porcentaje}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/comparacion_por_porcentaje.png}
+  \caption{Precisión media alcanzada según el porcentaje inicial de datos.}
+  \label{fig:cifar10_porcentaje}
 \end{figure}
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/evaluaciones/cifar10/scatter.png}
-    \caption{Porcentaje inicial vs porcentaje final de datos seleccionados.}
-    \label{fig:cifar10_scatter}
+  \centering
+  \includegraphics[width=0.8\textwidth]{imagenes/evaluaciones/cifar10/scatter.png}
+  \caption{Porcentaje inicial vs porcentaje final de datos seleccionados.}
+  \label{fig:cifar10_scatter}
 \end{figure}
 
 Para comprender mejor el comportamiento de los algoritmos, se muestra la Figura~\ref{fig:cifar10_scatter}.
 A partir de esta visualización, se pueden extraer varios patrones relevantes:
 
 \begin{enumerate}
-    \item \textbf{Trayectorias eficientes desde valores intermedios.} Los puntos de partida del 50\% y el 75\% no solo conducen a altas precisiones,
-          sino que lo hacen manteniendo tamaños de subconjuntos finales relativamente estables, lo que sugiere que permiten al algoritmo trabajar con confianza desde etapas tempranas.
-    \item \textbf{Zona de alta precisión estabilizada.} Existe una franja de subconjuntos finales, en torno al 60--80\%,
-          donde se concentra la mayor parte de las ejecuciones con mejor precisión.
-          Esto sugiere que este rango podría representar un punto de equilibrio entre información útil y redundancia.
-    \item \textbf{Tendencia a expandir el subconjunto de datos.} A diferencia de experimentos anteriores,
-          donde algunos algoritmos reducían el número de ejemplos seleccionados respecto al conjunto inicial,
-          en este caso se observa una inclinación general a ampliar el tamaño del subconjunto final.
-          Esta conducta sugiere una estrategia orientada a reforzar la representatividad del conjunto,
-          priorizando una cobertura más amplia cuando la información inicial es limitada.
-    \item \textbf{Baja rentabilidad en extremos.} Las ejecuciones que parten de 10\% o 100\% (teniendo el contexto de las otras figuras)
-          rara vez conducen a los mejores resultados: en el primer caso, la falta de diversidad inicial limita la exploración efectiva; en el segundo,
-          la inclusión de datos redundantes parece perjudicar la optimización.
+  \item \textbf{Trayectorias eficientes desde valores intermedios.} Los puntos de partida del 50\% y el 75\% no solo conducen a altas precisiones,
+        sino que lo hacen manteniendo tamaños de subconjuntos finales relativamente estables, lo que sugiere que permiten al algoritmo trabajar con confianza desde etapas tempranas.
+  \item \textbf{Zona de alta precisión estabilizada.} Existe una franja de subconjuntos finales, en torno al 60--80\%,
+        donde se concentra la mayor parte de las ejecuciones con mejor precisión.
+        Esto sugiere que este rango podría representar un punto de equilibrio entre información útil y redundancia.
+  \item \textbf{Tendencia a expandir el subconjunto de datos.} A diferencia de experimentos anteriores,
+        donde algunos algoritmos reducían el número de ejemplos seleccionados respecto al conjunto inicial,
+        en este caso se observa una inclinación general a ampliar el tamaño del subconjunto final.
+        Esta conducta sugiere una estrategia orientada a reforzar la representatividad del conjunto,
+        priorizando una cobertura más amplia cuando la información inicial es limitada.
+  \item \textbf{Baja rentabilidad en extremos.} Las ejecuciones que parten de 10\% o 100\% (teniendo el contexto de las otras figuras)
+        rara vez conducen a los mejores resultados: en el primer caso, la falta de diversidad inicial limita la exploración efectiva; en el segundo,
+        la inclusión de datos redundantes parece perjudicar la optimización.
 \end{enumerate}
 
 En conjunto, los resultados demuestran que los algoritmos son capaces de ajustar dinámicamente el tamaño de los subconjuntos, maximizando la precisión con una fracción moderada de datos.
@@ -1040,26 +1046,26 @@ Todos mantienen una proporción equilibrada, lo que garantiza que las mejoras de
 Este equilibrio ya fue observado en \texttt{RPS} y \texttt{PAINTING}, lo que refuerza la consistencia de los algoritmos propuestos en distintos contextos.
 
 \begin{figure}[htp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/balance-de-clases.png}
-    \caption{
-        Porcentaje de instancias por clase tras aplicar cada algoritmo.
-        La distribución permanece prácticamente uniforme.
-    }
-    \label{fig:cifar10_balance}
+  \centering
+  \includegraphics[width=0.9\textwidth]{imagenes/evaluaciones/cifar10/balance-de-clases.png}
+  \caption{
+    Porcentaje de instancias por clase tras aplicar cada algoritmo.
+    La distribución permanece prácticamente uniforme.
+  }
+  \label{fig:cifar10_balance}
 \end{figure}
 
 \subsection{Síntesis final de la validación con \texttt{CIFAR10}}
 Los resultados obtenidos con \texttt{CIFAR10} permiten validar las principales conclusiones extraídas en las fases anteriores del estudio:
 
 \begin{itemize}
-    \item Todos los algoritmos evaluados superan el rendimiento del modelo entrenado con el 100\% del dataset,
-          confirmando que una selección óptima puede ser más eficaz que el uso de datos sin filtrar.
-    \item Las variantes libres (\texttt{-F}) mantienen su superioridad frente a las versiones fijas, aunque en este caso la ventaja es más moderada.
-    \item A partir del 50\% de datos, los algoritmos alcanzan rendimientos muy competitivos, llegando incluso a superar bastante al entrenamiento completo.
-    \item La distribución de clases permanece estable en todos los casos, descartando que las mejoras observadas se deban a sesgos de clase.
-    \item En contraste con datasets anteriores, en \texttt{CIFAR10} los algoritmos tienden a expandir los subconjuntos seleccionados,
-          lo que sugiere una adaptación activa frente a la mayor complejidad visual del entorno.
+  \item Todos los algoritmos evaluados superan el rendimiento del modelo entrenado con el 100\% del dataset,
+        confirmando que una selección óptima puede ser más eficaz que el uso de datos sin filtrar.
+  \item Las variantes libres (\texttt{-F}) mantienen su superioridad frente a las versiones fijas, aunque en este caso la ventaja es más moderada.
+  \item A partir del 50\% de datos, los algoritmos alcanzan rendimientos muy competitivos, llegando incluso a superar bastante al entrenamiento completo.
+  \item La distribución de clases permanece estable en todos los casos, descartando que las mejoras observadas se deban a sesgos de clase.
+  \item En contraste con datasets anteriores, en \texttt{CIFAR10} los algoritmos tienden a expandir los subconjuntos seleccionados,
+        lo que sugiere una adaptación activa frente a la mayor complejidad visual del entorno.
 \end{itemize}
 
 En resumen, \texttt{MA-F} vuelve a consolidarse como la opción más prometedora, combinando precisión elevada,

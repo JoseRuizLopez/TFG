@@ -1,109 +1,131 @@
 % !TeX root = ../proyecto.tex
 
 \chapter{Repaso Bibliográfico}\label{ch:repaso-bibliografico}
-En este capítulo se revisa la literatura relevante en torno a los modelos de \textbf{aprendizaje profundo}, la
-necesidad de reducir los conjuntos de \textbf{datos de entrenamiento} y el rol de los \textbf{algoritmos meméticos} en
-esta tarea.
-A lo largo de este capítulo, se analizan estudios previos que aplican técnicas de \textbf{optimización} para reducir
-los datos necesarios en el entrenamiento de \textbf{redes neuronales convolucionales} (CNN) y se exploran las
-soluciones existentes en la selección de instancias mediante algoritmos \textbf{evolutivos} y \textbf{meméticos}.
+Este capítulo presenta un panorama integral de las técnicas y avances recientes en la reducción del volumen de datos necesarios para entrenar modelos de aprendizaje profundo, con especial énfasis en la selección de instancias asistida por algoritmos evolutivos y meméticos, así como la destilación de datos.
+La síntesis combina la revisión que aparece en el Trabajo Fin de Grado (TFG) ―centrada en la optimización memética de conjuntos de imágenes para CNN― con el marco conceptual, motivación y tendencias identificados en el documento «Contexto general y motivación».
 
 
-\section{Reducción de Conjuntos de Datos en Aprendizaje Profundo}
-\label{sec:reduccion-de-conjuntos-de-datos-en-aprendizaje-profundo}
-El \textbf{aprendizaje profundo}, especialmente en el campo de la \textbf{visión por computadora}, se ha basado en
-grandes volúmenes de \textbf{datos} para alcanzar su éxito.
-En particular, las redes neuronales convolucionales (CNN) han demostrado un rendimiento notable en tareas de
-\textbf{clasificación}, \textbf{detección} y \textbf{segmentación} de imágenes~\cite{goodfellowDeepLearning2016}.
-Sin embargo, el volumen de datos necesario para entrenar estos modelos supone retos en cuanto a la disponibilidad de
-\textbf{almacenamiento}, el \textbf{tiempo de entrenamiento} y el \textbf{costo computacional}, especialmente en
-sistemas con \textbf{recursos limitados}~\cite{lecunDeepLearning2015}.
+\section{Importancia de la Reducción de Datos en Deep Learning}
+El auge del «big data» y la explosión de arquitecturas masivas de deep learning han disparado los requisitos de computación, energía y huella de carbono [https://arxiv.org/abs/2104.10350].
+Estudios de life-cycle assessment estiman que entrenar un modelo transformer a gran escala puede emitir tantas toneladas de $$CO_2$$ como cinco coches a lo largo de su vida útil [https://aclanthology.org/P19-1355/].
+En este contexto, la filosofía data-centric AI propone desplazar el foco de la complejidad del modelo hacia la calidad del dato, argumentando que la mejora marginal al añadir más parámetros se agota rápidamente si el dataset contiene ruido o redundancia [https://arxiv.org/abs/2303.10158].
+
+En lugar de seguir acumulando datos de forma indiscriminada, cada vez más estudios abogan por estrategias que prioricen la representatividad y relevancia de las instancias.
+Sorscher et al.(2022) matizan las tradicionales leyes de escalado, según las cuales la pérdida decrece como una potencia del tamaño del conjunto, al demostrar que es posible “podar” hasta un 28\% del entrenamiento sin degradar la precisión de modelos como ResNet-50 \cite{https://www.researchgate.net/publication/361632114_Beyond_neural_scaling_laws_beating_power_law_scaling_via_data_pruning}.
+Este hallazgo desafía la idea de que «más datos» es siempre mejor y refuerza la utilidad de identificar subconjuntos óptimos que reduzcan el coste computacional, aceleren el entrenamiento y faciliten la trazabilidad de los datos.
+Este último aspecto cobra especial relevancia ante normativas como la AI Act europea, que exige una gobernanza estricta del dato, incluyendo el origen y balance demográfico de los ejemplos utilizados \cite{https://artificialintelligenceact.eu/article/10/}.
+% @misc{euAIAct2024,
+%   title = {Article 10: Data and Data Governance, EU Artificial Intelligence Act},
+%   author = {{European Parliament and Council}},
+%   year = {2024},
+%   note = {Regulation (EU) 2024/1689; training, validation and testing datasets must be “relevant, sufficiently representative” and include origin, preparation, bias mitigation, demographic context},
+%   url = {https://artificialintelligenceact.eu/article/10/},
+% }
+Así, la reducción de datos no solo aporta eficiencia, sino que se convierte en una condición necesaria para garantizar transparencia, equidad y sostenibilidad en los sistemas de IA.
 
 
-La necesidad de reducir estos volúmenes de datos sin comprometer la \textbf{precisión} del modelo ha impulsado
-investigaciones en torno a técnicas de \textbf{selección de instancias}, donde el objetivo es identificar y mantener
-solo las instancias de datos que aportan valor al modelo.
-A este respecto, las técnicas de selección de instancias combinadas con estrategias de
-\textbf{aumento de datos}~\cite{shortenSurveyImageData2019} permiten reducir el tamaño de los conjuntos de datos
-manteniendo una \textbf{diversidad} adecuada, lo cual es crucial para evitar el \textbf{sobreajuste} y la pérdida de
-\textbf{generalización} en las redes neuronales.
-Además, otros enfoques, como el \textbf{submuestreo de datos} y la generación de \textbf{conjuntos sintéticos}, se han
-propuesto como soluciones complementarias en el contexto de aprendizaje profundo, siendo útiles en escenarios con
-conjuntos de datos desequilibrados o insuficientes.
+\section{Selección de Instancias en Aprendizaje Profundo}
+La \textbf{selección de instancias} (Instance Selection, IS) consiste en identificar un subconjunto representativo del conjunto original, eliminando ejemplos redundantes, ruidosos o poco informativos.
+Aunque esta técnica surgió en los años 70 como un método de edición y condensación para clasificadores \textit{lazy}, como el algoritmo \textit{Condensed Nearest Neighbor} (CNN) de Hart \cite{https://ieeexplore.ieee.org/document/1054155} o el \textit{Edited Nearest Neighbor} (ENN) de Wilson \cite{https://ieeexplore.ieee.org/document/4309137}, ha cobrado nueva relevancia en el contexto del aprendizaje profundo, especialmente ante las limitaciones de memoria de GPU y TPU modernas.
+
+Desde una perspectiva teórica, la selección de instancias puede considerarse un problema de selección de características en el espacio de datos, y es intrínsecamente NP-duro.
+Por ello, se recurre a funciones objetivo bi-criterio que equilibran el tamaño del subconjunto seleccionado con el error de validación obtenido.
+La frontera de Pareto entre ambos criterios suele guiar la búsqueda de soluciones óptimas \cite{https://www.igi-global.com/chapter/content/63814}.
+
+En la práctica, IS se ha adaptado con éxito al entrenamiento de redes neuronales profundas.
+Por ejemplo, Albelwi y Mahmood (2016) demuestran que filtrar imágenes redundantes acelera significativamente la convergencia de las CNN sin pérdida de precisión, e incluso puede mejorarla en entornos ruidosos \cite{https://www.mdpi.com/1099-4300/19/6/242}.
+Investigaciones más recientes confirman que una selección previa de datos puede suavizar las fronteras de decisión, mitigar el sobreajuste y reducir considerablemente el tiempo de entrenamiento.
+En tareas de visión por computador con datasets como ImageNet-1k, CIFAR o Camelyon16, técnicas como el grad-norm filtering o el coreset pruning han mostrado reducciones de hasta un 35\% en el tiempo de convergencia y una mayor robustez frente al label noise \cite{https://arxiv.org/html/2306.05175v3, https://arxiv.org/abs/1705.10694}.
+Además, IS resulta especialmente útil en entornos de continual learning, ya que permite almacenar conjuntos compactos en la memoria de repetición (replay) sin incurrir en catastrophic forgetting.
 
 
-\section{Selección de Instancias mediante Algoritmos Evolutivos y Meméticos}
-\label{sec:seleccion-de-instancias-mediante-algoritmos-evolutivos-y-memeticos}
-La \textbf{selección de instancias} es una técnica de reducción de datos que se centra en eliminar aquellas instancias
-\textbf{redundantes} o \textbf{irrelevantes}, mejorando la \textbf{eficiencia} y manteniendo la \textbf{precisión} en
-el modelo entrenado.
-Los \textbf{algoritmos evolutivos}, como los \textbf{algoritmos genéticos}, han demostrado eficacia en la selección de
-instancias al simular procesos de \textbf{selección natural}, con la ventaja de que pueden explorar un espacio de
-\textbf{soluciones} de manera eficiente a través de \textbf{operadores genéticos} como la \textbf{selección}, el
-\textbf{cruce} y la \textbf{mutación}~\cite{hollandAdaptationNaturalArtificial1975}.
+\section{Algoritmos Evolutivos y Meméticos para la Selección de Instancias en CNN}
+
+Determinar el subconjunto óptimo de instancias para entrenar un modelo de aprendizaje profundo es un problema combinatorio de tamaño $2^N$, donde $N$ es el número total de ejemplos disponibles.
+Esta complejidad hace que los enfoques exactos sean inviables en la práctica, dando lugar a la adopción de metodologías metaheurísticas.
+Entre ellas, los \textbf{algoritmos evolutivos} (AE) y especialmente los \textbf{algoritmos meméticos} (MA) se consolidan como herramientas eficaces para abordar la selección de instancias en grandes datasets.
+
+Los AE representan subconjuntos mediante cromosomas binarios, optimizados con operadores de cruce y mutación.
+Su principal ventaja radica en la capacidad de realizar una búsqueda global en espacios no derivables.
+Sin embargo, a medida que el tamaño del conjunto crece, el coste de evaluar el fitness —que implica entrenar modelos en cada generación— se vuelve prohibitivo.
+
+Para afrontar esta limitación, los algoritmos meméticos incorporan \textbf{estrategias de mejora local} tras cada generación evolutiva.
+Esto permite una convergencia más rápida hacia soluciones de alta calidad al equilibrar exploración global y explotación local.
+Por ejemplo, García et al.(2008) presentan un algoritmo memético que mejora la precisión de k-NN utilizando solo una fracción de los ejemplos \cite{https://www.sciencedirect.com/science/article/abs/pii/S0031320308000770}, mientras que Derrac et al.(2010) recogen un amplio estudio que valida la eficacia de estos métodos en tareas de reducción de datos \cite{https://www.igi-global.com/chapter/content/63814}.
+
+\subsection{Componentes Avanzados y Optimización Multiobjetivo}
+
+Los desarrollos recientes en MAs incluyen componentes clave como:
+
+\begin{itemize}
+    \item \textbf{Representación jerárquica}: utilizar clustering para codificar subconjuntos en niveles de clúster, seleccionando un representante por grupo, reduce la dimensionalidad del espacio de búsqueda y facilita la selección eficiente de soluciones~\cite{https://arxiv.org/abs/2108.08453}.
+    \item \textbf{Paralelismo masivo}: evaluación de múltiples soluciones en paralelo mediante GPUs o frameworks distribuidos como MapReduce.
+    \item \textbf{Aprendizaje de operadores}: enfoques como \textit{Deep Neuro-Evolution} o D-NEAT entrenan redes generativas (GANs) para proponer mutaciones más efectivas~\cite{https://arxiv.org/abs/1802.01548}.
+\end{itemize}
+Searching for A Robust Neural Architecture in Four GPU Hours
+
+\subsection{Selección Multi-Dominio y Cross-Task}
+
+Una línea emergente en la investigación consiste en la selección de subconjuntos transferibles entre tareas y dominios.
+Esta idea, conocida como \textit{cross‑task subset selection}, permite reutilizar subconjuntos seleccionados para tareas de aprendizaje con pocos ejemplos, 
+especialmente útiles en entornos médicos, ya que “la capacidad de aprovechar información entre dominios puede reducir la necesidad de grandes cantidades de datos en cada nueva tarea”~\cite{https://www.nature.com/articles/s41597-025-04866-4}
 
 
-Dentro de este campo, los \textbf{algoritmos meméticos} ofrecen un avance significativo al combinar los principios de
-\textbf{optimización evolutiva} con técnicas de \textbf{búsqueda local}, lo que permite una adaptación más precisa de
-las instancias seleccionadas~\cite{moscatoEvolutionSearchOptimization2000}.
-Estos algoritmos representan un enfoque \textbf{híbrido}, ya que aprovechan la capacidad \textbf{exploratoria} de los
-algoritmos evolutivos con la capacidad \textbf{explotatoria} de las búsquedas locales, lo cual es crucial para alcanzar
-una \textbf{convergencia óptima}.
-Al introducir esta \textbf{dualidad}, los algoritmos meméticos pueden enfocarse en subconjuntos de datos más
-representativos y potencialmente relevantes para el modelo, maximizando la reducción sin comprometer la calidad del
-aprendizaje.
+\section{Destilación de Datos (Dataset Distillation)}
+La \textbf{destilación de datos} (Dataset Distillation, DD) es una técnica emergente que busca sintetizar un conjunto reducido y artificial de ejemplos que, al ser usados para entrenar un modelo, inducen un comportamiento similar al que se obtendría entrenando con el conjunto completo de datos reales \cite{wang2018dhttps://arxiv.org/abs/1811.10959ataset}.
+Estos ejemplos no necesariamente existen en el mundo real, pero están optimizados para encapsular la información esencial del dataset original.
+
+Existen dos grandes enfoques dominantes en DD:
+
+\begin{itemize}
+    \item \textbf{Meta-aprendizaje por gradientes de segundo orden}: Introducido por Wang et al.(2018), este método optimiza directamente los píxeles de las imágenes sintéticas utilizando técnicas de unrolled optimization e hipergradientes, logrando, por ejemplo, generar tan solo 10 imágenes por clase en MNIST con una precisión del 99\% \cite{https://arxiv.org/abs/1811.10959}.
+    \item \textbf{Emparejamiento de gradientes (*gradient matching*)}: Zhao et al.(2021) proponen minimizar la distancia entre los gradientes obtenidos al entrenar con los datos reales y los sintéticos.
+          Este enfoque escala con éxito a dominios más complejos como Imagenette o Tiny-ImageNet, logrando conjuntos con solo el 1\% del tamaño original y menos del 2\% de pérdida relativa \cite{https://arxiv.org/abs/2006.05929}.
+\end{itemize}
+
+Estudios recientes han demostrado que es posible condensar conjuntos como CIFAR-10 a menos del 0.5\% de su tamaño original sin pérdidas significativas de rendimiento \cite{https://arxiv.org/abs/2301.05603}.
+Además, técnicas como la \textbf{generative distillation} combinan modelos generativos avanzados con la destilación de datos, generando ejemplos sintéticos adaptativos que además pueden preservar la privacidad.
+Este enfoque permite trabajar con datos encriptados o agregados, una ventaja notable en entornos regulados como la medicina o la seguridad \cite{https://openaccess.thecvf.com/content/CVPR2024W/DDCV/html/Li_Generative_Dataset_Distillation_Balancing_Global_Structure_and_Local_Details_CVPRW_2024_paper.html}.
+
+A pesar de su potencial, la destilación de datos presenta limitaciones importantes.
+Los métodos actuales muestran dificultades al aplicarse a datos de alta resolución (mayores de 512$\times$512 píxeles) o a secuencias temporales, donde los gradientes tienden a volverse inestables.
+Además, los modelos entrenados con conjuntos destilados pueden verse afectados por cambios en la distribución de datos (\textit{distribution shift}), 
+como ocurre en condiciones meteorológicas variables o dominios visuales no vistos. Para mitigar estos efectos, se han propuesto enfoques de \textbf{adaptación en tiempo de prueba} (\textit{test-time adaptation}),
+como TeST, que combinan autoentrenamiento con estrategias de pseudoetiquetado para ajustar el modelo dinámicamente durante la inferencia sin requerir datos adicionales de entrenamiento \cite{https://arxiv.org/abs/2209.11459}.
 
 
-\section{Aplicación de Algoritmos Meméticos en Modelos Convolucionales}\label{sec:algoritmos-memeticos-en-modelos-convolucionales}
-La capacidad de los \textbf{algoritmos meméticos} para optimizar la selección de datos se ha aplicado a
-\textbf{modelos convolucionales}, en particular en contextos de redes profundas que requieren grandes cantidades de
-datos para alcanzar un rendimiento óptimo~\cite{neriHandbookMemeticAlgorithms2012}.
-La selección de instancias mediante algoritmos meméticos permite mantener la precisión del modelo, pero con un volumen
-de datos significativamente reducido, lo cual es especialmente útil en aplicaciones donde los recursos computacionales
-y el tiempo son
-limitados~\cite{dongMemeticAlgorithmEvolving2020}.
+\section{Extracción de Conocimiento y Destilación de Modelos}
+Tanto la selección de instancias como la destilación de datos forman parte del paradigma general de \textbf{extracción de conocimiento desde los datos}, que busca maximizar la eficiencia de los sistemas de IA sin comprometer su rendimiento.
+Dentro de este marco, la \textbf{destilación de modelos} —propuesta por Hinton et al.(2015)— transfiere el conocimiento de un modelo complejo (teacher) a otro más ligero (student) mediante el uso de \textit{soft targets}, es decir, distribuciones de probabilidad en lugar de etiquetas duras \cite{https://arxiv.org/abs/1503.02531}.
+Esta técnica permite reducir significativamente la complejidad del modelo manteniendo su precisión, como sucede, por ejemplo, al transferir un BERT-Large a un BERT-Tiny en tareas de clasificación de sentimientos.
 
+De forma análoga, la \textbf{destilación de datos} puede interpretarse como una transferencia del conocimiento, no en el espacio de los parámetros, sino en el espacio de los datos.
+En este contexto, un conjunto sintético actúa como un contenedor comprimido del conocimiento del conjunto original.
+La combinación de ambas estrategias —destilar los datos y luego destilar el modelo— está emergiendo como una línea de investigación prometedora, particularmente en entornos con restricciones de computación o privacidad.
 
-Algunos estudios han demostrado que los algoritmos meméticos no solo reducen los tiempos de \textbf{entrenamiento} y el
-tamaño de los conjuntos de \textbf{datos}, sino que también ayudan a minimizar el riesgo de \textbf{sobreajuste}.
-Al reducir los datos redundantes, el modelo \textbf{convolucional} puede centrarse en \textbf{patrones} más
-específicos, potenciando su capacidad de \textbf{generalización} y \textbf{robustez}.
-Estas ventajas son especialmente valiosas en escenarios como el \textbf{reconocimiento facial} o la \textbf{medicina},
-donde la precisión y la eficiencia en el procesamiento de imágenes son esenciales.
+Esta sinergia es especialmente útil en escenarios como el \textbf{federated learning}, donde enviar datasets sintéticos destilados puede reemplazar el intercambio directo de gradientes o pesos, preservando así la privacidad de los usuarios \cite{https://arxiv.org/abs/2009.07999, https://arxiv.org/abs/2502.13728}.
 
+\section{Desafíos y Perspectivas Futuras}
+A pesar de los avances, persisten retos clave que condicionan la eficacia y adopción generalizada de las técnicas de selección de instancias y destilación de datos:
 
-\section{Desafíos y Adaptabilidad de los Algoritmos Meméticos en Aprendizaje Profundo}
-\label{sec:desafios-y-adaptabilidad-algoritmos-memeticos}
-A pesar de sus beneficios, la aplicación de \textbf{algoritmos meméticos} en modelos de aprendizaje profundo plantea
-desafíos.
-Uno de los principales es la necesidad de ajustar \textbf{parámetros complejos}, como el tamaño de la
-\textbf{población}, las tasas de \textbf{mutación} y los métodos de \textbf{selección} y \textbf{cruce}.
-Estos parámetros afectan de manera directa la \textbf{velocidad de convergencia} y la capacidad del algoritmo para
-encontrar soluciones \textbf{óptimas}.
-Además, los algoritmos meméticos suelen ser computacionalmente \textbf{exigentes}~\cite{goldbergGeneticAlgorithmsSearch1989}.
+\begin{itemize}
+    \item \textbf{Optimización de hiperparámetros}: ajustar población, tasas de cruce y operadores en algoritmos meméticos aún requiere validación intensiva.
+          Se investiga el uso de \textit{meta-optimizadores} basados en \textit{reinforcement learning}, aunque su coste computacional inicial es elevado.
 
-Para abordar estos desafíos, investigaciones recientes han explorado el desarrollo de
-\textbf{variantes de algoritmos meméticos adaptativos}, que ajustan automáticamente sus parámetros en función del
-desempeño durante el proceso de \textbf{entrenamiento}~\cite{molinaMASWChainsMemeticAlgorithm2010}.
-Un ejemplo destacado es el algoritmo F-MAD, que incorpora lógica difusa para ajustar dinámicamente
-parámetros clave como la tasa de cruce y el factor de escala en problemas multiobjetivo~\cite{subburajFuzzySystemBased2025}.
-Esta \textbf{adaptabilidad} representa una vía prometedora, ya que permite que los algoritmos se adapten dinámicamente
-a los cambios en el entorno de datos y en las necesidades del modelo, facilitando así su implementación en aplicaciones
-prácticas.
+    \item \textbf{Escalabilidad a dominios complejos}: imágenes de alta resolución, tareas auto-supervisadas o escenarios multimodales (texto, audio, vídeo) exigen nuevas estrategias, como destilación jerárquica o dual \cite{https://arxiv.org/abs/2404.17732, https://openaccess.thecvf.com/content/CVPR2024W/DDCV/html/Li_Generative_Dataset_Distillation_Balancing_Global_Structure_and_Local_Details_CVPRW_2024_paper.html}.
 
+    \item \textbf{Robustez frente a ataques}: los subconjuntos o datos sintéticos pueden ser manipulados mediante \textit{poisoning attacks}.
+    Para enfrentar este riesgo, se han propuesto defensas con garantías teóricas como aquellas basadas en la certificación por medio de mecanismos de votación sobre subconjuntos.
+    Ejemplos recientes (e.g., métodos tipo kNN/rNN o agregación determinista de múltiples particiones) pueden garantizar una robustez certificable en presencia de datos adversariales \cite{https://arxiv.org/abs/2012.03765, https://arxiv.org/abs/2202.02628}.
 
-\section{Perspectivas Futuras en la Optimización de CNN con Algoritmos Meméticos}
-\label{sec:perspectivas-futuras-en-la-optimizacion-de-cnn-con-algoritmos-memeticos}
-La combinación de \textbf{CNN} y \textbf{algoritmos meméticos} sigue siendo un área emergente y prometedora en la
-investigación de \textbf{redes neuronales profundas}.
-A medida que la tecnología y la \textbf{capacidad de procesamiento} evolucionan, es probable que los algoritmos
-meméticos se integren de manera más fluida en \textbf{arquitecturas de aprendizaje profundo}, no solo para la selección
-de instancias, sino también para la \textbf{optimización de hiperparámetros} y \textbf{estructuras de red}.
-Asimismo, se anticipa que la investigación futura también explore la combinación de estos métodos con otros enfoques
-avanzados de \textbf{reducción de datos}, como las técnicas de \textbf{distilación de modelos} y la
-\textbf{poda de redes neuronales}.
+    \item \textbf{Bias y equidad}: reducir datos sin control puede eliminar ejemplos de minorías.
+          Se plantean métricas demográficas y restricciones de diversidad para evitar sesgos \cite{https://scispace.com/papers/gender-shades-intersectional-accuracy-disparities-in-4qgeu0c1i3}.
 
+    \item \textbf{Evaluación estandarizada}: hace falta un benchmark público que mida precisión, coste energético, huella de carbono y robustez adversaria.
+          Iniciativas como \textit{Open-DataShrink} apuntan en esa dirección.
 
-En conclusión, en este capítulo se ha revisado la literatura que sustentan la selección de
-\textbf{algoritmos meméticos} para reducir conjuntos de datos en \textbf{redes profundas}, resaltando su relevancia en
-la optimización de \textbf{modelos CNN} en entornos de recursos limitados.
+    \item \textbf{Regulación y auditabilidad}: el AI Act europeo (2025) exige declarar criterios de selección y garantizar trazabilidad y equilibrio cultural.
+          Las técnicas revisadas ofrecen una base sólida para generar datasets auditables \cite{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689}.
+
+    \item \textbf{Integración de técnicas}: se prevé la combinación de selección memética adaptativa, destilación de datos condicionada al dominio, \textit{self-supervised learning} y \textit{active learning} para construir subconjuntos refinables en línea.
+\end{itemize}
