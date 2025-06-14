@@ -767,6 +767,7 @@ Esta propiedad es fundamental para asegurar la generalización del modelo, ya qu
   \label{tab:resultados-generales-por-porcentaje-inicial}
 \end{table}
 
+
 Los resultados globales obtenidos para el conjunto de datos Rock, Paper, Scissors (véase Tabla~\ref{tab:resultados-generales-por-porcentaje-inicial})
 permiten extraer conclusiones claras sobre el rendimiento de los algoritmos evaluados.
 
@@ -791,38 +792,22 @@ Finalmente, la referencia aleatoria \texttt{RS} queda superada por todos los enf
 Sus resultados muestran una alta variabilidad, menor precisión global y una propensión a generar subconjuntos con distribuciones de clases desbalanceadas,
 evidenciando la importancia de emplear estrategias de selección informadas.
 
-Además de los análisis cuantitativos, las Figuras~\ref{fig:barplot-por-pi-10},~\ref{fig:barplot-por-pi-25},~\ref{fig:barplot-por-pi-50} y~\ref{fig:barplot-por-pi-75}
-refuerzan visualmente estas conclusiones mediante barplots comparativos para cada porcentaje inicial.
-Estos gráficos permiten observar cómo varía el rendimiento de cada algoritmo manteniendo fijo el punto de partida,
-destacando especialmente la superioridad de los enfoques meméticos (\texttt{MA}, \texttt{MA-F}) y la mejora progresiva introducida por \texttt{GA-AM-F}.
-
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-10.png}
-  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{10\%}.}
-  \label{fig:barplot-por-pi-10}
+  \includegraphics[width=0.95\textwidth]{imagenes/evaluaciones/final/lineplot-por-porcentaje.png}
+  \caption{Evolución de la \textit{accuracy} media de cada algoritmo en función del porcentaje inicial de datos.}
+  \label{fig:lineplot-por-porcentaje}
 \end{figure}
 
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-25.png}
-  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{25\%}.}
-  \label{fig:barplot-por-pi-25}
-\end{figure}
+Además de los análisis cuantitativos, la Figura~\ref{fig:lineplot-por-porcentaje} 
+resume visualmente la evolución del \textit{accuracy} medio en función del porcentaje inicial de datos para cada algoritmo.
+Este gráfico permite identificar de forma clara las tendencias globales,
+ mostrando cómo los enfoques meméticos mantienen altos niveles de precisión incluso con cantidades reducidas de datos.
+En particular, la curva correspondiente a \texttt{MA-F} destaca por su estabilidad y rendimiento sostenido, 
+lo que refuerza su posición como la alternativa más eficaz y robusta.
+Por el contrario, los algoritmos genéticos presentan una mayor variabilidad y una dependencia más marcada del tamaño del subconjunto inicial, 
+confirmando las ventajas de las estrategias meméticas adaptativas.
 
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-50.png}
-  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{50\%}.}
-  \label{fig:barplot-por-pi-50}
-\end{figure}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{imagenes/evaluaciones/final/barplot-por-pi/pi-75.png}
-  \caption{Comparativa de \textit{accuracy} para cada algoritmo con porcentaje inicial \texttt{75\%}.}
-  \label{fig:barplot-por-pi-75}
-\end{figure}
 
 En conjunto, este análisis confirma que los algoritmos meméticos, especialmente en su versión libre (\texttt{MA-F}),
 representan la mejor alternativa para abordar la selección de subconjuntos de datos en tareas de aprendizaje profundo.

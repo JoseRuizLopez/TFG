@@ -418,6 +418,19 @@ Este tipo de visualización es especialmente útil para analizar cómo los algor
 y cómo esta selección influye en la precisión del modelo.
 Permite detectar patrones como agrupamientos de soluciones o dispersiones, y observar cómo ciertas configuraciones iniciales tienden a producir mejores o peores resultados.
 
+\textbf{Los lineplots} (gráficos de líneas) permiten analizar la evolución de una métrica en función del porcentaje inicial de datos utilizados para la selección.
+En estos gráficos, cada línea representa un algoritmo distinto, y se traza la media de los valores obtenidos para cada configuración.
+
+\begin{itemize}
+    \item El eje \textbf{X} corresponde al \textbf{Porcentaje Inicial} usado en la ejecución.
+    \item El eje \textbf{Y} indica el valor medio de la métrica evaluada (por ejemplo, Accuracy).
+    \item Cada línea está asociada a un algoritmo concreto y utiliza un color distintivo que se mantiene constante en todo el trabajo para facilitar su identificación visual.
+    \item Los \textbf{puntos} de cada línea representan los valores medios calculados, y las posibles \textbf{barras de error} indican la desviación estándar.
+\end{itemize}
+
+Este tipo de visualización sirve para identificar tendencias de comportamiento: por ejemplo, si un algoritmo mantiene su rendimiento de forma estable con porcentajes bajos o si mejora notablemente al incrementar el tamaño del subconjunto inicial.
+La comparación directa entre curvas permite detectar qué algoritmos son más sensibles a este parámetro y cuáles presentan mayor robustez.
+
 
 \section{Nomenclatura simplificada de los algoritmos}\label{subsec:nomenclatura-algoritmos}
 Para facilitar la lectura de las tablas y gráficos presentados a lo largo de este trabajo,
@@ -546,6 +559,36 @@ La correcta configuración de estos parámetros es fundamental para asegurar un 
     \item \textbf{Ajuste dinámico del tamaño del subconjunto} (\texttt{adjust\_size}): Permite modificar el tamaño del subconjunto durante la ejecución.
 \end{itemize}
 
-\subsection*{}
+\subsection{Resumen Tabular de Parámetros}\label{subsec:resumen-parametros}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{@{}llp{7.5cm}@{}}
+            \toprule
+            \textbf{Parámetro}                              & \textbf{Valor(es)}                      & \textbf{Descripción}                                           \\ \midrule
+            \texttt{initial\_percentage}                    & 10\%, 25\%, 50\%, 75\%                  & Porcentaje inicial de instancias seleccionadas                 \\
+            \texttt{max\_evaluations}                       & 100                                     & Número máximo de evaluaciones por algoritmo                    \\
+            \texttt{max\_evaluations\_without\_improvement} & 100                                     & Número máximo de iteraciones sin mejora para parada anticipada \\
+            \texttt{metric}                                 & \texttt{accuracy}                       & Métrica de optimización para evaluar el fitness                \\
+            \texttt{model\_name}                            & \texttt{MobileNetV2}, \texttt{ResNet50} & Arquitectura de red neuronal utilizada                         \\
+            \texttt{batch\_size}                            & 32                                      & Número de imágenes por batch durante entrenamiento             \\
+            \texttt{num\_epochs}                            & 10                                      & Número de épocas por evaluación                                \\
+            \texttt{learning\_rate}                         & 0.001                                   & Tasa de aprendizaje para la capa final                         \\
+            \texttt{device}                                 & \texttt{cuda} / \texttt{cpu}            & Dispositivo de entrenamiento (GPU cuando disponible)           \\
+            \texttt{neighbor\_size}                         & 10                                      & Número de cambios en la generación de vecinos (búsqueda local) \\
+            \texttt{adjust\_size}                           & \texttt{True}                           & Permite variación dinámica del tamaño del subconjunto (libre)  \\
+            \texttt{population\_size}                       & 10                                      & Tamaño de la población en algoritmos genéticos                 \\
+            \texttt{tournament\_size}                       & 3                                       & Tamaño del torneo de selección genética                        \\
+            \texttt{mutation\_rate}                         & 0.1                                     & Probabilidad de mutación por individuo                         \\
+            \texttt{local\_search\_probability}             & 0.2                                     & Probabilidad de aplicar búsqueda local en algoritmo memético   \\
+            \texttt{local\_search\_evaluations}             & 10                                      & Máximo de evaluaciones locales por individuo                   \\
+            \texttt{local\_search\_neighbor\_size}          & 5                                       & Cambios permitidos por iteración en búsqueda local             \\ \bottomrule
+        \end{tabular}
+    }
+    \caption{Parámetros utilizados en los algoritmos y entrenamiento}
+    \label{tab:parametros-generales}
+\end{table}
+
 La combinación de estos parámetros permite un control detallado del proceso de selección de instancias y del entrenamiento de los modelos,
-asegurando resultados reproducibles, eficientes y de calidad.
+asegurando resultados reproducibles, eficientes y de calidad (véase la Tabla~\ref{tab:parametros-generales}).

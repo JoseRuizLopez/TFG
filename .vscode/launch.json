@@ -61,7 +61,6 @@
         "--MODELO",
         "mobilenet",
         "--CARPETAS",
-        "-",
         "rs",
         "ga-wc",
         "ga-am",

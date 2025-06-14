@@ -8,37 +8,52 @@ con especial énfasis en la selección de instancias asistida por algoritmos evo
 \section{Importancia de la Reducción de Datos en Deep Learning}
 El auge del «big data» y la explosión de arquitecturas masivas de deep learning han disparado los requisitos de computación,
 energía y huella de carbono~\cite{pattersonCarbonEmissionsLarge2021}.
-estudios de life-cycle assessment estiman que entrenar un modelo transformer a gran escala puede emitir tantas toneladas de $CO_2$
+Estudios de life-cycle assessment estiman que entrenar un modelo transformer a gran escala puede emitir tantas toneladas de $CO_2$
 como cinco coches a lo largo de su vida útil~\cite{strubellEnergyPolicyConsiderations2019}.
-En este contexto, la filosofía data-centric AI propone desplazar el foco de la complejidad del modelo hacia la calidad del dato, argumentando que la mejora marginal al añadir más parámetros se agota rápidamente si el dataset contiene ruido o redundancia~\cite{zhaDatacentricArtificialIntelligence2023}.
+En este contexto, la filosofía data-centric AI propone desplazar el foco de la complejidad del modelo hacia la calidad del dato,
+argumentando que la mejora marginal al añadir más parámetros se agota rápidamente si el dataset contiene ruido o redundancia~\cite{zhaDatacentricArtificialIntelligence2023}.
 
 En lugar de seguir acumulando datos de forma indiscriminada, cada vez más estudios abogan por estrategias que prioricen la representatividad y relevancia de las instancias.
-Sorscher et al.(2022) matizan las tradicionales leyes de escalado, según las cuales la pérdida decrece como una potencia del tamaño del conjunto, al demostrar que es posible \textit{podar} hasta un 28\% del entrenamiento sin degradar la precisión de modelos como ResNet-50 \cite{sorscherNeuralScalingLaws2023}.
-Este hallazgo desafía la idea de que «más datos» es siempre mejor y refuerza la utilidad de identificar subconjuntos óptimos que reduzcan el coste computacional, aceleren el entrenamiento y faciliten la trazabilidad de los datos.
-Este último aspecto cobra especial relevancia ante normativas como la AI Act europea, que exige una gobernanza estricta del dato, incluyendo el origen y balance demográfico de los ejemplos utilizados \cite{euAIAct2024}.
+Sorscher et al.(2022) matizan las tradicionales leyes de escalado, según las cuales la pérdida decrece como una potencia del tamaño del conjunto,
+al demostrar que es posible \textit{podar} hasta un 28\% del entrenamiento sin degradar la precisión de modelos como ResNet-50~\cite{sorscherNeuralScalingLaws2023}.
+Este hallazgo desafía la idea de que «más datos» es siempre mejor y refuerza la utilidad de identificar subconjuntos óptimos que reduzcan el coste computacional,
+aceleren el entrenamiento y faciliten la trazabilidad de los datos.
+Este último aspecto cobra especial relevancia ante normativas como la AI Act europea, que exige una gobernanza estricta del dato,
+incluyendo el origen y balance demográfico de los ejemplos utilizados~\cite{euAIAct2024}.
 Así, la reducción de datos no solo aporta eficiencia, sino que se convierte en una condición necesaria para garantizar transparencia, equidad y sostenibilidad en los sistemas de IA.
 
 
 \section{Selección de Instancias en Aprendizaje Profundo}
-La \textbf{selección de instancias} (Instance Selection, \texttt{IS}) consiste en identificar un subconjunto representativo del conjunto original, eliminando ejemplos redundantes, ruidosos o poco informativos.
-Aunque esta técnica surgió en los años 70 como un método de edición y condensación para clasificadores \textit{lazy}, como el algoritmo \textit{Condensed Nearest Neighbor} (CNN) de Hart \cite{hartCondensedNearestNeighbor1968} o el \textit{Edited Nearest Neighbor} (ENN) de Wilson \cite{wilsonAsymptoticPropertiesNearest1972}, ha cobrado nueva relevancia en el contexto del aprendizaje profundo, especialmente ante las limitaciones de memoria de GPU y TPU modernas.
+La \textbf{selección de instancias} (Instance Selection, \texttt{IS}) consiste en identificar un subconjunto representativo del conjunto original,
+eliminando ejemplos redundantes, ruidosos o poco informativos.
+Aunque esta técnica surgió en los años 70 como un método de edición y condensación para clasificadores \textit{lazy},
+como el algoritmo \textit{Condensed Nearest Neighbor} (CNN) de Hart~\cite{hartCondensedNearestNeighbor1968} o
+el \textit{Edited Nearest Neighbor} (ENN) de Wilson~\cite{wilsonAsymptoticPropertiesNearest1972},
+ha cobrado nueva relevancia en el contexto del aprendizaje profundo, especialmente ante las limitaciones de memoria de GPU y TPU modernas.
 
 Desde una perspectiva teórica, la selección de instancias puede considerarse un problema de selección de características en el espacio de datos, y es intrínsecamente NP-duro.
-Por ello, se recurre a funciones objetivo bi-criterio que equilibran el tamaño del subconjunto seleccionado con el error de validación obtenido.
-La frontera de Pareto entre ambos criterios suele guiar la búsqueda de soluciones óptimas \cite{derracSurveyEvolutionaryInstance2012}.
+Por este motivo, es habitual recurrir a funciones objetivo bi-criterio que equilibran el tamaño del subconjunto seleccionado con el error de validación obtenido.
+En este contexto, \textit{la frontera de Pareto} permite identificar las soluciones que representan los mejores compromisos posibles entre ambos objetivos:
+aquellas en las que no es posible mejorar un criterio sin empeorar el otro.
+Estas soluciones guían la búsqueda de configuraciones óptimas en algoritmos evolutivos y meméticos aplicados a esta tarea~\cite{derracSurveyEvolutionaryInstance2012}.
 
 En la práctica, \texttt{IS} se ha adaptado con éxito al entrenamiento de redes neuronales profundas.
-Por ejemplo, Albelwi y Mahmood (2016) demuestran que filtrar imágenes redundantes acelera significativamente la convergencia de las CNN sin pérdida de precisión, e incluso puede mejorarla en entornos ruidosos \cite{albelwiFrameworkDesigningArchitectures2017}.
-Investigaciones más recientes confirman que una selección previa de datos puede suavizar las fronteras de decisión, mitigar el sobreajuste y reducir considerablemente el tiempo de entrenamiento.
-En tareas de visión por computador con datasets como \texttt{ImageNet-1k}, \texttt{CIFAR} o \texttt{Camelyon16}, técnicas como el grad-norm filtering o el coreset pruning han mostrado reducciones de hasta un 35\% en el tiempo de convergencia y una mayor robustez frente al label noise \cite{salman2023data, rolnickDeepLearningRobust2018}.
-Además, \texttt{IS} resulta especialmente útil en entornos de \textit{continual learning}, ya que permite almacenar conjuntos compactos en la memoria de repetición sin incurrir en \textit{catastrophic forgetting}.
+Por ejemplo, Albelwi y Mahmood (2016) demuestran que filtrar imágenes redundantes acelera significativamente la convergencia de las CNN sin pérdida de precisión,
+e incluso puede mejorarla en entornos ruidosos~\cite{albelwiFrameworkDesigningArchitectures2017}.
+Investigaciones más recientes confirman que una selección previa de datos puede suavizar las fronteras de decisión,
+mitigar el sobreajuste y reducir considerablemente el tiempo de entrenamiento.
+En tareas de visión por computador con datasets como \texttt{ImageNet-1k}, \texttt{CIFAR} o \texttt{Camelyon16},
+técnicas como el grad-norm filtering o el coreset pruning han mostrado reducciones de hasta un 35\% en el tiempo de convergencia y una mayor robustez frente al label noise~\cite{salman2023data, rolnickDeepLearningRobust2018}.
+Además, \texttt{IS} resulta especialmente útil en entornos de \textit{continual learning},
+ya que permite almacenar conjuntos compactos en la memoria de repetición sin incurrir en \textit{catastrophic forgetting}.
 
 
 \section{Algoritmos Evolutivos y Meméticos para la Selección de Instancias en CNN}
 
 Determinar el subconjunto óptimo de instancias para entrenar un modelo de aprendizaje profundo es un problema combinatorio de tamaño $2^N$, donde $N$ es el número total de ejemplos disponibles.
 Esta complejidad hace que los enfoques exactos sean inviables en la práctica, dando lugar a la adopción de metodologías metaheurísticas.
-Entre ellas, los \textbf{algoritmos evolutivos} (\texttt{AE}) y especialmente los \textbf{algoritmos meméticos} (\texttt{MA}) se consolidan como herramientas eficaces para abordar la selección de instancias en grandes datasets.
+Entre ellas, los \textbf{algoritmos evolutivos} (\texttt{AE}) y especialmente los \textbf{algoritmos meméticos} (\texttt{MA})
+se consolidan como herramientas eficaces para abordar la selección de instancias en grandes datasets.
 
 Los \texttt{AE} representan subconjuntos mediante cromosomas binarios, optimizados con operadores de cruce y mutación.
 Su principal ventaja radica en la capacidad de realizar una búsqueda global en espacios no derivables.
@@ -46,59 +61,78 @@ Sin embargo, a medida que el tamaño del conjunto crece, el coste de evaluar el 
 
 Para afrontar esta limitación, los algoritmos meméticos incorporan \textbf{estrategias de mejora local} tras cada generación evolutiva.
 Esto permite una convergencia más rápida hacia soluciones de alta calidad al equilibrar exploración global y explotación local.
-Por ejemplo, García et al.(2008) presentan un algoritmo memético que mejora la precisión de k-NN utilizando solo una fracción de los ejemplos \cite{garciaMemeticAlgorithmEvolutionary2008}, mientras que Derrac et al.(2010) recogen un amplio estudio que valida la eficacia de estos métodos en tareas de reducción de datos \cite{derracSurveyEvolutionaryInstance2012}.
+Por ejemplo, García et al.(2008) presentan un algoritmo memético que mejora la precisión de k-NN utilizando solo una fracción de los ejemplos~\cite{garciaMemeticAlgorithmEvolutionary2008},
+mientras que Derrac et al.(2010) recogen un amplio estudio que valida la eficacia de estos métodos en tareas de reducción de datos~\cite{derracSurveyEvolutionaryInstance2012}.
 
 \subsection{Componentes Avanzados y Optimización Multiobjetivo}
 
 Los desarrollos recientes en \texttt{MAs} incluyen componentes clave como:
 
 \begin{itemize}
-      \item \textbf{Representación jerárquica}: utilizar clustering para codificar subconjuntos en niveles de clúster, seleccionando un representante por grupo, reduce la dimensionalidad del espacio de búsqueda y facilita la selección eficiente de soluciones~\cite{chenClusteringBasedSubsetSelection2021}.
+      \item \textbf{Representación jerárquica}: utilizar clustering para codificar subconjuntos en niveles de clúster,
+            seleccionando un representante por grupo, reduce la dimensionalidad del espacio de búsqueda y facilita la selección eficiente de soluciones~\cite{chenClusteringBasedSubsetSelection2021}.
       \item \textbf{Paralelismo masivo}: evaluación de múltiples soluciones en paralelo mediante GPUs o frameworks distribuidos como \textit{MapReduce}.
-      \item \textbf{Aprendizaje de operadores}: enfoques como \textit{Deep Neuro-Evolution} o \textit{D-NEAT} entrenan redes generativas (\texttt{GANs}) para proponer mutaciones más efectivas~\cite{realRegularizedEvolutionImage2019}.
+      \item \textbf{Aprendizaje de operadores}: enfoques como \textit{Deep Neuro-Evolution} o \textit{D-NEAT} entrenan redes generativas (\texttt{GANs})
+            para proponer mutaciones más efectivas~\cite{realRegularizedEvolutionImage2019}.
 \end{itemize}
 
 \subsection{Selección Multi-Dominio y Cross-Task}
 
 Una línea emergente en la investigación consiste en la selección de subconjuntos transferibles entre tareas y dominios.
 Esta idea, conocida como \textit{cross‑task subset selection}, permite reutilizar subconjuntos seleccionados para tareas de aprendizaje con pocos ejemplos,
-especialmente útiles en entornos médicos, ya que “la capacidad de aprovechar información entre dominios puede reducir la necesidad de grandes cantidades de datos en cada nueva tarea”~\cite{woernerComprehensiveEasytouseMultidomain2025}
+especialmente útiles en entornos médicos,
+ya que “la capacidad de aprovechar información entre dominios puede reducir la necesidad de grandes cantidades de datos en cada nueva tarea”~\cite{woernerComprehensiveEasytouseMultidomain2025}
 
 
 \section{Destilación de Datos (Dataset Distillation)}
-La \textbf{destilación de datos} (Dataset Distillation, \texttt{DD}) es una técnica emergente que busca sintetizar un conjunto reducido y artificial de ejemplos que, al ser usados para entrenar un modelo, inducen un comportamiento similar al que se obtendría entrenando con el conjunto completo de datos reales.
+La \textbf{destilación de datos} (Dataset Distillation, \texttt{DD}) es una técnica emergente que busca sintetizar un conjunto reducido y artificial de ejemplos que,
+al ser usados para entrenar un modelo, inducen un comportamiento similar al que se obtendría entrenando con el conjunto completo de datos reales.
 Estos ejemplos no necesariamente existen en el mundo real, pero están optimizados para encapsular la información esencial del dataset original.
 
 Existen dos grandes enfoques dominantes en \texttt{DD}:
 
 \begin{itemize}
-      \item \textbf{Meta-aprendizaje por gradientes de segundo orden}: Introducido por Wang et al.(2018), este método optimiza directamente los píxeles de las imágenes sintéticas utilizando técnicas de unrolled optimization e hipergradientes, logrando, por ejemplo, generar tan solo 10 imágenes por clase en \texttt{MNIST} con una precisión del 99\% \cite{wangDatasetDistillation2020}.
+      \item \textbf{Meta-aprendizaje por gradientes de segundo orden}: Introducido por Wang et al.(2018),
+            este método optimiza directamente los píxeles de las imágenes sintéticas utilizando técnicas de unrolled optimization e hipergradientes,
+            logrando, por ejemplo, generar tan solo 10 imágenes por clase en \texttt{MNIST} con una precisión del 99\%~\cite{wangDatasetDistillation2020}.
       \item \textbf{Emparejamiento de gradientes (gradient matching)}: Zhao et al.(2021) proponen minimizar la distancia entre los gradientes obtenidos al entrenar con los datos reales y los sintéticos.
-            Este enfoque escala con éxito a dominios más complejos como Imagenette o Tiny-ImageNet, logrando conjuntos con solo el 1\% del tamaño original y menos del 2\% de pérdida relativa \cite{zhaoDatasetCondensationGradient2021}.
+            Este enfoque escala con éxito a dominios más complejos como Imagenette o Tiny-ImageNet,
+            logrando conjuntos con solo el 1\% del tamaño original y menos del 2\% de pérdida relativa~\cite{zhaoDatasetCondensationGradient2021}.
 \end{itemize}
 
-Estudios recientes han demostrado que es posible condensar conjuntos como \texttt{CIFAR-10} sin pérdidas significativas de rendimiento \cite{leiComprehensiveSurveyDataset2024}.
-Además, técnicas como la \textbf{generative distillation} combinan modelos generativos avanzados con la destilación de datos, generando ejemplos sintéticos adaptativos que además pueden preservar la privacidad.
-Este enfoque permite trabajar con datos encriptados o agregados, una ventaja notable en entornos regulados como la medicina o la seguridad \cite{liGenerativeDatasetDistillation2024}.
+Estudios recientes han demostrado que es posible condensar conjuntos como \texttt{CIFAR-10} sin pérdidas significativas de rendimiento~\cite{leiComprehensiveSurveyDataset2024}.
+Además, técnicas como la \textbf{generative distillation} combinan modelos generativos avanzados con la destilación de datos,
+generando ejemplos sintéticos adaptativos que además pueden preservar la privacidad.
+Este enfoque permite trabajar con datos encriptados o agregados, una ventaja notable en entornos regulados como la medicina o la seguridad~\cite{liGenerativeDatasetDistillation2024}.
 
 A pesar de su potencial, la destilación de datos presenta limitaciones importantes.
-Los métodos actuales muestran dificultades al aplicarse a datos de alta resolución (mayores de 512$\times$512 píxeles) o a secuencias temporales, donde los gradientes tienden a volverse inestables.
+Los métodos actuales muestran dificultades al aplicarse a datos de alta resolución (mayores de 512$\times$512 píxeles) o a secuencias temporales,
+donde los gradientes tienden a volverse inestables.
 Además, los modelos entrenados con conjuntos destilados pueden verse afectados por cambios en la distribución de datos (\textit{distribution shift}),
 como ocurre en condiciones meteorológicas variables o dominios visuales no vistos.
 Para mitigar estos efectos, se han propuesto enfoques de \textbf{adaptación en tiempo de prueba} (\textit{test-time adaptation}),
-como \texttt{TeST}, que combinan autoentrenamiento con estrategias de pseudoetiquetado para ajustar el modelo dinámicamente durante la inferencia sin requerir datos adicionales de entrenamiento \cite{sinhaTeSTTesttimeSelfTraining2022}.
+como \texttt{TeST}, que combinan autoentrenamiento con estrategias de pseudoetiquetado para ajustar el modelo dinámicamente
+durante la inferencia sin requerir datos adicionales de entrenamiento~\cite{sinhaTeSTTesttimeSelfTraining2022}.
 
 
 \section{Extracción de Conocimiento y Destilación de Modelos}
-Tanto la selección de instancias como la destilación de datos forman parte del paradigma general de \textbf{extracción de conocimiento desde los datos}, que busca maximizar la eficiencia de los sistemas de IA sin comprometer su rendimiento.
-Dentro de este marco, la \textbf{destilación de modelos}, propuesta por Hinton et al.(2015), transfiere el conocimiento de un modelo complejo (teacher) a otro más ligero (student) mediante el uso de \textit{soft targets}, es decir, distribuciones de probabilidad en lugar de etiquetas duras \cite{hintonDistillingKnowledgeNeural2015}.
-Esta técnica permite reducir significativamente la complejidad del modelo manteniendo su precisión, como sucede, por ejemplo, al transferir un \texttt{BERT-Large} a un \texttt{BERT-Tiny} en tareas de clasificación de sentimientos.
+Tanto la selección de instancias como la destilación de datos forman parte del paradigma general de \textbf{extracción de conocimiento desde los datos},
+que busca maximizar la eficiencia de los sistemas de IA sin comprometer su rendimiento.
+Dentro de este marco, la \textbf{destilación de modelos}, propuesta por Hinton et al.(2015),
+transfiere el conocimiento de un modelo complejo (teacher) a otro más ligero (student) mediante el uso de \textit{soft targets},
+es decir, distribuciones de probabilidad en lugar de etiquetas duras~\cite{hintonDistillingKnowledgeNeural2015}.
+Esta técnica permite reducir significativamente la complejidad del modelo manteniendo su precisión, como sucede, por ejemplo,
+al transferir un \texttt{BERT-Large} a un \texttt{BERT-Tiny} en tareas de clasificación de sentimientos.
 
-De forma análoga, la \textbf{destilación de datos} puede interpretarse como una transferencia del conocimiento, no en el espacio de los parámetros, sino en el espacio de los datos.
+De forma análoga, la \textbf{destilación de datos} puede interpretarse como una transferencia del conocimiento,
+no en el espacio de los parámetros, sino en el espacio de los datos.
 En este contexto, un conjunto sintético actúa como un contenedor comprimido del conocimiento del conjunto original.
-La combinación de ambas estrategias, destilar los datos y luego destilar el modelo,  está emergiendo como una línea de investigación prometedora, particularmente en entornos con restricciones de computación o privacidad.
+La combinación de ambas estrategias, destilar los datos y luego destilar el modelo,
+está emergiendo como una línea de investigación prometedora, particularmente en entornos con restricciones de computación o privacidad.
 
-Esta sinergia es especialmente útil en escenarios como el \textbf{federated learning}, donde enviar datasets sintéticos destilados puede reemplazar el intercambio directo de gradientes o pesos, preservando así la privacidad de los usuarios \cite{zhouDistilledOneShotFederated2021, arazziSecureFederatedData2025}.
+Esta sinergia es especialmente útil en escenarios como el \textbf{federated learning},
+donde enviar datasets sintéticos destilados puede reemplazar el intercambio directo de gradientes o pesos,
+preservando así la privacidad de los usuarios~\cite{zhouDistilledOneShotFederated2021, arazziSecureFederatedData2025}.
 
 \section{Desafíos y Perspectivas Futuras}
 A pesar de los avances, persisten retos clave que condicionan la eficacia y adopción generalizada de las técnicas de selección de instancias y destilación de datos:
@@ -107,19 +141,22 @@ A pesar de los avances, persisten retos clave que condicionan la eficacia y adop
       \item \textbf{Optimización de hiperparámetros}: ajustar población, tasas de cruce y operadores en algoritmos meméticos aún requiere validación intensiva.
             Se investiga el uso de \textit{meta-optimizadores} basados en \textit{reinforcement learning}, aunque su coste computacional inicial es elevado.
 
-      \item \textbf{Escalabilidad a dominios complejos}: imágenes de alta resolución, tareas auto-supervisadas o escenarios multimodales (texto, audio, vídeo) exigen nuevas estrategias, como destilación jerárquica o dual \cite{liGenerativeDatasetDistillation2024a, liGenerativeDatasetDistillation2024}.
+      \item \textbf{Escalabilidad a dominios complejos}: imágenes de alta resolución, tareas auto-supervisadas o escenarios multimodales (texto, audio, vídeo) exigen nuevas estrategias,
+            como destilación jerárquica o dual~\cite{liGenerativeDatasetDistillation2024a, liGenerativeDatasetDistillation2024}.
 
       \item \textbf{Robustez frente a ataques}: los subconjuntos o datos sintéticos pueden ser manipulados mediante \textit{poisoning attacks}.
-            Ejemplos recientes (e.g., métodos tipo kNN/rNN o agregación determinista de múltiples particiones) pueden garantizar una robustez certificable en presencia de datos adversariales \cite{jiaCertifiedRobustnessNearest2021, wangImprovedCertifiedDefenses2022}.
+            Ejemplos recientes (e.g., métodos tipo kNN/rNN o agregación determinista de múltiples particiones)
+            pueden garantizar una robustez certificable en presencia de datos adversariales~\cite{jiaCertifiedRobustnessNearest2021, wangImprovedCertifiedDefenses2022}.
 
       \item \textbf{Bias y equidad}: reducir datos sin control puede eliminar ejemplos de minorías.
-            Se plantean métricas demográficas y restricciones de diversidad para evitar sesgos \cite{buolamwiniGenderShadesIntersectional}.
+            Se plantean métricas demográficas y restricciones de diversidad para evitar sesgos~\cite{buolamwiniGenderShadesIntersectional}.
 
       \item \textbf{Evaluación estandarizada}: hace falta un benchmark público que mida precisión, coste energético, huella de carbono y robustez adversaria.
             Iniciativas como \textit{Open-DataShrink} apuntan en esa dirección.
 
       \item \textbf{Regulación y auditabilidad}: el AI Act europeo (2025) exige declarar criterios de selección y garantizar trazabilidad y equilibrio cultural.
-            Las técnicas revisadas ofrecen una base sólida para generar datasets auditables \cite{RegulationEU20242024}.
+            Las técnicas revisadas ofrecen una base sólida para generar datasets auditables~\cite{RegulationEU20242024}.
 
-      \item \textbf{Integración de técnicas}: se prevé la combinación de selección memética adaptativa, destilación de datos condicionada al dominio, \textit{self-supervised learning} y \textit{active learning} para construir subconjuntos refinables en línea.
+      \item \textbf{Integración de técnicas}: se prevé la combinación de selección memética adaptativa, destilación de datos condicionada al dominio,
+            \textit{self-supervised learning} y \textit{active learning} para construir subconjuntos refinables en línea.
 \end{itemize}

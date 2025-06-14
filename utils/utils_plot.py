@@ -349,6 +349,80 @@ def sort_natural(s):
     return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
 
 
+def plot_lineplot_accuracy_por_algoritmo(
+    df: pd.DataFrame,
+    filename: str | None = None,
+    title: str = "Accuracy promedio por Porcentaje Inicial para cada Algoritmo"
+):
+    """
+    Genera un gráfico de líneas con Accuracy en función del Porcentaje Inicial, separando por Algoritmo.
+    También añade una línea horizontal discontinua (sin leyenda) para mostrar la media de Accuracy por algoritmo.
+
+    Args:
+        df (pd.DataFrame): DataFrame con las columnas 'Porcentaje Inicial', 'Algoritmo' y 'Accuracy'.
+        filename (str | None): Ruta para guardar el gráfico.
+        title (str): Título del gráfico.
+    """
+    if not {"Porcentaje Inicial", "Algoritmo", "Accuracy"}.issubset(df.columns):
+        raise ValueError("Faltan columnas necesarias en el DataFrame.")
+
+    plt.figure(figsize=(10, 6))
+
+    # Asegurar que Porcentaje Inicial es numérico
+    df = df.copy()
+    df["Porcentaje Inicial"] = pd.to_numeric(df["Porcentaje Inicial"], errors="coerce")
+    df = df.dropna(subset=["Porcentaje Inicial"])
+
+    # Obtener lista de algoritmos y paleta de colores
+    algoritmos = sorted(df["Algoritmo"].unique())
+    palette = sns.color_palette(n_colors=len(algoritmos))
+    color_map = dict(zip(algoritmos, palette))
+
+    # Lineplot principal con paleta personalizada
+    sns.lineplot(
+        data=df,
+        x="Porcentaje Inicial",
+        y="Accuracy",
+        hue="Algoritmo",
+        palette=color_map,
+        marker="o",
+        errorbar="sd"
+    )
+
+    # Líneas horizontales con media de Accuracy por algoritmo (sin aparecer en leyenda)
+    for algoritmo in algoritmos:
+        media_acc = df[df["Algoritmo"] == algoritmo]["Accuracy"].mean()
+        plt.axhline(
+            y=media_acc,
+            linestyle="--",
+            linewidth=1.2,
+            alpha=0.8,
+            color=color_map[algoritmo],
+            zorder=1
+        )
+
+    plt.title(title, fontsize=13)
+    plt.xlabel("Porcentaje Inicial", fontsize=11.5)
+    plt.ylabel("Accuracy", fontsize=11.5)
+    plt.xticks([0.1, 0.25, 0.5, 0.75], fontsize=11.5, fontweight='bold')
+    plt.yticks(fontsize=11.5, fontweight='bold')
+    plt.grid(True)
+    legend = plt.legend(
+        title="Algoritmo",
+        title_fontsize=11,
+        fontsize=10,
+        loc='best'
+    )
+    legend.get_title().set_fontweight('bold')
+    plt.tight_layout()
+
+    if filename:
+        plt.savefig(filename)
+        print(f"Lineplot Accuracy guardado en: {filename}")
+    plt.close()
+
+
+
 def plot_porcentajes_por_algoritmo(
     df: pd.DataFrame,
     tipo: str,
@@ -688,8 +762,9 @@ def generate_plots_from_csvs(
         filename3 = f'{carpeta_img}/{modelo_name}-BARPLOT-balance-de-clases-por-algoritmo.png'
         filename4 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inical-vs-final-por-algoritmo.png'
         filename5 = f'{carpeta_img}/{modelo_name}-BARPLOT-porcentaje-inicial-vs-final-por-pi.png'
+        filename6 = filename5.replace("BARPLOT", "LINEPLOT-ACCURACY")
     else:
-        filename1 = filename2 = filename3 = filename4 = filename5 = None
+        filename1 = filename2 = filename3 = filename4 = filename5 = filename6 = None
 
 
     # ====== Boxplot 1: Accuracy vs Porcentaje Inicial ======
@@ -736,17 +811,4 @@ def generate_plots_from_csvs(
             ylim_range=(0, 1),
         )
 
-        # Line Plot
-        plt.figure(figsize=(10,6))
-        sns.lineplot(data=df, x="Porcentaje Inicial", y="Porcentaje Final", hue="Algoritmo", errorbar="sd", marker="o")
-        plt.title("Porcentaje Final por Porcentaje Inicial - Tendencias por Algoritmo")
-        plt.xlabel("Porcentaje Inicial")
-        plt.ylabel("Porcentaje Final")
-        plt.xticks([0.1, 0.25, 0.5, 0.75])
-        plt.grid(True, which='both', axis='x')
-        plt.tight_layout()
-        if filename5:
-            lineplot_file = filename5.replace("BARPLOT", "LINEPLOT")
-            plt.savefig(lineplot_file)
-            print(f"Line Plot guardado en: {lineplot_file}")
-        plt.close()
+        plot_lineplot_accuracy_por_algoritmo(agrupado_media, filename=filename6)
