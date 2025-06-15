@@ -9,7 +9,7 @@ algoritmos genéticos con estrategias de búsqueda local.
 
 
 A continuación, se detallan los algoritmos principales implementados en este proyecto: el \textbf{algoritmo aleatorio},
-el \textbf{algoritmo de búsqueda local}, el \textbf{algoritmo genético}y el \textbf{algoritmo memético}.
+el \textbf{algoritmo de búsqueda local}, el \textbf{algoritmo genético} y el \textbf{algoritmo memético}.
 
 \section{Algoritmo Aleatorio}\label{sec:algoritmo-aleatorio}
 %Algoritmos Meméticos: Detalla qué son y cómo se aplican a la reducción de datos.
@@ -525,15 +525,6 @@ dentro de un rango proporcional al tamaño de los padres, en este caso, entre el
 Esto permite al algoritmo explorar configuraciones más amplias o más compactas en busca del subconjunto óptimo.
 Además, el operador de mutación también se adapta para permitir fluctuaciones en la cantidad total de imágenes activas,
 aumentando así la diversidad estructural de la población.
-
-\subsection{Algoritmo Genético con Reinicio Poblacional (Versión Libre)}\label{subsec:genetico-v3-libre}
-
-La versión libre del \hyperref[sec:genetico-v3]{Algoritmo Genético con Reinicio Poblacional} conserva la lógica de reinicio para evitar estancamientos,
-pero permite que cada nuevo individuo generado tenga una cantidad de imágenes seleccionadas distinta.
-Este comportamiento se gestiona mediante el mismo mecanismo de cruce adaptativo que en la versión libre del genético v2.
-
-Gracias a esta propiedad, cada reinicio poblacional no solo introduce nueva diversidad en el contenido de los subconjuntos, sino también en su escala.
-Esto es especialmente útil para escapar de regiones del espacio de soluciones con un tamaño fijo subóptimo.
 
 \subsection{Algoritmo Memético (Versión Libre)}\label{subsec:memetico-libre}
 
