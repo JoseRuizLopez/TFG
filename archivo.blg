@@ -1,5 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'archivo.blg'
-[31] biber:340> INFO - === dom feb 23, 2025, 13:36:04
-[91] Utils.pm:398> ERROR - Cannot find 'archivo.bcf'!
-[91] Biber.pm:135> INFO - ERRORS: 1
